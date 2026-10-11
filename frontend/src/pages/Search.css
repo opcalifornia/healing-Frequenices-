@@ -11,12 +11,6 @@
 .search__bar input::placeholder { color: rgba(255, 255, 255, 0.35); }
 .search__bar input::-webkit-search-cancel-button { display: none; }
 .search__chips { display: flex; gap: 8px; padding: 0 var(--gutter); overflow-x: auto; scrollbar-width: none; margin-bottom: 26px; }
-.chip {
-  flex: none; height: 36px; padding: 0 16px; border-radius: 999px; font-weight: 700; font-size: 0.9rem;
-  background: rgba(255, 255, 255, 0.1); color: var(--text-2); transition: background var(--t-fast), color var(--t-fast);
-}
-.chip:hover { background: rgba(255, 255, 255, 0.18); color: #fff; }
-.chip.is-on { background: #fff; color: #000; }
 .search__heading { font-size: var(--fs-rail); font-weight: 800; padding: 0 var(--gutter); margin: 8px 0 14px; }
 .search__empty { padding: 0 var(--gutter); color: var(--text-2); }
 .browse { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(200px, 42vw), 1fr)); gap: var(--rail-gap); padding: 0 var(--gutter); margin-bottom: 34px; }

@@ -158,6 +158,13 @@ h1, h2, h3, h4, p { margin: 0; }
 }
 @keyframes shimmer { from { background-position: 100% 0; } to { background-position: -50% 0; } }
 
+.chip {
+  flex: none; height: 36px; padding: 0 16px; border-radius: 999px; font-weight: 700; font-size: 0.9rem;
+  background: rgba(255, 255, 255, 0.1); color: var(--text-2); transition: background var(--t-fast), color var(--t-fast);
+}
+.chip:hover { background: rgba(255, 255, 255, 0.18); color: #fff; }
+.chip.is-on { background: #fff; color: #000; }
+
 .field { display: grid; gap: 6px; }
 .field label { font-size: var(--fs-small); font-weight: 700; color: var(--text-2); }
 .field input, .field select {
