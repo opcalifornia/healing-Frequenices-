@@ -32,3 +32,21 @@ describe("practice streak", () => {
     expect(practiceStreak([e("2026-03-09"), e("2026-03-11")], new Date(2026, 2, 11, 9))).toBe(1);
   });
 });
+
+import { breathsPerMinute, customTechnique } from "../rooted/breathContent";
+describe("custom patterns", () => {
+  it("turns a saved pattern into a playable technique with the right shape", () => {
+    const t = customTechnique({ id: "custom-1", name: "Mine", inhale: 4, hold: 4, exhale: 4, rest: 4 });
+    expect(t.cycle.map((p) => p.kind)).toEqual(["in", "hold", "out", "rest"]);
+    expect(t.shape).toBe("box");
+    expect(t.custom).toBe(true);
+    const tri = customTechnique({ id: "custom-2", name: "Tri", inhale: 4, hold: 7, exhale: 8, rest: 0 });
+    expect(tri.shape).toBe("triangle");
+    const two = customTechnique({ id: "custom-3", name: "Two", inhale: 5, hold: 0, exhale: 5, rest: 0 });
+    expect(two.cycle).toHaveLength(2);
+    expect(two.shape).toBe("orb");
+  });
+  it("computes breaths per minute", () => {
+    expect(breathsPerMinute({ inhale: 5, hold: 0, exhale: 5, rest: 0 })).toBe(6);
+  });
+});

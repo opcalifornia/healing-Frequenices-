@@ -145,7 +145,7 @@ export function MovePlayer({ routine: r, minutes, onClose, onComplete }: { routi
           </motion.div>
         ) : (
           <motion.div key="done" className="bp__done mp__done" initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }}>
-            <motion.div className="bp__check" initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: "spring", stiffness: 260, damping: 14, delay: 0.1 }}><Icon name="check" size={40} /></motion.div>
+            <motion.div className="bp__check-icon" initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: "spring", stiffness: 260, damping: 14, delay: 0.1 }}><Icon name="check" size={40} /></motion.div>
             <h2>You moved.</h2>
             <p>{Math.max(1, Math.round(elapsed / 60))} minutes of {r.name.toLowerCase()}. Your body thanks you.</p>
             <div className="bp__done-actions">

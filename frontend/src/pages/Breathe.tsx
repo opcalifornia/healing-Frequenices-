@@ -5,6 +5,7 @@ import { Evidence, SecTabs, Sheet, SourceLink } from "../rooted/ui";
 import { GROUNDING, PMR, PMR_SOURCE, TECHNIQUES, type Technique } from "../rooted/breathContent";
 import { BreathPlayer } from "../rooted/BreathPlayer";
 import { BreathingBody, HeartRhythm } from "../rooted/BreatheDiagrams";
+import { BoltTest, CustomList, PatternBuilder, QuickPicks, Results } from "../rooted/BreatheExtras";
 import { chime, unlockChime } from "../rooted/chime";
 import { minutesOn, practiceStreak, usePractice, usePracticeLog } from "../store/practice";
 import { flags, useAbout } from "../store/wellness";
@@ -17,7 +18,9 @@ import "./Breathe.css";
 
 const TABS = [
   { id: "breathe", label: "Breathing" },
+  { id: "results", label: "Your results" },
   { id: "body", label: "Inside your body" },
+  { id: "bolt", label: "Breath test" },
   { id: "ground", label: "Grounding" },
   { id: "relax", label: "Muscle relaxation" },
 ];
@@ -125,6 +128,7 @@ export default function Breathe() {
   const [open, setOpen] = useState<Technique | null>(null);
   const [mins, setMins] = useState(1);
   const [run, setRun] = useState<{ t: Technique; m: number } | null>(null);
+  const [building, setBuilding] = useState(false);
   const entries = usePracticeLog();
   const f = flags(useAbout().considerations);
   const notForYou = (t: Technique) => (t.id === "power" && f.noPowerBreathing) || ((t.id === "box" || t.id === "478") && f.breathHoldCare);
@@ -156,6 +160,7 @@ export default function Breathe() {
               <span className="breathe__stat">{Math.round(today)} min today{streak > 1 ? ` · ${streak}-day streak` : ""}</span>
             )}
           </motion.div>
+          <QuickPicks onStart={start} />
         </div>
       </header>
 
@@ -181,6 +186,20 @@ export default function Breathe() {
             </Reveal>
           ))}
         </div>
+        <Reveal className="sec-block__head nourish__subhead">
+          <h2>Your patterns</h2>
+          <p className="rooted__lead">Set your own counts for breathing in, holding and breathing out.</p>
+        </Reveal>
+        <CustomList onStart={start} onBuild={() => setBuilding(true)} />
+      </section>
+
+      <section id="results" className="sec-block">
+        <Reveal className="sec-block__head">
+          <span className="rooted__eyebrow">Your results</span>
+          <h2>See what works for you</h2>
+          <p className="rooted__lead">Rate your stress before and after a session. Over time, you'll see which techniques actually help you most.</p>
+        </Reveal>
+        <Reveal><Results /></Reveal>
       </section>
 
       <section id="body" className="sec-block">
@@ -195,6 +214,15 @@ export default function Breathe() {
           <p className="rooted__lead">Switch between normal and slow breathing, and drag across the chart.</p>
         </Reveal>
         <Reveal><HeartRhythm /></Reveal>
+      </section>
+
+      <section id="bolt" className="sec-block">
+        <Reveal className="sec-block__head">
+          <span className="rooted__eyebrow">Breath test</span>
+          <h2>Measure your breathing, track it weekly</h2>
+          <p className="rooted__lead">A 1-minute self-test that breathing coaches use to gauge how relaxed your breathing is.</p>
+        </Reveal>
+        <Reveal><BoltTest /></Reveal>
       </section>
 
       <section id="ground" className="sec-block">
@@ -253,6 +281,10 @@ export default function Breathe() {
             </div>
           </article>
         )}
+      </Sheet>
+
+      <Sheet open={building} onClose={() => setBuilding(false)} label="Build a breathing pattern">
+        <PatternBuilder onStart={start} onDone={() => setBuilding(false)} />
       </Sheet>
 
       <AnimatePresence>{run && <BreathPlayer key={`${run.t.id}-${run.m}`} technique={run.t} minutes={run.m} onClose={() => setRun(null)} />}</AnimatePresence>

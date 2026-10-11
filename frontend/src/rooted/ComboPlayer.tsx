@@ -92,7 +92,7 @@ export function ComboPlayer({ combo, steps, onClose }: { combo: Combo; steps: Co
         <AnimatePresence mode="wait">
           {done ? (
             <motion.div key="done" className="bp__done" initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }}>
-              <motion.div className="bp__check" initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: "spring", stiffness: 260, damping: 14, delay: 0.1 }}><Icon name="check" size={40} /></motion.div>
+              <motion.div className="bp__check-icon" initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: "spring", stiffness: 260, damping: 14, delay: 0.1 }}><Icon name="check" size={40} /></motion.div>
               <h2>{combo.name}, done.</h2>
               <p>{steps.length} steps in about {(() => { const m = Math.max(1, Math.round((performance.now() - started) / 60000)); return `${m} minute${m === 1 ? "" : "s"}`; })()}. That's how habits get built.</p>
               <div className="bp__done-actions"><button className="btn btn--primary" onClick={onClose}>Finish</button></div>

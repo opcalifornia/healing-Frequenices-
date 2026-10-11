@@ -11,8 +11,14 @@ evidence rating and a linked source. It has these sections:
   therapy, blue light, red light, UV and tanning beds.
 - **Healing Frequencies** (`/healing`): the binaural streaming section
   described below.
-- **Breathe** (`/breathe`): six guided techniques with a full-screen pacer,
-  chimes and haptics, 5-4-3-2-1 grounding, and progressive muscle relaxation.
+- **Breathe** (`/breathe`): one-tap "I want to…" picks, six guided
+  techniques and a custom pattern builder. The full-screen pacer changes
+  shape with the pattern (orb, box, triangle) and offers chimes, a rising
+  and falling breath tone, nature soundscapes and haptics. Before and after
+  stress check-ins feed a "Your results" dashboard (what works best for you,
+  8-week calendar). There's also a BOLT breath-hold test with history,
+  body and heart-rhythm diagrams, 5-4-3-2-1 grounding and progressive muscle
+  relaxation.
 - **Nourish** (`/nourish`): diet findings, a plate builder, a water tracker,
   fasting guidance, myth checks, and a Pantry of foods, herbs and teas that
   feeds a downloadable shopping list.

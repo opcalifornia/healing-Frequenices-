@@ -1,5 +1,6 @@
 import type { Strength } from "../learn/brainContent";
 import type { Source } from "./pantryContent";
+import type { CustomPattern } from "../store/practice";
 
 export type PhaseKind = "in" | "top" | "hold" | "out" | "rest";
 export interface Phase {
@@ -24,6 +25,10 @@ export interface Technique {
   next: "relax" | "sleep" | "focus" | "energize" | "meditate";
   /** Needs the safety gate before it starts. */
   gated?: boolean;
+  /** Pacer shape: an orb, or a path the dot traces (box for 4-part, triangle for 3-part). */
+  shape?: "orb" | "box" | "triangle";
+  /** Made by the person in the pattern builder. */
+  custom?: boolean;
   /** Power breathing runs rounds instead of a fixed cycle. */
   rounds?: { breaths: number; maxHold: number; recoveryHold: number; count: number };
 }
@@ -48,14 +53,14 @@ export const TECHNIQUES: Technique[] = [
   {
     id: "box", name: "Box breathing", short: "4 · 4 · 4 · 4", when: "Before a big moment: a meeting, a game, a hard conversation.",
     cycle: [{ kind: "in", secs: 4, say: "Breathe in" }, { kind: "hold", secs: 4, say: "Hold" }, { kind: "out", secs: 4, say: "Breathe out" }, { kind: "rest", secs: 4, say: "Hold" }],
-    minutes: [2, 4, 6], evidence: "Weak", hue: 230, next: "focus",
+    minutes: [2, 4, 6], evidence: "Weak", hue: 230, next: "focus", shape: "box",
     why: "Used by military and first responders to stay steady under pressure. In the same Stanford trial, box breathing improved mood too, a little less than cyclic sighing. Research on it alone is limited.",
     sources: [BALBAN],
   },
   {
     id: "478", name: "4-7-8 breathing", short: "4 in · 7 hold · 8 out", when: "In bed, to help you drift off. Popularized by Dr. Andrew Weil.",
     cycle: [{ kind: "in", secs: 4, say: "Breathe in through your nose" }, { kind: "hold", secs: 7, say: "Hold" }, { kind: "out", secs: 8, say: "Whoosh out through your mouth" }],
-    minutes: [1, 2, 4], evidence: "Weak", hue: 265, next: "sleep",
+    minutes: [1, 2, 4], evidence: "Weak", hue: 265, next: "sleep", shape: "triangle",
     why: "A very long exhale with a hold slows breathing to about three breaths a minute. Small studies show short-term drops in heart rate and blood pressure. It may feel light-headed at first; start with four cycles.",
     sources: [{ text: "Vierra J et al. Effects of sleep deprivation and 4-7-8 breathing control on heart rate variability, blood pressure, blood glucose, and endothelial function in healthy young adults. Physiol Rep, 2022" }],
   },
@@ -103,3 +108,21 @@ export const PMR = [
   "Feet: curl your toes down",
 ];
 export const PMR_SOURCE: Source = { text: "Toussaint L et al. Effectiveness of progressive muscle relaxation, deep breathing, and guided imagery in promoting psychological and physiological states of relaxation. Evid Based Complement Alternat Med, 2021", url: "https://doi.org/10.1155/2021/5924040" };
+
+
+/** Turn a saved custom pattern into a playable technique. */
+export function customTechnique(c: CustomPattern): Technique {
+  const cycle: Phase[] = [{ kind: "in", secs: c.inhale, say: "Breathe in" }];
+  if (c.hold > 0) cycle.push({ kind: "hold", secs: c.hold, say: "Hold" });
+  cycle.push({ kind: "out", secs: c.exhale, say: "Breathe out" });
+  if (c.rest > 0) cycle.push({ kind: "rest", secs: c.rest, say: "Hold" });
+  const parts = [c.inhale, c.hold, c.exhale, c.rest].filter((x, i) => x > 0 || i === 0 || i === 2);
+  return {
+    id: c.id, name: c.name, short: parts.map((x) => (Number.isInteger(x) ? x : x.toFixed(1))).join(" · "), when: "Your own pattern.",
+    cycle, minutes: [1, 3, 5, 10], evidence: "None", hue: 320, next: "relax", custom: true,
+    shape: cycle.length === 4 ? "box" : cycle.length === 3 ? "triangle" : "orb",
+    why: "A pattern you built. Slow breathing with a longer exhale than inhale tends to be the most calming.", sources: [],
+  };
+}
+
+export const breathsPerMinute = (c: Pick<CustomPattern, "inhale" | "hold" | "exhale" | "rest">) => 60 / Math.max(1, c.inhale + c.hold + c.exhale + c.rest);
