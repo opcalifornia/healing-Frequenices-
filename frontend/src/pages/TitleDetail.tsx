@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { PageTransition } from "../components/PageTransition";
 import { Footer } from "../components/Footer";
 import { MetaRow } from "../components/MetaRow";
+import { LiveWaves } from "../components/LiveWaves";
 import { FavoriteButton, PlayButton, RemindButton } from "../components/TitleActions";
 import { Tile, TileArt } from "../components/Tile";
 import { useArt } from "../art/useArt";
@@ -123,7 +124,8 @@ export default function TitleDetail() {
   return (
     <PageTransition>
       <section className="detail__hero">
-        {art ? <img className="detail__img" src={art} alt="" /> : <div className="detail__img skeleton" />}
+        {art ? <img className="detail__img art-drift" src={art} alt="" /> : <div className="detail__img skeleton" />}
+        {art && <LiveWaves seed={t.id} hue={t.art.hue} beat={t.beat} />}
         <div className="detail__scrim" />
         <motion.div className="detail__content" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45, delay: 0.05 }}>
           {t.comingSoon && <span className="badge badge--soon">Coming soon</span>}

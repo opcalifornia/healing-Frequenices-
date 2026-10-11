@@ -171,12 +171,13 @@ export function paintArt(canvas: HTMLCanvasElement, spec: ArtSpec, shape: ArtSha
   ctx.drawImage(small, 0, 0, width, height);
   ctx.globalAlpha = 1;
 
-  // 3. A waveform trace whose density follows the beat frequency.
+  // 3. A waveform trace whose density follows the beat frequency. Hero-size
+  // art leaves it out: <LiveWaves> draws it on top, slowly moving.
   const beat = spec.beat ?? 6;
   const cycles = 2 + Math.min(10, Math.log2(beat + 1) * 2.2);
   const baseY = height * (shape === "poster" ? 0.62 : 0.7);
   ctx.lineWidth = Math.max(1.2, width / 420);
-  for (let layer = 0; layer < 2; layer++) {
+  for (let layer = 0; layer < (shape === "hero" ? 0 : 2); layer++) {
     ctx.beginPath();
     const amp = height * (0.05 + rnd() * 0.05) * (layer ? 0.6 : 1);
     const phase = rnd() * Math.PI * 2;

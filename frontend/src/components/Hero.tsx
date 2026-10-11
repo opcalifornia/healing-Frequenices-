@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useArt } from "../art/useArt";
 import { specForTitle } from "../art/painter";
 import { Icon } from "./Icon";
+import { LiveWaves } from "./LiveWaves";
 import { MetaRow } from "./MetaRow";
 import { FavoriteButton, PlayButton } from "./TitleActions";
 import type { Title } from "../types";
@@ -13,7 +14,13 @@ export const HERO_INTERVAL = 8000;
 
 function HeroArt({ title }: { title: Title }) {
   const url = useArt(specForTitle(title), "hero");
-  return url ? <img className="hero__img" src={url} alt="" /> : <div className="hero__img skeleton" />;
+  if (!url) return <div className="hero__img skeleton" />;
+  return (
+    <>
+      <img className="hero__img art-drift" src={url} alt="" />
+      <LiveWaves seed={title.id} hue={title.art.hue} beat={title.beat} />
+    </>
+  );
 }
 
 function badgeFor(t: Title): string {

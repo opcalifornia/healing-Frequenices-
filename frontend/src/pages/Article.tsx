@@ -8,6 +8,7 @@ import { specForTitle } from "../art/painter";
 import { articleArt } from "./Learn";
 import NotFound from "./NotFound";
 import { TileArt } from "../components/Tile";
+import { LiveWaves } from "../components/LiveWaves";
 import "./Learn.css";
 
 export default function Article() {
@@ -22,7 +23,8 @@ export default function Article() {
   return (
     <PageTransition>
       <header className="article__hero">
-        {art && <img src={art} alt="" />}
+        {art && <img className="art-drift" src={art} alt="" />}
+        {art && <LiveWaves seed={`article-${article.slug}`} hue={article.hue} baseline={0.62} />}
         <div className="article__scrim" />
         <motion.div className="article__head" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}>
           <Link to="/learn" className="article__crumb">Learn</Link>
