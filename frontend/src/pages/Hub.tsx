@@ -32,7 +32,9 @@ export default function Hub() {
     return [
       evening
         ? { to: "/bedtime", eyebrow: "Tonight", title: "Wind down for sleep", body: "Your routine of sounds and light cues, timed to your bedtime.", icon: "timer" as const }
-        : { to: "/healing", eyebrow: h < 12 ? "This morning" : "This afternoon", title: h < 12 ? "Ten minutes of focus" : "A midday reset", body: "Pick a session from Healing Frequencies. Headphones on.", icon: "headphones" as const },
+        : h < 12
+          ? { to: "/healing", eyebrow: "This morning", title: "Ten minutes of focus", body: "Pick a session from Healing Frequencies. Headphones on.", icon: "headphones" as const }
+          : { to: "/breathe", eyebrow: "This afternoon", title: "A one-minute reset", body: "Follow the circle. Slow breathing out longer than in.", icon: "timer" as const },
       { to: "/nourish#water", eyebrow: "Water", title: `${(water / 1000).toFixed(1)} of ${(goal / 1000).toFixed(1)} L`, body: water >= goal ? "You've hit today's goal." : "Tap to log a glass. Food counts for about a fifth of it.", icon: "plus" as const, progress: Math.min(1, water / goal) },
       { to: "/nourish#pantry", eyebrow: "Shopping list", title: listCount ? `${listCount} item${listCount === 1 ? "" : "s"} to get` : "Build your list", body: "Learn what each food and herb actually does, then add it to your list.", icon: "bookmark" as const },
     ];

@@ -71,7 +71,7 @@
 
 /* Section header used by wellness pages */
 .sec-hero { position: relative; overflow: hidden; display: grid; align-items: end; min-height: min(78vh, 680px); padding: calc(var(--nav-h) + 40px) var(--gutter) 48px; }
-.sec-hero__text { position: relative; max-width: 760px; }
+.sec-hero__text { position: relative; z-index: 1; max-width: 760px; }
 .sec-hero h1 { font-size: var(--fs-hero); font-weight: 900; letter-spacing: -0.035em; line-height: 0.98; margin: 10px 0 14px; }
 .sec-hero p { color: var(--r-text-2); font-size: clamp(1rem, 1.3vw, 1.2rem); line-height: 1.55; max-width: 60ch; }
 .sec-hero::after { content: ""; position: absolute; inset: auto 0 0 0; height: 140px; background: linear-gradient(transparent, var(--r-bg)); pointer-events: none; }
@@ -111,3 +111,8 @@ a.src-link:hover { color: var(--r-sand); }
 }
 
 .r-toast { position: fixed; left: 0; right: 0; margin: 0 auto; width: max-content; max-width: calc(100% - 32px); bottom: calc(var(--tab-h) + var(--mini-h) + 24px); z-index: 140; display: flex; align-items: center; gap: 8px; padding: 12px 18px; border-radius: 999px; background: var(--r-sand, #e8d5b0); color: #14140f; font-weight: 800; font-size: var(--fs-small); box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5); }
+.rooted .chip.is-on { background: var(--r-sand); color: #14140f; border-color: var(--r-sand); }
+.pdetail__sources { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.nourish__src { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 14px; }
+.nourish__disclaimer { padding: 56px var(--gutter) 0; color: var(--r-text-3); font-size: var(--fs-small); max-width: 900px; line-height: 1.6; }
+.nourish__disclaimer a { color: var(--r-sand); font-weight: 800; }

@@ -1,6 +1,25 @@
-# Healing Frequencies
+# Rooted
 
-A streaming-style web app for frequency-based audio. Every sound is generated
+Rooted is an evidence-based wellness app. Every health claim in it carries an
+evidence rating and a linked source. It has these sections:
+
+- **Home** (`/`): a Today strip and section cards that zoom open.
+- **Healing Frequencies** (`/healing`): the binaural streaming section
+  described below.
+- **Breathe** (`/breathe`): six guided techniques with a full-screen pacer,
+  chimes and haptics, 5-4-3-2-1 grounding, and progressive muscle relaxation.
+- **Nourish** (`/nourish`): diet findings, a plate builder, a water tracker,
+  fasting guidance, myth checks, and a Pantry of foods, herbs and teas that
+  feeds a downloadable shopping list.
+- **Learn** (`/learn`): guides to the brain, sleep and frequency safety.
+
+Wellness content lives in `frontend/src/rooted/*Content.ts`. Per-profile data
+(shopping list, water, practice log) is stored on the device in
+`frontend/src/store/nourish.ts` and `practice.ts`.
+
+## Healing Frequencies
+
+A streaming-style section for frequency-based audio. Every sound is generated
 live in the browser with the Web Audio API, and every piece of artwork is
 painted procedurally on canvas. There are no audio or image files.
 

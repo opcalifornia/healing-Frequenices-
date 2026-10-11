@@ -14,6 +14,7 @@ import "./NavBar.css";
 export const NAV_ITEMS: { to: string; label: string; icon: IconName }[] = [
   { to: "/", label: "Home", icon: "home" },
   { to: "/healing", label: "Healing", icon: "wave" },
+  { to: "/breathe", label: "Breathe", icon: "timer" },
   { to: "/nourish", label: "Nourish", icon: "sparkle" },
   { to: "/learn", label: "Learn", icon: "book" },
   { to: "/my-stuff", label: "My Stuff", icon: "bookmark" },
@@ -158,7 +159,7 @@ export function NavBar() {
       <AnimatePresence>{healing && <HealingNav />}</AnimatePresence>
 
       <nav className="tabbar" aria-label="Primary">
-        {NAV_ITEMS.map((item) => (
+        {NAV_ITEMS.filter((i) => i.to !== "/learn").map((item) => (
           <NavLink key={item.to} to={item.to} end={item.to === "/"} className={({ isActive }) => `tabbar__item ${isActive || (item.to === "/healing" && healing) ? "active" : ""}`}>
             <Icon name={item.icon} size={22} />
             <span>{item.label}</span>
