@@ -145,7 +145,19 @@ function PantryDetail({ p, inList, onToggle }: { p: PantryItem; inList: boolean;
   );
 }
 
-function download(name: string, text: string) {
+type Saver = { save(o: { filename: string; data: string }): Promise<unknown> };
+type ClaudeHost = { use?(n: string): Promise<Saver | null> };
+
+/** Saves a text file. Inside the claude.ai preview, files go through the viewer's download prompt. */
+async function download(name: string, text: string) {
+  const host = (window as unknown as { claude?: ClaudeHost }).claude;
+  if (host?.use) {
+    const saver = await host.use("downloads").catch(() => null);
+    if (saver) {
+      await saver.save({ filename: name, data: text }).catch(() => undefined);
+      return;
+    }
+  }
   const url = URL.createObjectURL(new Blob([text], { type: "text/plain;charset=utf-8" }));
   const a = document.createElement("a");
   a.href = url;
