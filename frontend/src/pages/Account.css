@@ -1,0 +1,14 @@
+.account__card {
+  width: min(440px, 100%); text-align: left; background: rgba(20, 20, 22, 0.9); border: 1px solid var(--line);
+  border-radius: 18px; padding: clamp(22px, 4vw, 36px); display: grid; gap: 16px;
+}
+.account__card form { display: grid; gap: 16px; }
+.account__card h1 { font-size: 1.8rem; font-weight: 900; letter-spacing: -0.02em; }
+.account__muted { color: var(--text-2); font-size: var(--fs-small); }
+.account__muted code { background: rgba(255, 255, 255, 0.1); padding: 1px 6px; border-radius: 4px; }
+.account__error { color: var(--danger); font-weight: 700; font-size: var(--fs-small); }
+.account__submit { width: 100%; }
+.account__switch { color: var(--text-2); font-size: var(--fs-small); text-align: center; }
+.account__switch button { color: #fff; font-weight: 800; text-decoration: underline; }
+.account__skip { text-align: center; color: var(--text-3); font-size: var(--fs-small); font-weight: 600; }
+.account__skip:hover { color: #fff; }

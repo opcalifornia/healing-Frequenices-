@@ -30,3 +30,4 @@
 .swatch { width: 32px; height: 32px; border-radius: 50%; border: 3px solid transparent; transition: transform var(--t-fast); }
 .swatch.is-on { border-color: #fff; transform: scale(1.1); }
 .dialog__actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.profiles__actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }

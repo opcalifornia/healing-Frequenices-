@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { apiEnabled } from "../api/client";
 import { Avatar } from "../components/Avatar";
 import { Icon } from "../components/Icon";
 import { Logo } from "../components/Logo";
@@ -18,6 +19,7 @@ interface Draft {
 
 export default function Profiles() {
   const profiles = useUser((s) => s.profiles);
+  const account = useUser((s) => s.account);
   const { selectProfile, addProfile, updateProfile, removeProfile } = useUser.getState();
   const [managing, setManaging] = useState(false);
   const [draft, setDraft] = useState<Draft | null>(null);
@@ -80,9 +82,14 @@ export default function Profiles() {
           </motion.li>
         )}
       </ul>
-      <button className="btn btn--secondary" onClick={() => setManaging((m) => !m)}>
-        {managing ? "Done" : "Manage Profiles"}
-      </button>
+      <div className="profiles__actions">
+        <button className="btn btn--secondary" onClick={() => setManaging((m) => !m)}>
+          {managing ? "Done" : "Manage Profiles"}
+        </button>
+        {apiEnabled && (
+          <Link to="/account" className="btn btn--secondary">{account ? account.email : "Sign in to sync"}</Link>
+        )}
+      </div>
 
       <AnimatePresence>
         {draft && (
