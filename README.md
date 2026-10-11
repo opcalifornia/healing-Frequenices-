@@ -170,6 +170,9 @@ python -m app.seed            # upserts into MongoDB (or restart with an empty D
 Artwork is generated from each title's `art` (`hue`, `pattern`), which is
 assigned automatically from the goal or category.
 
+The **Frequencies & Your Health** guide (`/learn/safety`) keeps its claims,
+evidence labels and linked sources in `frontend/src/learn/safetyContent.ts`.
+
 The **Better Sleep** guide (`/learn/sleep`) keeps its tips, evidence labels
 and sources in `frontend/src/learn/sleepContent.ts`. The **Bedtime** routine
 (`/bedtime`) stores each profile's plan and streak on the device

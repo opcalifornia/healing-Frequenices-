@@ -23,6 +23,7 @@ const BROWSE = [
   { label: "Inside Your Brain", to: "/learn/brain", hue: 200 },
   { label: "Bedtime routine", to: "/bedtime", hue: 250 },
   { label: "Better Sleep guide", to: "/learn/sleep", hue: 45 },
+  { label: "Frequencies & Your Health", to: "/learn/safety", hue: 350 },
 ];
 
 export default function Search() {
