@@ -52,7 +52,7 @@ export default function Profiles() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.05, duration: 0.4 }}
       >
-        {managing ? "Manage Profiles" : "Who's Listening?"}
+        {managing ? "Manage Profiles" : "Who's Healing?"}
       </motion.h1>
       <ul className="profiles__grid">
         {profiles.map((p, i) => (
