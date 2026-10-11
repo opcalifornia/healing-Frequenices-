@@ -14,6 +14,7 @@ import { Footer } from "../components/Footer";
 import { ProgramRail } from "../rooted/ProgramRail";
 import "./Programs.css";
 import { Icon } from "../components/Icon";
+import { ScheduleButton } from "../rooted/CalendarUI";
 import "../rooted/rooted.css";
 import "./Breathe.css";
 import "./BrainGuide.css";
@@ -214,6 +215,7 @@ export default function MovePage() {
                 </div>
               ) : null}
               <button className="btn btn--primary btn--big" onClick={() => start(open, open.options ? walkMins : undefined)}><Icon name="play" size={22} /> Start{open.options ? "" : ` · ${open.minutes} min`}</button>
+              <ScheduleButton draft={{ title: open.name, kind: "move", minutes: open.options ? walkMins : open.minutes, repeat: open.id === "walk" ? "weekdays" : "daily", to: "/move", time: open.id === "walk" ? "12:45" : open.kind === "stretch" && open.id === "wake" ? "07:00" : "18:30" }} label="Add to calendar" />
               {ROUTINE_MUSCLES[open.id] && <div className="routine-detail__map"><MuscleMap muscles={ROUTINE_MUSCLES[open.id].muscles} /></div>}
               {!open.options && (
                 <ol className="move-list">

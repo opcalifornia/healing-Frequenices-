@@ -14,6 +14,7 @@ import { minutesOn, practiceStreak, usePractice, usePracticeLog } from "../store
 import { flags, useAbout } from "../store/wellness";
 import { Footer } from "../components/Footer";
 import { Icon } from "../components/Icon";
+import { ScheduleButton } from "../rooted/CalendarUI";
 import "../rooted/rooted.css";
 import "./BrainGuide.css";
 import "./Nourish.css";
@@ -299,6 +300,7 @@ export default function Breathe() {
               ) : (
                 <button className="btn btn--primary btn--big" onClick={() => start(open, mins)}><Icon name="play" size={22} /> Start</button>
               )}
+              <ScheduleButton draft={{ title: `Breathe: ${open.name}`, kind: "breathe", minutes: Math.max(2, mins), repeat: "daily", to: "/breathe", time: "15:00" }} label="Make it a habit: add to calendar" />
               <section>
                 <h3>Why it works <Evidence s={open.evidence} /></h3>
                 <p>{open.why}</p>

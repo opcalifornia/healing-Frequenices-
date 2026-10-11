@@ -65,3 +65,15 @@
 .bento-card__foryou { background: var(--r-sand); color: #14140f; }
 .hub__mood { padding: 0 var(--gutter) 28px; max-width: calc(760px + 2 * var(--gutter)); }
 .hub__crisis button { color: var(--r-sand); font-weight: 800; text-decoration: underline; }
+
+.hub__head-links { display: inline-flex; gap: 14px; }
+.hub__cal { padding: 0 var(--gutter) 28px; max-width: calc(760px + 2 * var(--gutter)); }
+.hub-cal { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 14px; align-items: center; padding: 16px 18px; border-radius: 18px; background: linear-gradient(120deg, rgba(128, 203, 196, 0.14), rgba(179, 157, 219, 0.1)); border: 1px solid rgba(128, 203, 196, 0.25); transition: transform var(--t-fast), border-color var(--t-fast); }
+.hub-cal:hover { transform: translateY(-2px); border-color: rgba(128, 203, 196, 0.5); }
+.hub-cal__icon { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 12px; background: rgba(128, 203, 196, 0.18); color: #80cbc4; }
+.hub-cal__text { display: grid; gap: 4px; min-width: 0; }
+.hub-cal__text b { font-weight: 900; }
+.hub-cal__text small { color: var(--r-text-2); font-size: var(--fs-small); }
+.hub-cal__items { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: var(--fs-small); color: var(--r-text-2); }
+.hub-cal__items span { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
+.hub-cal__items i { width: 8px; height: 8px; border-radius: 50%; background: var(--k); }

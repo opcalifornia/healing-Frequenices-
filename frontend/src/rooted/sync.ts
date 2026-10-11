@@ -7,6 +7,7 @@ import { useGarden } from "../store/garden";
 import { useJournal } from "../store/journal";
 import { useSupport } from "../store/support";
 import { useBedtime } from "../store/bedtime";
+import { useCalendar } from "../store/calendar";
 
 /**
  * Keeps each profile's Rooted data in sync with the account on the server.
@@ -30,6 +31,8 @@ export const SLICES: Slice[] = [
   { key: "programs", store: usePrograms as unknown as Slice["store"], fields: ["enrolled"] },
   { key: "garden", store: useGarden as unknown as Slice["store"], fields: ["beds"] },
   { key: "bedtime", store: useBedtime as unknown as Slice["store"], fields: ["plans", "nights"] },
+  // Work-calendar busy blocks stay on the device; only health events sync.
+  { key: "calendar", store: useCalendar as unknown as Slice["store"], fields: ["events"] },
   { key: "journal", private: true, store: useJournal as unknown as Slice["store"], fields: ["entries"] },
   { key: "support", private: true, store: useSupport as unknown as Slice["store"], fields: ["plans", "moods"] },
 ];

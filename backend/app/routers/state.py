@@ -21,7 +21,7 @@ router = APIRouter(prefix="/profiles", tags=["state"])
 
 #: The documents a profile may store. "journal" and "support" hold private
 #: reflections and the safety plan; the app only syncs them when the person opts in.
-STATE_KEYS = {"nourish", "practice", "wellness", "programs", "garden", "bedtime", "journal", "support"}
+STATE_KEYS = {"nourish", "practice", "wellness", "programs", "garden", "bedtime", "calendar", "journal", "support"}
 MAX_BYTES = 256 * 1024
 
 

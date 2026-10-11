@@ -134,12 +134,13 @@ export function ZoomPage({ children, className = "" }: { children: ReactNode; cl
 /* Reveal: content rises into place as it scrolls into view.           */
 /* ------------------------------------------------------------------ */
 
-export function Reveal({ children, delay = 0, className, as = "div" }: { children: ReactNode; delay?: number; className?: string; as?: "div" | "section" | "li" }) {
+export function Reveal({ children, delay = 0, className, as = "div", style }: { children: ReactNode; delay?: number; className?: string; as?: "div" | "section" | "li"; style?: CSSProperties }) {
   const reduce = useReducedMotion();
   const M = motion[as];
   return (
     <M
       className={className}
+      style={style}
       initial={reduce ? false : { opacity: 0, y: 28 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "0px 0px -60px 0px" }}

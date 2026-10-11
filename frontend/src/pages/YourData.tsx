@@ -15,7 +15,7 @@ import "./YourData.css";
 
 const LABEL: Record<string, string> = {
   nourish: "Shopping list and water", practice: "Breathing, movement and heart checks", wellness: "Goals and health considerations", programs: "Program progress",
-  garden: "Your garden", bedtime: "Bedtime routine", journal: "Reflections and gratitude", support: "Safety plan and mood check-ins",
+  garden: "Your garden", bedtime: "Bedtime routine", calendar: "Health calendar events", journal: "Reflections and gratitude", support: "Safety plan and mood check-ins",
 };
 
 export default function YourData() {

@@ -41,6 +41,13 @@ evidence rating and a linked source. It has these sections:
 - **Support** (`/support`): crisis lines (988 and more), a Stanley-Brown
   safety plan, how to help someone, therapies and practitioners. A heart
   button in the nav opens crisis help from any screen.
+- **Health calendar** (`/calendar`): schedule breathing, walks, yoga,
+  program lessons, bedtime and appointments, once or on repeat. "Plan my day"
+  fits the daily plan around what's already booked. Import a work calendar
+  (.ics) to see busy time and free gaps; it stays on the device. Send any
+  event to Apple, Google or Outlook (.ics or a Google link), or, when signed
+  in, subscribe to a live link (`/api/calendar/{token}.ics`) that updates on
+  its own. "Add to calendar" buttons sit in Breathe, Move and Programs.
 - **Learn** (`/learn`): guides to the brain, sleep and frequency safety.
 - **About you** (`/welcome`, `/about-you`): goals, activity level, daily time
   and optional health considerations. `frontend/src/rooted/plan.ts` turns
@@ -184,6 +191,10 @@ comma-separated if there are several). `JWT_SECRET` is generated for you.
 **Railway:** create a service from this repo with root directory `backend`.
 `railway.json` builds the Dockerfile and health-checks `/api/health`. Set
 `MONGO_URL`, `JWT_SECRET`, `CORS_ORIGINS` and `ENVIRONMENT=production`.
+
+Set `API_PUBLIC_URL` to the API's public address (for example
+`https://rooted-api.onrender.com`) so calendar subscription links point at it,
+and `APP_URL` to the front end's address for the "Open in Rooted" links.
 
 The API refuses to start with `ENVIRONMENT=production` unless `JWT_SECRET`
 is at least 32 random characters. Render's blueprint generates one for you.

@@ -15,6 +15,8 @@ import { MoodCheck } from "../rooted/Crisis";
 import { PROGRAMS } from "../rooted/programs";
 import { nextDay, useEnrollments } from "../store/programs";
 import { useCrisis } from "../store/support";
+import { eventsOn, toMin, useEvents } from "../store/calendar";
+import { KINDS, niceTime } from "../rooted/CalendarUI";
 import "../rooted/rooted.css";
 import "./Support.css";
 import "./Hub.css";
@@ -81,7 +83,10 @@ export default function Hub() {
           <div className="hub__today-wrap">
             <div className="hub__today-head">
               <span className="rooted__eyebrow">{SLOT_LABEL[slot]}, for you</span>
-              <Link to="/about-you" className="hub__edit">Edit goals</Link>
+              <span className="hub__head-links">
+                <Link to="/calendar" className="hub__edit">Schedule</Link>
+                <Link to="/about-you" className="hub__edit">Edit goals</Link>
+              </span>
             </div>
             <div className="hub__today" role="list" aria-label="Your plan">
               {picks.map((t, i) => {
@@ -104,6 +109,7 @@ export default function Hub() {
       </header>
 
       {!needsSetup && <div className="hub__mood"><MoodCheck /></div>}
+      {!needsSetup && <HubCalendar />}
 
       <section className="hub__sections" aria-labelledby="hub-sections">
         <Reveal><h2 id="hub-sections" className="rooted__h2">Explore</h2></Reveal>
@@ -149,5 +155,35 @@ export default function Hub() {
       </p>
       <Footer />
     </ZoomPage>
+  );
+}
+
+/** Today's health calendar at a glance, so the plan and the schedule live in one place. */
+function HubCalendar() {
+  const events = useEvents();
+  const now = new Date();
+  const nowMin = now.getHours() * 60 + now.getMinutes();
+  const today = eventsOn(events, todayKey());
+  const upcoming = today.filter((e) => toMin(e.time) + e.minutes >= nowMin && !e.done?.[todayKey()]);
+  const allDone = today.length > 0 && today.every((e) => e.done?.[todayKey()]);
+  return (
+    <section className="hub__cal" aria-label="Today on your calendar">
+      <Link to="/calendar" className="hub-cal">
+        <span className="hub-cal__icon"><Icon name="calendar" size={22} /></span>
+        <span className="hub-cal__text">
+          <b>{upcoming.length ? "Next on your health calendar" : allDone ? "All done for today" : today.length ? "That's today wrapped up" : "Your health calendar"}</b>
+          {upcoming.length ? (
+            <span className="hub-cal__items">
+              {upcoming.slice(0, 3).map((e) => (
+                <span key={e.id} style={{ ["--k" as string]: KINDS[e.kind].color }}><i />{niceTime(e.time)} {e.title}</span>
+              ))}
+            </span>
+          ) : (
+            <small>{allDone ? "Nice work. See what's coming up this week." : today.length ? "See what's coming up this week." : "Schedule your routines, see them beside work, send them to Apple or Google."}</small>
+          )}
+        </span>
+        <Icon name="chevronRight" size={20} />
+      </Link>
+    </section>
   );
 }

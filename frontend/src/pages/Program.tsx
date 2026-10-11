@@ -9,6 +9,7 @@ import { nextDay, useEnrollments, usePrograms } from "../store/programs";
 import { Footer } from "../components/Footer";
 import { Icon } from "../components/Icon";
 import NotFound from "./NotFound";
+import { ScheduleButton } from "../rooted/CalendarUI";
 import "../rooted/rooted.css";
 import "./Breathe.css";
 import "./Combos.css";
@@ -57,6 +58,11 @@ export default function ProgramPage() {
               </button>
             )}
           </motion.div>
+          {!nd.finished && (
+            <div className="program__schedule">
+              <ScheduleButton draft={{ title: `${p.title} lesson`, kind: "program", minutes: Math.max(5, Math.round(p.days.reduce((a, d) => a + dayMinutes(d), 0) / p.days.length)), repeat: "daily", to: `/program/${p.id}`, time: "07:30", note: `${p.days.length}-day program. One lesson a day.` }} label="Schedule a daily lesson time" />
+            </div>
+          )}
           {nd.doneToday && !nd.finished && <p className="program__note">You've done today's lesson. Coming back tomorrow builds the habit, but you can keep going if you like.</p>}
         </div>
       </header>

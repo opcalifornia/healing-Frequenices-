@@ -76,7 +76,7 @@ recommend what those tools return.
 | `propose_plan(items[])` | Shows the plan card for the user to approve. Nothing is saved until they tap Accept |
 | `save_routine(plan)` | Saves an accepted plan as the user's routine |
 | `add_to_shopping_list(pantry_id)` | Adds an item, for example ginger |
-| `schedule(items, calendar)` | Creates calendar events (.ics now, Google or Apple Calendar later) and reminders |
+| `schedule(items, calendar)` | Creates events on the Rooted health calendar (`store/calendar.ts`), which already exports to Apple, Google and Outlook and serves a live subscription link |
 | `log_feedback(item, how_it_went)` | Feeds the weekly check-in |
 | `crisis_handoff()` | Opens the crisis sheet. Called whenever risk is detected; it can't be skipped |
 

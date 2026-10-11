@@ -9,7 +9,7 @@ from fastapi.middleware.gzip import GZipMiddleware
 
 from .config import get_settings
 from .db import ensure_indexes, get_database
-from .routers import auth, billing, catalog, media, profiles, state
+from .routers import auth, billing, calendar_feed, catalog, media, profiles, state
 
 
 async def seed_if_empty() -> None:
@@ -51,7 +51,7 @@ def create_app() -> FastAPI:
     async def health() -> dict[str, str]:
         return {"status": "ok"}
 
-    for r in (catalog.router, auth.router, profiles.router, state.router, billing.router, media.router):
+    for r in (catalog.router, auth.router, profiles.router, state.router, calendar_feed.router, billing.router, media.router):
         app.include_router(r, prefix="/api")
     return app
 

@@ -26,6 +26,8 @@ class Settings(BaseSettings):
     stripe_webhook_secret: str | None = None
     stripe_price_id: str | None = None
     app_url: str = "http://localhost:5173"
+    #: Public base URL of this API, used in calendar subscription links. Defaults to the request host.
+    api_public_url: str | None = None
 
     # Cloudflare R2 (S3-compatible) - optional until hosted media launches.
     r2_account_id: str | None = None
