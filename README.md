@@ -26,6 +26,10 @@ Wellness content lives in `frontend/src/rooted/*Content.ts`. Per-profile data
 (shopping list, water, practice log) is stored on the device in
 `frontend/src/store/nourish.ts` and `practice.ts`.
 
+Planned phases are written up in `docs/`. The AI Coach phase, a chat coach
+that builds a personal daily routine from the app's content, is in
+[`docs/PHASE_AI_COACH.md`](docs/PHASE_AI_COACH.md).
+
 ## Healing Frequencies
 
 A streaming-style section for frequency-based audio. Every sound is generated
