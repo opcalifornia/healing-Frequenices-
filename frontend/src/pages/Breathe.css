@@ -261,3 +261,21 @@
 .heart__history b { font-size: 1.1rem; font-variant-numeric: tabular-nums; color: #fff; }
 .heart__history small { font-size: var(--fs-tiny); color: var(--r-text-3); font-weight: 600; }
 @media (max-width: 900px) { .heart { grid-template-columns: minmax(0, 1fr); } }
+
+/* Reminders */
+.remind-wrap { margin-top: 12px; }
+.remind { padding: 20px 22px; display: grid; gap: 14px; }
+.remind__head { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 14px; align-items: start; }
+.remind__icon { background: rgba(143, 211, 255, 0.15); color: #8fd3ff; }
+.remind__head h3 { font-size: 1.1rem; font-weight: 900; }
+.remind__head p { color: var(--r-text-2); font-size: var(--fs-small); line-height: 1.5; margin-top: 2px; }
+.remind__rows { display: grid; gap: 8px; }
+.remind__row { display: grid; grid-template-columns: 26px minmax(0, 1fr) auto; gap: 12px; align-items: center; padding: 10px 12px; border-radius: 12px; border: 1px solid var(--r-line); cursor: pointer; position: relative; }
+.remind__row input[type="checkbox"] { position: absolute; opacity: 0; pointer-events: none; }
+.remind__row.is-on { border-color: rgba(143, 211, 255, 0.45); }
+.remind__row.is-on .slist__check { background: #8fd3ff; border-color: #8fd3ff; }
+.remind__label strong { display: block; font-weight: 850; }
+.remind__label small { color: var(--r-text-3); font-size: var(--fs-tiny); }
+.remind__row input[type="time"] { height: 36px; padding: 0 8px; border-radius: 8px; background: var(--r-surface-2); border: 1px solid var(--r-line); color-scheme: dark; }
+.remind__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.remind__row:focus-within { outline: 2px solid #fff; outline-offset: 2px; }

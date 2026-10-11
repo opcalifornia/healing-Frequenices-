@@ -7,6 +7,7 @@ import { TiltCard } from "./motion";
 import { groupByAisle, listToText, useNourish, useShoppingList } from "../store/nourish";
 import { Icon } from "../components/Icon";
 import { APP_NAME } from "../brand";
+import { saveTextFile } from "./download";
 import { flags, useAbout } from "../store/wellness";
 
 const CATS = Object.keys(CAT_LABEL) as PantryCat[];
@@ -148,27 +149,8 @@ function PantryDetail({ p, inList, onToggle }: { p: PantryItem; inList: boolean;
   );
 }
 
-type Saver = { save(o: { filename: string; data: string }): Promise<unknown> };
-type ClaudeHost = { use?(n: string): Promise<Saver | null> };
-
-/** Saves a text file. Inside the claude.ai preview, files go through the viewer's download prompt. */
-async function download(name: string, text: string) {
-  const host = (window as unknown as { claude?: ClaudeHost }).claude;
-  if (host?.use) {
-    const saver = await host.use("downloads").catch(() => null);
-    if (saver) {
-      await saver.save({ filename: name, data: text }).catch(() => undefined);
-      return;
-    }
-  }
-  const url = URL.createObjectURL(new Blob([text], { type: "text/plain;charset=utf-8" }));
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = name;
-  document.body.appendChild(a);
-  a.click();
-  a.remove();
-  setTimeout(() => URL.revokeObjectURL(url), 1000);
+function download(name: string, text: string) {
+  void saveTextFile(name, text);
 }
 
 export function ShoppingList({ onBrowse }: { onBrowse?: () => void }) {

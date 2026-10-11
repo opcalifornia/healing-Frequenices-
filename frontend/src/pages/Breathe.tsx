@@ -7,6 +7,7 @@ import { BreathPlayer } from "../rooted/BreathPlayer";
 import { BreathingBody, HeartRhythm } from "../rooted/BreatheDiagrams";
 import { ProgramRail } from "../rooted/ProgramRail";
 import { HeartCheck } from "../rooted/HeartCheck";
+import { ReminderCard } from "../rooted/ReminderCard";
 import { BoltTest, CustomList, PatternBuilder, QuickPicks, Results } from "../rooted/BreatheExtras";
 import { chime, unlockChime } from "../rooted/chime";
 import { minutesOn, practiceStreak, usePractice, usePracticeLog } from "../store/practice";
@@ -215,6 +216,7 @@ export default function Breathe() {
           <p className="rooted__lead">Rate your stress before and after a session. Over time, you'll see which techniques actually help you most.</p>
         </Reveal>
         <Reveal><Results /></Reveal>
+        <Reveal className="remind-wrap"><ReminderCard /></Reveal>
       </section>
 
       <section id="body" className="sec-block">

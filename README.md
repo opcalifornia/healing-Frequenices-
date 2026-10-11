@@ -18,7 +18,10 @@ evidence rating and a linked source. It has these sections:
   stress check-ins feed a "Your results" dashboard (what works best for you,
   8-week calendar). There's also a BOLT breath-hold test with history,
   body and heart-rhythm diagrams, 5-4-3-2-1 grounding and progressive muscle
-  relaxation.
+  relaxation. Programs (`/program/:id`, starting with 7 Days to Calmer),
+  spoken voice guidance (recorded clips in `public/audio/voice/` override the
+  built-in voice), a camera heart rate and HRV check (`rooted/ppg.ts`), and
+  daily reminders added to the phone's calendar.
 - **Nourish** (`/nourish`): diet findings, a plate builder, a water tracker,
   fasting guidance, myth checks, and a Pantry of foods, herbs and teas that
   feeds a downloadable shopping list.
@@ -51,7 +54,8 @@ Wellness content lives in `frontend/src/rooted/*Content.ts`. Per-profile data
 Planned phases are written up in `docs/`. The AI Coach phase, a chat coach
 that builds a personal daily routine from the app's content, is in
 [`docs/PHASE_AI_COACH.md`](docs/PHASE_AI_COACH.md). Professional partners and
-training modules are in [`docs/PHASE_PRO_PARTNERS.md`](docs/PHASE_PRO_PARTNERS.md).
+training modules are in [`docs/PHASE_PRO_PARTNERS.md`](docs/PHASE_PRO_PARTNERS.md). The iPhone,
+Apple Watch, widgets and push plan is in [`docs/PHASE_NATIVE_APP.md`](docs/PHASE_NATIVE_APP.md).
 
 ## Healing Frequencies
 
