@@ -12,6 +12,7 @@ import { usePlayer } from "./store/player";
 import { HoverPreview } from "./components/HoverPreview";
 import { BedtimeToast, useBedtimeReminder } from "./components/Bedtime";
 import Hub from "./pages/Hub";
+import { CrisisSheet } from "./rooted/Crisis";
 import Home from "./pages/Home";
 import Profiles from "./pages/Profiles";
 
@@ -35,6 +36,7 @@ const Breathe = lazy(() => import("./pages/Breathe"));
 const Move = lazy(() => import("./pages/Move"));
 const Welcome = lazy(() => import("./pages/Welcome"));
 const Combos = lazy(() => import("./pages/Combos"));
+const Support = lazy(() => import("./pages/Support"));
 
 function RequireProfile({ children }: { children: JSX.Element }) {
   const active = useUser((s) => s.activeProfileId);
@@ -90,6 +92,7 @@ export default function App() {
             <Route path="/nourish" element={<RequireProfile><Nourish /></RequireProfile>} />
             <Route path="/breathe" element={<RequireProfile><Breathe /></RequireProfile>} />
             <Route path="/move" element={<RequireProfile><Move /></RequireProfile>} />
+            <Route path="/support" element={<RequireProfile><Support /></RequireProfile>} />
             <Route path="/combos" element={<RequireProfile><Combos /></RequireProfile>} />
             <Route path="/welcome" element={<RequireProfile><Welcome /></RequireProfile>} />
             <Route path="/about-you" element={<RequireProfile><Welcome /></RequireProfile>} />
@@ -114,6 +117,7 @@ export default function App() {
       <HoverPreview />
       <PlayerOverlay />
       <SafetyNotice />
+      <CrisisSheet />
       {!onPicker && <BedtimeToast />}
     </>
   );

@@ -5,6 +5,7 @@ import { Logo } from "./Logo";
 import { RootedLogo } from "./RootedLogo";
 import { APP_NAME, HF_NAME } from "../brand";
 import { inHealing } from "../rooted/sections";
+import { HelpButton } from "../rooted/Crisis";
 import { Icon, type IconName } from "./Icon";
 import { Avatar } from "./Avatar";
 import { useActiveProfile, useUser } from "../store/user";
@@ -101,6 +102,7 @@ export function NavBar() {
           ))}
         </nav>
         <div className="nav__right">
+          <HelpButton />
           <NavLink to="/search" className="nav__icon" aria-label="Search">
             <Icon name="search" />
           </NavLink>
@@ -136,6 +138,9 @@ export function NavBar() {
                     <Icon name="edit" size={20} /> Manage Profiles
                   </button>
                   <div className="nav__menu-sep" />
+                  <Link role="menuitem" className="nav__menu-item" to="/support">
+                    <Icon name="heart" size={20} /> Support &amp; crisis lines
+                  </Link>
                   <Link role="menuitem" className="nav__menu-item" to="/about-you">
                     <Icon name="user" size={20} /> About you &amp; goals
                   </Link>

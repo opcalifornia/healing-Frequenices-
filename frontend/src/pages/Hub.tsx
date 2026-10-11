@@ -11,7 +11,10 @@ import { usePracticeLog } from "../store/practice";
 import { GOAL_SHORT, pickFor, sectionRank, slotFor, SLOT_LABEL } from "../rooted/plan";
 import { Footer } from "../components/Footer";
 import { Icon } from "../components/Icon";
+import { MoodCheck } from "../rooted/Crisis";
+import { useCrisis } from "../store/support";
 import "../rooted/rooted.css";
+import "./Support.css";
 import "./Hub.css";
 
 function greeting(h: number) {
@@ -28,6 +31,7 @@ export default function Hub() {
   const water = useWater();
   const goal = useWaterGoal();
   const about = useAbout();
+  const showCrisis = useCrisis((s) => s.show);
   const entries = usePracticeLog();
   const [prompt, setPrompt] = useState(() => (now.getDate() * 7 + now.getMonth()) % OFFLINE_PROMPTS.length);
   const slot = slotFor(h);
@@ -91,6 +95,8 @@ export default function Hub() {
         )}
       </header>
 
+      {!needsSetup && <div className="hub__mood"><MoodCheck /></div>}
+
       <section className="hub__sections" aria-labelledby="hub-sections">
         <Reveal><h2 id="hub-sections" className="rooted__h2">Explore</h2></Reveal>
         <div className="bento">
@@ -131,8 +137,7 @@ export default function Hub() {
       </Reveal>
 
       <p className="hub__crisis">
-        Going through something hard? In the US, call or text <a href="tel:988">988</a> any time to reach the Suicide &amp; Crisis Lifeline. Outside the US,
-        contact your local emergency number.
+        Going through something hard? You don't have to face it alone. <button onClick={showCrisis}>Get help now</button>, or call or text <a href="tel:988">988</a> any time.
       </p>
       <Footer />
     </ZoomPage>

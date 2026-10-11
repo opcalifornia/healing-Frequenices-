@@ -29,7 +29,7 @@ export const SECTIONS: RootedSection[] = [
   { id: "spirit", name: "Spirit & Ritual", tagline: "Gratitude, sound baths, stillness", to: "/spirit", live: false, size: "sm", c1: "#b39ddb", c2: "#f8bbd0" },
   { id: "garden", name: "Garden & Apothecary", tagline: "Grow your own herbs and teas, safely", to: "/garden", live: false, size: "sm", c1: "#81c784", c2: "#a1887f" },
   { id: "places", name: "Healing Places", tagline: "Blue Zones, hot springs and retreats", to: "/places", live: false, size: "sm", c1: "#4fc3f7", c2: "#ffe082" },
-  { id: "support", name: "Support", tagline: "Therapy, bodywork and people who can help", to: "/support", live: false, size: "sm", c1: "#90caf9", c2: "#ce93d8" },
+  { id: "support", name: "Support", tagline: "Crisis lines, a safety plan, therapy and bodywork", to: "/support", live: true, size: "sm", c1: "#90caf9", c2: "#ce93d8" },
   { id: "earth", name: "Earth & Give Back", tagline: "Vetted nonprofits, wildlife and your footprint", to: "/earth", live: false, size: "wide", c1: "#66bb6a", c2: "#26c6da" },
 ];
 

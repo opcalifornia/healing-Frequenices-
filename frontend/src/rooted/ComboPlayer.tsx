@@ -13,6 +13,8 @@ import { GLASS, useNourish } from "../store/nourish";
 import { useCatalog } from "../store/catalog";
 import { usePlayer } from "../store/player";
 import { Icon, type IconName } from "../components/Icon";
+import { soundsLikeCrisis } from "./supportContent";
+import { CrisisNudge } from "./Crisis";
 
 const ICON: Record<ComboStep["type"], IconName> = { breath: "timer", move: "replay", check: "check", timer: "timer", reflect: "edit", ground: "sparkle", frequency: "headphones" };
 
@@ -169,6 +171,7 @@ function StepView({ step, onNext, onEnd }: { step: ComboStep; onNext(): void; on
               <motion.input key={k} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: k * 0.08 }} value={lines[k] ?? ""} onChange={(e) => { const n = [...lines]; n[k] = e.target.value; setLines(n); }} placeholder={`${k + 1}.`} aria-label={`${step.prompt}, line ${k + 1}`} autoFocus={k === 0} />
             ))}
           </div>
+          {soundsLikeCrisis(lines.join(" ")) && <CrisisNudge />}
           <button className="btn btn--primary btn--big" onClick={() => { addJournal(step.prompt, lines); onNext(); }}>{lines.some((l) => l?.trim()) ? "Save and continue" : "Continue"}</button>
           <span className="cp__private">Saved privately on this device.</span>
         </div>

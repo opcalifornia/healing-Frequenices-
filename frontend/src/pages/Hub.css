@@ -63,3 +63,5 @@
 .today-card.is-done .today-card__icon { background: var(--r-sage); color: #0d230a; }
 .today-card.is-done strong { text-decoration: line-through; text-decoration-color: rgba(255, 255, 255, 0.4); }
 .bento-card__foryou { background: var(--r-sand); color: #14140f; }
+.hub__mood { padding: 0 var(--gutter) 28px; max-width: calc(760px + 2 * var(--gutter)); }
+.hub__crisis button { color: var(--r-sand); font-weight: 800; text-decoration: underline; }
