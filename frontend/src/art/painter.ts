@@ -86,16 +86,24 @@ function makeField(pattern: Pattern, rnd: () => number, aspect: number) {
         return Math.pow(Math.max(0, v / 2), 2.5) * Math.exp(-(d1 + d2) * 0.35);
       };
     case "wave":
-    default:
+    default: {
+      // Stacked waveforms; line count, spacing, tilt and detune vary per title.
+      const lines = 2 + Math.floor(rnd() * 5);
+      const spacing = 0.12 + rnd() * 0.16;
+      const tilt = (rnd() - 0.5) * 0.5;
+      const detune = 0.6 + rnd() * 1.6;
+      const amp = 0.06 + rnd() * 0.14;
+      const width = 25 + rnd() * 40;
       return (x: number, y: number) => {
         let acc = 0;
-        for (let i = 0; i < 4; i++) {
-          const yy = y - (i - 1.5) * 0.22;
-          const curve = Math.sin(x * (freq * 0.18 + i) + i * 1.7) * 0.12;
-          acc += Math.exp(-Math.abs(yy - curve) * 40);
+        for (let i = 0; i < lines; i++) {
+          const yy = y - (i - (lines - 1) / 2) * spacing - x * tilt;
+          const curve = Math.sin(x * (freq * 0.18 + i * detune) + i * 1.7) * amp * (1 + 0.4 * Math.sin(x * 2 + i));
+          acc += Math.exp(-Math.abs(yy - curve) * width);
         }
         return Math.min(1, acc);
       };
+    }
   }
 }
 

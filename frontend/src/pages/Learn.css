@@ -1,0 +1,52 @@
+.learn__head { padding: 0 var(--gutter); margin-bottom: 26px; max-width: 760px; }
+.learn__head p { color: var(--text-2); }
+.learn__lead {
+  margin: 0 var(--gutter); position: relative; display: grid; grid-template-columns: 1.4fr 1fr; gap: 0;
+  border-radius: var(--radius-lg); overflow: hidden; background: var(--bg-raised); border: 1px solid var(--line);
+  transition: transform var(--t-med) var(--ease), border-color var(--t-fast);
+}
+.learn__lead:hover, .learn__lead:focus-visible { transform: scale(1.01); border-color: rgba(255, 255, 255, 0.3); }
+.learn__lead .tile__art { border-radius: 0; }
+.learn__lead-text { padding: clamp(18px, 3vw, 40px); display: grid; gap: 12px; align-content: center; }
+.learn__lead-text h2 { font-size: clamp(1.5rem, 2.6vw, 2.4rem); font-weight: 900; letter-spacing: -0.02em; line-height: 1.05; }
+.learn__lead-text p { color: var(--text-2); }
+
+.bands { margin-top: 40px; }
+.bands .rail__title { padding: 0 var(--gutter); margin-bottom: 12px; }
+.bands__list { list-style: none; margin: 0; padding: 0 var(--gutter); display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--rail-gap); }
+.bands__item a { position: relative; display: grid; gap: 2px; padding: 16px; border-radius: var(--radius-lg); background: var(--bg-raised); border: 1px solid var(--line); overflow: hidden; height: 100%; transition: transform var(--t-med) var(--ease); }
+.bands__item a:hover, .bands__item a:focus-visible { transform: translateY(-3px); }
+.bands__bar { position: absolute; left: 0; right: 0; top: 0; height: 4px; }
+.band-delta .bands__bar { background: #5b6cff; } .band-theta .bands__bar { background: #a46cff; } .band-alpha .bands__bar { background: #19e3c4; }
+.band-beta .bands__bar { background: #ffd166; } .band-gamma .bands__bar { background: #ff7a8a; }
+.bands__item strong { font-size: 1.15rem; font-weight: 900; }
+.bands__hz { font-weight: 700; color: var(--text-2); font-size: var(--fs-small); }
+.bands__desc { color: var(--text-3); font-size: var(--fs-small); }
+
+.learn__grid-wrap { margin-top: 40px; }
+.learn__grid-wrap .rail__title { padding: 0 var(--gutter); margin-bottom: 12px; }
+.learn__grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr)); gap: 26px var(--rail-gap); padding: 0 var(--gutter); }
+.article-card { display: grid; gap: 6px; }
+.article-card .tile__art { border-radius: var(--radius); transition: transform var(--t-med) var(--ease); }
+.article-card:hover .tile__art, .article-card:focus-visible .tile__art { transform: scale(1.03); }
+.article-card__meta { margin-top: 6px; font-size: var(--fs-tiny); font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent-2); }
+.article-card h3 { font-size: 1.15rem; font-weight: 800; }
+.article-card p { color: var(--text-2); font-size: var(--fs-small); }
+
+.article__hero { position: relative; isolation: isolate; min-height: min(56vh, 560px); display: flex; align-items: flex-end; }
+.article__hero img { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; animation: art-in 600ms var(--ease) both; }
+.article__scrim { position: absolute; inset: 0; z-index: -1; background: linear-gradient(0deg, #000 5%, rgba(0, 0, 0, 0.55) 55%, rgba(0, 0, 0, 0.3)); }
+.article__head { padding: 0 var(--gutter) 30px; max-width: 900px; display: grid; gap: 10px; }
+.article__crumb { font-weight: 800; color: var(--accent-2); font-size: var(--fs-small); }
+.article__head h1 { font-size: clamp(2rem, 4.4vw, 3.6rem); font-weight: 900; letter-spacing: -0.03em; line-height: 1.02; }
+.article__dek { font-size: clamp(1.05rem, 1.4vw, 1.25rem); color: var(--text-2); }
+.article__meta { color: var(--text-3); font-size: var(--fs-small); font-weight: 700; }
+.article__body { padding: 10px var(--gutter) 0; max-width: calc(720px + 2 * var(--gutter)); display: grid; gap: 18px; font-size: 1.08rem; line-height: 1.7; color: rgba(255, 255, 255, 0.86); }
+.article__body h2 { font-size: 1.4rem; font-weight: 800; color: #fff; margin-top: 14px; line-height: 1.25; }
+.article__note { margin-top: 20px; padding: 20px; border-radius: 14px; background: var(--bg-raised); border: 1px solid var(--line); display: grid; gap: 12px; font-size: var(--fs-small); line-height: 1.5; }
+.article__note .safety-list { grid-template-columns: 1fr; }
+
+@media (max-width: 860px) {
+  .learn__lead { grid-template-columns: 1fr; }
+  .bands__list { grid-template-columns: repeat(5, minmax(150px, 1fr)); overflow-x: auto; scrollbar-width: none; }
+}

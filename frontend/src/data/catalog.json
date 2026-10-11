@@ -26,7 +26,7 @@
    "featured": true,
    "topRank": 1,
    "art": {
-    "hue": 220,
+    "hue": 218,
     "pattern": "rings"
    }
   },
@@ -55,7 +55,7 @@
    "featured": false,
    "topRank": 4,
    "art": {
-    "hue": 256,
+    "hue": 240,
     "pattern": "rings"
    }
   },
@@ -84,7 +84,7 @@
    "featured": false,
    "topRank": null,
    "art": {
-    "hue": 226,
+    "hue": 242,
     "pattern": "rosette"
    }
   },
@@ -114,7 +114,7 @@
    "featured": false,
    "topRank": null,
    "art": {
-    "hue": 227,
+    "hue": 256,
     "pattern": "rosette"
    }
   },
@@ -143,7 +143,7 @@
    "featured": false,
    "topRank": null,
    "art": {
-    "hue": 247,
+    "hue": 217,
     "pattern": "chladni"
    }
   },
@@ -172,7 +172,7 @@
    "featured": false,
    "topRank": null,
    "art": {
-    "hue": 258,
+    "hue": 214,
     "pattern": "rosette"
    }
   },
@@ -201,7 +201,7 @@
    "featured": true,
    "topRank": null,
    "art": {
-    "hue": 246,
+    "hue": 214,
     "pattern": "wave"
    }
   },
@@ -230,7 +230,7 @@
    "featured": false,
    "topRank": null,
    "art": {
-    "hue": 224,
+    "hue": 208,
     "pattern": "rosette"
    }
   },
@@ -259,7 +259,7 @@
    "featured": false,
    "topRank": 7,
    "art": {
-    "hue": 233,
+    "hue": 248,
     "pattern": "rosette"
    }
   },
@@ -288,7 +288,7 @@
    "featured": false,
    "topRank": null,
    "art": {
-    "hue": 239,
+    "hue": 238,
     "pattern": "wave"
    }
   },
@@ -317,7 +317,7 @@
    "featured": false,
    "topRank": null,
    "art": {
-    "hue": 238,
+    "hue": 242,
     "pattern": "wave"
    }
   },
@@ -346,7 +346,7 @@
    "featured": false,
    "topRank": 9,
    "art": {
-    "hue": 242,
+    "hue": 220,
     "pattern": "rings"
    }
   },
@@ -375,7 +375,7 @@
    "featured": true,
    "topRank": 3,
    "art": {
-    "hue": 263,
+    "hue": 261,
     "pattern": "rosette"
    }
   },
@@ -404,7 +404,7 @@
    "featured": false,
    "topRank": null,
    "art": {
-    "hue": 276,
+    "hue": 263,
     "pattern": "rosette"
    }
   },
@@ -433,7 +433,7 @@
    "featured": false,
    "topRank": null,
    "art": {
-    "hue": 294,
+    "hue": 276,
     "pattern": "rosette"
    }
   },
@@ -462,7 +462,7 @@
    "featured": false,
    "topRank": null,
    "art": {
-    "hue": 296,
+    "hue": 277,
     "pattern": "rosette"
    }
   },
@@ -491,7 +491,7 @@
    "featured": false,
    "topRank": null,
    "art": {
-    "hue": 269,
+    "hue": 305,
     "pattern": "rings"
    }
   },
@@ -520,7 +520,7 @@
    "featured": false,
    "topRank": 6,
    "art": {
-    "hue": 290,
+    "hue": 253,
     "pattern": "wave"
    }
   },
@@ -549,7 +549,7 @@
    "featured": true,
    "topRank": null,
    "art": {
-    "hue": 265,
+    "hue": 275,
     "pattern": "wave"
    }
   },
@@ -578,7 +578,7 @@
    "featured": false,
    "topRank": null,
    "art": {
-    "hue": 288,
+    "hue": 282,
     "pattern": "rings"
    }
   },
@@ -607,7 +607,7 @@
    "featured": false,
    "topRank": null,
    "art": {
-    "hue": 273,
+    "hue": 277,
     "pattern": "wave"
    }
   },
@@ -636,7 +636,7 @@
    "featured": false,
    "topRank": null,
    "art": {
-    "hue": 276,
+    "hue": 255,
     "pattern": "chladni"
    }
   },
@@ -665,7 +665,7 @@
    "featured": false,
    "topRank": null,
    "art": {
-    "hue": 273,
+    "hue": 259,
     "pattern": "wave"
    }
   },
@@ -694,7 +694,7 @@
    "featured": false,
    "topRank": null,
    "art": {
-    "hue": 275,
+    "hue": 262,
     "pattern": "wave"
    }
   },
@@ -723,7 +723,7 @@
    "featured": false,
    "topRank": null,
    "art": {
-    "hue": 291,
+    "hue": 308,
     "pattern": "rings"
    }
   },
@@ -752,7 +752,7 @@
    "featured": false,
    "topRank": null,
    "art": {
-    "hue": 294,
+    "hue": 298,
     "pattern": "wave"
    }
   },
@@ -781,7 +781,7 @@
    "featured": true,
    "topRank": 2,
    "art": {
-    "hue": 152,
+    "hue": 124,
     "pattern": "rosette"
    }
   },
@@ -810,7 +810,7 @@
    "featured": false,
    "topRank": 8,
    "art": {
-    "hue": 139,
+    "hue": 124,
     "pattern": "wave"
    }
   },
@@ -839,7 +839,7 @@
    "featured": false,
    "topRank": null,
    "art": {
-    "hue": 152,
+    "hue": 137,
     "pattern": "rings"
    }
   },
@@ -869,7 +869,7 @@
    "featured": false,
    "topRank": null,
    "art": {
-    "hue": 157,
+    "hue": 169,
     "pattern": "wave"
    }
   },
@@ -898,7 +898,7 @@
    "featured": false,
    "topRank": null,
    "art": {
-    "hue": 157,
+    "hue": 147,
     "pattern": "rosette"
    }
   },
@@ -927,7 +927,7 @@
    "featured": false,
    "topRank": null,
    "art": {
-    "hue": 146,
+    "hue": 172,
     "pattern": "rosette"
    }
   },
@@ -955,7 +955,7 @@
    "featured": false,
    "topRank": null,
    "art": {
-    "hue": 135,
+    "hue": 177,
     "pattern": "chladni"
    }
   },
@@ -984,7 +984,7 @@
    "featured": false,
    "topRank": null,
    "art": {
-    "hue": 158,
+    "hue": 159,
     "pattern": "wave"
    }
   },
@@ -1013,7 +1013,7 @@
    "featured": false,
    "topRank": null,
    "art": {
-    "hue": 134,
+    "hue": 159,
     "pattern": "rings"
    }
   },
@@ -1042,7 +1042,7 @@
    "featured": false,
    "topRank": null,
    "art": {
-    "hue": 165,
+    "hue": 129,
     "pattern": "rosette"
    }
   },
@@ -1071,7 +1071,7 @@
    "featured": false,
    "topRank": 10,
    "art": {
-    "hue": 150,
+    "hue": 170,
     "pattern": "rings"
    }
   },
@@ -1100,7 +1100,7 @@
    "featured": false,
    "topRank": null,
    "art": {
-    "hue": 147,
+    "hue": 172,
     "pattern": "rings"
    }
   },
@@ -1129,7 +1129,7 @@
    "featured": true,
    "topRank": 5,
    "art": {
-    "hue": 203,
+    "hue": 213,
     "pattern": "rings"
    }
   },
@@ -1158,7 +1158,7 @@
    "featured": false,
    "topRank": null,
    "art": {
-    "hue": 171,
+    "hue": 197,
     "pattern": "rosette"
    }
   },
@@ -1188,7 +1188,7 @@
    "featured": false,
    "topRank": null,
    "art": {
-    "hue": 181,
+    "hue": 161,
     "pattern": "rings"
    }
   },
@@ -1217,7 +1217,7 @@
    "featured": false,
    "topRank": null,
    "art": {
-    "hue": 178,
+    "hue": 179,
     "pattern": "rings"
    }
   },
@@ -1246,7 +1246,7 @@
    "featured": false,
    "topRank": null,
    "art": {
-    "hue": 193,
+    "hue": 203,
     "pattern": "rosette"
    }
   },
@@ -1275,7 +1275,7 @@
    "featured": false,
    "topRank": null,
    "art": {
-    "hue": 175,
+    "hue": 163,
     "pattern": "rosette"
    }
   },
@@ -1304,7 +1304,7 @@
    "featured": false,
    "topRank": null,
    "art": {
-    "hue": 195,
+    "hue": 206,
     "pattern": "chladni"
    }
   },
@@ -1333,7 +1333,7 @@
    "featured": false,
    "topRank": null,
    "art": {
-    "hue": 187,
+    "hue": 176,
     "pattern": "chladni"
    }
   },
@@ -1362,7 +1362,7 @@
    "featured": false,
    "topRank": null,
    "art": {
-    "hue": 168,
+    "hue": 202,
     "pattern": "chladni"
    }
   },
@@ -1391,7 +1391,7 @@
    "featured": false,
    "topRank": null,
    "art": {
-    "hue": 182,
+    "hue": 201,
     "pattern": "rosette"
    }
   },
@@ -1420,7 +1420,7 @@
    "featured": false,
    "topRank": null,
    "art": {
-    "hue": 179,
+    "hue": 210,
     "pattern": "chladni"
    }
   },
@@ -1449,7 +1449,7 @@
    "featured": false,
    "topRank": null,
    "art": {
-    "hue": 179,
+    "hue": 211,
     "pattern": "rosette"
    }
   },
@@ -1478,7 +1478,7 @@
    "featured": false,
    "topRank": null,
    "art": {
-    "hue": 190,
+    "hue": 187,
     "pattern": "wave"
    }
   },
@@ -1508,7 +1508,7 @@
    "featured": true,
    "topRank": null,
    "art": {
-    "hue": 35,
+    "hue": 44,
     "pattern": "wave"
    }
   },
@@ -1537,7 +1537,7 @@
    "featured": false,
    "topRank": null,
    "art": {
-    "hue": 33,
+    "hue": 28,
     "pattern": "rings"
    }
   },
@@ -1565,7 +1565,7 @@
    "featured": false,
    "topRank": null,
    "art": {
-    "hue": 44,
+    "hue": 20,
     "pattern": "chladni"
    }
   },
@@ -1595,7 +1595,7 @@
    "featured": false,
    "topRank": null,
    "art": {
-    "hue": 39,
+    "hue": 20,
     "pattern": "wave"
    }
   },
@@ -1624,7 +1624,7 @@
    "featured": false,
    "topRank": null,
    "art": {
-    "hue": 42,
+    "hue": 11,
     "pattern": "wave"
    }
   },
@@ -1652,7 +1652,7 @@
    "featured": false,
    "topRank": null,
    "art": {
-    "hue": 22,
+    "hue": 49,
     "pattern": "wave"
    }
   },
@@ -1681,7 +1681,7 @@
    "featured": false,
    "topRank": null,
    "art": {
-    "hue": 35,
+    "hue": 15,
     "pattern": "rings"
    }
   },
@@ -1710,7 +1710,7 @@
    "featured": false,
    "topRank": null,
    "art": {
-    "hue": 8,
+    "hue": 38,
     "pattern": "rings"
    }
   },
@@ -1739,7 +1739,7 @@
    "featured": false,
    "topRank": null,
    "art": {
-    "hue": 8,
+    "hue": 6,
     "pattern": "rosette"
    }
   },
@@ -1768,7 +1768,7 @@
    "featured": false,
    "topRank": null,
    "art": {
-    "hue": 44,
+    "hue": 13,
     "pattern": "rosette"
    }
   },
@@ -1829,7 +1829,7 @@
    "featured": true,
    "topRank": null,
    "art": {
-    "hue": 301,
+    "hue": 302,
     "pattern": "interference"
    }
   },
@@ -1890,7 +1890,7 @@
    "featured": false,
    "topRank": null,
    "art": {
-    "hue": 272,
+    "hue": 288,
     "pattern": "interference"
    }
   },
@@ -1956,7 +1956,7 @@
    "featured": false,
    "topRank": null,
    "art": {
-    "hue": 292,
+    "hue": 258,
     "pattern": "interference"
    }
   },
@@ -2012,7 +2012,7 @@
    "featured": false,
    "topRank": null,
    "art": {
-    "hue": 135,
+    "hue": 137,
     "pattern": "interference"
    }
   },
@@ -2073,7 +2073,7 @@
    "featured": true,
    "topRank": null,
    "art": {
-    "hue": 257,
+    "hue": 256,
     "pattern": "interference"
    }
   },
@@ -2129,7 +2129,7 @@
    "featured": false,
    "topRank": null,
    "art": {
-    "hue": 34,
+    "hue": 0,
     "pattern": "interference"
    }
   },
@@ -2195,7 +2195,7 @@
    "featured": false,
    "topRank": null,
    "art": {
-    "hue": 288,
+    "hue": 280,
     "pattern": "interference"
    }
   },
@@ -2251,7 +2251,7 @@
    "featured": false,
    "topRank": null,
    "art": {
-    "hue": 178,
+    "hue": 217,
     "pattern": "interference"
    }
   },
@@ -2363,7 +2363,7 @@
     }
    ],
    "art": {
-    "hue": 190,
+    "hue": 194,
     "pattern": "wave"
    }
   },
@@ -2442,7 +2442,7 @@
     }
    ],
    "art": {
-    "hue": 214,
+    "hue": 178,
     "pattern": "wave"
    }
   },
@@ -2514,7 +2514,7 @@
     }
    ],
    "art": {
-    "hue": 181,
+    "hue": 207,
     "pattern": "rosette"
    }
   },
@@ -2586,7 +2586,7 @@
     }
    ],
    "art": {
-    "hue": 222,
+    "hue": 235,
     "pattern": "rings"
    }
   },
@@ -2784,7 +2784,7 @@
     }
    ],
    "art": {
-    "hue": 337,
+    "hue": 308,
     "pattern": "rosette"
    }
   },
@@ -2896,7 +2896,7 @@
     }
    ],
    "art": {
-    "hue": 214,
+    "hue": 207,
     "pattern": "rosette"
    }
   },
@@ -2968,7 +2968,7 @@
     }
    ],
    "art": {
-    "hue": 308,
+    "hue": 300,
     "pattern": "rosette"
    }
   },
@@ -3073,7 +3073,7 @@
     }
    ],
    "art": {
-    "hue": 237,
+    "hue": 257,
     "pattern": "wave"
    }
   },
@@ -3145,7 +3145,7 @@
     }
    ],
    "art": {
-    "hue": 235,
+    "hue": 248,
     "pattern": "rosette"
    }
   },
@@ -3217,7 +3217,7 @@
     }
    ],
    "art": {
-    "hue": 179,
+    "hue": 186,
     "pattern": "chladni"
    }
   },
@@ -3289,7 +3289,7 @@
     }
    ],
    "art": {
-    "hue": 337,
+    "hue": 345,
     "pattern": "rosette"
    }
   },
@@ -3361,7 +3361,7 @@
     }
    ],
    "art": {
-    "hue": 59,
+    "hue": 31,
     "pattern": "wave"
    }
   },
@@ -3433,7 +3433,7 @@
     }
    ],
    "art": {
-    "hue": 170,
+    "hue": 144,
     "pattern": "chladni"
    }
   },
@@ -3498,7 +3498,7 @@
     }
    ],
    "art": {
-    "hue": 152,
+    "hue": 136,
     "pattern": "rosette"
    }
   },
@@ -3570,7 +3570,7 @@
     }
    ],
    "art": {
-    "hue": 206,
+    "hue": 169,
     "pattern": "rosette"
    }
   },
@@ -3635,7 +3635,7 @@
     }
    ],
    "art": {
-    "hue": 196,
+    "hue": 182,
     "pattern": "chladni"
    }
   },
@@ -3700,7 +3700,7 @@
     }
    ],
    "art": {
-    "hue": 191,
+    "hue": 180,
     "pattern": "rings"
    }
   },
@@ -3765,7 +3765,7 @@
     }
    ],
    "art": {
-    "hue": 204,
+    "hue": 191,
     "pattern": "rosette"
    }
   },
@@ -3870,7 +3870,7 @@
     }
    ],
    "art": {
-    "hue": 316,
+    "hue": 350,
     "pattern": "wave"
    }
   },
@@ -3949,7 +3949,7 @@
     }
    ],
    "art": {
-    "hue": 208,
+    "hue": 197,
     "pattern": "rings"
    }
   },
@@ -4014,7 +4014,7 @@
     }
    ],
    "art": {
-    "hue": 32,
+    "hue": 40,
     "pattern": "chladni"
    }
   }

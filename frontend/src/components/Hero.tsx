@@ -108,9 +108,11 @@ export function Hero({ titles }: { titles: Title[] }) {
             <div className="hero__actions">
               <PlayButton title={t} />
               <FavoriteButton title={t} />
-              <Link to={`/title/${t.id}`} className="icon-btn" aria-label={`More about ${t.name}`}>
-                <Icon name="info" />
-              </Link>
+              {!t.comingSoon && (
+                <Link to={`/title/${t.id}`} className="icon-btn" aria-label={`More about ${t.name}`}>
+                  <Icon name="info" />
+                </Link>
+              )}
             </div>
           </motion.div>
         </AnimatePresence>

@@ -93,7 +93,7 @@ export default function Build() {
             <input type="range" min={0.5} max={40} step={0.1} value={beat} onChange={(e) => update(carrier, +e.target.value)} aria-valuetext={formatHz(beat)} />
             <output>{formatHz(beat)}</output>
           </label>
-          <div className="build__bands" aria-hidden="true">
+          <div className="build__bands" aria-hidden="true" style={{ gridTemplateColumns: "3.5fr 4fr 5fr 17fr 10fr" }}>
             {(["delta", "theta", "alpha", "beta", "gamma"] as const).map((b) => <span key={b} className={b === band ? "is-on" : ""}>{BAND_LABEL[b]}</span>)}
           </div>
 

@@ -53,7 +53,12 @@ interface PlayerState {
 
 export const audioElement: HTMLAudioElement | null =
   typeof document !== "undefined" ? Object.assign(document.createElement("audio"), { autoplay: false }) : null;
-if (audioElement) audioElement.setAttribute("playsinline", "");
+if (audioElement) {
+  // Attached (hidden) so mobile browsers treat it as real media playback.
+  audioElement.setAttribute("playsinline", "");
+  audioElement.hidden = true;
+  document.body.appendChild(audioElement);
+}
 
 export const engine = new BinauralEngine(undefined, { mediaElement: audioElement });
 
@@ -165,9 +170,9 @@ export const usePlayer = create<PlayerState>()(
           beat: settings.beat,
           stageIndex: -1,
         });
-        lastSaved = elapsed;
         syncStage(true);
         startClock();
+        saveProgress(); // shows up in Continue Listening right away
       };
 
       return {

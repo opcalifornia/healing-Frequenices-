@@ -50,7 +50,7 @@ def _h(s: str) -> int:
 
 def _art(tid: str, base_hue: int, pattern: str | None = None) -> dict[str, Any]:
     h = _h(tid)
-    return {"hue": (base_hue + (h % 41) - 20) % 360, "pattern": pattern or PATTERNS[h % len(PATTERNS)]}
+    return {"hue": (base_hue + (h % 61) - 30) % 360, "pattern": pattern or PATTERNS[h % len(PATTERNS)]}
 
 
 def build_titles() -> list[dict[str, Any]]:
