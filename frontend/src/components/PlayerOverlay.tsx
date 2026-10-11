@@ -43,7 +43,7 @@ function Mixer() {
         <div className="layer__row">
           <span className="slider__label">Noise</span>
           <div className="seg" role="radiogroup" aria-label="Noise color">
-            {([null, "pink", "brown"] as Array<NoiseColor | null>).map((c) => (
+            {([null, "pink", "brown", "surf"] as Array<NoiseColor | null>).map((c) => (
               <button key={String(c)} role="radio" aria-checked={noise === c} className={noise === c ? "is-on" : ""} onClick={() => setNoise(c)}>
                 {c ? c[0].toUpperCase() + c.slice(1) : "Off"}
               </button>

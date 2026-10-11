@@ -69,8 +69,8 @@ class CustomSessionIn(BaseModel):
     @field_validator("noise")
     @classmethod
     def check_noise(cls, v: str | None) -> str | None:
-        if v not in (None, "pink", "brown"):
-            raise ValueError("noise must be pink, brown or null")
+        if v not in (None, "pink", "brown", "surf"):
+            raise ValueError("noise must be pink, brown, surf or null")
         return v
 
     @field_validator("solfeggio")

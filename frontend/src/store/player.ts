@@ -93,6 +93,7 @@ export const usePlayer = create<PlayerState>()(
           noise: s.noise,
           solfeggio: s.solfeggio,
           isochronic: s.isochronic,
+          pairs: t.pairs,
           mix: s.mix,
           volume: s.volume,
         };

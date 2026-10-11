@@ -87,7 +87,7 @@ export class FakeContext {
     return m;
   }
   createBiquadFilter() {
-    return Object.assign(new FakeNode("biquad", this), { type: "lowpass", frequency: new FakeParam(350) });
+    return Object.assign(new FakeNode("biquad", this), { type: "lowpass", frequency: new FakeParam(350), Q: new FakeParam(1) });
   }
   createBuffer(channels: number, length: number, sampleRate: number) {
     const data = Array.from({ length: channels }, () => new Float32Array(length));

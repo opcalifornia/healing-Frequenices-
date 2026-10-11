@@ -1,5 +1,9 @@
 """Audio sessions and Deep Sync programs.
 
+Noise beds: "pink", "brown", or "surf" (brown noise shaped into slow ocean
+swells). Programs may add "pairs": extra (carrier, beat, level) binaural pairs
+layered under the main one.
+
 Every session is generated live in the listener's browser from these numbers:
   carrier  - tone in the left ear (Hz)
   beat     - offset added for the right ear (Hz); the perceived binaural beat
@@ -273,18 +277,29 @@ SESSIONS = [
 # step through brainwave bands over time. Stage `at` is minutes from the start.
 PROGRAMS = [
     {
+        "id": "deep-sync-surf", "name": "Deep Sync: Surf Threshold", "goal": "meditate", "carrier": 100,
+        "minutes": 30, "noise": "surf", "band": "theta",
+        "tagline": "Ocean surf and layered tones. No voice, no music.",
+        "description": "A tones-only Deep Sync program in the classic long-form style: slow ocean surf with several binaural beats layered at once. The main beat walks from alpha down to the theta border and holds there, while a low 4 Hz layer and a soft 1.5 Hz layer sit underneath the whole time. Generated live in your browser.",
+        "pairs": [(150, 4, 0.45), (200, 1.5, 0.3)],
+        "stages": [(0, 10, "Settle"), (4, 8, "Soften"), (9, 6, "Descend"), (15, 4, "Threshold"), (25, 7, "Rise"), (28, 10, "Return")],
+        "flags": {"featured": True, "isNew": True, "topRank": None},
+    },
+    {
         "id": "deep-sync-1", "name": "Deep Sync I: Orientation", "goal": "meditate", "carrier": 100,
-        "minutes": 40, "noise": "pink", "band": "theta",
+        "minutes": 40, "noise": "surf", "band": "theta",
         "tagline": "Your first descent, from alpha to theta and back.",
         "description": "An introduction to the Deep Sync format. The beat begins in relaxed alpha, steps down into theta for a long still stretch, then brings you back up gently. Pink noise smooths each change.",
+        "pairs": [(150, 4, 0.45), (200, 1.5, 0.3)],
         "stages": [(0, 10, "Settle"), (5, 8, "Soften"), (12, 6, "Descend"), (20, 4.5, "Stillpoint"), (32, 7, "Rise"), (36, 10, "Return")],
         "flags": {"featured": True, "isNew": True},
     },
     {
         "id": "deep-sync-2", "name": "Deep Sync II: Body Asleep, Mind Awake", "goal": "meditate", "carrier": 110,
-        "minutes": 45, "noise": "brown", "band": "theta",
+        "minutes": 45, "noise": "surf", "band": "theta",
         "tagline": "Let the body rest while attention stays clear.",
         "description": "A guided-style program that lowers the beat to the theta-delta border and holds it there, inviting deep physical rest while you stay lightly aware.",
+        "pairs": [(160, 4, 0.45), (210, 1.5, 0.3)],
         "stages": [(0, 10, "Settle"), (6, 7, "Release"), (14, 5, "Drift"), (22, 4, "Hold"), (36, 6, "Rise"), (41, 10, "Return")],
         "flags": {"topRank": None},
     },
@@ -306,9 +321,10 @@ PROGRAMS = [
     },
     {
         "id": "deep-sync-5", "name": "Deep Sync V: Night Descent", "goal": "sleep", "carrier": 100,
-        "minutes": 60, "noise": "brown", "band": "delta",
+        "minutes": 60, "noise": "surf", "band": "delta",
         "tagline": "A one-way trip down into delta.",
         "description": "Starts in alpha and walks the beat down through theta into slow delta. There is no return stage, so you can drift off as it fades.",
+        "pairs": [(150, 2, 0.4)],
         "stages": [(0, 10, "Settle"), (5, 7, "Slow"), (12, 5, "Drift"), (20, 3, "Delta"), (32, 1.5, "Deep"), (45, 1, "Sleep")],
         "flags": {"featured": True},
     },
@@ -322,9 +338,10 @@ PROGRAMS = [
     },
     {
         "id": "deep-sync-7", "name": "Deep Sync VII: Free Flow", "goal": "meditate", "carrier": 100,
-        "minutes": 60, "noise": "pink", "band": "theta",
+        "minutes": 60, "noise": "surf", "band": "theta",
         "tagline": "An hour that breathes between theta and alpha.",
         "description": "A long, unstructured program that slowly oscillates between theta and alpha, for open-ended meditation or creative reverie.",
+        "pairs": [(150, 4, 0.4), (220, 10, 0.25)],
         "stages": [(0, 10, "Settle"), (6, 6, "Flow"), (16, 8, "Surface"), (24, 5, "Flow"), (36, 7.5, "Surface"), (44, 4.5, "Deep Flow"), (54, 10, "Return")],
         "flags": {},
     },

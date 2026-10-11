@@ -1,6 +1,7 @@
 export type Goal = "sleep" | "meditate" | "focus" | "relax" | "energize";
 export type Band = "delta" | "theta" | "alpha" | "beta" | "gamma";
-export type NoiseColor = "pink" | "brown";
+/** "surf" is brown noise shaped into slow ocean-like swells. */
+export type NoiseColor = "pink" | "brown" | "surf";
 export type TitleKind = "session" | "program" | "show";
 export type ArtShape = "landscape" | "poster";
 
@@ -10,6 +11,13 @@ export interface LayerMix {
   isochronic: number;
   solfeggio: number;
   noise: number;
+}
+
+/** An extra binaural pair layered under the main one. `level` is 0..1 of the main pair. */
+export interface BinauralPair {
+  carrier: number;
+  beat: number;
+  level: number;
 }
 
 /** One step of a long-form Deep Sync program. */
@@ -48,6 +56,8 @@ export interface Title {
   noise?: NoiseColor | null;
   solfeggio?: number | null;
   isochronic?: boolean;
+  /** Additional binaural pairs played at the same time (layered beats). */
+  pairs?: BinauralPair[];
   mix?: Partial<LayerMix>;
   stages?: Stage[];
   tags: string[];

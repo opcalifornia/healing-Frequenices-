@@ -114,3 +114,28 @@ describe("program helpers", () => {
     expect(fadeOutSeconds(3600)).toBe(45);
   });
 });
+
+describe("layered pairs and surf", () => {
+  it("every layered pair is hard-panned with right - left equal to its own beat", () => {
+    const pairs = [
+      { carrier: 150, beat: 4, level: 0.6 },
+      { carrier: 250, beat: 10, level: 0.4 },
+    ];
+    const { ctx } = setup({ carrier: 100, beat: 6, pairs });
+    const routed = ctx.nodes.filter((n): n is FakeOscillator => n instanceof FakeOscillator && earOf(n) !== null);
+    expect(routed).toHaveLength(6);
+    const left = routed.filter((o) => earOf(o) === 0).map((o) => o.frequency.value).sort((a, b) => a - b);
+    const right = routed.filter((o) => earOf(o) === 1).map((o) => o.frequency.value).sort((a, b) => a - b);
+    expect(left).toEqual([100, 150, 250]);
+    expect(right.map((r, i) => +(r - left[i]).toFixed(9))).toEqual([6, 4, 10]);
+  });
+
+  it("surf noise sweeps a lowpass with a slow LFO", () => {
+    const { ctx } = setup({ noise: "surf" });
+    const filters = ctx.nodes.filter((n) => n.kind === "biquad") as Array<FakeNode & { frequency: { inputs: FakeNode[] } }>;
+    const surfFilter = filters.find((f) => f.frequency.inputs.length > 0 && f.frequency.inputs.some((g) => g.connections.length));
+    expect(surfFilter).toBeTruthy();
+    const lfos = ctx.nodes.filter((n): n is FakeOscillator => n instanceof FakeOscillator && n.frequency.value < 0.2);
+    expect(lfos.length).toBeGreaterThanOrEqual(2);
+  });
+});

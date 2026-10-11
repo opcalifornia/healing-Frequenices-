@@ -1772,6 +1772,80 @@
     "pattern": "rosette"
    }
   },
+  "deep-sync-surf": {
+   "id": "deep-sync-surf",
+   "kind": "program",
+   "name": "Deep Sync: Surf Threshold",
+   "tagline": "Ocean surf and layered tones. No voice, no music.",
+   "description": "A tones-only Deep Sync program in the classic long-form style: slow ocean surf with several binaural beats layered at once. The main beat walks from alpha down to the theta border and holds there, while a low 4 Hz layer and a soft 1.5 Hz layer sit underneath the whole time. Generated live in your browser.",
+   "goal": "meditate",
+   "band": "theta",
+   "carrier": 100,
+   "beat": 10,
+   "durationMin": 30,
+   "noise": "surf",
+   "solfeggio": null,
+   "isochronic": false,
+   "stages": [
+    {
+     "at": 0,
+     "beat": 10,
+     "label": "Settle"
+    },
+    {
+     "at": 4,
+     "beat": 8,
+     "label": "Soften"
+    },
+    {
+     "at": 9,
+     "beat": 6,
+     "label": "Descend"
+    },
+    {
+     "at": 15,
+     "beat": 4,
+     "label": "Threshold"
+    },
+    {
+     "at": 25,
+     "beat": 7,
+     "label": "Rise"
+    },
+    {
+     "at": 28,
+     "beat": 10,
+     "label": "Return"
+    }
+   ],
+   "pairs": [
+    {
+     "carrier": 150,
+     "beat": 4,
+     "level": 0.45
+    },
+    {
+     "carrier": 200,
+     "beat": 1.5,
+     "level": 0.3
+    }
+   ],
+   "tags": [
+    "deep sync",
+    "meditate",
+    "program",
+    "ocean surf",
+    "layered beats"
+   ],
+   "year": 2026,
+   "isNew": true,
+   "featured": true,
+   "topRank": null,
+   "art": {
+    "hue": 259,
+    "pattern": "interference"
+   }
+  },
   "deep-sync-1": {
    "id": "deep-sync-1",
    "kind": "program",
@@ -1783,7 +1857,7 @@
    "carrier": 100,
    "beat": 10,
    "durationMin": 40,
-   "noise": "pink",
+   "noise": "surf",
    "solfeggio": null,
    "isochronic": false,
    "stages": [
@@ -1818,11 +1892,24 @@
      "label": "Return"
     }
    ],
+   "pairs": [
+    {
+     "carrier": 150,
+     "beat": 4,
+     "level": 0.45
+    },
+    {
+     "carrier": 200,
+     "beat": 1.5,
+     "level": 0.3
+    }
+   ],
    "tags": [
     "deep sync",
     "meditate",
     "program",
-    "pink noise"
+    "ocean surf",
+    "layered beats"
    ],
    "year": 2026,
    "isNew": true,
@@ -1844,7 +1931,7 @@
    "carrier": 110,
    "beat": 10,
    "durationMin": 45,
-   "noise": "brown",
+   "noise": "surf",
    "solfeggio": null,
    "isochronic": false,
    "stages": [
@@ -1879,11 +1966,24 @@
      "label": "Return"
     }
    ],
+   "pairs": [
+    {
+     "carrier": 160,
+     "beat": 4,
+     "level": 0.45
+    },
+    {
+     "carrier": 210,
+     "beat": 1.5,
+     "level": 0.3
+    }
+   ],
    "tags": [
     "deep sync",
     "meditate",
     "program",
-    "brown noise"
+    "ocean surf",
+    "layered beats"
    ],
    "year": 2026,
    "isNew": false,
@@ -1945,6 +2045,7 @@
      "label": "Return"
     }
    ],
+   "pairs": [],
    "tags": [
     "deep sync",
     "meditate",
@@ -2001,6 +2102,7 @@
      "label": "Recharge"
     }
    ],
+   "pairs": [],
    "tags": [
     "deep sync",
     "relax",
@@ -2027,7 +2129,7 @@
    "carrier": 100,
    "beat": 10,
    "durationMin": 60,
-   "noise": "brown",
+   "noise": "surf",
    "solfeggio": null,
    "isochronic": false,
    "stages": [
@@ -2062,11 +2164,19 @@
      "label": "Sleep"
     }
    ],
+   "pairs": [
+    {
+     "carrier": 150,
+     "beat": 2,
+     "level": 0.4
+    }
+   ],
    "tags": [
     "deep sync",
     "sleep",
     "program",
-    "brown noise"
+    "ocean surf",
+    "layered beats"
    ],
    "year": 2026,
    "isNew": false,
@@ -2118,6 +2228,7 @@
      "label": "Go"
     }
    ],
+   "pairs": [],
    "tags": [
     "deep sync",
     "energize",
@@ -2144,7 +2255,7 @@
    "carrier": 100,
    "beat": 10,
    "durationMin": 60,
-   "noise": "pink",
+   "noise": "surf",
    "solfeggio": null,
    "isochronic": false,
    "stages": [
@@ -2184,11 +2295,24 @@
      "label": "Return"
     }
    ],
+   "pairs": [
+    {
+     "carrier": 150,
+     "beat": 4,
+     "level": 0.4
+    },
+    {
+     "carrier": 220,
+     "beat": 10,
+     "level": 0.25
+    }
+   ],
    "tags": [
     "deep sync",
     "meditate",
     "program",
-    "pink noise"
+    "ocean surf",
+    "layered beats"
    ],
    "year": 2026,
    "isNew": false,
@@ -2240,6 +2364,7 @@
      "label": "Close"
     }
    ],
+   "pairs": [],
    "tags": [
     "deep sync",
     "focus",
@@ -4053,6 +4178,7 @@
       "alpha-shore",
       "deep-work",
       "morning-rise",
+      "deep-sync-surf",
       "deep-sync-1",
       "deep-sync-5"
      ]
@@ -4089,6 +4215,7 @@
       "harmony-639",
       "sprint-25",
       "attention-40",
+      "deep-sync-surf",
       "deep-sync-1",
       "deep-sync-6"
      ]
@@ -4099,6 +4226,7 @@
      "type": "standard",
      "shape": "landscape",
      "titleIds": [
+      "deep-sync-surf",
       "deep-sync-1",
       "deep-sync-2",
       "deep-sync-3",
@@ -4150,6 +4278,7 @@
       "inner-vision",
       "compassion-gamma",
       "yoga-nidra-delta",
+      "deep-sync-surf",
       "deep-sync-1",
       "deep-sync-2",
       "deep-sync-3",
@@ -4275,6 +4404,7 @@
      "type": "standard",
      "shape": "landscape",
      "titleIds": [
+      "deep-sync-surf",
       "deep-sync-1",
       "deep-sync-2",
       "deep-sync-3",
@@ -4327,6 +4457,7 @@
       "lotus-drift",
       "morning-sit",
       "earth-resonance",
+      "deep-sync-surf",
       "deep-sync-1",
       "deep-sync-2",
       "deep-sync-7"
@@ -4435,6 +4566,7 @@
       "inner-vision",
       "compassion-gamma",
       "yoga-nidra-delta",
+      "deep-sync-surf",
       "deep-sync-1",
       "deep-sync-2",
       "deep-sync-3",

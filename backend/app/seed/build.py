@@ -107,7 +107,9 @@ def build_titles() -> list[dict[str, Any]]:
                 "solfeggio": None,
                 "isochronic": False,
                 "stages": stages,
-                "tags": ["deep sync", p["goal"], "program", f"{p['noise']} noise"],
+                "pairs": [{"carrier": c, "beat": b, "level": lv} for c, b, lv in p.get("pairs", [])],
+                "tags": ["deep sync", p["goal"], "program", "ocean surf" if p["noise"] == "surf" else f"{p['noise']} noise"]
+                + (["layered beats"] if p.get("pairs") else []),
                 "year": 2026,
                 "isNew": bool(flags.get("isNew")),
                 "featured": bool(flags.get("featured")),

@@ -49,7 +49,8 @@ function FrequencyFacts({ t }: { t: Title }) {
   if (t.beat && !t.stages) facts.push(["Binaural beat", formatHz(t.beat)]);
   if (t.band) facts.push(["Band", `${BAND_LABEL[t.band]} · ${BAND_RANGE[t.band]}`]);
   if (t.goal) facts.push(["Goal", GOAL_LABEL[t.goal]]);
-  facts.push(["Noise bed", t.noise ? `${t.noise[0].toUpperCase()}${t.noise.slice(1)} noise` : "None"]);
+  facts.push(["Noise bed", t.noise === "surf" ? "Ocean surf" : t.noise ? `${t.noise[0].toUpperCase()}${t.noise.slice(1)} noise` : "None"]);
+  if (t.pairs?.length) facts.push(["Layered pairs", t.pairs.map((p) => `${formatHz(p.carrier)} + ${formatHz(p.beat)}`).join(" · ")]);
   if (t.solfeggio) facts.push(["Solfeggio tone", formatHz(t.solfeggio)]);
   if (t.isochronic) facts.push(["Isochronic pulse", "On"]);
   return (

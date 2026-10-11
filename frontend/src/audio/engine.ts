@@ -1,4 +1,4 @@
-import type { LayerMix, NoiseColor } from "../types";
+import type { BinauralPair, LayerMix, NoiseColor } from "../types";
 import { LOOP_TAIL, makeNoiseBuffer } from "./noise";
 
 /**
@@ -10,6 +10,8 @@ import { LOOP_TAIL, makeNoiseBuffer } from "./noise";
  *   isochronic tone (AM at beat rate) --+--> mixBus -> fader -> volume -> output
  *   solfeggio tone --------------------+
  *   pink/brown noise (looped buffer) --+
+ *   surf: brown noise -> lowpass + gain, both swept by slow LFOs (~11 s swells)
+ *   extra binaural pairs: more carrier/beat pairs into the same merger
  *
  * The ChannelMerger hard-pans each oscillator to one ear, so the two channels
  * differ by exactly the beat frequency. The fader handles click-free fade in/out
@@ -22,9 +24,14 @@ export interface EngineSettings {
   noise: NoiseColor | null;
   solfeggio: number | null;
   isochronic: boolean;
+  /** Extra binaural pairs layered under the main one. */
+  pairs?: BinauralPair[];
   mix: LayerMix;
   volume: number;
 }
+
+/** Ocean-swell timing: one wave roughly every 11 seconds. */
+export const SURF_RATE = 0.09;
 
 export const DEFAULT_MIX: LayerMix = { binaural: 0.8, isochronic: 0.35, solfeggio: 0.3, noise: 0.5 };
 
@@ -50,6 +57,9 @@ interface Graph {
   solfBus: GainNode;
   noiseSrc: AudioBufferSourceNode | null;
   noiseColor: NoiseColor | null;
+  /** Filter, swell gain and LFOs used by the surf layer. */
+  noiseChain: AudioNode[];
+  pairOscs: OscillatorNode[];
   noiseBus: GainNode;
   mixBus: GainNode;
   nodes: AudioNode[];
@@ -144,10 +154,11 @@ export class BinauralEngine {
   }
 
   private noiseBuffer(color: NoiseColor): AudioBuffer {
-    let buf = this.noiseCache.get(color);
+    const base = color === "pink" ? "pink" : "brown"; // surf is shaped brown noise
+    let buf = this.noiseCache.get(base);
     if (!buf) {
-      buf = makeNoiseBuffer(this.ctx!, color);
-      this.noiseCache.set(color, buf);
+      buf = makeNoiseBuffer(this.ctx!, base);
+      this.noiseCache.set(base, buf);
     }
     return buf;
   }
@@ -193,6 +204,23 @@ export class BinauralEngine {
     rightOsc.connect(rightGain);
     rightGain.connect(merger, 0, 1);
 
+    // Layered pairs: each extra pair is also hard-panned, so every pair's
+    // right ear sits exactly its own beat above its left ear.
+    const pairOscs: OscillatorNode[] = [];
+    for (const p of settings.pairs ?? []) {
+      const f = channelFrequencies(p.carrier, p.beat);
+      ([[f.left, 0], [f.right, 1]] as const).forEach(([hz, ear]) => {
+        const osc = track(ctx.createOscillator());
+        osc.type = "sine";
+        osc.frequency.value = hz;
+        const g = track(ctx.createGain());
+        g.gain.value = Math.max(0, Math.min(1, p.level));
+        osc.connect(g);
+        g.connect(merger, 0, ear);
+        pairOscs.push(osc);
+      });
+    }
+
     // Isochronic: a centred tone gated on/off at the beat rate. A square LFO is
     // low-passed so each pulse has soft edges instead of clicks.
     const isoOsc = track(ctx.createOscillator());
@@ -230,11 +258,11 @@ export class BinauralEngine {
     noiseBus.connect(mixBus);
 
     const now = ctx.currentTime;
-    for (const osc of [leftOsc, rightOsc, isoOsc, isoLfo, solfOsc]) osc.start(now);
+    for (const osc of [leftOsc, rightOsc, isoOsc, isoLfo, solfOsc, ...pairOscs]) osc.start(now);
 
     this.graph = {
       leftOsc, rightOsc, binauralBus, isoOsc, isoLfo, isoSmooth, isoBus, solfOsc, solfBus,
-      noiseSrc: null, noiseColor: null, noiseBus, mixBus, nodes,
+      noiseSrc: null, noiseColor: null, noiseChain: [], pairOscs, noiseBus, mixBus, nodes,
     };
     if (settings.noise) this.startNoise(settings.noise);
 
@@ -253,22 +281,60 @@ export class BinauralEngine {
     src.loop = true;
     src.loopStart = 0;
     src.loopEnd = src.buffer.duration - LOOP_TAIL;
-    src.connect(g.noiseBus);
+    if (color === "surf") g.noiseChain = this.buildSurf(src, g.noiseBus);
+    else src.connect(g.noiseBus);
     src.start();
     g.noiseSrc = src;
     g.noiseColor = color;
   }
 
+  /**
+   * Ocean surf: a lowpass whose cutoff and a gain both swell slowly. Two LFOs
+   * at unrelated rates keep consecutive waves from sounding identical.
+   */
+  private buildSurf(src: AudioBufferSourceNode, out: GainNode): AudioNode[] {
+    const ctx = this.ctx!;
+    const filter = ctx.createBiquadFilter();
+    filter.type = "lowpass";
+    filter.frequency.value = 700;
+    filter.Q.value = 0.4;
+    const swell = ctx.createGain();
+    swell.gain.value = 0.62;
+
+    const wave = ctx.createOscillator();
+    wave.frequency.value = SURF_RATE;
+    const waveToCutoff = ctx.createGain();
+    waveToCutoff.gain.value = 480;
+    const waveToLevel = ctx.createGain();
+    waveToLevel.gain.value = 0.28;
+    wave.connect(waveToCutoff).connect(filter.frequency);
+    wave.connect(waveToLevel).connect(swell.gain);
+
+    const drift = ctx.createOscillator();
+    drift.frequency.value = SURF_RATE * 0.37;
+    const driftToLevel = ctx.createGain();
+    driftToLevel.gain.value = 0.1;
+    drift.connect(driftToLevel).connect(swell.gain);
+
+    src.connect(filter).connect(swell).connect(out);
+    wave.start();
+    drift.start();
+    return [filter, swell, wave, waveToCutoff, waveToLevel, drift, driftToLevel];
+  }
+
   private stopNoise(g: Graph | null = this.graph) {
     if (!g?.noiseSrc) return;
-    try {
-      g.noiseSrc.stop();
-      g.noiseSrc.disconnect();
-    } catch {
-      /* already stopped */
+    for (const n of [g.noiseSrc, ...g.noiseChain]) {
+      try {
+        if ("stop" in n && typeof n.stop === "function") (n as AudioScheduledSourceNode).stop();
+        n.disconnect();
+      } catch {
+        /* already stopped */
+      }
     }
     g.noiseSrc = null;
     g.noiseColor = null;
+    g.noiseChain = [];
   }
 
   /** Retune the pair. Both ears ramp together so right - left stays equal to the beat at the target. */
@@ -352,7 +418,7 @@ export class BinauralEngine {
 
   private teardown(g: Graph) {
     this.stopNoise(g);
-    for (const osc of [g.leftOsc, g.rightOsc, g.isoOsc, g.isoLfo, g.solfOsc]) {
+    for (const osc of [g.leftOsc, g.rightOsc, g.isoOsc, g.isoLfo, g.solfOsc, ...g.pairOscs]) {
       try {
         osc.stop();
       } catch {

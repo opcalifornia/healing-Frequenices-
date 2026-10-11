@@ -29,8 +29,13 @@ def validate(titles: list[dict[str, Any]]) -> None:
             errors.append(f"{tid}: band {t['band']} does not match beat {t['beat']}")
         if t.get("solfeggio") and t["solfeggio"] not in SOLFEGGIO:
             errors.append(f"{tid}: {t['solfeggio']} is not a solfeggio tone")
-        if t.get("noise") not in (None, "pink", "brown"):
+        if t.get("noise") not in (None, "pink", "brown", "surf"):
             errors.append(f"{tid}: unknown noise {t['noise']}")
+        for pair in t.get("pairs") or []:
+            if not 100 <= pair["carrier"] <= 400:
+                errors.append(f"{tid}: layered carrier {pair['carrier']} outside 100-400 Hz")
+            if not 0.5 <= pair["beat"] <= 40 or not 0 < pair["level"] <= 1:
+                errors.append(f"{tid}: layered pair {pair} out of range")
         stages = t.get("stages") or []
         for a, b in zip(stages, stages[1:]):
             if b["at"] <= a["at"]:
