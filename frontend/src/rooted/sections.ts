@@ -24,7 +24,7 @@ export const SECTIONS: RootedSection[] = [
   { id: "nourish", name: "Nourish", tagline: "Food, water and a smarter shopping list, by the evidence", to: "/nourish", live: true, size: "wide", c1: "#9ccc65", c2: "#e8b04a" },
   { id: "breathe", name: "Breathe", tagline: "Box, 4-7-8, the physiological sigh and more", to: "/breathe", live: true, size: "tall", c1: "#6ec6ff", c2: "#b3e5fc" },
   { id: "move", name: "Move", tagline: "Walks after meals, yoga, tai chi, qigong, sauna", to: "/move", live: true, size: "sm", c1: "#ff8a65", c2: "#ffcc80" },
-  { id: "combos", name: "Combos", tagline: "Stack breath, sound and habit into one routine", to: "/combos", live: false, size: "sm", c1: "#f06292", c2: "#ffb74d" },
+  { id: "combos", name: "Combos", tagline: "Stack breath, sound and habit into one routine", to: "/combos", live: true, size: "sm", c1: "#f06292", c2: "#ffb74d" },
   { id: "learn", name: "Learn", tagline: "Guides to the brain, sleep and frequency safety", to: "/learn", live: true, size: "wide", c1: "#4db6ac", c2: "#c5e1a5" },
   { id: "spirit", name: "Spirit & Ritual", tagline: "Gratitude, sound baths, stillness", to: "/spirit", live: false, size: "sm", c1: "#b39ddb", c2: "#f8bbd0" },
   { id: "garden", name: "Garden & Apothecary", tagline: "Grow your own herbs and teas, safely", to: "/garden", live: false, size: "sm", c1: "#81c784", c2: "#a1887f" },

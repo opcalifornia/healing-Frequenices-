@@ -13,6 +13,9 @@ evidence rating and a linked source. It has these sections:
   feeds a downloadable shopping list.
 - **Move** (`/move`): follow-along walking, stretching, yoga, tai chi and
   qigong with an animated figure, evidence cards and sauna safety.
+- **Combos** (`/combos`): one-tap guided flows that chain breathing, movement,
+  habits, a written reflection and a closing frequency session. Steps are
+  swapped automatically for someone's health considerations.
 - **Learn** (`/learn`): guides to the brain, sleep and frequency safety.
 - **About you** (`/welcome`, `/about-you`): goals, activity level, daily time
   and optional health considerations. `frontend/src/rooted/plan.ts` turns

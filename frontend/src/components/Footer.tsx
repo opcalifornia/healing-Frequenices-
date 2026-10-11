@@ -1,5 +1,7 @@
 import { APP_NAME } from "../brand";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { RootedLogo } from "./RootedLogo";
+import { inHealing } from "../rooted/sections";
 import { Logo } from "./Logo";
 import { Icon } from "./Icon";
 import "./Footer.css";
@@ -16,6 +18,28 @@ export function SafetyList() {
 }
 
 export function Footer() {
+  const healing = inHealing(useLocation().pathname);
+  if (!healing) {
+    return (
+      <footer className="footer">
+        <div className="footer__top">
+          <RootedLogo />
+          <nav className="footer__links" aria-label="Footer">
+            <Link to="/learn">Learn</Link>
+            <Link to="/learn/safety">Frequencies &amp; your health</Link>
+            <Link to="/about-you">About you &amp; goals</Link>
+            <Link to="/healing">Healing Frequencies</Link>
+          </nav>
+        </div>
+        <p className="footer__fine">
+          {APP_NAME} shares general wellness information based on published research, with the strength of evidence shown. It is not medical advice and
+          is not a substitute for care from a qualified professional. Talk to your doctor before making changes if you have a health condition, are
+          pregnant, or take medicine. In a crisis in the US, call or text 988.
+        </p>
+        <p className="footer__fine">© {new Date().getFullYear()} {APP_NAME}. Your goals, lists and reflections are stored on this device.</p>
+      </footer>
+    );
+  }
   return (
     <footer className="footer">
       <div className="footer__top">

@@ -1,0 +1,62 @@
+.combos { --sec-1: #f8b4d0; --sec-2: #ffcc80; }
+.combos__hero { min-height: min(80vh, 700px); }
+.combos__hero .aurora__b--1 { background: radial-gradient(circle, hsl(var(--h) 70% 55%), transparent 65%); }
+.combos__hero .aurora__b--2 { background: radial-gradient(circle, hsl(var(--h2) 70% 55%), transparent 65%); }
+.combos__chain { position: absolute; right: 6vw; top: 50%; translate: 0 -50%; display: flex; align-items: center; gap: 0; }
+.combos__chain span { display: grid; place-items: center; width: clamp(54px, 6vw, 84px); aspect-ratio: 1; border-radius: 50%; background: rgba(20, 24, 19, 0.6); border: 1.5px solid hsl(var(--h) 70% 75% / 0.6); backdrop-filter: blur(10px); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5); color: #fff; }
+.combos__chain span + span { margin-left: clamp(16px, 2vw, 30px); position: relative; }
+.combos__chain span + span::before { content: ""; position: absolute; right: 100%; width: clamp(16px, 2vw, 30px); height: 2px; background: linear-gradient(90deg, hsl(var(--h) 70% 75% / 0.6), hsl(var(--h2) 70% 75% / 0.6)); }
+@media (max-width: 900px) { .combos__chain { top: 26%; right: auto; left: var(--gutter); opacity: 0.6; } }
+
+.combo-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; perspective: 1200px; }
+.combo { display: flex; flex-direction: column; gap: 6px; min-height: 230px; padding: 22px; border-radius: 22px; overflow: hidden; border: 1px solid var(--r-line);
+  background: radial-gradient(circle at 100% 0%, hsl(var(--h) 65% 50% / 0.32), transparent 60%), radial-gradient(circle at 0% 100%, hsl(var(--h2) 65% 45% / 0.22), transparent 60%), var(--r-surface); }
+.combo h3 { font-size: 1.45rem; font-weight: 900; letter-spacing: -0.02em; }
+.combo p { color: var(--r-text-2); font-size: var(--fs-small); }
+.combo__chain { display: flex; gap: 6px; margin-bottom: 10px; }
+.combo__chain span { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.12); }
+.combo__count { font-size: var(--fs-tiny); font-weight: 800; color: var(--r-sage); }
+.combo-detail__top { background: radial-gradient(circle at 100% 0%, hsl(var(--h) 65% 50% / 0.4), transparent 65%), radial-gradient(circle at 0% 100%, hsl(var(--h2) 65% 45% / 0.25), transparent 60%), var(--r-surface-2); }
+.combo-steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; width: 100%; }
+.combo-steps li { position: relative; display: flex; align-items: center; gap: 14px; padding: 10px 0; }
+.combo-steps li + li::before { content: ""; position: absolute; left: 17px; top: -10px; height: 20px; width: 2px; background: var(--r-line); }
+.combo-steps__icon { position: relative; z-index: 1; flex: none; display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; background: hsl(var(--h) 50% 30%); border: 1px solid hsl(var(--h) 60% 60% / 0.5); }
+.combo-steps small { display: block; font-size: var(--fs-tiny); font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: var(--r-text-3); }
+.combo-steps strong { font-weight: 800; }
+
+.journal { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr)); gap: 12px; }
+.journal__entry { padding: 18px 20px; }
+.journal__day { font-size: var(--fs-tiny); font-weight: 800; color: var(--r-text-3); }
+.journal__entry ul { margin: 8px 0 0; padding-left: 18px; display: grid; gap: 4px; color: var(--r-text-2); }
+
+/* Combo player shell */
+.cp { position: fixed; inset: 0; z-index: 140; display: grid; grid-template-rows: auto 1fr; background: var(--r-bg); overflow: hidden; }
+.cp__bg { position: absolute; inset: 0; background: radial-gradient(circle at 25% 30%, hsl(var(--h) 60% 40% / 0.35), transparent 55%), radial-gradient(circle at 80% 80%, hsl(var(--h2) 60% 40% / 0.28), transparent 55%); }
+.cp__top { position: relative; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 14px; padding: 16px var(--gutter); }
+.cp__steps { list-style: none; margin: 0; padding: 0; display: flex; justify-content: center; gap: 8px; }
+.cp__steps li { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.12); color: var(--r-text-3); transition: background var(--t-med), color var(--t-med), transform var(--t-med); }
+.cp__steps li.is-now { background: var(--r-sand); color: #14140f; transform: scale(1.12); }
+.cp__steps li.is-done { background: var(--r-sage); color: #0d230a; border-color: transparent; }
+.cp__name { font-weight: 800; color: var(--r-text-2); font-size: var(--fs-small); }
+.cp__intro, .cp__stage { position: relative; display: grid; place-items: center; align-content: center; gap: 16px; padding: 0 var(--gutter) 60px; text-align: center; }
+.cp__intro h2 { font-size: clamp(2rem, 6vw, 3.6rem); font-weight: 900; letter-spacing: -0.035em; line-height: 1.02; max-width: 16ch; }
+.cp__intro-bar { display: block; width: 160px; height: 4px; border-radius: 4px; background: var(--r-sand); transform-origin: left; }
+.cp__card { display: grid; justify-items: center; gap: 16px; max-width: 560px; }
+.cp__card--wide { width: min(560px, 100%); }
+.cp__card h2 { font-size: clamp(1.8rem, 5vw, 2.8rem); font-weight: 900; letter-spacing: -0.03em; line-height: 1.05; }
+.cp__card p { color: var(--r-text-2); font-size: 1.05rem; line-height: 1.55; }
+.cp__icon { display: grid; place-items: center; width: 72px; height: 72px; border-radius: 50%; background: hsl(var(--h) 50% 30%); border: 1px solid hsl(var(--h) 60% 65% / 0.5); box-shadow: 0 0 50px hsl(var(--h) 60% 50% / 0.4); }
+.cp__lines { display: grid; gap: 10px; width: 100%; }
+.cp__lines input { height: 52px; padding: 0 18px; border-radius: 14px; background: var(--r-surface); border: 1px solid var(--r-line); font-size: 1.05rem; outline: none; }
+.cp__lines input:focus { border-color: var(--r-sand); }
+.cp__private { font-size: var(--fs-tiny); color: var(--r-text-3); }
+.cp__ground { display: grid; justify-items: center; gap: 6px; }
+.cp__ground .ground__n { grid-row: auto; }
+
+@media (max-width: 1000px) { .combo-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 600px) {
+  .combo-grid { grid-template-columns: minmax(0, 1fr); }
+  .cp__name { display: none; }
+  .cp__top { grid-template-columns: auto 1fr; }
+  .cp__steps li { width: 28px; height: 28px; }
+}

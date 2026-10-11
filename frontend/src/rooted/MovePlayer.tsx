@@ -27,7 +27,7 @@ export function routineSteps(r: Routine, minutes?: number): Step[] {
 
 const fmt = (s: number) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, "0")}`;
 
-export function MovePlayer({ routine: r, minutes, onClose }: { routine: Routine; minutes?: number; onClose(): void }) {
+export function MovePlayer({ routine: r, minutes, onClose, onComplete }: { routine: Routine; minutes?: number; onClose(): void; onComplete?(): void }) {
   const steps = useMemo(() => routineSteps(r, minutes), [r, minutes]);
   const total = steps.reduce((a, s) => a + s.secs, 0);
   const [i, setI] = useState(0);
@@ -61,9 +61,10 @@ export function MovePlayer({ routine: r, minutes, onClose }: { routine: Routine;
   const goTo = useCallback(
     (n: number) => {
       if (n >= steps.length) {
+        log(`move:${r.id}`, (performance.now() - started) / 60000);
+        if (onComplete) return onComplete();
         setDone(true);
         chime("bell", 0.09);
-        log(`move:${r.id}`, (performance.now() - started) / 60000);
         return;
       }
       iRef.current = Math.max(0, n);
@@ -73,7 +74,7 @@ export function MovePlayer({ routine: r, minutes, onClose }: { routine: Routine;
       chime("in");
       navigator.vibrate?.(30);
     },
-    [steps, log, r.id, started],
+    [steps, log, r.id, started, onComplete],
   );
 
   useEffect(() => {

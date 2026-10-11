@@ -17,9 +17,11 @@ interface Props {
   technique: Technique;
   minutes: number;
   onClose(): void;
+  /** Inside a combo: skip the done screen and move on. */
+  onComplete?(): void;
 }
 
-export function BreathPlayer({ technique: t, minutes, onClose }: Props) {
+export function BreathPlayer({ technique: t, minutes, onClose, onComplete }: Props) {
   const reduce = useReducedMotion();
   const plan = useMemo(() => buildPlan(t, minutes), [t, minutes]);
   const total = planSeconds(plan);
@@ -78,10 +80,11 @@ export function BreathPlayer({ technique: t, minutes, onClose }: Props) {
   }, [stage, count, cue, plan]);
 
   const finish = useCallback(() => {
+    log(`breath:${t.id}`, (performance.now() - startedAt.current) / 60000);
+    if (onComplete) return onComplete();
     setStage("done");
     if (soundRef.current) chime("bell", 0.09);
-    log(`breath:${t.id}`, (performance.now() - startedAt.current) / 60000);
-  }, [log, t.id]);
+  }, [log, t.id, onComplete]);
 
   const idxRef = useRef(0);
   const advance = useCallback(() => {
