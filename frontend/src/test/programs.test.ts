@@ -1,6 +1,9 @@
 import { describe, expect, it } from "vitest";
 import { PROGRAMS, safeTechnique } from "../rooted/programs";
 import { TECHNIQUES } from "../rooted/breathContent";
+import { ROUTINES } from "../rooted/moveContent";
+import { pantryById } from "../rooted/pantryContent";
+import { safeRoutine } from "../rooted/programs";
 import { nextDay } from "../store/programs";
 import { flags } from "../store/wellness";
 
@@ -11,6 +14,8 @@ describe("programs", () => {
       for (const d of p.days) for (const b of d.blocks) {
         if (b.type === "breath") expect(TECHNIQUES.some((t) => t.id === b.technique)).toBe(true);
         if (b.type === "quiz") expect(b.answer).toBeLessThan(b.options.length);
+        if (b.type === "move") expect(ROUTINES.some((r) => r.id === b.routine)).toBe(true);
+        if (b.type === "shop") for (const id of b.items) expect(pantryById(id)).toBeTruthy();
       }
     }
   });
@@ -18,6 +23,10 @@ describe("programs", () => {
     expect(safeTechnique("478", flags(["pregnant"]))).toBe("calm");
     expect(safeTechnique("power", flags(["heart"]))).toBe("calm");
     expect(safeTechnique("box", flags([]))).toBe("box");
+  });
+  it("offers seated routines for limited mobility", () => {
+    expect(safeRoutine("yoga", flags(["mobility"]))).toBe("desk");
+    expect(safeRoutine("yoga", flags([]))).toBe("yoga");
   });
   it("finds the next day", () => {
     expect(nextDay(undefined, 7)).toEqual({ index: 0, doneToday: false, finished: false });

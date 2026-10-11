@@ -2,7 +2,10 @@ import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import type { Program } from "./programs";
-import { safeTechnique } from "./programs";
+import { safeRoutine, safeTechnique } from "./programs";
+import { pantryById } from "./pantryContent";
+import { ClockPathway } from "./LightDiagrams";
+import { DigestiveJourney, FiberAtWork, GlucoseChart } from "./NourishDiagrams";
 import { GROUNDING, TECHNIQUES } from "./breathContent";
 import { ROUTINES } from "./moveContent";
 import { BreathPlayer } from "./BreathPlayer";
@@ -14,6 +17,7 @@ import { CrisisNudge } from "./Crisis";
 import { flags, useAbout } from "../store/wellness";
 import { useJournal } from "../store/journal";
 import { usePrograms } from "../store/programs";
+import { GLASS, useNourish, useShoppingList } from "../store/nourish";
 import { Icon } from "../components/Icon";
 
 /** Plays one day of a program, block by block. */
@@ -27,6 +31,10 @@ export function LessonPlayer({ program, day, onClose }: { program: Program; day:
   const [lines, setLines] = useState<string[]>([]);
   const [g, setG] = useState(0);
   const completeDay = usePrograms((s) => s.completeDay);
+  const addItem = useNourish((s) => s.addItem);
+  const addWater = useNourish((s) => s.addWater);
+  const list = useShoppingList();
+  const [added, setAdded] = useState(false);
   const addJournal = useJournal((s) => s.add);
   const b = d.blocks[i];
   const last = day === program.days.length - 1;
@@ -46,6 +54,7 @@ export function LessonPlayer({ program, day, onClose }: { program: Program; day:
     setPick(null);
     setLines([]);
     setG(0);
+    setAdded(false);
     if (i + 1 >= d.blocks.length) {
       completeDay(program.id, day);
       setDone(true);
@@ -57,6 +66,8 @@ export function LessonPlayer({ program, day, onClose }: { program: Program; day:
 
   const techId = b?.type === "breath" ? safeTechnique(b.technique, f) : "";
   const tech = TECHNIQUES.find((t) => t.id === techId);
+  const routineId = b?.type === "move" ? safeRoutine(b.routine, f) : "";
+  const routine = ROUTINES.find((r) => r.id === routineId);
 
   return createPortal(
     <>
@@ -78,7 +89,7 @@ export function LessonPlayer({ program, day, onClose }: { program: Program; day:
                 {last ? <Icon name="sparkle" size={44} /> : <span>{day + 1}</span>}
               </motion.div>
               <h2>{last ? `You finished ${program.title}!` : `Day ${day + 1} complete.`}</h2>
-              <p>{last ? "Seven days of practice. That's a habit forming. Keep your favorite technique close: it's on the Breathe page whenever you need it." : `Come back tomorrow for day ${day + 2}: ${program.days[day + 1].title.toLowerCase()}.`}</p>
+              <p>{last ? `${program.days.length} days of practice. That's a habit forming. Everything you learned stays in the app whenever you need it.` : `Come back tomorrow for day ${day + 2}: ${program.days[day + 1].title.toLowerCase()}.`}</p>
               <button className="btn btn--primary btn--big" onClick={onClose}>{last ? "Finish" : "Done for today"}</button>
             </motion.div>
           ) : (
@@ -91,6 +102,10 @@ export function LessonPlayer({ program, day, onClose }: { program: Program; day:
                   {b.body.map((p) => <p key={p}>{p}</p>)}
                   {b.diagram === "breathing-body" && <BreathingBody />}
                   {b.diagram === "heart-rhythm" && <HeartRhythm />}
+                  {b.diagram === "digestive" && <DigestiveJourney />}
+                  {b.diagram === "fiber" && <FiberAtWork />}
+                  {b.diagram === "glucose" && <GlucoseChart />}
+                  {b.diagram === "light-clock" && <ClockPathway />}
                   <button className="btn btn--primary btn--big" onClick={next}>Continue</button>
                 </div>
               )}
@@ -103,10 +118,11 @@ export function LessonPlayer({ program, day, onClose }: { program: Program; day:
                   <button className="welcome__skip" onClick={next}>Skip this practice</button>
                 </div>
               )}
-              {b.type === "move" && (
+              {b.type === "move" && routine && (
                 <div className="lp__card">
                   <span className="cp__icon"><Icon name="replay" size={28} /></span>
-                  <h2>Practice: {ROUTINES.find((r) => r.id === b.routine)?.name}</h2>
+                  <h2>Practice: {routine.name}</h2>
+                  <p>{b.minutes ?? routine.minutes} minutes. {routine.when}{routineId !== b.routine ? " (Swapped for a seated routine based on your profile.)" : ""}</p>
                   <button className="btn btn--primary btn--big" onClick={() => { unlockChime(); setRunning(true); }}><Icon name="play" size={22} /> Start</button>
                   <button className="welcome__skip" onClick={next}>Skip this practice</button>
                 </div>
@@ -121,6 +137,30 @@ export function LessonPlayer({ program, day, onClose }: { program: Program; day:
                     </motion.div>
                   </AnimatePresence>
                   <button className="btn btn--primary btn--big" onClick={() => (g + 1 < GROUNDING.length ? setG(g + 1) : next())}>{g + 1 < GROUNDING.length ? "Next" : "Done"}</button>
+                </div>
+              )}
+              {b.type === "shop" && (
+                <div className="lp__card">
+                  <span className="cp__icon"><Icon name="bookmark" size={28} /></span>
+                  <span className="rooted__eyebrow">Shopping list</span>
+                  <h2>{b.title}</h2>
+                  <p>{b.body}</p>
+                  <ul className="lp__shop">
+                    {b.items.map((id) => { const it = pantryById(id); if (!it) return null; const on = list.some((l) => l.id === id); return <li key={id} className={on ? "is-on" : ""}><Icon name={on ? "check" : "plus"} size={16} /> {it.name}</li>; })}
+                  </ul>
+                  <button className="btn btn--primary btn--big" onClick={() => { if (!added) { b.items.forEach((id) => { const it = pantryById(id); if (it) addItem({ id: it.id, name: it.name, aisle: it.aisle }); }); setAdded(true); } else next(); }}>
+                    {added ? "Added. Continue" : "Add to my shopping list"}
+                  </button>
+                  {!added && <button className="welcome__skip" onClick={next}>Skip</button>}
+                </div>
+              )}
+              {b.type === "water" && (
+                <div className="lp__card">
+                  <span className="cp__icon"><Icon name="plus" size={28} /></span>
+                  <h2>Drink a glass of water</h2>
+                  <p>Right now, if you can. We'll log 250 ml in your water tracker.</p>
+                  <button className="btn btn--primary btn--big" onClick={() => { addWater(GLASS); next(); }}>Done, log it</button>
+                  <button className="welcome__skip" onClick={next}>Skip</button>
                 </div>
               )}
               {b.type === "quiz" && (
@@ -174,7 +214,7 @@ export function LessonPlayer({ program, day, onClose }: { program: Program; day:
         </AnimatePresence>
       </motion.div>
       {running && b.type === "breath" && tech && <BreathPlayer key={`b${i}`} technique={tech} minutes={b.minutes} onClose={() => setRunning(false)} onComplete={next} />}
-      {running && b.type === "move" && <MovePlayer key={`m${i}`} routine={ROUTINES.find((r) => r.id === b.routine)!} onClose={() => setRunning(false)} onComplete={next} />}
+      {running && b.type === "move" && routine && <MovePlayer key={`m${i}`} routine={routine} minutes={b.minutes} onClose={() => setRunning(false)} onComplete={next} />}
     </>,
     document.body,
   );

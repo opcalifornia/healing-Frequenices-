@@ -8,12 +8,16 @@ import { PlateBuilder, WaterTracker } from "../rooted/NourishTools";
 import { Pantry } from "../rooted/Pantry";
 import { DigestiveJourney, FiberAtWork, GlucoseChart } from "../rooted/NourishDiagrams";
 import { Footer } from "../components/Footer";
+import { ProgramRail } from "../rooted/ProgramRail";
+import "./Breathe.css";
+import "./Programs.css";
 import { flags, useAbout } from "../store/wellness";
 import "../rooted/rooted.css";
 import "./BrainGuide.css";
 import "./Nourish.css";
 
 const TABS = [
+  { id: "programs", label: "Programs" },
   { id: "science", label: "The science" },
   { id: "gut", label: "Inside your gut" },
   { id: "sugar", label: "Blood sugar" },
@@ -117,6 +121,14 @@ export default function Nourish() {
       </header>
 
       <SecTabs tabs={TABS} />
+
+      <section id="programs" className="sec-block">
+        <Reveal className="sec-block__head">
+          <span className="rooted__eyebrow">Programs</span>
+          <h2>A few days to a new habit</h2>
+        </Reveal>
+        <ProgramRail section="nourish" />
+      </section>
 
       <section id="science" className="sec-block">
         <Reveal className="sec-block__head">

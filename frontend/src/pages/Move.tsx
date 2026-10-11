@@ -10,12 +10,15 @@ import { usePracticeLog } from "../store/practice";
 import { todayKey } from "../store/nourish";
 import { flags, useAbout } from "../store/wellness";
 import { Footer } from "../components/Footer";
+import { ProgramRail } from "../rooted/ProgramRail";
+import "./Programs.css";
 import { Icon } from "../components/Icon";
 import "../rooted/rooted.css";
 import "./Breathe.css";
 import "./Move.css";
 
 const TABS = [
+  { id: "programs", label: "Programs" },
   { id: "routines", label: "Routines" },
   { id: "why", label: "Why move" },
   { id: "sauna", label: "Sauna" },
@@ -76,6 +79,14 @@ export default function MovePage() {
       </header>
 
       <SecTabs tabs={TABS} />
+
+      <section id="programs" className="sec-block">
+        <Reveal className="sec-block__head">
+          <span className="rooted__eyebrow">Programs</span>
+          <h2>A few days to a new habit</h2>
+        </Reveal>
+        <ProgramRail section="move" />
+      </section>
 
       <section id="routines" className="sec-block">
         <Reveal className="sec-block__head">
