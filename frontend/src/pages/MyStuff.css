@@ -1,0 +1,15 @@
+.mystuff__sub { padding: 0 var(--gutter); margin: -12px 0 10px; color: var(--text-3); font-weight: 600; }
+.mystuff__section { margin-top: 30px; }
+.mystuff__section > .rail__title { padding: 0 var(--gutter); margin-bottom: 12px; }
+.mystuff__item { display: grid; gap: 6px; }
+.mystuff__item .tile { width: auto; }
+.mystuff__row { display: flex; align-items: center; gap: 4px; color: var(--text-3); font-size: var(--fs-tiny); font-weight: 700; }
+.mystuff__row span { flex: 1; }
+.empty {
+  margin: 0 var(--gutter); display: flex; flex-wrap: wrap; align-items: center; gap: 16px; padding: 22px;
+  border: 1px dashed rgba(255, 255, 255, 0.2); border-radius: var(--radius-lg); color: var(--text-2);
+}
+.empty > div { flex: 1; min-width: 200px; }
+.empty strong { color: #fff; }
+.empty p { font-size: var(--fs-small); }
+.empty svg { color: var(--accent-2); }

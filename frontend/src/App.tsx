@@ -1,0 +1,98 @@
+import { lazy, Suspense, useEffect } from "react";
+import { AnimatePresence } from "framer-motion";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
+import { NavBar } from "./components/NavBar";
+import { useUser } from "./store/user";
+import { useCatalogStore } from "./store/catalog";
+import { MiniPlayer } from "./components/MiniPlayer";
+import { PlayerOverlay } from "./components/PlayerOverlay";
+import { SafetyNotice } from "./components/SafetyNotice";
+import { useMediaSession } from "./hooks/useMediaSession";
+import { usePlayer } from "./store/player";
+import { HoverPreview } from "./components/HoverPreview";
+import Home from "./pages/Home";
+import Profiles from "./pages/Profiles";
+
+const Frequencies = lazy(() => import("./pages/Frequencies"));
+const Shows = lazy(() => import("./pages/Shows"));
+const Learn = lazy(() => import("./pages/Learn"));
+const Article = lazy(() => import("./pages/Article"));
+const MyStuff = lazy(() => import("./pages/MyStuff"));
+const TitleDetail = lazy(() => import("./pages/TitleDetail"));
+const Search = lazy(() => import("./pages/Search"));
+const Build = lazy(() => import("./pages/Build"));
+const Account = lazy(() => import("./pages/Account"));
+const NotFound = lazy(() => import("./pages/NotFound"));
+const Collection = lazy(() => import("./pages/Collection"));
+const BrainGuide = lazy(() => import("./pages/BrainGuide"));
+
+function RequireProfile({ children }: { children: JSX.Element }) {
+  const active = useUser((s) => s.activeProfileId);
+  const location = useLocation();
+  if (!active) return <Navigate to="/profiles" replace state={{ from: location.pathname }} />;
+  return children;
+}
+
+export default function App() {
+  const location = useLocation();
+  const loadCatalog = useCatalogStore((s) => s.load);
+  const refresh = useUser((s) => s.refreshFromServer);
+  const hasTrack = usePlayer((s) => s.current !== null);
+  const onPicker = location.pathname === "/profiles" || location.pathname === "/account";
+  useMediaSession();
+
+  useEffect(() => {
+    loadCatalog();
+    refresh();
+  }, [loadCatalog, refresh]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
+  // The mini player reserves space at the bottom of every page.
+  useEffect(() => {
+    document.documentElement.style.setProperty("--mini-h", hasTrack ? "72px" : "0px");
+  }, [hasTrack]);
+
+  return (
+    <>
+      <a
+        href="#main"
+        className="skip-link"
+        onClick={(e) => {
+          // Works with both browser and hash routing.
+          e.preventDefault();
+          document.getElementById("main")?.focus();
+        }}
+      >
+        Skip to content
+      </a>
+      {!onPicker && <NavBar />}
+      <Suspense fallback={<div className="page" />}>
+        <AnimatePresence mode="wait" initial={false}>
+          <Routes location={location} key={location.pathname}>
+            <Route path="/profiles" element={<Profiles />} />
+            <Route path="/account" element={<Account />} />
+            <Route path="/" element={<RequireProfile><Home /></RequireProfile>} />
+            <Route path="/frequencies" element={<RequireProfile><Frequencies /></RequireProfile>} />
+            <Route path="/shows" element={<RequireProfile><Shows /></RequireProfile>} />
+            <Route path="/learn" element={<RequireProfile><Learn /></RequireProfile>} />
+            <Route path="/learn/brain" element={<RequireProfile><BrainGuide /></RequireProfile>} />
+            <Route path="/learn/:slug" element={<RequireProfile><Article /></RequireProfile>} />
+            <Route path="/my-stuff" element={<RequireProfile><MyStuff /></RequireProfile>} />
+            <Route path="/title/:id" element={<RequireProfile><TitleDetail /></RequireProfile>} />
+            <Route path="/collection/:sectionId/:railId" element={<RequireProfile><Collection /></RequireProfile>} />
+            <Route path="/search" element={<RequireProfile><Search /></RequireProfile>} />
+            <Route path="/build" element={<RequireProfile><Build /></RequireProfile>} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </AnimatePresence>
+      </Suspense>
+      {!onPicker && <MiniPlayer />}
+      <HoverPreview />
+      <PlayerOverlay />
+      <SafetyNotice />
+    </>
+  );
+}
