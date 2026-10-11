@@ -6,13 +6,17 @@ import { Evidence, SecTabs, Sheet, SourceLink } from "../rooted/ui";
 import { FASTING, FINDINGS, MYTHS, PLATE_SOURCE, WATER_FACTS, WATER_SOURCES, type Finding } from "../rooted/nourishContent";
 import { PlateBuilder, WaterTracker } from "../rooted/NourishTools";
 import { Pantry } from "../rooted/Pantry";
+import { DigestiveJourney, FiberAtWork, GlucoseChart } from "../rooted/NourishDiagrams";
 import { Footer } from "../components/Footer";
 import { flags, useAbout } from "../store/wellness";
 import "../rooted/rooted.css";
+import "./BrainGuide.css";
 import "./Nourish.css";
 
 const TABS = [
   { id: "science", label: "The science" },
+  { id: "gut", label: "Inside your gut" },
+  { id: "sugar", label: "Blood sugar" },
   { id: "plate", label: "Your plate" },
   { id: "water", label: "Water" },
   { id: "pantry", label: "Pantry & list" },
@@ -127,6 +131,29 @@ export default function Nourish() {
             </Reveal>
           ))}
         </div>
+      </section>
+
+      <section id="gut" className="sec-block">
+        <Reveal className="sec-block__head">
+          <span className="rooted__eyebrow">Inside your gut</span>
+          <h2>Follow a bite through your body</h2>
+          <p className="rooted__lead">Tap each stop to see what happens to your food, and how long it takes.</p>
+        </Reveal>
+        <Reveal><DigestiveJourney /></Reveal>
+        <Reveal className="sec-block__head nourish__subhead">
+          <h2>How fiber works</h2>
+          <p className="rooted__lead">Fiber is the part of plants your body can't digest, and that's exactly why it matters.</p>
+        </Reveal>
+        <Reveal><FiberAtWork /></Reveal>
+      </section>
+
+      <section id="sugar" className="sec-block">
+        <Reveal className="sec-block__head">
+          <span className="rooted__eyebrow">Blood sugar</span>
+          <h2>Two easy ways to flatten the spike</h2>
+          <p className="rooted__lead">Hover or drag across the chart. Tap the labels to compare.</p>
+        </Reveal>
+        <Reveal><GlucoseChart /></Reveal>
       </section>
 
       <section id="plate" className="sec-block">

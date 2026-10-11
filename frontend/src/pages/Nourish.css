@@ -170,3 +170,56 @@
   .water__glass { justify-content: center; }
   .slist { padding: 26px 18px; }
 }
+
+/* Diagrams */
+.nourish__subhead { margin-top: 40px; }
+.nourish .seg button.is-on { background: var(--r-sand); color: #14140f; }
+.gut__grid { display: grid; grid-template-columns: minmax(200px, 320px) minmax(0, 1fr); gap: clamp(16px, 4vw, 44px); align-items: center; }
+.gut__svg { width: 100%; height: auto; }
+.gut__body { fill: rgba(240, 232, 214, 0.06); stroke: rgba(240, 232, 214, 0.25); stroke-width: 1.5; }
+.gut__organ { opacity: 0.35; transition: opacity var(--t-med), filter var(--t-med); }
+.gut__organ.is-on { opacity: 1; filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.35)); }
+.gut__info { display: grid; gap: 14px; }
+.gut__steps { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.gut__steps button { display: flex; align-items: center; gap: 6px; padding: 6px 12px 6px 6px; border-radius: 999px; border: 1px solid var(--r-line); font-size: var(--fs-small); font-weight: 700; color: var(--r-text-2); }
+.gut__steps button span { display: grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; background: rgba(255, 255, 255, 0.08); font-size: var(--fs-tiny); font-weight: 900; }
+.gut__steps button.is-on { border-color: var(--c); color: #fff; }
+.gut__steps button.is-on span { background: var(--c); color: #111; }
+.gut__detail h3 { font-size: 1.6rem; font-weight: 900; }
+.gut__time { display: inline-block; margin: 4px 0 8px; padding: 3px 10px; border-radius: 999px; background: rgba(255, 255, 255, 0.07); font-size: var(--fs-tiny); font-weight: 800; color: var(--r-text-2); }
+.gut__detail p { color: var(--r-text-2); line-height: 1.6; }
+.gut__nav { display: flex; gap: 8px; }
+.gut__fine { font-size: var(--fs-tiny) !important; }
+.fiber { display: grid; gap: 14px; }
+.fiber__svg { width: 100%; height: auto; }
+.fiber__tube { fill: rgba(240, 160, 140, 0.08); stroke: rgba(240, 160, 140, 0.3); stroke-width: 2; }
+.fiber__label { fill: rgba(240, 232, 214, 0.8); font-size: 13px; font-weight: 800; paint-order: stroke; stroke: rgba(11, 13, 10, 0.85); stroke-width: 3px; }
+.fiber__cols { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 16px; }
+.fiber__cols ul { margin: 0; padding-left: 20px; display: grid; gap: 8px; color: var(--r-text-2); line-height: 1.55; }
+.fiber__cols p { color: var(--r-text-2); line-height: 1.55; }
+.glucose { display: grid; gap: 12px; }
+.glucose__legend { display: flex; flex-wrap: wrap; gap: 8px; }
+.glucose__key { display: flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--r-line); font-size: var(--fs-small); font-weight: 700; color: var(--r-text-3); transition: color var(--t-fast), border-color var(--t-fast); }
+.glucose__key.is-on { color: #f0e8d6; border-color: rgba(240, 232, 214, 0.4); }
+.glucose__key:not(.is-on) svg { opacity: 0.3; }
+.glucose__plot { position: relative; }
+.glucose__svg { width: 100%; height: auto; touch-action: pan-y; }
+.glucose__grid { stroke: rgba(240, 232, 214, 0.08); }
+.glucose__tick { fill: rgba(240, 232, 214, 0.5); font-size: 11px; font-weight: 600; }
+.glucose__direct { fill: rgba(240, 232, 214, 0.85); font-size: 12px; font-weight: 700; paint-order: stroke; stroke: #141813; stroke-width: 4px; }
+.glucose__band { fill: rgba(47, 143, 214, 0.1); }
+.glucose__cross { stroke: rgba(240, 232, 214, 0.35); stroke-width: 1; }
+.glucose__tip { position: absolute; top: 8px; transform: translateX(-50%); display: grid; gap: 4px; min-width: 210px; padding: 10px 12px; border-radius: 12px; background: rgba(20, 24, 19, 0.95); border: 1px solid var(--r-line); box-shadow: 0 14px 30px rgba(0, 0, 0, 0.5); pointer-events: none; font-size: var(--fs-small); }
+.glucose__tip span { display: grid; grid-template-columns: 10px minmax(0, 1fr) auto; gap: 8px; align-items: center; color: var(--r-text-2); }
+.glucose__tip i { width: 10px; height: 3px; border-radius: 2px; }
+.glucose__tip b { color: #f0e8d6; font-variant-numeric: tabular-nums; }
+.glucose__table summary { cursor: pointer; color: var(--r-text-3); font-size: var(--fs-small); font-weight: 700; }
+.glucose__table table { width: 100%; margin-top: 8px; border-collapse: collapse; font-size: var(--fs-small); color: var(--r-text-2); font-variant-numeric: tabular-nums; }
+.glucose__table th, .glucose__table td { padding: 6px 8px; border-bottom: 1px solid var(--r-line); text-align: left; }
+@media (max-width: 760px) {
+  .gut__grid, .fiber__cols { grid-template-columns: minmax(0, 1fr); }
+  .gut__svg { max-width: 260px; justify-self: center; }
+  .glucose__direct { display: none; }
+}
+.glucose__plot, .fiber__svg { max-width: 880px; }
+.fiber__svg { justify-self: center; }
