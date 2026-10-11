@@ -170,6 +170,11 @@ python -m app.seed            # upserts into MongoDB (or restart with an empty D
 Artwork is generated from each title's `art` (`hue`, `pattern`), which is
 assigned automatically from the goal or category.
 
+The **Better Sleep** guide (`/learn/sleep`) keeps its tips, evidence labels
+and sources in `frontend/src/learn/sleepContent.ts`. The **Bedtime** routine
+(`/bedtime`) stores each profile's plan and streak on the device
+(`frontend/src/store/bedtime.ts`).
+
 The interactive **Inside Your Brain** guide (`/learn/brain`) keeps its copy in
 `frontend/src/learn/brainContent.ts` (regions, bands, sleep stages, body
 rhythms, evidence table and sources). Its diagrams are SVG components in
