@@ -36,4 +36,5 @@ async def ensure_indexes(db: AsyncIOMotorDatabase) -> None:
     await db.progress.create_index([("profile_id", 1), ("title_id", 1)], unique=True)
     await db.progress.create_index([("profile_id", 1), ("updated_at", -1)])
     await db.custom_sessions.create_index("profile_id")
+    await db.app_state.create_index([("profile_id", 1), ("key", 1)], unique=True)
     await db.titles.create_index("kind")

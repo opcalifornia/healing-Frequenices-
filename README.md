@@ -47,6 +47,12 @@ evidence rating and a linked source. It has these sections:
   these into a daily plan on Home and hides or flags practices that aren't
   advised (for example, power breathing in pregnancy).
 
+Signed-in profiles sync their Rooted data across devices through
+`/api/profiles/{id}/state/{key}` (last write wins by timestamp). Private notes
+(journal, safety plan, moods) only sync when the person turns on private
+backup. The **Your data** page (`/your-data`) shows what's kept and where,
+and offers export and delete.
+
 Wellness content lives in `frontend/src/rooted/*Content.ts`. Per-profile data
 (shopping list, water, practice log) is stored on the device in
 `frontend/src/store/nourish.ts` and `practice.ts`.

@@ -145,6 +145,9 @@ export function NavBar() {
                   <Link role="menuitem" className="nav__menu-item" to="/about-you">
                     <Icon name="user" size={20} /> About you &amp; goals
                   </Link>
+                  <Link role="menuitem" className="nav__menu-item" to="/your-data">
+                    <Icon name="bookmark" size={20} /> Your data
+                  </Link>
                   <Link role="menuitem" className="nav__menu-item" to="/my-stuff">
                     <Icon name="bookmark" size={20} /> My Stuff
                   </Link>

@@ -12,6 +12,8 @@ import { usePlayer } from "./store/player";
 import { HoverPreview } from "./components/HoverPreview";
 import { BedtimeToast, useBedtimeReminder } from "./components/Bedtime";
 import Hub from "./pages/Hub";
+import { startSync } from "./rooted/sync";
+import { apiEnabled } from "./api/client";
 import { CrisisSheet } from "./rooted/Crisis";
 import Home from "./pages/Home";
 import Profiles from "./pages/Profiles";
@@ -41,6 +43,7 @@ const Spirit = lazy(() => import("./pages/Spirit"));
 const Garden = lazy(() => import("./pages/Garden"));
 const Light = lazy(() => import("./pages/Light"));
 const Program = lazy(() => import("./pages/Program"));
+const YourData = lazy(() => import("./pages/YourData"));
 
 function RequireProfile({ children }: { children: JSX.Element }) {
   const active = useUser((s) => s.activeProfileId);
@@ -55,6 +58,12 @@ export default function App() {
   const refresh = useUser((s) => s.refreshFromServer);
   const hasTrack = usePlayer((s) => s.current !== null);
   const onPicker = location.pathname === "/profiles" || location.pathname === "/account";
+  const token = useUser((s) => s.token);
+  const activeProfile = useUser((s) => s.activeProfileId);
+  useEffect(() => {
+    if (!apiEnabled || !token || !activeProfile) return;
+    return startSync(activeProfile);
+  }, [token, activeProfile]);
   useMediaSession();
   useBedtimeReminder();
 
@@ -96,6 +105,7 @@ export default function App() {
             <Route path="/nourish" element={<RequireProfile><Nourish /></RequireProfile>} />
             <Route path="/breathe" element={<RequireProfile><Breathe /></RequireProfile>} />
             <Route path="/move" element={<RequireProfile><Move /></RequireProfile>} />
+            <Route path="/your-data" element={<RequireProfile><YourData /></RequireProfile>} />
             <Route path="/program/:id" element={<RequireProfile><Program /></RequireProfile>} />
             <Route path="/light" element={<RequireProfile><Light /></RequireProfile>} />
             <Route path="/garden" element={<RequireProfile><Garden /></RequireProfile>} />

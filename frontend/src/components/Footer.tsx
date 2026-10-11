@@ -28,6 +28,7 @@ export function Footer() {
             <Link to="/learn">Learn</Link>
             <Link to="/learn/safety">Frequencies &amp; your health</Link>
             <Link to="/about-you">About you &amp; goals</Link>
+            <Link to="/your-data">Your data</Link>
             <Link to="/healing">Healing Frequencies</Link>
           </nav>
         </div>
