@@ -7,6 +7,7 @@ import { FASTING, FINDINGS, MYTHS, PLATE_SOURCE, WATER_FACTS, WATER_SOURCES, typ
 import { PlateBuilder, WaterTracker } from "../rooted/NourishTools";
 import { Pantry } from "../rooted/Pantry";
 import { Footer } from "../components/Footer";
+import { flags, useAbout } from "../store/wellness";
 import "../rooted/rooted.css";
 import "./Nourish.css";
 
@@ -85,6 +86,7 @@ function MythCard({ m }: { m: (typeof MYTHS)[number] }) {
 export default function Nourish() {
   const location = useLocation();
   const [finding, setFinding] = useState<Finding | null>(null);
+  const f = flags(useAbout().considerations);
 
   useEffect(() => {
     const id = location.hash.replace("#", "");
@@ -171,6 +173,7 @@ export default function Nourish() {
         <Reveal className="sec-block__head">
           <span className="rooted__eyebrow">Fasting & timing</span>
           <h2>When you eat, and how to break a fast</h2>
+          {f.noFasting && <p className="for-you"><span><strong>Based on your profile:</strong> fasting isn't a good fit without medical guidance. Focus on the plate and fiber habits above instead.</span></p>}
         </Reveal>
         <div className="fasting">
           <Reveal className="r-card fasting__main">

@@ -52,3 +52,14 @@
   .bento__cell--tall { grid-row: span 1; }
   .bento__cell--sm .bento-card p { display: none; }
 }
+.hub__setup { position: relative; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px; padding: clamp(22px, 3vw, 32px); border-radius: 22px; background: linear-gradient(120deg, rgba(156, 197, 154, 0.18), rgba(227, 165, 122, 0.14)), rgba(20, 24, 19, 0.7); border: 1px solid rgba(232, 213, 176, 0.25); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); }
+.hub__setup h2 { font-size: clamp(1.4rem, 2.6vw, 2rem); font-weight: 900; letter-spacing: -0.02em; margin: 4px 0; }
+.hub__setup p { color: var(--r-text-2); }
+.hub__today-wrap { position: relative; display: grid; gap: 10px; }
+.hub__today-head { display: flex; justify-content: space-between; align-items: baseline; }
+.hub__edit { font-size: var(--fs-small); font-weight: 700; color: var(--r-text-3); text-decoration: underline; text-underline-offset: 3px; }
+.hub__edit:hover { color: #fff; }
+.today-card.is-done { opacity: 0.6; }
+.today-card.is-done .today-card__icon { background: var(--r-sage); color: #0d230a; }
+.today-card.is-done strong { text-decoration: line-through; text-decoration-color: rgba(255, 255, 255, 0.4); }
+.bento-card__foryou { background: var(--r-sand); color: #14140f; }

@@ -135,6 +135,9 @@ export function NavBar() {
                     <Icon name="edit" size={20} /> Manage Profiles
                   </button>
                   <div className="nav__menu-sep" />
+                  <Link role="menuitem" className="nav__menu-item" to="/about-you">
+                    <Icon name="user" size={20} /> About you &amp; goals
+                  </Link>
                   <Link role="menuitem" className="nav__menu-item" to="/my-stuff">
                     <Icon name="bookmark" size={20} /> My Stuff
                   </Link>

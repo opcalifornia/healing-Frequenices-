@@ -6,6 +6,7 @@ import { GROUNDING, PMR, PMR_SOURCE, TECHNIQUES, type Technique } from "../roote
 import { BreathPlayer } from "../rooted/BreathPlayer";
 import { chime, unlockChime } from "../rooted/chime";
 import { minutesOn, practiceStreak, usePractice, usePracticeLog } from "../store/practice";
+import { flags, useAbout } from "../store/wellness";
 import { Footer } from "../components/Footer";
 import { Icon } from "../components/Icon";
 import "../rooted/rooted.css";
@@ -121,6 +122,8 @@ export default function Breathe() {
   const [mins, setMins] = useState(1);
   const [run, setRun] = useState<{ t: Technique; m: number } | null>(null);
   const entries = usePracticeLog();
+  const f = flags(useAbout().considerations);
+  const notForYou = (t: Technique) => (t.id === "power" && f.noPowerBreathing) || ((t.id === "box" || t.id === "478") && f.breathHoldCare);
   const today = minutesOn(entries);
   const streak = practiceStreak(entries);
 
@@ -169,7 +172,7 @@ export default function Breathe() {
                 <h3>{t.name}</h3>
                 <p>{t.when}</p>
                 <MiniPattern t={t} />
-                <span className="tech__foot"><Evidence s={t.evidence} short />{t.gated && <span className="tech__warn">Read safety first</span>}</span>
+                <span className="tech__foot"><Evidence s={t.evidence} short />{notForYou(t) ? <span className="tech__warn">Not advised for you</span> : t.gated && <span className="tech__warn">Read safety first</span>}</span>
               </TiltCard>
             </Reveal>
           ))}
@@ -215,8 +218,15 @@ export default function Breathe() {
                   ))}
                 </div>
               )}
+              {notForYou(open) && (
+                <p className="for-you"><span><strong>Based on your profile:</strong> {open.id === "power" ? "power breathing isn't advised with what you told us. Try Calm down or the physiological sigh instead." : "this one includes breath holds. Keep them short and gentle, or try Calm down instead, and check with your doctor."}</span></p>
+              )}
               {open.rounds && <p className="tdetail__rounds">{open.rounds.count} rounds of {open.rounds.breaths} breaths, each followed by a breath hold. About 8 minutes.</p>}
-              <button className="btn btn--primary btn--big" onClick={() => start(open, mins)}><Icon name="play" size={22} /> Start</button>
+              {open.id === "power" && f.noPowerBreathing ? (
+                <button className="btn btn--primary btn--big" onClick={() => start(TECHNIQUES[0], 3)}><Icon name="play" size={22} /> Start Calm down instead</button>
+              ) : (
+                <button className="btn btn--primary btn--big" onClick={() => start(open, mins)}><Icon name="play" size={22} /> Start</button>
+              )}
               <section>
                 <h3>Why it works <Evidence s={open.evidence} /></h3>
                 <p>{open.why}</p>

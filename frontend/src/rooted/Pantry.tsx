@@ -7,6 +7,7 @@ import { TiltCard } from "./motion";
 import { groupByAisle, listToText, useNourish, useShoppingList } from "../store/nourish";
 import { Icon } from "../components/Icon";
 import { APP_NAME } from "../brand";
+import { flags, useAbout } from "../store/wellness";
 
 const CATS = Object.keys(CAT_LABEL) as PantryCat[];
 
@@ -96,6 +97,7 @@ export function Pantry() {
 }
 
 function PantryDetail({ p, inList, onToggle }: { p: PantryItem; inList: boolean; onToggle(): void }) {
+  const careful = flags(useAbout().considerations).careHerbs && p.cautions.some((c) => c.includes("clinician"));
   return (
     <article className="pdetail">
       <div className="pdetail__art">
@@ -126,6 +128,7 @@ function PantryDetail({ p, inList, onToggle }: { p: PantryItem; inList: boolean;
           <h3>How to use it</h3>
           <p>{p.use}</p>
         </section>
+        {careful && <p className="for-you"><span><strong>Based on your profile:</strong> check with your clinician or pharmacist before using {p.name.toLowerCase()} as a remedy. Normal food amounts are usually fine.</span></p>}
         <section className="pdetail__caution">
           <h3><Icon name="info" size={18} /> Before you use it</h3>
           <ul className="pdetail__list">{p.cautions.map((c) => <li key={c}>{c}</li>)}</ul>

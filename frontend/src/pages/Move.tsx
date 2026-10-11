@@ -8,6 +8,7 @@ import { MovePlayer } from "../rooted/MovePlayer";
 import { unlockChime } from "../rooted/chime";
 import { usePracticeLog } from "../store/practice";
 import { todayKey } from "../store/nourish";
+import { flags, useAbout } from "../store/wellness";
 import { Footer } from "../components/Footer";
 import { Icon } from "../components/Icon";
 import "../rooted/rooted.css";
@@ -53,6 +54,7 @@ export default function MovePage() {
     setRun({ r, m });
   };
   const walk = ROUTINES[0];
+  const f = flags(useAbout().considerations);
   const shown = ROUTINES.filter((r) => kind === "all" || r.kind === kind);
 
   return (
@@ -79,6 +81,7 @@ export default function MovePage() {
         <Reveal className="sec-block__head">
           <span className="rooted__eyebrow">Routines</span>
           <h2>Press play and follow along</h2>
+          {f.seated && <p className="for-you"><span><strong>Based on your profile:</strong> Desk reset is fully seated. In other routines, use the easier option shown on each move.</span></p>}
           <p className="rooted__lead">The figure shows each move, a chime tells you when to switch, and you can pause or skip any time.</p>
         </Reveal>
         <div className="pantry__cats move__kinds" role="group" aria-label="Filter routines">
@@ -131,6 +134,7 @@ export default function MovePage() {
         <Reveal className="sec-block__head">
           <span className="rooted__eyebrow">Heat</span>
           <h2>Using a sauna safely</h2>
+          {f.careSauna && <p className="for-you"><span><strong>Based on your profile:</strong> talk to your doctor before using a sauna.</span></p>}
           <p className="rooted__lead">Regular sauna use is linked with heart and relaxation benefits, mostly from observational studies. Heat is a real stress on the body, so go easy.</p>
         </Reveal>
         <div className="fasting">

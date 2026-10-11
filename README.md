@@ -11,7 +11,13 @@ evidence rating and a linked source. It has these sections:
 - **Nourish** (`/nourish`): diet findings, a plate builder, a water tracker,
   fasting guidance, myth checks, and a Pantry of foods, herbs and teas that
   feeds a downloadable shopping list.
+- **Move** (`/move`): follow-along walking, stretching, yoga, tai chi and
+  qigong with an animated figure, evidence cards and sauna safety.
 - **Learn** (`/learn`): guides to the brain, sleep and frequency safety.
+- **About you** (`/welcome`, `/about-you`): goals, activity level, daily time
+  and optional health considerations. `frontend/src/rooted/plan.ts` turns
+  these into a daily plan on Home and hides or flags practices that aren't
+  advised (for example, power breathing in pregnancy).
 
 Wellness content lives in `frontend/src/rooted/*Content.ts`. Per-profile data
 (shopping list, water, practice log) is stored on the device in

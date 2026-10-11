@@ -1,11 +1,14 @@
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { Aurora, Reveal, TiltCard, ZoomPage } from "../rooted/motion";
 import { SECTIONS, OFFLINE_PROMPTS } from "../rooted/sections";
 import { SectionArt } from "../rooted/SectionArt";
 import { useActiveProfile } from "../store/user";
-import { useShoppingList, useWater, useWaterGoal } from "../store/nourish";
+import { useWater, useWaterGoal, todayKey } from "../store/nourish";
+import { useAbout } from "../store/wellness";
+import { usePracticeLog } from "../store/practice";
+import { GOAL_SHORT, pickFor, sectionRank, slotFor, SLOT_LABEL } from "../rooted/plan";
 import { Footer } from "../components/Footer";
 import { Icon } from "../components/Icon";
 import "../rooted/rooted.css";
@@ -24,21 +27,16 @@ export default function Hub() {
   const h = now.getHours();
   const water = useWater();
   const goal = useWaterGoal();
-  const listCount = useShoppingList().filter((i) => !i.checked).length;
+  const about = useAbout();
+  const entries = usePracticeLog();
   const [prompt, setPrompt] = useState(() => (now.getDate() * 7 + now.getMonth()) % OFFLINE_PROMPTS.length);
-
-  const today = useMemo(() => {
-    const evening = h >= 17 || h < 4;
-    return [
-      evening
-        ? { to: "/bedtime", eyebrow: "Tonight", title: "Wind down for sleep", body: "Your routine of sounds and light cues, timed to your bedtime.", icon: "timer" as const }
-        : h < 12
-          ? { to: "/healing", eyebrow: "This morning", title: "Ten minutes of focus", body: "Pick a session from Healing Frequencies. Headphones on.", icon: "headphones" as const }
-          : { to: "/breathe", eyebrow: "This afternoon", title: "A one-minute reset", body: "Follow the circle. Slow breathing out longer than in.", icon: "timer" as const },
-      { to: "/nourish#water", eyebrow: "Water", title: `${(water / 1000).toFixed(1)} of ${(goal / 1000).toFixed(1)} L`, body: water >= goal ? "You've hit today's goal." : "Tap to log a glass. Food counts for about a fifth of it.", icon: "plus" as const, progress: Math.min(1, water / goal) },
-      { to: "/nourish#pantry", eyebrow: "Shopping list", title: listCount ? `${listCount} item${listCount === 1 ? "" : "s"} to get` : "Build your list", body: "Learn what each food and herb actually does, then add it to your list.", icon: "bookmark" as const },
-    ];
-  }, [h, water, goal, listCount]);
+  const slot = slotFor(h);
+  const doneToday = new Set(entries.filter((e) => e.day === todayKey()).map((e) => e.kind));
+  const picks = pickFor(about, slot, 3);
+  const needsSetup = !about.onboarded && !about.skipped;
+  const goalText = about.goals.map((g) => GOAL_SHORT[g]);
+  const sections = [...SECTIONS].sort((a, b) => Number(b.live) - Number(a.live) || sectionRank(b.id, about.goals) - sectionRank(a.id, about.goals));
+  const topPick = about.goals.length ? sections.filter((s) => s.live && sectionRank(s.id, about.goals) > 0).slice(0, 2).map((s) => s.id) : [];
 
   return (
     <ZoomPage className="rooted hub">
@@ -52,29 +50,51 @@ export default function Hub() {
             {greeting(h)}{profile ? `, ${profile.name}` : ""}.
           </motion.h1>
           <motion.p className="hub__lede" initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.28, duration: 0.6 }}>
-            Small, proven habits for body and mind, with the evidence shown on every one. Start anywhere.
+            {goalText.length
+              ? `Your focus: ${goalText.join(", ").replace(/, ([^,]*)$/, " and $1")}. Here's what's next.`
+              : "Small, proven habits for body and mind, with the evidence shown on every one. Start anywhere."}
           </motion.p>
         </div>
 
-        <div className="hub__today" role="list" aria-label="Today">
-          {today.map((t, i) => (
-            <motion.div key={t.to} role="listitem" initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.35 + i * 0.08, duration: 0.55, ease: [0.22, 1, 0.36, 1] }}>
-              <Link to={t.to} className="today-card">
-                <span className="today-card__icon"><Icon name={t.icon} size={20} /></span>
-                <span className="today-card__eyebrow">{t.eyebrow}</span>
-                <strong>{t.title}</strong>
-                <span className="today-card__body">{t.body}</span>
-                {"progress" in t && <span className="today-card__bar"><i style={{ width: `${(t.progress ?? 0) * 100}%` }} /></span>}
-              </Link>
-            </motion.div>
-          ))}
-        </div>
+        {needsSetup ? (
+          <motion.div className="hub__setup" initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.35, duration: 0.55 }}>
+            <div>
+              <span className="rooted__eyebrow">Under a minute</span>
+              <h2>Make Rooted yours</h2>
+              <p>Tell us your goals and we'll plan a few small things for you each day.</p>
+            </div>
+            <Link to="/welcome" className="btn btn--primary btn--big">Get started</Link>
+          </motion.div>
+        ) : (
+          <div className="hub__today-wrap">
+            <div className="hub__today-head">
+              <span className="rooted__eyebrow">{SLOT_LABEL[slot]}, for you</span>
+              <Link to="/about-you" className="hub__edit">Edit goals</Link>
+            </div>
+            <div className="hub__today" role="list" aria-label="Your plan">
+              {picks.map((t, i) => {
+                const done = (t.doneKind && doneToday.has(t.doneKind)) || (t.id === "water" && water >= goal);
+                return (
+                  <motion.div key={t.id} role="listitem" initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.35 + i * 0.08, duration: 0.55, ease: [0.22, 1, 0.36, 1] }}>
+                    <Link to={t.to} className={`today-card ${done ? "is-done" : ""}`}>
+                      <span className="today-card__icon">{done ? <Icon name="check" size={20} /> : <Icon name={t.icon} size={20} />}</span>
+                      <span className="today-card__eyebrow">{t.minutes ? `${t.minutes} min` : "No timer"}{t.reason ? ` · ${GOAL_SHORT[t.reason]}` : ""}</span>
+                      <strong>{t.title}</strong>
+                      <span className="today-card__body">{t.id === "water" ? `${(water / 1000).toFixed(1)} of ${(goal / 1000).toFixed(1)} L so far. ` : ""}{t.body}</span>
+                      {t.id === "water" && <span className="today-card__bar"><i style={{ width: `${Math.min(1, water / goal) * 100}%` }} /></span>}
+                    </Link>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </div>
+        )}
       </header>
 
       <section className="hub__sections" aria-labelledby="hub-sections">
         <Reveal><h2 id="hub-sections" className="rooted__h2">Explore</h2></Reveal>
         <div className="bento">
-          {SECTIONS.map((s, i) => (
+          {sections.map((s, i) => (
             <Reveal key={s.id} delay={(i % 4) * 0.06} className={`bento__cell bento__cell--${s.size}`}>
               <TiltCard
                 to={s.live ? s.to : undefined}
@@ -85,6 +105,7 @@ export default function Hub() {
                 <SectionArt s={s} />
                 <div className="bento-card__text">
                   {!s.live && <span className="bento-card__soon">Coming soon</span>}
+                  {topPick.includes(s.id) && <span className="bento-card__soon bento-card__foryou">For you</span>}
                   <h3>{s.name}</h3>
                   <p>{s.tagline}</p>
                 </div>

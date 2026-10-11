@@ -116,3 +116,6 @@ a.src-link:hover { color: var(--r-sand); }
 .nourish__src { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 14px; }
 .nourish__disclaimer { padding: 56px var(--gutter) 0; color: var(--r-text-3); font-size: var(--fs-small); max-width: 900px; line-height: 1.6; }
 .nourish__disclaimer a { color: var(--r-sand); font-weight: 800; }
+.slist__check { display: grid; place-items: center; width: 26px; height: 26px; border-radius: 8px; border: 2px solid rgba(240, 232, 214, 0.4); color: #14140f; transition: background var(--t-fast), border-color var(--t-fast); }
+.for-you { display: flex; gap: 10px; align-items: flex-start; padding: 12px 14px; border-radius: 14px; background: rgba(110, 198, 255, 0.08); border: 1px solid rgba(110, 198, 255, 0.3); color: var(--r-text-2); font-size: var(--fs-small); line-height: 1.5; }
+.for-you strong { color: #8fd3ff; }
