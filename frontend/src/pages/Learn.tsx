@@ -10,6 +10,7 @@ import type { Article, Band, Title } from "../types";
 import { BrainLateral } from "../learn/diagrams/BrainLateral";
 import "./Learn.css";
 import "./BrainGuide.css";
+import "./SleepGuide.css";
 
 const BANDS: Array<[Band, string]> = [
   ["delta", "Deep sleep"],
@@ -47,6 +48,19 @@ export default function Learn() {
           <span className="btn btn--primary btn--small">Start the guide</span>
         </div>
         <BrainLateral highlight={["occipital", "parietal"]} color="#19e3c4" pulse={2.4} label="Alpha · 8–13 Hz" title="Brain diagram with the alpha band highlighted at the back of the head" />
+      </Link>
+
+      <Link to="/learn/sleep" className="guide-card learn-sleep-card">
+        <div className="guide-card__text">
+          <span className="hero__eyebrow">New · Guide · 8 chapters</span>
+          <h2>Better Sleep</h2>
+          <p>
+            Morning light, evening light and blue light, caffeine timing, temperature, naps and deep rest, with an evidence rating on every
+            tip and a day planned around your bedtime.
+          </p>
+          <span className="btn btn--primary btn--small">Read the guide</span>
+        </div>
+        <div className="learn-sleep-art" aria-hidden="true"><span /></div>
       </Link>
 
       {lead && (

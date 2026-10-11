@@ -3,6 +3,7 @@ import { persist } from "zustand/middleware";
 import { BinauralEngine, DEFAULT_MIX, type EngineSettings } from "../audio/engine";
 import { fadeOutSeconds, STAGE_GLIDE, stageIndexAt } from "../audio/program";
 import { useUser } from "./user";
+import { useBedtime } from "./bedtime";
 import type { LayerMix, NoiseColor, Title } from "../types";
 import type { AmbienceId } from "../audio/ambience";
 
@@ -34,8 +35,14 @@ interface PlayerState {
   pending: { title: Title; resume?: number } | null;
   testing: "left" | "right" | null;
   calmVisuals: boolean;
+  /** Titles that play next, back to back (bedtime routine). */
+  queue: Title[];
+  /** True while the current title is part of a queued sequence. */
+  inSequence: boolean;
 
   playTitle(title: Title, resume?: number): void;
+  /** Play titles back to back; each uses its own durationMin. Call from a tap. */
+  playSequence(titles: Title[]): void;
   confirmSafety(): void;
   cancelSafety(): void;
   togglePlay(): void;
@@ -83,6 +90,7 @@ export const usePlayer = create<PlayerState>()(
     (set, get) => {
       const saveProgress = () => {
         const { current, elapsed } = get();
+        if (current) useBedtime.getState().noteListening(current, elapsed);
         if (!current || !isCatalogTitle(current)) return;
         useUser.getState().recordProgress(current.id, Math.floor(elapsed), (current.durationMin ?? 30) * 60);
         lastSaved = elapsed;
@@ -126,8 +134,17 @@ export const usePlayer = create<PlayerState>()(
         set({ elapsed });
         syncStage(false);
 
+        // In a sequence, hand straight over to the next title (the engine
+        // cross-fades) instead of fading to silence.
+        if (s.queue.length && elapsed >= s.endAt) {
+          saveProgress();
+          const [next, ...rest] = s.queue;
+          set({ queue: rest });
+          begin(next, undefined, true);
+          return;
+        }
         const fade = fadeOutSeconds(s.endAt);
-        if (s.status === "playing" && elapsed >= s.endAt - fade) {
+        if (!s.queue.length && s.status === "playing" && elapsed >= s.endAt - fade) {
           engine.fadeTo(0, Math.max(0.5, s.endAt - elapsed));
           set({ status: "ending" });
         }
@@ -149,10 +166,10 @@ export const usePlayer = create<PlayerState>()(
       const finish = () => {
         stopClock();
         engine.stop(0.3);
-        set({ status: "idle", current: null, elapsed: 0, expanded: false });
+        set({ status: "idle", current: null, elapsed: 0, expanded: false, queue: [], inSequence: false });
       };
 
-      const begin = (title: Title, resume?: number) => {
+      const begin = (title: Title, resume?: number, sequenced = false) => {
         const s = get();
         if (s.current && s.current.id !== title.id) saveProgress();
         const layers = {
@@ -163,7 +180,7 @@ export const usePlayer = create<PlayerState>()(
           mix: { ...DEFAULT_MIX, ...title.mix },
         };
         set(layers);
-        const endAt = durationFor(title, s.timer);
+        const endAt = sequenced ? (title.durationMin ?? 30) * 60 : durationFor(title, s.timer);
         const elapsed = resume && resume < endAt - 30 ? resume : 0;
         const settings = settingsFor(title);
         engine.start(settings);
@@ -175,6 +192,7 @@ export const usePlayer = create<PlayerState>()(
           carrier: settings.carrier,
           beat: settings.beat,
           stageIndex: -1,
+          inSequence: sequenced,
         });
         syncStage(true);
         startClock();
@@ -200,6 +218,19 @@ export const usePlayer = create<PlayerState>()(
         pending: null,
         testing: null,
         calmVisuals: false,
+        queue: [],
+        inSequence: false,
+
+        playSequence(titles) {
+          const [first, ...rest] = titles.filter((t) => !t.comingSoon);
+          if (!first) return;
+          if (!useUser.getState().safetyAcknowledged) {
+            set({ pending: { title: first }, queue: rest });
+            return;
+          }
+          set({ queue: rest });
+          begin(first, undefined, true);
+        },
 
         playTitle(title, resume) {
           if (title.comingSoon) return;
@@ -207,6 +238,7 @@ export const usePlayer = create<PlayerState>()(
             set({ pending: { title, resume } });
             return;
           }
+          set({ queue: [] });
           // Same title already loaded: just toggle.
           const s = get();
           if (s.current?.id === title.id && s.status !== "idle") {
@@ -220,11 +252,11 @@ export const usePlayer = create<PlayerState>()(
           const p = get().pending;
           useUser.getState().acknowledgeSafety();
           set({ pending: null });
-          if (p) begin(p.title, p.resume);
+          if (p) begin(p.title, p.resume, get().queue.length > 0);
         },
 
         cancelSafety() {
-          set({ pending: null });
+          set({ pending: null, queue: [] });
         },
 
         togglePlay() {
@@ -246,7 +278,7 @@ export const usePlayer = create<PlayerState>()(
           saveProgress();
           stopClock();
           engine.stop(1.2);
-          set({ status: "idle", current: null, elapsed: 0, expanded: false });
+          set({ status: "idle", current: null, elapsed: 0, expanded: false, queue: [], inSequence: false });
         },
 
         seek(seconds) {

@@ -100,6 +100,9 @@ export function NavBar() {
                     <Icon name="edit" size={20} /> Manage Profiles
                   </button>
                   <div className="nav__menu-sep" />
+                  <Link role="menuitem" className="nav__menu-item" to="/bedtime">
+                    <Icon name="timer" size={20} /> Bedtime routine
+                  </Link>
                   <Link role="menuitem" className="nav__menu-item" to="/build">
                     <Icon name="sliders" size={20} /> Build Your Own
                   </Link>
