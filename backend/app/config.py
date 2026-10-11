@@ -3,7 +3,7 @@ from __future__ import annotations
 from functools import lru_cache
 from typing import Annotated
 
-from pydantic import field_validator
+from pydantic import field_validator, model_validator
 from pydantic_settings import BaseSettings, NoDecode, SettingsConfigDict
 
 
@@ -40,6 +40,12 @@ class Settings(BaseSettings):
         if isinstance(v, str):
             return [o.strip() for o in v.split(",") if o.strip()]
         return v
+
+    @model_validator(mode="after")
+    def require_real_secret_in_production(self) -> "Settings":
+        if self.environment == "production" and (self.jwt_secret == "dev-only-change-me" or len(self.jwt_secret) < 32):
+            raise ValueError("Set JWT_SECRET to a random string of at least 32 characters in production")
+        return self
 
     @property
     def stripe_enabled(self) -> bool:

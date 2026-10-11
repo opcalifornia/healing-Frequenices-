@@ -119,6 +119,11 @@ comma-separated if there are several). `JWT_SECRET` is generated for you.
 `railway.json` builds the Dockerfile and health-checks `/api/health`. Set
 `MONGO_URL`, `JWT_SECRET`, `CORS_ORIGINS` and `ENVIRONMENT=production`.
 
+The API refuses to start with `ENVIRONMENT=production` unless `JWT_SECRET`
+is at least 32 random characters. Render's blueprint generates one for you.
+On the free tier the API sleeps when idle. The front end waits 6 seconds for
+it, then shows the bundled catalog (same content) while it wakes.
+
 ### Front end on Vercel
 
 Import the repo and set **Root Directory** to `frontend`. Vercel detects Vite;

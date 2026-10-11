@@ -19,7 +19,15 @@ export const useCatalogStore = create<CatalogState>((set, get) => ({
     if (get().catalog) return;
     if (apiEnabled) {
       try {
-        set({ catalog: await api<Catalog>("/catalog"), source: "api" });
+        // A sleeping free-tier API can take ~50 s to wake. Don't make people
+        // stare at skeletons: fall back to the bundled copy (same content).
+        const ctrl = new AbortController();
+        const timer = window.setTimeout(() => ctrl.abort(), 6000);
+        try {
+          set({ catalog: await api<Catalog>("/catalog", { signal: ctrl.signal }), source: "api" });
+        } finally {
+          window.clearTimeout(timer);
+        }
         return;
       } catch (err) {
         console.warn("[catalog] API unavailable, using bundled catalog", err);
