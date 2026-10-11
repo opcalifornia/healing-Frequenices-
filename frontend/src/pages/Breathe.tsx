@@ -4,16 +4,20 @@ import { Aurora, Reveal, TiltCard, ZoomPage } from "../rooted/motion";
 import { Evidence, SecTabs, Sheet, SourceLink } from "../rooted/ui";
 import { GROUNDING, PMR, PMR_SOURCE, TECHNIQUES, type Technique } from "../rooted/breathContent";
 import { BreathPlayer } from "../rooted/BreathPlayer";
+import { BreathingBody, HeartRhythm } from "../rooted/BreatheDiagrams";
 import { chime, unlockChime } from "../rooted/chime";
 import { minutesOn, practiceStreak, usePractice, usePracticeLog } from "../store/practice";
 import { flags, useAbout } from "../store/wellness";
 import { Footer } from "../components/Footer";
 import { Icon } from "../components/Icon";
 import "../rooted/rooted.css";
+import "./BrainGuide.css";
+import "./Nourish.css";
 import "./Breathe.css";
 
 const TABS = [
   { id: "breathe", label: "Breathing" },
+  { id: "body", label: "Inside your body" },
   { id: "ground", label: "Grounding" },
   { id: "relax", label: "Muscle relaxation" },
 ];
@@ -177,6 +181,20 @@ export default function Breathe() {
             </Reveal>
           ))}
         </div>
+      </section>
+
+      <section id="body" className="sec-block">
+        <Reveal className="sec-block__head">
+          <span className="rooted__eyebrow">Inside your body</span>
+          <h2>What happens when you breathe</h2>
+          <p className="rooted__lead">The diagram breathes with a calm 4-in, 6-out rhythm. Breathe along, and tap each part to learn what it does.</p>
+        </Reveal>
+        <Reveal><BreathingBody /></Reveal>
+        <Reveal className="sec-block__head nourish__subhead">
+          <h2>Why a long exhale slows your heart</h2>
+          <p className="rooted__lead">Switch between normal and slow breathing, and drag across the chart.</p>
+        </Reveal>
+        <Reveal><HeartRhythm /></Reveal>
       </section>
 
       <section id="ground" className="sec-block">
