@@ -5,6 +5,7 @@ import { POWER_SAFETY, type Technique } from "./breathContent";
 import { buildPlan, planSeconds, type PlanPhase } from "./breathPlan";
 import { breathTone, chime, startSoundscape, stopBreathTone, stopSoundscape, unlockChime } from "./chime";
 import { usePractice, usePrefs, type BreathPrefs, type SoundMode } from "../store/practice";
+import { speakCue, stopVoice } from "./voice";
 import { useCatalog } from "../store/catalog";
 import { usePlayer } from "../store/player";
 import { Icon } from "../components/Icon";
@@ -12,7 +13,7 @@ import { Icon } from "../components/Icon";
 type Stage = "before" | "gate" | "count" | "run" | "after" | "done";
 
 const SCALE: Record<PlanPhase["kind"], number> = { in: 1, top: 1.1, hold: 1, out: 0.5, rest: 0.5 };
-const SOUND_LABEL: Record<SoundMode, string> = { chimes: "Chimes", tone: "Breath tone", silent: "Silent" };
+const SOUND_LABEL: Record<SoundMode, string> = { chimes: "Chimes", voice: "Voice", tone: "Breath tone", silent: "Silent" };
 const SCAPES: Array<{ id: BreathPrefs["scape"]; name: string }> = [
   { id: "none", name: "No background" },
   { id: "rain", name: "Rain" },
@@ -104,6 +105,7 @@ export function BreathPlayer({ technique: t, minutes, onClose, onComplete }: Pro
       document.body.style.overflow = "";
       stopBreathTone();
       stopSoundscape();
+      stopVoice();
     };
   }, [onClose]);
   useEffect(() => {
@@ -123,6 +125,10 @@ export function BreathPlayer({ technique: t, minutes, onClose, onComplete }: Pro
 
   const cue = useCallback((p: PlanPhase) => {
     if (soundRef.current === "chimes") chime(p.kind);
+    if (soundRef.current === "voice") {
+      if (p.secs < 2) chime(p.kind, 0.04);
+      else void speakCue(p.kind, p.secs);
+    }
     if (soundRef.current === "tone") breathTone(p.kind, p.secs);
     else stopBreathTone();
     navigator.vibrate?.(p.kind === "hold" || p.kind === "rest" ? [20, 60, 20] : 25);
@@ -148,7 +154,8 @@ export function BreathPlayer({ technique: t, minutes, onClose, onComplete }: Pro
       log(`breath:${t.id}`, elapsedMin.current);
       return onComplete();
     }
-    if (soundRef.current !== "silent") chime("bell", 0.09);
+    if (soundRef.current === "voice") void speakCue("done");
+    else if (soundRef.current !== "silent") chime("bell", 0.09);
     if (checkIns) setStage("after");
     else {
       log(`breath:${t.id}`, elapsedMin.current);
@@ -206,10 +213,11 @@ export function BreathPlayer({ technique: t, minutes, onClose, onComplete }: Pro
     setTimeout(() => setStage("done"), 350);
   };
   const cycleSound = () => {
-    const order: SoundMode[] = ["chimes", "tone", "silent"];
+    const order: SoundMode[] = ["chimes", "voice", "tone", "silent"];
     const next = order[(order.indexOf(prefs.sound) + 1) % order.length];
     setPrefs({ sound: next });
     if (next !== "tone") stopBreathTone();
+    if (next !== "voice") stopVoice();
     else if (stage === "run") breathTone(phase.kind, Math.max(0.5, left));
   };
 

@@ -14,7 +14,7 @@ export interface PracticeEntry {
   after?: number;
 }
 
-export type SoundMode = "chimes" | "tone" | "silent";
+export type SoundMode = "chimes" | "voice" | "tone" | "silent";
 export interface BreathPrefs {
   sound: SoundMode;
   scape: "none" | "rain" | "stream" | "waterfall" | "rainforest";

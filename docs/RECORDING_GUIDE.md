@@ -86,6 +86,33 @@ Use a free editor such as Audacity, or Reaper.
   the media endpoint that is already in the API. Send the files over when
   they are ready, and the app will be wired to play them.
 
+## Voice cues for Breathe
+
+The breathing player speaks cues ("Breathe in", "Hold", "Breathe out"). Until
+you record your own, it uses the phone's built-in voice. To swap in your
+voice:
+
+1. **Room:** a quiet, soft room (a closet full of clothes is perfect). Mouth
+   about a hand's width from the mic, slightly off to the side to avoid
+   pops.
+2. **Delivery:** slower and softer than normal speech, as if talking to
+   someone falling asleep. Smile slightly; it warms the tone.
+3. **Takes:** record each cue three or four times and keep the calmest.
+   - "Breathe in"
+   - "Sip in a little more"
+   - "Hold"
+   - "Breathe out"
+   - "Hold" (a second, slightly lower take, for after the exhale)
+   - "Well done. Let your breath return to normal."
+4. **Edit:**
+   - Trim to about 0.2 seconds of silence before each word, and cut tight
+     at the end.
+   - Normalize so all clips are the same loudness.
+   - Export mono MP3 at 128 kbps.
+5. **Install:** name the files `in.mp3`, `top.mp3`, `hold.mp3`, `out.mp3`,
+   `rest.mp3` and `done.mp3`, and put them in `frontend/public/audio/voice/`.
+   The app picks them up automatically.
+
 ## Safety
 
 The same rules apply to recorded tracks: headphones for binaural content, low
