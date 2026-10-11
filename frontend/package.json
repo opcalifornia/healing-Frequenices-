@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "typecheck": "tsc -b",
     "test": "vitest run",
-    "test:audio": "node e2e/audio-channels.mjs"
+    "test:audio": "node e2e/audio-channels.mjs",
+    "build:artifact": "tsc -b && vite build --mode artifact && node scripts/build-artifact.mjs"
   },
   "dependencies": {
     "@fontsource-variable/figtree": "5.1.1",

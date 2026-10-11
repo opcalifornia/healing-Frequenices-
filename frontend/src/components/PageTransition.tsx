@@ -6,6 +6,7 @@ export function PageTransition({ children, padded = false }: { children: ReactNo
   return (
     <motion.main
       id="main"
+      tabIndex={-1}
       className={`page ${padded ? "page--padded" : ""}`}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}

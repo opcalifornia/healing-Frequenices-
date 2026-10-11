@@ -124,6 +124,13 @@ is at least 32 random characters. Render's blueprint generates one for you.
 On the free tier the API sleeps when idle. The front end waits 6 seconds for
 it, then shows the bundled catalog (same content) while it wakes.
 
+### Single-file preview
+
+`npm run build:artifact` (in `frontend/`) makes
+`dist-artifact/healing-frequencies.html`: the whole app in one page, with hash
+routing, inlined fonts and no service worker. It runs in local mode, which is
+handy for sharing a preview without any hosting.
+
 ### Front end on Vercel
 
 Import the repo and set **Root Directory** to `frontend`. Vercel detects Vite;

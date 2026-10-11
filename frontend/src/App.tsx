@@ -57,7 +57,17 @@ export default function App() {
 
   return (
     <>
-      <a href="#main" className="skip-link">Skip to content</a>
+      <a
+        href="#main"
+        className="skip-link"
+        onClick={(e) => {
+          // Works with both browser and hash routing.
+          e.preventDefault();
+          document.getElementById("main")?.focus();
+        }}
+      >
+        Skip to content
+      </a>
       {!onPicker && <NavBar />}
       <Suspense fallback={<div className="page" />}>
         <AnimatePresence mode="wait" initial={false}>
