@@ -16,6 +16,10 @@ evidence rating and a linked source. It has these sections:
 - **Combos** (`/combos`): one-tap guided flows that chain breathing, movement,
   habits, a written reflection and a closing frequency session. Steps are
   swapped automatically for someone's health considerations.
+- **Garden & Apothecary** (`/garden`): a planner that matches herbs to your
+  space and light, a My Garden harvest tracker, food-safe tea and remedy
+  recipes that add their ingredients to the shopping list, safety rules,
+  and small-space growing basics.
 - **Spirit & Ritual** (`/spirit`): synthesized singing bowls, chimes and gong,
   an auto-playing sound bath, a meditation timer, a gratitude journal, and
   traditions (chakras, crystals, grounding, forest bathing, smudging, faith)

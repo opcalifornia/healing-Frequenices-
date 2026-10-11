@@ -100,6 +100,7 @@ const SECTION_GOALS: Record<string, GoalId[]> = {
   learn: ["sleep"],
   combos: ["stress", "sleep", "energy"],
   spirit: ["stress", "connect", "sleep"],
+  garden: ["eat", "connect"],
   support: ["stress"],
   earth: ["connect"],
 };
