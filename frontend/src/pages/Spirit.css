@@ -71,3 +71,15 @@
   .bath__vol { margin-left: 0; }
 }
 @media (max-width: 560px) { .spirit__findings { grid-template-columns: minmax(0, 1fr); } }
+.nourish__subhead { margin-top: 40px; }
+.spirit .seg button.is-on { background: #c9b8ee; color: #1a1030; }
+.stressd { display: grid; gap: 14px; }
+.stressd__grid { display: grid; grid-template-columns: minmax(180px, 280px) minmax(0, 1fr); gap: clamp(16px, 4vw, 44px); align-items: center; }
+.stressd__svg { width: 100%; height: auto; }
+.stressd__info { display: grid; gap: 12px; }
+.stressd__path { padding: 12px 14px; border-left: 3px solid; border-radius: 4px 12px 12px 4px; background: rgba(255, 255, 255, 0.04); color: var(--r-text-2); line-height: 1.5; font-weight: 600; }
+.stressd__effects { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.stressd__effects li { display: grid; gap: 2px; padding: 10px 12px; border-radius: 12px; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--r-line); }
+.stressd__effects strong { font-size: var(--fs-small); font-weight: 900; }
+.stressd__effects span { color: var(--r-text-2); font-size: var(--fs-small); }
+@media (max-width: 760px) { .stressd__grid { grid-template-columns: minmax(0, 1fr); } .stressd__svg { max-width: 220px; justify-self: center; } }

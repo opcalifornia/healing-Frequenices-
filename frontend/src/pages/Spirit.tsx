@@ -6,6 +6,7 @@ import { CHAKRAS, SPIRIT_FINDINGS, TRADITIONS, type Tradition } from "../rooted/
 import { BOWLS, chimes, gong, setBathVolume, startSoundBath, strikeBowl } from "../rooted/soundbath";
 import { soundsLikeCrisis } from "../rooted/supportContent";
 import { CrisisNudge } from "../rooted/Crisis";
+import { StressDiagram } from "../rooted/StressDiagram";
 import { usePractice, usePracticeLog } from "../store/practice";
 import { useJournal, useJournalEntries } from "../store/journal";
 import { todayKey } from "../store/nourish";
@@ -16,6 +17,8 @@ import "./Breathe.css";
 import "./Support.css";
 import "./Move.css";
 import "./Combos.css";
+import "./BrainGuide.css";
+import "./Light.css";
 import "./Spirit.css";
 
 const TABS = [
@@ -294,6 +297,11 @@ export default function Spirit() {
           <p className="rooted__lead">A bowl to begin, an optional soft bell to bring you back, and three bowls to close. Nothing else.</p>
         </Reveal>
         <Reveal><MeditationTimer /></Reveal>
+        <Reveal className="sec-block__head nourish__subhead">
+          <h2>What stillness changes in your body</h2>
+          <p className="rooted__lead">Switch between stressed and calm to see the two systems at work.</p>
+        </Reveal>
+        <Reveal><StressDiagram /></Reveal>
       </section>
 
       <section id="gratitude" className="sec-block">

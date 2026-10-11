@@ -39,3 +39,10 @@ describe("pantry content", () => {
     expect(PANTRY.find((p) => p.id === "burdock-root")).toBeTruthy();
   });
 });
+
+import { PANTRY_AREAS } from "../rooted/BodyMap";
+describe("pantry body map", () => {
+  it("only maps real pantry items", () => {
+    for (const id of Object.keys(PANTRY_AREAS)) expect(PANTRY.some((p) => p.id === id)).toBe(true);
+  });
+});

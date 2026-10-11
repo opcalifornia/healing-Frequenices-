@@ -67,3 +67,21 @@
   .routine-detail__top { padding-right: 120px; }
   .routine-detail__fig { width: 120px; height: 120px; }
 }
+
+/* Muscle map */
+.mmap { display: flex; justify-content: center; gap: 10px; }
+.mmap__fig { margin: 0; display: grid; justify-items: center; gap: 4px; }
+.mmap__fig svg { width: clamp(80px, 12vw, 130px); height: auto; }
+.mmap__outline { fill: rgba(240, 232, 214, 0.04); stroke: rgba(240, 232, 214, 0.28); stroke-width: 1; }
+.mmap__fig figcaption { font-size: var(--fs-tiny); font-weight: 800; color: var(--r-text-3); text-transform: uppercase; letter-spacing: 0.08em; }
+.works { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: clamp(16px, 4vw, 44px); align-items: center; padding: clamp(20px, 3vw, 32px); }
+.works__info { display: grid; gap: 12px; }
+.works__info h3 { font-size: 1.5rem; font-weight: 900; }
+.works__tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.works__tags span { padding: 5px 10px; border-radius: 999px; font-size: var(--fs-tiny); font-weight: 800; }
+.works__tags--m span { background: rgba(255, 179, 138, 0.15); color: #ffb38a; }
+.works__tags--g span { background: rgba(156, 197, 154, 0.15); color: var(--r-sage); }
+.works__info .seg { margin-bottom: 4px; }
+.move .seg button.is-on { background: #ffb38a; color: #2a1404; }
+.routine-detail__map { width: 100%; }
+@media (max-width: 760px) { .works { grid-template-columns: minmax(0, 1fr); } }

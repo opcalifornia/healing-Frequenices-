@@ -8,6 +8,7 @@ import { groupByAisle, listToText, useNourish, useShoppingList } from "../store/
 import { Icon } from "../components/Icon";
 import { APP_NAME } from "../brand";
 import { saveTextFile } from "./download";
+import { BodyMap, PANTRY_AREAS } from "./BodyMap";
 import { flags, useAbout } from "../store/wellness";
 
 const CATS = Object.keys(CAT_LABEL) as PantryCat[];
@@ -119,6 +120,12 @@ function PantryDetail({ p, inList, onToggle }: { p: PantryItem; inList: boolean;
           <h3>What the research says <Evidence s={p.evidence} /></h3>
           <ul className="pdetail__list">{p.benefits.map((b) => <li key={b}>{b}</li>)}</ul>
         </section>
+        {PANTRY_AREAS[p.id] && (
+          <section>
+            <h3>Where it may help</h3>
+            <BodyMap id={p.id} />
+          </section>
+        )}
         {p.tradition && (
           <section className="pdetail__trad">
             <h3>In tradition</h3>

@@ -4,6 +4,7 @@ import { Aurora, Reveal, TiltCard, ZoomPage } from "../rooted/motion";
 import { Evidence, SecTabs, Sheet, SourceLink } from "../rooted/ui";
 import { KIND_LABEL, MOVE_FINDINGS, ROUTINES, SAUNA, type Routine } from "../rooted/moveContent";
 import { Figure } from "../rooted/Figure";
+import { MuscleMap, MUSCLE_LABEL, ROUTINE_MUSCLES } from "../rooted/MuscleMap";
 import { MovePlayer } from "../rooted/MovePlayer";
 import { unlockChime } from "../rooted/chime";
 import { usePracticeLog } from "../store/practice";
@@ -15,15 +16,38 @@ import "./Programs.css";
 import { Icon } from "../components/Icon";
 import "../rooted/rooted.css";
 import "./Breathe.css";
+import "./BrainGuide.css";
 import "./Move.css";
 
 const TABS = [
   { id: "programs", label: "Programs" },
   { id: "routines", label: "Routines" },
+  { id: "works", label: "What it works" },
   { id: "why", label: "Why move" },
   { id: "sauna", label: "Sauna" },
 ];
 const WEEK_GOAL = 150;
+
+function WhatItWorks() {
+  const [id, setId] = useState("yoga");
+  const r = ROUTINES.find((x) => x.id === id)!;
+  const m = ROUTINE_MUSCLES[id];
+  return (
+    <div className="r-card works">
+      <MuscleMap muscles={m.muscles} />
+      <div className="works__info">
+        <div className="seg seg--wrap" role="group" aria-label="Routine">
+          {ROUTINES.map((x) => <button key={x.id} className={id === x.id ? "is-on" : ""} aria-pressed={id === x.id} onClick={() => setId(x.id)}>{x.name.replace("Qigong: ", "").replace(", part one", "")}</button>)}
+        </div>
+        <h3>{r.name}</h3>
+        <span className="rooted__eyebrow">Works</span>
+        <div className="works__tags works__tags--m">{m.muscles.map((x) => <span key={x}>{MUSCLE_LABEL[x]}</span>)}</div>
+        <span className="rooted__eyebrow">Good for</span>
+        <div className="works__tags works__tags--g">{m.goodFor.map((x) => <span key={x}>{x}</span>)}</div>
+      </div>
+    </div>
+  );
+}
 
 function WeekRing() {
   const entries = usePracticeLog();
@@ -120,6 +144,15 @@ export default function MovePage() {
         </motion.div>
       </section>
 
+      <section id="works" className="sec-block">
+        <Reveal className="sec-block__head">
+          <span className="rooted__eyebrow">What it works</span>
+          <h2>See where each routine reaches</h2>
+          <p className="rooted__lead">Pick a routine to light up the muscles it stretches and strengthens.</p>
+        </Reveal>
+        <Reveal><WhatItWorks /></Reveal>
+      </section>
+
       <section id="why" className="sec-block">
         <Reveal className="sec-block__head">
           <span className="rooted__eyebrow">Why move</span>
@@ -181,6 +214,7 @@ export default function MovePage() {
                 </div>
               ) : null}
               <button className="btn btn--primary btn--big" onClick={() => start(open, open.options ? walkMins : undefined)}><Icon name="play" size={22} /> Start{open.options ? "" : ` · ${open.minutes} min`}</button>
+              {ROUTINE_MUSCLES[open.id] && <div className="routine-detail__map"><MuscleMap muscles={ROUTINE_MUSCLES[open.id].muscles} /></div>}
               {!open.options && (
                 <ol className="move-list">
                   {open.moves.map((m) => (
