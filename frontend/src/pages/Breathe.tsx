@@ -6,6 +6,7 @@ import { GROUNDING, PMR, PMR_SOURCE, TECHNIQUES, type Technique } from "../roote
 import { BreathPlayer } from "../rooted/BreathPlayer";
 import { BreathingBody, HeartRhythm } from "../rooted/BreatheDiagrams";
 import { ProgramRail } from "../rooted/ProgramRail";
+import { HeartCheck } from "../rooted/HeartCheck";
 import { BoltTest, CustomList, PatternBuilder, QuickPicks, Results } from "../rooted/BreatheExtras";
 import { chime, unlockChime } from "../rooted/chime";
 import { minutesOn, practiceStreak, usePractice, usePracticeLog } from "../store/practice";
@@ -24,6 +25,7 @@ const TABS = [
   { id: "breathe", label: "Breathing" },
   { id: "results", label: "Your results" },
   { id: "body", label: "Inside your body" },
+  { id: "heart", label: "Heart check" },
   { id: "bolt", label: "Breath test" },
   { id: "ground", label: "Grounding" },
   { id: "relax", label: "Muscle relaxation" },
@@ -227,6 +229,15 @@ export default function Breathe() {
           <p className="rooted__lead">Switch between normal and slow breathing, and drag across the chart.</p>
         </Reveal>
         <Reveal><HeartRhythm /></Reveal>
+      </section>
+
+      <section id="heart" className="sec-block">
+        <Reveal className="sec-block__head">
+          <span className="rooted__eyebrow">Heart check</span>
+          <h2>Watch your heart respond</h2>
+          <p className="rooted__lead">Measure your heart rate and heart rate variability with your phone's camera, before and after you breathe.</p>
+        </Reveal>
+        <Reveal><HeartCheck /></Reveal>
       </section>
 
       <section id="bolt" className="sec-block">

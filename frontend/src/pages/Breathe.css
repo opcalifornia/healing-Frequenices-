@@ -230,3 +230,34 @@
   .pb__name { grid-template-columns: 90px minmax(0, 1fr); }
   .quick__btn { flex: 1 1 calc(50% - 8px); }
 }
+
+/* Heart check */
+.heart { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 12px; align-items: start; }
+.heart__main { position: relative; padding: 22px; min-height: 340px; display: grid; }
+.heart__video { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+.heart__step { display: grid; gap: 12px; justify-items: start; align-content: start; }
+.heart__step h3 { font-size: 1.3rem; font-weight: 900; }
+.heart__step p { color: var(--r-text-2); line-height: 1.55; font-size: var(--fs-small); }
+.heart__icon { display: grid; place-items: center; width: 56px; height: 56px; border-radius: 50%; background: rgba(255, 138, 128, 0.15); color: #ff8a80; }
+.heart__fine { font-size: var(--fs-tiny) !important; color: var(--r-text-3) !important; }
+.heart__center { justify-items: center; text-align: center; align-content: center; }
+.heart__ring { position: relative; width: 150px; height: 150px; display: grid; place-items: center; }
+.heart__ring svg { position: absolute; inset: 0; transform: rotate(-90deg); }
+.heart__ring circle { fill: none; stroke-width: 5; }
+.heart__fill { stroke: #ff8a80; stroke-linecap: round; transition: stroke-dasharray 0.3s linear; }
+.heart__pulse { color: #ff8a80; display: grid; filter: drop-shadow(0 0 16px rgba(255, 138, 128, 0.6)); }
+.heart__bpm { font-size: 1.3rem; font-weight: 900; }
+.heart__wave { width: min(420px, 100%); height: 70px; }
+.heart__hint { font-size: var(--fs-small); color: var(--r-text-3); }
+.heart__results { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; width: min(420px, 100%); }
+.heart__results div { display: grid; gap: 2px; padding: 16px; border-radius: 16px; background: rgba(255, 255, 255, 0.05); }
+.heart__results span { font-size: var(--fs-tiny); font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: var(--r-text-3); }
+.heart__results strong { font-size: 2.6rem; font-weight: 900; line-height: 1; font-variant-numeric: tabular-nums; }
+.heart__results small { color: var(--r-text-3); font-size: var(--fs-tiny); }
+.heart__history { padding: 20px; display: grid; gap: 10px; }
+.heart__history h3 { font-size: 1.05rem; font-weight: 850; }
+.heart__history ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.heart__history li { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; gap: 14px; align-items: baseline; padding-bottom: 8px; border-bottom: 1px solid var(--r-line); font-size: var(--fs-small); color: var(--r-text-2); }
+.heart__history b { font-size: 1.1rem; font-variant-numeric: tabular-nums; color: #fff; }
+.heart__history small { font-size: var(--fs-tiny); color: var(--r-text-3); font-weight: 600; }
+@media (max-width: 900px) { .heart { grid-template-columns: minmax(0, 1fr); } }

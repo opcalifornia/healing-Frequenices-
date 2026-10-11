@@ -31,6 +31,14 @@ export interface CustomPattern {
   rest: number;
 }
 
+/** A camera heart check. */
+export interface HeartResult {
+  day: string;
+  at: number;
+  bpm: number;
+  rmssd: number;
+}
+
 /** A breath-hold (BOLT) test result in seconds. */
 export interface BoltResult {
   day: string;
@@ -42,6 +50,8 @@ interface PracticeState {
   prefs: BreathPrefs;
   customs: Record<string, CustomPattern[]>;
   bolts: Record<string, BoltResult[]>;
+  hearts: Record<string, HeartResult[]>;
+  addHeart(r: Omit<HeartResult, "day" | "at">): void;
   log(kind: string, minutes: number, extra?: { before?: number; after?: number }): void;
   setPrefs(p: Partial<BreathPrefs>): void;
   saveCustom(c: CustomPattern): void;
@@ -56,6 +66,11 @@ export const usePractice = create<PracticeState>()(
       prefs: DEFAULT_PREFS,
       customs: {},
       bolts: {},
+      hearts: {},
+      addHeart(r) {
+        const pid = useUser.getState().activeProfileId ?? "guest";
+        set({ hearts: { ...get().hearts, [pid]: [...(get().hearts?.[pid] ?? []), { ...r, day: todayKey(), at: Date.now() }].slice(-200) } });
+      },
       log(kind, minutes, extra) {
         const pid = useUser.getState().activeProfileId ?? "guest";
         const list = get().logs[pid] ?? [];
@@ -88,6 +103,11 @@ const EMPTY_B: BoltResult[] = [];
 export function useCustomPatterns(): CustomPattern[] {
   const pid = useUser((s) => s.activeProfileId) ?? "guest";
   return usePractice((s) => s.customs?.[pid] ?? EMPTY_C);
+}
+const EMPTY_H: HeartResult[] = [];
+export function useHearts(): HeartResult[] {
+  const pid = useUser((s) => s.activeProfileId) ?? "guest";
+  return usePractice((s) => s.hearts?.[pid] ?? EMPTY_H);
 }
 export function useBolts(): BoltResult[] {
   const pid = useUser((s) => s.activeProfileId) ?? "guest";
