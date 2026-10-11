@@ -29,6 +29,7 @@ frontend/           Vite React app
   src/data/         catalog.json, exported from the seed (do not hand-edit)
   e2e/              audio-channels.mjs (real-browser signal test)
 render.yaml         Render blueprint for the API
+docs/RECORDING_GUIDE.md  how to record your own tone sessions and nature beds
 ```
 
 ## Run it locally
