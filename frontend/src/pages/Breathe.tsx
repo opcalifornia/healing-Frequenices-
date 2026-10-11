@@ -5,6 +5,7 @@ import { Evidence, SecTabs, Sheet, SourceLink } from "../rooted/ui";
 import { GROUNDING, PMR, PMR_SOURCE, TECHNIQUES, type Technique } from "../rooted/breathContent";
 import { BreathPlayer } from "../rooted/BreathPlayer";
 import { BreathingBody, HeartRhythm } from "../rooted/BreatheDiagrams";
+import { ProgramRail } from "../rooted/ProgramRail";
 import { BoltTest, CustomList, PatternBuilder, QuickPicks, Results } from "../rooted/BreatheExtras";
 import { chime, unlockChime } from "../rooted/chime";
 import { minutesOn, practiceStreak, usePractice, usePracticeLog } from "../store/practice";
@@ -15,8 +16,11 @@ import "../rooted/rooted.css";
 import "./BrainGuide.css";
 import "./Nourish.css";
 import "./Breathe.css";
+import "./Combos.css";
+import "./Programs.css";
 
 const TABS = [
+  { id: "programs", label: "Programs" },
   { id: "breathe", label: "Breathing" },
   { id: "results", label: "Your results" },
   { id: "body", label: "Inside your body" },
@@ -165,6 +169,15 @@ export default function Breathe() {
       </header>
 
       <SecTabs tabs={TABS} />
+
+      <section id="programs" className="sec-block">
+        <Reveal className="sec-block__head">
+          <span className="rooted__eyebrow">Programs</span>
+          <h2>Build the habit, a day at a time</h2>
+          <p className="rooted__lead">Short daily lessons that teach you why, guide you through it, and check in on what's working.</p>
+        </Reveal>
+        <ProgramRail section="breathe" />
+      </section>
 
       <section id="breathe" className="sec-block">
         <Reveal className="sec-block__head">

@@ -8,10 +8,12 @@ import { useActiveProfile } from "../store/user";
 import { useWater, useWaterGoal, todayKey } from "../store/nourish";
 import { useAbout } from "../store/wellness";
 import { usePracticeLog } from "../store/practice";
-import { GOAL_SHORT, pickFor, sectionRank, slotFor, SLOT_LABEL } from "../rooted/plan";
+import { GOAL_SHORT, pickFor, sectionRank, slotFor, SLOT_LABEL, type Picked } from "../rooted/plan";
 import { Footer } from "../components/Footer";
 import { Icon } from "../components/Icon";
 import { MoodCheck } from "../rooted/Crisis";
+import { PROGRAMS } from "../rooted/programs";
+import { nextDay, useEnrollments } from "../store/programs";
 import { useCrisis } from "../store/support";
 import "../rooted/rooted.css";
 import "./Support.css";
@@ -36,7 +38,13 @@ export default function Hub() {
   const [prompt, setPrompt] = useState(() => (now.getDate() * 7 + now.getMonth()) % OFFLINE_PROMPTS.length);
   const slot = slotFor(h);
   const doneToday = new Set(entries.filter((e) => e.day === todayKey()).map((e) => e.kind));
-  const picks = pickFor(about, slot, 3);
+  const enrolled = useEnrollments();
+  const active = PROGRAMS.find((p) => p.live && enrolled[p.id] && !nextDay(enrolled[p.id], p.days.length).finished);
+  const activeNext = active ? nextDay(enrolled[active.id], active.days.length) : null;
+  const programPick = active && activeNext && !activeNext.doneToday
+    ? [{ id: `program-${active.id}`, title: `${active.title}: day ${activeNext.index + 1}`, body: active.days[activeNext.index].title, to: `/program/${active.id}`, minutes: 5, icon: "sparkle" as const, slots: [], serves: {}, reason: undefined } as Picked]
+    : [];
+  const picks = [...programPick, ...pickFor(about, slot, 3)].slice(0, 3);
   const needsSetup = !about.onboarded && !about.skipped;
   const goalText = about.goals.map((g) => GOAL_SHORT[g]);
   const sections = [...SECTIONS].sort((a, b) => Number(b.live) - Number(a.live) || sectionRank(b.id, about.goals) - sectionRank(a.id, about.goals));
