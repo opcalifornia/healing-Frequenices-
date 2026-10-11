@@ -21,7 +21,7 @@ export interface PlanItem {
   serves: Partial<Record<GoalId, number>>;
   /** Practice-log kind that marks it done today. */
   doneKind?: string;
-  icon: "timer" | "headphones" | "plus" | "replay" | "sparkle" | "bookmark" | "book" | "user";
+  icon: "timer" | "headphones" | "plus" | "replay" | "sparkle" | "bookmark" | "book" | "user" | "edit";
   excludeIf?: (f: ReturnType<typeof flags>) => boolean;
   minTime?: number;
 }
@@ -45,6 +45,8 @@ export const ITEMS: PlanItem[] = [
   { id: "plate", title: "Build tonight's plate", body: "Half vegetables, a quarter grains, a quarter protein.", to: "/nourish#plate", minutes: 2, slots: ["midday", "evening"], serves: { eat: 2 }, icon: "sparkle" },
   { id: "taichi", title: "Tai chi basics", body: "Slow, flowing balance practice. Six minutes.", to: "/move", minutes: 6, slots: ["midday", "evening"], serves: { stress: 2, aches: 2, move: 2 }, doneKind: "move:taichi", icon: "replay", minTime: 10, excludeIf: (f) => f.seated },
   { id: "yoga", title: "Gentle yoga flow", body: "Ten beginner-friendly minutes on the floor.", to: "/move", minutes: 10, slots: ["evening"], serves: { aches: 3, stress: 2, move: 2, sleep: 1 }, doneKind: "move:yoga", icon: "replay", minTime: 20, excludeIf: (f) => f.seated },
+  { id: "gratitude", title: "Three good things", body: "Write down what went right today. One minute.", to: "/spirit#gratitude", minutes: 1, slots: ["evening"], serves: { stress: 2, connect: 2, sleep: 1 }, icon: "edit" },
+  { id: "meditate", title: "Sit quietly", body: "A short silent meditation with a bowl to begin and end.", to: "/spirit#sit", minutes: 5, slots: ["morning", "evening"], serves: { stress: 2, focus: 2 }, doneKind: "meditate", icon: "timer" },
   { id: "offline", title: "An hour without your phone", body: "Leave it in another room this evening. Talk, read, cook, walk.", to: "/", minutes: 0, slots: ["evening"], serves: { connect: 3, sleep: 1, stress: 1 }, icon: "user" },
   { id: "pmr", title: "Tense and let go", body: "Progressive muscle relaxation, head to toe, in bed.", to: "/breathe#relax", minutes: 3, slots: ["evening"], serves: { sleep: 2, stress: 2, aches: 1 }, doneKind: "pmr", icon: "timer" },
   { id: "bedstretch", title: "Bedtime stretch", body: "Six slow minutes with the lights low.", to: "/move", minutes: 6, slots: ["evening"], serves: { sleep: 3, aches: 2 }, doneKind: "move:bedtime", icon: "replay", minTime: 10 },
@@ -97,7 +99,7 @@ const SECTION_GOALS: Record<string, GoalId[]> = {
   move: ["move", "aches", "energy"],
   learn: ["sleep"],
   combos: ["stress", "sleep", "energy"],
-  spirit: ["stress", "connect"],
+  spirit: ["stress", "connect", "sleep"],
   support: ["stress"],
   earth: ["connect"],
 };

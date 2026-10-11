@@ -16,6 +16,13 @@ evidence rating and a linked source. It has these sections:
 - **Combos** (`/combos`): one-tap guided flows that chain breathing, movement,
   habits, a written reflection and a closing frequency session. Steps are
   swapped automatically for someone's health considerations.
+- **Spirit & Ritual** (`/spirit`): synthesized singing bowls, chimes and gong,
+  an auto-playing sound bath, a meditation timer, a gratitude journal, and
+  traditions (chakras, crystals, grounding, forest bathing, smudging, faith)
+  with honest evidence notes.
+- **Support** (`/support`): crisis lines (988 and more), a Stanley-Brown
+  safety plan, how to help someone, therapies and practitioners. A heart
+  button in the nav opens crisis help from any screen.
 - **Learn** (`/learn`): guides to the brain, sleep and frequency safety.
 - **About you** (`/welcome`, `/about-you`): goals, activity level, daily time
   and optional health considerations. `frontend/src/rooted/plan.ts` turns

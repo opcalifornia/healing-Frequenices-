@@ -1,0 +1,73 @@
+.spirit { --sec-1: #c9b8ee; --sec-2: #f5b8d6; }
+.spirit__hero { min-height: min(84vh, 740px); }
+.spirit__bowl { position: absolute; right: 8vw; top: 52%; translate: 0 -50%; width: min(34vw, 400px); aspect-ratio: 1; display: grid; place-items: center; }
+.spirit__bowl span { position: absolute; inset: 0; border-radius: 50%; border: 1.5px solid rgba(201, 184, 238, 0.5); animation: bowl-wave 9s ease-out infinite; }
+.spirit__bowl span:nth-child(2) { animation-delay: -3s; border-color: rgba(245, 184, 214, 0.45); }
+.spirit__bowl span:nth-child(3) { animation-delay: -6s; border-color: rgba(232, 213, 176, 0.4); }
+.spirit__bowl i { width: 46%; aspect-ratio: 2 / 1; border-radius: 0 0 999px 999px; background: linear-gradient(180deg, #e8c37a, #8c6a2e 70%, #4a3612); box-shadow: inset 0 10px 20px rgba(255, 255, 255, 0.3), 0 30px 60px rgba(0, 0, 0, 0.6); }
+@keyframes bowl-wave { 0% { transform: scale(0.35); opacity: 0.9; } 100% { transform: scale(1.25); opacity: 0; } }
+@media (max-width: 760px) { .spirit__bowl { right: -18vw; top: 28%; width: 70vw; opacity: 0.55; } }
+@media (prefers-reduced-motion: reduce) { .spirit__bowl span { animation: none; opacity: 0.4; } }
+
+.bath { position: relative; overflow: hidden; display: grid; gap: 22px; padding: clamp(22px, 3vw, 36px); }
+.bath__stage { position: absolute; inset: 0; pointer-events: none; }
+.bath__ripple { position: absolute; top: 40%; width: 120px; height: 120px; margin: -60px 0 0 -60px; border-radius: 50%; border: 2px solid hsl(var(--h) 70% 72%); box-shadow: 0 0 30px hsl(var(--h) 70% 60% / 0.4); }
+.bath__bowls { position: relative; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; align-items: end; }
+.bowl { display: grid; justify-items: center; gap: 10px; padding: 8px 4px; border-radius: 16px; transition: background var(--t-fast); }
+.bowl:hover { background: rgba(255, 255, 255, 0.04); }
+.bowl__body { display: block; width: 100%; max-width: 130px; aspect-ratio: 2 / 1; border-radius: 0 0 999px 999px; background: linear-gradient(180deg, hsl(var(--h) 45% 72%), hsl(var(--h) 40% 42%) 60%, hsl(var(--h) 40% 22%)); box-shadow: inset 0 8px 16px rgba(255, 255, 255, 0.35), 0 18px 30px rgba(0, 0, 0, 0.5); position: relative; }
+.bowl__body::before { content: ""; position: absolute; left: 0; right: 0; top: -6px; height: 12px; border-radius: 50%; background: radial-gradient(ellipse, hsl(var(--h) 30% 20%), hsl(var(--h) 45% 60%) 70%); }
+.bath__bowls .bowl:nth-child(1) .bowl__body { max-width: 140px; }
+.bath__bowls .bowl:nth-child(5) .bowl__body { max-width: 96px; }
+.bowl__name { font-size: var(--fs-tiny); font-weight: 800; color: var(--r-text-2); }
+.bath__extras { position: relative; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.bath__vol { display: flex; align-items: center; gap: 8px; margin-left: auto; color: var(--r-text-3); }
+.bath__vol input { width: 140px; accent-color: #c9b8ee; }
+.bath__auto { position: relative; display: flex; flex-wrap: wrap; align-items: center; gap: 14px; padding-top: 18px; border-top: 1px solid var(--r-line); }
+.bath__time { font-size: 2rem; font-weight: 900; font-variant-numeric: tabular-nums; }
+.bath__hint { color: var(--r-text-2); flex: 1; min-width: 200px; }
+
+.sit { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: clamp(20px, 5vw, 60px); align-items: center; padding: clamp(22px, 3vw, 36px); }
+.sit__ring { position: relative; width: clamp(180px, 24vw, 260px); aspect-ratio: 1; display: grid; place-items: center; }
+.sit__ring svg { position: absolute; inset: 0; width: 100%; height: 100%; transform: rotate(-90deg); }
+.sit__ring circle { fill: none; stroke-width: 3; }
+.sit__fill { stroke: #c9b8ee; stroke-linecap: round; }
+.sit__glow { position: absolute; inset: 18%; border-radius: 50%; background: radial-gradient(circle, rgba(201, 184, 238, 0.55), transparent 70%); }
+.sit__time { position: relative; font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; font-variant-numeric: tabular-nums; }
+.sit__controls { display: grid; gap: 10px; justify-items: start; }
+.sit__cue { color: var(--r-text-2); font-size: 1.05rem; line-height: 1.6; max-width: 50ch; }
+.sit .tdetail__mins { flex-wrap: wrap; }
+
+.grat { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 12px; align-items: start; }
+.grat__form { display: grid; gap: 12px; padding: 24px; }
+.grat__form h3 { font-size: 1.3rem; font-weight: 900; }
+.grat__form p { color: var(--r-text-2); }
+.grat__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.grat__streak { margin-left: auto; font-weight: 800; color: var(--r-sand); font-size: var(--fs-small); }
+.grat__recent { display: grid; gap: 10px; }
+
+.spirit__findings { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.spirit__traditions { margin-top: 14px; }
+.chakra { display: grid; grid-template-columns: minmax(140px, 220px) minmax(0, 1fr); gap: clamp(20px, 4vw, 48px); align-items: center; padding: clamp(20px, 3vw, 32px); }
+.chakra__body { width: 100%; }
+.chakra__fig { fill: rgba(240, 232, 214, 0.08); stroke: rgba(240, 232, 214, 0.3); stroke-width: 1; }
+.chakra__info { display: grid; gap: 12px; }
+.chakra__pick { display: flex; flex-wrap: wrap; gap: 6px; }
+.chakra__pick button { padding: 6px 12px; border-radius: 999px; border: 1px solid var(--r-line); font-size: var(--fs-small); font-weight: 700; color: var(--r-text-2); transition: background var(--t-fast), color var(--t-fast); }
+.chakra__pick button.is-on { background: var(--c); color: #111; border-color: var(--c); }
+.chakra__info h3 { font-size: 1.6rem; font-weight: 900; }
+.chakra__info h3 small { font-size: 0.9rem; font-weight: 600; color: var(--r-text-3); margin-left: 6px; }
+.chakra__info p { color: var(--r-text-2); line-height: 1.6; }
+.chakra__scan { padding: 12px 14px; border-radius: 12px; background: rgba(255, 255, 255, 0.04); }
+.chakra__note { font-size: var(--fs-tiny); color: var(--r-text-3) !important; }
+.spirit__try { padding: 14px 16px; border-radius: 14px; background: rgba(156, 197, 154, 0.08); border: 1px solid rgba(156, 197, 154, 0.25); }
+
+@media (max-width: 1100px) { .spirit__findings { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 760px) {
+  .sit, .grat, .chakra { grid-template-columns: minmax(0, 1fr); }
+  .sit__ring { justify-self: center; }
+  .chakra__body { max-width: 160px; justify-self: center; }
+  .bath__bowls { gap: 4px; }
+  .bath__vol { margin-left: 0; }
+}
+@media (max-width: 560px) { .spirit__findings { grid-template-columns: minmax(0, 1fr); } }
