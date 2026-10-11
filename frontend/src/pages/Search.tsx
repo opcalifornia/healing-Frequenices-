@@ -20,6 +20,7 @@ const BROWSE = [
   { label: "Deep Sync", to: "/collection/frequencies/deep-sync", hue: 262 },
   { label: "Shows", to: "/shows", hue: 320 },
   { label: "Build Your Own", to: "/build", hue: 170 },
+  { label: "Inside Your Brain", to: "/learn/brain", hue: 200 },
 ];
 
 export default function Search() {

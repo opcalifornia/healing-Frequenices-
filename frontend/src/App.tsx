@@ -24,6 +24,7 @@ const Build = lazy(() => import("./pages/Build"));
 const Account = lazy(() => import("./pages/Account"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const Collection = lazy(() => import("./pages/Collection"));
+const BrainGuide = lazy(() => import("./pages/BrainGuide"));
 
 function RequireProfile({ children }: { children: JSX.Element }) {
   const active = useUser((s) => s.activeProfileId);
@@ -67,6 +68,7 @@ export default function App() {
             <Route path="/frequencies" element={<RequireProfile><Frequencies /></RequireProfile>} />
             <Route path="/shows" element={<RequireProfile><Shows /></RequireProfile>} />
             <Route path="/learn" element={<RequireProfile><Learn /></RequireProfile>} />
+            <Route path="/learn/brain" element={<RequireProfile><BrainGuide /></RequireProfile>} />
             <Route path="/learn/:slug" element={<RequireProfile><Article /></RequireProfile>} />
             <Route path="/my-stuff" element={<RequireProfile><MyStuff /></RequireProfile>} />
             <Route path="/title/:id" element={<RequireProfile><TitleDetail /></RequireProfile>} />

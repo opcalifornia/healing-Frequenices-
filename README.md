@@ -24,6 +24,7 @@ backend/            FastAPI app, seed content, tests
 frontend/           Vite React app
   src/audio/        engine.ts (Web Audio graph), noise.ts, program.ts
   src/art/          painter.ts (procedural artwork), useArt.ts
+  src/learn/        Inside Your Brain guide: content + SVG diagrams
   src/store/        player.ts (root player), user.ts, catalog.ts
   src/data/         catalog.json, exported from the seed (do not hand-edit)
   e2e/              audio-channels.mjs (real-browser signal test)
@@ -155,6 +156,11 @@ python -m app.seed            # upserts into MongoDB (or restart with an empty D
 
 Artwork is generated from each title's `art` (`hue`, `pattern`), which is
 assigned automatically from the goal or category.
+
+The interactive **Inside Your Brain** guide (`/learn/brain`) keeps its copy in
+`frontend/src/learn/brainContent.ts` (regions, bands, sleep stages, body
+rhythms, evidence table and sources). Its diagrams are SVG components in
+`frontend/src/learn/diagrams/`. Keep claims in line with the listed sources.
 
 ## Next steps: subscriptions and hosted media
 
