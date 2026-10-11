@@ -11,6 +11,7 @@ import { useMediaSession } from "./hooks/useMediaSession";
 import { usePlayer } from "./store/player";
 import { HoverPreview } from "./components/HoverPreview";
 import { BedtimeToast, useBedtimeReminder } from "./components/Bedtime";
+import Hub from "./pages/Hub";
 import Home from "./pages/Home";
 import Profiles from "./pages/Profiles";
 
@@ -29,6 +30,7 @@ const BrainGuide = lazy(() => import("./pages/BrainGuide"));
 const Bedtime = lazy(() => import("./pages/Bedtime"));
 const SleepGuide = lazy(() => import("./pages/SleepGuide"));
 const SafetyGuide = lazy(() => import("./pages/SafetyGuide"));
+const Nourish = lazy(() => import("./pages/Nourish"));
 
 function RequireProfile({ children }: { children: JSX.Element }) {
   const active = useUser((s) => s.activeProfileId);
@@ -79,7 +81,9 @@ export default function App() {
           <Routes location={location} key={location.pathname}>
             <Route path="/profiles" element={<Profiles />} />
             <Route path="/account" element={<Account />} />
-            <Route path="/" element={<RequireProfile><Home /></RequireProfile>} />
+            <Route path="/" element={<RequireProfile><Hub /></RequireProfile>} />
+            <Route path="/healing" element={<RequireProfile><Home /></RequireProfile>} />
+            <Route path="/nourish" element={<RequireProfile><Nourish /></RequireProfile>} />
             <Route path="/frequencies" element={<RequireProfile><Frequencies /></RequireProfile>} />
             <Route path="/shows" element={<RequireProfile><Shows /></RequireProfile>} />
             <Route path="/learn" element={<RequireProfile><Learn /></RequireProfile>} />

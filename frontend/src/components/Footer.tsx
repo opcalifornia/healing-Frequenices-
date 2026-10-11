@@ -1,3 +1,4 @@
+import { APP_NAME } from "../brand";
 import { Link } from "react-router-dom";
 import { Logo } from "./Logo";
 import { Icon } from "./Icon";
@@ -31,7 +32,7 @@ export function Footer() {
         Healing Frequencies sessions may support relaxation, focus, or sleep. They are not medical treatment and are not
         intended to diagnose, treat, cure, or prevent any condition. Research on binaural beats is mixed.
       </p>
-      <p className="footer__fine">© {new Date().getFullYear()} Healing Frequencies. All audio and artwork are generated live in your browser.</p>
+      <p className="footer__fine">© {new Date().getFullYear()} {APP_NAME}. All audio and artwork are generated live in your browser.</p>
     </footer>
   );
 }

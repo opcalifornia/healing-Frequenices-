@@ -2,6 +2,9 @@ import { useEffect, useRef, useState } from "react";
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { Logo } from "./Logo";
+import { RootedLogo } from "./RootedLogo";
+import { APP_NAME, HF_NAME } from "../brand";
+import { inHealing } from "../rooted/sections";
 import { Icon, type IconName } from "./Icon";
 import { Avatar } from "./Avatar";
 import { useActiveProfile, useUser } from "../store/user";
@@ -10,11 +13,40 @@ import "./NavBar.css";
 
 export const NAV_ITEMS: { to: string; label: string; icon: IconName }[] = [
   { to: "/", label: "Home", icon: "home" },
-  { to: "/frequencies", label: "Frequencies", icon: "wave" },
-  { to: "/shows", label: "Shows", icon: "tv" },
+  { to: "/healing", label: "Healing", icon: "wave" },
+  { to: "/nourish", label: "Nourish", icon: "sparkle" },
   { to: "/learn", label: "Learn", icon: "book" },
   { to: "/my-stuff", label: "My Stuff", icon: "bookmark" },
 ];
+
+/** Sub-navigation inside the Healing Frequencies section. */
+export const HEALING_ITEMS = [
+  { to: "/healing", label: "Home" },
+  { to: "/frequencies", label: "Frequencies" },
+  { to: "/shows", label: "Shows" },
+  { to: "/bedtime", label: "Bedtime" },
+  { to: "/build", label: "Build Your Own" },
+];
+
+function HealingNav() {
+  return (
+    <motion.nav
+      className="hnav"
+      aria-label={HF_NAME}
+      initial={{ opacity: 0, y: -10 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -10 }}
+      transition={{ duration: 0.25 }}
+    >
+      <Link to="/healing" className="hnav__brand" aria-label={`${HF_NAME} home`}><Logo /></Link>
+      <div className="hnav__links">
+        {HEALING_ITEMS.map((i) => (
+          <NavLink key={i.to} to={i.to} className="hnav__link">{i.label}</NavLink>
+        ))}
+      </div>
+    </motion.nav>
+  );
+}
 
 export function NavBar() {
   const [scrolled, setScrolled] = useState(false);
@@ -27,6 +59,7 @@ export function NavBar() {
   const navigate = useNavigate();
   const location = useLocation();
   const menuRef = useRef<HTMLDivElement>(null);
+  const healing = inHealing(location.pathname);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -54,12 +87,12 @@ export function NavBar() {
   return (
     <>
       <header className={`nav ${scrolled ? "nav--solid" : ""}`}>
-        <Link to="/" className="nav__logo" aria-label="Healing Frequencies home">
-          <Logo />
+        <Link to="/" className="nav__logo" aria-label={`${APP_NAME} home`}>
+          <RootedLogo />
         </Link>
         <nav className="nav__links" aria-label="Primary">
           {NAV_ITEMS.map((item) => (
-            <NavLink key={item.to} to={item.to} end={item.to === "/"} className="nav__link">
+            <NavLink key={item.to} to={item.to} end={item.to === "/"} className={({ isActive }) => `nav__link ${isActive || (item.to === "/healing" && healing) ? "active" : ""}`}>
               {item.label}
             </NavLink>
           ))}
@@ -122,10 +155,11 @@ export function NavBar() {
           </div>
         </div>
       </header>
+      <AnimatePresence>{healing && <HealingNav />}</AnimatePresence>
 
       <nav className="tabbar" aria-label="Primary">
         {NAV_ITEMS.map((item) => (
-          <NavLink key={item.to} to={item.to} end={item.to === "/"} className="tabbar__item">
+          <NavLink key={item.to} to={item.to} end={item.to === "/"} className={({ isActive }) => `tabbar__item ${isActive || (item.to === "/healing" && healing) ? "active" : ""}`}>
             <Icon name={item.icon} size={22} />
             <span>{item.label}</span>
           </NavLink>

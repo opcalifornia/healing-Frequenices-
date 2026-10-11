@@ -18,9 +18,9 @@ export default defineConfig(({ mode }) => {
       registerType: "autoUpdate",
       includeAssets: ["favicon.svg", "icons/*.png"],
       manifest: {
-        name: "Healing Frequencies",
-        short_name: "Frequencies",
-        description: "Binaural beats and frequency sessions that may support relaxation, focus, or sleep.",
+        name: "Rooted",
+        short_name: "Rooted",
+        description: "Evidence-based wellness: food, water, breath, movement and binaural frequency sessions.",
         theme_color: "#000000",
         background_color: "#000000",
         display: "standalone",
