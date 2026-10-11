@@ -44,7 +44,8 @@ Wellness content lives in `frontend/src/rooted/*Content.ts`. Per-profile data
 
 Planned phases are written up in `docs/`. The AI Coach phase, a chat coach
 that builds a personal daily routine from the app's content, is in
-[`docs/PHASE_AI_COACH.md`](docs/PHASE_AI_COACH.md).
+[`docs/PHASE_AI_COACH.md`](docs/PHASE_AI_COACH.md). Professional partners and
+training modules are in [`docs/PHASE_PRO_PARTNERS.md`](docs/PHASE_PRO_PARTNERS.md).
 
 ## Healing Frequencies
 
