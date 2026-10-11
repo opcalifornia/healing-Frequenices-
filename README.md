@@ -4,6 +4,11 @@ Rooted is an evidence-based wellness app. Every health claim in it carries an
 evidence rating and a linked source. It has these sections:
 
 - **Home** (`/`): a Today strip and section cards that zoom open.
+- **Healing Light** (`/light`): an interactive spectrum from UV to
+  near-infrared, diagrams of how light sets the body clock and how deep each
+  band reaches into skin, a night light and sunrise screen, a light box
+  timer, a daily light plan from your bedtime, and evidence on light
+  therapy, blue light, red light, UV and tanning beds.
 - **Healing Frequencies** (`/healing`): the binaural streaming section
   described below.
 - **Breathe** (`/breathe`): six guided techniques with a full-screen pacer,

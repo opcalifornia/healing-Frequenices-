@@ -15,6 +15,7 @@ import "./NavBar.css";
 export const NAV_ITEMS: { to: string; label: string; icon: IconName }[] = [
   { to: "/", label: "Home", icon: "home" },
   { to: "/healing", label: "Healing", icon: "wave" },
+  { to: "/light", label: "Light", icon: "sparkle" },
   { to: "/breathe", label: "Breathe", icon: "timer" },
   { to: "/nourish", label: "Nourish", icon: "sparkle" },
   { to: "/move", label: "Move", icon: "replay" },
@@ -95,7 +96,7 @@ export function NavBar() {
           <RootedLogo />
         </Link>
         <nav className="nav__links" aria-label="Primary">
-          {NAV_ITEMS.map((item) => (
+          {NAV_ITEMS.filter((i) => i.to !== "/my-stuff").map((item) => (
             <NavLink key={item.to} to={item.to} end={item.to === "/"} className={({ isActive }) => `nav__link ${isActive || (item.to === "/healing" && healing) ? "active" : ""}`}>
               {item.label}
             </NavLink>
@@ -172,7 +173,7 @@ export function NavBar() {
       <AnimatePresence>{healing && <HealingNav />}</AnimatePresence>
 
       <nav className="tabbar" aria-label="Primary">
-        {NAV_ITEMS.filter((i) => !["/learn", "/my-stuff", "/combos"].includes(i.to)).map((item) => (
+        {NAV_ITEMS.filter((i) => !["/learn", "/my-stuff", "/combos", "/light"].includes(i.to)).map((item) => (
           <NavLink key={item.to} to={item.to} end={item.to === "/"} className={({ isActive }) => `tabbar__item ${isActive || (item.to === "/healing" && healing) ? "active" : ""}`}>
             <Icon name={item.icon} size={22} />
             <span>{item.label}</span>

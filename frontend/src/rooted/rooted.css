@@ -60,6 +60,11 @@
 .sart--learn { background: radial-gradient(ellipse at 20% 0%, color-mix(in srgb, var(--c1) 35%, transparent), transparent 60%), #0b1211; }
 .sart__node { animation: node-pulse 5s ease-in-out infinite; animation-delay: calc(var(--i) * -0.4s); }
 @keyframes node-pulse { 50% { opacity: 0.3; } }
+.sart--light { background: radial-gradient(ellipse at 80% 10%, rgba(255, 213, 79, 0.5), transparent 55%), linear-gradient(180deg, #1a1208, #0d0b08); overflow: hidden; }
+.sart--light span { position: absolute; top: -40%; left: 70%; width: 30%; height: 180%; background: linear-gradient(180deg, rgba(255, 236, 179, 0.35), transparent 70%); transform-origin: top center; animation: ray 9s ease-in-out infinite alternate; }
+.sart--light span:nth-child(2) { left: 55%; animation-delay: -3s; opacity: 0.6; }
+.sart--light span:nth-child(3) { left: 82%; animation-delay: -6s; opacity: 0.5; }
+@keyframes ray { from { transform: rotate(18deg); } to { transform: rotate(32deg); } }
 .sart--orbs { background: #10120f; overflow: hidden; }
 .sart--orbs span { position: absolute; border-radius: 50%; filter: blur(30px); animation: aurora-drift 22s ease-in-out infinite alternate; }
 .sart--orbs span:first-child { width: 70%; aspect-ratio: 1; right: -20%; top: -30%; background: radial-gradient(circle, var(--c1), transparent 65%); opacity: 0.5; }
@@ -119,3 +124,23 @@ a.src-link:hover { color: var(--r-sand); }
 .slist__check { display: grid; place-items: center; width: 26px; height: 26px; border-radius: 8px; border: 2px solid rgba(240, 232, 214, 0.4); color: #14140f; transition: background var(--t-fast), border-color var(--t-fast); }
 .for-you { display: flex; gap: 10px; align-items: flex-start; padding: 12px 14px; border-radius: 14px; background: rgba(110, 198, 255, 0.08); border: 1px solid rgba(110, 198, 255, 0.3); color: var(--r-text-2); font-size: var(--fs-small); line-height: 1.5; }
 .for-you strong { color: #8fd3ff; }
+
+/* Evidence finding cards and their detail sheet, shared by every section */
+.findings { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; perspective: 1200px; }
+.finding { display: flex; flex-direction: column; gap: 6px; min-height: 290px; padding: 22px 20px; border-radius: 22px; overflow: hidden; border: 1px solid var(--r-line);
+  background: radial-gradient(circle at 100% 0%, hsl(var(--h) 60% 45% / 0.35), transparent 60%), linear-gradient(180deg, var(--r-surface-2), var(--r-surface)); }
+.finding__stat { font-size: clamp(2.2rem, 3.6vw, 3.4rem); font-weight: 900; letter-spacing: -0.04em; line-height: 1; color: hsl(var(--h) 70% 75%); }
+.finding__label { color: var(--r-text-2); font-size: var(--fs-small); line-height: 1.4; }
+.finding h3 { margin-top: auto; font-size: 1.1rem; font-weight: 850; line-height: 1.2; letter-spacing: -0.01em; }
+.finding__foot { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 10px; }
+.finding__more { font-size: var(--fs-tiny); font-weight: 800; color: var(--r-text-3); }
+.fdetail__top { display: grid; gap: 6px; padding: 40px 28px 26px; background: radial-gradient(circle at 100% 0%, hsl(var(--h) 60% 45% / 0.45), transparent 65%), var(--r-surface-2); }
+.fdetail__top .finding__stat { font-size: clamp(3rem, 8vw, 4.6rem); }
+.fdetail__body { display: grid; gap: 14px; justify-items: start; padding: 24px 28px 30px; }
+.fdetail__body h2 { font-size: 1.6rem; font-weight: 900; letter-spacing: -0.02em; }
+.fdetail__body p { color: var(--r-text-2); line-height: 1.65; }
+.fdetail__do { width: 100%; padding: 14px 16px; border-radius: 14px; background: rgba(181, 215, 122, 0.1); border: 1px solid rgba(181, 215, 122, 0.25); }
+.fdetail__do strong { color: var(--sec-1); font-size: var(--fs-small); text-transform: uppercase; letter-spacing: 0.08em; }
+@media (max-width: 1200px) { .findings { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 860px) { .findings { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .findings { grid-template-columns: minmax(0, 1fr); } .finding { min-height: 220px; } }

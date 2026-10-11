@@ -39,6 +39,7 @@ const Combos = lazy(() => import("./pages/Combos"));
 const Support = lazy(() => import("./pages/Support"));
 const Spirit = lazy(() => import("./pages/Spirit"));
 const Garden = lazy(() => import("./pages/Garden"));
+const Light = lazy(() => import("./pages/Light"));
 
 function RequireProfile({ children }: { children: JSX.Element }) {
   const active = useUser((s) => s.activeProfileId);
@@ -94,6 +95,7 @@ export default function App() {
             <Route path="/nourish" element={<RequireProfile><Nourish /></RequireProfile>} />
             <Route path="/breathe" element={<RequireProfile><Breathe /></RequireProfile>} />
             <Route path="/move" element={<RequireProfile><Move /></RequireProfile>} />
+            <Route path="/light" element={<RequireProfile><Light /></RequireProfile>} />
             <Route path="/garden" element={<RequireProfile><Garden /></RequireProfile>} />
             <Route path="/spirit" element={<RequireProfile><Spirit /></RequireProfile>} />
             <Route path="/support" element={<RequireProfile><Support /></RequireProfile>} />

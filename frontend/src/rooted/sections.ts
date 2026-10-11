@@ -4,7 +4,7 @@
  * of the app is visible while it's being built.
  */
 
-export type SectionId = "healing" | "nourish" | "breathe" | "move" | "combos" | "spirit" | "garden" | "places" | "support" | "earth" | "learn";
+export type SectionId = "light" | "healing" | "nourish" | "breathe" | "move" | "combos" | "spirit" | "garden" | "places" | "support" | "earth" | "learn";
 
 export interface RootedSection {
   id: SectionId;
@@ -21,6 +21,7 @@ export interface RootedSection {
 
 export const SECTIONS: RootedSection[] = [
   { id: "healing", name: "Healing Frequencies", tagline: "Binaural sessions, shows and sleep, generated live", to: "/healing", live: true, size: "xl", c1: "#8b6cff", c2: "#19e3c4" },
+  { id: "light", name: "Healing Light", tagline: "Morning sun, light therapy, blue and red light, and UV", to: "/light", live: true, size: "wide", c1: "#ffd54f", c2: "#ff7043" },
   { id: "nourish", name: "Nourish", tagline: "Food, water and a smarter shopping list, by the evidence", to: "/nourish", live: true, size: "wide", c1: "#9ccc65", c2: "#e8b04a" },
   { id: "breathe", name: "Breathe", tagline: "Box, 4-7-8, the physiological sigh and more", to: "/breathe", live: true, size: "tall", c1: "#6ec6ff", c2: "#b3e5fc" },
   { id: "move", name: "Move", tagline: "Walks after meals, yoga, tai chi, qigong, sauna", to: "/move", live: true, size: "sm", c1: "#ff8a65", c2: "#ffcc80" },

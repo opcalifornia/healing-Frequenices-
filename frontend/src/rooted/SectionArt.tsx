@@ -22,6 +22,12 @@ export function SectionArt({ s }: { s: RootedSection }) {
           ))}
         </svg>
       );
+    case "light":
+      return (
+        <div className="sart sart--light" style={style} aria-hidden="true">
+          <span /><span /><span />
+        </div>
+      );
     case "breathe":
       return (
         <div className="sart sart--breathe" style={style} aria-hidden="true">
