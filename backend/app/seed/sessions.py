@@ -271,6 +271,34 @@ SESSIONS = [
      "Upper alpha for slow mornings.",
      "A 12 Hz beat that eases you awake before anything faster.",
      {}),
+
+    # --- Nature soundscapes ----------------------------------------------
+    # flags may set "ambience" (rain, waterfall, stream, rainforest) and
+    # "mix": {"binaural": 0} for nature-only listening without beats.
+    ("rainforest-theta", "Rainforest Theta", "meditate", 180, 6.0, 30, None, None, False,
+     "Canopy birds and soft rain over a 6 Hz theta beat.",
+     "A rainforest soundscape, with distant birds, insects and light rain, layered over a gentle 6 Hz theta beat for meditation.",
+     {"ambience": "rainforest", "featured": True, "isNew": True}),
+    ("waterfall-focus", "Waterfall Focus", "focus", 240, 14.0, 45, None, None, False,
+     "A steady waterfall roar that masks distractions.",
+     "The broad, even sound of a waterfall over a 14 Hz beta beat. The roar covers background chatter while you work.",
+     {"ambience": "waterfall", "isNew": True}),
+    ("rain-on-leaves", "Rain on Leaves", "sleep", 140, 2.0, 60, None, None, False,
+     "Rainfall on leaves over a slow delta beat.",
+     "An hour of steady rain with soft droplets, over a 2 Hz delta beat for winding down to sleep.",
+     {"ambience": "rain"}),
+    ("mountain-stream", "Mountain Stream", "relax", 200, 10.0, 30, None, None, False,
+     "A babbling brook and a classic 10 Hz alpha beat.",
+     "A shallow stream running over stones, paired with a 10 Hz alpha beat for easy relaxation.",
+     {"ambience": "stream"}),
+    ("rainforest-nature-only", "Rainforest Canopy (Nature Only)", "relax", 200, 10.0, 60, None, None, False,
+     "Just the rainforest. No tones, no headphones needed.",
+     "The rainforest soundscape on its own, with no binaural beat. Play it through speakers or headphones.",
+     {"ambience": "rainforest", "mix": {"binaural": 0}}),
+    ("waterfall-nature-only", "Waterfall (Nature Only)", "sleep", 200, 2.0, 60, None, None, False,
+     "Just the waterfall. No tones, no headphones needed.",
+     "The waterfall soundscape on its own, with no binaural beat. A simple, steady sound for sleep or focus.",
+     {"ambience": "waterfall", "mix": {"binaural": 0}}),
 ]
 
 # Deep Sync: original long-form programs. Binaural beats over a noise bed that

@@ -76,7 +76,8 @@ input[type="range"]:disabled { opacity: 0.35; cursor: not-allowed; }
 .player__safety { text-align: center; font-size: var(--fs-tiny); color: var(--text-3); }
 
 .panel { background: rgba(24, 24, 27, 0.92); border: 1px solid var(--line); border-radius: 14px; padding: 18px; backdrop-filter: blur(12px); }
-.panel__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px 28px; }
+.panel__grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr)); gap: 18px 32px; }
+.panel__grid > * { min-width: 0; }
 .panel__chips { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
 .panel__hint { width: 100%; color: var(--text-3); font-size: var(--fs-small); }
 .layer { display: grid; gap: 6px; }

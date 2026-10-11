@@ -4,6 +4,7 @@ import { BinauralEngine, DEFAULT_MIX, type EngineSettings } from "../audio/engin
 import { fadeOutSeconds, STAGE_GLIDE, stageIndexAt } from "../audio/program";
 import { useUser } from "./user";
 import type { LayerMix, NoiseColor, Title } from "../types";
+import type { AmbienceId } from "../audio/ambience";
 
 /**
  * The one player store, mounted at the app root. Audio keeps playing while the
@@ -25,6 +26,7 @@ interface PlayerState {
   noise: NoiseColor | null;
   solfeggio: number | null;
   isochronic: boolean;
+  ambience: AmbienceId | null;
   carrier: number;
   beat: number;
   stageIndex: number;
@@ -44,6 +46,7 @@ interface PlayerState {
   setNoise(c: NoiseColor | null): void;
   setSolfeggio(hz: number | null): void;
   setIsochronic(on: boolean): void;
+  setAmbience(id: AmbienceId | null): void;
   setTimer(t: TimerChoice): void;
   retune(carrier: number, beat: number): void;
   setExpanded(open: boolean): void;
@@ -94,6 +97,7 @@ export const usePlayer = create<PlayerState>()(
           solfeggio: s.solfeggio,
           isochronic: s.isochronic,
           pairs: t.pairs,
+          ambience: s.ambience,
           mix: s.mix,
           volume: s.volume,
         };
@@ -155,6 +159,7 @@ export const usePlayer = create<PlayerState>()(
           noise: title.noise ?? null,
           solfeggio: title.solfeggio ?? null,
           isochronic: !!title.isochronic,
+          ambience: title.ambience ?? null,
           mix: { ...DEFAULT_MIX, ...title.mix },
         };
         set(layers);
@@ -187,6 +192,7 @@ export const usePlayer = create<PlayerState>()(
         noise: null,
         solfeggio: null,
         isochronic: false,
+        ambience: null,
         carrier: 200,
         beat: 10,
         stageIndex: 0,
@@ -274,6 +280,11 @@ export const usePlayer = create<PlayerState>()(
         setSolfeggio(hz) {
           set({ solfeggio: hz });
           engine.setLayers({ solfeggio: hz });
+        },
+
+        setAmbience(id) {
+          set({ ambience: id });
+          engine.setLayers({ ambience: id });
         },
 
         setIsochronic(on) {

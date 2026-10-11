@@ -14,6 +14,7 @@ import { BAND_LABEL, BAND_RANGE, formatDuration, formatHz, GOAL_LABEL } from "..
 import { bandFor } from "../custom";
 import type { Stage, Title } from "../types";
 import NotFound from "./NotFound";
+import { AMBIENCES } from "../audio/ambience";
 import "./TitleDetail.css";
 
 function StageTimeline({ stages, duration }: { stages: Stage[]; duration: number }) {
@@ -50,6 +51,7 @@ function FrequencyFacts({ t }: { t: Title }) {
   if (t.band) facts.push(["Band", `${BAND_LABEL[t.band]} · ${BAND_RANGE[t.band]}`]);
   if (t.goal) facts.push(["Goal", GOAL_LABEL[t.goal]]);
   facts.push(["Noise bed", t.noise === "surf" ? "Ocean surf" : t.noise ? `${t.noise[0].toUpperCase()}${t.noise.slice(1)} noise` : "None"]);
+  if (t.ambience) facts.push(["Nature", AMBIENCES.find((a) => a.id === t.ambience)?.name ?? t.ambience]);
   if (t.pairs?.length) facts.push(["Layered pairs", t.pairs.map((p) => `${formatHz(p.carrier)} + ${formatHz(p.beat)}`).join(" · ")]);
   if (t.solfeggio) facts.push(["Solfeggio tone", formatHz(t.solfeggio)]);
   if (t.isochronic) facts.push(["Isochronic pulse", "On"]);

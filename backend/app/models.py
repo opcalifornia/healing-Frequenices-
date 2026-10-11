@@ -8,6 +8,7 @@ import re
 from pydantic import BaseModel, EmailStr, Field, field_validator
 
 SOLFEGGIO = {174, 285, 396, 417, 528, 639, 741, 852, 963}
+AMBIENCES = ("rain", "waterfall", "stream", "rainforest")
 
 
 class Credentials(BaseModel):
@@ -57,6 +58,7 @@ class CustomSessionIn(BaseModel):
     noise: str | None = None
     solfeggio: int | None = None
     isochronic: bool = False
+    ambience: str | None = None
     createdAt: str | None = None
 
     @field_validator("id")
@@ -71,6 +73,13 @@ class CustomSessionIn(BaseModel):
     def check_noise(cls, v: str | None) -> str | None:
         if v not in (None, "pink", "brown", "surf"):
             raise ValueError("noise must be pink, brown, surf or null")
+        return v
+
+    @field_validator("ambience")
+    @classmethod
+    def check_ambience(cls, v: str | None) -> str | None:
+        if v not in (None, *AMBIENCES):
+            raise ValueError("unknown nature soundscape")
         return v
 
     @field_validator("solfeggio")

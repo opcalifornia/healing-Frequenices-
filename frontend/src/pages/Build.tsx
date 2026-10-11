@@ -9,6 +9,7 @@ import { useLibrary, useUser } from "../store/user";
 import { bandFor, customToTitle } from "../custom";
 import { BAND_LABEL, BAND_RANGE, formatHz } from "../format";
 import type { CustomSession, NoiseColor } from "../types";
+import { AMBIENCES, type AmbienceId } from "../audio/ambience";
 import "../components/Player.css";
 import "./Build.css";
 
@@ -28,12 +29,13 @@ export default function Build() {
   const [noise, setNoise] = useState<NoiseColor | null>("pink");
   const [solfeggio, setSolfeggio] = useState<number | null>(null);
   const [isochronic, setIsochronic] = useState(false);
+  const [ambience, setAmbienceState] = useState<AmbienceId | null>(null);
   const [name, setName] = useState("");
   const [saved, setSaved] = useState<string | null>(null);
 
   const current = usePlayer((s) => s.current);
   const status = usePlayer((s) => s.status);
-  const { playTitle, retune, setNoise: pNoise, setSolfeggio: pSolf, setIsochronic: pIso, stop } = usePlayer.getState();
+  const { playTitle, retune, setNoise: pNoise, setSolfeggio: pSolf, setIsochronic: pIso, setAmbience: pAmb, stop } = usePlayer.getState();
   const saveCustom = useUser((s) => s.saveCustom);
   const deleteCustom = useUser((s) => s.deleteCustom);
   const custom = useLibrary().custom;
@@ -41,8 +43,8 @@ export default function Build() {
   const previewing = current?.id === PREVIEW_ID && status !== "idle";
   const band = bandFor(beat);
   const draft: CustomSession = useMemo(
-    () => ({ id: PREVIEW_ID, name: name.trim() || "Preview", carrier, beat, noise, solfeggio, isochronic, createdAt: new Date().toISOString() }),
-    [name, carrier, beat, noise, solfeggio, isochronic],
+    () => ({ id: PREVIEW_ID, name: name.trim() || "Preview", carrier, beat, noise, solfeggio, isochronic, ambience, createdAt: new Date().toISOString() }),
+    [name, carrier, beat, noise, solfeggio, isochronic, ambience],
   );
 
   const update = (c: number, b: number) => {
@@ -57,7 +59,7 @@ export default function Build() {
   };
 
   const save = () => {
-    const s = saveCustom({ name: name.trim() || `${BAND_LABEL[band]} ${formatHz(beat)}`, carrier, beat, noise, solfeggio, isochronic });
+    const s = saveCustom({ name: name.trim() || `${BAND_LABEL[band]} ${formatHz(beat)}`, carrier, beat, noise, solfeggio, isochronic, ambience });
     setSaved(s.name);
     setName("");
   };
@@ -116,6 +118,13 @@ export default function Build() {
               </select>
             </div>
             <div className="layer__row">
+              <label className="slider__label" htmlFor="b-nature">Nature</label>
+              <select id="b-nature" className="select" value={ambience ?? ""} onChange={(e) => { const v = (e.target.value || null) as AmbienceId | null; setAmbienceState(v); if (previewing) pAmb(v); }}>
+                <option value="">Off</option>
+                {AMBIENCES.map((a) => <option key={a.id} value={a.id}>{a.name}</option>)}
+              </select>
+            </div>
+            <div className="layer__row">
               <span className="slider__label">Isochronic</span>
               <button className={`switch ${isochronic ? "is-on" : ""}`} role="switch" aria-checked={isochronic} aria-label="Isochronic tones" onClick={() => { setIsochronic(!isochronic); if (previewing) pIso(!isochronic); }}>
                 <span />
@@ -150,7 +159,7 @@ export default function Build() {
                   <button className="icon-btn icon-btn--small" onClick={() => playTitle(customToTitle(c))} aria-label={`Play ${c.name}`}><Icon name="play" size={16} /></button>
                   <span className="build__saved-name">{c.name}</span>
                   <span className="build__saved-meta">{formatHz(c.carrier)} · {formatHz(c.beat)} beat{c.noise ? ` · ${c.noise} noise` : ""}</span>
-                  <button className="icon-btn icon-btn--small icon-btn--plain" onClick={() => { setCarrier(c.carrier); setBeat(c.beat); setNoise(c.noise); setSolfeggio(c.solfeggio); setIsochronic(c.isochronic); setName(c.name); }} aria-label={`Edit ${c.name}`}><Icon name="edit" size={16} /></button>
+                  <button className="icon-btn icon-btn--small icon-btn--plain" onClick={() => { setCarrier(c.carrier); setBeat(c.beat); setNoise(c.noise); setSolfeggio(c.solfeggio); setIsochronic(c.isochronic); setAmbienceState(c.ambience ?? null); setName(c.name); }} aria-label={`Edit ${c.name}`}><Icon name="edit" size={16} /></button>
                   <button className="icon-btn icon-btn--small icon-btn--plain" onClick={() => deleteCustom(c.id)} aria-label={`Delete ${c.name}`}><Icon name="trash" size={16} /></button>
                 </li>
               ))}

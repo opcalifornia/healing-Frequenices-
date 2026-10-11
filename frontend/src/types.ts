@@ -1,3 +1,5 @@
+import type { AmbienceId } from "./audio/ambience";
+
 export type Goal = "sleep" | "meditate" | "focus" | "relax" | "energize";
 export type Band = "delta" | "theta" | "alpha" | "beta" | "gamma";
 /** "surf" is brown noise shaped into slow ocean-like swells. */
@@ -11,6 +13,8 @@ export interface LayerMix {
   isochronic: number;
   solfeggio: number;
   noise: number;
+  /** Nature soundscape (rain, waterfall, ...). */
+  ambience: number;
 }
 
 /** An extra binaural pair layered under the main one. `level` is 0..1 of the main pair. */
@@ -58,6 +62,8 @@ export interface Title {
   isochronic?: boolean;
   /** Additional binaural pairs played at the same time (layered beats). */
   pairs?: BinauralPair[];
+  /** Nature soundscape layered under the tones. */
+  ambience?: AmbienceId | null;
   mix?: Partial<LayerMix>;
   stages?: Stage[];
   tags: string[];
@@ -115,6 +121,7 @@ export interface CustomSession {
   noise: NoiseColor | null;
   solfeggio: number | null;
   isochronic: boolean;
+  ambience?: AmbienceId | null;
   createdAt: string;
 }
 

@@ -1,5 +1,6 @@
 import type { BinauralPair, LayerMix, NoiseColor } from "../types";
 import { LOOP_TAIL, makeNoiseBuffer } from "./noise";
+import { loadAmbience, type AmbienceId } from "./ambience";
 
 /**
  * Live binaural engine built on the Web Audio API. No audio files.
@@ -26,6 +27,7 @@ export interface EngineSettings {
   isochronic: boolean;
   /** Extra binaural pairs layered under the main one. */
   pairs?: BinauralPair[];
+  ambience?: AmbienceId | null;
   mix: LayerMix;
   volume: number;
 }
@@ -33,10 +35,10 @@ export interface EngineSettings {
 /** Ocean-swell timing: one wave roughly every 11 seconds. */
 export const SURF_RATE = 0.09;
 
-export const DEFAULT_MIX: LayerMix = { binaural: 0.8, isochronic: 0.35, solfeggio: 0.3, noise: 0.5 };
+export const DEFAULT_MIX: LayerMix = { binaural: 0.8, isochronic: 0.35, solfeggio: 0.3, noise: 0.5, ambience: 0.7 };
 
 /** Per-layer headroom so a full mix never clips. */
-const LEVEL = { binaural: 0.28, isochronic: 0.1, solfeggio: 0.07, noise: 0.42 };
+const LEVEL = { binaural: 0.28, isochronic: 0.1, solfeggio: 0.07, noise: 0.42, ambience: 0.55 };
 const MIN_RAMP = 0.03;
 
 export function channelFrequencies(carrier: number, beat: number): { left: number; right: number } {
@@ -61,6 +63,9 @@ interface Graph {
   noiseChain: AudioNode[];
   pairOscs: OscillatorNode[];
   noiseBus: GainNode;
+  ambienceBus: GainNode;
+  ambienceSrc: AudioBufferSourceNode | null;
+  ambienceId: AmbienceId | null;
   mixBus: GainNode;
   nodes: AudioNode[];
 }
@@ -78,6 +83,7 @@ export class BinauralEngine {
   private graph: Graph | null = null;
   private settings: EngineSettings | null = null;
   private noiseCache = new Map<NoiseColor, AudioBuffer>();
+  private ambienceCache = new Map<AmbienceId, Promise<{ buffer: AudioBuffer; loopEnd: number }>>();
   private streamDest: MediaStreamAudioDestinationNode | null = null;
   /** Bumped on resume/start so a pending pause() does not suspend a resumed session. */
   private generation = 0;
@@ -257,14 +263,21 @@ export class BinauralEngine {
     noiseBus.gain.value = settings.noise ? LEVEL.noise * settings.mix.noise : 0;
     noiseBus.connect(mixBus);
 
+    // Nature soundscape bed (loaded asynchronously).
+    const ambienceBus = track(ctx.createGain());
+    ambienceBus.gain.value = settings.ambience ? LEVEL.ambience * settings.mix.ambience : 0;
+    ambienceBus.connect(mixBus);
+
     const now = ctx.currentTime;
     for (const osc of [leftOsc, rightOsc, isoOsc, isoLfo, solfOsc, ...pairOscs]) osc.start(now);
 
     this.graph = {
       leftOsc, rightOsc, binauralBus, isoOsc, isoLfo, isoSmooth, isoBus, solfOsc, solfBus,
       noiseSrc: null, noiseColor: null, noiseChain: [], pairOscs, noiseBus, mixBus, nodes,
+      ambienceBus, ambienceSrc: null, ambienceId: null,
     };
     if (settings.noise) this.startNoise(settings.noise);
+    if (settings.ambience) void this.startAmbience(settings.ambience);
 
     this.volumeNode!.gain.value = settings.volume;
     // The session bus carries the slow fade-in; the master fader just opens.
@@ -337,6 +350,50 @@ export class BinauralEngine {
     g.noiseChain = [];
   }
 
+  private async startAmbience(id: AmbienceId) {
+    const g = this.graph;
+    if (!g || !this.ctx || g.ambienceId === id) return;
+    g.ambienceId = id;
+    let pending = this.ambienceCache.get(id);
+    if (!pending) {
+      pending = loadAmbience(this.ctx, id);
+      this.ambienceCache.set(id, pending);
+      pending.catch(() => this.ambienceCache.delete(id));
+    }
+    let loaded: { buffer: AudioBuffer; loopEnd: number };
+    try {
+      loaded = await pending;
+    } catch (err) {
+      console.warn("[ambience] could not load", id, err);
+      return;
+    }
+    // The session or the choice may have changed while rendering.
+    if (this.graph !== g || g.ambienceId !== id) return;
+    this.stopAmbience(g);
+    const src = this.ctx.createBufferSource();
+    src.buffer = loaded.buffer;
+    src.loop = true;
+    src.loopEnd = loaded.loopEnd;
+    const fade = this.ctx.createGain();
+    fade.gain.value = 0;
+    src.connect(fade).connect(g.ambienceBus);
+    src.start();
+    fade.gain.setValueAtTime(0, this.ctx.currentTime);
+    fade.gain.linearRampToValueAtTime(1, this.ctx.currentTime + 2);
+    g.ambienceSrc = src;
+  }
+
+  private stopAmbience(g: Graph | null = this.graph) {
+    if (!g?.ambienceSrc) return;
+    try {
+      g.ambienceSrc.stop();
+      g.ambienceSrc.disconnect();
+    } catch {
+      /* already stopped */
+    }
+    g.ambienceSrc = null;
+  }
+
   /** Retune the pair. Both ears ramp together so right - left stays equal to the beat at the target. */
   setCarrierBeat(carrier: number, beat: number, rampSeconds = 0.08) {
     if (!this.graph || !this.settings) return;
@@ -356,13 +413,17 @@ export class BinauralEngine {
     this.applyLevels();
   }
 
-  setLayers(layers: Partial<Pick<EngineSettings, "noise" | "solfeggio" | "isochronic">>) {
+  setLayers(layers: Partial<Pick<EngineSettings, "noise" | "solfeggio" | "isochronic" | "ambience">>) {
     if (!this.graph || !this.settings) return;
     this.settings = { ...this.settings, ...layers };
     if ("noise" in layers) {
       if (layers.noise) this.startNoise(layers.noise);
     }
     if (layers.solfeggio) this.ramp(this.graph.solfOsc.frequency, layers.solfeggio, 0.05);
+    if ("ambience" in layers) {
+      if (layers.ambience) void this.startAmbience(layers.ambience);
+      else this.graph.ambienceId = null;
+    }
     this.applyLevels();
   }
 
@@ -374,6 +435,10 @@ export class BinauralEngine {
     this.ramp(g.isoBus.gain, s.isochronic ? LEVEL.isochronic * s.mix.isochronic : 0, t);
     this.ramp(g.solfBus.gain, s.solfeggio ? LEVEL.solfeggio * s.mix.solfeggio : 0, t);
     this.ramp(g.noiseBus.gain, s.noise ? LEVEL.noise * s.mix.noise : 0, t);
+    this.ramp(g.ambienceBus.gain, s.ambience ? LEVEL.ambience * s.mix.ambience : 0, t);
+    if (!s.ambience && g.ambienceSrc) {
+      setTimeout(() => this.graph === g && !this.settings?.ambience && this.stopAmbience(g), 400);
+    }
     if (!s.noise && g.noiseSrc) {
       const src = g.noiseSrc;
       setTimeout(() => this.graph?.noiseSrc === src && !this.settings?.noise && this.stopNoise(), 400);
@@ -418,6 +483,7 @@ export class BinauralEngine {
 
   private teardown(g: Graph) {
     this.stopNoise(g);
+    this.stopAmbience(g);
     for (const osc of [g.leftOsc, g.rightOsc, g.isoOsc, g.isoLfo, g.solfOsc, ...g.pairOscs]) {
       try {
         osc.stop();

@@ -31,6 +31,8 @@ def validate(titles: list[dict[str, Any]]) -> None:
             errors.append(f"{tid}: {t['solfeggio']} is not a solfeggio tone")
         if t.get("noise") not in (None, "pink", "brown", "surf"):
             errors.append(f"{tid}: unknown noise {t['noise']}")
+        if t.get("ambience") not in (None, "rain", "waterfall", "stream", "rainforest"):
+            errors.append(f"{tid}: unknown ambience {t['ambience']}")
         for pair in t.get("pairs") or []:
             if not 100 <= pair["carrier"] <= 400:
                 errors.append(f"{tid}: layered carrier {pair['carrier']} outside 100-400 Hz")

@@ -8,6 +8,7 @@ import { bandFor } from "../custom";
 import { Visualizer } from "./Visualizer";
 import { Icon } from "./Icon";
 import type { NoiseColor } from "../types";
+import { AMBIENCES, type AmbienceId } from "../audio/ambience";
 import "./Player.css";
 
 const SOLFEGGIO = [174, 285, 396, 417, 528, 639, 741, 852, 963];
@@ -34,8 +35,8 @@ function Slider({ label, value, onChange, disabled }: { label: string; value: nu
 }
 
 function Mixer() {
-  const { mix, noise, solfeggio, isochronic } = usePlayer();
-  const { setMix, setNoise, setSolfeggio, setIsochronic } = usePlayer.getState();
+  const { mix, noise, solfeggio, isochronic, ambience } = usePlayer();
+  const { setMix, setNoise, setSolfeggio, setIsochronic, setAmbience } = usePlayer.getState();
   return (
     <div className="panel__grid">
       <Slider label="Binaural" value={mix.binaural} onChange={(v) => setMix({ binaural: v })} />
@@ -51,6 +52,16 @@ function Mixer() {
           </div>
         </div>
         <Slider label="Level" value={mix.noise} onChange={(v) => setMix({ noise: v })} disabled={!noise} />
+      </div>
+      <div className="layer">
+        <div className="layer__row">
+          <label className="slider__label" htmlFor="nature">Nature</label>
+          <select id="nature" className="select" value={ambience ?? ""} onChange={(e) => setAmbience((e.target.value || null) as AmbienceId | null)}>
+            <option value="">Off</option>
+            {AMBIENCES.map((a) => <option key={a.id} value={a.id}>{a.name}</option>)}
+          </select>
+        </div>
+        <Slider label="Level" value={mix.ambience} onChange={(v) => setMix({ ambience: v })} disabled={!ambience} />
       </div>
       <div className="layer">
         <div className="layer__row">

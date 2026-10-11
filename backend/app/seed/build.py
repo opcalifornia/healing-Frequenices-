@@ -64,6 +64,10 @@ def build_titles() -> list[dict[str, Any]]:
             tags.append("solfeggio")
         if iso:
             tags.append("isochronic")
+        if flags.get("ambience"):
+            tags += ["nature", flags["ambience"]]
+        if (flags.get("mix") or {}).get("binaural") == 0:
+            tags.append("no headphones needed")
         titles.append(
             {
                 "id": tid,
@@ -79,6 +83,8 @@ def build_titles() -> list[dict[str, Any]]:
                 "noise": noise,
                 "solfeggio": solf,
                 "isochronic": iso,
+                "ambience": flags.get("ambience"),
+                "mix": flags.get("mix"),
                 "tags": tags,
                 "year": 2026,
                 "isNew": bool(flags.get("isNew")),
@@ -176,6 +182,7 @@ SECTIONS: list[dict[str, Any]] = [
             _rail("top10", "Top 10 Today", "poster", "top10", kind=PLAYABLE, sort="topRank", limit=10),
             _rail("new", "New Sessions", kind=PLAYABLE, flag="isNew"),
             _rail("deep-sync", "Deep Sync Programs", kind=["program"]),
+            _rail("nature", "Nature Soundscapes", kind=PLAYABLE, hasAmbience=True),
             _rail("goal-sleep", "Sleep Better", "poster", kind=PLAYABLE, goal="sleep"),
             _rail("goal-meditate", "Meditate", kind=PLAYABLE, goal="meditate"),
             _rail("goal-focus", "Focus", kind=PLAYABLE, goal="focus"),
@@ -201,6 +208,7 @@ SECTIONS: list[dict[str, Any]] = [
             _rail("goal-focus", "Focus", kind=PLAYABLE, goal="focus"),
             _rail("goal-relax", "Relax", kind=PLAYABLE, goal="relax"),
             _rail("goal-energize", "Energize", "poster", kind=PLAYABLE, goal="energize"),
+            _rail("nature", "Nature Soundscapes", "poster", kind=PLAYABLE, hasAmbience=True),
             _rail("solfeggio", "With Solfeggio Tones", kind=PLAYABLE, hasSolfeggio=True),
             _rail("quick", "Quick Sessions · 20 min or less", kind=PLAYABLE, maxDuration=20, sort="duration"),
         ],
@@ -235,6 +243,8 @@ def _match(t: dict[str, Any], f: dict[str, Any]) -> bool:
     if "flag" in f and not t.get(f["flag"]):
         return False
     if f.get("hasSolfeggio") and not t.get("solfeggio"):
+        return False
+    if f.get("hasAmbience") and not t.get("ambience"):
         return False
     if "maxDuration" in f and (t.get("durationMin") or 0) > f["maxDuration"]:
         return False
