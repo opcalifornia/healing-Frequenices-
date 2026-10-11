@@ -16,6 +16,7 @@ export const NAV_ITEMS: { to: string; label: string; icon: IconName }[] = [
   { to: "/healing", label: "Healing", icon: "wave" },
   { to: "/breathe", label: "Breathe", icon: "timer" },
   { to: "/nourish", label: "Nourish", icon: "sparkle" },
+  { to: "/move", label: "Move", icon: "replay" },
   { to: "/learn", label: "Learn", icon: "book" },
   { to: "/my-stuff", label: "My Stuff", icon: "bookmark" },
 ];
@@ -134,6 +135,9 @@ export function NavBar() {
                     <Icon name="edit" size={20} /> Manage Profiles
                   </button>
                   <div className="nav__menu-sep" />
+                  <Link role="menuitem" className="nav__menu-item" to="/my-stuff">
+                    <Icon name="bookmark" size={20} /> My Stuff
+                  </Link>
                   <Link role="menuitem" className="nav__menu-item" to="/bedtime">
                     <Icon name="timer" size={20} /> Bedtime routine
                   </Link>
@@ -159,7 +163,7 @@ export function NavBar() {
       <AnimatePresence>{healing && <HealingNav />}</AnimatePresence>
 
       <nav className="tabbar" aria-label="Primary">
-        {NAV_ITEMS.filter((i) => i.to !== "/learn").map((item) => (
+        {NAV_ITEMS.filter((i) => i.to !== "/learn" && i.to !== "/my-stuff").map((item) => (
           <NavLink key={item.to} to={item.to} end={item.to === "/"} className={({ isActive }) => `tabbar__item ${isActive || (item.to === "/healing" && healing) ? "active" : ""}`}>
             <Icon name={item.icon} size={22} />
             <span>{item.label}</span>

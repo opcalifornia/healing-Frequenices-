@@ -32,6 +32,7 @@ const SleepGuide = lazy(() => import("./pages/SleepGuide"));
 const SafetyGuide = lazy(() => import("./pages/SafetyGuide"));
 const Nourish = lazy(() => import("./pages/Nourish"));
 const Breathe = lazy(() => import("./pages/Breathe"));
+const Move = lazy(() => import("./pages/Move"));
 
 function RequireProfile({ children }: { children: JSX.Element }) {
   const active = useUser((s) => s.activeProfileId);
@@ -86,6 +87,7 @@ export default function App() {
             <Route path="/healing" element={<RequireProfile><Home /></RequireProfile>} />
             <Route path="/nourish" element={<RequireProfile><Nourish /></RequireProfile>} />
             <Route path="/breathe" element={<RequireProfile><Breathe /></RequireProfile>} />
+            <Route path="/move" element={<RequireProfile><Move /></RequireProfile>} />
             <Route path="/frequencies" element={<RequireProfile><Frequencies /></RequireProfile>} />
             <Route path="/shows" element={<RequireProfile><Shows /></RequireProfile>} />
             <Route path="/learn" element={<RequireProfile><Learn /></RequireProfile>} />
