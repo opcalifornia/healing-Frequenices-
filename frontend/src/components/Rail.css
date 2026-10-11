@@ -1,0 +1,54 @@
+.rail { position: relative; margin-top: clamp(22px, 2.6vw, 40px); }
+.rail__head { display: flex; align-items: baseline; justify-content: space-between; padding: 0 var(--gutter); margin-bottom: 10px; }
+.rail__title { font-size: var(--fs-rail); font-weight: 800; letter-spacing: -0.01em; }
+.rail__title-link { display: inline-flex; align-items: center; gap: 4px; }
+.rail__chev { opacity: 0; transform: translateX(-6px); transition: opacity var(--t-fast), transform var(--t-med) var(--ease); color: var(--accent-2); }
+.rail__title-link:hover .rail__chev, .rail__title-link:focus-visible .rail__chev { opacity: 1; transform: none; }
+
+.rail__viewport { position: relative; }
+.rail__track {
+  display: flex; gap: var(--rail-gap);
+  overflow-x: auto; overflow-y: hidden; overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory; scroll-padding: 0 var(--gutter);
+  /* Vertical padding leaves room for the focus scale + ring without clipping. */
+  padding: 10px var(--gutter) 14px;
+  margin: -10px 0 -14px;
+  scrollbar-width: none;
+}
+.rail__track::-webkit-scrollbar { display: none; }
+
+.rail__arrow {
+  position: absolute; top: 0; bottom: 4px; z-index: 4; width: calc(var(--gutter) - 4px); min-width: 36px;
+  display: grid; place-items: center; color: #fff;
+  background: rgba(0, 0, 0, 0.55);
+  opacity: 0; transition: opacity var(--t-med), background var(--t-fast);
+}
+.rail__arrow[hidden] { display: none; }
+.rail__arrow--prev { left: 0; border-radius: 0 var(--radius) var(--radius) 0; }
+.rail__arrow--next { right: 0; border-radius: var(--radius) 0 0 var(--radius); }
+.rail__arrow svg { transition: transform var(--t-fast) var(--ease); }
+.rail__arrow:hover { background: rgba(0, 0, 0, 0.75); }
+.rail__arrow:hover svg { transform: scale(1.25); }
+@media (hover: hover) and (pointer: fine) {
+  .rail:hover .rail__arrow { opacity: 1; }
+}
+@media (hover: none) {
+  .rail__arrow { display: none; }
+}
+
+.grid {
+  display: grid; gap: 22px var(--rail-gap); padding: 0 var(--gutter);
+  grid-template-columns: repeat(auto-fill, minmax(min(260px, 44vw), 1fr));
+}
+.grid--poster { grid-template-columns: repeat(auto-fill, minmax(min(170px, 30vw), 1fr)); }
+.grid .tile { width: auto; }
+
+.rails { position: relative; z-index: 1; margin-top: clamp(-64px, -3vw, -20px); }
+.build-cta {
+  aspect-ratio: 16 / 9; display: flex; flex-direction: column; justify-content: flex-end; gap: 4px; padding: 14px;
+  background: radial-gradient(circle at 80% 20%, rgba(25, 227, 196, 0.5), transparent 55%), radial-gradient(circle at 10% 90%, rgba(139, 108, 255, 0.6), transparent 60%), #111;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+.build-cta__icon { position: absolute; top: 14px; left: 14px; }
+.build-cta__title { font-weight: 800; font-size: clamp(1rem, 1.3vw, 1.2rem); }
+.build-cta__sub { font-size: var(--fs-tiny); color: var(--text-2); }

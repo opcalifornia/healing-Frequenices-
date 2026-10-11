@@ -1,0 +1,64 @@
+/* Tile widths are derived from how many fit in a viewport, leaving the 4vw gutter. */
+.tile {
+  --w: calc((100vw - 2 * var(--gutter) - (var(--per-view) - 1) * var(--rail-gap)) / var(--per-view));
+  position: relative; flex: none; width: var(--w);
+  scroll-snap-align: start;
+}
+.tile--poster { --w: calc((100vw - 2 * var(--gutter) - (var(--poster-per-view) - 1) * var(--rail-gap)) / var(--poster-per-view)); }
+.tile__link {
+  position: relative; display: block; border-radius: var(--radius); overflow: hidden;
+  background: var(--bg-card);
+  transition: transform var(--t-med) var(--ease), box-shadow var(--t-med) var(--ease);
+  transform-origin: center;
+}
+.tile__art { position: relative; aspect-ratio: 16 / 9; border-radius: inherit; overflow: hidden; }
+.tile--poster .tile__art { aspect-ratio: 2 / 3; }
+.tile__art img { width: 100%; height: 100%; object-fit: cover; animation: art-in 420ms var(--ease) both; }
+@keyframes art-in { from { opacity: 0; transform: scale(1.04); } to { opacity: 1; transform: none; } }
+.tile__name {
+  position: absolute; left: 10px; right: 10px; bottom: 9px;
+  font-weight: 800; font-size: clamp(0.82rem, 1.05vw, 1.05rem); line-height: 1.15; letter-spacing: -0.01em;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.7);
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+}
+.tile--poster .tile__name { font-size: clamp(0.8rem, 0.98vw, 1rem); bottom: 12px; }
+.tile__badge { position: absolute; top: 8px; left: 8px; height: 19px; font-size: 0.62rem; padding: 0 6px; }
+.tile__progress { position: absolute; left: 10px; right: 10px; bottom: 6px; height: 3px; border-radius: 3px; background: rgba(255, 255, 255, 0.3); }
+.tile__progress span { display: block; height: 100%; border-radius: inherit; background: var(--accent-grad); }
+.tile:has(.tile__progress) .tile__name { bottom: 16px; }
+
+@media (hover: hover) and (pointer: fine) {
+  .tile__link:hover { transform: scale(1.04); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6); z-index: 2; }
+}
+.tile__link:focus-visible {
+  outline: none; transform: scale(1.06); z-index: 3;
+  box-shadow: 0 0 0 3px #fff, 0 12px 30px rgba(0, 0, 0, 0.7);
+}
+
+/* Top 10: oversized outlined rank number tucked behind the poster. */
+.top10 {
+  --pw: calc((100vw - 2 * var(--gutter) - (var(--poster-per-view) - 1) * var(--rail-gap)) / var(--poster-per-view));
+  flex: none; display: flex; align-items: flex-end; width: calc(var(--pw) * 1.55); scroll-snap-align: start;
+}
+.top10__num { flex: none; width: calc(var(--pw) * 0.62); margin-right: calc(var(--pw) * -0.08); overflow: visible; }
+.top10__num text {
+  font-family: var(--font); font-weight: 900; font-size: 168px; letter-spacing: -0.08em;
+  fill: #000; stroke: rgba(255, 255, 255, 0.75); stroke-width: 3px; paint-order: stroke;
+}
+.top10__poster { position: relative; flex: none; width: var(--pw); }
+.top10__poster .tile { width: 100%; }
+
+/* Hover preview card */
+.preview {
+  position: absolute; z-index: 60; border-radius: var(--radius-lg); overflow: hidden;
+  background: #18181b; box-shadow: 0 24px 60px rgba(0, 0, 0, 0.75), 0 0 0 1px rgba(255, 255, 255, 0.06);
+  transform-origin: center top;
+}
+.preview__art { position: relative; aspect-ratio: 16 / 9; }
+.preview__art .tile__art { aspect-ratio: 16 / 9; border-radius: 0; }
+.preview__name { position: absolute; left: 14px; bottom: 10px; right: 14px; font-weight: 800; font-size: 1.15rem; text-shadow: 0 1px 8px rgba(0, 0, 0, 0.7); }
+.preview__body { padding: 12px 14px 16px; display: grid; gap: 10px; }
+.preview__actions { display: flex; align-items: center; gap: 8px; }
+.preview__actions .btn { height: 38px; padding: 0 16px; font-size: 0.88rem; }
+.preview__actions .spacer { flex: 1; }
+.preview__tagline { color: var(--text-2); font-size: var(--fs-small); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }

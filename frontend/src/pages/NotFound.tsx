@@ -1,16 +1,14 @@
+import { Link } from "react-router-dom";
 import { PageTransition } from "../components/PageTransition";
-import { Footer } from "../components/Footer";
 
 export default function NotFound() {
   return (
     <PageTransition padded>
-      <h1 className="page-title">NotFound</h1>
-      <div style={{ padding: "0 var(--gutter)", display: "grid", gridTemplateColumns: "repeat(var(--per-view), 1fr)", gap: "var(--rail-gap)" }}>
-        {Array.from({ length: 10 }, (_, i) => (
-          <div key={i} className="skeleton" style={{ aspectRatio: "16 / 9" }} />
-        ))}
+      <div style={{ padding: "12vh var(--gutter)", display: "grid", gap: 18, justifyItems: "start" }}>
+        <h1 className="page-title" style={{ padding: 0 }}>We couldn't find that page.</h1>
+        <p style={{ color: "var(--text-2)" }}>It may have moved, or the link might be wrong.</p>
+        <Link to="/" className="btn btn--primary">Back to Home</Link>
       </div>
-      <Footer />
     </PageTransition>
   );
 }

@@ -9,6 +9,7 @@ import { PlayerOverlay } from "./components/PlayerOverlay";
 import { SafetyNotice } from "./components/SafetyNotice";
 import { useMediaSession } from "./hooks/useMediaSession";
 import { usePlayer } from "./store/player";
+import { HoverPreview } from "./components/HoverPreview";
 import Home from "./pages/Home";
 import Profiles from "./pages/Profiles";
 
@@ -22,6 +23,7 @@ const Search = lazy(() => import("./pages/Search"));
 const Build = lazy(() => import("./pages/Build"));
 const Account = lazy(() => import("./pages/Account"));
 const NotFound = lazy(() => import("./pages/NotFound"));
+const Collection = lazy(() => import("./pages/Collection"));
 
 function RequireProfile({ children }: { children: JSX.Element }) {
   const active = useUser((s) => s.activeProfileId);
@@ -68,6 +70,7 @@ export default function App() {
             <Route path="/learn/:slug" element={<RequireProfile><Article /></RequireProfile>} />
             <Route path="/my-stuff" element={<RequireProfile><MyStuff /></RequireProfile>} />
             <Route path="/title/:id" element={<RequireProfile><TitleDetail /></RequireProfile>} />
+            <Route path="/collection/:sectionId/:railId" element={<RequireProfile><Collection /></RequireProfile>} />
             <Route path="/search" element={<RequireProfile><Search /></RequireProfile>} />
             <Route path="/build" element={<RequireProfile><Build /></RequireProfile>} />
             <Route path="*" element={<NotFound />} />
@@ -75,6 +78,7 @@ export default function App() {
         </AnimatePresence>
       </Suspense>
       {!onPicker && <MiniPlayer />}
+      <HoverPreview />
       <PlayerOverlay />
       <SafetyNotice />
     </>

@@ -1,0 +1,4817 @@
+{
+ "version": 1,
+ "titles": {
+  "deep-rest": {
+   "id": "deep-rest",
+   "kind": "session",
+   "name": "Deep Rest",
+   "tagline": "A slow delta bed for winding all the way down.",
+   "description": "A steady 2.5 Hz delta beat over warm brown noise. Lie back, let the room go quiet, and let the hour carry you. May support deeper relaxation before sleep.",
+   "goal": "sleep",
+   "band": "delta",
+   "carrier": 136.1,
+   "beat": 2.5,
+   "durationMin": 60,
+   "noise": "brown",
+   "solfeggio": null,
+   "isochronic": false,
+   "tags": [
+    "sleep",
+    "delta",
+    "2.5 Hz",
+    "brown noise"
+   ],
+   "year": 2026,
+   "isNew": false,
+   "featured": true,
+   "topRank": 1,
+   "art": {
+    "hue": 220,
+    "pattern": "rings"
+   }
+  },
+  "midnight-tide": {
+   "id": "midnight-tide",
+   "kind": "session",
+   "name": "Midnight Tide",
+   "tagline": "Long, low swells for the middle of the night.",
+   "description": "A very slow 1.5 Hz pulse that rolls like distant surf under deep brown noise. Built for long listening once the lights are out.",
+   "goal": "sleep",
+   "band": "delta",
+   "carrier": 120,
+   "beat": 1.5,
+   "durationMin": 90,
+   "noise": "brown",
+   "solfeggio": null,
+   "isochronic": false,
+   "tags": [
+    "sleep",
+    "delta",
+    "1.5 Hz",
+    "brown noise"
+   ],
+   "year": 2026,
+   "isNew": false,
+   "featured": false,
+   "topRank": 4,
+   "art": {
+    "hue": 256,
+    "pattern": "rings"
+   }
+  },
+  "slow-wave-drift": {
+   "id": "slow-wave-drift",
+   "kind": "session",
+   "name": "Slow Wave Drift",
+   "tagline": "One beat per second. Nothing else to do.",
+   "description": "A 1 Hz delta beat, about the pace of a resting heart, layered with soft pink noise to mask household sounds.",
+   "goal": "sleep",
+   "band": "delta",
+   "carrier": 150,
+   "beat": 1.0,
+   "durationMin": 60,
+   "noise": "pink",
+   "solfeggio": null,
+   "isochronic": false,
+   "tags": [
+    "sleep",
+    "delta",
+    "1 Hz",
+    "pink noise"
+   ],
+   "year": 2026,
+   "isNew": false,
+   "featured": false,
+   "topRank": null,
+   "art": {
+    "hue": 226,
+    "pattern": "rosette"
+   }
+  },
+  "lullaby-174": {
+   "id": "lullaby-174",
+   "kind": "session",
+   "name": "Lullaby 174",
+   "tagline": "The lowest solfeggio tone under a gentle delta beat.",
+   "description": "A 2 Hz delta beat paired with a quiet 174 Hz solfeggio tone and brown noise. Simple, round, and very low.",
+   "goal": "sleep",
+   "band": "delta",
+   "carrier": 174,
+   "beat": 2.0,
+   "durationMin": 45,
+   "noise": "brown",
+   "solfeggio": 174,
+   "isochronic": false,
+   "tags": [
+    "sleep",
+    "delta",
+    "2 Hz",
+    "brown noise",
+    "solfeggio"
+   ],
+   "year": 2026,
+   "isNew": true,
+   "featured": false,
+   "topRank": null,
+   "art": {
+    "hue": 227,
+    "pattern": "rosette"
+   }
+  },
+  "cloud-harbor": {
+   "id": "cloud-harbor",
+   "kind": "session",
+   "name": "Cloud Harbor",
+   "tagline": "A soft landing at the end of a long day.",
+   "description": "Thirty minutes of 3 Hz delta over airy pink noise. A good first session if you are new to sleep frequencies.",
+   "goal": "sleep",
+   "band": "delta",
+   "carrier": 180,
+   "beat": 3.0,
+   "durationMin": 30,
+   "noise": "pink",
+   "solfeggio": null,
+   "isochronic": false,
+   "tags": [
+    "sleep",
+    "delta",
+    "3 Hz",
+    "pink noise"
+   ],
+   "year": 2026,
+   "isNew": false,
+   "featured": false,
+   "topRank": null,
+   "art": {
+    "hue": 247,
+    "pattern": "chladni"
+   }
+  },
+  "night-garden": {
+   "id": "night-garden",
+   "kind": "session",
+   "name": "Night Garden",
+   "tagline": "Warm, dark and slow, like a garden after rain.",
+   "description": "A 3.5 Hz beat sitting on the edge of delta and theta, with deep brown noise underneath.",
+   "goal": "sleep",
+   "band": "delta",
+   "carrier": 200,
+   "beat": 3.5,
+   "durationMin": 40,
+   "noise": "brown",
+   "solfeggio": null,
+   "isochronic": false,
+   "tags": [
+    "sleep",
+    "delta",
+    "3.5 Hz",
+    "brown noise"
+   ],
+   "year": 2026,
+   "isNew": false,
+   "featured": false,
+   "topRank": null,
+   "art": {
+    "hue": 258,
+    "pattern": "rosette"
+   }
+  },
+  "dream-gate": {
+   "id": "dream-gate",
+   "kind": "session",
+   "name": "Dream Gate",
+   "tagline": "Theta for the drifting moments before sleep.",
+   "description": "A 4.5 Hz theta beat for the hazy, image-filled stretch between waking and sleep.",
+   "goal": "sleep",
+   "band": "theta",
+   "carrier": 210,
+   "beat": 4.5,
+   "durationMin": 30,
+   "noise": "pink",
+   "solfeggio": null,
+   "isochronic": false,
+   "tags": [
+    "sleep",
+    "theta",
+    "4.5 Hz",
+    "pink noise"
+   ],
+   "year": 2026,
+   "isNew": false,
+   "featured": true,
+   "topRank": null,
+   "art": {
+    "hue": 246,
+    "pattern": "wave"
+   }
+  },
+  "full-sleep-cycle": {
+   "id": "full-sleep-cycle",
+   "kind": "session",
+   "name": "Full Sleep Cycle",
+   "tagline": "Two hours of the slowest beat in the catalog.",
+   "description": "A 0.8 Hz delta beat at a low 110 Hz carrier under brown noise. Set the timer and let it fade out on its own.",
+   "goal": "sleep",
+   "band": "delta",
+   "carrier": 110,
+   "beat": 0.8,
+   "durationMin": 120,
+   "noise": "brown",
+   "solfeggio": null,
+   "isochronic": false,
+   "tags": [
+    "sleep",
+    "delta",
+    "0.8 Hz",
+    "brown noise"
+   ],
+   "year": 2026,
+   "isNew": false,
+   "featured": false,
+   "topRank": null,
+   "art": {
+    "hue": 224,
+    "pattern": "rosette"
+   }
+  },
+  "velvet-dark": {
+   "id": "velvet-dark",
+   "kind": "session",
+   "name": "Velvet Dark",
+   "tagline": "Heavy curtains for your ears.",
+   "description": "A 2 Hz delta beat wrapped in thick brown noise. Designed to sound like nothing at all after a few minutes.",
+   "goal": "sleep",
+   "band": "delta",
+   "carrier": 128,
+   "beat": 2.0,
+   "durationMin": 60,
+   "noise": "brown",
+   "solfeggio": null,
+   "isochronic": false,
+   "tags": [
+    "sleep",
+    "delta",
+    "2 Hz",
+    "brown noise"
+   ],
+   "year": 2026,
+   "isNew": false,
+   "featured": false,
+   "topRank": 7,
+   "art": {
+    "hue": 233,
+    "pattern": "rosette"
+   }
+  },
+  "moon-breath": {
+   "id": "moon-breath",
+   "kind": "session",
+   "name": "Moon Breath",
+   "tagline": "Breathe with the pulse and let your thoughts thin out.",
+   "description": "A short 3 Hz session with soft pink noise. Try slowing your breath until each exhale lasts about five beats.",
+   "goal": "sleep",
+   "band": "delta",
+   "carrier": 160,
+   "beat": 3.0,
+   "durationMin": 20,
+   "noise": "pink",
+   "solfeggio": null,
+   "isochronic": false,
+   "tags": [
+    "sleep",
+    "delta",
+    "3 Hz",
+    "pink noise"
+   ],
+   "year": 2026,
+   "isNew": true,
+   "featured": false,
+   "topRank": null,
+   "art": {
+    "hue": 239,
+    "pattern": "wave"
+   }
+  },
+  "late-night-unwind": {
+   "id": "late-night-unwind",
+   "kind": "session",
+   "name": "Late Night Unwind",
+   "tagline": "For when your mind is still running at bedtime.",
+   "description": "A 5.5 Hz theta beat to help shift gears after screens and conversation. May support relaxation before sleep.",
+   "goal": "sleep",
+   "band": "theta",
+   "carrier": 190,
+   "beat": 5.5,
+   "durationMin": 25,
+   "noise": "brown",
+   "solfeggio": null,
+   "isochronic": false,
+   "tags": [
+    "sleep",
+    "theta",
+    "5.5 Hz",
+    "brown noise"
+   ],
+   "year": 2026,
+   "isNew": false,
+   "featured": false,
+   "topRank": null,
+   "art": {
+    "hue": 238,
+    "pattern": "wave"
+   }
+  },
+  "power-nap": {
+   "id": "power-nap",
+   "kind": "session",
+   "name": "Power Nap",
+   "tagline": "Twenty minutes, then back to your day.",
+   "description": "A short delta session sized for a nap. The fade-out at the end is deliberately gentle.",
+   "goal": "sleep",
+   "band": "delta",
+   "carrier": 220,
+   "beat": 3.5,
+   "durationMin": 20,
+   "noise": "pink",
+   "solfeggio": null,
+   "isochronic": false,
+   "tags": [
+    "sleep",
+    "delta",
+    "3.5 Hz",
+    "pink noise"
+   ],
+   "year": 2026,
+   "isNew": false,
+   "featured": false,
+   "topRank": 9,
+   "art": {
+    "hue": 242,
+    "pattern": "rings"
+   }
+  },
+  "theta-temple": {
+   "id": "theta-temple",
+   "kind": "session",
+   "name": "Theta Temple",
+   "tagline": "A spacious 6 Hz theta field for sitting practice.",
+   "description": "A classic 6 Hz theta beat over light pink noise. Sit comfortably, follow the breath, and let the tone hold the room.",
+   "goal": "meditate",
+   "band": "theta",
+   "carrier": 200,
+   "beat": 6.0,
+   "durationMin": 30,
+   "noise": "pink",
+   "solfeggio": null,
+   "isochronic": false,
+   "tags": [
+    "meditate",
+    "theta",
+    "6 Hz",
+    "pink noise"
+   ],
+   "year": 2026,
+   "isNew": false,
+   "featured": true,
+   "topRank": 3,
+   "art": {
+    "hue": 263,
+    "pattern": "rosette"
+   }
+  },
+  "inner-stillness": {
+   "id": "inner-stillness",
+   "kind": "session",
+   "name": "Inner Stillness",
+   "tagline": "Clean tones, no noise, nothing in the way.",
+   "description": "A pure 5 Hz theta beat with a soft 528 Hz solfeggio tone and no noise bed. Minimal and quiet.",
+   "goal": "meditate",
+   "band": "theta",
+   "carrier": 180,
+   "beat": 5.0,
+   "durationMin": 20,
+   "noise": null,
+   "solfeggio": 528,
+   "isochronic": false,
+   "tags": [
+    "meditate",
+    "theta",
+    "5 Hz",
+    "solfeggio"
+   ],
+   "year": 2026,
+   "isNew": false,
+   "featured": false,
+   "topRank": null,
+   "art": {
+    "hue": 276,
+    "pattern": "rosette"
+   }
+  },
+  "lotus-drift": {
+   "id": "lotus-drift",
+   "kind": "session",
+   "name": "Lotus Drift",
+   "tagline": "Upper theta for a soft, open focus.",
+   "description": "A 7 Hz beat for meditations that stay awake but unhurried.",
+   "goal": "meditate",
+   "band": "theta",
+   "carrier": 220,
+   "beat": 7.0,
+   "durationMin": 25,
+   "noise": "pink",
+   "solfeggio": null,
+   "isochronic": false,
+   "tags": [
+    "meditate",
+    "theta",
+    "7 Hz",
+    "pink noise"
+   ],
+   "year": 2026,
+   "isNew": false,
+   "featured": false,
+   "topRank": null,
+   "art": {
+    "hue": 294,
+    "pattern": "rosette"
+   }
+  },
+  "breath-of-earth": {
+   "id": "breath-of-earth",
+   "kind": "session",
+   "name": "Breath of Earth",
+   "tagline": "A low 136.1 Hz carrier under deep theta.",
+   "description": "A 4.5 Hz theta beat on a 136.1 Hz carrier, often used in chanting traditions, with grounding brown noise.",
+   "goal": "meditate",
+   "band": "theta",
+   "carrier": 136.1,
+   "beat": 4.5,
+   "durationMin": 30,
+   "noise": "brown",
+   "solfeggio": null,
+   "isochronic": false,
+   "tags": [
+    "meditate",
+    "theta",
+    "4.5 Hz",
+    "brown noise"
+   ],
+   "year": 2026,
+   "isNew": false,
+   "featured": false,
+   "topRank": null,
+   "art": {
+    "hue": 296,
+    "pattern": "rosette"
+   }
+  },
+  "crystal-cave": {
+   "id": "crystal-cave",
+   "kind": "session",
+   "name": "Crystal Cave",
+   "tagline": "Bright overtones in a dark, still space.",
+   "description": "A 6.3 Hz theta beat with a high 852 Hz solfeggio shimmer. Short enough for a lunchtime sit.",
+   "goal": "meditate",
+   "band": "theta",
+   "carrier": 256,
+   "beat": 6.3,
+   "durationMin": 15,
+   "noise": null,
+   "solfeggio": 852,
+   "isochronic": false,
+   "tags": [
+    "meditate",
+    "theta",
+    "6.3 Hz",
+    "solfeggio"
+   ],
+   "year": 2026,
+   "isNew": true,
+   "featured": false,
+   "topRank": null,
+   "art": {
+    "hue": 269,
+    "pattern": "rings"
+   }
+  },
+  "earth-resonance": {
+   "id": "earth-resonance",
+   "kind": "session",
+   "name": "Earth Resonance 7.83",
+   "tagline": "A 7.83 Hz beat inspired by the Schumann resonance.",
+   "description": "The Earth-ionosphere cavity resonates near 7.83 Hz. This session borrows that number as a beat. A fun reference point, not a scientific claim.",
+   "goal": "meditate",
+   "band": "theta",
+   "carrier": 200,
+   "beat": 7.83,
+   "durationMin": 30,
+   "noise": "brown",
+   "solfeggio": null,
+   "isochronic": false,
+   "tags": [
+    "meditate",
+    "theta",
+    "7.83 Hz",
+    "brown noise"
+   ],
+   "year": 2026,
+   "isNew": false,
+   "featured": false,
+   "topRank": 6,
+   "art": {
+    "hue": 290,
+    "pattern": "wave"
+   }
+  },
+  "heart-tone-528": {
+   "id": "heart-tone-528",
+   "kind": "session",
+   "name": "Heart Tone 528",
+   "tagline": "Theta with the well-known 528 Hz tone.",
+   "description": "A 6 Hz theta beat paired with a 528 Hz solfeggio tone for loving-kindness or gratitude practice.",
+   "goal": "meditate",
+   "band": "theta",
+   "carrier": 264,
+   "beat": 6.0,
+   "durationMin": 30,
+   "noise": null,
+   "solfeggio": 528,
+   "isochronic": false,
+   "tags": [
+    "meditate",
+    "theta",
+    "6 Hz",
+    "solfeggio"
+   ],
+   "year": 2026,
+   "isNew": false,
+   "featured": true,
+   "topRank": null,
+   "art": {
+    "hue": 265,
+    "pattern": "wave"
+   }
+  },
+  "zen-river": {
+   "id": "zen-river",
+   "kind": "session",
+   "name": "Zen River",
+   "tagline": "Forty minutes of moving stillness.",
+   "description": "A 5.5 Hz theta beat over a river-like pink noise bed for longer sits.",
+   "goal": "meditate",
+   "band": "theta",
+   "carrier": 170,
+   "beat": 5.5,
+   "durationMin": 40,
+   "noise": "pink",
+   "solfeggio": null,
+   "isochronic": false,
+   "tags": [
+    "meditate",
+    "theta",
+    "5.5 Hz",
+    "pink noise"
+   ],
+   "year": 2026,
+   "isNew": false,
+   "featured": false,
+   "topRank": null,
+   "art": {
+    "hue": 288,
+    "pattern": "rings"
+   }
+  },
+  "mantra-field": {
+   "id": "mantra-field",
+   "kind": "session",
+   "name": "Mantra Field",
+   "tagline": "A low hum to repeat your mantra over.",
+   "description": "A 4.8 Hz beat on a low carrier. Works well with silent or spoken mantra practice.",
+   "goal": "meditate",
+   "band": "theta",
+   "carrier": 144,
+   "beat": 4.8,
+   "durationMin": 20,
+   "noise": "brown",
+   "solfeggio": null,
+   "isochronic": false,
+   "tags": [
+    "meditate",
+    "theta",
+    "4.8 Hz",
+    "brown noise"
+   ],
+   "year": 2026,
+   "isNew": false,
+   "featured": false,
+   "topRank": null,
+   "art": {
+    "hue": 273,
+    "pattern": "wave"
+   }
+  },
+  "morning-sit": {
+   "id": "morning-sit",
+   "kind": "session",
+   "name": "Morning Sit",
+   "tagline": "Ten minutes before the day gets loud.",
+   "description": "A short 7.5 Hz session for a daily meditation habit.",
+   "goal": "meditate",
+   "band": "theta",
+   "carrier": 240,
+   "beat": 7.5,
+   "durationMin": 10,
+   "noise": "pink",
+   "solfeggio": null,
+   "isochronic": false,
+   "tags": [
+    "meditate",
+    "theta",
+    "7.5 Hz",
+    "pink noise"
+   ],
+   "year": 2026,
+   "isNew": true,
+   "featured": false,
+   "topRank": null,
+   "art": {
+    "hue": 276,
+    "pattern": "chladni"
+   }
+  },
+  "body-scan": {
+   "id": "body-scan",
+   "kind": "session",
+   "name": "Body Scan",
+   "tagline": "Move attention slowly from feet to crown.",
+   "description": "A 5 Hz theta beat paced for a full body scan practice.",
+   "goal": "meditate",
+   "band": "theta",
+   "carrier": 160,
+   "beat": 5.0,
+   "durationMin": 25,
+   "noise": "brown",
+   "solfeggio": null,
+   "isochronic": false,
+   "tags": [
+    "meditate",
+    "theta",
+    "5 Hz",
+    "brown noise"
+   ],
+   "year": 2026,
+   "isNew": false,
+   "featured": false,
+   "topRank": null,
+   "art": {
+    "hue": 273,
+    "pattern": "wave"
+   }
+  },
+  "inner-vision": {
+   "id": "inner-vision",
+   "kind": "session",
+   "name": "Inner Vision",
+   "tagline": "Theta and a high solfeggio tone for visualization.",
+   "description": "A 6.5 Hz beat with an 852 Hz layer for guided imagery and visualization practice.",
+   "goal": "meditate",
+   "band": "theta",
+   "carrier": 210,
+   "beat": 6.5,
+   "durationMin": 30,
+   "noise": null,
+   "solfeggio": 852,
+   "isochronic": false,
+   "tags": [
+    "meditate",
+    "theta",
+    "6.5 Hz",
+    "solfeggio"
+   ],
+   "year": 2026,
+   "isNew": false,
+   "featured": false,
+   "topRank": null,
+   "art": {
+    "hue": 275,
+    "pattern": "wave"
+   }
+  },
+  "compassion-gamma": {
+   "id": "compassion-gamma",
+   "kind": "session",
+   "name": "Compassion Gamma",
+   "tagline": "A fast gamma beat for open-hearted practice.",
+   "description": "Some studies of long-term meditators have recorded strong gamma activity. This 40 Hz session is a nod to that research, not a shortcut to it.",
+   "goal": "meditate",
+   "band": "gamma",
+   "carrier": 200,
+   "beat": 40.0,
+   "durationMin": 20,
+   "noise": "pink",
+   "solfeggio": null,
+   "isochronic": false,
+   "tags": [
+    "meditate",
+    "gamma",
+    "40 Hz",
+    "pink noise"
+   ],
+   "year": 2026,
+   "isNew": false,
+   "featured": false,
+   "topRank": null,
+   "art": {
+    "hue": 291,
+    "pattern": "rings"
+   }
+  },
+  "yoga-nidra-delta": {
+   "id": "yoga-nidra-delta",
+   "kind": "session",
+   "name": "Yoga Nidra Delta",
+   "tagline": "Deep delta for lying-down meditation.",
+   "description": "A 3 Hz delta beat for yoga nidra and other lying-down practices. Stay aware, or let yourself drift.",
+   "goal": "meditate",
+   "band": "delta",
+   "carrier": 150,
+   "beat": 3.0,
+   "durationMin": 35,
+   "noise": "brown",
+   "solfeggio": null,
+   "isochronic": false,
+   "tags": [
+    "meditate",
+    "delta",
+    "3 Hz",
+    "brown noise"
+   ],
+   "year": 2026,
+   "isNew": false,
+   "featured": false,
+   "topRank": null,
+   "art": {
+    "hue": 294,
+    "pattern": "wave"
+   }
+  },
+  "alpha-shore": {
+   "id": "alpha-shore",
+   "kind": "session",
+   "name": "Alpha Shore",
+   "tagline": "The classic 10 Hz relaxation beat.",
+   "description": "A 10 Hz alpha beat over pink noise like distant waves. A balanced, easy place to start.",
+   "goal": "relax",
+   "band": "alpha",
+   "carrier": 200,
+   "beat": 10.0,
+   "durationMin": 30,
+   "noise": "pink",
+   "solfeggio": null,
+   "isochronic": false,
+   "tags": [
+    "relax",
+    "alpha",
+    "10 Hz",
+    "pink noise"
+   ],
+   "year": 2026,
+   "isNew": false,
+   "featured": true,
+   "topRank": 2,
+   "art": {
+    "hue": 152,
+    "pattern": "rosette"
+   }
+  },
+  "golden-hour": {
+   "id": "golden-hour",
+   "kind": "session",
+   "name": "Golden Hour",
+   "tagline": "Warm light, slow breath, loose shoulders.",
+   "description": "A 9 Hz alpha beat with warm brown noise for the end of the workday.",
+   "goal": "relax",
+   "band": "alpha",
+   "carrier": 180,
+   "beat": 9.0,
+   "durationMin": 20,
+   "noise": "brown",
+   "solfeggio": null,
+   "isochronic": false,
+   "tags": [
+    "relax",
+    "alpha",
+    "9 Hz",
+    "brown noise"
+   ],
+   "year": 2026,
+   "isNew": false,
+   "featured": false,
+   "topRank": 8,
+   "art": {
+    "hue": 139,
+    "pattern": "wave"
+   }
+  },
+  "tea-break": {
+   "id": "tea-break",
+   "kind": "session",
+   "name": "Tea Break",
+   "tagline": "A ten-minute reset.",
+   "description": "A quick 10.5 Hz session for a mid-day pause.",
+   "goal": "relax",
+   "band": "alpha",
+   "carrier": 220,
+   "beat": 10.5,
+   "durationMin": 10,
+   "noise": "pink",
+   "solfeggio": null,
+   "isochronic": false,
+   "tags": [
+    "relax",
+    "alpha",
+    "10.5 Hz",
+    "pink noise"
+   ],
+   "year": 2026,
+   "isNew": true,
+   "featured": false,
+   "topRank": null,
+   "art": {
+    "hue": 152,
+    "pattern": "rings"
+   }
+  },
+  "forest-light": {
+   "id": "forest-light",
+   "kind": "session",
+   "name": "Forest Light",
+   "tagline": "Dappled alpha with a 639 Hz layer.",
+   "description": "An 8.5 Hz alpha beat with a 639 Hz solfeggio tone and leafy pink noise.",
+   "goal": "relax",
+   "band": "alpha",
+   "carrier": 190,
+   "beat": 8.5,
+   "durationMin": 25,
+   "noise": "pink",
+   "solfeggio": 639,
+   "isochronic": false,
+   "tags": [
+    "relax",
+    "alpha",
+    "8.5 Hz",
+    "pink noise",
+    "solfeggio"
+   ],
+   "year": 2026,
+   "isNew": false,
+   "featured": false,
+   "topRank": null,
+   "art": {
+    "hue": 157,
+    "pattern": "wave"
+   }
+  },
+  "calm-current": {
+   "id": "calm-current",
+   "kind": "session",
+   "name": "Calm Current",
+   "tagline": "Relaxed and alert at once.",
+   "description": "An 11 Hz alpha beat. Calm enough to unwind, awake enough to read or sketch.",
+   "goal": "relax",
+   "band": "alpha",
+   "carrier": 210,
+   "beat": 11.0,
+   "durationMin": 30,
+   "noise": "brown",
+   "solfeggio": null,
+   "isochronic": false,
+   "tags": [
+    "relax",
+    "alpha",
+    "11 Hz",
+    "brown noise"
+   ],
+   "year": 2026,
+   "isNew": false,
+   "featured": false,
+   "topRank": null,
+   "art": {
+    "hue": 157,
+    "pattern": "rosette"
+   }
+  },
+  "sunday-float": {
+   "id": "sunday-float",
+   "kind": "session",
+   "name": "Sunday Float",
+   "tagline": "No plans, no hurry.",
+   "description": "A long 9.5 Hz session for lazy afternoons.",
+   "goal": "relax",
+   "band": "alpha",
+   "carrier": 170,
+   "beat": 9.5,
+   "durationMin": 45,
+   "noise": "pink",
+   "solfeggio": null,
+   "isochronic": false,
+   "tags": [
+    "relax",
+    "alpha",
+    "9.5 Hz",
+    "pink noise"
+   ],
+   "year": 2026,
+   "isNew": false,
+   "featured": false,
+   "topRank": null,
+   "art": {
+    "hue": 146,
+    "pattern": "rosette"
+   }
+  },
+  "soft-focus": {
+   "id": "soft-focus",
+   "kind": "session",
+   "name": "Soft Focus",
+   "tagline": "Upper alpha, clean tones only.",
+   "description": "A 12 Hz beat with no noise bed. Light and transparent.",
+   "goal": "relax",
+   "band": "alpha",
+   "carrier": 240,
+   "beat": 12.0,
+   "durationMin": 30,
+   "noise": null,
+   "solfeggio": null,
+   "isochronic": false,
+   "tags": [
+    "relax",
+    "alpha",
+    "12 Hz"
+   ],
+   "year": 2026,
+   "isNew": false,
+   "featured": false,
+   "topRank": null,
+   "art": {
+    "hue": 135,
+    "pattern": "chladni"
+   }
+  },
+  "release-396": {
+   "id": "release-396",
+   "kind": "session",
+   "name": "Release 396",
+   "tagline": "Alpha with the 396 Hz tone.",
+   "description": "An 8 Hz alpha beat paired with a 396 Hz solfeggio tone.",
+   "goal": "relax",
+   "band": "alpha",
+   "carrier": 198,
+   "beat": 8.0,
+   "durationMin": 20,
+   "noise": null,
+   "solfeggio": 396,
+   "isochronic": false,
+   "tags": [
+    "relax",
+    "alpha",
+    "8 Hz",
+    "solfeggio"
+   ],
+   "year": 2026,
+   "isNew": false,
+   "featured": false,
+   "topRank": null,
+   "art": {
+    "hue": 158,
+    "pattern": "wave"
+   }
+  },
+  "harmony-639": {
+   "id": "harmony-639",
+   "kind": "session",
+   "name": "Harmony 639",
+   "tagline": "Alpha with the 639 Hz tone.",
+   "description": "A 10 Hz alpha beat with a 639 Hz solfeggio layer.",
+   "goal": "relax",
+   "band": "alpha",
+   "carrier": 213,
+   "beat": 10.0,
+   "durationMin": 20,
+   "noise": null,
+   "solfeggio": 639,
+   "isochronic": false,
+   "tags": [
+    "relax",
+    "alpha",
+    "10 Hz",
+    "solfeggio"
+   ],
+   "year": 2026,
+   "isNew": true,
+   "featured": false,
+   "topRank": null,
+   "art": {
+    "hue": 134,
+    "pattern": "rings"
+   }
+  },
+  "evening-wind-down": {
+   "id": "evening-wind-down",
+   "kind": "session",
+   "name": "Evening Wind-Down",
+   "tagline": "A bridge between the day and the night.",
+   "description": "An 8.2 Hz beat that sits at the bottom of alpha, ready to hand off to a sleep session.",
+   "goal": "relax",
+   "band": "alpha",
+   "carrier": 150,
+   "beat": 8.2,
+   "durationMin": 30,
+   "noise": "brown",
+   "solfeggio": null,
+   "isochronic": false,
+   "tags": [
+    "relax",
+    "alpha",
+    "8.2 Hz",
+    "brown noise"
+   ],
+   "year": 2026,
+   "isNew": false,
+   "featured": false,
+   "topRank": null,
+   "art": {
+    "hue": 165,
+    "pattern": "rosette"
+   }
+  },
+  "seaside-drift": {
+   "id": "seaside-drift",
+   "kind": "session",
+   "name": "Seaside Drift",
+   "tagline": "An hour by the water.",
+   "description": "A 10 Hz alpha beat under long, slow pink noise surf.",
+   "goal": "relax",
+   "band": "alpha",
+   "carrier": 160,
+   "beat": 10.0,
+   "durationMin": 60,
+   "noise": "pink",
+   "solfeggio": null,
+   "isochronic": false,
+   "tags": [
+    "relax",
+    "alpha",
+    "10 Hz",
+    "pink noise"
+   ],
+   "year": 2026,
+   "isNew": false,
+   "featured": false,
+   "topRank": 10,
+   "art": {
+    "hue": 150,
+    "pattern": "rings"
+   }
+  },
+  "hammock-theta": {
+   "id": "hammock-theta",
+   "kind": "session",
+   "name": "Hammock Theta",
+   "tagline": "Swaying somewhere between awake and asleep.",
+   "description": "A 6 Hz theta beat for deep relaxation without the goal of sleep.",
+   "goal": "relax",
+   "band": "theta",
+   "carrier": 180,
+   "beat": 6.0,
+   "durationMin": 30,
+   "noise": "pink",
+   "solfeggio": null,
+   "isochronic": false,
+   "tags": [
+    "relax",
+    "theta",
+    "6 Hz",
+    "pink noise"
+   ],
+   "year": 2026,
+   "isNew": false,
+   "featured": false,
+   "topRank": null,
+   "art": {
+    "hue": 147,
+    "pattern": "rings"
+   }
+  },
+  "deep-work": {
+   "id": "deep-work",
+   "kind": "session",
+   "name": "Deep Work",
+   "tagline": "An hour of steady beta for heads-down work.",
+   "description": "A 15 Hz beta beat under brown noise that masks chatter. May support focus during long tasks.",
+   "goal": "focus",
+   "band": "beta",
+   "carrier": 250,
+   "beat": 15.0,
+   "durationMin": 60,
+   "noise": "brown",
+   "solfeggio": null,
+   "isochronic": false,
+   "tags": [
+    "focus",
+    "beta",
+    "15 Hz",
+    "brown noise"
+   ],
+   "year": 2026,
+   "isNew": false,
+   "featured": true,
+   "topRank": 5,
+   "art": {
+    "hue": 203,
+    "pattern": "rings"
+   }
+  },
+  "study-flow": {
+   "id": "study-flow",
+   "kind": "session",
+   "name": "Study Flow",
+   "tagline": "Low beta for reading and note-taking.",
+   "description": "A 14 Hz beta beat with pink noise, sized for one study block.",
+   "goal": "focus",
+   "band": "beta",
+   "carrier": 220,
+   "beat": 14.0,
+   "durationMin": 45,
+   "noise": "pink",
+   "solfeggio": null,
+   "isochronic": false,
+   "tags": [
+    "focus",
+    "beta",
+    "14 Hz",
+    "pink noise"
+   ],
+   "year": 2026,
+   "isNew": false,
+   "featured": false,
+   "topRank": null,
+   "art": {
+    "hue": 171,
+    "pattern": "rosette"
+   }
+  },
+  "laser-beta": {
+   "id": "laser-beta",
+   "kind": "session",
+   "name": "Laser Beta",
+   "tagline": "Binaural plus an isochronic pulse.",
+   "description": "An 18 Hz beta beat reinforced by an isochronic pulse at the same rate. Keep the volume low.",
+   "goal": "focus",
+   "band": "beta",
+   "carrier": 300,
+   "beat": 18.0,
+   "durationMin": 30,
+   "noise": "brown",
+   "solfeggio": null,
+   "isochronic": true,
+   "tags": [
+    "focus",
+    "beta",
+    "18 Hz",
+    "brown noise",
+    "isochronic"
+   ],
+   "year": 2026,
+   "isNew": false,
+   "featured": false,
+   "topRank": null,
+   "art": {
+    "hue": 181,
+    "pattern": "rings"
+   }
+  },
+  "sprint-25": {
+   "id": "sprint-25",
+   "kind": "session",
+   "name": "Sprint 25",
+   "tagline": "One focused sprint. Then take a break.",
+   "description": "A 25-minute 16 Hz session built around the popular timed-sprint method.",
+   "goal": "focus",
+   "band": "beta",
+   "carrier": 240,
+   "beat": 16.0,
+   "durationMin": 25,
+   "noise": "pink",
+   "solfeggio": null,
+   "isochronic": false,
+   "tags": [
+    "focus",
+    "beta",
+    "16 Hz",
+    "pink noise"
+   ],
+   "year": 2026,
+   "isNew": true,
+   "featured": false,
+   "topRank": null,
+   "art": {
+    "hue": 178,
+    "pattern": "rings"
+   }
+  },
+  "code-zone": {
+   "id": "code-zone",
+   "kind": "session",
+   "name": "Code Zone",
+   "tagline": "Ninety minutes of mid beta.",
+   "description": "A 20 Hz beta beat under brown noise for long, uninterrupted problem solving.",
+   "goal": "focus",
+   "band": "beta",
+   "carrier": 280,
+   "beat": 20.0,
+   "durationMin": 90,
+   "noise": "brown",
+   "solfeggio": null,
+   "isochronic": false,
+   "tags": [
+    "focus",
+    "beta",
+    "20 Hz",
+    "brown noise"
+   ],
+   "year": 2026,
+   "isNew": false,
+   "featured": false,
+   "topRank": null,
+   "art": {
+    "hue": 193,
+    "pattern": "rosette"
+   }
+  },
+  "reading-room": {
+   "id": "reading-room",
+   "kind": "session",
+   "name": "Reading Room",
+   "tagline": "Quiet, low beta for long reads.",
+   "description": "A 13.5 Hz beat with library-soft pink noise.",
+   "goal": "focus",
+   "band": "beta",
+   "carrier": 200,
+   "beat": 13.5,
+   "durationMin": 40,
+   "noise": "pink",
+   "solfeggio": null,
+   "isochronic": false,
+   "tags": [
+    "focus",
+    "beta",
+    "13.5 Hz",
+    "pink noise"
+   ],
+   "year": 2026,
+   "isNew": false,
+   "featured": false,
+   "topRank": null,
+   "art": {
+    "hue": 175,
+    "pattern": "rosette"
+   }
+  },
+  "creative-flow": {
+   "id": "creative-flow",
+   "kind": "session",
+   "name": "Creative Flow",
+   "tagline": "Alpha for ideas, not deadlines.",
+   "description": "An 11 Hz alpha beat for brainstorming, writing drafts or sketching.",
+   "goal": "focus",
+   "band": "alpha",
+   "carrier": 230,
+   "beat": 11.0,
+   "durationMin": 45,
+   "noise": "pink",
+   "solfeggio": null,
+   "isochronic": false,
+   "tags": [
+    "focus",
+    "alpha",
+    "11 Hz",
+    "pink noise"
+   ],
+   "year": 2026,
+   "isNew": false,
+   "featured": false,
+   "topRank": null,
+   "art": {
+    "hue": 195,
+    "pattern": "chladni"
+   }
+  },
+  "exam-prep": {
+   "id": "exam-prep",
+   "kind": "session",
+   "name": "Exam Prep",
+   "tagline": "An hour of review, steadied.",
+   "description": "A 16 Hz beta beat for revision sessions.",
+   "goal": "focus",
+   "band": "beta",
+   "carrier": 260,
+   "beat": 16.0,
+   "durationMin": 60,
+   "noise": "brown",
+   "solfeggio": null,
+   "isochronic": false,
+   "tags": [
+    "focus",
+    "beta",
+    "16 Hz",
+    "brown noise"
+   ],
+   "year": 2026,
+   "isNew": false,
+   "featured": false,
+   "topRank": null,
+   "art": {
+    "hue": 187,
+    "pattern": "chladni"
+   }
+  },
+  "clarity-741": {
+   "id": "clarity-741",
+   "kind": "session",
+   "name": "Clarity 741",
+   "tagline": "Beta with a 741 Hz tone.",
+   "description": "A 14 Hz beta beat paired with a 741 Hz solfeggio layer.",
+   "goal": "focus",
+   "band": "beta",
+   "carrier": 247,
+   "beat": 14.0,
+   "durationMin": 30,
+   "noise": null,
+   "solfeggio": 741,
+   "isochronic": false,
+   "tags": [
+    "focus",
+    "beta",
+    "14 Hz",
+    "solfeggio"
+   ],
+   "year": 2026,
+   "isNew": false,
+   "featured": false,
+   "topRank": null,
+   "art": {
+    "hue": 168,
+    "pattern": "chladni"
+   }
+  },
+  "steady-mind": {
+   "id": "steady-mind",
+   "kind": "session",
+   "name": "Steady Mind",
+   "tagline": "Two hours at the bottom of beta.",
+   "description": "A 13 Hz beat for long, calm concentration.",
+   "goal": "focus",
+   "band": "beta",
+   "carrier": 220,
+   "beat": 13.0,
+   "durationMin": 120,
+   "noise": "brown",
+   "solfeggio": null,
+   "isochronic": false,
+   "tags": [
+    "focus",
+    "beta",
+    "13 Hz",
+    "brown noise"
+   ],
+   "year": 2026,
+   "isNew": false,
+   "featured": false,
+   "topRank": null,
+   "art": {
+    "hue": 182,
+    "pattern": "rosette"
+   }
+  },
+  "writers-room": {
+   "id": "writers-room",
+   "kind": "session",
+   "name": "Writer's Room",
+   "tagline": "Fifty minutes for the page.",
+   "description": "A 15 Hz beta beat for writing sessions.",
+   "goal": "focus",
+   "band": "beta",
+   "carrier": 210,
+   "beat": 15.0,
+   "durationMin": 50,
+   "noise": "pink",
+   "solfeggio": null,
+   "isochronic": false,
+   "tags": [
+    "focus",
+    "beta",
+    "15 Hz",
+    "pink noise"
+   ],
+   "year": 2026,
+   "isNew": false,
+   "featured": false,
+   "topRank": null,
+   "art": {
+    "hue": 179,
+    "pattern": "chladni"
+   }
+  },
+  "gamma-insight": {
+   "id": "gamma-insight",
+   "kind": "session",
+   "name": "Gamma Insight",
+   "tagline": "A short, bright gamma session.",
+   "description": "A 35 Hz gamma beat with an isochronic pulse. Short by design. Keep the volume low.",
+   "goal": "focus",
+   "band": "gamma",
+   "carrier": 360,
+   "beat": 35.0,
+   "durationMin": 20,
+   "noise": null,
+   "solfeggio": null,
+   "isochronic": true,
+   "tags": [
+    "focus",
+    "gamma",
+    "35 Hz",
+    "isochronic"
+   ],
+   "year": 2026,
+   "isNew": false,
+   "featured": false,
+   "topRank": null,
+   "art": {
+    "hue": 179,
+    "pattern": "rosette"
+   }
+  },
+  "attention-40": {
+   "id": "attention-40",
+   "kind": "session",
+   "name": "Attention 40",
+   "tagline": "The much-studied 40 Hz rhythm.",
+   "description": "A 40 Hz gamma beat with pink noise. 40 Hz sensory stimulation is an active research area; results so far are early.",
+   "goal": "focus",
+   "band": "gamma",
+   "carrier": 400,
+   "beat": 40.0,
+   "durationMin": 30,
+   "noise": "pink",
+   "solfeggio": null,
+   "isochronic": false,
+   "tags": [
+    "focus",
+    "gamma",
+    "40 Hz",
+    "pink noise"
+   ],
+   "year": 2026,
+   "isNew": true,
+   "featured": false,
+   "topRank": null,
+   "art": {
+    "hue": 190,
+    "pattern": "wave"
+   }
+  },
+  "morning-rise": {
+   "id": "morning-rise",
+   "kind": "session",
+   "name": "Morning Rise",
+   "tagline": "A bright start without the jitters.",
+   "description": "A 20 Hz beta beat with an isochronic pulse to start the day.",
+   "goal": "energize",
+   "band": "beta",
+   "carrier": 300,
+   "beat": 20.0,
+   "durationMin": 15,
+   "noise": "pink",
+   "solfeggio": null,
+   "isochronic": true,
+   "tags": [
+    "energize",
+    "beta",
+    "20 Hz",
+    "pink noise",
+    "isochronic"
+   ],
+   "year": 2026,
+   "isNew": false,
+   "featured": true,
+   "topRank": null,
+   "art": {
+    "hue": 35,
+    "pattern": "wave"
+   }
+  },
+  "gamma-40": {
+   "id": "gamma-40",
+   "kind": "session",
+   "name": "Gamma 40",
+   "tagline": "Fast, clean, and short.",
+   "description": "A 40 Hz gamma beat with an isochronic layer. Keep the volume low.",
+   "goal": "energize",
+   "band": "gamma",
+   "carrier": 400,
+   "beat": 40.0,
+   "durationMin": 20,
+   "noise": null,
+   "solfeggio": null,
+   "isochronic": true,
+   "tags": [
+    "energize",
+    "gamma",
+    "40 Hz",
+    "isochronic"
+   ],
+   "year": 2026,
+   "isNew": false,
+   "featured": false,
+   "topRank": null,
+   "art": {
+    "hue": 33,
+    "pattern": "rings"
+   }
+  },
+  "bright-spark": {
+   "id": "bright-spark",
+   "kind": "session",
+   "name": "Bright Spark",
+   "tagline": "Ten minutes of high beta.",
+   "description": "A 25 Hz beat for a quick lift.",
+   "goal": "energize",
+   "band": "beta",
+   "carrier": 320,
+   "beat": 25.0,
+   "durationMin": 10,
+   "noise": null,
+   "solfeggio": null,
+   "isochronic": false,
+   "tags": [
+    "energize",
+    "beta",
+    "25 Hz"
+   ],
+   "year": 2026,
+   "isNew": false,
+   "featured": false,
+   "topRank": null,
+   "art": {
+    "hue": 44,
+    "pattern": "chladni"
+   }
+  },
+  "kinetic": {
+   "id": "kinetic",
+   "kind": "session",
+   "name": "Kinetic",
+   "tagline": "High beta for movement.",
+   "description": "A 28 Hz beat with an isochronic pulse for stretching or a walk.",
+   "goal": "energize",
+   "band": "beta",
+   "carrier": 350,
+   "beat": 28.0,
+   "durationMin": 20,
+   "noise": "pink",
+   "solfeggio": null,
+   "isochronic": true,
+   "tags": [
+    "energize",
+    "beta",
+    "28 Hz",
+    "pink noise",
+    "isochronic"
+   ],
+   "year": 2026,
+   "isNew": false,
+   "featured": false,
+   "topRank": null,
+   "art": {
+    "hue": 39,
+    "pattern": "wave"
+   }
+  },
+  "sun-salute": {
+   "id": "sun-salute",
+   "kind": "session",
+   "name": "Sun Salute",
+   "tagline": "Beta with the 417 Hz tone.",
+   "description": "An 18 Hz beta beat with a 417 Hz solfeggio layer for morning movement.",
+   "goal": "energize",
+   "band": "beta",
+   "carrier": 280,
+   "beat": 18.0,
+   "durationMin": 15,
+   "noise": null,
+   "solfeggio": 417,
+   "isochronic": false,
+   "tags": [
+    "energize",
+    "beta",
+    "18 Hz",
+    "solfeggio"
+   ],
+   "year": 2026,
+   "isNew": false,
+   "featured": false,
+   "topRank": null,
+   "art": {
+    "hue": 42,
+    "pattern": "wave"
+   }
+  },
+  "peak-gamma": {
+   "id": "peak-gamma",
+   "kind": "session",
+   "name": "Peak Gamma",
+   "tagline": "A short, high-energy gamma burst.",
+   "description": "A 38 Hz gamma beat. Short sessions are best here.",
+   "goal": "energize",
+   "band": "gamma",
+   "carrier": 380,
+   "beat": 38.0,
+   "durationMin": 15,
+   "noise": null,
+   "solfeggio": null,
+   "isochronic": false,
+   "tags": [
+    "energize",
+    "gamma",
+    "38 Hz"
+   ],
+   "year": 2026,
+   "isNew": false,
+   "featured": false,
+   "topRank": null,
+   "art": {
+    "hue": 22,
+    "pattern": "wave"
+   }
+  },
+  "afternoon-lift": {
+   "id": "afternoon-lift",
+   "kind": "session",
+   "name": "Afternoon Lift",
+   "tagline": "Beat the post-lunch slump.",
+   "description": "A 22 Hz beta beat under brown noise.",
+   "goal": "energize",
+   "band": "beta",
+   "carrier": 300,
+   "beat": 22.0,
+   "durationMin": 20,
+   "noise": "brown",
+   "solfeggio": null,
+   "isochronic": false,
+   "tags": [
+    "energize",
+    "beta",
+    "22 Hz",
+    "brown noise"
+   ],
+   "year": 2026,
+   "isNew": false,
+   "featured": false,
+   "topRank": null,
+   "art": {
+    "hue": 35,
+    "pattern": "rings"
+   }
+  },
+  "workout-pulse": {
+   "id": "workout-pulse",
+   "kind": "session",
+   "name": "Workout Pulse",
+   "tagline": "Gamma for training sessions.",
+   "description": "A 30 Hz beat with an isochronic layer. Use quietly under your own music if you like.",
+   "goal": "energize",
+   "band": "gamma",
+   "carrier": 330,
+   "beat": 30.0,
+   "durationMin": 30,
+   "noise": null,
+   "solfeggio": null,
+   "isochronic": true,
+   "tags": [
+    "energize",
+    "gamma",
+    "30 Hz",
+    "isochronic"
+   ],
+   "year": 2026,
+   "isNew": false,
+   "featured": false,
+   "topRank": null,
+   "art": {
+    "hue": 8,
+    "pattern": "rings"
+   }
+  },
+  "high-gamma": {
+   "id": "high-gamma",
+   "kind": "session",
+   "name": "High Gamma",
+   "tagline": "The fastest beat in the catalog.",
+   "description": "A 44 Hz gamma beat. Fifteen minutes, low volume.",
+   "goal": "energize",
+   "band": "gamma",
+   "carrier": 400,
+   "beat": 44.0,
+   "durationMin": 15,
+   "noise": null,
+   "solfeggio": null,
+   "isochronic": true,
+   "tags": [
+    "energize",
+    "gamma",
+    "44 Hz",
+    "isochronic"
+   ],
+   "year": 2026,
+   "isNew": false,
+   "featured": false,
+   "topRank": null,
+   "art": {
+    "hue": 8,
+    "pattern": "rosette"
+   }
+  },
+  "wake-gently": {
+   "id": "wake-gently",
+   "kind": "session",
+   "name": "Wake Gently",
+   "tagline": "Upper alpha for slow mornings.",
+   "description": "A 12 Hz beat that eases you awake before anything faster.",
+   "goal": "energize",
+   "band": "alpha",
+   "carrier": 200,
+   "beat": 12.0,
+   "durationMin": 10,
+   "noise": "pink",
+   "solfeggio": null,
+   "isochronic": false,
+   "tags": [
+    "energize",
+    "alpha",
+    "12 Hz",
+    "pink noise"
+   ],
+   "year": 2026,
+   "isNew": false,
+   "featured": false,
+   "topRank": null,
+   "art": {
+    "hue": 44,
+    "pattern": "rosette"
+   }
+  },
+  "deep-sync-1": {
+   "id": "deep-sync-1",
+   "kind": "program",
+   "name": "Deep Sync I: Orientation",
+   "tagline": "Your first descent, from alpha to theta and back.",
+   "description": "An introduction to the Deep Sync format. The beat begins in relaxed alpha, steps down into theta for a long still stretch, then brings you back up gently. Pink noise smooths each change.",
+   "goal": "meditate",
+   "band": "theta",
+   "carrier": 100,
+   "beat": 10,
+   "durationMin": 40,
+   "noise": "pink",
+   "solfeggio": null,
+   "isochronic": false,
+   "stages": [
+    {
+     "at": 0,
+     "beat": 10,
+     "label": "Settle"
+    },
+    {
+     "at": 5,
+     "beat": 8,
+     "label": "Soften"
+    },
+    {
+     "at": 12,
+     "beat": 6,
+     "label": "Descend"
+    },
+    {
+     "at": 20,
+     "beat": 4.5,
+     "label": "Stillpoint"
+    },
+    {
+     "at": 32,
+     "beat": 7,
+     "label": "Rise"
+    },
+    {
+     "at": 36,
+     "beat": 10,
+     "label": "Return"
+    }
+   ],
+   "tags": [
+    "deep sync",
+    "meditate",
+    "program",
+    "pink noise"
+   ],
+   "year": 2026,
+   "isNew": true,
+   "featured": true,
+   "topRank": null,
+   "art": {
+    "hue": 301,
+    "pattern": "interference"
+   }
+  },
+  "deep-sync-2": {
+   "id": "deep-sync-2",
+   "kind": "program",
+   "name": "Deep Sync II: Body Asleep, Mind Awake",
+   "tagline": "Let the body rest while attention stays clear.",
+   "description": "A guided-style program that lowers the beat to the theta-delta border and holds it there, inviting deep physical rest while you stay lightly aware.",
+   "goal": "meditate",
+   "band": "theta",
+   "carrier": 110,
+   "beat": 10,
+   "durationMin": 45,
+   "noise": "brown",
+   "solfeggio": null,
+   "isochronic": false,
+   "stages": [
+    {
+     "at": 0,
+     "beat": 10,
+     "label": "Settle"
+    },
+    {
+     "at": 6,
+     "beat": 7,
+     "label": "Release"
+    },
+    {
+     "at": 14,
+     "beat": 5,
+     "label": "Drift"
+    },
+    {
+     "at": 22,
+     "beat": 4,
+     "label": "Hold"
+    },
+    {
+     "at": 36,
+     "beat": 6,
+     "label": "Rise"
+    },
+    {
+     "at": 41,
+     "beat": 10,
+     "label": "Return"
+    }
+   ],
+   "tags": [
+    "deep sync",
+    "meditate",
+    "program",
+    "brown noise"
+   ],
+   "year": 2026,
+   "isNew": false,
+   "featured": false,
+   "topRank": null,
+   "art": {
+    "hue": 272,
+    "pattern": "interference"
+   }
+  },
+  "deep-sync-3": {
+   "id": "deep-sync-3",
+   "kind": "program",
+   "name": "Deep Sync III: Wide Awareness",
+   "tagline": "A longer arc that touches delta.",
+   "description": "Builds on the first two programs with a deeper middle section in delta, then a bright gamma moment before returning to alpha.",
+   "goal": "meditate",
+   "band": "delta",
+   "carrier": 120,
+   "beat": 10,
+   "durationMin": 50,
+   "noise": "pink",
+   "solfeggio": null,
+   "isochronic": false,
+   "stages": [
+    {
+     "at": 0,
+     "beat": 10,
+     "label": "Settle"
+    },
+    {
+     "at": 6,
+     "beat": 6,
+     "label": "Descend"
+    },
+    {
+     "at": 14,
+     "beat": 4,
+     "label": "Threshold"
+    },
+    {
+     "at": 20,
+     "beat": 2,
+     "label": "Deep"
+    },
+    {
+     "at": 32,
+     "beat": 4,
+     "label": "Lift"
+    },
+    {
+     "at": 38,
+     "beat": 40,
+     "label": "Spark"
+    },
+    {
+     "at": 42,
+     "beat": 10,
+     "label": "Return"
+    }
+   ],
+   "tags": [
+    "deep sync",
+    "meditate",
+    "program",
+    "pink noise"
+   ],
+   "year": 2026,
+   "isNew": false,
+   "featured": false,
+   "topRank": null,
+   "art": {
+    "hue": 292,
+    "pattern": "interference"
+   }
+  },
+  "deep-sync-4": {
+   "id": "deep-sync-4",
+   "kind": "program",
+   "name": "Deep Sync IV: Release & Recharge",
+   "tagline": "Let go, then fill back up.",
+   "description": "Descends from alpha into theta to unwind, then climbs into low beta so you finish refreshed rather than sleepy.",
+   "goal": "relax",
+   "band": "alpha",
+   "carrier": 130,
+   "beat": 11,
+   "durationMin": 35,
+   "noise": "brown",
+   "solfeggio": null,
+   "isochronic": false,
+   "stages": [
+    {
+     "at": 0,
+     "beat": 11,
+     "label": "Arrive"
+    },
+    {
+     "at": 5,
+     "beat": 8,
+     "label": "Unwind"
+    },
+    {
+     "at": 12,
+     "beat": 5.5,
+     "label": "Release"
+    },
+    {
+     "at": 22,
+     "beat": 10,
+     "label": "Restore"
+    },
+    {
+     "at": 29,
+     "beat": 14,
+     "label": "Recharge"
+    }
+   ],
+   "tags": [
+    "deep sync",
+    "relax",
+    "program",
+    "brown noise"
+   ],
+   "year": 2026,
+   "isNew": false,
+   "featured": false,
+   "topRank": null,
+   "art": {
+    "hue": 135,
+    "pattern": "interference"
+   }
+  },
+  "deep-sync-5": {
+   "id": "deep-sync-5",
+   "kind": "program",
+   "name": "Deep Sync V: Night Descent",
+   "tagline": "A one-way trip down into delta.",
+   "description": "Starts in alpha and walks the beat down through theta into slow delta. There is no return stage, so you can drift off as it fades.",
+   "goal": "sleep",
+   "band": "delta",
+   "carrier": 100,
+   "beat": 10,
+   "durationMin": 60,
+   "noise": "brown",
+   "solfeggio": null,
+   "isochronic": false,
+   "stages": [
+    {
+     "at": 0,
+     "beat": 10,
+     "label": "Settle"
+    },
+    {
+     "at": 5,
+     "beat": 7,
+     "label": "Slow"
+    },
+    {
+     "at": 12,
+     "beat": 5,
+     "label": "Drift"
+    },
+    {
+     "at": 20,
+     "beat": 3,
+     "label": "Delta"
+    },
+    {
+     "at": 32,
+     "beat": 1.5,
+     "label": "Deep"
+    },
+    {
+     "at": 45,
+     "beat": 1,
+     "label": "Sleep"
+    }
+   ],
+   "tags": [
+    "deep sync",
+    "sleep",
+    "program",
+    "brown noise"
+   ],
+   "year": 2026,
+   "isNew": false,
+   "featured": true,
+   "topRank": null,
+   "art": {
+    "hue": 257,
+    "pattern": "interference"
+   }
+  },
+  "deep-sync-6": {
+   "id": "deep-sync-6",
+   "kind": "program",
+   "name": "Deep Sync VI: Morning Ascent",
+   "tagline": "From drowsy theta to bright beta.",
+   "description": "The reverse of Night Descent. The beat climbs from theta through alpha into beta, matching the way you naturally wake up.",
+   "goal": "energize",
+   "band": "beta",
+   "carrier": 140,
+   "beat": 5,
+   "durationMin": 25,
+   "noise": "pink",
+   "solfeggio": null,
+   "isochronic": false,
+   "stages": [
+    {
+     "at": 0,
+     "beat": 5,
+     "label": "Wake"
+    },
+    {
+     "at": 4,
+     "beat": 8,
+     "label": "Open"
+    },
+    {
+     "at": 9,
+     "beat": 10,
+     "label": "Clear"
+    },
+    {
+     "at": 15,
+     "beat": 15,
+     "label": "Engage"
+    },
+    {
+     "at": 20,
+     "beat": 20,
+     "label": "Go"
+    }
+   ],
+   "tags": [
+    "deep sync",
+    "energize",
+    "program",
+    "pink noise"
+   ],
+   "year": 2026,
+   "isNew": true,
+   "featured": false,
+   "topRank": null,
+   "art": {
+    "hue": 34,
+    "pattern": "interference"
+   }
+  },
+  "deep-sync-7": {
+   "id": "deep-sync-7",
+   "kind": "program",
+   "name": "Deep Sync VII: Free Flow",
+   "tagline": "An hour that breathes between theta and alpha.",
+   "description": "A long, unstructured program that slowly oscillates between theta and alpha, for open-ended meditation or creative reverie.",
+   "goal": "meditate",
+   "band": "theta",
+   "carrier": 100,
+   "beat": 10,
+   "durationMin": 60,
+   "noise": "pink",
+   "solfeggio": null,
+   "isochronic": false,
+   "stages": [
+    {
+     "at": 0,
+     "beat": 10,
+     "label": "Settle"
+    },
+    {
+     "at": 6,
+     "beat": 6,
+     "label": "Flow"
+    },
+    {
+     "at": 16,
+     "beat": 8,
+     "label": "Surface"
+    },
+    {
+     "at": 24,
+     "beat": 5,
+     "label": "Flow"
+    },
+    {
+     "at": 36,
+     "beat": 7.5,
+     "label": "Surface"
+    },
+    {
+     "at": 44,
+     "beat": 4.5,
+     "label": "Deep Flow"
+    },
+    {
+     "at": 54,
+     "beat": 10,
+     "label": "Return"
+    }
+   ],
+   "tags": [
+    "deep sync",
+    "meditate",
+    "program",
+    "pink noise"
+   ],
+   "year": 2026,
+   "isNew": false,
+   "featured": false,
+   "topRank": null,
+   "art": {
+    "hue": 288,
+    "pattern": "interference"
+   }
+  },
+  "deep-sync-8": {
+   "id": "deep-sync-8",
+   "kind": "program",
+   "name": "Deep Sync VIII: Focus Ladder",
+   "tagline": "Step up into beta, hold, then step down.",
+   "description": "A work-session program. The beat climbs from alpha into mid beta, holds there for the core of the session, and eases back down at the end.",
+   "goal": "focus",
+   "band": "beta",
+   "carrier": 200,
+   "beat": 10,
+   "durationMin": 45,
+   "noise": "brown",
+   "solfeggio": null,
+   "isochronic": false,
+   "stages": [
+    {
+     "at": 0,
+     "beat": 10,
+     "label": "Arrive"
+    },
+    {
+     "at": 4,
+     "beat": 14,
+     "label": "Engage"
+    },
+    {
+     "at": 10,
+     "beat": 18,
+     "label": "Focus"
+    },
+    {
+     "at": 34,
+     "beat": 14,
+     "label": "Ease"
+    },
+    {
+     "at": 40,
+     "beat": 10,
+     "label": "Close"
+    }
+   ],
+   "tags": [
+    "deep sync",
+    "focus",
+    "program",
+    "brown noise"
+   ],
+   "year": 2026,
+   "isNew": false,
+   "featured": false,
+   "topRank": null,
+   "art": {
+    "hue": 178,
+    "pattern": "interference"
+   }
+  },
+  "sound-foundations": {
+   "id": "sound-foundations",
+   "kind": "show",
+   "name": "Sound Foundations",
+   "tagline": "The physics of sound, one ear at a time.",
+   "description": "A friendly, visual course on how sound works, from vibration and frequency to how two ears build a third tone in the brain.",
+   "category": "Teaching Series",
+   "host": "Maya Okafor",
+   "tags": [
+    "show",
+    "teaching series",
+    "coming soon"
+   ],
+   "year": 2026,
+   "comingSoon": true,
+   "featured": true,
+   "isNew": false,
+   "topRank": null,
+   "seasons": [
+    {
+     "number": 1,
+     "episodes": [
+      {
+       "id": "sound-foundations-s1e1",
+       "number": 1,
+       "name": "What Is a Frequency?",
+       "description": "What Is a Frequency? The physics of sound, one ear at a time.",
+       "durationMin": 30
+      },
+      {
+       "id": "sound-foundations-s1e2",
+       "number": 2,
+       "name": "Waves You Can See",
+       "description": "Waves You Can See. The physics of sound, one ear at a time.",
+       "durationMin": 18
+      },
+      {
+       "id": "sound-foundations-s1e3",
+       "number": 3,
+       "name": "Two Ears, One Brain",
+       "description": "Two Ears, One Brain. The physics of sound, one ear at a time.",
+       "durationMin": 36
+      },
+      {
+       "id": "sound-foundations-s1e4",
+       "number": 4,
+       "name": "The Binaural Beat",
+       "description": "The Binaural Beat. The physics of sound, one ear at a time.",
+       "durationMin": 24
+      },
+      {
+       "id": "sound-foundations-s1e5",
+       "number": 5,
+       "name": "Noise Has Colors",
+       "description": "Noise Has Colors. The physics of sound, one ear at a time.",
+       "durationMin": 36
+      },
+      {
+       "id": "sound-foundations-s1e6",
+       "number": 6,
+       "name": "Building a Session",
+       "description": "Building a Session. The physics of sound, one ear at a time.",
+       "durationMin": 18
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "episodes": [
+      {
+       "id": "sound-foundations-s2e1",
+       "number": 1,
+       "name": "Resonance",
+       "description": "Resonance. The physics of sound, one ear at a time.",
+       "durationMin": 36
+      },
+      {
+       "id": "sound-foundations-s2e2",
+       "number": 2,
+       "name": "Overtones and Harmonics",
+       "description": "Overtones and Harmonics. The physics of sound, one ear at a time.",
+       "durationMin": 36
+      },
+      {
+       "id": "sound-foundations-s2e3",
+       "number": 3,
+       "name": "Rhythm and Entrainment",
+       "description": "Rhythm and Entrainment. The physics of sound, one ear at a time.",
+       "durationMin": 18
+      },
+      {
+       "id": "sound-foundations-s2e4",
+       "number": 4,
+       "name": "Listening Rooms",
+       "description": "Listening Rooms. The physics of sound, one ear at a time.",
+       "durationMin": 12
+      },
+      {
+       "id": "sound-foundations-s2e5",
+       "number": 5,
+       "name": "Tuning Systems",
+       "description": "Tuning Systems. The physics of sound, one ear at a time.",
+       "durationMin": 18
+      }
+     ]
+    }
+   ],
+   "art": {
+    "hue": 190,
+    "pattern": "wave"
+   }
+  },
+  "the-brainwave-atlas": {
+   "id": "the-brainwave-atlas",
+   "kind": "show",
+   "name": "The Brainwave Atlas",
+   "tagline": "A tour of delta, theta, alpha, beta and gamma.",
+   "description": "Each episode explores one brainwave band: what it looks like on an EEG, when it shows up in daily life, and what the research does and does not say.",
+   "category": "Science of Sound",
+   "host": "Theo Lindqvist",
+   "tags": [
+    "show",
+    "science of sound",
+    "coming soon"
+   ],
+   "year": 2026,
+   "comingSoon": true,
+   "featured": true,
+   "isNew": false,
+   "topRank": null,
+   "seasons": [
+    {
+     "number": 1,
+     "episodes": [
+      {
+       "id": "the-brainwave-atlas-s1e1",
+       "number": 1,
+       "name": "Reading an EEG",
+       "description": "Reading an EEG. A tour of delta, theta, alpha, beta and gamma.",
+       "durationMin": 36
+      },
+      {
+       "id": "the-brainwave-atlas-s1e2",
+       "number": 2,
+       "name": "Delta: The Deep End",
+       "description": "Delta: The Deep End. A tour of delta, theta, alpha, beta and gamma.",
+       "durationMin": 12
+      },
+      {
+       "id": "the-brainwave-atlas-s1e3",
+       "number": 3,
+       "name": "Theta: The Edge of Sleep",
+       "description": "Theta: The Edge of Sleep. A tour of delta, theta, alpha, beta and gamma.",
+       "durationMin": 36
+      },
+      {
+       "id": "the-brainwave-atlas-s1e4",
+       "number": 4,
+       "name": "Alpha: Idle and Alert",
+       "description": "Alpha: Idle and Alert. A tour of delta, theta, alpha, beta and gamma.",
+       "durationMin": 24
+      },
+      {
+       "id": "the-brainwave-atlas-s1e5",
+       "number": 5,
+       "name": "Beta: Getting Things Done",
+       "description": "Beta: Getting Things Done. A tour of delta, theta, alpha, beta and gamma.",
+       "durationMin": 30
+      },
+      {
+       "id": "the-brainwave-atlas-s1e6",
+       "number": 6,
+       "name": "Gamma: The Fast Lane",
+       "description": "Gamma: The Fast Lane. A tour of delta, theta, alpha, beta and gamma.",
+       "durationMin": 30
+      },
+      {
+       "id": "the-brainwave-atlas-s1e7",
+       "number": 7,
+       "name": "What Entrainment Means",
+       "description": "What Entrainment Means. A tour of delta, theta, alpha, beta and gamma.",
+       "durationMin": 36
+      }
+     ]
+    }
+   ],
+   "art": {
+    "hue": 214,
+    "pattern": "wave"
+   }
+  },
+  "gateway-stories": {
+   "id": "gateway-stories",
+   "kind": "show",
+   "name": "Gateway Stories",
+   "tagline": "The strange history of sound and consciousness research.",
+   "description": "A documentary series on the people and programs behind mid-century consciousness research, from radio studios to a declassified 1983 Army report.",
+   "category": "Science of Sound",
+   "host": "Ruth Calloway",
+   "tags": [
+    "show",
+    "science of sound",
+    "coming soon"
+   ],
+   "year": 2026,
+   "comingSoon": true,
+   "featured": true,
+   "isNew": false,
+   "topRank": null,
+   "seasons": [
+    {
+     "number": 1,
+     "episodes": [
+      {
+       "id": "gateway-stories-s1e1",
+       "number": 1,
+       "name": "A Radio Man's Experiments",
+       "description": "A Radio Man's Experiments. The strange history of sound and consciousness research.",
+       "durationMin": 36
+      },
+      {
+       "id": "gateway-stories-s1e2",
+       "number": 2,
+       "name": "The Institute in the Hills",
+       "description": "The Institute in the Hills. The strange history of sound and consciousness research.",
+       "durationMin": 18
+      },
+      {
+       "id": "gateway-stories-s1e3",
+       "number": 3,
+       "name": "Analysis and Assessment",
+       "description": "Analysis and Assessment. The strange history of sound and consciousness research.",
+       "durationMin": 30
+      },
+      {
+       "id": "gateway-stories-s1e4",
+       "number": 4,
+       "name": "Declassified",
+       "description": "Declassified. The strange history of sound and consciousness research.",
+       "durationMin": 30
+      },
+      {
+       "id": "gateway-stories-s1e5",
+       "number": 5,
+       "name": "The Internet Finds It",
+       "description": "The Internet Finds It. The strange history of sound and consciousness research.",
+       "durationMin": 18
+      },
+      {
+       "id": "gateway-stories-s1e6",
+       "number": 6,
+       "name": "What We Actually Know",
+       "description": "What We Actually Know. The strange history of sound and consciousness research.",
+       "durationMin": 24
+      }
+     ]
+    }
+   ],
+   "art": {
+    "hue": 181,
+    "pattern": "rosette"
+   }
+  },
+  "sleep-well-school": {
+   "id": "sleep-well-school",
+   "kind": "show",
+   "name": "Sleep Well School",
+   "tagline": "Habits, rooms and routines for better nights.",
+   "description": "Practical sleep-hygiene lessons paired with sessions to try that night. Educational only; talk to a clinician about persistent sleep problems.",
+   "category": "Teaching Series",
+   "host": "Dana Whitfield",
+   "tags": [
+    "show",
+    "teaching series",
+    "coming soon"
+   ],
+   "year": 2026,
+   "comingSoon": true,
+   "featured": true,
+   "isNew": false,
+   "topRank": null,
+   "seasons": [
+    {
+     "number": 1,
+     "episodes": [
+      {
+       "id": "sleep-well-school-s1e1",
+       "number": 1,
+       "name": "Your Body Clock",
+       "description": "Your Body Clock. Habits, rooms and routines for better nights.",
+       "durationMin": 36
+      },
+      {
+       "id": "sleep-well-school-s1e2",
+       "number": 2,
+       "name": "Light and Dark",
+       "description": "Light and Dark. Habits, rooms and routines for better nights.",
+       "durationMin": 18
+      },
+      {
+       "id": "sleep-well-school-s1e3",
+       "number": 3,
+       "name": "The Bedroom Audit",
+       "description": "The Bedroom Audit. Habits, rooms and routines for better nights.",
+       "durationMin": 36
+      },
+      {
+       "id": "sleep-well-school-s1e4",
+       "number": 4,
+       "name": "Wind-Down Routines",
+       "description": "Wind-Down Routines. Habits, rooms and routines for better nights.",
+       "durationMin": 36
+      },
+      {
+       "id": "sleep-well-school-s1e5",
+       "number": 5,
+       "name": "Naps, Done Right",
+       "description": "Naps, Done Right. Habits, rooms and routines for better nights.",
+       "durationMin": 12
+      },
+      {
+       "id": "sleep-well-school-s1e6",
+       "number": 6,
+       "name": "When to Ask for Help",
+       "description": "When to Ask for Help. Habits, rooms and routines for better nights.",
+       "durationMin": 36
+      }
+     ]
+    }
+   ],
+   "art": {
+    "hue": 222,
+    "pattern": "rings"
+   }
+  },
+  "breath-and-tone": {
+   "id": "breath-and-tone",
+   "kind": "show",
+   "name": "Breath & Tone",
+   "tagline": "Short breathing practices set to frequency beds.",
+   "description": "Ten-minute guided breathing practices, each matched to a binaural session that sets the pace.",
+   "category": "Practice",
+   "host": "Imani Brooks",
+   "tags": [
+    "show",
+    "practice",
+    "coming soon"
+   ],
+   "year": 2026,
+   "comingSoon": true,
+   "featured": true,
+   "isNew": false,
+   "topRank": null,
+   "seasons": [
+    {
+     "number": 1,
+     "episodes": [
+      {
+       "id": "breath-and-tone-s1e1",
+       "number": 1,
+       "name": "Box Breathing",
+       "description": "Box Breathing. Short breathing practices set to frequency beds.",
+       "durationMin": 36
+      },
+      {
+       "id": "breath-and-tone-s1e2",
+       "number": 2,
+       "name": "The Long Exhale",
+       "description": "The Long Exhale. Short breathing practices set to frequency beds.",
+       "durationMin": 36
+      },
+      {
+       "id": "breath-and-tone-s1e3",
+       "number": 3,
+       "name": "Coherent Breathing",
+       "description": "Coherent Breathing. Short breathing practices set to frequency beds.",
+       "durationMin": 30
+      },
+      {
+       "id": "breath-and-tone-s1e4",
+       "number": 4,
+       "name": "Alternate Nostril",
+       "description": "Alternate Nostril. Short breathing practices set to frequency beds.",
+       "durationMin": 36
+      },
+      {
+       "id": "breath-and-tone-s1e5",
+       "number": 5,
+       "name": "Counting Breaths",
+       "description": "Counting Breaths. Short breathing practices set to frequency beds.",
+       "durationMin": 24
+      },
+      {
+       "id": "breath-and-tone-s1e6",
+       "number": 6,
+       "name": "Breath and Body",
+       "description": "Breath and Body. Short breathing practices set to frequency beds.",
+       "durationMin": 36
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "episodes": [
+      {
+       "id": "breath-and-tone-s2e1",
+       "number": 1,
+       "name": "Morning Breath",
+       "description": "Morning Breath. Short breathing practices set to frequency beds.",
+       "durationMin": 30
+      },
+      {
+       "id": "breath-and-tone-s2e2",
+       "number": 2,
+       "name": "Midday Reset",
+       "description": "Midday Reset. Short breathing practices set to frequency beds.",
+       "durationMin": 12
+      },
+      {
+       "id": "breath-and-tone-s2e3",
+       "number": 3,
+       "name": "Evening Breath",
+       "description": "Evening Breath. Short breathing practices set to frequency beds.",
+       "durationMin": 24
+      },
+      {
+       "id": "breath-and-tone-s2e4",
+       "number": 4,
+       "name": "Breath for Focus",
+       "description": "Breath for Focus. Short breathing practices set to frequency beds.",
+       "durationMin": 24
+      }
+     ]
+    }
+   ],
+   "art": {
+    "hue": 148,
+    "pattern": "rings"
+   }
+  },
+  "solfeggio-sessions": {
+   "id": "solfeggio-sessions",
+   "kind": "show",
+   "name": "Solfeggio Sessions",
+   "tagline": "Nine tones, nine meditations.",
+   "description": "A meditation series built around the nine solfeggio tones, with honest notes on where the scale's modern popularity comes from.",
+   "category": "Healing Journeys",
+   "host": "Lucia Ferrante",
+   "tags": [
+    "show",
+    "healing journeys",
+    "coming soon"
+   ],
+   "year": 2025,
+   "comingSoon": true,
+   "featured": true,
+   "isNew": false,
+   "topRank": null,
+   "seasons": [
+    {
+     "number": 1,
+     "episodes": [
+      {
+       "id": "solfeggio-sessions-s1e1",
+       "number": 1,
+       "name": "174",
+       "description": "174. Nine tones, nine meditations.",
+       "durationMin": 18
+      },
+      {
+       "id": "solfeggio-sessions-s1e2",
+       "number": 2,
+       "name": "285",
+       "description": "285. Nine tones, nine meditations.",
+       "durationMin": 12
+      },
+      {
+       "id": "solfeggio-sessions-s1e3",
+       "number": 3,
+       "name": "396",
+       "description": "396. Nine tones, nine meditations.",
+       "durationMin": 18
+      },
+      {
+       "id": "solfeggio-sessions-s1e4",
+       "number": 4,
+       "name": "417",
+       "description": "417. Nine tones, nine meditations.",
+       "durationMin": 12
+      },
+      {
+       "id": "solfeggio-sessions-s1e5",
+       "number": 5,
+       "name": "528",
+       "description": "528. Nine tones, nine meditations.",
+       "durationMin": 24
+      },
+      {
+       "id": "solfeggio-sessions-s1e6",
+       "number": 6,
+       "name": "639",
+       "description": "639. Nine tones, nine meditations.",
+       "durationMin": 18
+      },
+      {
+       "id": "solfeggio-sessions-s1e7",
+       "number": 7,
+       "name": "741",
+       "description": "741. Nine tones, nine meditations.",
+       "durationMin": 12
+      },
+      {
+       "id": "solfeggio-sessions-s1e8",
+       "number": 8,
+       "name": "852",
+       "description": "852. Nine tones, nine meditations.",
+       "durationMin": 24
+      },
+      {
+       "id": "solfeggio-sessions-s1e9",
+       "number": 9,
+       "name": "963",
+       "description": "963. Nine tones, nine meditations.",
+       "durationMin": 24
+      }
+     ]
+    }
+   ],
+   "art": {
+    "hue": 337,
+    "pattern": "rosette"
+   }
+  },
+  "deep-sync-academy": {
+   "id": "deep-sync-academy",
+   "kind": "show",
+   "name": "Deep Sync Academy",
+   "tagline": "Learn the Deep Sync method, step by step.",
+   "description": "A companion course to the Deep Sync programs: how to prepare, what each stage is for, and how to journal what you notice.",
+   "category": "Teaching Series",
+   "host": "Owen Achterberg",
+   "tags": [
+    "show",
+    "teaching series",
+    "coming soon"
+   ],
+   "year": 2026,
+   "comingSoon": true,
+   "featured": true,
+   "isNew": false,
+   "topRank": null,
+   "seasons": [
+    {
+     "number": 1,
+     "episodes": [
+      {
+       "id": "deep-sync-academy-s1e1",
+       "number": 1,
+       "name": "Preparing to Listen",
+       "description": "Preparing to Listen. Learn the Deep Sync method, step by step.",
+       "durationMin": 24
+      },
+      {
+       "id": "deep-sync-academy-s1e2",
+       "number": 2,
+       "name": "The Settle Stage",
+       "description": "The Settle Stage. Learn the Deep Sync method, step by step.",
+       "durationMin": 30
+      },
+      {
+       "id": "deep-sync-academy-s1e3",
+       "number": 3,
+       "name": "Going Down",
+       "description": "Going Down. Learn the Deep Sync method, step by step.",
+       "durationMin": 24
+      },
+      {
+       "id": "deep-sync-academy-s1e4",
+       "number": 4,
+       "name": "Holding the Stillpoint",
+       "description": "Holding the Stillpoint. Learn the Deep Sync method, step by step.",
+       "durationMin": 18
+      },
+      {
+       "id": "deep-sync-academy-s1e5",
+       "number": 5,
+       "name": "Coming Back",
+       "description": "Coming Back. Learn the Deep Sync method, step by step.",
+       "durationMin": 36
+      },
+      {
+       "id": "deep-sync-academy-s1e6",
+       "number": 6,
+       "name": "Keeping a Journal",
+       "description": "Keeping a Journal. Learn the Deep Sync method, step by step.",
+       "durationMin": 30
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "episodes": [
+      {
+       "id": "deep-sync-academy-s2e1",
+       "number": 1,
+       "name": "Longer Programs",
+       "description": "Longer Programs. Learn the Deep Sync method, step by step.",
+       "durationMin": 12
+      },
+      {
+       "id": "deep-sync-academy-s2e2",
+       "number": 2,
+       "name": "Working With Intention",
+       "description": "Working With Intention. Learn the Deep Sync method, step by step.",
+       "durationMin": 36
+      },
+      {
+       "id": "deep-sync-academy-s2e3",
+       "number": 3,
+       "name": "Sleep Programs",
+       "description": "Sleep Programs. Learn the Deep Sync method, step by step.",
+       "durationMin": 12
+      },
+      {
+       "id": "deep-sync-academy-s2e4",
+       "number": 4,
+       "name": "Morning Programs",
+       "description": "Morning Programs. Learn the Deep Sync method, step by step.",
+       "durationMin": 24
+      },
+      {
+       "id": "deep-sync-academy-s2e5",
+       "number": 5,
+       "name": "Building Your Own Arc",
+       "description": "Building Your Own Arc. Learn the Deep Sync method, step by step.",
+       "durationMin": 30
+      }
+     ]
+    }
+   ],
+   "art": {
+    "hue": 214,
+    "pattern": "rosette"
+   }
+  },
+  "quiet-mind-journeys": {
+   "id": "quiet-mind-journeys",
+   "kind": "show",
+   "name": "Quiet Mind Journeys",
+   "tagline": "Guided visualizations over theta beds.",
+   "description": "Narrated journeys through imagined landscapes, each set to a slow theta session.",
+   "category": "Healing Journeys",
+   "host": "Sana Mirza",
+   "tags": [
+    "show",
+    "healing journeys",
+    "coming soon"
+   ],
+   "year": 2025,
+   "comingSoon": true,
+   "featured": false,
+   "isNew": false,
+   "topRank": null,
+   "seasons": [
+    {
+     "number": 1,
+     "episodes": [
+      {
+       "id": "quiet-mind-journeys-s1e1",
+       "number": 1,
+       "name": "The Lantern Path",
+       "description": "The Lantern Path. Guided visualizations over theta beds.",
+       "durationMin": 30
+      },
+      {
+       "id": "quiet-mind-journeys-s1e2",
+       "number": 2,
+       "name": "Lake at Dawn",
+       "description": "Lake at Dawn. Guided visualizations over theta beds.",
+       "durationMin": 18
+      },
+      {
+       "id": "quiet-mind-journeys-s1e3",
+       "number": 3,
+       "name": "The Library of Rain",
+       "description": "The Library of Rain. Guided visualizations over theta beds.",
+       "durationMin": 18
+      },
+      {
+       "id": "quiet-mind-journeys-s1e4",
+       "number": 4,
+       "name": "Mountain Hut",
+       "description": "Mountain Hut. Guided visualizations over theta beds.",
+       "durationMin": 24
+      },
+      {
+       "id": "quiet-mind-journeys-s1e5",
+       "number": 5,
+       "name": "The Glass Garden",
+       "description": "The Glass Garden. Guided visualizations over theta beds.",
+       "durationMin": 12
+      },
+      {
+       "id": "quiet-mind-journeys-s1e6",
+       "number": 6,
+       "name": "Night Train",
+       "description": "Night Train. Guided visualizations over theta beds.",
+       "durationMin": 12
+      }
+     ]
+    }
+   ],
+   "art": {
+    "hue": 308,
+    "pattern": "rosette"
+   }
+  },
+  "sleep-stories-north": {
+   "id": "sleep-stories-north",
+   "kind": "show",
+   "name": "Sleep Stories: North",
+   "tagline": "Slow stories from cold, quiet places.",
+   "description": "Bedtime stories set in the far north, read slowly over delta beats and brown noise.",
+   "category": "Sleep Stories",
+   "host": "Henrik Vale",
+   "tags": [
+    "show",
+    "sleep stories",
+    "coming soon"
+   ],
+   "year": 2026,
+   "comingSoon": true,
+   "featured": true,
+   "isNew": false,
+   "topRank": null,
+   "seasons": [
+    {
+     "number": 1,
+     "episodes": [
+      {
+       "id": "sleep-stories-north-s1e1",
+       "number": 1,
+       "name": "The Lighthouse Keeper",
+       "description": "The Lighthouse Keeper. Slow stories from cold, quiet places.",
+       "durationMin": 24
+      },
+      {
+       "id": "sleep-stories-north-s1e2",
+       "number": 2,
+       "name": "Snow on the Fjord",
+       "description": "Snow on the Fjord. Slow stories from cold, quiet places.",
+       "durationMin": 24
+      },
+      {
+       "id": "sleep-stories-north-s1e3",
+       "number": 3,
+       "name": "The Northern Train",
+       "description": "The Northern Train. Slow stories from cold, quiet places.",
+       "durationMin": 36
+      },
+      {
+       "id": "sleep-stories-north-s1e4",
+       "number": 4,
+       "name": "Aurora Watch",
+       "description": "Aurora Watch. Slow stories from cold, quiet places.",
+       "durationMin": 12
+      },
+      {
+       "id": "sleep-stories-north-s1e5",
+       "number": 5,
+       "name": "The Cabin Stove",
+       "description": "The Cabin Stove. Slow stories from cold, quiet places.",
+       "durationMin": 36
+      },
+      {
+       "id": "sleep-stories-north-s1e6",
+       "number": 6,
+       "name": "Ice Fishing at Dusk",
+       "description": "Ice Fishing at Dusk. Slow stories from cold, quiet places.",
+       "durationMin": 24
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "episodes": [
+      {
+       "id": "sleep-stories-north-s2e1",
+       "number": 1,
+       "name": "The Reindeer Road",
+       "description": "The Reindeer Road. Slow stories from cold, quiet places.",
+       "durationMin": 18
+      },
+      {
+       "id": "sleep-stories-north-s2e2",
+       "number": 2,
+       "name": "Harbor Bells",
+       "description": "Harbor Bells. Slow stories from cold, quiet places.",
+       "durationMin": 12
+      },
+      {
+       "id": "sleep-stories-north-s2e3",
+       "number": 3,
+       "name": "Long Winter Library",
+       "description": "Long Winter Library. Slow stories from cold, quiet places.",
+       "durationMin": 36
+      },
+      {
+       "id": "sleep-stories-north-s2e4",
+       "number": 4,
+       "name": "The Ferry Home",
+       "description": "The Ferry Home. Slow stories from cold, quiet places.",
+       "durationMin": 24
+      }
+     ]
+    }
+   ],
+   "art": {
+    "hue": 237,
+    "pattern": "wave"
+   }
+  },
+  "sleep-stories-sea": {
+   "id": "sleep-stories-sea",
+   "kind": "show",
+   "name": "Sleep Stories: Sea",
+   "tagline": "Drift off with tides and slow voyages.",
+   "description": "Unhurried ocean stories over pink-noise surf and slow delta beats.",
+   "category": "Sleep Stories",
+   "host": "Coral Adeyemi",
+   "tags": [
+    "show",
+    "sleep stories",
+    "coming soon"
+   ],
+   "year": 2026,
+   "comingSoon": true,
+   "featured": false,
+   "isNew": false,
+   "topRank": null,
+   "seasons": [
+    {
+     "number": 1,
+     "episodes": [
+      {
+       "id": "sleep-stories-sea-s1e1",
+       "number": 1,
+       "name": "The Tide Pool",
+       "description": "The Tide Pool. Drift off with tides and slow voyages.",
+       "durationMin": 36
+      },
+      {
+       "id": "sleep-stories-sea-s1e2",
+       "number": 2,
+       "name": "A Slow Sailboat",
+       "description": "A Slow Sailboat. Drift off with tides and slow voyages.",
+       "durationMin": 36
+      },
+      {
+       "id": "sleep-stories-sea-s1e3",
+       "number": 3,
+       "name": "Shell Collector",
+       "description": "Shell Collector. Drift off with tides and slow voyages.",
+       "durationMin": 36
+      },
+      {
+       "id": "sleep-stories-sea-s1e4",
+       "number": 4,
+       "name": "The Island Market",
+       "description": "The Island Market. Drift off with tides and slow voyages.",
+       "durationMin": 18
+      },
+      {
+       "id": "sleep-stories-sea-s1e5",
+       "number": 5,
+       "name": "Night Swim",
+       "description": "Night Swim. Drift off with tides and slow voyages.",
+       "durationMin": 12
+      },
+      {
+       "id": "sleep-stories-sea-s1e6",
+       "number": 6,
+       "name": "Harbor Lights",
+       "description": "Harbor Lights. Drift off with tides and slow voyages.",
+       "durationMin": 30
+      }
+     ]
+    }
+   ],
+   "art": {
+    "hue": 235,
+    "pattern": "rosette"
+   }
+  },
+  "focus-lab": {
+   "id": "focus-lab",
+   "kind": "show",
+   "name": "Focus Lab",
+   "tagline": "Experiments in attention, tested on ourselves.",
+   "description": "Host and guests try different sound beds for work and report back, with a clear eye on what small self-experiments can and cannot show.",
+   "category": "Science of Sound",
+   "host": "Priya Raman",
+   "tags": [
+    "show",
+    "science of sound",
+    "coming soon"
+   ],
+   "year": 2026,
+   "comingSoon": true,
+   "featured": true,
+   "isNew": false,
+   "topRank": null,
+   "seasons": [
+    {
+     "number": 1,
+     "episodes": [
+      {
+       "id": "focus-lab-s1e1",
+       "number": 1,
+       "name": "Silence vs Noise",
+       "description": "Silence vs Noise. Experiments in attention, tested on ourselves.",
+       "durationMin": 36
+      },
+      {
+       "id": "focus-lab-s1e2",
+       "number": 2,
+       "name": "Pink, Brown or White?",
+       "description": "Pink, Brown or White? Experiments in attention, tested on ourselves.",
+       "durationMin": 12
+      },
+      {
+       "id": "focus-lab-s1e3",
+       "number": 3,
+       "name": "Binaural for Coding",
+       "description": "Binaural for Coding. Experiments in attention, tested on ourselves.",
+       "durationMin": 18
+      },
+      {
+       "id": "focus-lab-s1e4",
+       "number": 4,
+       "name": "Music With Lyrics",
+       "description": "Music With Lyrics. Experiments in attention, tested on ourselves.",
+       "durationMin": 36
+      },
+      {
+       "id": "focus-lab-s1e5",
+       "number": 5,
+       "name": "The 40 Hz Question",
+       "description": "The 40 Hz Question. Experiments in attention, tested on ourselves.",
+       "durationMin": 24
+      },
+      {
+       "id": "focus-lab-s1e6",
+       "number": 6,
+       "name": "What We Learned",
+       "description": "What We Learned. Experiments in attention, tested on ourselves.",
+       "durationMin": 30
+      }
+     ]
+    }
+   ],
+   "art": {
+    "hue": 179,
+    "pattern": "chladni"
+   }
+  },
+  "healing-voices": {
+   "id": "healing-voices",
+   "kind": "show",
+   "name": "Healing Voices",
+   "tagline": "Conversations with sound practitioners.",
+   "description": "Interviews with sound-bath facilitators, music therapists and researchers about how they use sound, and how they talk about it honestly.",
+   "category": "Healing Journeys",
+   "host": "Various",
+   "tags": [
+    "show",
+    "healing journeys",
+    "coming soon"
+   ],
+   "year": 2025,
+   "comingSoon": true,
+   "featured": false,
+   "isNew": false,
+   "topRank": null,
+   "seasons": [
+    {
+     "number": 1,
+     "episodes": [
+      {
+       "id": "healing-voices-s1e1",
+       "number": 1,
+       "name": "The Sound Bath",
+       "description": "The Sound Bath. Conversations with sound practitioners.",
+       "durationMin": 12
+      },
+      {
+       "id": "healing-voices-s1e2",
+       "number": 2,
+       "name": "Music Therapy Today",
+       "description": "Music Therapy Today. Conversations with sound practitioners.",
+       "durationMin": 24
+      },
+      {
+       "id": "healing-voices-s1e3",
+       "number": 3,
+       "name": "Singing Bowls",
+       "description": "Singing Bowls. Conversations with sound practitioners.",
+       "durationMin": 30
+      },
+      {
+       "id": "healing-voices-s1e4",
+       "number": 4,
+       "name": "Drums and Rhythm",
+       "description": "Drums and Rhythm. Conversations with sound practitioners.",
+       "durationMin": 18
+      },
+      {
+       "id": "healing-voices-s1e5",
+       "number": 5,
+       "name": "Voice and Chant",
+       "description": "Voice and Chant. Conversations with sound practitioners.",
+       "durationMin": 30
+      },
+      {
+       "id": "healing-voices-s1e6",
+       "number": 6,
+       "name": "The Skeptic's Chair",
+       "description": "The Skeptic's Chair. Conversations with sound practitioners.",
+       "durationMin": 18
+      }
+     ]
+    }
+   ],
+   "art": {
+    "hue": 337,
+    "pattern": "rosette"
+   }
+  },
+  "tiny-calm": {
+   "id": "tiny-calm",
+   "kind": "show",
+   "name": "Tiny Calm",
+   "tagline": "Gentle sound play for kids.",
+   "description": "Short, playful episodes that help kids notice their breath and the sounds around them. No binaural beats; volume-limited by design.",
+   "category": "Kids & Family",
+   "host": "Juniper & Moss",
+   "tags": [
+    "show",
+    "kids & family",
+    "coming soon"
+   ],
+   "year": 2026,
+   "comingSoon": true,
+   "featured": false,
+   "isNew": false,
+   "topRank": null,
+   "seasons": [
+    {
+     "number": 1,
+     "episodes": [
+      {
+       "id": "tiny-calm-s1e1",
+       "number": 1,
+       "name": "Listening Walk",
+       "description": "Listening Walk. Gentle sound play for kids.",
+       "durationMin": 18
+      },
+      {
+       "id": "tiny-calm-s1e2",
+       "number": 2,
+       "name": "Balloon Breath",
+       "description": "Balloon Breath. Gentle sound play for kids.",
+       "durationMin": 24
+      },
+      {
+       "id": "tiny-calm-s1e3",
+       "number": 3,
+       "name": "Sleepy Bear",
+       "description": "Sleepy Bear. Gentle sound play for kids.",
+       "durationMin": 24
+      },
+      {
+       "id": "tiny-calm-s1e4",
+       "number": 4,
+       "name": "The Quiet Game",
+       "description": "The Quiet Game. Gentle sound play for kids.",
+       "durationMin": 30
+      },
+      {
+       "id": "tiny-calm-s1e5",
+       "number": 5,
+       "name": "Rain Sticks",
+       "description": "Rain Sticks. Gentle sound play for kids.",
+       "durationMin": 30
+      },
+      {
+       "id": "tiny-calm-s1e6",
+       "number": 6,
+       "name": "Goodnight Sounds",
+       "description": "Goodnight Sounds. Gentle sound play for kids.",
+       "durationMin": 24
+      }
+     ]
+    }
+   ],
+   "art": {
+    "hue": 59,
+    "pattern": "wave"
+   }
+  },
+  "yoga-frequencies": {
+   "id": "yoga-frequencies",
+   "kind": "show",
+   "name": "Yoga Frequencies",
+   "tagline": "Flows paired with matching beats.",
+   "description": "Gentle yoga flows with frequency beds chosen for each part of the practice.",
+   "category": "Practice",
+   "host": "Arjun Patel",
+   "tags": [
+    "show",
+    "practice",
+    "coming soon"
+   ],
+   "year": 2026,
+   "comingSoon": true,
+   "featured": false,
+   "isNew": false,
+   "topRank": null,
+   "seasons": [
+    {
+     "number": 1,
+     "episodes": [
+      {
+       "id": "yoga-frequencies-s1e1",
+       "number": 1,
+       "name": "Morning Flow",
+       "description": "Morning Flow. Flows paired with matching beats.",
+       "durationMin": 30
+      },
+      {
+       "id": "yoga-frequencies-s1e2",
+       "number": 2,
+       "name": "Desk Break Stretch",
+       "description": "Desk Break Stretch. Flows paired with matching beats.",
+       "durationMin": 30
+      },
+      {
+       "id": "yoga-frequencies-s1e3",
+       "number": 3,
+       "name": "Hip Openers",
+       "description": "Hip Openers. Flows paired with matching beats.",
+       "durationMin": 24
+      },
+      {
+       "id": "yoga-frequencies-s1e4",
+       "number": 4,
+       "name": "Evening Unwind",
+       "description": "Evening Unwind. Flows paired with matching beats.",
+       "durationMin": 12
+      },
+      {
+       "id": "yoga-frequencies-s1e5",
+       "number": 5,
+       "name": "Restorative Hour",
+       "description": "Restorative Hour. Flows paired with matching beats.",
+       "durationMin": 36
+      },
+      {
+       "id": "yoga-frequencies-s1e6",
+       "number": 6,
+       "name": "Yoga Nidra",
+       "description": "Yoga Nidra. Flows paired with matching beats.",
+       "durationMin": 30
+      }
+     ]
+    }
+   ],
+   "art": {
+    "hue": 170,
+    "pattern": "chladni"
+   }
+  },
+  "mindful-commute": {
+   "id": "mindful-commute",
+   "kind": "show",
+   "name": "Mindful Passenger",
+   "tagline": "Short practices for buses and trains.",
+   "description": "Ten-minute awareness practices for passengers. Never for drivers: binaural sessions are not safe while driving.",
+   "category": "Practice",
+   "host": "Leah Novak",
+   "tags": [
+    "show",
+    "practice",
+    "coming soon"
+   ],
+   "year": 2026,
+   "comingSoon": true,
+   "featured": false,
+   "isNew": false,
+   "topRank": null,
+   "seasons": [
+    {
+     "number": 1,
+     "episodes": [
+      {
+       "id": "mindful-commute-s1e1",
+       "number": 1,
+       "name": "Window Seat",
+       "description": "Window Seat. Short practices for buses and trains.",
+       "durationMin": 12
+      },
+      {
+       "id": "mindful-commute-s1e2",
+       "number": 2,
+       "name": "Crowded Car",
+       "description": "Crowded Car. Short practices for buses and trains.",
+       "durationMin": 12
+      },
+      {
+       "id": "mindful-commute-s1e3",
+       "number": 3,
+       "name": "Long Haul",
+       "description": "Long Haul. Short practices for buses and trains.",
+       "durationMin": 24
+      },
+      {
+       "id": "mindful-commute-s1e4",
+       "number": 4,
+       "name": "The Last Stop",
+       "description": "The Last Stop. Short practices for buses and trains.",
+       "durationMin": 24
+      },
+      {
+       "id": "mindful-commute-s1e5",
+       "number": 5,
+       "name": "Platform Breath",
+       "description": "Platform Breath. Short practices for buses and trains.",
+       "durationMin": 36
+      }
+     ]
+    }
+   ],
+   "art": {
+    "hue": 152,
+    "pattern": "rosette"
+   }
+  },
+  "history-of-sound-healing": {
+   "id": "history-of-sound-healing",
+   "kind": "show",
+   "name": "A History of Sound & Healing",
+   "tagline": "From Pythagoras to podcasts.",
+   "description": "How cultures across history have used music and sound for ritual, rest and recovery, and how the modern frequency movement emerged.",
+   "category": "Science of Sound",
+   "host": "Ruth Calloway",
+   "tags": [
+    "show",
+    "science of sound",
+    "coming soon"
+   ],
+   "year": 2025,
+   "comingSoon": true,
+   "featured": false,
+   "isNew": false,
+   "topRank": null,
+   "seasons": [
+    {
+     "number": 1,
+     "episodes": [
+      {
+       "id": "history-of-sound-healing-s1e1",
+       "number": 1,
+       "name": "Pythagoras and the Monochord",
+       "description": "Pythagoras and the Monochord. From Pythagoras to podcasts.",
+       "durationMin": 12
+      },
+      {
+       "id": "history-of-sound-healing-s1e2",
+       "number": 2,
+       "name": "Temple and Chant",
+       "description": "Temple and Chant. From Pythagoras to podcasts.",
+       "durationMin": 12
+      },
+      {
+       "id": "history-of-sound-healing-s1e3",
+       "number": 3,
+       "name": "Dove's Discovery, 1839",
+       "description": "Dove's Discovery, 1839. From Pythagoras to podcasts.",
+       "durationMin": 24
+      },
+      {
+       "id": "history-of-sound-healing-s1e4",
+       "number": 4,
+       "name": "Oster's Beats, 1973",
+       "description": "Oster's Beats, 1973. From Pythagoras to podcasts.",
+       "durationMin": 18
+      },
+      {
+       "id": "history-of-sound-healing-s1e5",
+       "number": 5,
+       "name": "The Cassette Era",
+       "description": "The Cassette Era. From Pythagoras to podcasts.",
+       "durationMin": 12
+      },
+      {
+       "id": "history-of-sound-healing-s1e6",
+       "number": 6,
+       "name": "The Streaming Era",
+       "description": "The Streaming Era. From Pythagoras to podcasts.",
+       "durationMin": 12
+      }
+     ]
+    }
+   ],
+   "art": {
+    "hue": 206,
+    "pattern": "rosette"
+   }
+  },
+  "the-gamma-files": {
+   "id": "the-gamma-files",
+   "kind": "show",
+   "name": "The Gamma Files",
+   "tagline": "Inside the 40 Hz research boom.",
+   "description": "A careful look at the growing research on 40 Hz light and sound stimulation: what was found in mice, what is being tested in people, and what is still unknown.",
+   "category": "Science of Sound",
+   "host": "Theo Lindqvist",
+   "tags": [
+    "show",
+    "science of sound",
+    "coming soon"
+   ],
+   "year": 2026,
+   "comingSoon": true,
+   "featured": false,
+   "isNew": false,
+   "topRank": null,
+   "seasons": [
+    {
+     "number": 1,
+     "episodes": [
+      {
+       "id": "the-gamma-files-s1e1",
+       "number": 1,
+       "name": "The Mouse Studies",
+       "description": "The Mouse Studies. Inside the 40 Hz research boom.",
+       "durationMin": 24
+      },
+      {
+       "id": "the-gamma-files-s1e2",
+       "number": 2,
+       "name": "Light and Sound",
+       "description": "Light and Sound. Inside the 40 Hz research boom.",
+       "durationMin": 30
+      },
+      {
+       "id": "the-gamma-files-s1e3",
+       "number": 3,
+       "name": "First Human Trials",
+       "description": "First Human Trials. Inside the 40 Hz research boom.",
+       "durationMin": 24
+      },
+      {
+       "id": "the-gamma-files-s1e4",
+       "number": 4,
+       "name": "Hype vs Evidence",
+       "description": "Hype vs Evidence. Inside the 40 Hz research boom.",
+       "durationMin": 18
+      },
+      {
+       "id": "the-gamma-files-s1e5",
+       "number": 5,
+       "name": "Open Questions",
+       "description": "Open Questions. Inside the 40 Hz research boom.",
+       "durationMin": 18
+      }
+     ]
+    }
+   ],
+   "art": {
+    "hue": 196,
+    "pattern": "chladni"
+   }
+  },
+  "calm-at-work": {
+   "id": "calm-at-work",
+   "kind": "show",
+   "name": "Calm at Work",
+   "tagline": "Stress skills for the workday.",
+   "description": "Practical lessons on attention, breaks and boundaries, each with a session to try at your desk.",
+   "category": "Teaching Series",
+   "host": "Marcus Bell",
+   "tags": [
+    "show",
+    "teaching series",
+    "coming soon"
+   ],
+   "year": 2026,
+   "comingSoon": true,
+   "featured": false,
+   "isNew": false,
+   "topRank": null,
+   "seasons": [
+    {
+     "number": 1,
+     "episodes": [
+      {
+       "id": "calm-at-work-s1e1",
+       "number": 1,
+       "name": "The Morning Plan",
+       "description": "The Morning Plan. Stress skills for the workday.",
+       "durationMin": 18
+      },
+      {
+       "id": "calm-at-work-s1e2",
+       "number": 2,
+       "name": "Single-Tasking",
+       "description": "Single-Tasking. Stress skills for the workday.",
+       "durationMin": 36
+      },
+      {
+       "id": "calm-at-work-s1e3",
+       "number": 3,
+       "name": "Meeting Recovery",
+       "description": "Meeting Recovery. Stress skills for the workday.",
+       "durationMin": 18
+      },
+      {
+       "id": "calm-at-work-s1e4",
+       "number": 4,
+       "name": "The Afternoon Dip",
+       "description": "The Afternoon Dip. Stress skills for the workday.",
+       "durationMin": 24
+      },
+      {
+       "id": "calm-at-work-s1e5",
+       "number": 5,
+       "name": "Leaving Work at Work",
+       "description": "Leaving Work at Work. Stress skills for the workday.",
+       "durationMin": 36
+      }
+     ]
+    }
+   ],
+   "art": {
+    "hue": 191,
+    "pattern": "rings"
+   }
+  },
+  "noise-colors": {
+   "id": "noise-colors",
+   "kind": "show",
+   "name": "Noise Colors",
+   "tagline": "White, pink, brown and beyond.",
+   "description": "A short series on colored noise: how each is made, how it sounds, and why people reach for it.",
+   "category": "Science of Sound",
+   "host": "Priya Raman",
+   "tags": [
+    "show",
+    "science of sound",
+    "coming soon"
+   ],
+   "year": 2026,
+   "comingSoon": true,
+   "featured": false,
+   "isNew": false,
+   "topRank": null,
+   "seasons": [
+    {
+     "number": 1,
+     "episodes": [
+      {
+       "id": "noise-colors-s1e1",
+       "number": 1,
+       "name": "White Noise",
+       "description": "White Noise. White, pink, brown and beyond.",
+       "durationMin": 12
+      },
+      {
+       "id": "noise-colors-s1e2",
+       "number": 2,
+       "name": "Pink Noise",
+       "description": "Pink Noise. White, pink, brown and beyond.",
+       "durationMin": 12
+      },
+      {
+       "id": "noise-colors-s1e3",
+       "number": 3,
+       "name": "Brown Noise",
+       "description": "Brown Noise. White, pink, brown and beyond.",
+       "durationMin": 36
+      },
+      {
+       "id": "noise-colors-s1e4",
+       "number": 4,
+       "name": "Green, Blue and Violet",
+       "description": "Green, Blue and Violet. White, pink, brown and beyond.",
+       "durationMin": 24
+      },
+      {
+       "id": "noise-colors-s1e5",
+       "number": 5,
+       "name": "Masking and Sleep",
+       "description": "Masking and Sleep. White, pink, brown and beyond.",
+       "durationMin": 12
+      }
+     ]
+    }
+   ],
+   "art": {
+    "hue": 204,
+    "pattern": "rosette"
+   }
+  },
+  "inner-landscapes": {
+   "id": "inner-landscapes",
+   "kind": "show",
+   "name": "Inner Landscapes",
+   "tagline": "Ambient journeys for deep rest.",
+   "description": "Long-form ambient soundscapes built on Deep Sync stages, with sparse narration.",
+   "category": "Healing Journeys",
+   "host": "Sana Mirza",
+   "tags": [
+    "show",
+    "healing journeys",
+    "coming soon"
+   ],
+   "year": 2026,
+   "comingSoon": true,
+   "featured": true,
+   "isNew": false,
+   "topRank": null,
+   "seasons": [
+    {
+     "number": 1,
+     "episodes": [
+      {
+       "id": "inner-landscapes-s1e1",
+       "number": 1,
+       "name": "Desert Night",
+       "description": "Desert Night. Ambient journeys for deep rest.",
+       "durationMin": 12
+      },
+      {
+       "id": "inner-landscapes-s1e2",
+       "number": 2,
+       "name": "Cloud Forest",
+       "description": "Cloud Forest. Ambient journeys for deep rest.",
+       "durationMin": 36
+      },
+      {
+       "id": "inner-landscapes-s1e3",
+       "number": 3,
+       "name": "Underground River",
+       "description": "Underground River. Ambient journeys for deep rest.",
+       "durationMin": 12
+      },
+      {
+       "id": "inner-landscapes-s1e4",
+       "number": 4,
+       "name": "Tundra Light",
+       "description": "Tundra Light. Ambient journeys for deep rest.",
+       "durationMin": 36
+      },
+      {
+       "id": "inner-landscapes-s1e5",
+       "number": 5,
+       "name": "Ocean Floor",
+       "description": "Ocean Floor. Ambient journeys for deep rest.",
+       "durationMin": 36
+      },
+      {
+       "id": "inner-landscapes-s1e6",
+       "number": 6,
+       "name": "High Meadow",
+       "description": "High Meadow. Ambient journeys for deep rest.",
+       "durationMin": 30
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "episodes": [
+      {
+       "id": "inner-landscapes-s2e1",
+       "number": 1,
+       "name": "Canyon Echo",
+       "description": "Canyon Echo. Ambient journeys for deep rest.",
+       "durationMin": 30
+      },
+      {
+       "id": "inner-landscapes-s2e2",
+       "number": 2,
+       "name": "Rainforest Dawn",
+       "description": "Rainforest Dawn. Ambient journeys for deep rest.",
+       "durationMin": 12
+      },
+      {
+       "id": "inner-landscapes-s2e3",
+       "number": 3,
+       "name": "Glacier",
+       "description": "Glacier. Ambient journeys for deep rest.",
+       "durationMin": 36
+      },
+      {
+       "id": "inner-landscapes-s2e4",
+       "number": 4,
+       "name": "Salt Flats",
+       "description": "Salt Flats. Ambient journeys for deep rest.",
+       "durationMin": 24
+      }
+     ]
+    }
+   ],
+   "art": {
+    "hue": 316,
+    "pattern": "wave"
+   }
+  },
+  "meditation-101": {
+   "id": "meditation-101",
+   "kind": "show",
+   "name": "Meditation 101",
+   "tagline": "A beginner's course, five minutes a day.",
+   "description": "A daily beginner's course in meditation basics, with optional theta beds underneath.",
+   "category": "Teaching Series",
+   "host": "Imani Brooks",
+   "tags": [
+    "show",
+    "teaching series",
+    "coming soon"
+   ],
+   "year": 2025,
+   "comingSoon": true,
+   "featured": false,
+   "isNew": false,
+   "topRank": null,
+   "seasons": [
+    {
+     "number": 1,
+     "episodes": [
+      {
+       "id": "meditation-101-s1e1",
+       "number": 1,
+       "name": "Finding Your Seat",
+       "description": "Finding Your Seat. A beginner's course, five minutes a day.",
+       "durationMin": 30
+      },
+      {
+       "id": "meditation-101-s1e2",
+       "number": 2,
+       "name": "Following the Breath",
+       "description": "Following the Breath. A beginner's course, five minutes a day.",
+       "durationMin": 36
+      },
+      {
+       "id": "meditation-101-s1e3",
+       "number": 3,
+       "name": "When the Mind Wanders",
+       "description": "When the Mind Wanders. A beginner's course, five minutes a day.",
+       "durationMin": 12
+      },
+      {
+       "id": "meditation-101-s1e4",
+       "number": 4,
+       "name": "Body Awareness",
+       "description": "Body Awareness. A beginner's course, five minutes a day.",
+       "durationMin": 12
+      },
+      {
+       "id": "meditation-101-s1e5",
+       "number": 5,
+       "name": "Noting",
+       "description": "Noting. A beginner's course, five minutes a day.",
+       "durationMin": 18
+      },
+      {
+       "id": "meditation-101-s1e6",
+       "number": 6,
+       "name": "Loving-Kindness",
+       "description": "Loving-Kindness. A beginner's course, five minutes a day.",
+       "durationMin": 18
+      },
+      {
+       "id": "meditation-101-s1e7",
+       "number": 7,
+       "name": "Making It a Habit",
+       "description": "Making It a Habit. A beginner's course, five minutes a day.",
+       "durationMin": 18
+      }
+     ]
+    }
+   ],
+   "art": {
+    "hue": 208,
+    "pattern": "rings"
+   }
+  },
+  "lullaby-lab": {
+   "id": "lullaby-lab",
+   "kind": "show",
+   "name": "Lullaby Lab",
+   "tagline": "Soft songs and soft noise for little ones.",
+   "description": "Calming songs over gentle pink noise for family bedtimes. No binaural beats.",
+   "category": "Kids & Family",
+   "host": "Juniper & Moss",
+   "tags": [
+    "show",
+    "kids & family",
+    "coming soon"
+   ],
+   "year": 2026,
+   "comingSoon": true,
+   "featured": false,
+   "isNew": false,
+   "topRank": null,
+   "seasons": [
+    {
+     "number": 1,
+     "episodes": [
+      {
+       "id": "lullaby-lab-s1e1",
+       "number": 1,
+       "name": "Twinkle Tones",
+       "description": "Twinkle Tones. Soft songs and soft noise for little ones.",
+       "durationMin": 12
+      },
+      {
+       "id": "lullaby-lab-s1e2",
+       "number": 2,
+       "name": "Hush Little Hum",
+       "description": "Hush Little Hum. Soft songs and soft noise for little ones.",
+       "durationMin": 18
+      },
+      {
+       "id": "lullaby-lab-s1e3",
+       "number": 3,
+       "name": "Ocean Lullaby",
+       "description": "Ocean Lullaby. Soft songs and soft noise for little ones.",
+       "durationMin": 12
+      },
+      {
+       "id": "lullaby-lab-s1e4",
+       "number": 4,
+       "name": "Starlight Song",
+       "description": "Starlight Song. Soft songs and soft noise for little ones.",
+       "durationMin": 18
+      },
+      {
+       "id": "lullaby-lab-s1e5",
+       "number": 5,
+       "name": "The Sleepy Train",
+       "description": "The Sleepy Train. Soft songs and soft noise for little ones.",
+       "durationMin": 12
+      }
+     ]
+    }
+   ],
+   "art": {
+    "hue": 32,
+    "pattern": "chladni"
+   }
+  }
+ },
+ "sections": {
+  "home": {
+   "id": "home",
+   "name": "Home",
+   "heroIds": [
+    "deep-rest",
+    "dream-gate",
+    "theta-temple",
+    "heart-tone-528",
+    "alpha-shore",
+    "deep-work",
+    "morning-rise"
+   ],
+   "rails": [
+    {
+     "id": "continue",
+     "title": "Continue Listening",
+     "type": "continue",
+     "shape": "landscape",
+     "titleIds": []
+    },
+    {
+     "id": "featured",
+     "title": "Featured",
+     "type": "standard",
+     "shape": "landscape",
+     "titleIds": [
+      "deep-rest",
+      "dream-gate",
+      "theta-temple",
+      "heart-tone-528",
+      "alpha-shore",
+      "deep-work",
+      "morning-rise",
+      "deep-sync-1",
+      "deep-sync-5"
+     ]
+    },
+    {
+     "id": "top10",
+     "title": "Top 10 Today",
+     "type": "top10",
+     "shape": "poster",
+     "titleIds": [
+      "deep-rest",
+      "alpha-shore",
+      "theta-temple",
+      "midnight-tide",
+      "deep-work",
+      "earth-resonance",
+      "velvet-dark",
+      "golden-hour",
+      "power-nap",
+      "seaside-drift"
+     ]
+    },
+    {
+     "id": "new",
+     "title": "New Sessions",
+     "type": "standard",
+     "shape": "landscape",
+     "titleIds": [
+      "lullaby-174",
+      "moon-breath",
+      "crystal-cave",
+      "morning-sit",
+      "tea-break",
+      "harmony-639",
+      "sprint-25",
+      "attention-40",
+      "deep-sync-1",
+      "deep-sync-6"
+     ]
+    },
+    {
+     "id": "deep-sync",
+     "title": "Deep Sync Programs",
+     "type": "standard",
+     "shape": "landscape",
+     "titleIds": [
+      "deep-sync-1",
+      "deep-sync-2",
+      "deep-sync-3",
+      "deep-sync-4",
+      "deep-sync-5",
+      "deep-sync-6",
+      "deep-sync-7",
+      "deep-sync-8"
+     ]
+    },
+    {
+     "id": "goal-sleep",
+     "title": "Sleep Better",
+     "type": "standard",
+     "shape": "poster",
+     "titleIds": [
+      "deep-rest",
+      "midnight-tide",
+      "slow-wave-drift",
+      "lullaby-174",
+      "cloud-harbor",
+      "night-garden",
+      "dream-gate",
+      "full-sleep-cycle",
+      "velvet-dark",
+      "moon-breath",
+      "late-night-unwind",
+      "power-nap",
+      "deep-sync-5"
+     ]
+    },
+    {
+     "id": "goal-meditate",
+     "title": "Meditate",
+     "type": "standard",
+     "shape": "landscape",
+     "titleIds": [
+      "theta-temple",
+      "inner-stillness",
+      "lotus-drift",
+      "breath-of-earth",
+      "crystal-cave",
+      "earth-resonance",
+      "heart-tone-528",
+      "zen-river",
+      "mantra-field",
+      "morning-sit",
+      "body-scan",
+      "inner-vision",
+      "compassion-gamma",
+      "yoga-nidra-delta",
+      "deep-sync-1",
+      "deep-sync-2",
+      "deep-sync-3",
+      "deep-sync-7"
+     ]
+    },
+    {
+     "id": "goal-focus",
+     "title": "Focus",
+     "type": "standard",
+     "shape": "landscape",
+     "titleIds": [
+      "deep-work",
+      "study-flow",
+      "laser-beta",
+      "sprint-25",
+      "code-zone",
+      "reading-room",
+      "creative-flow",
+      "exam-prep",
+      "clarity-741",
+      "steady-mind",
+      "writers-room",
+      "gamma-insight",
+      "attention-40",
+      "deep-sync-8"
+     ]
+    },
+    {
+     "id": "goal-relax",
+     "title": "Relax",
+     "type": "standard",
+     "shape": "poster",
+     "titleIds": [
+      "alpha-shore",
+      "golden-hour",
+      "tea-break",
+      "forest-light",
+      "calm-current",
+      "sunday-float",
+      "soft-focus",
+      "release-396",
+      "harmony-639",
+      "evening-wind-down",
+      "seaside-drift",
+      "hammock-theta",
+      "deep-sync-4"
+     ]
+    },
+    {
+     "id": "goal-energize",
+     "title": "Energize",
+     "type": "standard",
+     "shape": "landscape",
+     "titleIds": [
+      "morning-rise",
+      "gamma-40",
+      "bright-spark",
+      "kinetic",
+      "sun-salute",
+      "peak-gamma",
+      "afternoon-lift",
+      "workout-pulse",
+      "high-gamma",
+      "wake-gently",
+      "deep-sync-6"
+     ]
+    },
+    {
+     "id": "coming-soon",
+     "title": "Coming Soon: Shows",
+     "type": "standard",
+     "shape": "poster",
+     "titleIds": [
+      "sound-foundations",
+      "the-brainwave-atlas",
+      "gateway-stories",
+      "sleep-well-school",
+      "breath-and-tone",
+      "solfeggio-sessions",
+      "deep-sync-academy",
+      "quiet-mind-journeys",
+      "sleep-stories-north",
+      "sleep-stories-sea",
+      "focus-lab",
+      "healing-voices",
+      "tiny-calm",
+      "yoga-frequencies",
+      "mindful-commute",
+      "history-of-sound-healing",
+      "the-gamma-files",
+      "calm-at-work",
+      "noise-colors",
+      "inner-landscapes",
+      "meditation-101",
+      "lullaby-lab"
+     ]
+    }
+   ]
+  },
+  "frequencies": {
+   "id": "frequencies",
+   "name": "Frequencies",
+   "heroIds": [
+    "deep-sync-1",
+    "theta-temple",
+    "alpha-shore",
+    "deep-work",
+    "deep-rest",
+    "attention-40"
+   ],
+   "rails": [
+    {
+     "id": "build",
+     "title": "Build Your Own",
+     "type": "build",
+     "shape": "landscape",
+     "titleIds": []
+    },
+    {
+     "id": "deep-sync",
+     "title": "Deep Sync",
+     "type": "standard",
+     "shape": "landscape",
+     "titleIds": [
+      "deep-sync-1",
+      "deep-sync-2",
+      "deep-sync-3",
+      "deep-sync-4",
+      "deep-sync-5",
+      "deep-sync-6",
+      "deep-sync-7",
+      "deep-sync-8"
+     ]
+    },
+    {
+     "id": "band-delta",
+     "title": "Delta · 0.5–4 Hz · Sleep",
+     "type": "standard",
+     "shape": "landscape",
+     "titleIds": [
+      "full-sleep-cycle",
+      "slow-wave-drift",
+      "midnight-tide",
+      "lullaby-174",
+      "velvet-dark",
+      "deep-rest",
+      "cloud-harbor",
+      "moon-breath",
+      "yoga-nidra-delta",
+      "night-garden",
+      "power-nap",
+      "deep-sync-3",
+      "deep-sync-5"
+     ]
+    },
+    {
+     "id": "band-theta",
+     "title": "Theta · 4–8 Hz · Meditation",
+     "type": "standard",
+     "shape": "poster",
+     "titleIds": [
+      "dream-gate",
+      "breath-of-earth",
+      "mantra-field",
+      "inner-stillness",
+      "body-scan",
+      "late-night-unwind",
+      "zen-river",
+      "theta-temple",
+      "heart-tone-528",
+      "hammock-theta",
+      "crystal-cave",
+      "inner-vision",
+      "lotus-drift",
+      "morning-sit",
+      "earth-resonance",
+      "deep-sync-1",
+      "deep-sync-2",
+      "deep-sync-7"
+     ]
+    },
+    {
+     "id": "band-alpha",
+     "title": "Alpha · 8–13 Hz · Relaxation",
+     "type": "standard",
+     "shape": "landscape",
+     "titleIds": [
+      "release-396",
+      "evening-wind-down",
+      "forest-light",
+      "golden-hour",
+      "sunday-float",
+      "alpha-shore",
+      "harmony-639",
+      "seaside-drift",
+      "tea-break",
+      "calm-current",
+      "creative-flow",
+      "deep-sync-4",
+      "soft-focus",
+      "wake-gently"
+     ]
+    },
+    {
+     "id": "band-beta",
+     "title": "Beta · 13–30 Hz · Focus",
+     "type": "standard",
+     "shape": "landscape",
+     "titleIds": [
+      "deep-sync-6",
+      "deep-sync-8",
+      "steady-mind",
+      "reading-room",
+      "study-flow",
+      "clarity-741",
+      "deep-work",
+      "writers-room",
+      "sprint-25",
+      "exam-prep",
+      "laser-beta",
+      "sun-salute",
+      "code-zone",
+      "morning-rise",
+      "afternoon-lift",
+      "bright-spark",
+      "kinetic"
+     ]
+    },
+    {
+     "id": "band-gamma",
+     "title": "Gamma · 30+ Hz",
+     "type": "standard",
+     "shape": "poster",
+     "titleIds": [
+      "workout-pulse",
+      "gamma-insight",
+      "peak-gamma",
+      "compassion-gamma",
+      "attention-40",
+      "gamma-40",
+      "high-gamma"
+     ]
+    },
+    {
+     "id": "goal-sleep",
+     "title": "Sleep",
+     "type": "standard",
+     "shape": "landscape",
+     "titleIds": [
+      "deep-rest",
+      "midnight-tide",
+      "slow-wave-drift",
+      "lullaby-174",
+      "cloud-harbor",
+      "night-garden",
+      "dream-gate",
+      "full-sleep-cycle",
+      "velvet-dark",
+      "moon-breath",
+      "late-night-unwind",
+      "power-nap",
+      "deep-sync-5"
+     ]
+    },
+    {
+     "id": "goal-meditate",
+     "title": "Meditate",
+     "type": "standard",
+     "shape": "poster",
+     "titleIds": [
+      "theta-temple",
+      "inner-stillness",
+      "lotus-drift",
+      "breath-of-earth",
+      "crystal-cave",
+      "earth-resonance",
+      "heart-tone-528",
+      "zen-river",
+      "mantra-field",
+      "morning-sit",
+      "body-scan",
+      "inner-vision",
+      "compassion-gamma",
+      "yoga-nidra-delta",
+      "deep-sync-1",
+      "deep-sync-2",
+      "deep-sync-3",
+      "deep-sync-7"
+     ]
+    },
+    {
+     "id": "goal-focus",
+     "title": "Focus",
+     "type": "standard",
+     "shape": "landscape",
+     "titleIds": [
+      "deep-work",
+      "study-flow",
+      "laser-beta",
+      "sprint-25",
+      "code-zone",
+      "reading-room",
+      "creative-flow",
+      "exam-prep",
+      "clarity-741",
+      "steady-mind",
+      "writers-room",
+      "gamma-insight",
+      "attention-40",
+      "deep-sync-8"
+     ]
+    },
+    {
+     "id": "goal-relax",
+     "title": "Relax",
+     "type": "standard",
+     "shape": "landscape",
+     "titleIds": [
+      "alpha-shore",
+      "golden-hour",
+      "tea-break",
+      "forest-light",
+      "calm-current",
+      "sunday-float",
+      "soft-focus",
+      "release-396",
+      "harmony-639",
+      "evening-wind-down",
+      "seaside-drift",
+      "hammock-theta",
+      "deep-sync-4"
+     ]
+    },
+    {
+     "id": "goal-energize",
+     "title": "Energize",
+     "type": "standard",
+     "shape": "poster",
+     "titleIds": [
+      "morning-rise",
+      "gamma-40",
+      "bright-spark",
+      "kinetic",
+      "sun-salute",
+      "peak-gamma",
+      "afternoon-lift",
+      "workout-pulse",
+      "high-gamma",
+      "wake-gently",
+      "deep-sync-6"
+     ]
+    },
+    {
+     "id": "solfeggio",
+     "title": "With Solfeggio Tones",
+     "type": "standard",
+     "shape": "landscape",
+     "titleIds": [
+      "lullaby-174",
+      "inner-stillness",
+      "crystal-cave",
+      "heart-tone-528",
+      "inner-vision",
+      "forest-light",
+      "release-396",
+      "harmony-639",
+      "clarity-741",
+      "sun-salute"
+     ]
+    },
+    {
+     "id": "quick",
+     "title": "Quick Sessions · 20 min or less",
+     "type": "standard",
+     "shape": "landscape",
+     "titleIds": [
+      "morning-sit",
+      "tea-break",
+      "bright-spark",
+      "wake-gently",
+      "crystal-cave",
+      "morning-rise",
+      "sun-salute",
+      "peak-gamma",
+      "high-gamma",
+      "moon-breath",
+      "power-nap",
+      "inner-stillness",
+      "mantra-field",
+      "compassion-gamma",
+      "golden-hour",
+      "release-396",
+      "harmony-639",
+      "gamma-insight",
+      "gamma-40",
+      "kinetic",
+      "afternoon-lift"
+     ]
+    }
+   ]
+  },
+  "shows": {
+   "id": "shows",
+   "name": "Shows",
+   "heroIds": [
+    "sound-foundations",
+    "the-brainwave-atlas",
+    "gateway-stories",
+    "sleep-well-school",
+    "breath-and-tone",
+    "solfeggio-sessions",
+    "deep-sync-academy"
+   ],
+   "rails": [
+    {
+     "id": "shows-featured",
+     "title": "Coming Soon",
+     "type": "standard",
+     "shape": "poster",
+     "titleIds": [
+      "sound-foundations",
+      "the-brainwave-atlas",
+      "gateway-stories",
+      "sleep-well-school",
+      "breath-and-tone",
+      "solfeggio-sessions",
+      "deep-sync-academy",
+      "sleep-stories-north",
+      "focus-lab",
+      "inner-landscapes"
+     ]
+    },
+    {
+     "id": "cat-teaching",
+     "title": "Teaching & Practice",
+     "type": "standard",
+     "shape": "landscape",
+     "titleIds": [
+      "sound-foundations",
+      "sleep-well-school",
+      "breath-and-tone",
+      "deep-sync-academy",
+      "yoga-frequencies",
+      "mindful-commute",
+      "calm-at-work",
+      "meditation-101"
+     ]
+    },
+    {
+     "id": "cat-science",
+     "title": "Science of Sound",
+     "type": "standard",
+     "shape": "landscape",
+     "titleIds": [
+      "the-brainwave-atlas",
+      "gateway-stories",
+      "focus-lab",
+      "history-of-sound-healing",
+      "the-gamma-files",
+      "noise-colors"
+     ]
+    },
+    {
+     "id": "cat-journeys",
+     "title": "Journeys & Sleep Stories",
+     "type": "standard",
+     "shape": "poster",
+     "titleIds": [
+      "solfeggio-sessions",
+      "quiet-mind-journeys",
+      "sleep-stories-north",
+      "sleep-stories-sea",
+      "healing-voices",
+      "inner-landscapes"
+     ]
+    },
+    {
+     "id": "shows-new",
+     "title": "New in 2026",
+     "type": "standard",
+     "shape": "landscape",
+     "titleIds": [
+      "sound-foundations",
+      "the-brainwave-atlas",
+      "gateway-stories",
+      "sleep-well-school",
+      "breath-and-tone",
+      "deep-sync-academy",
+      "sleep-stories-north",
+      "sleep-stories-sea",
+      "focus-lab",
+      "tiny-calm",
+      "yoga-frequencies",
+      "mindful-commute",
+      "the-gamma-files",
+      "calm-at-work",
+      "noise-colors",
+      "inner-landscapes",
+      "lullaby-lab"
+     ]
+    },
+    {
+     "id": "cat-family",
+     "title": "Family & Bedtime",
+     "type": "standard",
+     "shape": "landscape",
+     "titleIds": [
+      "breath-and-tone",
+      "sleep-stories-north",
+      "sleep-stories-sea",
+      "tiny-calm",
+      "yoga-frequencies",
+      "mindful-commute",
+      "lullaby-lab"
+     ]
+    },
+    {
+     "id": "shows-az",
+     "title": "All Series A–Z",
+     "type": "standard",
+     "shape": "poster",
+     "titleIds": [
+      "history-of-sound-healing",
+      "breath-and-tone",
+      "calm-at-work",
+      "deep-sync-academy",
+      "focus-lab",
+      "gateway-stories",
+      "healing-voices",
+      "inner-landscapes",
+      "lullaby-lab",
+      "meditation-101",
+      "mindful-commute",
+      "noise-colors",
+      "quiet-mind-journeys",
+      "sleep-stories-north",
+      "sleep-stories-sea",
+      "sleep-well-school",
+      "solfeggio-sessions",
+      "sound-foundations",
+      "the-brainwave-atlas",
+      "the-gamma-files",
+      "tiny-calm",
+      "yoga-frequencies"
+     ]
+    }
+   ]
+  }
+ },
+ "articles": [
+  {
+   "slug": "how-binaural-beats-work",
+   "title": "How Binaural Beats Work",
+   "dek": "Two slightly different tones, one in each ear, and a third rhythm your brain creates on its own.",
+   "readMin": 4,
+   "hue": 262,
+   "body": [
+    "Play a 200 Hz tone in your left ear and a 210 Hz tone in your right, and you will hear something that is not in either signal: a soft pulsing at 10 times per second. That pulse is a binaural beat. It is created inside your auditory system, where signals from both ears meet in the brainstem.",
+    "## Why headphones matter",
+    "The effect depends on each ear hearing only its own tone. Through speakers, both tones reach both ears and mix in the air, which produces an ordinary acoustic beat instead. That is why every Deep Sync program and frequency session here asks for headphones.",
+    "## Carrier and beat",
+    "Every session has two numbers. The carrier is the tone in your left ear, usually between 100 and 400 Hz, where binaural beats are easiest to hear. The beat is the difference between the ears. In this app the right ear always plays carrier plus beat, so a 200 Hz carrier with a 6 Hz beat sends 200 Hz left and 206 Hz right.",
+    "## What happens next",
+    "The idea behind brainwave entrainment is that a steady rhythm might nudge brain activity toward the same frequency. That is the claim researchers are still testing. Some studies report small effects on mood, relaxation or attention; others find little or nothing. See What the Research Says for an honest summary.",
+    "## Other layers",
+    "Many sessions add pink or brown noise to soften the tones and mask background sound. Some add isochronic tones (a single tone switched on and off at the beat rate, which works without headphones) or a solfeggio tone. You can mix all of these in the player."
+   ]
+  },
+  {
+   "slug": "the-brainwave-bands",
+   "title": "The Brainwave Bands",
+   "dek": "Delta, theta, alpha, beta and gamma: what the names mean and how the catalog uses them.",
+   "readMin": 5,
+   "hue": 196,
+   "body": [
+    "When electrodes on the scalp record brain activity (an EEG), the signal contains rhythms at many speeds at once. Researchers group those rhythms into bands. The boundaries vary a little between textbooks; these are the ones we use to organize sessions.",
+    "## Delta, 0.5 to 4 Hz",
+    "The slowest rhythms, most prominent in deep, dreamless sleep. Our delta sessions are built for winding down and sleep.",
+    "## Theta, 4 to 8 Hz",
+    "Common in drowsiness, light sleep and some meditative states. Theta sessions in the catalog are aimed at meditation and the drifting moments before sleep.",
+    "## Alpha, 8 to 13 Hz",
+    "Often strongest when you are awake and relaxed with your eyes closed. Alpha sessions are designed for calm, easy relaxation.",
+    "## Beta, 13 to 30 Hz",
+    "Associated with active thinking, problem solving and alert attention. Beta sessions are aimed at focus and work.",
+    "## Gamma, 30 Hz and above",
+    "The fastest band, linked in research to attention and to how the brain binds information together. 40 Hz in particular is an active research topic. Gamma sessions here are short and should be played quietly.",
+    "## A caution about labels",
+    "A brain never runs in one band at a time, and listening to a 10 Hz beat does not switch your brain into alpha. The bands are a useful map for choosing a session, not a promise of a particular state."
+   ]
+  },
+  {
+   "slug": "history-of-the-gateway-experience",
+   "title": "A Short History of the Gateway Experience",
+   "dek": "How a radio executive's sound experiments ended up in a declassified Army report, and then all over the internet.",
+   "readMin": 6,
+   "hue": 32,
+   "body": [
+    "The story of binaural beats starts in 1839, when the Prussian physicist Heinrich Wilhelm Dove described hearing a beat that existed in neither ear alone. For more than a century it remained a laboratory curiosity.",
+    "## Robert Monroe",
+    "In the 1950s and 1960s Robert Monroe, a New York radio broadcasting executive, began experimenting with sound as a way to study sleep and altered states. His interest grew after experiences he later described as out-of-body, which he wrote about in his 1971 book Journeys Out of the Body. He went on to found a research and education center in Virginia, known today as The Monroe Institute.",
+    "Monroe developed and patented an audio technique that layered tones to produce binaural beats intended to help listeners reach particular states. The Gateway Experience, a home-study program of guided recordings, organized those states into numbered stages, moving the listener step by step from relaxation toward deeper states of awareness.",
+    "## The 1983 Army report",
+    "In 1983 Lieutenant Colonel Wayne McDonnell of the U.S. Army wrote a report titled Analysis and Assessment of Gateway Process. It tried to explain the Gateway program using the physics and psychology ideas of the day, some of them speculative. The CIA declassified the document in 2003 and later made it available in its online reading room.",
+    "## The internet rediscovers it",
+    "Around 2020 and 2021 the report went viral on forums and short-video apps, often described as proof that the government had unlocked secret powers. The report itself is better read as one officer's assessment of an unusual training program than as evidence of anything supernatural.",
+    "## Where Deep Sync fits",
+    "Our Deep Sync programs borrow the general idea of the format, long sessions that layer binaural beats over noise and step through bands over time. They are original compositions generated live in your browser. They are not affiliated with or endorsed by The Monroe Institute, and they use none of its recordings or trademarks."
+   ]
+  },
+  {
+   "slug": "what-the-research-says",
+   "title": "What the Research Says (and Doesn't)",
+   "dek": "An honest look at the evidence for binaural beats. Short version: it's mixed.",
+   "readMin": 5,
+   "hue": 150,
+   "body": [
+    "Binaural beats are popular, but the science is still unsettled. Here is a plain-language summary of where things stand.",
+    "## Some positive findings",
+    "A 2019 meta-analysis by Garcia-Argibay and colleagues pooled dozens of studies and found small-to-moderate average effects of binaural beats on memory, attention, anxiety and pain perception. The authors also noted large differences between studies, depending on factors such as beat frequency, exposure time and whether the beats were masked by noise.",
+    "## Mixed evidence for entrainment",
+    "A 2023 systematic review by Ingendoh and colleagues looked specifically at EEG studies asking whether binaural beats actually pull brain rhythms toward the beat frequency. Results were inconsistent: some studies found the expected changes, others found none, and some found the opposite.",
+    "## Why results vary",
+    "Many studies are small, use different frequencies and durations, and are hard to blind, because people usually know what they are listening to. Expectation and simple relaxation (lying still with headphones on, away from screens) can produce real benefits on their own.",
+    "## How we talk about it",
+    "That is why we say sessions may support relaxation, focus, or sleep, and why we never claim they treat or cure anything. If you enjoy a session and it helps you rest or concentrate, that is a fine reason to use it. If you have a health condition, talk to a clinician first; frequency sessions are not a substitute for care."
+   ]
+  },
+  {
+   "slug": "isochronic-solfeggio-and-noise",
+   "title": "Isochronic Tones, Solfeggio and Noise Colors",
+   "dek": "The optional layers in the player, explained.",
+   "readMin": 4,
+   "hue": 300,
+   "body": [
+    "Binaural beats are the core of every session, but the player can mix in three more layers.",
+    "## Isochronic tones",
+    "An isochronic tone is a single tone that switches on and off at a steady rate. Unlike a binaural beat, the rhythm is in the sound itself, so it works through speakers. It is also more noticeable, so keep it low.",
+    "## Solfeggio tones",
+    "The solfeggio frequencies (174, 285, 396, 417, 528, 639, 741, 852 and 963 Hz) became popular in the 1970s and later through New Age books. Claims about their specific healing properties are not supported by scientific evidence. Many listeners simply enjoy them as pleasant, steady tones, which is how we offer them.",
+    "## Pink and brown noise",
+    "White noise has equal energy at every frequency and sounds hissy. Pink noise rolls off the highs and sounds more like steady rain. Brown noise rolls off even more and sounds like a deep rumble or distant surf. Both are useful for masking background sounds, and some small studies suggest pink noise may support deeper sleep, though evidence is limited."
+   ]
+  },
+  {
+   "slug": "listening-safely",
+   "title": "Listening Safely",
+   "dek": "Five simple rules for using frequency sessions.",
+   "readMin": 2,
+   "hue": 12,
+   "body": [
+    "## Use headphones",
+    "Binaural beats only work when each ear hears its own tone. Use the left/right channel test in the player to check your headphones are on the right way round.",
+    "## Keep the volume low",
+    "The tones should sit just above the threshold of hearing, like a quiet room tone. Louder is not better, and long sessions at high volume can harm your hearing.",
+    "## Never while driving",
+    "Some sessions are designed to make you drowsy. Do not listen while driving, cycling, or operating machinery.",
+    "## Epilepsy and seizure disorders",
+    "If you have epilepsy or a seizure disorder, check with a doctor before listening to rhythmic audio. The visualizer is deliberately gentle, and you can switch it off.",
+    "## Stop if it doesn't feel right",
+    "If you feel discomfort, headache, anxiety or dizziness, stop the session. These sessions may support relaxation, focus, or sleep, but they are not medical treatment."
+   ]
+  }
+ ]
+}
