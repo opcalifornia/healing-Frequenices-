@@ -9,7 +9,7 @@
     "preview": "vite preview",
     "typecheck": "tsc -b",
     "test": "vitest run",
-    "test:audio": "node e2e/audio-channels.mjs && node e2e/ambience.mjs",
+    "test:audio": "node e2e/audio-channels.mjs && node e2e/ambience.mjs && node e2e/music.mjs",
     "build:artifact": "tsc -b && vite build --mode artifact && node scripts/build-artifact.mjs"
   },
   "dependencies": {

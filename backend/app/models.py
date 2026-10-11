@@ -59,6 +59,7 @@ class CustomSessionIn(BaseModel):
     solfeggio: int | None = None
     isochronic: bool = False
     ambience: str | None = None
+    music: str | None = None
     createdAt: str | None = None
 
     @field_validator("id")
@@ -80,6 +81,13 @@ class CustomSessionIn(BaseModel):
     def check_ambience(cls, v: str | None) -> str | None:
         if v not in (None, *AMBIENCES):
             raise ValueError("unknown nature soundscape")
+        return v
+
+    @field_validator("music")
+    @classmethod
+    def check_music(cls, v: str | None) -> str | None:
+        if v not in (None, "sleep", "meditate", "relax", "focus", "energize"):
+            raise ValueError("unknown music style")
         return v
 
     @field_validator("solfeggio")

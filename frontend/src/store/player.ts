@@ -6,6 +6,7 @@ import { useUser } from "./user";
 import { useBedtime } from "./bedtime";
 import type { LayerMix, NoiseColor, Title } from "../types";
 import type { AmbienceId } from "../audio/ambience";
+import { styleForGoal, type MusicStyle } from "../audio/music";
 
 /**
  * The one player store, mounted at the app root. Audio keeps playing while the
@@ -28,6 +29,7 @@ interface PlayerState {
   solfeggio: number | null;
   isochronic: boolean;
   ambience: AmbienceId | null;
+  music: MusicStyle | null;
   carrier: number;
   beat: number;
   stageIndex: number;
@@ -54,6 +56,7 @@ interface PlayerState {
   setSolfeggio(hz: number | null): void;
   setIsochronic(on: boolean): void;
   setAmbience(id: AmbienceId | null): void;
+  setMusic(style: MusicStyle | null): void;
   setTimer(t: TimerChoice): void;
   retune(carrier: number, beat: number): void;
   setExpanded(open: boolean): void;
@@ -106,6 +109,8 @@ export const usePlayer = create<PlayerState>()(
           isochronic: s.isochronic,
           pairs: t.pairs,
           ambience: s.ambience,
+          music: s.music,
+          seed: t.id,
           mix: s.mix,
           volume: s.volume,
         };
@@ -177,6 +182,7 @@ export const usePlayer = create<PlayerState>()(
           solfeggio: title.solfeggio ?? null,
           isochronic: !!title.isochronic,
           ambience: title.ambience ?? null,
+          music: title.music !== undefined ? title.music : title.mix?.binaural === 0 ? null : styleForGoal(title.goal),
           mix: { ...DEFAULT_MIX, ...title.mix },
         };
         set(layers);
@@ -211,6 +217,7 @@ export const usePlayer = create<PlayerState>()(
         solfeggio: null,
         isochronic: false,
         ambience: null,
+        music: null,
         carrier: 200,
         beat: 10,
         stageIndex: 0,
@@ -312,6 +319,11 @@ export const usePlayer = create<PlayerState>()(
         setSolfeggio(hz) {
           set({ solfeggio: hz });
           engine.setLayers({ solfeggio: hz });
+        },
+
+        setMusic(style) {
+          set({ music: style });
+          engine.setLayers({ music: style });
         },
 
         setAmbience(id) {

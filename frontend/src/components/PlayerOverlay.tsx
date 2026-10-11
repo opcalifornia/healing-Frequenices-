@@ -9,6 +9,7 @@ import { Visualizer } from "./Visualizer";
 import { Icon } from "./Icon";
 import type { NoiseColor } from "../types";
 import { AMBIENCES, type AmbienceId } from "../audio/ambience";
+import { MUSIC_STYLES, type MusicStyle } from "../audio/music";
 import "./Player.css";
 
 const SOLFEGGIO = [174, 285, 396, 417, 528, 639, 741, 852, 963];
@@ -35,8 +36,8 @@ function Slider({ label, value, onChange, disabled }: { label: string; value: nu
 }
 
 function Mixer() {
-  const { mix, noise, solfeggio, isochronic, ambience } = usePlayer();
-  const { setMix, setNoise, setSolfeggio, setIsochronic, setAmbience } = usePlayer.getState();
+  const { mix, noise, solfeggio, isochronic, ambience, music } = usePlayer();
+  const { setMix, setNoise, setSolfeggio, setIsochronic, setAmbience, setMusic } = usePlayer.getState();
   return (
     <div className="panel__grid">
       <Slider label="Binaural" value={mix.binaural} onChange={(v) => setMix({ binaural: v })} />
@@ -52,6 +53,16 @@ function Mixer() {
           </div>
         </div>
         <Slider label="Level" value={mix.noise} onChange={(v) => setMix({ noise: v })} disabled={!noise} />
+      </div>
+      <div className="layer">
+        <div className="layer__row">
+          <label className="slider__label" htmlFor="music">Music</label>
+          <select id="music" className="select" value={music ?? ""} onChange={(e) => setMusic((e.target.value || null) as MusicStyle | null)}>
+            <option value="">Off</option>
+            {MUSIC_STYLES.map((m) => <option key={m.id} value={m.id}>{m.name}</option>)}
+          </select>
+        </div>
+        <Slider label="Level" value={mix.music} onChange={(v) => setMix({ music: v })} disabled={!music} />
       </div>
       <div className="layer">
         <div className="layer__row">
