@@ -1,0 +1,32 @@
+.tonight {
+  position: relative; overflow: hidden; margin: 0 var(--gutter) 6px;
+  display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 20px;
+  padding: 20px 24px; border-radius: var(--radius-lg);
+  background: linear-gradient(110deg, #13112a 0%, #1a1440 55%, #0e1a2b 100%);
+  border: 1px solid rgba(139, 108, 255, 0.35);
+}
+.tonight__moon {
+  width: 54px; height: 54px; border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #fff7d6, #e8d8a8 55%, #b9a874);
+  box-shadow: 0 0 30px rgba(255, 240, 200, 0.35), inset -10px -6px 0 rgba(0, 0, 0, 0.18);
+}
+.tonight__eyebrow { font-size: var(--fs-tiny); font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: #c9b8ff; }
+.tonight h2 { font-size: clamp(1.05rem, 1.6vw, 1.35rem); font-weight: 800; line-height: 1.2; }
+.tonight p { color: var(--text-2); font-size: var(--fs-small); margin-top: 2px; }
+.tonight__actions { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+@media (max-width: 760px) {
+  .tonight { grid-template-columns: auto minmax(0, 1fr); }
+  .tonight__actions { grid-column: 1 / -1; justify-content: flex-start; }
+}
+
+.bedtime-toast {
+  position: fixed; top: calc(var(--nav-h) + 10px); left: 50%; translate: -50% 0; z-index: 120;
+  display: flex; align-items: center; gap: 12px; padding: 10px 12px 10px 16px; max-width: calc(100vw - 24px);
+  background: #1b1736; border: 1px solid rgba(139, 108, 255, 0.5); border-radius: 999px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+}
+.bedtime-toast > svg { color: #c9b8ff; flex: none; }
+.bedtime-toast span { font-size: var(--fs-small); }
+@media (max-width: 600px) {
+  .bedtime-toast { border-radius: 16px; flex-wrap: wrap; }
+}

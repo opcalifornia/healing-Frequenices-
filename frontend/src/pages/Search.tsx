@@ -21,6 +21,8 @@ const BROWSE = [
   { label: "Shows", to: "/shows", hue: 320 },
   { label: "Build Your Own", to: "/build", hue: 170 },
   { label: "Inside Your Brain", to: "/learn/brain", hue: 200 },
+  { label: "Bedtime routine", to: "/bedtime", hue: 250 },
+  { label: "Better Sleep guide", to: "/learn/sleep", hue: 45 },
 ];
 
 export default function Search() {
