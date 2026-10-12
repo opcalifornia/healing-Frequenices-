@@ -14,7 +14,7 @@ vi.hoisted(() => {
 import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
-import { AREAS, FEATURES, markVisited, snapshotFor, triedFeatures, useVisited, type RawStores } from "../rooted/features";
+import { AREAS, FEATURES, markVisited, snapshotFor, triedFeatures, untrackedMatches, useVisited, type RawStores } from "../rooted/features";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const app = readFileSync(join(here, "..", "App.tsx"), "utf8");
@@ -151,5 +151,16 @@ describe("triedFeatures", () => {
     expect(useVisited.getState().visited.guest).toEqual(["your-data"]);
     expect(localStorage.getItem("rooted-guide-visited")).toContain("your-data");
     expect(triedFeatures({ visited: useVisited.getState().visited.guest }).has("your-data")).toBe(true);
+  });
+});
+
+describe("route-based visits", () => {
+  it("counts only tools with no other usage signal, and only the section you opened", () => {
+    const ids = untrackedMatches("/nourish", "#recipes");
+    expect(ids.length).toBeGreaterThan(0);
+    for (const id of ids) expect(FEATURES.find((f) => f.id === id)!.triedBy).toBeUndefined();
+    // Opening a page never marks a tool that lives in a different section of it.
+    expect(untrackedMatches("/nourish", "#recipes")).not.toEqual(untrackedMatches("/nourish", "#water"));
+    expect(untrackedMatches("/nowhere", "")).toEqual([]);
   });
 });

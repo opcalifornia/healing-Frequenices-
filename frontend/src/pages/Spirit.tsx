@@ -24,6 +24,7 @@ import "./Programs.css";
 import "./Spirit.css";
 
 const TABS = [
+  { id: "programs", label: "Programs" },
   { id: "sound", label: "Sound bath" },
   { id: "sit", label: "Meditate" },
   { id: "gratitude", label: "Gratitude" },

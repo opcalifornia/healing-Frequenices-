@@ -452,3 +452,18 @@ export function useTried(): Set<string> {
     [practice, nourish, calendar, garden, bedtime, journal, support, earth, wellness, programs, user, pid, visited],
   );
 }
+
+/**
+ * Tools that leave no data behind (guides, store finder, share cards...) count as
+ * tried when the person opens the page, or the exact section, they live on.
+ * Tools that already have a usage signal are left to that signal.
+ */
+export function untrackedMatches(pathname: string, hash: string): string[] {
+  const h = hash.replace(/^#/, "");
+  return FEATURES.filter((f) => {
+    if (f.triedBy) return false;
+    const [path, anchor] = f.to.split("#");
+    if ((path || "/") !== pathname) return false;
+    return !anchor || anchor === h;
+  }).map((f) => f.id);
+}

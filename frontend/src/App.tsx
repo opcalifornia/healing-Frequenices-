@@ -51,6 +51,7 @@ const Calendar = lazy(() => import("./pages/Calendar"));
 const Places = lazy(() => import("./pages/Places"));
 const Earth = lazy(() => import("./pages/Earth"));
 import { track } from "./rooted/metrics";
+import { markVisited, untrackedMatches } from "./rooted/features";
 const Guide = lazy(() => import("./pages/Guide"));
 const FirstWin = lazy(() => import("./pages/FirstWin"));
 const Join = lazy(() => import("./pages/Join"));
@@ -84,6 +85,12 @@ export default function App() {
     loadCatalog();
     refresh();
   }, [loadCatalog, refresh]);
+
+  // Opening a tool that leaves no data behind counts it as tried in the Guide.
+  useEffect(() => {
+    if (!activeProfile) return;
+    for (const id of untrackedMatches(location.pathname, location.hash)) markVisited(id);
+  }, [location.pathname, location.hash, activeProfile]);
 
   // New page: start at the top, or at the #section the link points to once it has drawn.
   useEffect(() => {
