@@ -23,7 +23,7 @@ app. Add native pieces where the web can't reach.
 |---|---|---|
 | Apple Health | HealthKit via a Capacitor plugin | Read sleep, steps, resting HR, HRV, workouts. Write mindful minutes from Breathe and workouts from Move |
 | Apple Watch app | A small native watchOS app in SwiftUI | See below |
-| Widgets | WidgetKit (iOS), Glance (Android) | "1-minute calm" quick-start, streak, today's plan, current program day |
+| Widgets | WidgetKit (iOS), Glance (Android) | "1-minute settle-in" quick-start, streak, today's plan, current program day |
 | Push notifications | APNs and Firebase Cloud Messaging through the back end | Breathing reminders, program day nudges, bedtime wind-down. Replaces today's calendar reminders |
 | Siri and Shortcuts | App Intents | "Hey Siri, start Settle in on Rooted" |
 | Better heart check | Native camera with torch control | Steadier readings than the web camera |
@@ -33,7 +33,7 @@ app. Add native pieces where the web can't reach.
 - A haptic breathing pacer on the wrist: taps for inhale and exhale, so you
   can breathe with your eyes closed anywhere.
 - Live heart rate during a session.
-- A complication that starts a 1-minute calm.
+- A complication that starts a 1-minute settle-in.
 - Logs mindful minutes to Apple Health.
 
 ## What already exists to plug in

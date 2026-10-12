@@ -24,21 +24,21 @@ type Goal = "stress" | "sleep" | "energy" | "focus";
 type Step = "goal" | "before" | "ready" | "after" | "result";
 
 const GOALS: Array<{ id: Goal; emoji: string; label: string; blurb: string; hue: number }> = [
-  { id: "stress", emoji: "🌊", label: "Stress", blurb: "Feel calmer", hue: 200 },
+  { id: "stress", emoji: "🌊", label: "Stress", blurb: "Feel more relaxed", hue: 200 },
   { id: "sleep", emoji: "🌙", label: "Sleep", blurb: "Wind down and rest", hue: 240 },
   { id: "energy", emoji: "☀️", label: "Energy", blurb: "Clear the fog", hue: 40 },
   { id: "focus", emoji: "🎯", label: "Focus", blurb: "Steady your mind", hue: 150 },
 ];
 
 const QUESTION: Record<Goal, { q: string; low: string; high: string }> = {
-  stress: { q: "How tense or stressed do you feel right now?", low: "Totally calm", high: "Very stressed" },
+  stress: { q: "How tense or stressed do you feel right now?", low: "Totally relaxed", high: "Very stressed" },
   sleep: { q: "How wound up do you feel right now?", low: "Ready to rest", high: "Very wired" },
   energy: { q: "How foggy or drained do you feel right now?", low: "Clear and awake", high: "Very drained" },
   focus: { q: "How scattered does your mind feel right now?", low: "Clear and steady", high: "All over the place" },
 };
 
 const WHY: Record<Goal, string> = {
-  stress: "Breathing out longer than you breathe in signals your body's calming system. It's one of the best-studied quick ways to settle stress.",
+  stress: "Breathing out longer than you breathe in signals your body's relaxation response. It's one of the best-studied quick ways to settle stress.",
   sleep: "A long, slow exhale slows your heart rate a little and helps your body shift toward rest. Try it again in bed tonight.",
   energy: "Even, steady breathing with good posture can help clear mental fog. Pair it with daylight and water for a bigger lift.",
   focus: "Box breathing gives your attention one simple thing to hold. Many people use it before a big moment.",
@@ -148,7 +148,7 @@ export default function FirstWin() {
                   ? `You went from ${before} to ${after} in one minute. ${WHY[goal]}`
                   : `No change this time, and that's normal. It often takes a few tries, or a different time of day. ${WHY[goal]}`}
               </p>
-              <p className="fwin__ev"><Evidence s="Moderate" /> for slow breathing and short-term calm</p>
+              <p className="fwin__ev"><Evidence s="Moderate" /> for slow breathing and short-term relaxation</p>
               <div className="fwin__plan">
                 <h2>Your plan for today</h2>
                 <ul>

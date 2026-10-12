@@ -167,7 +167,7 @@ export const PANTRY: PantryItem[] = [
   },
   {
     id: "tulsi", name: "Holy basil", also: "tulsi", cat: "herb", aisle: "Tea", evidence: "Weak", hue: 120,
-    summary: "A fragrant basil sacred in Hinduism, now popular as a calming tea.",
+    summary: "A fragrant basil sacred in Hinduism, now popular as a relaxing tea.",
     benefits: ["A few small trials suggest it may help with stress, but they're small and short.", "A pleasant, caffeine-free tea."],
     tradition: "Revered in Ayurveda as an 'adaptogen' for stress and longevity.",
     use: "Steep as tea, alone or blended with green tea or ginger.",
@@ -246,7 +246,7 @@ export const PANTRY: PantryItem[] = [
   },
   {
     id: "green-tea", name: "Green tea", cat: "tea", aisle: "Tea", evidence: "Mixed", hue: 90,
-    summary: "A gentler caffeine source, with L-theanine for a calmer lift.",
+    summary: "A gentler caffeine source, with L-theanine for a gentler lift.",
     benefits: [
       "Has about a third to half the caffeine of coffee, plus L-theanine, which may smooth the jitters.",
       "Observational studies link it to better heart health, but trials haven't proven it prevents disease (NCCIH).",
@@ -277,8 +277,8 @@ export const PANTRY: PantryItem[] = [
   },
   {
     id: "lemon-balm", name: "Lemon balm tea", cat: "tea", aisle: "Tea", evidence: "Weak", hue: 75,
-    summary: "A lemony mint-family herb, used for calm and sleep.",
-    benefits: ["A few small trials suggest calming effects, often in blends with valerian. Better studies are needed."],
+    summary: "A lemony mint-family herb, used for relaxation and sleep.",
+    benefits: ["A few small trials suggest relaxing effects, often in blends with valerian. Better studies are needed."],
     use: "Steep fresh or dried leaves 5 to 10 minutes. It's easy to grow in a pot.",
     cautions: ["May add to the effect of sedatives and thyroid medicine.", CLINICIAN],
     find: "Health food stores and herb shops; plants at garden centers.",
@@ -578,7 +578,7 @@ export const PANTRY: PantryItem[] = [
   // Other
   {
     id: "raw-honey", name: "Raw honey", cat: "other", aisle: "Other", evidence: "Moderate", hue: 42,
-    summary: "A sweetener with a real use: calming coughs in children over one.",
+    summary: "A sweetener with a real use: soothing coughs in children over one.",
     benefits: ["A Cochrane review found honey may ease cough symptoms in children better than no treatment."],
     use: "In tea or warm water with lemon. It's still sugar, so use it like sugar.",
     cautions: ["Never give honey to babies under 12 months. It can cause infant botulism.", "It's still sugar, so be mindful if you're managing blood sugar."],

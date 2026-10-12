@@ -21,7 +21,7 @@ business; the rest makes it the best app in its category.
    the calendar-file reminders. See `PHASE_NATIVE_APP.md`.
 7. **Apple Health and Apple Watch:** a haptic breathing pacer on the wrist,
    sleep and HRV feeding the daily plan.
-8. **Widgets:** a "1-minute calm" button, today's plan and streaks on the
+8. **Widgets:** a "1-minute settle-in" button, today's plan and streaks on the
    home screen.
 9. **Two-way calendar sync** with Google and Microsoft sign-in, so work
    meetings update on their own instead of through a file import.

@@ -23,7 +23,7 @@ export const DEFAULT_ABOUT: AboutYou = { goals: [], activity: "some", minutes: 1
 
 export const GOALS: Array<{ id: GoalId; label: string; blurb: string; hue: number }> = [
   { id: "sleep", label: "Sleep better", blurb: "Fall asleep easier, wake up rested", hue: 255 },
-  { id: "stress", label: "Feel calmer", blurb: "Less stress and anxiety", hue: 190 },
+  { id: "stress", label: "Feel more relaxed", blurb: "Less stress and anxiety", hue: 190 },
   { id: "energy", label: "More energy", blurb: "Feel awake and steady all day", hue: 35 },
   { id: "focus", label: "Focus", blurb: "Clearer thinking, deeper work", hue: 220 },
   { id: "eat", label: "Eat better", blurb: "Simple, science-backed food habits", hue: 90 },

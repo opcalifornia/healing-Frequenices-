@@ -40,7 +40,7 @@ export const ITEMS: PlanItem[] = [
   { id: "walk", title: "Walk after lunch", body: "Ten easy minutes blunts the blood sugar spike.", to: "/move", minutes: 10, slots: ["midday"], serves: { move: 3, eat: 2, energy: 2, stress: 1 }, doneKind: "move:walk", icon: "replay", excludeIf: (f) => f.seated },
   { id: "desk", title: "Desk reset", body: "Three minutes of seated stretches to undo the slump.", to: "/move", minutes: 3, slots: ["midday"], serves: { aches: 3, focus: 1, move: 1 }, doneKind: "move:desk", icon: "replay" },
   { id: "sigh", title: "Physiological sigh", body: "The quickest stress reset there is. One minute.", to: "/breathe", minutes: 1, slots: ["midday", "evening"], serves: { stress: 3 }, doneKind: "breath:sigh", icon: "timer" },
-  { id: "calm", title: "One-minute calm", body: "Breathe in for 4, out for 6. Follow the circle.", to: "/breathe", minutes: 1, slots: ["morning", "midday", "evening"], serves: { stress: 2, sleep: 1, focus: 1 }, doneKind: "breath:calm", icon: "timer" },
+  { id: "calm", title: "One-minute settle-in", body: "Breathe in for 4, out for 6. Follow the circle.", to: "/breathe", minutes: 1, slots: ["morning", "midday", "evening"], serves: { stress: 2, sleep: 1, focus: 1 }, doneKind: "breath:calm", icon: "timer" },
   { id: "pantry", title: "Add fiber to your list", body: "Beans, oats, berries or seeds. Learn why in the Pantry.", to: "/nourish#pantry", minutes: 2, slots: ["midday"], serves: { eat: 3 }, icon: "bookmark" },
   { id: "plate", title: "Build tonight's plate", body: "Half vegetables, a quarter grains, a quarter protein.", to: "/nourish#plate", minutes: 2, slots: ["midday", "evening"], serves: { eat: 2 }, icon: "sparkle" },
   { id: "taichi", title: "Tai chi basics", body: "Slow, flowing balance practice. Six minutes.", to: "/move", minutes: 6, slots: ["midday", "evening"], serves: { stress: 2, aches: 2, move: 2 }, doneKind: "move:taichi", icon: "replay", minTime: 10, excludeIf: (f) => f.seated },
@@ -55,7 +55,7 @@ export const ITEMS: PlanItem[] = [
   { id: "winddown", title: "Wind down for sleep", body: "Your bedtime routine of sounds and light cues.", to: "/bedtime", minutes: 30, slots: ["evening"], serves: { sleep: 3, stress: 1 }, icon: "headphones" },
 ];
 
-export const GOAL_SHORT: Record<GoalId, string> = { sleep: "sleep better", stress: "feel calmer", energy: "have more energy", focus: "focus", eat: "eat better", move: "move more", aches: "ease aches", connect: "spend less time on screens" };
+export const GOAL_SHORT: Record<GoalId, string> = { sleep: "sleep better", stress: "feel more relaxed", energy: "have more energy", focus: "focus", eat: "eat better", move: "move more", aches: "ease aches", connect: "spend less time on screens" };
 
 export interface Picked extends PlanItem {
   reason?: GoalId;

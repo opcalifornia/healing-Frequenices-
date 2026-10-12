@@ -19,7 +19,7 @@ import { usePrograms } from "../store/programs";
  * tell which tools someone has already used from data the app already keeps.
  */
 
-export const AREAS = ["Start here", "Calm & breath", "Body & movement", "Food", "Sleep & light", "Mind & spirit", "Plan & track", "Support", "Sound", "Your account"] as const;
+export const AREAS = ["Start here", "Relax & breathe", "Body & movement", "Food", "Sleep & light", "Mind & spirit", "Plan & track", "Support", "Sound", "Your account"] as const;
 export type Area = (typeof AREAS)[number];
 
 /** Signals counted in a {@link TriedSnapshot}. A number above 0, or true, means "used". */
@@ -70,42 +70,42 @@ export const FEATURES: Feature[] = [
   { id: "daily-plan", emoji: "🌱", title: "Today's plan", area: "Start here", to: "/",
     what: "Home shows a few small things picked for your goals and the time of day, and checks them off as you go.",
     why: "A short, specific list is easier to start than a whole app full of choices." },
-  { id: "one-minute-calm", emoji: "🌬️", title: "One-minute calm", area: "Start here", to: "/breathe", minutes: 1, triedBy: { log: "breath:calm" },
+  { id: "one-minute-calm", emoji: "🌬️", title: "One-minute settle-in", area: "Start here", to: "/breathe", minutes: 1, triedBy: { log: "breath:calm" },
     what: "Follow a growing and shrinking circle, breathing in for 4 and out for 6. Quick picks below it start the right pattern for panic, sleep, focus or energy.",
     why: "Slow breathing with a longer exhale is one of the quickest ways to settle a racing body." },
   { id: "mood-check", emoji: "🙂", title: "How are you today?", area: "Start here", to: "/", triedBy: { has: "moods" },
     what: "Tap one of five faces on Home to check in. A low day gently surfaces support.",
     why: "Noticing how you feel, day to day, helps you see patterns and what's helping." },
 
-  /* ---------------- Calm & breath ---------------- */
-  { id: "breath-library", emoji: "🫁", title: "Breathing techniques", area: "Calm & breath", to: "/breathe#breathe", minutes: 2, triedBy: { log: "breath:*" },
+  /* ---------------- Relax & breathe ---------------- */
+  { id: "breath-library", emoji: "🫁", title: "Breathing techniques", area: "Relax & breathe", to: "/breathe#breathe", minutes: 2, triedBy: { log: "breath:*" },
     what: "Box breathing, 4-7-8, the physiological sigh, coherent and power breathing, each with when to use it and the evidence.",
     why: "Different patterns suit different moments, like panic, focus or falling asleep." },
-  { id: "pattern-builder", emoji: "🎚️", title: "Build a breath pattern", area: "Calm & breath", to: "/breathe#breathe", minutes: 2, triedBy: { has: "customs" },
+  { id: "pattern-builder", emoji: "🎚️", title: "Build a breath pattern", area: "Relax & breathe", to: "/breathe#breathe", minutes: 2, triedBy: { has: "customs" },
     what: "Set your own counts for breathing in, holding, breathing out and resting, then save it.",
     why: "A pattern that feels comfortable to you is one you'll actually use." },
-  { id: "breath-sounds", emoji: "🔔", title: "Chimes, voice or tone", area: "Calm & breath", to: "/breathe", triedBy: { has: "soundPrefs" },
+  { id: "breath-sounds", emoji: "🔔", title: "Chimes, voice or tone", area: "Relax & breathe", to: "/breathe", triedBy: { has: "soundPrefs" },
     what: "Choose how a breathing session guides you: chimes, a spoken voice, a tone or silence, with optional rain or stream sounds.",
     why: "Being guided by sound lets you close your eyes and stop watching the screen." },
-  { id: "breath-results", emoji: "📈", title: "Before and after check-ins", area: "Calm & breath", to: "/breathe#results", triedBy: { has: "checkIns" },
+  { id: "breath-results", emoji: "📈", title: "Before and after check-ins", area: "Relax & breathe", to: "/breathe#results", triedBy: { has: "checkIns" },
     what: "Rate your stress before and after a session and see which techniques help you most.",
     why: "Your own results are a better guide than anyone's general advice." },
-  { id: "breath-reminders", emoji: "⏰", title: "Breathing reminders", area: "Calm & breath", to: "/breathe#results",
+  { id: "breath-reminders", emoji: "⏰", title: "Breathing reminders", area: "Relax & breathe", to: "/breathe#results",
     what: "Pick times of day and add daily breathing reminders to your phone's calendar.",
     why: "A reminder at the right moment turns a good intention into a habit." },
-  { id: "heart-check", emoji: "❤️", title: "Camera heart check", area: "Calm & breath", to: "/breathe#heart", minutes: 2, triedBy: { has: "hearts" },
+  { id: "heart-check", emoji: "❤️", title: "Camera heart check", area: "Relax & breathe", to: "/breathe#heart", minutes: 2, triedBy: { has: "hearts" },
     what: "Rest a fingertip on your phone's camera to estimate your heart rate and see it respond to slow breathing.",
     why: "Watching your heart slow down shows you the effect is real. It's an estimate, not a medical test." },
-  { id: "bolt", emoji: "⏱️", title: "Breath test (BOLT)", area: "Calm & breath", to: "/breathe#bolt", minutes: 1, triedBy: { has: "bolts" },
+  { id: "bolt", emoji: "⏱️", title: "Breath test (BOLT)", area: "Relax & breathe", to: "/breathe#bolt", minutes: 1, triedBy: { has: "bolts" },
     what: "Time how long you can comfortably pause after a normal exhale, and track it week to week.",
-    why: "A simple number to see whether your everyday breathing is getting calmer over time." },
-  { id: "grounding", emoji: "🖐️", title: "5-4-3-2-1 grounding", area: "Calm & breath", to: "/breathe#ground", minutes: 2, triedBy: { log: "ground" },
+    why: "A simple number to see whether your everyday breathing is getting more relaxed over time." },
+  { id: "grounding", emoji: "🖐️", title: "5-4-3-2-1 grounding", area: "Relax & breathe", to: "/breathe#ground", minutes: 2, triedBy: { log: "ground" },
     what: "A step-by-step walk through five things you see, four you feel, three you hear, two you smell and one you taste.",
     why: "Turning attention to your senses can interrupt a spiral of worry or panic." },
-  { id: "pmr", emoji: "💪", title: "Muscle relaxation", area: "Calm & breath", to: "/breathe#relax", minutes: 3, triedBy: { log: "pmr" },
+  { id: "pmr", emoji: "💪", title: "Muscle relaxation", area: "Relax & breathe", to: "/breathe#relax", minutes: 3, triedBy: { log: "pmr" },
     what: "A guided round of tensing and then releasing each muscle group.",
     why: "Feeling the contrast teaches your body what letting go of tension feels like." },
-  { id: "combos", emoji: "🧩", title: "Combos", area: "Calm & breath", to: "/combos", minutes: 5, triedBy: { log: "combo:*" },
+  { id: "combos", emoji: "🧩", title: "Combos", area: "Relax & breathe", to: "/combos", minutes: 5, triedBy: { log: "combo:*" },
     what: "Short guided flows that stack breath, movement, light and reflection, like Morning Armor, Evening Reset and Gentle Reset.",
     why: "Linking a few small habits into one routine makes each one easier to keep." },
 
@@ -175,7 +175,7 @@ export const FEATURES: Feature[] = [
   /* ---------------- Mind & spirit ---------------- */
   { id: "sound-bath", emoji: "🎐", title: "Sound bath", area: "Mind & spirit", to: "/spirit#sound", minutes: 10, triedBy: { log: "soundbath" },
     what: "Strike singing bowls, chimes and a gong, or let a sound bath play by itself. All synthesized live.",
-    why: "Many people find it a calming focus point for rest or meditation." },
+    why: "Many people find it a relaxing focus point for rest or meditation." },
   { id: "meditate", emoji: "🪷", title: "Meditation timer", area: "Mind & spirit", to: "/spirit#sit", minutes: 5, triedBy: { log: "meditate" },
     what: "A quiet timer with a gentle bell, plus a diagram of what stillness changes in your body under stress.",
     why: "Regular short sits are linked with lower stress for many people." },
@@ -206,7 +206,7 @@ export const FEATURES: Feature[] = [
     what: "Send events to Apple, Google or Outlook with a 5-minute reminder, or, when signed in, subscribe with a live link.",
     why: "Reminders show up where you already look every day." },
   { id: "programs", emoji: "🎯", title: "Daily programs", area: "Plan & track", to: "/breathe#programs", minutes: 10, triedBy: { has: "programs" },
-    what: "Multi-day programs, like 7 Days to Calmer or 5 Gentle Mornings, with one short lesson a day.",
+    what: "Multi-day programs, like 7 Days to Relax or 5 Gentle Mornings, with one short lesson a day.",
     why: "A day-by-day path removes the guesswork about what to do next." },
   { id: "week", emoji: "📊", title: "Your week", area: "Plan & track", to: "/week",
     what: "A recap of your minutes, sessions, mood, water and calendar over the last seven days.",
@@ -223,7 +223,7 @@ export const FEATURES: Feature[] = [
   { id: "profile-picture", emoji: "🖼️", title: "Profile picture", area: "Your account", to: "/profiles",
     what: "Pick a healing symbol (crystal, tree, wave, lotus and more) or add your own photo.",
     why: "Makes the app feel like yours. Photos stay on your device and are never shown to friends." },
-  { id: "circles", emoji: "🫂", title: "Circles", area: "Plan & track", to: "/program/calmer-7#circle", minutes: 1,
+  { id: "circles", emoji: "🫂", title: "Circles", area: "Plan & track", to: "/program/relax-7#circle", minutes: 1,
     what: "Do a program with up to 12 friends or family: see each other's days done and send cheers.",
     why: "Gentle company and a little accountability help habits stick. Only first names and days done are shared." },
 
@@ -243,7 +243,7 @@ export const FEATURES: Feature[] = [
 
   /* ---------------- Sound ---------------- */
   { id: "healing-sessions", emoji: "🎧", title: "Healing Frequencies sessions", area: "Sound", to: "/healing", minutes: 20, triedBy: { has: "listening" },
-    what: "Binaural beat sessions for sleep, focus and calm, generated live in your browser.",
+    what: "Binaural beat sessions for sleep, focus and relaxation, generated live in your browser.",
     why: "Many people find steady, gentle sound helps them relax or focus. Evidence is mixed, and we say so." },
   { id: "shows", emoji: "📺", title: "Shows", area: "Sound", to: "/shows",
     what: "Longer multi-part listening series you can play in order.",

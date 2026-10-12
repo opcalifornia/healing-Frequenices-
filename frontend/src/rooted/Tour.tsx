@@ -23,10 +23,10 @@ const nav = (path: string) => [`.tabbar a[href$="${path}"]`, `.nav__links a[href
 export const TOUR: Step[] = [
   { title: "Welcome to Rooted", body: "A 30-second tour so you know where everything lives. You can skip any time." },
   { title: "Your plan for today", body: "A few small things picked for your goals and the time of day. Tap one to start it.", targets: [".hub__today-wrap", ".hub__setup"] },
-  { title: "Breathe", body: "Guided breathing for calm, sleep and focus, plus a camera heart check and reminders.", targets: nav("/breathe") },
+  { title: "Breathe", body: "Guided breathing for relaxation, sleep and focus, plus a camera heart check and reminders.", targets: nav("/breathe") },
   { title: "Nourish", body: "Food science, a smart shopping list, recipes, water and a store finder.", targets: nav("/nourish") },
   { title: "Your health calendar", body: "Schedule routines, see them next to work, and send them to Apple or Google Calendar.", targets: nav("/calendar") },
-  { title: "Healing Frequencies", body: "Sound sessions for sleep, focus and calm, plus a bedtime routine.", targets: nav("/healing") },
+  { title: "Healing Frequencies", body: "Sound sessions for sleep, focus and relaxation, plus a bedtime routine.", targets: nav("/healing") },
   { title: "Help, any time", body: "The heart opens crisis lines and support from every screen. You're never alone.", targets: [".nav__help"] },
   { title: "Your menu", body: "Profiles, goals, your data, support, and this tour again if you ever need it.", targets: [".nav__avatar"] },
   { title: "Everything in one place", body: "The Guide lists every tool in Rooted and shows the ones you haven't tried yet.", targets: [".hub__guide"] },

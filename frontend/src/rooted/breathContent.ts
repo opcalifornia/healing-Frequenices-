@@ -40,7 +40,7 @@ export const TECHNIQUES: Technique[] = [
     id: "calm", name: "Settle in", short: "4 in · 6 out", when: "Any time you feel wound up. A gentle place to begin.",
     cycle: [{ kind: "in", secs: 4, say: "Breathe in" }, { kind: "out", secs: 6, say: "Breathe out" }],
     minutes: [1, 3, 5], evidence: "Moderate", hue: 160, next: "relax",
-    why: "Breathing out for longer than you breathe in, at around six breaths a minute, shifts your body toward its calm, rest-and-digest mode. Slow-paced breathing reliably raises heart rate variability, a marker of that shift.",
+    why: "Breathing out for longer than you breathe in, at around six breaths a minute, shifts your body toward its relaxed, rest-and-digest mode. Slow-paced breathing reliably raises heart rate variability, a marker of that shift.",
     sources: [{ text: "Lehrer P et al. Heart rate variability biofeedback improves emotional and physical health and performance: a systematic review and meta-analysis. Appl Psychophysiol Biofeedback, 2020", url: "https://doi.org/10.1007/s10484-020-09466-z" }],
   },
   {
@@ -121,7 +121,7 @@ export function customTechnique(c: CustomPattern): Technique {
     id: c.id, name: c.name, short: parts.map((x) => (Number.isInteger(x) ? x : x.toFixed(1))).join(" · "), when: "Your own pattern.",
     cycle, minutes: [1, 3, 5, 10], evidence: "None", hue: 320, next: "relax", custom: true,
     shape: cycle.length === 4 ? "box" : cycle.length === 3 ? "triangle" : "orb",
-    why: "A pattern you built. Slow breathing with a longer exhale than inhale tends to be the most calming.", sources: [],
+    why: "A pattern you built. Slow breathing with a longer exhale than inhale tends to be the most relaxing.", sources: [],
   };
 }
 

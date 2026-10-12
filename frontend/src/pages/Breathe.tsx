@@ -162,7 +162,7 @@ export default function Breathe() {
           </motion.p>
           <motion.div className="breathe__cta" initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.42, duration: 0.7 }}>
             <button className="btn btn--primary btn--big" onClick={() => start(TECHNIQUES[0], 1)}>
-              <Icon name="play" size={22} /> Start a 1-minute calm
+              <Icon name="play" size={22} /> Start a 1-minute settle-in
             </button>
             {(today > 0 || streak > 0) && (
               <span className="breathe__stat">{Math.round(today)} min today{streak > 1 ? ` · ${streak}-day streak` : ""}</span>
@@ -224,7 +224,7 @@ export default function Breathe() {
         <Reveal className="sec-block__head">
           <span className="rooted__eyebrow">Inside your body</span>
           <h2>What happens when you breathe</h2>
-          <p className="rooted__lead">The diagram breathes with a calm 4-in, 6-out rhythm. Breathe along, and tap each part to learn what it does.</p>
+          <p className="rooted__lead">The diagram breathes with a relaxed 4-in, 6-out rhythm. Breathe along, and tap each part to learn what it does.</p>
         </Reveal>
         <Reveal><BreathingBody /></Reveal>
         <Reveal className="sec-block__head nourish__subhead">

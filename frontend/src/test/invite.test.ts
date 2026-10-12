@@ -15,7 +15,7 @@ import { cleanInvite, clearPendingInvite, inviteMessage, invitePath, pendingInvi
 
 describe("invite links", () => {
   it("builds a path with only program, first name and code", () => {
-    expect(invitePath({ p: "calmer-7", from: "Sam", ref: "abcd2345" })).toBe("/join?p=calmer-7&from=Sam&ref=abcd2345");
+    expect(invitePath({ p: "relax-7", from: "Sam", ref: "abcd2345" })).toBe("/join?p=relax-7&from=Sam&ref=abcd2345");
     expect(invitePath({})).toBe("/join");
   });
 
@@ -26,9 +26,9 @@ describe("invite links", () => {
   });
 
   it("remembers a pending invite for 30 days", () => {
-    savePendingInvite({ p: "calmer-7", ref: "abcd2345" });
-    expect(pendingInvite()).toEqual({ p: "calmer-7", ref: "abcd2345" });
-    localStorage.setItem("rooted-invite", JSON.stringify({ p: "calmer-7", at: Date.now() - 31 * 864e5 }));
+    savePendingInvite({ p: "relax-7", ref: "abcd2345" });
+    expect(pendingInvite()).toEqual({ p: "relax-7", ref: "abcd2345" });
+    localStorage.setItem("rooted-invite", JSON.stringify({ p: "relax-7", at: Date.now() - 31 * 864e5 }));
     expect(pendingInvite()).toBeNull();
     savePendingInvite({ p: "x" });
     clearPendingInvite();
@@ -36,6 +36,6 @@ describe("invite links", () => {
   });
 
   it("writes a friendly message", () => {
-    expect(inviteMessage("7 Days to Calmer", "https://rooted.app/join?p=calmer-7")).toBe("Want to do 7 Days to Calmer with me on Rooted? A few minutes a day. https://rooted.app/join?p=calmer-7");
+    expect(inviteMessage("7 Days to Relax", "https://rooted.app/join?p=relax-7")).toBe("Want to do 7 Days to Relax with me on Rooted? A few minutes a day. https://rooted.app/join?p=relax-7");
   });
 });

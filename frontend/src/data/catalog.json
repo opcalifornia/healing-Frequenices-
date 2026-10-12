@@ -933,12 +933,12 @@
     "pattern": "wave"
    }
   },
-  "calm-current": {
-   "id": "calm-current",
+  "gentle-current": {
+   "id": "gentle-current",
    "kind": "session",
-   "name": "Calm Current",
+   "name": "Gentle Current",
    "tagline": "Relaxed and alert at once.",
-   "description": "An 11 Hz alpha beat. Calm enough to unwind, awake enough to read or sketch.",
+   "description": "An 11 Hz alpha beat. Relaxed enough to unwind, awake enough to read or sketch.",
    "goal": "relax",
    "band": "alpha",
    "carrier": 210,
@@ -960,8 +960,8 @@
    "featured": false,
    "topRank": null,
    "art": {
-    "hue": 147,
-    "pattern": "rosette"
+    "hue": 126,
+    "pattern": "rings"
    }
   },
   "sunday-float": {
@@ -1465,7 +1465,7 @@
    "kind": "session",
    "name": "Steady Mind",
    "tagline": "Two hours at the bottom of beta.",
-   "description": "A 13 Hz beat for long, calm concentration.",
+   "description": "A 13 Hz beat for long, steady concentration.",
    "goal": "focus",
    "band": "beta",
    "carrier": 220,
@@ -3738,10 +3738,10 @@
     "pattern": "rosette"
    }
   },
-  "tiny-calm": {
-   "id": "tiny-calm",
+  "tiny-ease": {
+   "id": "tiny-ease",
    "kind": "show",
-   "name": "Tiny Calm",
+   "name": "Tiny Ease",
    "tagline": "Gentle sound play for kids.",
    "description": "Short, playful episodes that help kids notice their breath and the sounds around them. No binaural beats; volume-limited by design.",
    "category": "Kids & Family",
@@ -3761,53 +3761,53 @@
      "number": 1,
      "episodes": [
       {
-       "id": "tiny-calm-s1e1",
+       "id": "tiny-ease-s1e1",
        "number": 1,
        "name": "Listening Walk",
        "description": "Listening Walk. Gentle sound play for kids.",
        "durationMin": 18
       },
       {
-       "id": "tiny-calm-s1e2",
+       "id": "tiny-ease-s1e2",
        "number": 2,
        "name": "Balloon Breath",
        "description": "Balloon Breath. Gentle sound play for kids.",
-       "durationMin": 24
+       "durationMin": 30
       },
       {
-       "id": "tiny-calm-s1e3",
+       "id": "tiny-ease-s1e3",
        "number": 3,
        "name": "Sleepy Bear",
        "description": "Sleepy Bear. Gentle sound play for kids.",
-       "durationMin": 24
+       "durationMin": 12
       },
       {
-       "id": "tiny-calm-s1e4",
+       "id": "tiny-ease-s1e4",
        "number": 4,
        "name": "The Quiet Game",
        "description": "The Quiet Game. Gentle sound play for kids.",
        "durationMin": 30
       },
       {
-       "id": "tiny-calm-s1e5",
+       "id": "tiny-ease-s1e5",
        "number": 5,
        "name": "Rain Sticks",
        "description": "Rain Sticks. Gentle sound play for kids.",
-       "durationMin": 30
+       "durationMin": 36
       },
       {
-       "id": "tiny-calm-s1e6",
+       "id": "tiny-ease-s1e6",
        "number": 6,
        "name": "Goodnight Sounds",
        "description": "Goodnight Sounds. Gentle sound play for kids.",
-       "durationMin": 24
+       "durationMin": 18
       }
      ]
     }
    ],
    "art": {
-    "hue": 31,
-    "pattern": "wave"
+    "hue": 44,
+    "pattern": "rosette"
    }
   },
   "yoga-frequencies": {
@@ -4084,10 +4084,10 @@
     "pattern": "chladni"
    }
   },
-  "calm-at-work": {
-   "id": "calm-at-work",
+  "relaxed-at-work": {
+   "id": "relaxed-at-work",
    "kind": "show",
-   "name": "Calm at Work",
+   "name": "Relaxed at Work",
    "tagline": "Stress skills for the workday.",
    "description": "Practical lessons on attention, breaks and boundaries, each with a session to try at your desk.",
    "category": "Teaching Series",
@@ -4107,45 +4107,45 @@
      "number": 1,
      "episodes": [
       {
-       "id": "calm-at-work-s1e1",
+       "id": "relaxed-at-work-s1e1",
        "number": 1,
        "name": "The Morning Plan",
        "description": "The Morning Plan. Stress skills for the workday.",
-       "durationMin": 18
+       "durationMin": 36
       },
       {
-       "id": "calm-at-work-s1e2",
+       "id": "relaxed-at-work-s1e2",
        "number": 2,
        "name": "Single-Tasking",
        "description": "Single-Tasking. Stress skills for the workday.",
-       "durationMin": 36
-      },
-      {
-       "id": "calm-at-work-s1e3",
-       "number": 3,
-       "name": "Meeting Recovery",
-       "description": "Meeting Recovery. Stress skills for the workday.",
        "durationMin": 18
       },
       {
-       "id": "calm-at-work-s1e4",
+       "id": "relaxed-at-work-s1e3",
+       "number": 3,
+       "name": "Meeting Recovery",
+       "description": "Meeting Recovery. Stress skills for the workday.",
+       "durationMin": 12
+      },
+      {
+       "id": "relaxed-at-work-s1e4",
        "number": 4,
        "name": "The Afternoon Dip",
        "description": "The Afternoon Dip. Stress skills for the workday.",
-       "durationMin": 24
+       "durationMin": 12
       },
       {
-       "id": "calm-at-work-s1e5",
+       "id": "relaxed-at-work-s1e5",
        "number": 5,
        "name": "Leaving Work at Work",
        "description": "Leaving Work at Work. Stress skills for the workday.",
-       "durationMin": 36
+       "durationMin": 24
       }
      ]
     }
    ],
    "art": {
-    "hue": 180,
+    "hue": 220,
     "pattern": "rings"
    }
   },
@@ -4403,7 +4403,7 @@
    "kind": "show",
    "name": "Lullaby Lab",
    "tagline": "Soft songs and soft noise for little ones.",
-   "description": "Calming songs over gentle pink noise for family bedtimes. No binaural beats.",
+   "description": "Soothing songs over gentle pink noise for family bedtimes. No binaural beats.",
    "category": "Kids & Family",
    "host": "Juniper & Moss",
    "tags": [
@@ -4658,7 +4658,7 @@
       "golden-hour",
       "tea-break",
       "forest-light",
-      "calm-current",
+      "gentle-current",
       "sunday-float",
       "soft-focus",
       "release-396",
@@ -4708,12 +4708,12 @@
       "sleep-stories-sea",
       "focus-lab",
       "healing-voices",
-      "tiny-calm",
+      "tiny-ease",
       "yoga-frequencies",
       "mindful-commute",
       "history-of-sound-healing",
       "the-gamma-files",
-      "calm-at-work",
+      "relaxed-at-work",
       "noise-colors",
       "inner-landscapes",
       "meditation-101",
@@ -4826,7 +4826,7 @@
       "mountain-stream",
       "rainforest-nature-only",
       "tea-break",
-      "calm-current",
+      "gentle-current",
       "creative-flow",
       "deep-sync-4",
       "soft-focus",
@@ -4958,7 +4958,7 @@
       "golden-hour",
       "tea-break",
       "forest-light",
-      "calm-current",
+      "gentle-current",
       "sunday-float",
       "soft-focus",
       "release-396",
@@ -5096,7 +5096,7 @@
       "deep-sync-academy",
       "yoga-frequencies",
       "mindful-commute",
-      "calm-at-work",
+      "relaxed-at-work",
       "meditation-101"
      ]
     },
@@ -5143,11 +5143,11 @@
       "sleep-stories-north",
       "sleep-stories-sea",
       "focus-lab",
-      "tiny-calm",
+      "tiny-ease",
       "yoga-frequencies",
       "mindful-commute",
       "the-gamma-files",
-      "calm-at-work",
+      "relaxed-at-work",
       "noise-colors",
       "inner-landscapes",
       "lullaby-lab"
@@ -5162,7 +5162,7 @@
       "breath-and-tone",
       "sleep-stories-north",
       "sleep-stories-sea",
-      "tiny-calm",
+      "tiny-ease",
       "yoga-frequencies",
       "mindful-commute",
       "lullaby-lab"
@@ -5176,7 +5176,6 @@
      "titleIds": [
       "history-of-sound-healing",
       "breath-and-tone",
-      "calm-at-work",
       "deep-sync-academy",
       "focus-lab",
       "gateway-stories",
@@ -5187,6 +5186,7 @@
       "mindful-commute",
       "noise-colors",
       "quiet-mind-journeys",
+      "relaxed-at-work",
       "sleep-stories-north",
       "sleep-stories-sea",
       "sleep-well-school",
@@ -5194,7 +5194,7 @@
       "sound-foundations",
       "the-brainwave-atlas",
       "the-gamma-files",
-      "tiny-calm",
+      "tiny-ease",
       "yoga-frequencies"
      ]
     }
@@ -5233,7 +5233,7 @@
     "## Theta, 4 to 8 Hz",
     "Common in drowsiness, light sleep and some meditative states. Theta sessions in the catalog are aimed at meditation and the drifting moments before sleep.",
     "## Alpha, 8 to 13 Hz",
-    "Often strongest when you are awake and relaxed with your eyes closed. Alpha sessions are designed for calm, easy relaxation.",
+    "Often strongest when you are awake and relaxed with your eyes closed. Alpha sessions are designed for easy relaxation.",
     "## Beta, 13 to 30 Hz",
     "Associated with active thinking, problem solving and alert attention. Beta sessions are aimed at focus and work.",
     "## Gamma, 30 Hz and above",

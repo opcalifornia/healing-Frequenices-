@@ -119,3 +119,14 @@ advice" line, and a "Try it in Rooted" button linking into the app with `utm_sou
 - `vercel.json` excludes `/guides` from the SPA rewrite so the static files are served first.
 - After launch, submit `/sitemap.xml` in Google Search Console and Bing Webmaster Tools, and track `utm_source=guides` signups.
 - Tests: `frontend/src/test/seo.test.ts` runs the generator on the real content.
+
+## Wording rule: no trigger words
+
+Never use the word "calm" in anything people read (the words "calming",
+"calmer" and "calm down" included). "Calm down" is what people are told when
+they are upset, and it can land as a command. Use relax, relaxing, relaxed,
+ease, settle, soothing or steady instead. This covers the app, the sound
+catalog, public guide pages, share cards, store listings and marketing.
+Internal names that no one reads (for example the technique id `calm`) are
+fine. Descriptions of the body ("relaxing rest-and-digest system") are fine
+once the word is swapped.

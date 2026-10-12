@@ -11,7 +11,7 @@ import "./Guide.css";
 
 const AREA_HUE: Record<Area, number> = {
   "Start here": 95,
-  "Calm & breath": 200,
+  "Relax & breathe": 200,
   "Body & movement": 20,
   Food: 80,
   "Sleep & light": 255,
@@ -24,7 +24,7 @@ const AREA_HUE: Record<Area, number> = {
 
 const AREA_BLURB: Record<Area, string> = {
   "Start here": "Four small things that make everything else work better.",
-  "Calm & breath": "Settle your body in a minute or two, and see what works for you.",
+  "Relax & breathe": "Settle your body in a minute or two, and see what works for you.",
   "Body & movement": "Gentle movement, time outdoors, and the habits of long-lived places.",
   Food: "Eat, drink, shop and grow, guided by the evidence.",
   "Sleep & light": "Work with your body clock for steadier sleep and energy.",

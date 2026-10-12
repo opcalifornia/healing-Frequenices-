@@ -38,7 +38,7 @@ export interface Program {
 
 export const PROGRAMS: Program[] = [
   {
-    id: "calmer-7", section: "breathe", title: "7 Days to Calmer", tagline: "A few minutes a day to retrain how you respond to stress",
+    id: "relax-7", section: "breathe", title: "7 Days to Relax", tagline: "A few minutes a day to retrain how you respond to stress",
     about: "One short lesson a day. You'll learn why slow breathing works, practice the five most useful techniques, and finish knowing which one works best for you. About 5 minutes a day.",
     author: { name: "Rooted Team", role: "Written from published research", verified: true }, hue: 195, hue2: 160, evidence: "Moderate", live: true,
     days: [
@@ -47,7 +47,7 @@ export const PROGRAMS: Program[] = [
         blocks: [
           { type: "read", title: "The only automatic system you can steer", body: ["Your heartbeat, digestion and stress response run on autopilot. Breathing does too, but you can take the wheel any time.", "When you slow your breathing, especially your exhale, you signal safety to your nervous system. Your heart slows, and your body shifts toward rest-and-digest."], diagram: "breathing-body" },
           { type: "breath", technique: "calm", minutes: 2 },
-          { type: "quiz", question: "Which part of the breath most slows your heart?", options: ["Breathing in", "Breathing out", "Holding your breath"], answer: 1, explain: "Your heart naturally slows a little on every exhale. Making the exhale longer than the inhale strengthens that calming effect." },
+          { type: "quiz", question: "Which part of the breath most slows your heart?", options: ["Breathing in", "Breathing out", "Holding your breath"], answer: 1, explain: "Your heart naturally slows a little on every exhale. Making the exhale longer than the inhale strengthens that relaxing effect." },
         ],
       },
       {
@@ -61,7 +61,7 @@ export const PROGRAMS: Program[] = [
       {
         title: "Find your rhythm: resonance breathing",
         blocks: [
-          { type: "read", title: "Six breaths a minute", body: ["At around six breaths a minute, your breathing and heart rate fall into step. Heart rate rises on each inhale and falls on each exhale, and the swings get much bigger.", "Bigger swings mean higher heart rate variability, a sign your calming system is engaged. Switch the chart between normal and slow breathing to see it."], diagram: "heart-rhythm" },
+          { type: "read", title: "Six breaths a minute", body: ["At around six breaths a minute, your breathing and heart rate fall into step. Heart rate rises on each inhale and falls on each exhale, and the swings get much bigger.", "Bigger swings mean higher heart rate variability, a sign your relaxation response is engaged. Switch the chart between normal and slow breathing to see it."], diagram: "heart-rhythm" },
           { type: "breath", technique: "coherent", minutes: 5 },
           { type: "quiz", question: "About how many breaths a minute is resonance breathing?", options: ["About 15", "About 10", "About 6"], answer: 2, explain: "Around 5.5 to 6 breaths a minute, or about 5 seconds in and 5 seconds out, is the pace where breathing and heart rhythm line up for most adults." },
         ],
@@ -210,7 +210,7 @@ export const PROGRAMS: Program[] = [
     ],
   },
   {
-    id: "sleep-7", section: "breathe", title: "7 Nights of Better Sleep", tagline: "Light, timing and a calmer wind-down, one habit a night",
+    id: "sleep-7", section: "breathe", title: "7 Nights of Better Sleep", tagline: "Light, timing and a more relaxed wind-down, one habit a night",
     about: "Seven short lessons on the habits most linked to better sleep: morning light, a caffeine cutoff, a wind-down routine, slow breathing in bed, a cool dark bedroom, parking your worries, and what sleep researchers teach about using your bed for sleep. This is education, not treatment. About 5 to 8 minutes a day.",
     author: { name: "Rooted Team", role: "Written from published research", verified: true }, hue: 245, hue2: 205, evidence: "Moderate", live: true,
     days: [
@@ -228,7 +228,7 @@ export const PROGRAMS: Program[] = [
         blocks: [
           { type: "read", title: "Caffeine lingers longer than you think", body: ["Caffeine blocks adenosine, the chemical that builds sleep pressure through the day. Its half-life is around five hours, so half of an afternoon coffee can still be in your system at bedtime.", "In one study, 400 mg of caffeine taken even six hours before bed cut total sleep by about an hour, often without people noticing. Many sleep experts suggest stopping caffeine about eight hours before bed."] },
           { type: "quiz", question: "If you go to bed at 10:30 pm, about when is a sensible caffeine cutoff?", options: ["Around 2 pm", "Around 6 pm", "Around 9 pm"], answer: 0, explain: "About eight hours before bed gives most of the caffeine time to clear. Some people are more sensitive and do better stopping earlier." },
-          { type: "shop", title: "An evening swap", body: "Chamomile tea is caffeine-free and a warm, calming ritual. Studies of chamomile for sleep are small and mixed, so think of it as a wind-down cue, not a sleep aid. Check with your pharmacist if you take blood thinners.", items: ["chamomile"] },
+          { type: "shop", title: "An evening swap", body: "Chamomile tea is caffeine-free and a warm, relaxing ritual. Studies of chamomile for sleep are small and mixed, so think of it as a wind-down cue, not a sleep aid. Check with your pharmacist if you take blood thinners.", items: ["chamomile"] },
           { type: "action", title: "Today", body: "Set a caffeine curfew about eight hours before your usual bedtime. Remember tea, cola, energy drinks and dark chocolate count too." },
           { type: "breath", technique: "calm", minutes: 3 },
         ],
@@ -236,7 +236,7 @@ export const PROGRAMS: Program[] = [
       {
         title: "Build a wind-down hour",
         blocks: [
-          { type: "read", title: "Give your brain a runway", body: ["You can't go from busy to asleep in a minute. A consistent routine in the last hour before bed tells your body what's coming.", "Dim the lights, put screens away or turn them down, and do the same few calm things each night: a shower, a book, gentle stretching. Tonight, try the bedtime stretch."] },
+          { type: "read", title: "Give your brain a runway", body: ["You can't go from busy to asleep in a minute. A consistent routine in the last hour before bed tells your body what's coming.", "Dim the lights, put screens away or turn them down, and do the same few relaxing things each night: a shower, a book, gentle stretching. Tonight, try the bedtime stretch."] },
           { type: "move", routine: "bedtime" },
           { type: "action", title: "Tonight", body: "Set an alarm for one hour before bed. When it goes off, dim the lights, plug your phone in outside the bedroom if you can, and start your wind-down." },
         ],
@@ -244,9 +244,9 @@ export const PROGRAMS: Program[] = [
       {
         title: "Slow breathing in bed",
         blocks: [
-          { type: "read", title: "A longer exhale to settle", body: ["Slow breathing with a long exhale shifts your nervous system toward rest, which may help a busy mind settle. 4-7-8 breathing slows you to about three breaths a minute.", "If you're pregnant, or have a heart condition or epilepsy, the app gives you calm breathing instead, with no breath holds. Anyone who feels light-headed should shorten the hold or skip it."] },
+          { type: "read", title: "A longer exhale to settle", body: ["Slow breathing with a long exhale shifts your nervous system toward rest, which may help a busy mind settle. 4-7-8 breathing slows you to about three breaths a minute.", "If you're pregnant, or have a heart condition or epilepsy, the app gives you relaxed breathing instead, with no breath holds. Anyone who feels light-headed should shorten the hold or skip it."] },
           { type: "breath", technique: "478", minutes: 3 },
-          { type: "quiz", question: "What should you do if 4-7-8 makes you light-headed?", options: ["Push through it", "Hold your breath longer", "Shorten the hold or switch to calm breathing"], answer: 2, explain: "There's no benefit to forcing it. A gentle 4-in, 6-out breath without a hold works well too." },
+          { type: "quiz", question: "What should you do if 4-7-8 makes you light-headed?", options: ["Push through it", "Hold your breath longer", "Shorten the hold or switch to relaxed breathing"], answer: 2, explain: "There's no benefit to forcing it. A gentle 4-in, 6-out breath without a hold works well too." },
           { type: "action", title: "Tonight", body: "Lights off, lying comfortably: do four rounds, then let your breath return to normal." },
         ],
       },
@@ -272,9 +272,9 @@ export const PROGRAMS: Program[] = [
       {
         title: "Your bed is for sleep",
         blocks: [
-          { type: "read", title: "What sleep researchers teach", body: ["Cognitive behavioral therapy for insomnia (CBT-I) is the first-choice treatment for chronic insomnia in major guidelines, with strong evidence, ahead of sleeping pills. One of its parts is called stimulus control: retraining your brain to link bed with sleep.", "The basic ideas: go to bed only when sleepy, use the bed only for sleep and sex, and if you can't sleep after what feels like about 20 minutes, get up and do something calm in dim light until you feel sleepy again."] },
+          { type: "read", title: "What sleep researchers teach", body: ["Cognitive behavioral therapy for insomnia (CBT-I) is the first-choice treatment for chronic insomnia in major guidelines, with strong evidence, ahead of sleeping pills. One of its parts is called stimulus control: retraining your brain to link bed with sleep.", "The basic ideas: go to bed only when sleepy, use the bed only for sleep and sex, and if you can't sleep after what feels like about 20 minutes, get up and do something relaxing in dim light until you feel sleepy again."] },
           { type: "read", title: "This is not CBT-I", body: ["This lesson explains one idea from CBT-I. It isn't therapy and can't replace a trained clinician or a structured CBT-I program, which adjusts the plan to you.", "If you've had trouble sleeping at least three nights a week for three months, or you snore loudly, gasp at night or feel very sleepy in the day, talk to a doctor. Those can be signs of insomnia or sleep apnea, and both are treatable."] },
-          { type: "quiz", question: "If you've been lying awake for a long time, what does stimulus control suggest?", options: ["Stay in bed and try harder", "Get up, do something calm in dim light, and return when sleepy", "Check your phone until you're tired"], answer: 1, explain: "Getting up breaks the link between bed and frustration. Keep the light dim and the activity boring, then go back when you feel sleepy." },
+          { type: "quiz", question: "If you've been lying awake for a long time, what does stimulus control suggest?", options: ["Stay in bed and try harder", "Get up, do something relaxing in dim light, and return when sleepy", "Check your phone until you're tired"], answer: 1, explain: "Getting up breaks the link between bed and frustration. Keep the light dim and the activity boring, then go back when you feel sleepy." },
           { type: "reflect", prompt: "Which two sleep habits from this week will you keep?", lines: 2 },
           { type: "breath", technique: "calm", minutes: 3 },
         ],
@@ -331,7 +331,7 @@ export const PROGRAMS: Program[] = [
       {
         title: "Qigong: the Eight Brocades",
         blocks: [
-          { type: "read", title: "Flowing, steady, calm", body: ["The Eight Brocades is a centuries-old qigong set of slow movements matched to the breath.", "Small studies suggest qigong may help balance, flexibility and stress, though the research is still limited."] },
+          { type: "read", title: "Flowing, steady, relaxed", body: ["The Eight Brocades is a centuries-old qigong set of slow movements matched to the breath.", "Small studies suggest qigong may help balance, flexibility and stress, though the research is still limited."] },
           { type: "move", routine: "brocades" },
           { type: "reflect", prompt: "Which style has felt best so far: yoga, stretching, tai chi or qigong?", lines: 1 },
         ],
@@ -412,7 +412,7 @@ export const PROGRAMS: Program[] = [
           { type: "read", title: "Wishing others well", body: ["Loving-kindness is a meditation from Buddhist tradition. You silently repeat kind wishes, first for yourself, then for someone you love, someone neutral, and eventually everyone.", "Small studies suggest it may increase feelings of warmth and connection."] },
           { type: "read", title: "Try it with your breath", body: ["As you breathe slowly, repeat on each exhale: 'May you be well. May you be happy. May you be at ease.'", "Start with someone easy to love. If your mind wanders, gently come back to the words."] },
           { type: "breath", technique: "calm", minutes: 3 },
-          { type: "action", title: "Optional: a sound bath", body: "If you'd like to go longer, try a singing bowl session from Spirit & Ritual. Evidence is limited, but lying down to rest and listen may feel calming." },
+          { type: "action", title: "Optional: a sound bath", body: "If you'd like to go longer, try a singing bowl session from Spirit & Ritual. Evidence is limited, but lying down to rest and listen may feel relaxing." },
           { type: "reflect", prompt: "How did it feel to wish someone well?", lines: 1 },
         ],
       },

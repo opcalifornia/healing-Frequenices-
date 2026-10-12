@@ -5,7 +5,7 @@ import { usePlayer } from "../store/player";
 /**
  * Pulses at the binaural beat rate. To stay photosensitivity-friendly it moves
  * shape, not brightness, and the pulse depth shrinks as the beat gets faster.
- * Reduced motion or "calm visuals" freezes it.
+ * Reduced motion or "soft visuals" freezes it.
  */
 export function Visualizer({ hue = 262 }: { hue?: number }) {
   const canvas = useRef<HTMLCanvasElement>(null);

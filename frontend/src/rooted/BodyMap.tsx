@@ -5,7 +5,7 @@ import { Evidence } from "./ui";
 export type Area = "brain" | "immune" | "heart" | "gut" | "sugar" | "joints";
 
 const AREAS: Record<Area, { label: string; x: number; y: number }> = {
-  brain: { label: "Mood, calm and sleep", x: 60, y: 22 },
+  brain: { label: "Mood, ease and sleep", x: 60, y: 22 },
   immune: { label: "Colds, coughs and allergies", x: 60, y: 46 },
   heart: { label: "Heart, blood pressure and cholesterol", x: 68, y: 72 },
   gut: { label: "Digestion and gut health", x: 60, y: 102 },

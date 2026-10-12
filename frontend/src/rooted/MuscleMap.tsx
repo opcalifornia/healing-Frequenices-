@@ -64,6 +64,6 @@ export const ROUTINE_MUSCLES: Record<string, { muscles: Muscle[]; goodFor: strin
   desk: { muscles: ["neck", "shoulders", "chest", "upperBack", "arms", "lowerBack", "hips"], goodFor: ["Sitting all day", "Neck and shoulder tension", "Wrist strain"] },
   yoga: { muscles: ["shoulders", "upperBack", "core", "lowerBack", "hips", "glutes", "hamstrings", "quads", "calves"], goodFor: ["Back pain", "Flexibility", "Stress"] },
   bedtime: { muscles: ["hips", "glutes", "lowerBack", "hamstrings", "upperBack"], goodFor: ["Winding down", "Hip and back tightness", "Sleep"] },
-  taichi: { muscles: ["quads", "glutes", "calves", "core", "shoulders"], goodFor: ["Balance and falls", "Calm focus", "Leg strength"] },
+  taichi: { muscles: ["quads", "glutes", "calves", "core", "shoulders"], goodFor: ["Balance and falls", "Relaxed focus", "Leg strength"] },
   brocades: { muscles: ["shoulders", "arms", "upperBack", "core", "quads", "neck"], goodFor: ["Posture", "Energy", "Gentle strength"] },
 };

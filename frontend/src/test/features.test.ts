@@ -63,7 +63,7 @@ describe("feature catalog", () => {
     const pageFor: Record<string, string> = {
       "/breathe": "Breathe", "/nourish": "Nourish", "/move": "Move", "/places": "Places", "/earth": "Earth",
       "/calendar": "Calendar", "/light": "Light", "/garden": "Garden", "/spirit": "Spirit", "/support": "Support",
-      "/program/calmer-7": "Program",
+      "/program/relax-7": "Program",
     };
     for (const f of FEATURES) {
       const [path, hash] = f.to.split("#");
@@ -109,7 +109,7 @@ describe("triedFeatures", () => {
       support: { plans: { p1: { signs: ["Not sleeping"] } }, moods: { p1: { "2026-10-12": 3 } } },
       earth: { pledges: { p1: ["bike"] }, deeds: {} },
       wellness: { about: { p1: { onboarded: true } } },
-      programs: { enrolled: { p1: { "calmer-7": {} } } },
+      programs: { enrolled: { p1: { "relax-7": {} } } },
       user: { token: null, profiles: [{ id: "p-main" }, { id: "p-guest" }], libraries: { p1: { favorites: [], continue: [{}], custom: [] } } },
       placesHome: { walk: true },
     };

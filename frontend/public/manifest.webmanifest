@@ -18,8 +18,8 @@
   ],
   "shortcuts": [
     {
-      "name": "1-minute calm",
-      "short_name": "Calm",
+      "name": "1-minute settle-in",
+      "short_name": "Settle in",
       "description": "A one-minute breathing break",
       "url": "/breathe",
       "icons": [{ "src": "/icons/rooted-192.png", "sizes": "192x192", "type": "image/png" }]

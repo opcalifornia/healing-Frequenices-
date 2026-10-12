@@ -188,7 +188,7 @@ export function HeartCheck() {
                 <div><span>Heart rate</span><strong>{result.bpm}</strong><small>beats per minute</small></div>
                 <div><span>HRV (RMSSD)</span><strong>{result.rmssd}</strong><small>milliseconds</small></div>
               </div>
-              <p>Higher HRV generally means your calming system is more active. It varies a lot between people and through the day, so compare yourself with yourself: try a check before and after 5 minutes of coherent breathing.</p>
+              <p>Higher HRV generally means your relaxation response is more active. It varies a lot between people and through the day, so compare yourself with yourself: try a check before and after 5 minutes of coherent breathing.</p>
               <button className="btn btn--secondary btn--small" onClick={() => setStage("intro")}>Done</button>
             </motion.div>
           )}

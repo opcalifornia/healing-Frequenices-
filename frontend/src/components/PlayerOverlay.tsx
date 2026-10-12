@@ -192,7 +192,7 @@ export function PlayerOverlay() {
               <h2>{t.name}</h2>
             </div>
             <button className={`chip ${s.calmVisuals ? "is-on" : ""}`} onClick={() => setCalmVisuals(!s.calmVisuals)} aria-pressed={s.calmVisuals}>
-              Calm visuals
+              Soft visuals
             </button>
           </header>
 

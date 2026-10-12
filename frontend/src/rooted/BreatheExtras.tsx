@@ -21,7 +21,7 @@ export function QuickPicks({ onStart }: { onStart(t: Technique, minutes: number)
     { label: "When it feels like too much", sub: "1 min · physiological sigh", t: byId("sigh"), m: 1, hue: 200 },
     { label: "Fall asleep", sub: f.breathHoldCare ? "3 min · slow exhale" : "2 min · 4-7-8", t: f.breathHoldCare ? byId("calm") : byId("478"), m: f.breathHoldCare ? 3 : 2, hue: 265 },
     { label: "Focus", sub: f.breathHoldCare ? "5 min · coherent" : "2 min · box breathing", t: f.breathHoldCare ? byId("coherent") : byId("box"), m: f.breathHoldCare ? 5 : 2, hue: 225 },
-    { label: "Energy", sub: f.noPowerBreathing ? "3 min · calm, upright" : "8 min · power breathing", t: f.noPowerBreathing ? byId("calm") : byId("power"), m: 3, hue: 30 },
+    { label: "Energy", sub: f.noPowerBreathing ? "3 min · relaxed, upright" : "8 min · power breathing", t: f.noPowerBreathing ? byId("calm") : byId("power"), m: 3, hue: 30 },
   ];
   return (
     <div className="quick" role="group" aria-label="I want to">
@@ -63,7 +63,7 @@ export function PatternBuilder({ onStart, onDone }: { onStart(t: Technique, minu
     { k: "exhale", c: "#3f7fb8", v: p.exhale },
     { k: "rest", c: "rgba(255,255,255,0.2)", v: p.rest },
   ];
-  const tip = p.exhale > p.inhale ? "Longer exhale than inhale: tends to be calming." : p.inhale > p.exhale ? "Longer inhale than exhale: more energizing. Try a longer exhale to relax." : "Even breaths: balanced and steady.";
+  const tip = p.exhale > p.inhale ? "Longer exhale than inhale: tends to be relaxing." : p.inhale > p.exhale ? "Longer inhale than exhale: more energizing. Try a longer exhale to relax." : "Even breaths: balanced and steady.";
   return (
     <div className="pb">
       <h3>Build your own pattern</h3>
@@ -188,7 +188,7 @@ export function Results() {
 const LEVELS = [
   { max: 10, name: "Starting out", tip: "Your body is very sensitive to carbon dioxide. Focus on slow nasal breathing and the Settle in pattern daily." },
   { max: 20, name: "Building", tip: "Common for busy, stressed lives. Daily slow breathing with longer exhales tends to raise this over weeks." },
-  { max: 30, name: "Steady", tip: "A good, calm baseline. Keep up regular slow breathing and nasal breathing during light exercise." },
+  { max: 30, name: "Steady", tip: "A good, relaxed baseline. Keep up regular slow breathing and nasal breathing during light exercise." },
   { max: 40, name: "Strong", tip: "Relaxed, efficient breathing. Coherent breathing helps you maintain it." },
   { max: 999, name: "Excellent", tip: "Very relaxed breathing. Keep doing what you're doing." },
 ];
@@ -259,7 +259,7 @@ export function BoltTest() {
                 <li>Sit down and breathe normally through your nose for 20 seconds.</li>
                 <li>After a normal, relaxed breath out, pinch your nose and tap the big button.</li>
                 <li>Tap again at the <strong>first definite urge</strong> to breathe, like a swallow or a twitch in your throat. Don't push past it.</li>
-                <li>Your first breath afterwards should be calm. If you gasp, you held too long.</li>
+                <li>Your first breath afterwards should be relaxed. If you gasp, you held too long.</li>
               </ol>
               <button className="btn btn--primary" onClick={() => { unlockChime(); setPrep(20); setStage("prep"); }}><Icon name="play" size={18} /> Start (20 seconds of normal breathing first)</button>
               <p className="bolt__safe">Sitting down, on dry land. Never in or near water, while driving, or standing. Skip it if you're pregnant or have a heart condition, epilepsy, or panic attacks.</p>

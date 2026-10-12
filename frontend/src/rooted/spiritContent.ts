@@ -45,7 +45,7 @@ export const TRADITIONS: Tradition[] = [
   {
     id: "crystals", name: "Crystals", origin: "Used as talismans across many cultures; modern crystal healing grew in the 1970s and 80s", hue: 300, rating: "None",
     what: "The belief that stones like amethyst or rose quartz carry energies that can heal or balance the body.",
-    evidence: "No controlled studies show crystals have effects beyond placebo. In a small 2001 experiment, people holding fake crystals reported the same tingling and warmth as people holding real ones. If a stone helps you pause and set an intention, that ritual itself can be calming.",
+    evidence: "No controlled studies show crystals have effects beyond placebo. In a small 2001 experiment, people holding fake crystals reported the same tingling and warmth as people holding real ones. If a stone helps you pause and set an intention, that ritual itself can be relaxing.",
     tryIt: "Keep a stone you love by your bed or desk as a cue: when you touch it, take one slow breath.",
   },
   {

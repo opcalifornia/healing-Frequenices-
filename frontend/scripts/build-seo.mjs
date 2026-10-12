@@ -175,7 +175,8 @@ const descOf = (text, extra) => {
 // ---------- page builders ----------
 function breathingPages(ctx, c) {
   return c.TECHNIQUES.filter((t) => !t.custom).map((t) => {
-    const path = `/guides/breathing/${t.id}/`;
+    // The technique's internal id isn't a good public address, so the guide page uses its name.
+    const path = `/guides/breathing/${t.id === "calm" ? "settle-in" : t.id}/`;
     const safety = t.gated
       ? c.POWER_SAFETY
       : ["Breathe gently and never force it. If you feel light-headed or uncomfortable, stop and go back to normal breathing.", "Pregnant, or living with a heart or lung condition, panic attacks or fainting? Check with your clinician before trying breath holds or long pauses."];
@@ -199,7 +200,7 @@ ${sourcesHtml(t.sources)}`;
       type: "breathing", id: t.id, label: t.name, path, title: titleOf(t.name, "how it works & evidence"), description,
       crumbs: [{ href: "/guides/", label: "Guides" }, { href: "/guides/#breathing", label: "Breathing" }],
       body, ld: [articleLd(ctx, path, `${t.name} breathing guide`, description), faqLd(faq)],
-      cta: { path: "/breathe", id: t.id, label: `Try ${t.name} in ${BRAND}`, text: "Follow a guided pacer with timing cues, in the app." },
+      cta: { path: "/breathe", id: t.id === "calm" ? "settle-in" : t.id, label: `Try \u201c${t.name}\u201d in ${BRAND}`, text: "Follow a guided pacer with timing cues, in the app." },
     };
   });
 }

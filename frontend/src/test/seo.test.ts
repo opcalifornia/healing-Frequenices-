@@ -22,7 +22,7 @@ beforeAll(async () => {
 afterAll(() => rmSync(out, { recursive: true, force: true }));
 
 const expected = [
-  ...TECHNIQUES.filter((t) => !t.custom).map((t) => `/guides/breathing/${t.id}/`),
+  ...TECHNIQUES.filter((t) => !t.custom).map((t) => `/guides/breathing/${t.id === "calm" ? "settle-in" : t.id}/`),
   ...PANTRY.map((p) => `/guides/foods/${p.id}/`),
   ...RECIPES.map((r) => `/guides/recipes/${r.id}/`),
 ];
@@ -66,7 +66,7 @@ describe("static SEO pages", () => {
   });
 
   it("uses the app's evidence labels", () => {
-    expect(html("/guides/breathing/calm/")).toContain("Moderate evidence");
+    expect(html("/guides/breathing/settle-in/")).toContain("Moderate evidence");
     expect(html("/guides/breathing/box/")).toContain("Early evidence");
     expect(html("/guides/breathing/power/")).toContain("Mixed evidence");
     expect(html("/guides/foods/oats/")).toMatch(/Strong evidence|Moderate evidence|Mixed evidence|Early evidence/);

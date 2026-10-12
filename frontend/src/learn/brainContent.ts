@@ -91,7 +91,7 @@ export const BANDS: BandInfo[] = [
     color: "#19e3c4",
     regions: ["occipital", "parietal"],
     where: "Back of the head, over the visual cortex. It is strongest with eyes closed and drops the moment you open them.",
-    when: ["Relaxed wakefulness with eyes closed", "Calm, idle moments between tasks", "Fades with visual attention or mental effort"],
+    when: ["Relaxed wakefulness with eyes closed", "Relaxed, idle moments between tasks", "Fades with visual attention or mental effort"],
     amplitude: "Typically 20–60 µV. The first rhythm ever recorded from a human scalp.",
     uv: 45,
     centre: 10,
@@ -184,7 +184,7 @@ export const EVIDENCE: Array<{ claim: string; finding: string; strength: Strengt
   },
   {
     claim: "Slow breathing near 6 breaths per minute increases heart-rate variability",
-    finding: "A consistent finding in HRV biofeedback research, and linked to feeling calmer. It is not specific to binaural beats, but pairs well with them.",
+    finding: "A consistent finding in HRV biofeedback research, and linked to feeling more relaxed. It is not specific to binaural beats, but pairs well with them.",
     strength: "Moderate",
   },
   {

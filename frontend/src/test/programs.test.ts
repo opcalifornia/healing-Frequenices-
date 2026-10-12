@@ -46,7 +46,7 @@ describe("programs", () => {
       }
     }
   });
-  it("sleep-7 swaps 4-7-8 for calm breathing when breath holds need care", () => {
+  it("sleep-7 swaps 4-7-8 for relaxed breathing when breath holds need care", () => {
     const sleep = PROGRAMS.find((p) => p.id === "sleep-7")!;
     const holds = sleep.days.flatMap((d) => d.blocks).filter((b) => b.type === "breath" && b.technique === "478");
     expect(holds.length).toBeGreaterThan(0);

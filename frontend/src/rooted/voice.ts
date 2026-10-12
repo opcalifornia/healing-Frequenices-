@@ -36,7 +36,7 @@ let voice: SpeechSynthesisVoice | null = null;
 function pickVoice(): SpeechSynthesisVoice | null {
   if (voice || typeof speechSynthesis === "undefined") return voice;
   const all = speechSynthesis.getVoices().filter((v) => v.lang.startsWith("en"));
-  // Prefer the calmer, more natural voices most platforms ship.
+  // Prefer the gentler, more natural voices most platforms ship.
   const preferred = ["Samantha", "Ava", "Allison", "Google US English", "Microsoft Aria", "Microsoft Jenny", "Karen", "Moira", "Serena"];
   voice = preferred.map((n) => all.find((v) => v.name.includes(n))).find(Boolean) ?? all.find((v) => v.localService) ?? all[0] ?? null;
   return voice;

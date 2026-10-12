@@ -26,7 +26,7 @@ export type Draft = Omit<HealthEvent, "id" | "date" | "time"> & { date?: string;
 
 /** One-tap starting points. Times are suggestions; the free-slot finder nudges them around busy time. */
 export const TEMPLATES: Array<Draft & { emoji: string }> = [
-  { emoji: "🌬️", title: "Breathe: one-minute calm", kind: "breathe", minutes: 2, repeat: "daily", to: "/breathe", time: "15:00" },
+  { emoji: "🌬️", title: "Breathe: one-minute settle-in", kind: "breathe", minutes: 2, repeat: "daily", to: "/breathe", time: "15:00" },
   { emoji: "🚶", title: "Walk after lunch", kind: "move", minutes: 10, repeat: "weekdays", to: "/move", time: "12:45" },
   { emoji: "🧘", title: "Gentle yoga flow", kind: "move", minutes: 10, repeat: "daily", to: "/move", time: "19:00" },
   { emoji: "☀️", title: "Morning light outside", kind: "light", minutes: 10, repeat: "daily", to: "/light", time: "07:00" },

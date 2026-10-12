@@ -32,18 +32,18 @@ interface Props {
   onComplete?(): void;
 }
 
-/** Stress check-in, 1 (calm) to 10 (very stressed). */
+/** Stress check-in, 1 (relaxed) to 10 (very stressed). */
 function StressScale({ value, onChange }: { value: number; onChange(v: number): void }) {
   return (
     <div className="stress">
-      <div className="stress__row" role="radiogroup" aria-label="Stress from 1, calm, to 10, very stressed">
+      <div className="stress__row" role="radiogroup" aria-label="Stress from 1, relaxed, to 10, very stressed">
         {Array.from({ length: 10 }, (_, k) => k + 1).map((n) => (
           <motion.button key={n} role="radio" aria-checked={value === n} className={`stress__n ${value === n ? "is-on" : ""}`} style={{ "--n": n } as React.CSSProperties} onClick={() => onChange(n)} whileTap={{ scale: 0.88 }}>
             {n}
           </motion.button>
         ))}
       </div>
-      <div className="stress__ends"><span>Calm</span><span>Very stressed</span></div>
+      <div className="stress__ends"><span>Relaxed</span><span>Very stressed</span></div>
     </div>
   );
 }

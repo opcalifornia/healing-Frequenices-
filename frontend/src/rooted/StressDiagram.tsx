@@ -25,7 +25,7 @@ const STATES = {
       ["Muscles", "Soften and release"],
       ["Digestion", "Switches back on"],
       ["Blood pressure", "Eases down"],
-      ["Mind", "Wider, calmer attention"],
+      ["Mind", "Wider, steadier attention"],
     ],
     note: "Herbert Benson at Harvard named it the 'relaxation response' in the 1970s: the opposite of fight-or-flight, and something you can practice on purpose.",
   },
@@ -41,7 +41,7 @@ export function StressDiagram() {
     <div className="diagram stressd">
       <div className="seg seg--wrap" role="group" aria-label="Response">
         <button className={stress ? "is-on" : ""} aria-pressed={stress} onClick={() => setMode("stress")}>Stressed</button>
-        <button className={!stress ? "is-on" : ""} aria-pressed={!stress} onClick={() => setMode("calm")}>Calm</button>
+        <button className={!stress ? "is-on" : ""} aria-pressed={!stress} onClick={() => setMode("calm")}>Relaxed</button>
       </div>
       <div className="stressd__grid">
         <svg viewBox="0 0 240 300" className="stressd__svg" role="img" aria-label={st.path}>

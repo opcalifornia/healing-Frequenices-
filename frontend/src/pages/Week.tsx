@@ -84,7 +84,7 @@ export default function Week() {
             <h2>Nothing logged this week yet</h2>
             <p>Do a breathing session, a stretch or a combo, tap a mood on Home, or check off something on your calendar. Your recap fills in as you go.</p>
             <div className="week__empty-links">
-              <Link className="btn btn--primary" to="/breathe">Try one-minute calm</Link>
+              <Link className="btn btn--primary" to="/breathe">Try one-minute settle-in</Link>
               <Link className="btn btn--secondary" to="/calendar">Plan my week</Link>
             </div>
           </div>
@@ -119,7 +119,7 @@ export default function Week() {
               </ChartCard>
             )}
             {recap.checkIns.length > 0 && (
-              <ChartCard title="Stress before and after" sub="Your check-ins around each practice, out of 10. Lower is calmer.">
+              <ChartCard title="Stress before and after" sub="Your check-ins around each practice, out of 10. Lower is more relaxed.">
                 <StressDumbbell r={recap} />
               </ChartCard>
             )}

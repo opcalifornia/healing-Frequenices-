@@ -10,15 +10,15 @@ def _progress(client, h, pid, program, days):
 def test_create_join_progress_and_cheer(client, auth):
     a, b = auth("a@example.com"), auth("b@example.com")
     pa, pb = _pid(client, a), _pid(client, b)
-    r = client.post(f"/api/profiles/{pa}/circles", json={"programId": "calmer-7", "name": "Morning crew", "displayName": "Sam"}, headers=a)
+    r = client.post(f"/api/profiles/{pa}/circles", json={"programId": "relax-7", "name": "Morning crew", "displayName": "Sam"}, headers=a)
     assert r.status_code == 201, r.text
     circle = r.json()
     assert len(circle["code"]) == 8 and circle["members"][0]["you"] is True
 
     j = client.post(f"/api/profiles/{pb}/circles/join", json={"code": circle["code"], "displayName": "Ana"}, headers=b)
     assert j.status_code == 200
-    _progress(client, a, pa, "calmer-7", 3)
-    _progress(client, b, pb, "calmer-7", 1)
+    _progress(client, a, pa, "relax-7", 3)
+    _progress(client, b, pb, "relax-7", 1)
 
     view = client.get(f"/api/profiles/{pa}/circles", headers=a).json()[0]
     by = {m["name"]: m for m in view["members"]}
@@ -59,7 +59,7 @@ def test_privacy_limits_and_leaving(client, auth):
 def test_account_deletion_removes_membership(client, auth):
     a, b = auth("a3@example.com"), auth("b3@example.com")
     pa, pb = _pid(client, a), _pid(client, b)
-    circle = client.post(f"/api/profiles/{pa}/circles", json={"programId": "calmer-7", "name": "Crew", "displayName": "Sam"}, headers=a).json()
+    circle = client.post(f"/api/profiles/{pa}/circles", json={"programId": "relax-7", "name": "Crew", "displayName": "Sam"}, headers=a).json()
     client.post(f"/api/profiles/{pb}/circles/join", json={"code": circle["code"], "displayName": "Ana"}, headers=b)
     assert client.delete("/api/me", headers=b).status_code == 204
     names = [m["name"] for m in client.get(f"/api/profiles/{pa}/circles", headers=a).json()[0]["members"]]

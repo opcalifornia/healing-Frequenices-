@@ -59,7 +59,7 @@ export default function Join() {
           <motion.p initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.25 }}>
             {program
               ? `${program.tagline.replace(/[.!?]?$/, ".")} ${program.days.length} days, about ${avgMin} minutes a day.`
-              : "Breathing, movement, food, sleep and calm, with the evidence shown on every one. Free to start."}
+              : "Breathing, movement, food, sleep and relaxation, with the evidence shown on every one. Free to start."}
           </motion.p>
           <motion.div className="join__cta" initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.35 }}>
             <button className="btn btn--primary btn--big" onClick={start}>

@@ -132,7 +132,7 @@ export const SLEEP_TIPS: Record<string, Tip[]> = {
     },
     {
       title: "Awake for more than 20 minutes? Get up",
-      body: "Keep the lights low, do something calm, and return when sleepy. This is part of CBT-I, the first-choice treatment for long-term insomnia. If poor sleep lasts weeks, talk to a doctor.",
+      body: "Keep the lights low, do something relaxing, and return when sleepy. This is part of CBT-I, the first-choice treatment for long-term insomnia. If poor sleep lasts weeks, talk to a doctor.",
       strength: "Strong",
       source: "American College of Physicians guideline, 2016",
     },

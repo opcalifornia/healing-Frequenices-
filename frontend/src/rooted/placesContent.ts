@@ -187,7 +187,7 @@ export const HEALING_PLACES: HealingPlace[] = [
   {
     id: "dark", title: "Dark-sky places", kicker: "Stars, sleep and awe", stat: "~2 hrs", statLabel: "earlier body clock after a summer camping week with only natural light, in a small study", hue: 245,
     evidence: "Mixed", evidenceNote: "Small studies support natural light-dark cycles for body-clock timing. Research on awe is early.",
-    body: "Most people now live under skies too bright to see the Milky Way. Certified dark-sky parks and reserves protect natural darkness. In a small study, a week of camping with only natural light (bright days, dark nights) shifted people's body clocks earlier, toward sunrise and sunset. Looking at a vast starry sky is also a classic trigger of awe, which early research links with feeling calmer, more connected and less focused on everyday worries.",
+    body: "Most people now live under skies too bright to see the Milky Way. Certified dark-sky parks and reserves protect natural darkness. In a small study, a week of camping with only natural light (bright days, dark nights) shifted people's body clocks earlier, toward sunrise and sunset. Looking at a vast starry sky is also a classic trigger of awe, which early research links with feeling more relaxed, more connected and less focused on everyday worries.",
     cautions: [
       "Bring a red-light headlamp: it keeps your night vision and is easier on your body clock.",
       "Dark sites are often remote. Plan for cold nights, tell someone your plans, and drive carefully on unlit roads.",

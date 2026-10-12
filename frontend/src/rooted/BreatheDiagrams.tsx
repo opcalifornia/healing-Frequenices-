@@ -7,9 +7,9 @@ import { SourceLink } from "./ui";
 /* ------------------------------------------------------------------ */
 
 const PARTS = [
-  { id: "diaphragm", name: "Diaphragm", color: "#ffb38a", body: "A dome-shaped muscle under your lungs. When it contracts it flattens and pulls down, which draws air in. It does about 80% of the work of a calm breath. Belly breathing is just letting it move freely." },
+  { id: "diaphragm", name: "Diaphragm", color: "#ffb38a", body: "A dome-shaped muscle under your lungs. When it contracts it flattens and pulls down, which draws air in. It does about 80% of the work of a relaxed breath. Belly breathing is just letting it move freely." },
   { id: "lungs", name: "Lungs", color: "#f48fb1", body: "Two spongy organs holding roughly 300 to 500 million tiny air sacs (alveoli), where oxygen passes into your blood and carbon dioxide passes out. Laid flat, their surface would cover about half a tennis court." },
-  { id: "vagus", name: "Vagus nerve", color: "#8fd3ff", body: "The main nerve of your rest-and-digest system, running from the brainstem past the heart and lungs down to the gut. Slow breathing, and especially long exhales, increases its calming influence on your heart." },
+  { id: "vagus", name: "Vagus nerve", color: "#8fd3ff", body: "The main nerve of your rest-and-digest system, running from the brainstem past the heart and lungs down to the gut. Slow breathing, and especially long exhales, increases its relaxing influence on your heart." },
   { id: "heart", name: "Heart", color: "#e57373", body: "Your heart speeds up slightly as you breathe in and slows as you breathe out. That rhythm, called respiratory sinus arrhythmia, is healthy, and slow breathing makes it bigger." },
 ];
 
@@ -153,7 +153,7 @@ export function HeartRhythm() {
       <p className="hrr__key"><i /> Shaded = breathing in. Heart rate climbs on each inhale and drops on each exhale.</p>
       <p className="diagram__text">
         An illustration, not real data. At around six breaths a minute, heart rate and breathing fall into step (resonance), and the swings get much
-        bigger. Larger swings mean higher heart rate variability, a sign your calming rest-and-digest system is engaged. That's why the Settle in and
+        bigger. Larger swings mean higher heart rate variability, a sign your relaxing rest-and-digest system is engaged. That's why the Settle in and
         Coherent breathing patterns use this pace.
       </p>
       <p className="nourish__src">

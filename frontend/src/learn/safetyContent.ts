@@ -58,7 +58,7 @@ export const SAFETY_TIPS: Record<string, Tip[]> = {
   flash: [
     {
       title: "Flashing light between about 3 and 30 flashes per second",
-      body: "In people with photosensitive epilepsy, high-contrast flashing in roughly this range is the most likely to trigger a seizure, especially when it fills much of the field of view. That's why our visualizer moves shapes instead of flashing, slows down at fast beat rates, and has a Calm visuals switch.",
+      body: "In people with photosensitive epilepsy, high-contrast flashing in roughly this range is the most likely to trigger a seizure, especially when it fills much of the field of view. That's why our visualizer moves shapes instead of flashing, slows down at fast beat rates, and has a Soft visuals switch.",
       strength: "Strong",
       source: "Fisher et al., Epilepsia 2005",
     },

@@ -29,7 +29,7 @@ export interface Combo {
 export const COMBOS: Combo[] = [
   {
     id: "evening", name: "Evening Reset", tagline: "From wired to winding down", when: "evening", hue: 255, hue2: 300, goals: ["sleep", "stress"], evidence: "Moderate",
-    why: "Each piece has its own evidence: dim light and no screens before bed, slow breathing, muscle relaxation, and a calming sound. Together they give your body a clear signal that the day is over.",
+    why: "Each piece has its own evidence: dim light and no screens before bed, slow breathing, muscle relaxation, and a relaxing sound. Together they give your body a clear signal that the day is over.",
     steps: [
       { type: "check", title: "Dim the lights", body: "Switch to lamps or warm, low light. Put your phone on the charger outside the bedroom if you can." },
       { type: "breath", technique: "478", minutes: 2, alt: { technique: "calm", minutes: 2, when: "breathHoldCare" } },
@@ -50,7 +50,7 @@ export const COMBOS: Combo[] = [
     ],
   },
   {
-    id: "sos", name: "Gentle Reset", tagline: "Three minutes back to calm", when: "any", hue: 195, hue2: 160, goals: ["stress"], evidence: "Moderate",
+    id: "sos", name: "Gentle Reset", tagline: "Three minutes back to ease", when: "any", hue: 195, hue2: 160, goals: ["stress"], evidence: "Moderate",
     why: "Cyclic sighing is one of the fastest ways to lower arousal, grounding pulls your attention out of the spiral and into the room, and slow breathing keeps you there.",
     steps: [
       { type: "breath", technique: "sigh", minutes: 1 },
@@ -89,7 +89,7 @@ export const COMBOS: Combo[] = [
   },
   {
     id: "gratitude", name: "Gratitude Minute", tagline: "Write it down, breathe it in", when: "any", hue: 30, hue2: 340, goals: ["connect", "stress"], evidence: "Mixed",
-    why: "Regularly writing down things you're grateful for is linked with better mood in many studies, though effects are modest. Pairing it with slow breathing makes it a calm minute either way.",
+    why: "Regularly writing down things you're grateful for is linked with better mood in many studies, though effects are modest. Pairing it with slow breathing makes it a relaxed minute either way.",
     steps: [
       { type: "reflect", prompt: "Three things you're grateful for", lines: 3, hint: "People, moments, things you usually take for granted." },
       { type: "breath", technique: "calm", minutes: 1 },

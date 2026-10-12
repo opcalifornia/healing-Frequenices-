@@ -310,7 +310,7 @@ export default function Spirit() {
         <Reveal><MeditationTimer /></Reveal>
         <Reveal className="sec-block__head nourish__subhead">
           <h2>What stillness changes in your body</h2>
-          <p className="rooted__lead">Switch between stressed and calm to see the two systems at work.</p>
+          <p className="rooted__lead">Switch between stressed and relaxed to see the two systems at work.</p>
         </Reveal>
         <Reveal><StressDiagram /></Reveal>
       </section>
