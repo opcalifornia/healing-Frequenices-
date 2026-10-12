@@ -58,3 +58,5 @@
 .week__empty-links { display: flex; flex-wrap: wrap; gap: 8px; }
 
 @media (max-width: 860px) { .week__charts { grid-template-columns: minmax(0, 1fr); } }
+.week__share { margin-top: 16px; }
+.week__share .btn { display: inline-flex; align-items: center; gap: 6px; }

@@ -9,6 +9,7 @@ import { todayKey, useNourish, useWaterGoal } from "../store/nourish";
 import { addDays, parseDay, useEvents } from "../store/calendar";
 import { useActiveProfile, useUser } from "../store/user";
 import { Footer } from "../components/Footer";
+import { ShareButton } from "../rooted/ShareCard";
 import { Icon } from "../components/Icon";
 import "../rooted/rooted.css";
 import "./Week.css";
@@ -53,6 +54,25 @@ export default function Week() {
             <span>{isThisWeek ? "Last 7 days" : `Week ending ${parseDay(end).toLocaleDateString(undefined, { month: "short", day: "numeric" })}`}</span>
             <button className="icon-btn icon-btn--small" aria-label="Next week" disabled={isThisWeek} onClick={() => setEnd(addDays(end, 7) > todayKey() ? todayKey() : addDays(end, 7))}><Icon name="chevronRight" size={18} /></button>
           </div>
+          {!empty && (
+            <div className="week__share">
+              <ShareButton
+                label="Share my week"
+                className="btn btn--primary"
+                allowStress
+                data={{
+                  kind: "week",
+                  minutes: recap.totalMinutes,
+                  activeDays: recap.activeDays,
+                  streak,
+                  perDay: recap.days.map((d) => d.minutes),
+                  dayLabels: recap.days.map((d) => short(d.day).slice(0, 1)),
+                  stressDrop: recap.avgBefore !== undefined && recap.avgAfter !== undefined ? Math.round((recap.avgBefore - recap.avgAfter) * 10) / 10 : undefined,
+                  topArea: recap.byArea[0]?.area,
+                }}
+              />
+            </div>
+          )}
         </div>
       </header>
 

@@ -144,3 +144,17 @@ a.src-link:hover { color: var(--r-sand); }
 @media (max-width: 1200px) { .findings { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 @media (max-width: 860px) { .findings { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 560px) { .findings { grid-template-columns: minmax(0, 1fr); } .finding { min-height: 220px; } }
+
+/* Share cards */
+.share { display: grid; gap: 14px; padding: 28px 24px 24px; }
+.share h2 { font-size: 1.5rem; font-weight: 900; letter-spacing: -0.02em; padding-right: 40px; }
+.share__hint { color: var(--r-text-3); font-size: var(--fs-small); line-height: 1.5; }
+.share__preview { display: grid; place-items: center; justify-self: center; width: min(100%, 340px); border-radius: 18px; overflow: hidden; background: #0b0d0a; border: 1px solid var(--r-line); box-shadow: 0 24px 48px -20px rgba(0, 0, 0, 0.8); }
+.share__preview--post { aspect-ratio: 4 / 5; }
+.share__preview--story { aspect-ratio: 9 / 16; width: min(100%, 260px); }
+.share__preview img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.share__loading { color: var(--r-text-3); font-weight: 700; }
+.share__opts, .share__actions { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+.share__actions .btn { display: inline-flex; align-items: center; gap: 6px; }
+.share__toggle { display: flex; align-items: center; gap: 10px; justify-content: center; font-weight: 700; font-size: var(--fs-small); color: var(--r-text-2); }
+.share__toggle input { width: 18px; height: 18px; accent-color: var(--r-sage); }
