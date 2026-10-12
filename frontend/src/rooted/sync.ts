@@ -175,4 +175,14 @@ export function clearLocal(pid: string) {
     }
     slice.store.setState(patch);
   }
+  // Which Guide entries this profile opened.
+  try {
+    const raw = JSON.parse(localStorage.getItem("rooted-guide-visited") ?? "null");
+    if (raw?.state?.visited) {
+      delete raw.state.visited[pid];
+      localStorage.setItem("rooted-guide-visited", JSON.stringify(raw));
+    }
+  } catch {
+    /* ignore */
+  }
 }

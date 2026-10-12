@@ -12,7 +12,17 @@ export default defineConfig(({ mode }) => {
   define: { "import.meta.env.VITE_HASH_ROUTER": JSON.stringify(artifact ? "1" : "") },
   build: artifact
     ? { outDir: "dist-artifact", assetsInlineLimit: 100_000_000, cssCodeSplit: false, rollupOptions: { output: { inlineDynamicImports: true } } }
-    : {},
+    : {
+        rollupOptions: {
+          output: {
+            // Core libraries change rarely: keep them in their own long-cached files.
+            manualChunks: {
+              react: ["react", "react-dom", "react-router-dom"],
+              motion: ["framer-motion"],
+            },
+          },
+        },
+      },
   plugins: [
     react(),
   ],

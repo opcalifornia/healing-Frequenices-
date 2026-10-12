@@ -1,11 +1,10 @@
-import { lazy, Suspense, useEffect } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import { AnimatePresence } from "framer-motion";
 import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import { NavBar } from "./components/NavBar";
 import { useUser } from "./store/user";
 import { useCatalogStore } from "./store/catalog";
 import { MiniPlayer } from "./components/MiniPlayer";
-import { PlayerOverlay } from "./components/PlayerOverlay";
 import { SafetyNotice } from "./components/SafetyNotice";
 import { useMediaSession } from "./hooks/useMediaSession";
 import { usePlayer } from "./store/player";
@@ -15,9 +14,13 @@ import Hub from "./pages/Hub";
 import { startSync } from "./rooted/sync";
 import { apiEnabled } from "./api/client";
 import { CrisisSheet } from "./rooted/Crisis";
-import Home from "./pages/Home";
 import Profiles from "./pages/Profiles";
 
+const Home = lazy(() => import("./pages/Home"));
+const PlayerOverlay = lazy(() => import("./components/PlayerOverlay").then((m) => ({ default: m.PlayerOverlay })));
+// Native-only code (notifications, haptics) loads only inside the iPhone app.
+const NativeBridge = lazy(() => import("./rooted/NativeBridge"));
+const isNativeShell = () => !!(window as unknown as { Capacitor?: { isNativePlatform?(): boolean } }).Capacitor?.isNativePlatform?.();
 const Frequencies = lazy(() => import("./pages/Frequencies"));
 const Shows = lazy(() => import("./pages/Shows"));
 const Learn = lazy(() => import("./pages/Learn"));
@@ -47,8 +50,8 @@ const YourData = lazy(() => import("./pages/YourData"));
 const Calendar = lazy(() => import("./pages/Calendar"));
 const Places = lazy(() => import("./pages/Places"));
 const Earth = lazy(() => import("./pages/Earth"));
-import { NativeBridge } from "./rooted/NativeBridge";
 import { track } from "./rooted/metrics";
+const Guide = lazy(() => import("./pages/Guide"));
 const FirstWin = lazy(() => import("./pages/FirstWin"));
 const Join = lazy(() => import("./pages/Join"));
 const Week = lazy(() => import("./pages/Week"));
@@ -82,9 +85,27 @@ export default function App() {
     refresh();
   }, [loadCatalog, refresh]);
 
+  // New page: start at the top, or at the #section the link points to once it has drawn.
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [location.pathname]);
+    const id = decodeURIComponent(location.hash.slice(1));
+    if (!id) {
+      window.scrollTo(0, 0);
+      return;
+    }
+    let tries = 0;
+    const timer = setInterval(() => {
+      const el = document.getElementById(id);
+      if (el || ++tries > 30) {
+        clearInterval(timer);
+        if (!el) return;
+        const smooth = !matchMedia("(prefers-reduced-motion: reduce)").matches;
+        el.scrollIntoView({ behavior: smooth ? "smooth" : "auto", block: "start" });
+        if (!el.hasAttribute("tabindex")) el.setAttribute("tabindex", "-1");
+        el.focus({ preventScroll: true });
+      }
+    }, 100);
+    return () => clearInterval(timer);
+  }, [location.pathname, location.hash]);
 
   // The mini player reserves space at the bottom of every page.
   useEffect(() => {
@@ -105,7 +126,7 @@ export default function App() {
         Skip to content
       </a>
       {!onPicker && <NavBar />}
-      <NativeBridge />
+      {isNativeShell() && <Suspense fallback={null}><NativeBridge /></Suspense>}
       <Suspense fallback={<div className="page" />}>
         <AnimatePresence mode="wait" initial={false}>
           <Routes location={location} key={location.pathname}>
@@ -122,6 +143,7 @@ export default function App() {
             <Route path="/move" element={<RequireProfile><Move /></RequireProfile>} />
             <Route path="/places" element={<RequireProfile><Places /></RequireProfile>} />
             <Route path="/earth" element={<RequireProfile><Earth /></RequireProfile>} />
+            <Route path="/guide" element={<RequireProfile><Guide /></RequireProfile>} />
             <Route path="/start" element={<RequireProfile><FirstWin /></RequireProfile>} />
             <Route path="/week" element={<RequireProfile><Week /></RequireProfile>} />
             <Route path="/calendar" element={<RequireProfile><Calendar /></RequireProfile>} />
@@ -153,10 +175,19 @@ export default function App() {
       </Suspense>
       {!onPicker && <MiniPlayer />}
       <HoverPreview />
-      <PlayerOverlay />
+      <PlayerGate />
       <SafetyNotice />
       <CrisisSheet />
       {!onPicker && <BedtimeToast />}
     </>
   );
+}
+
+/** The full-screen player loads the first time something is expanded. */
+function PlayerGate() {
+  const open = usePlayer((s) => s.expanded && !!s.current);
+  const [seen, setSeen] = useState(false);
+  useEffect(() => { if (open) setSeen(true); }, [open]);
+  if (!seen && !open) return null;
+  return <Suspense fallback={null}><PlayerOverlay /></Suspense>;
 }
