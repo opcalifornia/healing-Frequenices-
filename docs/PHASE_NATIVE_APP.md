@@ -1,7 +1,8 @@
 # Phase: Native app (iPhone, Apple Watch, widgets, notifications)
 
-**Status:** planned. The web app is built so this is a wrap-and-extend job,
-not a rewrite.
+**Status:** in progress (step 2, Capacitor iPhone app, started; see
+[Status](#status) below). The web app is built so this is a wrap-and-extend
+job, not a rewrite.
 
 ## Why native
 
@@ -67,3 +68,80 @@ app. Add native pieces where the web can't reach.
 4. **Widgets and Siri:** quick-start and today's plan.
 5. **Apple Watch app:** haptic pacer, live heart rate, complication.
 6. **Android:** Health Connect, widgets, Wear OS tile.
+
+## Status
+
+### Done (on Linux, no Xcode needed)
+
+- **Capacitor 8 installed** in `frontend/`: `@capacitor/core`,
+  `@capacitor/haptics`, `@capacitor/local-notifications` (dependencies) and
+  `@capacitor/cli`, `@capacitor/ios` (dev dependencies), pinned exact.
+- **`frontend/capacitor.config.ts`**: app id `app.rooted.health`, name
+  "Rooted", web assets from `dist`, iOS `contentInset: "always"`, background
+  `#0b0d0a`, local notification accent `#9cc59a`.
+  The app id is a placeholder bundle id. It can change freely until the
+  first upload to App Store Connect, then it is permanent; pick the final one
+  (it must match the id registered in the Apple Developer account) before
+  the first TestFlight build.
+- **`frontend/ios/`** generated with `npx cap add ios`. Capacitor 8 uses
+  Swift Package Manager, so no CocoaPods was needed. Build output, the copied
+  web assets (`ios/App/App/public`) and generated config are git-ignored by
+  `ios/.gitignore`; re-create them with `npm run cap:sync`.
+- **npm scripts:** `npm run cap:sync` (web build, then copy into the native
+  project and update plugins) and `npm run cap:ios` (open in Xcode).
+- **`frontend/src/rooted/native.ts`**: `isNative()`, `haptic(kind)`,
+  `scheduleEventNotifications(events)` and `onNotificationTap(cb)`. All are
+  no-ops in the browser and the artifact build.
+  - Calendar events become local notifications 5 minutes before each
+    occurrence, for the next 14 days, capped at 60 (iOS keeps at most 64
+    pending). Skipped and done dates are left out. Ids are stable 31-bit
+    hashes of event id + date, and earlier Rooted notifications are
+    cancelled before rescheduling.
+  - Tapping a notification opens the event's in-app link (`extra.to`,
+    falling back to `/calendar`).
+  - The pure scheduling logic, `upcomingOccurrences()`, is tested in
+    `src/test/native.test.ts`.
+- **`frontend/src/rooted/NativeBridge.tsx`**: `<NativeBridge />` reschedules
+  notifications (debounced 1s) whenever the active profile's calendar
+  changes and routes notification taps with react-router. Mount it once
+  inside the router in `App.tsx`.
+- **Haptics:** the breathing player gives a light tap on each phase change
+  (inhale, hold, exhale) in the native app. `navigator.vibrate` stays for
+  Android browsers; iOS Safari has no vibration API.
+
+### Next, on a Mac
+
+1. Install **Xcode** (App Store) and open it once to accept the licence and
+   install the iOS platform. Then `xcode-select --install`.
+   CocoaPods is not needed for Capacitor 8 (Swift Package Manager). Install
+   it (`brew install cocoapods`) only if a later plugin asks for it.
+2. Install Node 20+ and dependencies:
+   ```sh
+   cd frontend
+   npm ci
+   ```
+3. Build the web app, copy it into the iOS project and open Xcode:
+   ```sh
+   npm run cap:sync
+   # only if frontend/ios/ is missing:  npx cap add ios
+   npm run cap:ios
+   ```
+4. In Xcode, select the **App** target, open **Signing & Capabilities**, tick
+   *Automatically manage signing* and choose your **Team** (needs the Apple
+   Developer Program for TestFlight; a free Apple ID works for running on
+   your own phone). Change the **Bundle Identifier** here and in
+   `capacitor.config.ts` if `app.rooted.health` is not the final id.
+5. **Run on a device:** plug in the iPhone, enable Developer Mode
+   (Settings, Privacy & Security), pick it as the run destination and press
+   Run. Check: breathing taps, adding a calendar event 6+ minutes ahead
+   prompts for notification permission and fires 5 minutes before, tapping
+   the notification opens the event's screen.
+6. **TestFlight:** set the version and build number, choose *Any iOS
+   Device (arm64)*, Product > Archive, then *Distribute App* > App Store
+   Connect > Upload. In App Store Connect, create the app record (same
+   bundle id) and add testers under TestFlight.
+7. After every web change: `npm run cap:sync`, then Run again in Xcode.
+
+Still to do in this step: app icon and launch screen assets
+(`@capacitor/assets` can generate them), HealthKit read and write, and a
+privacy policy URL for App Store review.

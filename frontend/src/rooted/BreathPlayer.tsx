@@ -9,6 +9,7 @@ import { speakCue, stopVoice } from "./voice";
 import { useCatalog } from "../store/catalog";
 import { usePlayer } from "../store/player";
 import { Icon } from "../components/Icon";
+import { haptic } from "./native";
 
 type Stage = "before" | "gate" | "count" | "run" | "after" | "done";
 
@@ -132,6 +133,7 @@ export function BreathPlayer({ technique: t, minutes, onClose, onComplete }: Pro
     if (soundRef.current === "tone") breathTone(p.kind, p.secs);
     else stopBreathTone();
     navigator.vibrate?.(p.kind === "hold" || p.kind === "rest" ? [20, 60, 20] : 25);
+    haptic("light");
   }, []);
 
   useEffect(() => {

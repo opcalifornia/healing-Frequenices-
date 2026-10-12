@@ -47,6 +47,7 @@ const YourData = lazy(() => import("./pages/YourData"));
 const Calendar = lazy(() => import("./pages/Calendar"));
 const Places = lazy(() => import("./pages/Places"));
 const Earth = lazy(() => import("./pages/Earth"));
+import { NativeBridge } from "./rooted/NativeBridge";
 const Legal = lazy(() => import("./pages/Legal"));
 
 function RequireProfile({ children }: { children: JSX.Element }) {
@@ -99,6 +100,7 @@ export default function App() {
         Skip to content
       </a>
       {!onPicker && <NavBar />}
+      <NativeBridge />
       <Suspense fallback={<div className="page" />}>
         <AnimatePresence mode="wait" initial={false}>
           <Routes location={location} key={location.pathname}>
