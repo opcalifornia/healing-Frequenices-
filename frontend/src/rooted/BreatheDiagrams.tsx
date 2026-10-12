@@ -153,7 +153,7 @@ export function HeartRhythm() {
       <p className="hrr__key"><i /> Shaded = breathing in. Heart rate climbs on each inhale and drops on each exhale.</p>
       <p className="diagram__text">
         An illustration, not real data. At around six breaths a minute, heart rate and breathing fall into step (resonance), and the swings get much
-        bigger. Larger swings mean higher heart rate variability, a sign your calming rest-and-digest system is engaged. That's why the Calm down and
+        bigger. Larger swings mean higher heart rate variability, a sign your calming rest-and-digest system is engaged. That's why the Settle in and
         Coherent breathing patterns use this pace.
       </p>
       <p className="nourish__src">

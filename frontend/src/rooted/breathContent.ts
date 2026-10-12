@@ -37,7 +37,7 @@ const BALBAN: Source = { text: "Balban MY et al. Brief structured respiration pr
 
 export const TECHNIQUES: Technique[] = [
   {
-    id: "calm", name: "Calm down", short: "4 in · 6 out", when: "Any time you feel wound up. The best place to start.",
+    id: "calm", name: "Settle in", short: "4 in · 6 out", when: "Any time you feel wound up. A gentle place to begin.",
     cycle: [{ kind: "in", secs: 4, say: "Breathe in" }, { kind: "out", secs: 6, say: "Breathe out" }],
     minutes: [1, 3, 5], evidence: "Moderate", hue: 160, next: "relax",
     why: "Breathing out for longer than you breathe in, at around six breaths a minute, shifts your body toward its calm, rest-and-digest mode. Slow-paced breathing reliably raises heart rate variability, a marker of that shift.",

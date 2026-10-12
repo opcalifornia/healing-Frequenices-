@@ -5,7 +5,7 @@ import { saveTextFile } from "./download";
 import { Icon } from "../components/Icon";
 
 const PRESETS: Array<Reminder & { id: string; label: string }> = [
-  { id: "morning", label: "Morning", time: "07:30", title: "Breathe: 1 minute to start the day", note: "Calm down pattern, 4 in and 6 out." },
+  { id: "morning", label: "Morning", time: "07:30", title: "Breathe: 1 minute to start the day", note: "A gentle settle-in: breathe in for 4, out for 6." },
   { id: "midday", label: "Midday", time: "13:00", title: "Breathe: midday reset", note: "Two physiological sighs, or box breathing before your next task." },
   { id: "evening", label: "Evening", time: "21:30", title: "Breathe: wind down", note: "4-7-8 or coherent breathing before bed." },
 ];

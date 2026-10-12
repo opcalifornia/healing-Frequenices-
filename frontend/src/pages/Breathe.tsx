@@ -292,11 +292,11 @@ export default function Breathe() {
                 </div>
               )}
               {notForYou(open) && (
-                <p className="for-you"><span><strong>Based on your profile:</strong> {open.id === "power" ? "power breathing isn't advised with what you told us. Try Calm down or the physiological sigh instead." : "this one includes breath holds. Keep them short and gentle, or try Calm down instead, and check with your doctor."}</span></p>
+                <p className="for-you"><span><strong>Based on your profile:</strong> {open.id === "power" ? "power breathing isn't advised with what you told us. Try Settle in or the physiological sigh instead." : "this one includes breath holds. Keep them short and gentle, or try Settle in instead, and check with your doctor."}</span></p>
               )}
               {open.rounds && <p className="tdetail__rounds">{open.rounds.count} rounds of {open.rounds.breaths} breaths, each followed by a breath hold. About 8 minutes.</p>}
               {open.id === "power" && f.noPowerBreathing ? (
-                <button className="btn btn--primary btn--big" onClick={() => start(TECHNIQUES[0], 3)}><Icon name="play" size={22} /> Start Calm down instead</button>
+                <button className="btn btn--primary btn--big" onClick={() => start(TECHNIQUES[0], 3)}><Icon name="play" size={22} /> Try Settle in instead</button>
               ) : (
                 <button className="btn btn--primary btn--big" onClick={() => start(open, mins)}><Icon name="play" size={22} /> Start</button>
               )}

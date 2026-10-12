@@ -18,6 +18,7 @@ import { useCrisis } from "../store/support";
 import { eventsOn, toMin, useEvents } from "../store/calendar";
 import { KINDS, niceTime } from "../rooted/CalendarUI";
 import { Tour } from "../rooted/Tour";
+import { stageFor, useGrowth } from "../rooted/growth";
 import "../rooted/rooted.css";
 import "./Support.css";
 import "./Hub.css";
@@ -181,6 +182,7 @@ export default function Hub() {
 /** Today's health calendar at a glance, so the plan and the schedule live in one place. */
 function HubCalendar() {
   const events = useEvents();
+  const growth = useGrowth();
   const now = new Date();
   const nowMin = now.getHours() * 60 + now.getMinutes();
   const today = eventsOn(events, todayKey());
@@ -212,6 +214,16 @@ function HubCalendar() {
         </span>
         <Icon name="chevronRight" size={20} />
       </Link>
+      {growth.days >= 1 && (
+        <Link to="/journey" className="hub-cal hub-cal--journey">
+          <span className="hub-cal__icon"><Icon name="leaf" size={22} /></span>
+          <span className="hub-cal__text">
+            <b>My journey · {stageFor(growth.days).name}</b>
+            <small>A private look at how you've grown. Only you can see it.</small>
+          </span>
+          <Icon name="chevronRight" size={20} />
+        </Link>
+      )}
       <Link to="/week" className="hub-cal hub-cal--week">
         <span className="hub-cal__icon"><Icon name="sparkle" size={22} /></span>
         <span className="hub-cal__text">

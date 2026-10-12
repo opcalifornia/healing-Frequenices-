@@ -17,8 +17,8 @@ const byId = (id: string) => TECHNIQUES.find((t) => t.id === id)!;
 export function QuickPicks({ onStart }: { onStart(t: Technique, minutes: number): void }) {
   const f = flags(useAbout().considerations);
   const picks = [
-    { label: "Calm down now", sub: "1 min · 4 in, 6 out", t: byId("calm"), m: 1, hue: 160 },
-    { label: "Panic or overwhelm", sub: "1 min · physiological sigh", t: byId("sigh"), m: 1, hue: 200 },
+    { label: "Settle in now", sub: "1 min · 4 in, 6 out", t: byId("calm"), m: 1, hue: 160 },
+    { label: "When it feels like too much", sub: "1 min · physiological sigh", t: byId("sigh"), m: 1, hue: 200 },
     { label: "Fall asleep", sub: f.breathHoldCare ? "3 min · slow exhale" : "2 min · 4-7-8", t: f.breathHoldCare ? byId("calm") : byId("478"), m: f.breathHoldCare ? 3 : 2, hue: 265 },
     { label: "Focus", sub: f.breathHoldCare ? "5 min · coherent" : "2 min · box breathing", t: f.breathHoldCare ? byId("coherent") : byId("box"), m: f.breathHoldCare ? 5 : 2, hue: 225 },
     { label: "Energy", sub: f.noPowerBreathing ? "3 min · calm, upright" : "8 min · power breathing", t: f.noPowerBreathing ? byId("calm") : byId("power"), m: 3, hue: 30 },
@@ -186,7 +186,7 @@ export function Results() {
 /* ------------------------------------------------------------------ */
 
 const LEVELS = [
-  { max: 10, name: "Starting out", tip: "Your body is very sensitive to carbon dioxide. Focus on slow nasal breathing and the Calm down pattern daily." },
+  { max: 10, name: "Starting out", tip: "Your body is very sensitive to carbon dioxide. Focus on slow nasal breathing and the Settle in pattern daily." },
   { max: 20, name: "Building", tip: "Common for busy, stressed lives. Daily slow breathing with longer exhales tends to raise this over weeks." },
   { max: 30, name: "Steady", tip: "A good, calm baseline. Keep up regular slow breathing and nasal breathing during light exercise." },
   { max: 40, name: "Strong", tip: "Relaxed, efficient breathing. Coherent breathing helps you maintain it." },

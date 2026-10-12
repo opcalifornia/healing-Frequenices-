@@ -50,7 +50,7 @@ export const COMBOS: Combo[] = [
     ],
   },
   {
-    id: "sos", name: "Stress SOS", tagline: "Three minutes back to calm", when: "any", hue: 195, hue2: 160, goals: ["stress"], evidence: "Moderate",
+    id: "sos", name: "Gentle Reset", tagline: "Three minutes back to calm", when: "any", hue: 195, hue2: 160, goals: ["stress"], evidence: "Moderate",
     why: "Cyclic sighing is one of the fastest ways to lower arousal, grounding pulls your attention out of the spiral and into the room, and slow breathing keeps you there.",
     steps: [
       { type: "breath", technique: "sigh", minutes: 1 },

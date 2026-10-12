@@ -25,7 +25,7 @@ app. Add native pieces where the web can't reach.
 | Apple Watch app | A small native watchOS app in SwiftUI | See below |
 | Widgets | WidgetKit (iOS), Glance (Android) | "1-minute calm" quick-start, streak, today's plan, current program day |
 | Push notifications | APNs and Firebase Cloud Messaging through the back end | Breathing reminders, program day nudges, bedtime wind-down. Replaces today's calendar reminders |
-| Siri and Shortcuts | App Intents | "Hey Siri, start Calm down in Rooted" |
+| Siri and Shortcuts | App Intents | "Hey Siri, start Settle in on Rooted" |
 | Better heart check | Native camera with torch control | Steadier readings than the web camera |
 | Android | Health Connect, Wear OS tile, Glance widgets | The same set of features |
 

@@ -115,7 +115,7 @@ export function MoodCheck() {
             <p>{mood === 1 ? "I'm sorry today is so hard. You don't have to carry it alone." : "Low days happen. Be gentle with yourself today."}</p>
             <div className="nudge__actions">
               {mood === 1 && <button className="btn btn--primary btn--small" onClick={show}><Icon name="heart" size={18} /> Talk to someone now</button>}
-              <Link className="btn btn--secondary btn--small" to="/combos">Try Stress SOS</Link>
+              <Link className="btn btn--secondary btn--small" to="/combos">Try Gentle Reset</Link>
               <Link className="btn btn--secondary btn--small" to="/support">Find support</Link>
             </div>
           </motion.div>

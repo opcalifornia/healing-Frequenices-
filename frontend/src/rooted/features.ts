@@ -106,7 +106,7 @@ export const FEATURES: Feature[] = [
     what: "A guided round of tensing and then releasing each muscle group.",
     why: "Feeling the contrast teaches your body what letting go of tension feels like." },
   { id: "combos", emoji: "🧩", title: "Combos", area: "Calm & breath", to: "/combos", minutes: 5, triedBy: { log: "combo:*" },
-    what: "Short guided flows that stack breath, movement, light and reflection, like Morning Armor, Evening Reset and Stress SOS.",
+    what: "Short guided flows that stack breath, movement, light and reflection, like Morning Armor, Evening Reset and Gentle Reset.",
     why: "Linking a few small habits into one routine makes each one easier to keep." },
 
   /* ---------------- Body & movement ---------------- */

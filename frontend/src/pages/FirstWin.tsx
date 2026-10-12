@@ -128,7 +128,7 @@ export default function FirstWin() {
             <>
               <span className="rooted__eyebrow">One minute</span>
               <h1>{technique.name}</h1>
-              <p className="fwin__lede">{technique.short}. Sit comfortably, relax your shoulders, and follow the circle. Breathe through your nose if you can.</p>
+              <p className="fwin__lede">{technique.short}. Sit comfortably, let your shoulders soften, and follow the circle. Breathe through your nose if you can.</p>
               <div className="fwin__orb" aria-hidden="true"><span /><span /><span /></div>
               <button className="btn btn--primary btn--big" onClick={() => setPlaying(true)}><Icon name="play" size={22} /> Start my minute</button>
               <p className="fwin__fine">Feel dizzy or uncomfortable? Stop and breathe normally.</p>
