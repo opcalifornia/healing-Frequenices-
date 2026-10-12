@@ -22,3 +22,4 @@
 .data-actions .btn { display: inline-flex; align-items: center; gap: 6px; }
 .nourish__subhead { margin-top: 40px; }
 @media (max-width: 760px) { .data-grid { grid-template-columns: minmax(0, 1fr); } }
+.data-actions__danger { color: #ff8a80 !important; }

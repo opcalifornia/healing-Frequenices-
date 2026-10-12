@@ -11,9 +11,37 @@ SOLFEGGIO = {174, 285, 396, 417, 528, 639, 741, 852, 963}
 AMBIENCES = ("rain", "waterfall", "stream", "rainforest")
 
 
+#: A few of the most common passwords that pass the length rule. Small on
+#: purpose (NIST 800-63B asks for a blocklist; this catches the worst offenders).
+COMMON_PASSWORDS = {
+    "password", "password1", "password123", "12345678", "123456789", "1234567890",
+    "qwertyuiop", "qwerty123", "iloveyou", "11111111", "00000000", "abcdefgh",
+    "abc12345", "sunshine", "princess", "football", "baseball", "welcome1",
+    "letmein1", "trustno1", "passw0rd", "starwars", "whatever", "superman",
+}
+
+
 class Credentials(BaseModel):
+    """Login body. No strength rules here: an old password must still work, and
+    a 422 for short input would only reveal the policy, not the account."""
+
+    email: EmailStr
+    password: str = Field(min_length=1, max_length=128)
+
+
+class RegisterIn(BaseModel):
     email: EmailStr
     password: str = Field(min_length=8, max_length=128)
+
+    @field_validator("password")
+    @classmethod
+    def check_password(cls, v: str) -> str:
+        # bcrypt only looks at the first 72 bytes; longer passwords would be silently truncated.
+        if len(v.encode()) > 72:
+            raise ValueError("Password is too long. Please use 72 characters or fewer")
+        if v.lower() in COMMON_PASSWORDS or len(set(v)) < 3:
+            raise ValueError("That password is too easy to guess. Try a longer phrase")
+        return v
 
 
 class UserOut(BaseModel):
@@ -46,8 +74,9 @@ class ProfileOut(BaseModel):
 
 
 class ProgressIn(BaseModel):
-    position: float = Field(ge=0)
-    duration: float = Field(ge=0)
+    # Seconds; nothing in the catalog runs longer than a day. Rejects NaN/Infinity too.
+    position: float = Field(ge=0, le=7 * 24 * 3600, allow_inf_nan=False)
+    duration: float = Field(ge=0, le=7 * 24 * 3600, allow_inf_nan=False)
 
 
 class CustomSessionIn(BaseModel):
@@ -60,7 +89,7 @@ class CustomSessionIn(BaseModel):
     isochronic: bool = False
     ambience: str | None = None
     music: str | None = None
-    createdAt: str | None = None
+    createdAt: str | None = Field(default=None, max_length=40)
 
     @field_validator("id")
     @classmethod

@@ -196,6 +196,13 @@ Set `API_PUBLIC_URL` to the API's public address (for example
 `https://rooted-api.onrender.com`) so calendar subscription links point at it,
 and `APP_URL` to the front end's address for the "Open in Rooted" links.
 
+Set `TRUST_PROXY=true` on Render and Railway (both sit behind a load
+balancer). Sign-in, sign-up and the calendar feed are rate limited per client
+IP, and without it every request looks like it comes from the load balancer,
+so all users would share one limit. Leave it off when nothing in front of the
+API sets `X-Forwarded-For`, because clients could fake the header. The limits
+are kept in memory, so they assume a single API instance.
+
 The API refuses to start with `ENVIRONMENT=production` unless `JWT_SECRET`
 is at least 32 random characters. Render's blueprint generates one for you.
 On the free tier the API sleeps when idle. The front end waits 6 seconds for

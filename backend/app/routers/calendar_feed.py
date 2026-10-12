@@ -18,13 +18,16 @@ from pydantic import BaseModel
 
 from ..config import get_settings
 from ..db import get_database
+from ..ratelimit import client_ip, too_many
 from .profiles import owned_profile
 
 router = APIRouter(tags=["calendar"])
 
-TOKEN_RE = re.compile(r"^[A-Za-z0-9_-]{20,64}$")
-TIME_RE = re.compile(r"^\d{2}:\d{2}$")
-DAY_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
+# Always use .fullmatch(): "$" alone also matches before a trailing newline,
+# which would let a crafted value inject a line break into the iCalendar output.
+TOKEN_RE = re.compile(r"[A-Za-z0-9_-]{20,64}")
+TIME_RE = re.compile(r"\d{2}:\d{2}")
+DAY_RE = re.compile(r"\d{4}-\d{2}-\d{2}")
 RRULES = {"daily": "FREQ=DAILY", "weekdays": "FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR", "weekly": "FREQ=WEEKLY"}
 
 
@@ -60,12 +63,22 @@ async def delete_feed(profile: dict[str, Any] = Depends(owned_profile)) -> Respo
 
 
 @router.get("/calendar/{token}.ics")
-async def feed(token: str) -> Response:
-    if not TOKEN_RE.match(token):
+async def feed(token: str, request: Request) -> Response:
+    # Rate limits: 60 fetches/min per token (calendar apps poll about hourly),
+    # and 60 unknown-token lookups/min per IP. Misses only count against the IP
+    # because Google/Apple fetch many people's feeds from the same addresses.
+    s = request.app.state
+    ip_key = f"ip:{client_ip(request)}"
+    wait = s.feed_ip_miss_limiter.blocked(ip_key) or s.feed_token_limiter.hit(token[:64])
+    if wait:
+        raise too_many(wait)
+    if not TOKEN_RE.fullmatch(token):
+        s.feed_ip_miss_limiter.hit(ip_key)
         raise HTTPException(status.HTTP_404_NOT_FOUND, "Not found")
     db = get_database()
     sub = await db.calendar_feeds.find_one({"token": token})
     if not sub:
+        s.feed_ip_miss_limiter.hit(ip_key)
         raise HTTPException(status.HTTP_404_NOT_FOUND, "Not found")
     doc = await db.app_state.find_one({"profile_id": sub["profile_id"], "key": "calendar"})
     events = (doc or {}).get("data", {}).get("events") or []
@@ -106,7 +119,7 @@ def _fold(line: str) -> str:
 
 def _vevent(e: dict[str, Any], app_url: str, stamp: str) -> list[str]:
     day, time = str(e.get("date", "")), str(e.get("time", ""))
-    if not DAY_RE.match(day) or not TIME_RE.match(time):
+    if not DAY_RE.fullmatch(day) or not TIME_RE.fullmatch(time):
         return []
     try:
         first = date.fromisoformat(day)
@@ -132,7 +145,7 @@ def _vevent(e: dict[str, Any], app_url: str, stamp: str) -> list[str]:
     if rule:
         lines.append(f"RRULE:{rule}")
         skips = e.get("skip") if isinstance(e.get("skip"), dict) else {}
-        lines += [f"EXDATE:{d.replace('-', '')}T{time.replace(':', '')}00" for d in sorted(skips) if DAY_RE.match(d)]
+        lines += [f"EXDATE:{d.replace('-', '')}T{time.replace(':', '')}00" for d in sorted(skips) if isinstance(d, str) and DAY_RE.fullmatch(d)]
     lines += [
         f"SUMMARY:{_text(str(e.get('title') or 'Rooted')[:200])}",
         f"DESCRIPTION:{_text(desc[:1000])}",

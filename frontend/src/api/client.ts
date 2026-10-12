@@ -28,7 +28,8 @@ export async function api<T>(path: string, init: { method?: string; body?: unkno
     let detail = res.statusText;
     try {
       const data = await res.json();
-      detail = typeof data.detail === "string" ? data.detail : detail;
+      if (typeof data.detail === "string") detail = data.detail;
+      else if (Array.isArray(data.detail) && data.detail[0]?.msg) detail = String(data.detail[0].msg).replace(/^Value error, /, "");
     } catch {
       /* not JSON */
     }

@@ -20,6 +20,10 @@ class Settings(BaseSettings):
     cors_origins: Annotated[list[str], NoDecode] = ["http://localhost:5173", "http://localhost:4173"]
     seed_on_startup: bool = True
     max_profiles: int = 6
+    #: Honour X-Forwarded-For when working out a client's IP (for rate limits).
+    #: Turn on only behind a proxy that sets it (Render, Railway, Fly...);
+    #: otherwise clients could spoof their address.
+    trust_proxy: bool = False
 
     # Stripe (subscriptions) - optional until billing launches.
     stripe_secret_key: str | None = None
@@ -45,9 +49,13 @@ class Settings(BaseSettings):
 
     @model_validator(mode="after")
     def require_real_secret_in_production(self) -> "Settings":
-        if self.environment == "production" and (self.jwt_secret == "dev-only-change-me" or len(self.jwt_secret) < 32):
+        if self.is_production and (self.jwt_secret == "dev-only-change-me" or len(self.jwt_secret) < 32):
             raise ValueError("Set JWT_SECRET to a random string of at least 32 characters in production")
         return self
+
+    @property
+    def is_production(self) -> bool:
+        return self.environment.strip().lower() == "production"
 
     @property
     def stripe_enabled(self) -> bool:

@@ -25,3 +25,5 @@ services:
         sync: false
       - key: API_PUBLIC_URL
         sync: false
+      - key: TRUST_PROXY
+        value: "true"

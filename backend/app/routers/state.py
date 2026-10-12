@@ -12,7 +12,7 @@ from datetime import datetime, timezone
 from typing import Any
 
 from fastapi import APIRouter, Depends, HTTPException, Response, status
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, field_validator
 
 from ..db import get_database
 from .profiles import owned_profile
@@ -23,11 +23,33 @@ router = APIRouter(prefix="/profiles", tags=["state"])
 #: reflections and the safety plan; the app only syncs them when the person opts in.
 STATE_KEYS = {"nourish", "practice", "wellness", "programs", "garden", "bedtime", "calendar", "earth", "journal", "support"}
 MAX_BYTES = 256 * 1024
+#: MongoDB refuses documents nested deeper than 100 levels; app state is a few levels deep.
+MAX_DEPTH = 32
+
+
+def _depth(value: Any) -> int:
+    """Nesting depth of a JSON value, computed without recursion."""
+    deepest, stack = 0, [(value, 1)]
+    while stack:
+        v, d = stack.pop()
+        if isinstance(v, (dict, list)):
+            deepest = max(deepest, d)
+            if d > MAX_DEPTH:
+                break
+            stack.extend((c, d + 1) for c in (v.values() if isinstance(v, dict) else v))
+    return deepest
 
 
 class StateIn(BaseModel):
     data: dict[str, Any] = Field(default_factory=dict)
     updatedAt: datetime
+
+    @field_validator("data")
+    @classmethod
+    def check_depth(cls, v: dict[str, Any]) -> dict[str, Any]:
+        if _depth(v) > MAX_DEPTH:
+            raise ValueError(f"State is nested too deeply (max {MAX_DEPTH} levels)")
+        return v
 
 
 def _check_key(key: str) -> None:

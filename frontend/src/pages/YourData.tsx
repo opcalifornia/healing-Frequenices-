@@ -21,6 +21,7 @@ const LABEL: Record<string, string> = {
 export default function YourData() {
   const profile = useActiveProfile();
   const account = useUser((s) => s.account);
+  const signOut = useUser((s) => s.signOut);
   const [meta, setMeta] = useState(readMeta());
   const [busy, setBusy] = useState("");
   useEffect(() => onMetaChange(() => setMeta(readMeta())), []);
@@ -31,6 +32,19 @@ export default function YourData() {
   const deleteServer = async () => {
     if (!confirm("Delete everything synced to your account for this profile? Data on this device stays.")) return;
     setBusy("delete"); await api(`/profiles/${profile.id}/state`, { method: "DELETE" }).catch(() => undefined); setBusy("");
+  };
+  const deleteAccount = async () => {
+    if (!confirm(`Delete your ${APP_NAME} account (${account?.email}) and everything stored with it, for every profile? This can't be undone.`)) return;
+    if (prompt('Type DELETE to confirm.')?.trim().toUpperCase() !== "DELETE") return;
+    setBusy("account");
+    try {
+      await api("/me", { method: "DELETE" });
+      signOut();
+      alert("Your account and its data have been deleted. Data on this device stays until you delete it below.");
+    } catch {
+      alert("We couldn't delete your account just now. Please try again.");
+    }
+    setBusy("");
   };
   const deleteLocal = () => {
     if (!confirm(`Remove ${profile.name}'s ${APP_NAME} data from this device? This can't be undone${signedIn ? " (synced copies stay on your account)" : ""}.`)) return;
@@ -98,6 +112,7 @@ export default function YourData() {
           <button className="btn btn--primary" onClick={() => void saveTextFile(`rooted-${profile.name.toLowerCase()}-data.json`, exportProfile(profile.id), "application/json")}><Icon name="bookmark" size={18} /> Download my data</button>
           {signedIn && <button className="btn btn--secondary" onClick={deleteServer} disabled={busy === "delete"}>Delete synced copy</button>}
           <button className="btn btn--secondary" onClick={deleteLocal}><Icon name="trash" size={18} /> Delete from this device</button>
+          {signedIn && <button className="btn btn--secondary data-actions__danger" onClick={deleteAccount} disabled={busy === "account"}><Icon name="trash" size={18} /> Delete my account</button>}
         </div>
       </section>
       <Footer />
