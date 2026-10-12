@@ -6,6 +6,7 @@ import { Evidence, SecTabs, Sheet, SourceLink } from "../rooted/ui";
 import { FASTING, FINDINGS, MYTHS, PLATE_SOURCE, WATER_FACTS, WATER_SOURCES, type Finding } from "../rooted/nourishContent";
 import { PlateBuilder, WaterTracker } from "../rooted/NourishTools";
 import { Pantry } from "../rooted/Pantry";
+import { Recipes } from "../rooted/Recipes";
 import { DigestiveJourney, FiberAtWork, GlucoseChart } from "../rooted/NourishDiagrams";
 import { Footer } from "../components/Footer";
 import { ProgramRail } from "../rooted/ProgramRail";
@@ -24,6 +25,7 @@ const TABS = [
   { id: "plate", label: "Your plate" },
   { id: "water", label: "Water" },
   { id: "pantry", label: "Pantry & list" },
+  { id: "recipes", label: "Recipes" },
   { id: "fasting", label: "Fasting" },
   { id: "myths", label: "Myths" },
 ];
@@ -206,6 +208,18 @@ export default function Nourish() {
           </p>
         </Reveal>
         <Pantry />
+      </section>
+
+      <section id="recipes" className="sec-block">
+        <Reveal className="sec-block__head">
+          <span className="rooted__eyebrow">Recipes</span>
+          <h2>Simple meals from the pantry</h2>
+          <p className="rooted__lead">
+            Thirty minutes or less, ten ingredients or fewer, mostly plants. Each one shows its rough plate split and why it's good, with the evidence rated.
+            Add the ingredients to your list in one tap.
+          </p>
+        </Reveal>
+        <Recipes />
       </section>
 
       <section id="fasting" className="sec-block">
