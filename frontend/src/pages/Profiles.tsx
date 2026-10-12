@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { apiEnabled } from "../api/client";
@@ -6,6 +6,8 @@ import { Avatar } from "../components/Avatar";
 import { Icon } from "../components/Icon";
 import { Logo } from "../components/Logo";
 import { useUser } from "../store/user";
+import { SYMBOLS } from "../rooted/symbols";
+import { processPhoto } from "../rooted/photo";
 import type { Profile } from "../types";
 import "./Profiles.css";
 
@@ -15,6 +17,10 @@ interface Draft {
   id?: string;
   name: string;
   hue: number;
+  symbol?: string | null;
+  kids?: boolean;
+  /** undefined = unchanged, null = remove, string = new photo. */
+  photo?: string | null;
 }
 
 export default function Profiles() {
@@ -23,13 +29,17 @@ export default function Profiles() {
   const { selectProfile, addProfile, updateProfile, removeProfile } = useUser.getState();
   const [managing, setManaging] = useState(false);
   const [draft, setDraft] = useState<Draft | null>(null);
+  const [photoError, setPhotoError] = useState<string | null>(null);
+  const fileInput = useRef<HTMLInputElement>(null);
+  const photos = useUser((s) => s.photos);
   const navigate = useNavigate();
   const location = useLocation();
   const from = (location.state as { from?: string } | null)?.from ?? "/";
 
   const choose = (p: Profile) => {
     if (managing) {
-      setDraft({ id: p.id, name: p.name, hue: p.hue });
+      setDraft({ id: p.id, name: p.name, hue: p.hue, symbol: p.symbol ?? null, kids: p.kids });
+      setPhotoError(null);
       return;
     }
     selectProfile(p.id);
@@ -38,9 +48,13 @@ export default function Profiles() {
 
   const save = async () => {
     if (!draft || !draft.name.trim()) return;
-    if (draft.id) await updateProfile(draft.id, { name: draft.name.trim(), hue: draft.hue });
-    else await addProfile(draft.name.trim(), draft.hue);
+    const { setPhoto } = useUser.getState();
+    let id = draft.id;
+    if (id) await updateProfile(id, { name: draft.name.trim(), hue: draft.hue, symbol: draft.symbol ?? null });
+    else id = await addProfile(draft.name.trim(), draft.hue, false, draft.symbol ?? null);
+    if (draft.photo !== undefined && id) setPhoto(id, draft.kids ? null : draft.photo);
     setDraft(null);
+    setPhotoError(null);
   };
 
   return (
@@ -75,7 +89,7 @@ export default function Profiles() {
         ))}
         {profiles.length < 6 && (
           <motion.li initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.08 + profiles.length * 0.05 }}>
-            <button className="profiles__card" onClick={() => setDraft({ name: "", hue: HUES[profiles.length % HUES.length] })}>
+            <button className="profiles__card" onClick={() => { setDraft({ name: "", hue: HUES[profiles.length % HUES.length], symbol: null }); setPhotoError(null); }}>
               <span className="profiles__avatar profiles__add"><Icon name="plus" size={48} /></span>
               <span className="profiles__name">Add Profile</span>
             </button>
@@ -106,7 +120,7 @@ export default function Profiles() {
               onKeyDown={(e) => e.key === "Escape" && setDraft(null)}
             >
               <h2 id="profile-dialog-title">{draft.id ? "Edit Profile" : "Add Profile"}</h2>
-              <div className="dialog__avatar"><Avatar profile={{ name: draft.name || "?", hue: draft.hue }} size={96} /></div>
+              <div className="dialog__avatar"><Avatar profile={{ name: draft.name || "?", hue: draft.hue, symbol: draft.symbol }} photo={draft.photo === undefined ? (draft.id ? photos[draft.id] : null) : draft.photo} size={96} /></div>
               <div className="field">
                 <label htmlFor="profile-name">Name</label>
                 <input
@@ -131,6 +145,44 @@ export default function Profiles() {
                   />
                 ))}
               </div>
+              <div className="dialog__label" id="symbol-label">Healing symbol</div>
+              <div className="symbols" role="radiogroup" aria-labelledby="symbol-label">
+                <button role="radio" aria-checked={!draft.symbol} aria-label="No symbol, use my initial" className={`symbols__btn symbols__btn--none ${!draft.symbol ? "is-on" : ""}`} onClick={() => setDraft({ ...draft, symbol: null })}>Aa</button>
+                {SYMBOLS.map((s) => (
+                  <button key={s.id} role="radio" aria-checked={draft.symbol === s.id} aria-label={s.label} title={s.label} className={`symbols__btn ${draft.symbol === s.id ? "is-on" : ""}`} onClick={() => setDraft({ ...draft, symbol: s.id })}>
+                    <svg viewBox="0 0 100 100" aria-hidden="true">{s.art}</svg>
+                  </button>
+                ))}
+              </div>
+              {!draft.kids && (
+                <>
+                  <div className="dialog__label">Photo (optional)</div>
+                  <div className="photo-row">
+                    <input
+                      ref={fileInput}
+                      type="file"
+                      accept="image/jpeg,image/png,image/webp,image/heic,image/heif"
+                      hidden
+                      onChange={async (e) => {
+                        const file = e.target.files?.[0];
+                        e.target.value = "";
+                        if (!file) return;
+                        try {
+                          const photo = await processPhoto(file);
+                          setDraft((d) => (d ? { ...d, photo } : d));
+                          setPhotoError(null);
+                        } catch (err) {
+                          setPhotoError((err as Error).message);
+                        }
+                      }}
+                    />
+                    <button className="btn btn--secondary btn--small" onClick={() => fileInput.current?.click()}><Icon name="plus" size={16} /> {(draft.photo ?? (draft.id ? photos[draft.id] : null)) ? "Change photo" : "Choose a photo"}</button>
+                    {(draft.photo ?? (draft.id ? photos[draft.id] : null)) && <button className="btn btn--secondary btn--small" onClick={() => setDraft({ ...draft, photo: null })}><Icon name="trash" size={16} /> Remove</button>}
+                  </div>
+                  {photoError && <p className="photo-error" role="alert">{photoError}</p>}
+                  <p className="photo-note">Your photo stays on this device. It isn't uploaded or shown to friends in circles.</p>
+                </>
+              )}
               <div className="dialog__actions">
                 <button className="btn btn--primary" onClick={save} disabled={!draft.name.trim()}>Save</button>
                 <button className="btn btn--secondary" onClick={() => setDraft(null)}>Cancel</button>

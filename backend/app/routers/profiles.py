@@ -17,7 +17,7 @@ router = APIRouter(prefix="/profiles", tags=["profiles"])
 
 
 def profile_out(p: dict[str, Any]) -> dict[str, Any]:
-    return {"id": p["_id"], "name": p["name"], "hue": p["hue"], "kids": p.get("kids", False)}
+    return {"id": p["_id"], "name": p["name"], "hue": p["hue"], "kids": p.get("kids", False), "symbol": p.get("symbol")}
 
 
 async def owned_profile(profile_id: str, user: dict[str, Any] = Depends(current_user)) -> dict[str, Any]:

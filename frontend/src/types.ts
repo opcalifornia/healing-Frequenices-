@@ -144,4 +144,6 @@ export interface Profile {
   name: string;
   hue: number;
   kids?: boolean;
+  /** A healing symbol id from rooted/symbols.tsx. */
+  symbol?: string | null;
 }

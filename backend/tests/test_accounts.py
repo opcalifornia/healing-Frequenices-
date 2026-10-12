@@ -68,3 +68,22 @@ def test_billing_and_media_are_stubbed_until_configured(client, auth):
     assert client.get("/api/billing/plans").json()["enabled"] is False
     assert client.post("/api/billing/checkout", headers=h).status_code == 501
     assert client.get("/api/media/deep-rest/audio", headers=h).status_code == 404
+
+
+def test_profile_symbol_roundtrip_and_validation(client, auth):
+    h = auth("sym@example.com")
+    made = client.post("/api/profiles", json={"name": "Ana", "hue": 140, "symbol": "tree"}, headers=h)
+    assert made.status_code == 201, made.text
+    assert made.json()["symbol"] == "tree"
+    pid = made.json()["id"]
+    assert client.patch(f"/api/profiles/{pid}", json={"symbol": "wave"}, headers=h).json()["symbol"] == "wave"
+    # Only the fixed list is accepted; photos or arbitrary strings are not.
+    assert client.patch(f"/api/profiles/{pid}", json={"symbol": "data:image/png;base64,AAAA"}, headers=h).status_code == 422
+    assert client.post("/api/profiles", json={"name": "Bo", "hue": 10, "symbol": "<script>"}, headers=h).status_code == 422
+    # Extra fields such as a photo are ignored, never stored.
+    r = client.patch(f"/api/profiles/{pid}", json={"photo": "x" * 1000}, headers=h)
+    assert r.status_code == 200 and "photo" not in r.json()
+    listed = {p["id"]: p for p in client.get("/api/profiles", headers=h).json()}
+    assert listed[pid]["symbol"] == "wave"
+    # Profiles without one still work.
+    assert client.post("/api/profiles", json={"name": "Cy", "hue": 20}, headers=h).json()["symbol"] is None

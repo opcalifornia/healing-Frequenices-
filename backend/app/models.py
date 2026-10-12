@@ -58,15 +58,32 @@ class AuthOut(BaseModel):
     user: UserOut
 
 
+#: The healing symbols a profile picture may use (see frontend/src/rooted/symbols.tsx).
+#: Profile photos are never sent to the server; only this id is.
+SYMBOLS = {"crystal", "tree", "wave", "lotus", "moon", "sun", "mountain", "feather", "leaf", "flame", "stone", "seedling", "shell", "star", "heart", "bowl"}
+
+
+def _check_symbol(v: str | None) -> str | None:
+    if v is not None and v not in SYMBOLS:
+        raise ValueError("Unknown symbol")
+    return v
+
+
 class ProfileIn(BaseModel):
     name: str = Field(min_length=1, max_length=20)
     hue: int = Field(ge=0, le=360)
     kids: bool = False
+    symbol: str | None = None
+
+    _symbol = field_validator("symbol")(_check_symbol)
 
 
 class ProfilePatch(BaseModel):
     name: str | None = Field(default=None, min_length=1, max_length=20)
     hue: int | None = Field(default=None, ge=0, le=360)
+    symbol: str | None = None
+
+    _symbol = field_validator("symbol")(_check_symbol)
 
 
 class ProfileOut(BaseModel):
@@ -74,6 +91,7 @@ class ProfileOut(BaseModel):
     name: str
     hue: int
     kids: bool = False
+    symbol: str | None = None
 
 
 class ProgressIn(BaseModel):

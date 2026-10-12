@@ -8,6 +8,7 @@ import { useJournal } from "../store/journal";
 import { useSupport } from "../store/support";
 import { useBedtime } from "../store/bedtime";
 import { useCalendar } from "../store/calendar";
+import { useUser } from "../store/user";
 import { useEarth } from "../store/earth";
 
 /**
@@ -175,6 +176,8 @@ export function clearLocal(pid: string) {
     }
     slice.store.setState(patch);
   }
+  // The profile's photo lives only on this device, so deleting device data removes it too.
+  useUser.getState().setPhoto(pid, null);
   // Which Guide entries this profile opened.
   try {
     const raw = JSON.parse(localStorage.getItem("rooted-guide-visited") ?? "null");

@@ -11,7 +11,7 @@
   position: relative; display: grid; place-items: center; width: clamp(96px, 12vw, 140px); aspect-ratio: 1; border-radius: 50%;
   transition: transform var(--t-med) var(--ease), box-shadow var(--t-med) var(--ease);
 }
-.profiles__avatar svg { width: 100%; height: 100%; }
+.profiles__avatar > svg, .profiles__avatar > .avatar--photo { width: 100% !important; height: 100% !important; }
 .profiles__card:hover .profiles__avatar, .profiles__card:focus-visible .profiles__avatar { transform: scale(1.08); box-shadow: 0 0 0 4px #fff; }
 .profiles__card:focus-visible { outline: none; }
 .profiles__card:hover .profiles__name, .profiles__card:focus-visible .profiles__name { color: #fff; }
@@ -31,3 +31,20 @@
 .swatch.is-on { border-color: #fff; transform: scale(1.1); }
 .dialog__actions { display: flex; flex-wrap: wrap; gap: 10px; }
 .profiles__actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+
+/* Photo avatars and symbol picker */
+.avatar--photo { position: relative; display: inline-block; flex: none; border-radius: 50%; }
+.avatar--photo img { display: block; width: 100%; height: 100%; border-radius: 50%; object-fit: cover; box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2); }
+.avatar__badge { position: absolute; right: -4%; bottom: -4%; border-radius: 50%; border: 2px solid #0b0d0a; padding: 2px; box-sizing: content-box; }
+.dialog__label { margin: 14px 0 6px; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255, 255, 255, 0.6); }
+.symbols { display: grid; grid-template-columns: repeat(auto-fill, minmax(52px, 1fr)); gap: 8px; }
+.symbols__btn { position: relative; aspect-ratio: 1; border-radius: 14px; padding: 8px; background: rgba(255, 255, 255, 0.06); border: 2px solid transparent; transition: transform 0.15s, border-color 0.15s, background 0.15s; }
+.symbols__btn svg { display: block; width: 100%; height: 100%; }
+.symbols__btn:hover { transform: translateY(-2px); background: rgba(255, 255, 255, 0.12); }
+.symbols__btn.is-on { border-color: #fff; background: rgba(255, 255, 255, 0.16); }
+.symbols__btn--none { display: grid; place-items: center; font-weight: 800; font-size: 0.7rem; color: rgba(255, 255, 255, 0.8); }
+.photo-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
+.photo-row .btn { display: inline-flex; align-items: center; gap: 6px; }
+.photo-note { margin-top: 6px; color: rgba(255, 255, 255, 0.6); font-size: 0.8rem; line-height: 1.45; }
+.photo-error { margin-top: 6px; color: #ff8a80; font-size: 0.85rem; }
+.dialog { max-height: min(92vh, 860px); overflow-y: auto; }
