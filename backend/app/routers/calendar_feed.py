@@ -83,13 +83,25 @@ async def feed(token: str) -> Response:
 
 
 def _text(s: str) -> str:
-    return s.replace("\\", "\\\\").replace("\n", "\\n").replace(",", "\\,").replace(";", "\\;")
+    s = s.replace("\\", "\\\\").replace("\r\n", "\n").replace("\r", "\n")
+    return s.replace("\n", "\\n").replace(",", "\\,").replace(";", "\\;")
 
 
 def _fold(line: str) -> str:
-    if len(line) <= 74:
+    """Fold at 75 octets of UTF-8 (not characters), never splitting a character."""
+    if len(line.encode()) <= 75:
         return line
-    return "\r\n ".join(line[i : i + 73] for i in range(0, len(line), 73))
+    parts: list[str] = []
+    cur, size = "", 0
+    for ch in line:
+        n = len(ch.encode())
+        if size + n > (74 if parts else 75):
+            parts.append(cur)
+            cur, size = "", 0
+        cur += ch
+        size += n
+    parts.append(cur)
+    return "\r\n ".join(parts)
 
 
 def _vevent(e: dict[str, Any], app_url: str, stamp: str) -> list[str]:
@@ -97,7 +109,11 @@ def _vevent(e: dict[str, Any], app_url: str, stamp: str) -> list[str]:
     if not DAY_RE.match(day) or not TIME_RE.match(time):
         return []
     try:
-        start = datetime.combine(date.fromisoformat(day), datetime.strptime(time, "%H:%M").time())
+        first = date.fromisoformat(day)
+        if e.get("repeat") == "weekdays" and first.weekday() >= 5:
+            # DTSTART always counts as an instance; start a weekday series on Monday like the app does.
+            first += timedelta(days=7 - first.weekday())
+        start = datetime.combine(first, datetime.strptime(time, "%H:%M").time())
         minutes = max(5, min(int(e.get("minutes") or 15), 24 * 60))
     except (ValueError, TypeError):
         return []

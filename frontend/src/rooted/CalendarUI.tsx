@@ -31,7 +31,7 @@ export const TEMPLATES: Array<Draft & { emoji: string }> = [
   { emoji: "☀️", title: "Morning light outside", kind: "light", minutes: 10, repeat: "daily", to: "/light", time: "07:00" },
   { emoji: "🪷", title: "Sit quietly", kind: "spirit", minutes: 5, repeat: "daily", to: "/spirit#sit", time: "07:15" },
   { emoji: "💧", title: "Drink a glass of water", kind: "nourish", minutes: 1, repeat: "daily", to: "/nourish#water", time: "10:00" },
-  { emoji: "🛒", title: "Grocery run", kind: "nourish", minutes: 45, repeat: "weekly", to: "/nourish#list", time: "10:00" },
+  { emoji: "🛒", title: "Grocery run", kind: "nourish", minutes: 45, repeat: "weekly", to: "/nourish#pantry", time: "10:00" },
   { emoji: "🎧", title: "Focus session", kind: "healing", minutes: 25, repeat: "weekdays", to: "/frequencies", time: "09:30" },
   { emoji: "🌙", title: "Wind down for sleep", kind: "sleep", minutes: 30, repeat: "daily", to: "/bedtime", time: "22:00" },
   { emoji: "🩺", title: "Appointment", kind: "appointment", minutes: 60, repeat: "none", time: "10:00", note: "Therapist, massage, acupuncture, doctor…" },

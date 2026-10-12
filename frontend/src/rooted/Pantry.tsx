@@ -4,12 +4,14 @@ import { CAT_LABEL, PANTRY, type PantryCat, type PantryItem } from "./pantryCont
 import { PantryArt } from "./PantryArt";
 import { Evidence, Sheet, SourceLink, useToast } from "./ui";
 import { TiltCard } from "./motion";
-import { groupByAisle, listToText, useNourish, useShoppingList } from "../store/nourish";
+import { groupByAisle, listToText, useNourish, useShoppingList, type ListItem } from "../store/nourish";
 import { Icon } from "../components/Icon";
 import { APP_NAME } from "../brand";
 import { saveTextFile } from "./download";
 import { BodyMap, PANTRY_AREAS } from "./BodyMap";
 import { flags, useAbout } from "../store/wellness";
+import { ScheduleButton } from "./CalendarUI";
+import { STORE_INFO, USDA_LOCAL_FOOD, appleMapsLink, googleMapsLink, groupByStore, tripNote, type Coords } from "./storeFinder";
 
 const CATS = Object.keys(CAT_LABEL) as PantryCat[];
 
@@ -255,7 +257,79 @@ export function ShoppingList({ onBrowse }: { onBrowse?: () => void }) {
       ) : (
         onBrowse && <button className="btn btn--primary btn--small" onClick={onBrowse}>Browse the Pantry</button>
       )}
+      {list.some((i) => !i.checked) && <StoreFinder items={list} />}
       <AnimatePresence>{note && <motion.p className="slist__note" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} role="status">{note}</motion.p>}</AnimatePresence>
     </div>
+  );
+}
+
+type LocState = { status: "idle" | "asking" | "denied" | "unavailable" } | { status: "ok"; at: Coords };
+
+/** "Find it nearby": which kinds of shops carry the list, with map-search links. Location stays in the link only. */
+function StoreFinder({ items }: { items: ListItem[] }) {
+  const [loc, setLoc] = useState<LocState>({ status: "idle" });
+  const groups = useMemo(() => groupByStore(items), [items]);
+  const at = loc.status === "ok" ? loc.at : null;
+  const note = tripNote(items);
+
+  const locate = () => {
+    if (!("geolocation" in navigator)) {
+      setLoc({ status: "unavailable" });
+      return;
+    }
+    setLoc({ status: "asking" });
+    navigator.geolocation.getCurrentPosition(
+      (pos) => setLoc({ status: "ok", at: { lat: pos.coords.latitude, lng: pos.coords.longitude } }),
+      (err) => setLoc({ status: err.code === err.PERMISSION_DENIED ? "denied" : "unavailable" }),
+      { enableHighAccuracy: false, timeout: 10000, maximumAge: 10 * 60 * 1000 },
+    );
+  };
+
+  return (
+    <section className="sfind" aria-labelledby="sfind-title">
+      <header className="sfind__head">
+        <span className="rooted__eyebrow">Where to buy</span>
+        <h3 id="sfind-title">Find it nearby</h3>
+        <p>Your location is only used to open the map, never saved or sent to us.</p>
+      </header>
+
+      <div className="sfind__loc">
+        {loc.status === "ok" ? (
+          <span className="sfind__status" role="status">Searching near you.</span>
+        ) : (
+          <button className="btn btn--secondary btn--small" onClick={locate} disabled={loc.status === "asking"}>
+            {loc.status === "asking" ? "Finding you…" : "Use my location"}
+          </button>
+        )}
+        {(loc.status === "denied" || loc.status === "unavailable") && (
+          <span className="sfind__status" role="status">
+            {loc.status === "denied" ? "Location is off." : "Couldn't get your location."} We'll search "near me" instead.
+          </span>
+        )}
+      </div>
+
+      <ul className="sfind__list">
+        {groups.map((g) => {
+          const info = STORE_INFO[g.type];
+          return (
+            <li key={g.type} className="sfind__store">
+              <div className="sfind__top">
+                <span className="sfind__chip"><span aria-hidden="true">{info.emoji}</span> {info.label} <b>{g.items.length}</b></span>
+              </div>
+              <p className="sfind__items">{g.items.map((i) => i.name).join(", ")}</p>
+              <div className="sfind__links">
+                <a className="btn btn--secondary btn--small" href={googleMapsLink(info.query, at)} target="_blank" rel="noreferrer">Google Maps</a>
+                <a className="btn btn--secondary btn--small" href={appleMapsLink(info.query, at)} target="_blank" rel="noreferrer">Apple Maps</a>
+                {g.type === "farmers" && <a className="btn btn--secondary btn--small" href={USDA_LOCAL_FOOD} target="_blank" rel="noreferrer">USDA market directory</a>}
+              </div>
+            </li>
+          );
+        })}
+      </ul>
+
+      <div className="sfind__plan">
+        <ScheduleButton draft={{ title: "Grocery run", kind: "nourish", minutes: 45, repeat: "none", to: "/nourish#pantry", note }} label="Plan a grocery trip" />
+      </div>
+    </section>
   );
 }

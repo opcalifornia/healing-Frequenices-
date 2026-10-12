@@ -18,6 +18,7 @@ import "./Support.css";
 import "./Move.css";
 import "./Combos.css";
 import "./BrainGuide.css";
+import { ProgramRail } from "../rooted/ProgramRail";
 import "./Light.css";
 import "./Spirit.css";
 
@@ -280,6 +281,14 @@ export default function Spirit() {
       </header>
 
       <SecTabs tabs={TABS} />
+
+      <section id="programs" className="sec-block">
+        <Reveal className="sec-block__head">
+          <span className="rooted__eyebrow">Programs</span>
+          <h2>Build the habit, a day at a time</h2>
+        </Reveal>
+        <ProgramRail section="spirit" />
+      </section>
 
       <section id="sound" className="sec-block">
         <Reveal className="sec-block__head">

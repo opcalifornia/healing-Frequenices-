@@ -129,6 +129,20 @@
 .slist__clear button { font-size: var(--fs-small); color: var(--r-text-3); text-decoration: underline; }
 .slist__note { color: var(--sec-1); font-size: var(--fs-small); font-weight: 700; }
 
+/* Find it nearby (store finder under the shopping list) */
+.sfind { display: grid; gap: 14px; padding: 20px; border-radius: 20px; background: var(--r-surface-2); border: 1px solid var(--r-line); }
+.sfind__head h3 { font-size: 1.3rem; font-weight: 900; letter-spacing: -0.01em; margin: 4px 0; }
+.sfind__head p { color: var(--r-text-3); font-size: var(--fs-small); line-height: 1.5; }
+.sfind__loc { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
+.sfind__status { color: var(--sec-1); font-size: var(--fs-small); font-weight: 700; }
+.sfind__list { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.sfind__store { display: grid; gap: 8px; padding: 12px 0; border-top: 1px solid var(--r-line); min-width: 0; }
+.sfind__chip { display: inline-flex; align-items: center; gap: 6px; padding: 5px 12px; border-radius: 999px; background: rgba(255, 255, 255, 0.06); border: 1px solid var(--r-line); font-size: var(--fs-small); font-weight: 800; }
+.sfind__chip b { display: inline-grid; place-items: center; min-width: 22px; height: 22px; padding: 0 6px; border-radius: 999px; background: var(--r-sand); color: #14140f; font-size: var(--fs-tiny); }
+.sfind__items { color: var(--r-text-2); font-size: var(--fs-small); line-height: 1.5; overflow-wrap: anywhere; }
+.sfind__links { display: flex; flex-wrap: wrap; gap: 8px; }
+.sfind__plan { display: flex; }
+
 /* Fasting */
 .fasting { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 14px; }
 .fasting .r-card { padding: 24px; }

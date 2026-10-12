@@ -12,14 +12,32 @@ const compactDay = (d: string) => d.replace(/-/g, "");
 const compactTime = (t: string) => t.replace(":", "") + "00";
 
 /** Escape text for an iCalendar property value. */
-export const icsText = (s: string) => s.replace(/\\/g, "\\\\").replace(/\n/g, "\\n").replace(/([,;])/g, "\\$1");
+export const icsText = (s: string) => s.replace(/\\/g, "\\\\").replace(/\r\n?|\n/g, "\\n").replace(/([,;])/g, "\\$1");
 
-/** Fold lines longer than 75 octets, as the spec asks. */
-function fold(line: string): string {
-  if (line.length <= 74) return line;
+const utf8 = new TextEncoder();
+
+/**
+ * Fold lines longer than 75 octets (UTF-8 bytes, not characters), as the spec
+ * asks. Never splits a character, so emoji and accents survive.
+ */
+export function fold(line: string): string {
+  if (utf8.encode(line).length <= 75) return line;
   const parts: string[] = [];
-  for (let i = 0; i < line.length; i += 73) parts.push((i ? " " : "") + line.slice(i, i + 73));
-  return parts.join("\r\n");
+  let cur = "";
+  let size = 0;
+  for (const ch of line) {
+    const n = utf8.encode(ch).length;
+    // The first line holds 75 octets; continuation lines start with a space, so 74.
+    if (size + n > (parts.length ? 74 : 75)) {
+      parts.push(cur);
+      cur = "";
+      size = 0;
+    }
+    cur += ch;
+    size += n;
+  }
+  parts.push(cur);
+  return parts.join("\r\n ");
 }
 
 export function rrule(r: Repeat): string | null {
@@ -31,16 +49,30 @@ export function rrule(r: Repeat): string | null {
 
 /** Start and end as floating local times (YYYYMMDDTHHMMSS), so 7am stays 7am wherever you are. */
 function span(e: HealthEvent): [string, string] {
+  const date = firstDate(e);
   const start = toMin(e.time);
-  const endMin = start + Math.max(e.minutes, 5);
-  const endDay = endMin >= 24 * 60 ? nextDay(e.date) : e.date;
-  return [`${compactDay(e.date)}T${compactTime(e.time)}`, `${compactDay(endDay)}T${compactTime(fromMin(endMin % (24 * 60)))}`];
+  const endMin = start + Math.min(Math.max(e.minutes || 0, 5), 24 * 60);
+  const endDay = shiftDay(date, Math.floor(endMin / (24 * 60)));
+  return [`${compactDay(date)}T${compactTime(e.time)}`, `${compactDay(endDay)}T${compactTime(fromMin(endMin % (24 * 60)))}`];
 }
 
-function nextDay(d: string) {
+function shiftDay(d: string, n: number) {
+  if (!n) return d;
   const [y, m, dd] = d.split("-").map(Number);
-  const x = new Date(y, m - 1, dd + 1);
+  const x = new Date(y, m - 1, dd + n);
   return `${x.getFullYear()}-${pad(x.getMonth() + 1)}-${pad(x.getDate())}`;
+}
+
+/**
+ * The first real occurrence. A weekday series created on a weekend starts on
+ * Monday in the app; calendars would otherwise also show the weekend DTSTART,
+ * because RFC 5545 always counts DTSTART as an instance.
+ */
+function firstDate(e: HealthEvent): string {
+  if (e.repeat !== "weekdays") return e.date;
+  const [y, m, dd] = e.date.split("-").map(Number);
+  const dow = new Date(y, m - 1, dd).getDay();
+  return shiftDay(e.date, dow === 6 ? 2 : dow === 0 ? 1 : 0);
 }
 
 /** Builds an absolute link into the app for an in-app path. */
@@ -59,7 +91,8 @@ function describe(e: HealthEvent, link: LinkFn): string {
 function vevent(e: HealthEvent, link: LinkFn, stamp: string, alarmMin: number | null): string[] {
   const [s, en] = span(e);
   const rule = rrule(e.repeat);
-  const ex = Object.keys(e.skip ?? {}).sort().map((d) => `EXDATE:${compactDay(d)}T${compactTime(e.time)}`);
+  // EXDATE only belongs with a repeat, and must be the same value type as DTSTART (floating date-time).
+  const ex = rule ? Object.keys(e.skip ?? {}).sort().map((d) => `EXDATE:${compactDay(d)}T${compactTime(e.time)}`) : [];
   return [
     "BEGIN:VEVENT",
     `UID:${e.id}@rooted`,
