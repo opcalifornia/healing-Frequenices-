@@ -94,3 +94,28 @@ evidence label. That honesty is the brand.
 - **Retention:** % still active after 7 and 30 days.
 - **Virality:** shares and invites per active user, and sign-ups per share.
 - **Revenue (once paid launches):** trial to paid conversion, and churn.
+
+
+## Static SEO guides (prerendered)
+
+The app is a SPA, which search engines crawl poorly. `npm run build` (in `frontend/`) therefore runs
+`scripts/build-seo.mjs` after `vite build`. It bundles the content modules with esbuild and writes plain HTML,
+readable with no JavaScript, into `dist/`:
+
+- `/guides/` index, `/guides/breathing/<id>/`, `/guides/foods/<id>/`, `/guides/recipes/<id>/`,
+  `/guides/nutrition/<id>/`, `/guides/light/<id>/` (one page per item in the content files).
+- `sitemap.xml` (guides plus the main app routes) and `robots.txt`.
+
+Each page has a unique title and description, canonical URL, Open Graph/Twitter tags, JSON-LD (Article, FAQ, Recipe),
+the app's evidence badge, sources, the safety cautions from the content data, the "Wellness education, not medical
+advice" line, and a "Try it in Rooted" button linking into the app with `utm_source=guides`.
+
+## Operating notes
+
+- Set `SITE_URL` (default `https://rooted.app`) in the Vercel project so canonicals and the sitemap use the real domain.
+  Also update the `Sitemap:` line in `frontend/public/robots.txt` if the domain differs (the build overwrites `dist/robots.txt` with `SITE_URL`).
+- New content is picked up automatically on the next build. Copy stays honest: the generator drops any sentence that
+  uses cure, detox, miracle or guaranteed (even in a debunking sentence), and never invents claims or doses.
+- `vercel.json` excludes `/guides` from the SPA rewrite so the static files are served first.
+- After launch, submit `/sitemap.xml` in Google Search Console and Bing Webmaster Tools, and track `utm_source=guides` signups.
+- Tests: `frontend/src/test/seo.test.ts` runs the generator on the real content.
