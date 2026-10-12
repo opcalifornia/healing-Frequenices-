@@ -47,6 +47,7 @@ const YourData = lazy(() => import("./pages/YourData"));
 const Calendar = lazy(() => import("./pages/Calendar"));
 const Places = lazy(() => import("./pages/Places"));
 const Earth = lazy(() => import("./pages/Earth"));
+const Legal = lazy(() => import("./pages/Legal"));
 
 function RequireProfile({ children }: { children: JSX.Element }) {
   const active = useUser((s) => s.activeProfileId);
@@ -102,6 +103,9 @@ export default function App() {
         <AnimatePresence mode="wait" initial={false}>
           <Routes location={location} key={location.pathname}>
             <Route path="/profiles" element={<Profiles />} />
+            <Route path="/privacy" element={<Legal />} />
+            <Route path="/terms" element={<Legal />} />
+            <Route path="/disclaimer" element={<Legal />} />
             <Route path="/account" element={<Account />} />
             <Route path="/" element={<RequireProfile><Hub /></RequireProfile>} />
             <Route path="/healing" element={<RequireProfile><Home /></RequireProfile>} />

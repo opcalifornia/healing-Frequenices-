@@ -12,3 +12,4 @@
 .account__switch button { color: #fff; font-weight: 800; text-decoration: underline; }
 .account__skip { text-align: center; color: var(--text-3); font-size: var(--fs-small); font-weight: 600; }
 .account__skip:hover { color: #fff; }
+.account__legal a { color: inherit; text-decoration: underline; }

@@ -30,6 +30,9 @@ export function Footer() {
             <Link to="/about-you">About you &amp; goals</Link>
             <Link to="/your-data">Your data</Link>
             <Link to="/healing">Healing Frequencies</Link>
+            <Link to="/privacy">Privacy</Link>
+            <Link to="/terms">Terms</Link>
+            <Link to="/disclaimer">Health disclaimer</Link>
           </nav>
         </div>
         <p className="footer__fine">

@@ -76,6 +76,11 @@ export default function Account() {
               {mode === "register" && <small className="account__muted">At least 8 characters.</small>}
             </div>
             {error && <p className="account__error" role="alert">{error}</p>}
+            {mode === "register" && (
+              <p className="account__muted account__legal">
+                By creating an account you agree to the <Link to="/terms">Terms</Link> and <Link to="/privacy">Privacy policy</Link>. We never sell your data.
+              </p>
+            )}
             <button className="btn btn--primary account__submit" disabled={busy || !email || password.length < 8}>
               {busy ? "Please wait…" : mode === "login" ? "Sign in" : "Create account"}
             </button>
