@@ -146,6 +146,12 @@ export function NavBar() {
                   <Link role="menuitem" className="nav__menu-item" to="/move">
                     <Icon name="replay" size={20} /> Move
                   </Link>
+                  <Link role="menuitem" className="nav__menu-item" to="/places">
+                    <Icon name="sparkle" size={20} /> Healing Places
+                  </Link>
+                  <Link role="menuitem" className="nav__menu-item" to="/earth">
+                    <Icon name="leaf" size={20} /> Earth &amp; Give Back
+                  </Link>
                   <Link role="menuitem" className="nav__menu-item" to="/support">
                     <Icon name="heart" size={20} /> Support &amp; crisis lines
                   </Link>

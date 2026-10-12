@@ -45,6 +45,8 @@ const Light = lazy(() => import("./pages/Light"));
 const Program = lazy(() => import("./pages/Program"));
 const YourData = lazy(() => import("./pages/YourData"));
 const Calendar = lazy(() => import("./pages/Calendar"));
+const Places = lazy(() => import("./pages/Places"));
+const Earth = lazy(() => import("./pages/Earth"));
 
 function RequireProfile({ children }: { children: JSX.Element }) {
   const active = useUser((s) => s.activeProfileId);
@@ -106,6 +108,8 @@ export default function App() {
             <Route path="/nourish" element={<RequireProfile><Nourish /></RequireProfile>} />
             <Route path="/breathe" element={<RequireProfile><Breathe /></RequireProfile>} />
             <Route path="/move" element={<RequireProfile><Move /></RequireProfile>} />
+            <Route path="/places" element={<RequireProfile><Places /></RequireProfile>} />
+            <Route path="/earth" element={<RequireProfile><Earth /></RequireProfile>} />
             <Route path="/calendar" element={<RequireProfile><Calendar /></RequireProfile>} />
             <Route path="/your-data" element={<RequireProfile><YourData /></RequireProfile>} />
             <Route path="/program/:id" element={<RequireProfile><Program /></RequireProfile>} />

@@ -1,0 +1,78 @@
+.earth { --sec-1: #66bb6a; --sec-2: #26c6da; }
+
+/* Ripple diagram */
+.earth__demo { position: absolute; right: max(var(--gutter), 4vw); top: calc(var(--nav-h) + 16px); width: min(36vw, 340px); opacity: 0.85; pointer-events: none; }
+.ripple { display: block; width: 100%; height: auto; overflow: visible; }
+.ripple__wave { fill: none; stroke: rgba(38, 198, 218, 0.6); stroke-width: 0.5; }
+.ripple__layer { cursor: pointer; outline: none; }
+.ripple--hero .ripple__layer { cursor: default; }
+.ripple__ring { fill: hsl(var(--h) 55% 45% / 0.1); stroke: hsl(var(--h) 65% 60% / 0.55); stroke-width: 0.6; transition: fill var(--t-fast), stroke var(--t-fast); }
+.ripple__layer:hover .ripple__ring, .ripple__layer.is-on .ripple__ring, .ripple__layer:focus-visible .ripple__ring { fill: hsl(var(--h) 55% 45% / 0.22); stroke: hsl(var(--h) 75% 70%); stroke-width: 1; }
+.ripple__label { fill: #fff; font-size: 4px; font-weight: 800; pointer-events: none; }
+.ripple__dot { fill: #66bb6a; }
+.ripple__core { fill: #fff; filter: drop-shadow(0 0 3px #66bb6a); }
+.ripple-wrap { display: grid; grid-template-columns: minmax(220px, 380px) minmax(0, 1fr); gap: clamp(18px, 4vw, 44px); align-items: center; padding: clamp(18px, 3vw, 32px); }
+.ripple-wrap__fig { max-width: 380px; width: 100%; justify-self: center; }
+.ripple-wrap__info { display: grid; gap: 10px; justify-items: start; border-left: 4px solid hsl(var(--h) 65% 60%); padding-left: 18px; }
+.ripple-wrap__info h3 { font-size: 1.5rem; font-weight: 900; }
+.ripple-wrap__info p { color: var(--r-text-2); line-height: 1.6; }
+.ripple-wrap__steps { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+
+/* Pledges */
+.pledges { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; }
+.pledge { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 12px; align-items: center; height: 100%; padding: 18px; border-left: 4px solid hsl(var(--h) 60% 55% / 0.5); transition: border-color var(--t-fast), background var(--t-fast); }
+.pledge.is-on { border-left-color: hsl(var(--h) 70% 62%); background: linear-gradient(180deg, hsl(var(--h) 45% 30% / 0.25), var(--r-surface)); }
+.pledge__info { display: grid; gap: 4px; justify-items: start; text-align: left; color: #fff; }
+.pledge__info strong { font-weight: 900; font-size: 1.05rem; }
+.pledge__short { color: var(--r-text-2); font-size: var(--fs-small); line-height: 1.45; }
+.pledge__impact { font-size: 0.68rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.08em; padding: 3px 8px; border-radius: 999px; background: rgba(255, 255, 255, 0.08); color: var(--r-text-2); }
+.pledge__impact--high { background: rgba(156, 219, 143, 0.2); color: #9cdb8f; }
+.pledge__impact--medium { background: rgba(38, 198, 218, 0.16); color: #80deea; }
+.pledge__btn { padding: 6px; border-radius: 999px; }
+.pledge__toggle { display: flex; width: 48px; height: 28px; padding: 3px; border-radius: 999px; background: rgba(255, 255, 255, 0.14); transition: background var(--t-fast); }
+.pledge__toggle span { width: 22px; height: 22px; border-radius: 50%; background: #fff; }
+.pledge__toggle.is-on { background: #66bb6a; justify-content: flex-end; }
+.earth__note { display: flex; gap: 8px; align-items: flex-start; margin-top: 16px; }
+
+/* Good deeds journal */
+.deeds { display: grid; gap: 14px; padding: clamp(18px, 3vw, 28px); }
+.deeds__form { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.deeds__form label { width: 100%; font-size: var(--fs-tiny); font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: var(--r-text-3); }
+.deeds__input { flex: 1 1 240px; min-width: 0; padding: 12px 14px; border-radius: 12px; border: 1px solid var(--r-line); background: rgba(0, 0, 0, 0.3); color: #fff; font: inherit; }
+.deeds__input:focus { outline: 2px solid var(--r-sand); outline-offset: 1px; }
+.deeds__ideas { display: flex; flex-wrap: wrap; gap: 6px; }
+.deeds__list { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.deeds__list li { display: grid; grid-template-columns: 90px minmax(0, 1fr) auto; gap: 10px; align-items: center; padding: 10px 12px; border-radius: 12px; background: rgba(102, 187, 106, 0.08); border: 1px solid rgba(102, 187, 106, 0.2); }
+.deeds__date { font-size: var(--fs-tiny); font-weight: 800; color: #9cdb8f; }
+.deeds__text { line-height: 1.4; overflow-wrap: anywhere; }
+.deeds__empty { color: var(--r-text-3); font-size: var(--fs-small); }
+
+/* Nonprofits */
+.earth__causes { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+.orgs { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+.org { display: grid; gap: 6px; align-content: start; padding: 20px; color: #fff; border-top: 3px solid hsl(var(--h) 65% 60%); }
+.org strong { font-size: 1.1rem; font-weight: 900; }
+.org p { color: var(--r-text-2); font-size: var(--fs-small); line-height: 1.5; }
+.org__go { margin-top: 6px; font-size: var(--fs-small); font-weight: 800; color: hsl(var(--h) 75% 72%); }
+.org:focus-visible { outline: 2px solid var(--r-sand); outline-offset: 3px; }
+.raters { display: grid; gap: 10px; justify-items: start; margin-top: 14px; padding: 20px; }
+.raters h3 { font-weight: 900; }
+.raters p { color: var(--r-text-2); font-size: var(--fs-small); line-height: 1.5; }
+.raters__links { display: flex; flex-wrap: wrap; gap: 8px; }
+
+/* Local action */
+.basic { position: relative; }
+.basic__dot { width: 12px; height: 12px; border-radius: 50%; background: hsl(var(--h) 65% 60%); box-shadow: 0 0 12px hsl(var(--h) 65% 60% / 0.7); }
+.local__links { display: flex; flex-wrap: wrap; gap: 6px 14px; margin-top: 6px; }
+.earth__schedule { display: flex; flex-wrap: wrap; gap: 14px 24px; align-items: center; justify-content: space-between; margin-top: 16px; padding: 22px; background: linear-gradient(120deg, rgba(102, 187, 106, 0.14), rgba(38, 198, 218, 0.1)); }
+.earth__schedule h3 { font-weight: 900; }
+.earth__schedule p { color: var(--r-text-2); font-size: var(--fs-small); max-width: 52ch; }
+.earth__schedule .btn { display: inline-flex; align-items: center; gap: 6px; }
+
+@media (max-width: 760px) {
+  .earth__demo { width: 46vw; opacity: 0.45; }
+  .ripple-wrap { grid-template-columns: minmax(0, 1fr); }
+  .ripple-wrap__fig { max-width: 300px; }
+  .deeds__list li { grid-template-columns: minmax(0, 1fr) auto; }
+  .deeds__date { grid-column: 1 / -1; }
+}
