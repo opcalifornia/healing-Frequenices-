@@ -1,0 +1,60 @@
+.week { --sec-1: #9cdb8f; --sec-2: #6ec6ff; }
+.week__hero { min-height: min(52vh, 440px); }
+.week__nav { display: flex; align-items: center; gap: 12px; margin-top: 18px; font-weight: 800; color: var(--r-text-2); }
+.week__nav button[disabled] { opacity: 0.35; cursor: default; }
+
+.week__stats { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; padding-top: 24px; }
+.week-stat { display: grid; gap: 4px; padding: 18px; }
+.week-stat__value { font-size: clamp(1.9rem, 4vw, 2.6rem); font-weight: 900; letter-spacing: -0.03em; line-height: 1; color: #fff; }
+.week-stat__value small { margin-left: 6px; font-size: 0.9rem; font-weight: 800; color: var(--r-text-2); letter-spacing: 0; }
+.week-stat__label { color: var(--r-text-2); font-size: var(--fs-small); font-weight: 700; }
+.week-stat__note { color: var(--r-text-3); font-size: var(--fs-tiny); }
+
+.week__insights { padding: 22px; display: grid; gap: 12px; border-left: 4px solid var(--sec-1); }
+.week__insights h2 { display: flex; align-items: center; gap: 8px; font-size: 1.25rem; font-weight: 900; }
+.week__insights ul { margin: 0; padding-left: 20px; display: grid; gap: 8px; color: var(--r-text-2); line-height: 1.55; }
+
+.week__charts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.week-chart { padding: 20px; display: grid; gap: 6px; align-content: start; }
+.week-chart h3 { font-size: 1.1rem; font-weight: 900; }
+.week-chart__sub { color: var(--r-text-3); font-size: var(--fs-tiny); line-height: 1.45; margin-bottom: 6px; }
+
+.wk-viz { position: relative; }
+.wk-viz svg { display: block; width: 100%; height: auto; overflow: visible; }
+.wk-viz__grid { stroke: rgba(232, 213, 176, 0.08); stroke-width: 1; }
+.wk-viz__base { stroke: rgba(232, 213, 176, 0.3); stroke-width: 1; }
+.wk-viz__axis { fill: var(--r-text-3); font-size: 10px; font-weight: 700; }
+.wk-viz__axis.is-today { fill: #fff; }
+.wk-viz__val { fill: #fff; font-size: 11px; font-weight: 800; }
+.wk-viz__lbl { fill: var(--r-text-2); font-size: 9px; font-weight: 700; }
+.wk-viz__dot { stroke: #141813; stroke-width: 2; }
+.wk-viz__link { stroke: rgba(240, 232, 214, 0.35); stroke-width: 2; stroke-linecap: round; }
+.wk-viz rect[tabindex]:focus-visible { outline: none; fill: rgba(255, 255, 255, 0.06); }
+.wk-viz__legend { display: flex; gap: 16px; font-size: var(--fs-tiny); font-weight: 700; color: var(--r-text-2); margin-bottom: 4px; }
+.wk-viz__legend span { display: inline-flex; align-items: center; gap: 6px; }
+.wk-viz__legend i { width: 10px; height: 10px; border-radius: 50%; }
+.wk-tip { position: absolute; transform: translate(-50%, -100%); pointer-events: none; z-index: 2; display: grid; gap: 2px; padding: 8px 10px; border-radius: 10px; background: #0b0d0a; border: 1px solid var(--r-line); box-shadow: 0 10px 24px rgba(0, 0, 0, 0.5); font-size: var(--fs-tiny); color: var(--r-text-2); white-space: nowrap; }
+.wk-tip strong { color: #fff; font-size: var(--fs-small); }
+
+.area-bars { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.area-bars li { display: grid; grid-template-columns: 80px minmax(0, 1fr) 64px; gap: 10px; align-items: center; }
+.area-bars__name { font-weight: 800; font-size: var(--fs-small); }
+.area-bars__track { height: 12px; border-radius: 0 4px 4px 0; background: rgba(255, 255, 255, 0.05); overflow: hidden; }
+.area-bars__track i { display: block; height: 100%; border-radius: 0 4px 4px 0; }
+.area-bars__val { text-align: right; color: var(--r-text-2); font-size: var(--fs-small); font-weight: 700; }
+
+.week__table { padding: 18px 20px; }
+.week__table summary { cursor: pointer; font-weight: 800; }
+.week__table-scroll { overflow-x: auto; margin-top: 12px; }
+.week__table table { width: 100%; border-collapse: collapse; font-size: var(--fs-small); }
+.week__table th, .week__table td { padding: 8px 10px; text-align: left; border-bottom: 1px solid var(--r-line); white-space: nowrap; }
+.week__table thead th { color: var(--r-text-3); font-size: var(--fs-tiny); text-transform: uppercase; letter-spacing: 0.06em; }
+.week__table tbody th { font-weight: 700; }
+.week__fine { margin-top: 14px; color: var(--r-text-3); font-size: var(--fs-tiny); max-width: 70ch; line-height: 1.5; }
+
+.week__empty { display: grid; gap: 12px; justify-items: start; padding: 28px; }
+.week__empty h2 { font-size: 1.4rem; font-weight: 900; }
+.week__empty p { color: var(--r-text-2); line-height: 1.55; max-width: 60ch; }
+.week__empty-links { display: flex; flex-wrap: wrap; gap: 8px; }
+
+@media (max-width: 860px) { .week__charts { grid-template-columns: minmax(0, 1fr); } }

@@ -77,3 +77,4 @@
 .hub-cal__items { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: var(--fs-small); color: var(--r-text-2); }
 .hub-cal__items span { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
 .hub-cal__items i { width: 8px; height: 8px; border-radius: 50%; background: var(--k); }
+.hub-cal--week { margin-top: 10px; background: linear-gradient(120deg, rgba(156, 219, 143, 0.12), rgba(110, 198, 255, 0.1)); border-color: rgba(156, 219, 143, 0.25); }

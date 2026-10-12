@@ -48,6 +48,7 @@ const Calendar = lazy(() => import("./pages/Calendar"));
 const Places = lazy(() => import("./pages/Places"));
 const Earth = lazy(() => import("./pages/Earth"));
 import { NativeBridge } from "./rooted/NativeBridge";
+const Week = lazy(() => import("./pages/Week"));
 const Legal = lazy(() => import("./pages/Legal"));
 
 function RequireProfile({ children }: { children: JSX.Element }) {
@@ -116,6 +117,7 @@ export default function App() {
             <Route path="/move" element={<RequireProfile><Move /></RequireProfile>} />
             <Route path="/places" element={<RequireProfile><Places /></RequireProfile>} />
             <Route path="/earth" element={<RequireProfile><Earth /></RequireProfile>} />
+            <Route path="/week" element={<RequireProfile><Week /></RequireProfile>} />
             <Route path="/calendar" element={<RequireProfile><Calendar /></RequireProfile>} />
             <Route path="/your-data" element={<RequireProfile><YourData /></RequireProfile>} />
             <Route path="/program/:id" element={<RequireProfile><Program /></RequireProfile>} />

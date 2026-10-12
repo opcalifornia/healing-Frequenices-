@@ -184,6 +184,14 @@ function HubCalendar() {
         </span>
         <Icon name="chevronRight" size={20} />
       </Link>
+      <Link to="/week" className="hub-cal hub-cal--week">
+        <span className="hub-cal__icon"><Icon name="sparkle" size={22} /></span>
+        <span className="hub-cal__text">
+          <b>Your week</b>
+          <small>Minutes, mood and what's helping, in a few simple charts.</small>
+        </span>
+        <Icon name="chevronRight" size={20} />
+      </Link>
     </section>
   );
 }
