@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
+import { pendingInvite } from "../rooted/invite";
 import { api, apiEnabled, setAuthToken } from "../api/client";
 import type { ContinueEntry, CustomSession, Profile } from "../types";
 
@@ -12,6 +13,7 @@ interface Library {
 interface Account {
   id: string;
   email: string;
+  refCode?: string | null;
 }
 
 interface UserState {
@@ -156,7 +158,7 @@ export const useUser = create<UserState>()(
         async signIn(email, password, mode) {
           const res = await api<{ token: string; user: Account }>(`/auth/${mode}`, {
             method: "POST",
-            body: { email, password },
+            body: mode === "register" && pendingInvite()?.ref ? { email, password, ref: pendingInvite()!.ref } : { email, password },
           });
           setAuthToken(res.token);
           set({ token: res.token, account: res.user, activeProfileId: null });

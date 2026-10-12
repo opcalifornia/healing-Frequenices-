@@ -48,6 +48,7 @@ const Calendar = lazy(() => import("./pages/Calendar"));
 const Places = lazy(() => import("./pages/Places"));
 const Earth = lazy(() => import("./pages/Earth"));
 import { NativeBridge } from "./rooted/NativeBridge";
+const Join = lazy(() => import("./pages/Join"));
 const Week = lazy(() => import("./pages/Week"));
 const Legal = lazy(() => import("./pages/Legal"));
 
@@ -106,6 +107,7 @@ export default function App() {
         <AnimatePresence mode="wait" initial={false}>
           <Routes location={location} key={location.pathname}>
             <Route path="/profiles" element={<Profiles />} />
+            <Route path="/join" element={<Join />} />
             <Route path="/privacy" element={<Legal />} />
             <Route path="/terms" element={<Legal />} />
             <Route path="/disclaimer" element={<Legal />} />

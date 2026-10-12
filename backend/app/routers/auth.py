@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import secrets
 import uuid
 from datetime import datetime, timezone
 from typing import Any
@@ -17,7 +18,13 @@ router = APIRouter(tags=["auth"])
 
 
 def user_out(u: dict[str, Any]) -> UserOut:
-    return UserOut(id=u["_id"], email=u["email"], plan=u.get("plan", "free"))
+    return UserOut(id=u["_id"], email=u["email"], plan=u.get("plan", "free"), refCode=u.get("ref_code"))
+
+
+def new_ref_code() -> str:
+    """Short, unambiguous invite code (no 0/O/1/l/I)."""
+    alphabet = "abcdefghjkmnpqrstuvwxyz23456789"
+    return "".join(secrets.choice(alphabet) for _ in range(8))
 
 
 #: Collections keyed by profile_id that hold a profile's data.
@@ -51,6 +58,7 @@ async def register(body: RegisterIn, request: Request) -> AuthOut:
     if await db.users.find_one({"email": email}):
         raise HTTPException(status.HTTP_409_CONFLICT, "An account with that email already exists")
     now = datetime.now(timezone.utc)
+    referrer = await db.users.find_one({"ref_code": body.ref}) if body.ref else None
     user = {
         "_id": f"u-{uuid.uuid4().hex}",
         "email": email,
@@ -58,6 +66,8 @@ async def register(body: RegisterIn, request: Request) -> AuthOut:
         "plan": "free",
         "stripe_customer_id": None,
         "created_at": now,
+        "ref_code": new_ref_code(),
+        "referred_by": referrer["_id"] if referrer else None,
     }
     try:
         await db.users.insert_one(user)
@@ -89,6 +99,18 @@ async def me(user: dict[str, Any] = Depends(current_user)) -> dict[str, Any]:
     return {"user": user_out(user), "profiles": [ProfileOut.model_validate(p) for p in profiles]}
 
 
+@router.get("/me/referrals")
+async def referrals(user: dict[str, Any] = Depends(current_user)) -> dict[str, Any]:
+    """The account's invite code and how many people signed up with it. Only a count: never who."""
+    db = get_database()
+    code = user.get("ref_code")
+    if not code:
+        code = new_ref_code()
+        await db.users.update_one({"_id": user["_id"]}, {"$set": {"ref_code": code}})
+    joined = await db.users.count_documents({"referred_by": user["_id"]})
+    return {"code": code, "joined": joined}
+
+
 @router.delete("/me", status_code=status.HTTP_204_NO_CONTENT)
 async def delete_account(user: dict[str, Any] = Depends(current_user)) -> Response:
     """Delete the account and everything stored for it (right to erasure).
@@ -105,5 +127,7 @@ async def delete_account(user: dict[str, Any] = Depends(current_user)) -> Respon
         for name in PROFILE_DATA:
             await db[name].delete_many({"profile_id": {"$in": profile_ids}})
         await db.profiles.delete_many({"user_id": user["_id"]})
+    # Friends this person invited keep their accounts; just drop the link back.
+    await db.users.update_many({"referred_by": user["_id"]}, {"$set": {"referred_by": None}})
     await db.users.delete_one({"_id": user["_id"]})
     return Response(status_code=status.HTTP_204_NO_CONTENT)

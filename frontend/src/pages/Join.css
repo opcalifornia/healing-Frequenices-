@@ -1,0 +1,24 @@
+.join__inner { --sec-1: hsl(var(--h, 140) 55% 68%); --sec-2: hsl(var(--h2, 200) 55% 62%); }
+.join__hero { min-height: min(68vh, 600px); }
+.join__brand { margin-bottom: 18px; }
+.join__hero h1 em { font-style: normal; color: var(--sec-1); }
+.join__cta { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; margin-top: 22px; }
+.join__cta .btn { display: inline-flex; align-items: center; gap: 8px; }
+.join__note { color: var(--r-text-3); font-size: var(--fs-small); }
+.join__preview { padding-top: 24px; }
+.join__card { display: grid; gap: 14px; padding: clamp(20px, 3vw, 30px); max-width: 760px; border-top: 3px solid var(--sec-1); }
+.join__card p { color: var(--r-text-2); line-height: 1.6; }
+.join__meta { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 22px; color: var(--r-text-2); }
+.join__meta strong { color: #fff; font-size: 1.3rem; font-weight: 900; }
+.join__days { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.join__days li { display: flex; align-items: center; gap: 12px; font-weight: 700; }
+.join__days span { display: grid; place-items: center; flex: none; width: 30px; height: 30px; border-radius: 50%; background: hsl(var(--h, 140) 55% 50% / 0.2); color: var(--sec-1); font-weight: 900; }
+.join__more { color: var(--r-text-3); padding-left: 42px; font-weight: 600 !important; }
+.join__by { font-size: var(--fs-small); color: var(--r-text-3) !important; }
+.join__points { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.join__points div { display: flex; gap: 10px; align-items: flex-start; padding: 18px; border-radius: 16px; background: var(--r-surface); border: 1px solid var(--r-line); color: var(--r-text-2); line-height: 1.5; }
+.join__points svg { flex: none; color: var(--r-sage); margin-top: 2px; }
+.join__points strong { color: #fff; }
+.join__fine { margin: 28px 0 56px; color: var(--r-text-3); font-size: var(--fs-small); }
+.join__fine a { color: var(--r-sand); font-weight: 700; }
+@media (max-width: 760px) { .join__points { grid-template-columns: minmax(0, 1fr); } }

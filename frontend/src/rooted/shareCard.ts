@@ -22,6 +22,7 @@ export interface WeekCardData {
 
 export interface ProgramCardData {
   kind: "program";
+  id?: string;
   title: string;
   days: number;
   section: string;

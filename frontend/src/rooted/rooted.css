@@ -158,3 +158,17 @@ a.src-link:hover { color: var(--r-sand); }
 .share__actions .btn { display: inline-flex; align-items: center; gap: 6px; }
 .share__toggle { display: flex; align-items: center; gap: 10px; justify-content: center; font-weight: 700; font-size: var(--fs-small); color: var(--r-text-2); }
 .share__toggle input { width: 18px; height: 18px; accent-color: var(--r-sage); }
+
+/* Invites */
+.invite { display: grid; gap: 14px; padding: 28px 24px 24px; }
+.invite h2 { font-size: 1.5rem; font-weight: 900; letter-spacing: -0.02em; padding-right: 40px; }
+.invite__hint { color: var(--r-text-3); font-size: var(--fs-small); line-height: 1.5; }
+.invite__toggle { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: var(--fs-small); color: var(--r-text-2); }
+.invite__toggle input { width: 18px; height: 18px; accent-color: var(--r-sage); }
+.invite__field { display: grid; gap: 6px; }
+.invite__field span { font-size: var(--fs-tiny); font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: var(--r-text-3); }
+.invite__field input { padding: 11px 13px; border-radius: 12px; border: 1px solid var(--r-line); background: rgba(0, 0, 0, 0.3); color: #fff; font: inherit; }
+.invite__field input:focus-visible { outline: 2px solid var(--r-sand); outline-offset: 1px; }
+.invite__preview { padding: 14px 16px; border-radius: 14px 14px 14px 4px; background: rgba(156, 197, 154, 0.12); border: 1px solid rgba(156, 197, 154, 0.3); color: #fff; line-height: 1.5; overflow-wrap: anywhere; }
+.invite__actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.invite__actions .btn { display: inline-flex; align-items: center; gap: 6px; }

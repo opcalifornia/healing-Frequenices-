@@ -10,6 +10,7 @@ import { addDays, parseDay, useEvents } from "../store/calendar";
 import { useActiveProfile, useUser } from "../store/user";
 import { Footer } from "../components/Footer";
 import { ShareButton } from "../rooted/ShareCard";
+import { InviteButton } from "../rooted/InviteButton";
 import { Icon } from "../components/Icon";
 import "../rooted/rooted.css";
 import "./Week.css";
@@ -71,6 +72,7 @@ export default function Week() {
                   topArea: recap.byArea[0]?.area,
                 }}
               />
+              <InviteButton className="btn btn--secondary" />
             </div>
           )}
         </div>

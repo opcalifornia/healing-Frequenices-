@@ -32,6 +32,8 @@ class Credentials(BaseModel):
 class RegisterIn(BaseModel):
     email: EmailStr
     password: str = Field(min_length=8, max_length=128)
+    #: Invite code of the person who shared the link, if any.
+    ref: str | None = Field(default=None, min_length=4, max_length=16, pattern=r"^[A-Za-z0-9_-]+$")
 
     @field_validator("password")
     @classmethod
@@ -48,6 +50,7 @@ class UserOut(BaseModel):
     id: str
     email: str
     plan: str = "free"
+    refCode: str | None = None
 
 
 class AuthOut(BaseModel):

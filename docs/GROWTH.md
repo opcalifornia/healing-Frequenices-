@@ -9,11 +9,12 @@ spend. Paid ads are fuel; these loops are the engine.
 ### 1. Share loop (built)
 Users share a beautiful card of their week or a finished program, and their
 friends see the Rooted brand.
-- **Built:** share cards on Your week and finished programs, in post and story
-  shapes.
+- **Built:**
+  - Share cards on Your week and finished programs, in post and story shapes.
+  - "Join me" invite links (`/join`): a welcome page that drops the friend
+    straight into the same program. Each account has an invite code, and the
+    Account page shows how many friends joined (a count only, never who).
 - **Next:**
-  - Add a "Join me on Rooted" link on the card that brings the friend into the
-    same program.
   - Cards for streak milestones (7, 30 and 100 days) and for completing the
     nature dose.
   - A monthly "Rooted Wrapped".

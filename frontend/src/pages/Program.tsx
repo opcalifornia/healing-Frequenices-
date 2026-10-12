@@ -11,6 +11,7 @@ import { Icon } from "../components/Icon";
 import NotFound from "./NotFound";
 import { ScheduleButton } from "../rooted/CalendarUI";
 import { ShareButton } from "../rooted/ShareCard";
+import { InviteButton } from "../rooted/InviteButton";
 import "../rooted/rooted.css";
 import "./Breathe.css";
 import "./Combos.css";
@@ -52,7 +53,7 @@ export default function ProgramPage() {
           </motion.div>
           <motion.div className="breathe__cta" initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.45, duration: 0.7 }}>
             {nd.finished ? (
-              <><span className="breathe__stat">Completed. Nicely done.</span><ShareButton label="Share it" className="btn btn--primary" data={{ kind: "program", title: p.title, days: p.days.length, section: p.section, hue: p.hue }} /><button className="btn btn--secondary" onClick={() => reset(p.id)}>Start over</button></>
+              <><span className="breathe__stat">Completed. Nicely done.</span><ShareButton label="Share it" className="btn btn--primary" data={{ kind: "program", id: p.id, title: p.title, days: p.days.length, section: p.section, hue: p.hue }} /><button className="btn btn--secondary" onClick={() => reset(p.id)}>Start over</button></>
             ) : (
               <button className="btn btn--primary btn--big" onClick={() => start(nd.index)}>
                 <Icon name="play" size={22} /> {enrolled ? (nd.doneToday ? `Day ${nd.index + 1} (tomorrow's)` : `Continue: day ${nd.index + 1}`) : "Start day 1"}
@@ -62,6 +63,7 @@ export default function ProgramPage() {
           {!nd.finished && (
             <div className="program__schedule">
               <ScheduleButton draft={{ title: `${p.title} lesson`, kind: "program", minutes: Math.max(5, Math.round(p.days.reduce((a, d) => a + dayMinutes(d), 0) / p.days.length)), repeat: "daily", to: `/program/${p.id}`, time: "07:30", note: `${p.days.length}-day program. One lesson a day.` }} label="Schedule a daily lesson time" />
+              <InviteButton programId={p.id} programTitle={p.title} label="Do it with a friend" />
             </div>
           )}
           {nd.doneToday && !nd.finished && <p className="program__note">You've done today's lesson. Coming back tomorrow builds the habit, but you can keep going if you like.</p>}

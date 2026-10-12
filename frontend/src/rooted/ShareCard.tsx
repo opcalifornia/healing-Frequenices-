@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import { Sheet, useToast } from "./ui";
 import { Icon } from "../components/Icon";
 import { canvasToBlob, drawCard, type CardData, type CardFormat } from "./shareCard";
+import { inviteLink } from "./invite";
+import { useUser } from "../store/user";
 
 /** A button that opens a share sheet with a live preview of the card. */
 export function ShareButton({ data, label = "Share", className = "btn btn--secondary btn--small", allowStress = false }: { data: CardData; label?: string; className?: string; allowStress?: boolean }) {
@@ -20,6 +22,7 @@ export function ShareSheet({ open, onClose, data, allowStress }: { open: boolean
   const [showStress, setShowStress] = useState(false);
   const [url, setUrl] = useState<string | null>(null);
   const toast = useToast();
+  const refCode = useUser((s) => s.account?.refCode) ?? undefined;
   const card: CardData = data.kind === "week" && !(allowStress && showStress) ? { ...data, stressDrop: undefined } : data;
   const key = JSON.stringify([card, format]);
 
@@ -43,7 +46,8 @@ export function ShareSheet({ open, onClose, data, allowStress }: { open: boolean
     const nav = navigator as Navigator & { canShare?: (d: ShareData) => boolean };
     if (nav.share && nav.canShare?.({ files: [file] })) {
       try {
-        await nav.share({ files: [file], text: caption });
+        const url = inviteLink({ p: data.kind === "program" ? programIdOf(data) : undefined, ref: refCode });
+        await nav.share({ files: [file], text: `${caption} Join me: ${url}` });
         return;
       } catch (e) {
         if ((e as Error).name === "AbortError") return;
@@ -94,4 +98,9 @@ export function ShareSheet({ open, onClose, data, allowStress }: { open: boolean
       {toast.node}
     </Sheet>
   );
+}
+
+/** Program cards carry the title; find the id so the invite opens that program. */
+function programIdOf(d: Extract<CardData, { kind: "program" }>): string | undefined {
+  return d.id;
 }
