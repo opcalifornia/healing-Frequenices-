@@ -130,3 +130,10 @@ catalog, public guide pages, share cards, store listings and marketing.
 Internal names that no one reads (for example the technique id `calm`) are
 fine. Descriptions of the body ("relaxing rest-and-digest system") are fine
 once the word is swapped.
+
+Speak in invitations, not instructions. Avoid orders aimed at the person
+("calm down", "relax", "ground yourself", "stop worrying", "get over it").
+Practices can have names that people already use, like "grounding" or
+"relaxation", because that describes something. Invite instead of telling:
+"Notice five things you can see", "Come back to the room", "Let your
+shoulders soften", "Whenever you're ready".
