@@ -42,3 +42,4 @@ async def ensure_indexes(db: AsyncIOMotorDatabase) -> None:
     await db.users.create_index("referred_by", sparse=True)
     await db.calendar_feeds.create_index("profile_id", unique=True)
     await db.titles.create_index("kind")
+    await db.metrics_daily.create_index([("day", 1), ("event", 1), ("day_bucket", 1)], unique=True)

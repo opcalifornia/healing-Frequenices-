@@ -3,6 +3,7 @@ import { Sheet, useToast } from "./ui";
 import { Icon } from "../components/Icon";
 import { canvasToBlob, drawCard, type CardData, type CardFormat } from "./shareCard";
 import { inviteLink } from "./invite";
+import { track } from "./metrics";
 import { useUser } from "../store/user";
 
 /** A button that opens a share sheet with a live preview of the card. */
@@ -10,7 +11,7 @@ export function ShareButton({ data, label = "Share", className = "btn btn--secon
   const [open, setOpen] = useState(false);
   return (
     <>
-      <button className={className} onClick={() => setOpen(true)}><Icon name="sparkle" size={16} /> {label}</button>
+      <button className={className} onClick={() => { setOpen(true); track("share_card_opened"); }}><Icon name="sparkle" size={16} /> {label}</button>
       <ShareSheet open={open} onClose={() => setOpen(false)} data={data} allowStress={allowStress} />
     </>
   );

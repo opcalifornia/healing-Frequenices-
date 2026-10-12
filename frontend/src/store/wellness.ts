@@ -15,6 +15,8 @@ export interface AboutYou {
   considerations: Consideration[];
   onboarded: boolean;
   skipped?: boolean;
+  /** The 60-second first session: what brought them here and how it went. */
+  firstWin?: { goal: GoalId; before: number; after: number; day: string };
 }
 
 export const DEFAULT_ABOUT: AboutYou = { goals: [], activity: "some", minutes: 10, considerations: [], onboarded: false };

@@ -78,3 +78,5 @@
 .hub-cal__items span { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
 .hub-cal__items i { width: 8px; height: 8px; border-radius: 50%; background: var(--k); }
 .hub-cal--week { margin-top: 10px; background: linear-gradient(120deg, rgba(156, 219, 143, 0.12), rgba(110, 198, 255, 0.1)); border-color: rgba(156, 219, 143, 0.25); }
+.hub__setup-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; }
+.hub-cal--guide { margin-top: 10px; background: linear-gradient(120deg, rgba(232, 213, 176, 0.12), rgba(179, 157, 219, 0.1)); border-color: rgba(232, 213, 176, 0.25); }

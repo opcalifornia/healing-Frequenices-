@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import { track } from "./metrics";
 import { useModalFocus } from "./ui";
 import { createPortal } from "react-dom";
 import { AnimatePresence, motion } from "framer-motion";
@@ -52,6 +53,7 @@ export function LessonPlayer({ program, day, onClose }: { program: Program; day:
     setAdded(false);
     if (i + 1 >= d.blocks.length) {
       completeDay(program.id, day);
+      track("program_day_completed");
       setDone(true);
       chime("bell", 0.09);
       return;

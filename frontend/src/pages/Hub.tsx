@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { Aurora, Reveal, TiltCard, ZoomPage } from "../rooted/motion";
 import { SECTIONS, OFFLINE_PROMPTS } from "../rooted/sections";
@@ -17,6 +17,7 @@ import { nextDay, useEnrollments } from "../store/programs";
 import { useCrisis } from "../store/support";
 import { eventsOn, toMin, useEvents } from "../store/calendar";
 import { KINDS, niceTime } from "../rooted/CalendarUI";
+import { Tour } from "../rooted/Tour";
 import "../rooted/rooted.css";
 import "./Support.css";
 import "./Hub.css";
@@ -47,13 +48,29 @@ export default function Hub() {
     ? [{ id: `program-${active.id}`, title: `${active.title}: day ${activeNext.index + 1}`, body: active.days[activeNext.index].title, to: `/program/${active.id}`, minutes: 5, icon: "sparkle" as const, slots: [], serves: {}, reason: undefined } as Picked]
     : [];
   const picks = [...programPick, ...pickFor(about, slot, 3)].slice(0, 3);
-  const needsSetup = !about.onboarded && !about.skipped;
+  const needsSetup = !about.onboarded && !about.skipped && !about.firstWin;
+  const brandNew = needsSetup && entries.length === 0;
   const goalText = about.goals.map((g) => GOAL_SHORT[g]);
   const sections = [...SECTIONS].sort((a, b) => Number(b.live) - Number(a.live) || sectionRank(b.id, about.goals) - sectionRank(a.id, about.goals));
   const topPick = about.goals.length ? sections.filter((s) => s.live && sectionRank(s.id, about.goals) > 0).slice(0, 2).map((s) => s.id) : [];
 
+  const navigate = useNavigate();
+  const pid = profile?.id ?? "guest";
+  useEffect(() => {
+    if (!brandNew) return;
+    const key = `rooted-fw-offered-${pid}`;
+    try {
+      if (localStorage.getItem(key)) return;
+      localStorage.setItem(key, "1");
+    } catch {
+      return;
+    }
+    navigate("/start", { replace: true });
+  }, [brandNew, pid, navigate]);
+
   return (
     <ZoomPage className="rooted hub">
+      <Tour />
       <header className="hub__hero">
         <Aurora />
         <div className="hub__hero-text">
@@ -73,11 +90,14 @@ export default function Hub() {
         {needsSetup ? (
           <motion.div className="hub__setup" initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.35, duration: 0.55 }}>
             <div>
-              <span className="rooted__eyebrow">Under a minute</span>
-              <h2>Make Rooted yours</h2>
-              <p>Tell us your goals and we'll plan a few small things for you each day.</p>
+              <span className="rooted__eyebrow">{brandNew ? "Start here · 60 seconds" : "Under a minute"}</span>
+              <h2>{brandNew ? "Feel better in one minute" : "Make Rooted yours"}</h2>
+              <p>{brandNew ? "Tell us what brought you here, try one guided minute, and see the difference for yourself." : "Tell us your goals and we'll plan a few small things for you each day."}</p>
             </div>
-            <Link to="/welcome" className="btn btn--primary btn--big">Get started</Link>
+            <div className="hub__setup-cta">
+              <Link to={brandNew ? "/start" : "/welcome"} className="btn btn--primary btn--big">{brandNew ? "Start my minute" : "Get started"}</Link>
+              {brandNew && <Link to="/welcome" className="hub__edit">Or set up my goals</Link>}
+            </div>
           </motion.div>
         ) : (
           <div className="hub__today-wrap">
@@ -181,6 +201,14 @@ function HubCalendar() {
           ) : (
             <small>{allDone ? "Nice work. See what's coming up this week." : today.length ? "See what's coming up this week." : "Schedule your routines, see them beside work, send them to Apple or Google."}</small>
           )}
+        </span>
+        <Icon name="chevronRight" size={20} />
+      </Link>
+      <Link to="/guide" className="hub-cal hub-cal--guide hub__guide">
+        <span className="hub-cal__icon"><Icon name="book" size={22} /></span>
+        <span className="hub-cal__text">
+          <b>Everything Rooted can do</b>
+          <small>A map of every tool, and the ones you haven't tried yet.</small>
         </span>
         <Icon name="chevronRight" size={20} />
       </Link>

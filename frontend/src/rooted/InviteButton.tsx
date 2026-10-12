@@ -3,6 +3,7 @@ import { Sheet, useToast } from "./ui";
 import { Icon } from "../components/Icon";
 import { inviteLink, inviteMessage } from "./invite";
 import { useActiveProfile, useUser } from "../store/user";
+import { track } from "./metrics";
 
 /** "Invite a friend": a personal link that opens a welcome page for that program. */
 export function InviteButton({ programId, programTitle, label = "Invite a friend", className = "btn btn--secondary btn--small" }: { programId?: string; programTitle?: string; label?: string; className?: string }) {
@@ -27,6 +28,7 @@ export function InviteSheet({ open, onClose, programId, programTitle }: { open: 
   const message = inviteMessage(programTitle, link);
 
   const share = async () => {
+    track("invite_sent");
     if (navigator.share) {
       try {
         await navigator.share({ title: "Join me on Rooted", text: message.replace(link, "").trim(), url: link });

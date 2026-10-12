@@ -208,6 +208,29 @@ is at least 32 random characters. Render's blueprint generates one for you.
 On the free tier the API sleeps when idle. The front end waits 6 seconds for
 it, then shows the bundled catalog (same content) while it wakes.
 
+#### Anonymous usage counts
+
+The app posts anonymous feature counts to `POST /api/metrics` (a name from a
+fixed list such as `first_win_completed`, plus a "days since first open"
+bucket on `app_open`). The API only keeps daily totals in the
+`metrics_daily` collection: no user, profile or device id, IP or user agent.
+Users can turn it off on the Your data page; Do Not Track / Global Privacy
+Control turn it off by default.
+
+To read the totals, set `METRICS_ADMIN_TOKEN` to a long random string (for
+example `openssl rand -hex 32`). While it is unset the summary endpoint
+returns 404. Then:
+
+```bash
+curl -s -H "X-Admin-Token: $METRICS_ADMIN_TOKEN" \
+  "https://rooted-api.onrender.com/api/metrics/summary?days=30" | jq
+```
+
+The response has `totals` per event, `daily` per-day counts, and a `funnel`
+with `first_win_completion_rate` (first_win_completed / first_win_started) and
+`day2_return_rate` (app opens on a device's second day / opens on its first
+day, a proxy for "came back on day 2"). `days` can be 1 to 366.
+
 ### Single-file preview
 
 `npm run build:artifact` (in `frontend/`) makes

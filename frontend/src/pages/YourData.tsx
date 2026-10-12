@@ -5,6 +5,7 @@ import { Aurora, Reveal, ZoomPage } from "../rooted/motion";
 import { clearLocal, exportProfile, onMetaChange, pull, readMeta, setPrivateBackup, SLICES } from "../rooted/sync";
 import { saveTextFile } from "../rooted/download";
 import { api, apiEnabled } from "../api/client";
+import { metricsEnabled, setMetricsEnabled } from "../rooted/metrics";
 import { useActiveProfile, useUser } from "../store/user";
 import { Footer } from "../components/Footer";
 import { Icon } from "../components/Icon";
@@ -24,6 +25,7 @@ export default function YourData() {
   const signOut = useUser((s) => s.signOut);
   const [meta, setMeta] = useState(readMeta());
   const [busy, setBusy] = useState("");
+  const [counts, setCounts] = useState(metricsEnabled);
   useEffect(() => onMetaChange(() => setMeta(readMeta())), []);
   if (!profile) return null;
   const signedIn = apiEnabled && !!account;
@@ -96,6 +98,17 @@ export default function YourData() {
               </label>
             </Reveal>
           )}
+
+          <Reveal delay={0.1} className="r-card data-card">
+            <span className="data-card__icon"><Icon name="sliders" size={22} /></span>
+            <h2>Share anonymous usage counts</h2>
+            <p>Adds one to a daily total when you use a feature, so we learn what helps. Never your health data, notes or who you are. <Link to="/privacy">What's counted</Link></p>
+            <label className="toggle">
+              <input type="checkbox" aria-label="Share anonymous usage counts" checked={counts} onChange={(e) => { setMetricsEnabled(e.target.checked); setCounts(e.target.checked); }} />
+              <span className="toggle__track"><i /></span>
+              <span>{counts ? "On" : "Off"}</span>
+            </label>
+          </Reveal>
         </div>
 
         <Reveal className="sec-block__head nourish__subhead"><h2>What's kept</h2></Reveal>

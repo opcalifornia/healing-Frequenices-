@@ -40,6 +40,10 @@ class Settings(BaseSettings):
     r2_bucket: str | None = None
     r2_public_base_url: str | None = None
 
+    #: Secret for reading anonymous usage counts at GET /api/metrics/summary
+    #: (sent as X-Admin-Token). Unset means that endpoint does not exist.
+    metrics_admin_token: str | None = None
+
     @field_validator("cors_origins", mode="before")
     @classmethod
     def split_origins(cls, v: object) -> object:

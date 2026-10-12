@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Sheet, useToast } from "./ui";
 import { Icon } from "../components/Icon";
 import { saveTextFile } from "./download";
+import { track } from "./metrics";
 import { appLink, eventsIcs, googleLink } from "./calendarIcs";
 import { todayKey } from "../store/nourish";
 import { addDays, findFreeSlot, parseDay, toMin, useBusy, useCalendar, useEvents, type EventKind, type HealthEvent, type Repeat } from "../store/calendar";
@@ -119,7 +120,10 @@ export function ScheduleSheet({ open, onClose, draft, editing, onSaved }: { open
     if (editing) {
       update(editing.id, form);
       ev = { ...editing, ...form };
-    } else ev = add({ ...form, title: form.title.trim() });
+    } else {
+      ev = add({ ...form, title: form.title.trim() });
+      track("calendar_event_added");
+    }
     setSaved(ev);
     onSaved?.(ev);
   };

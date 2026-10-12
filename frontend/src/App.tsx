@@ -48,6 +48,8 @@ const Calendar = lazy(() => import("./pages/Calendar"));
 const Places = lazy(() => import("./pages/Places"));
 const Earth = lazy(() => import("./pages/Earth"));
 import { NativeBridge } from "./rooted/NativeBridge";
+import { track } from "./rooted/metrics";
+const FirstWin = lazy(() => import("./pages/FirstWin"));
 const Join = lazy(() => import("./pages/Join"));
 const Week = lazy(() => import("./pages/Week"));
 const Legal = lazy(() => import("./pages/Legal"));
@@ -61,10 +63,11 @@ function RequireProfile({ children }: { children: JSX.Element }) {
 
 export default function App() {
   const location = useLocation();
+  useEffect(() => track("app_open"), []);
   const loadCatalog = useCatalogStore((s) => s.load);
   const refresh = useUser((s) => s.refreshFromServer);
   const hasTrack = usePlayer((s) => s.current !== null);
-  const onPicker = location.pathname === "/profiles" || location.pathname === "/account";
+  const onPicker = location.pathname === "/profiles" || location.pathname === "/account" || location.pathname === "/start";
   const token = useUser((s) => s.token);
   const activeProfile = useUser((s) => s.activeProfileId);
   useEffect(() => {
@@ -119,6 +122,7 @@ export default function App() {
             <Route path="/move" element={<RequireProfile><Move /></RequireProfile>} />
             <Route path="/places" element={<RequireProfile><Places /></RequireProfile>} />
             <Route path="/earth" element={<RequireProfile><Earth /></RequireProfile>} />
+            <Route path="/start" element={<RequireProfile><FirstWin /></RequireProfile>} />
             <Route path="/week" element={<RequireProfile><Week /></RequireProfile>} />
             <Route path="/calendar" element={<RequireProfile><Calendar /></RequireProfile>} />
             <Route path="/your-data" element={<RequireProfile><YourData /></RequireProfile>} />

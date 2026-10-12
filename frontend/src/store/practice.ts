@@ -3,6 +3,7 @@ import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import { useUser } from "./user";
 import { todayKey } from "./nourish";
+import { track } from "../rooted/metrics";
 
 /** A log of non-audio practices (breathing, grounding, combos) for streaks and the hub. */
 export interface PracticeEntry {
@@ -53,6 +54,8 @@ interface PracticeState {
   hearts: Record<string, HeartResult[]>;
   addHeart(r: Omit<HeartResult, "day" | "at">): void;
   log(kind: string, minutes: number, extra?: { before?: number; after?: number }): void;
+  /** Add check-in results to the most recent entry of this kind from today. */
+  annotateLast(kind: string, extra: { before?: number; after?: number }): void;
   setPrefs(p: Partial<BreathPrefs>): void;
   saveCustom(c: CustomPattern): void;
   removeCustom(id: string): void;
@@ -75,6 +78,18 @@ export const usePractice = create<PracticeState>()(
         const pid = useUser.getState().activeProfileId ?? "guest";
         const list = get().logs[pid] ?? [];
         set({ logs: { ...get().logs, [pid]: [...list, { day: todayKey(), kind, minutes: Math.round(minutes * 10) / 10, ...extra }].slice(-1000) } });
+        track("practice_completed");
+      },
+      annotateLast(kind, extra) {
+        const pid = useUser.getState().activeProfileId ?? "guest";
+        const list = [...(get().logs[pid] ?? [])];
+        for (let i = list.length - 1; i >= 0; i--) {
+          if (list[i].kind === kind && list[i].day === todayKey()) {
+            list[i] = { ...list[i], ...extra };
+            set({ logs: { ...get().logs, [pid]: list } });
+            return;
+          }
+        }
       },
       setPrefs(p) {
         set({ prefs: { ...DEFAULT_PREFS, ...get().prefs, ...p } });

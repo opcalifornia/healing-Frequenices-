@@ -140,6 +140,12 @@ export function NavBar() {
                     <Icon name="edit" size={20} /> Manage Profiles
                   </button>
                   <div className="nav__menu-sep" />
+                  <Link role="menuitem" className="nav__menu-item" to="/guide">
+                    <Icon name="book" size={20} /> Guide to every tool
+                  </Link>
+                  <Link role="menuitem" className="nav__menu-item" to="/?tour=1">
+                    <Icon name="sparkle" size={20} /> Take the tour
+                  </Link>
                   <Link role="menuitem" className="nav__menu-item" to="/calendar">
                     <Icon name="calendar" size={20} /> Health calendar
                   </Link>

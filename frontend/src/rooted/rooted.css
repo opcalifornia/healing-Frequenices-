@@ -172,3 +172,17 @@ a.src-link:hover { color: var(--r-sand); }
 .invite__preview { padding: 14px 16px; border-radius: 14px 14px 14px 4px; background: rgba(156, 197, 154, 0.12); border: 1px solid rgba(156, 197, 154, 0.3); color: #fff; line-height: 1.5; overflow-wrap: anywhere; }
 .invite__actions { display: flex; flex-wrap: wrap; gap: 8px; }
 .invite__actions .btn { display: inline-flex; align-items: center; gap: 6px; }
+
+/* Guided tour */
+.tour { position: fixed; inset: 0; z-index: 200; }
+.tour__shade { position: absolute; inset: 0; }
+.tour__hole { position: fixed; border-radius: 16px; box-shadow: 0 0 0 9999px rgba(5, 7, 5, 0.78), 0 0 0 3px var(--r-sand, #e8d5b0); pointer-events: none; }
+.tour:not(:has(.tour__hole)) .tour__shade { background: rgba(5, 7, 5, 0.78); }
+.tour__card { position: fixed; left: 50%; margin-left: max(-200px, calc(-50vw + 16px)); width: min(400px, calc(100vw - 32px)); display: grid; gap: 8px; padding: 18px 18px 14px; border-radius: 18px; background: #1b2019; border: 1px solid rgba(232, 213, 176, 0.25); box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6); color: #fff; }
+.tour__count { font-size: 0.72rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #9cc59a; }
+.tour__card h2 { font-size: 1.2rem; font-weight: 900; letter-spacing: -0.01em; }
+.tour__card p { color: rgba(240, 232, 214, 0.82); line-height: 1.5; font-size: 0.95rem; }
+.tour__actions { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 6px; }
+.tour__skip { color: rgba(240, 232, 214, 0.75); font-weight: 700; font-size: 0.85rem; text-decoration: underline; text-underline-offset: 3px; }
+.tour__nav { display: inline-flex; gap: 6px; }
+.tour__nav .btn { display: inline-flex; align-items: center; gap: 4px; }

@@ -76,6 +76,9 @@ function Privacy() {
         <li>Your imported work calendar.</li>
         <li>Advertising identifiers. There are no ad trackers in {APP_NAME}.</li>
       </ul>
+      <h3>Anonymous usage counts</h3>
+      <p>To learn which parts of {APP_NAME} help people, the app adds one to a daily total when a feature is used, such as "finished a first session" or "opened the app today". Each count is a feature name from a fixed list and, for opening the app, a rough "days since first opened on this device" range (same day, next day, 2 to 6, 7 to 29, or 30 or more days).</p>
+      <p>Counts are never linked to you or your account: no name, email, profile or device ID, and your IP address is used only to stop abuse and is not stored. They never include health data, moods, notes, goals or anything you type. You can turn them off on <Link to="/your-data">Your data</Link>, and they start off if your browser sends Do Not Track or Global Privacy Control.</p>
 
       <h2>How we use it</h2>
       <p>Only to run the app for you: syncing across your devices, building your daily plan, and serving your calendar link if you create one. We do not share your data with third parties except the service providers that host the app (hosting and database), under contracts that limit them to that purpose.</p>
