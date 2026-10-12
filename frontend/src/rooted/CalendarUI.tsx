@@ -168,12 +168,12 @@ export function ScheduleSheet({ open, onClose, draft, editing, onSaved }: { open
               <span>What</span>
               <input value={form.title} onChange={(e) => set({ title: e.target.value })} placeholder="e.g. Acupuncture with Dr. Lee" autoFocus={!form.title} />
             </label>
-            <div className="cal-field">
-              <span>Type</span>
+            <div className="cal-field" role="group" aria-label="Type">
+              <span aria-hidden="true">Type</span>
               <div className="cal-kinds">
                 {(Object.keys(KINDS) as EventKind[]).map((k) => (
-                  <button key={k} className={`chip ${form.kind === k ? "is-on" : ""}`} style={{ ["--k" as string]: KINDS[k].color }} onClick={() => set({ kind: k })}>
-                    <i className="cal-dot" /> {KINDS[k].label}
+                  <button key={k} aria-pressed={form.kind === k} className={`chip ${form.kind === k ? "is-on" : ""}`} style={{ ["--k" as string]: KINDS[k].color }} onClick={() => set({ kind: k })}>
+                    <i className="cal-dot" aria-hidden="true" /> {KINDS[k].label}
                   </button>
                 ))}
               </div>
@@ -195,11 +195,11 @@ export function ScheduleSheet({ open, onClose, draft, editing, onSaved }: { open
             <button className="cal-suggest" onClick={suggest}>
               <Icon name="sparkle" size={16} /> Find a free time near this
             </button>
-            <div className="cal-field">
-              <span>Repeat</span>
+            <div className="cal-field" role="group" aria-label="Repeat">
+              <span aria-hidden="true">Repeat</span>
               <div className="cal-kinds">
                 {REPEATS.map((r) => (
-                  <button key={r.id} className={`chip ${form.repeat === r.id ? "is-on" : ""}`} onClick={() => set({ repeat: r.id })}>{r.label}</button>
+                  <button key={r.id} aria-pressed={form.repeat === r.id} className={`chip ${form.repeat === r.id ? "is-on" : ""}`} onClick={() => set({ repeat: r.id })}>{r.label}</button>
                 ))}
               </div>
             </div>

@@ -111,13 +111,13 @@ export default function Calendar() {
           </p>
         </div>
 
-        <div className="cal-strip" role="tablist" aria-label="Days this week">
+        <div className="cal-strip" role="group" aria-label="Days this week">
           {week.map((d) => {
             const evs = eventsOn(events, d);
             const b = busyOn(busy, d);
             const busyMin = b.reduce((a, x) => a + x.end - x.start, 0);
             return (
-              <button key={d} role="tab" aria-selected={d === day} className={`cal-strip__day ${d === day ? "is-on" : ""} ${d === today ? "is-today" : ""}`} onClick={() => setDay(d)}>
+              <button key={d} aria-pressed={d === day} aria-label={`${parseDay(d).toLocaleDateString(undefined, { weekday: "long", month: "long", day: "numeric" })}${d === today ? ", today" : ""}: ${evs.length} planned${busyMin > 0 ? `, ${Math.round(busyMin / 60)}h busy` : ""}`} className={`cal-strip__day ${d === day ? "is-on" : ""} ${d === today ? "is-today" : ""}`} onClick={() => setDay(d)}>
                 <small>{parseDay(d).toLocaleDateString(undefined, { weekday: "short" })}</small>
                 <b>{parseDay(d).getDate()}</b>
                 <span className="cal-strip__dots">
@@ -235,16 +235,16 @@ function WeekGrid({ week, events, busy, today, selected, onOpen, onAdd }: { week
   const now = new Date();
   const nowMin = now.getHours() * 60 + now.getMinutes();
   return (
-    <div className="cal-week" aria-label="Week view">
+    <div className="cal-week" role="region" aria-label="Week view">
       <div className="cal-week__head">
-        <span />
+        <span aria-hidden="true" />
         {week.map((d) => (
           <span key={d} className={`${d === today ? "is-today" : ""} ${d === selected ? "is-on" : ""}`}>
             {parseDay(d).toLocaleDateString(undefined, { weekday: "short" })} <b>{parseDay(d).getDate()}</b>
           </span>
         ))}
       </div>
-      <div className="cal-week__body" style={{ height: hours.length * HOUR_PX }}>
+      <div className="cal-week__body" style={{ height: hours.length * HOUR_PX }} tabIndex={0} role="group" aria-label="Hour-by-hour schedule">
         <div className="cal-week__hours">
           {hours.map((h) => <span key={h} style={{ top: (h * 60 - DAY_START) / 60 * HOUR_PX }}>{niceTime(`${String(h).padStart(2, "0")}:00`).replace(":00", "")}</span>)}
         </div>
@@ -269,7 +269,7 @@ function WeekGrid({ week, events, busy, today, selected, onOpen, onAdd }: { week
                 if (s + e.minutes < DAY_START || s > DAY_END) return null;
                 const h = Math.max(20, y(s + e.minutes) - y(s));
                 return (
-                  <button key={e.id} className={`cal-week__ev ${h < 34 ? "is-short" : ""} ${clash.has(e.id) ? "is-clash" : ""} ${e.done?.[d] ? "is-done" : ""}`} style={{ top: y(s), height: h, ["--k" as string]: KINDS[e.kind].color }} onClick={() => onOpen(e.id)} title={`${niceTime(e.time)} ${e.title}`}>
+                  <button key={e.id} className={`cal-week__ev ${h < 34 ? "is-short" : ""} ${clash.has(e.id) ? "is-clash" : ""} ${e.done?.[d] ? "is-done" : ""}`} style={{ top: y(s), height: h, ["--k" as string]: KINDS[e.kind].color }} onClick={() => onOpen(e.id)} title={`${niceTime(e.time)} ${e.title}`} aria-label={`${e.title}, ${parseDay(d).toLocaleDateString(undefined, { weekday: "long" })} ${niceTime(e.time)}, ${e.minutes} min${clash.has(e.id) ? ", overlaps work" : ""}${e.done?.[d] ? ", done" : ""}`}>
                     <b>{e.title}</b>
                     <small>{niceTime(e.time)}</small>
                   </button>

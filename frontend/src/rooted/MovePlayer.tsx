@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useModalFocus } from "./ui";
 import { createPortal } from "react-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import type { Move, Routine } from "./moveContent";
@@ -43,17 +44,14 @@ export function MovePlayer({ routine: r, minutes, onClose, onComplete }: { routi
   const pausedAt = useRef(0);
   const step = steps[i];
 
+  const root = useRef<HTMLDivElement>(null);
+  useModalFocus(root, true, onClose);
   useEffect(() => {
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
-    document.addEventListener("keydown", onKey);
-    document.body.style.overflow = "hidden";
     let lock: { release(): Promise<void> } | null = null;
     const nav = navigator as Navigator & { wakeLock?: { request(t: "screen"): Promise<{ release(): Promise<void> }> } };
     nav.wakeLock?.request("screen").then((l) => (lock = l)).catch(() => undefined);
     chime("in");
     return () => {
-      document.removeEventListener("keydown", onKey);
-      document.body.style.overflow = "";
       void lock?.release().catch(() => undefined);
     };
   }, [onClose]);
@@ -114,7 +112,7 @@ export function MovePlayer({ routine: r, minutes, onClose, onComplete }: { routi
   const nextTitle = r.next && catalog ? Object.values(catalog.titles).find((x) => x.kind === "session" && x.goal === r.next) : undefined;
 
   return createPortal(
-    <motion.div className="mp rooted" role="dialog" aria-modal="true" aria-label={r.name} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} style={{ "--h": r.hue } as React.CSSProperties}>
+    <motion.div ref={root} tabIndex={-1} className="mp rooted" role="dialog" aria-modal="true" aria-label={r.name} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} style={{ "--h": r.hue } as React.CSSProperties}>
       <div className="mp__bg" aria-hidden="true" />
       <header className="mp__top">
         <button className="icon-btn" onClick={onClose} aria-label="Close"><Icon name="close" /></button>

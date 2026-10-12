@@ -10,6 +10,7 @@ import { Icon } from "./Icon";
 import type { NoiseColor } from "../types";
 import { AMBIENCES, type AmbienceId } from "../audio/ambience";
 import { MUSIC_STYLES, type MusicStyle } from "../audio/music";
+import { useModalFocus } from "../rooted/ui";
 import "./Player.css";
 
 const SOLFEGGIO = [174, 285, 396, 417, 528, 639, 741, 852, 963];
@@ -138,29 +139,24 @@ export function PlayerOverlay() {
   const { togglePlay, stop, seek, setExpanded, setVolume, setCalmVisuals } = usePlayer.getState();
   const [panel, setPanel] = useState<Panel>(null);
   const closeBtn = useRef<HTMLButtonElement>(null);
-  const restoreFocus = useRef<HTMLElement | null>(null);
+  const dialog = useRef<HTMLDivElement>(null);
   const open = s.expanded && !!s.current;
   const art = useArt(s.current ? specForTitle(s.current) : null, "hero", open);
 
+  // Focus trap, Escape-to-close, scroll lock and focus restore.
+  useModalFocus(dialog, open && !!s.current, () => setExpanded(false), { autoFocus: false });
   useEffect(() => {
     if (!open) return;
-    restoreFocus.current = document.activeElement as HTMLElement;
     closeBtn.current?.focus();
-    document.body.style.overflow = "hidden";
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setExpanded(false);
       if (e.key === " " && !(e.target as HTMLElement).closest("button, input, select")) {
         e.preventDefault();
         togglePlay();
       }
     };
     window.addEventListener("keydown", onKey);
-    return () => {
-      document.body.style.overflow = "";
-      window.removeEventListener("keydown", onKey);
-      restoreFocus.current?.focus?.();
-    };
-  }, [open, setExpanded, togglePlay]);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open, togglePlay]);
 
   const t = s.current;
   const stages = t?.stages;
@@ -173,6 +169,8 @@ export function PlayerOverlay() {
     <AnimatePresence>
       {open && t && (
         <motion.div
+          ref={dialog}
+          tabIndex={-1}
           className={`player ${panel ? "has-panel" : ""}`}
           role="dialog"
           aria-modal="true"

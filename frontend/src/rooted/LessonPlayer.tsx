@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useRef, useState } from "react";
+import { useModalFocus } from "./ui";
 import { createPortal } from "react-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import type { Program } from "./programs";
@@ -39,15 +40,9 @@ export function LessonPlayer({ program, day, onClose }: { program: Program; day:
   const b = d.blocks[i];
   const last = day === program.days.length - 1;
 
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && !running && onClose();
-    document.addEventListener("keydown", onKey);
-    document.body.style.overflow = "hidden";
-    return () => {
-      document.removeEventListener("keydown", onKey);
-      document.body.style.overflow = "";
-    };
-  }, [onClose, running]);
+  const root = useRef<HTMLDivElement>(null);
+  // While an inner player runs it is the topmost layer and takes Escape itself.
+  useModalFocus(root, true, () => { if (!running) onClose(); });
 
   const next = () => {
     setRunning(false);
@@ -71,7 +66,7 @@ export function LessonPlayer({ program, day, onClose }: { program: Program; day:
 
   return createPortal(
     <>
-      <motion.div className="lp rooted" role="dialog" aria-modal="true" aria-label={`${program.title}, day ${day + 1}`} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} style={{ "--h": program.hue, "--h2": program.hue2 } as React.CSSProperties}>
+      <motion.div ref={root} tabIndex={-1} className="lp rooted" role="dialog" aria-modal="true" aria-label={`${program.title}, day ${day + 1}`} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} style={{ "--h": program.hue, "--h2": program.hue2 } as React.CSSProperties}>
         <div className="cp__bg" aria-hidden="true" />
         <header className="lp__top">
           <button className="icon-btn" onClick={onClose} aria-label="Close lesson"><Icon name="close" /></button>

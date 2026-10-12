@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode, type RefObject } from "react";
 import { createPortal } from "react-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import type { Strength } from "../learn/brainContent";
@@ -25,22 +25,79 @@ export function SourceLink({ s }: { s: Source }) {
   );
 }
 
-/** Modal panel: slides up on phones, scales in on larger screens. Esc and backdrop close it. */
-export function Sheet({ open, onClose, children, label, wide = false }: { open: boolean; onClose(): void; children: ReactNode; label: string; wide?: boolean }) {
-  const panel = useRef<HTMLDivElement>(null);
+/** Open modal layers (sheets, full-screen players), innermost last, so Escape and the
+ *  focus trap only act on the topmost one. */
+const layerStack: symbol[] = [];
+const FOCUSABLE = 'a[href], button:not([disabled]), input:not([disabled]):not([type="hidden"]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"]), [contenteditable="true"], audio[controls], video[controls], summary';
+
+/**
+ * Modal focus management: moves focus into `ref` when `open`, keeps Tab / Shift+Tab inside it,
+ * closes on Escape (only when it is the topmost layer), and returns focus to the trigger on close.
+ */
+export function useModalFocus(ref: RefObject<HTMLElement>, open: boolean, onClose: () => void, { lockScroll = true, autoFocus = true } = {}) {
+  const closeRef = useRef(onClose);
+  closeRef.current = onClose;
+  // Remember the trigger during the render that opens the layer: by the time effects run,
+  // an autoFocus field inside the layer may already have taken focus.
+  const trigger = useRef<HTMLElement | null>(null);
+  const wasOpen = useRef(false);
+  if (open && !wasOpen.current && typeof document !== "undefined") trigger.current = document.activeElement as HTMLElement | null;
+  wasOpen.current = open;
   useEffect(() => {
     if (!open) return;
-    const prev = document.activeElement as HTMLElement | null;
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
-    document.addEventListener("keydown", onKey);
-    document.body.style.overflow = "hidden";
-    setTimeout(() => panel.current?.focus(), 30);
-    return () => {
-      document.removeEventListener("keydown", onKey);
-      document.body.style.overflow = "";
-      prev?.focus?.();
+    const id = Symbol("layer");
+    layerStack.push(id);
+    const prev = trigger.current && !ref.current?.contains(trigger.current) ? trigger.current : null;
+    const onKey = (e: KeyboardEvent) => {
+      if (layerStack[layerStack.length - 1] !== id) return;
+      if (e.key === "Escape") {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        closeRef.current();
+        return;
+      }
+      const el = ref.current;
+      if (e.key !== "Tab" || !el) return;
+      const items = Array.from(el.querySelectorAll<HTMLElement>(FOCUSABLE)).filter((n) => n.getClientRects().length > 0);
+      if (!items.length) {
+        e.preventDefault();
+        el.focus();
+        return;
+      }
+      const first = items[0];
+      const last = items[items.length - 1];
+      const active = document.activeElement as HTMLElement | null;
+      if (!active || !el.contains(active)) {
+        e.preventDefault();
+        (e.shiftKey ? last : first).focus();
+      } else if (e.shiftKey && (active === first || active === el)) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && active === last) {
+        e.preventDefault();
+        first.focus();
+      }
     };
-  }, [open, onClose]);
+    // Capture phase so the topmost layer handles Escape before any page-level listeners.
+    document.addEventListener("keydown", onKey, true);
+    if (lockScroll) document.body.style.overflow = "hidden";
+    const t = autoFocus ? setTimeout(() => { if (ref.current && !ref.current.contains(document.activeElement)) ref.current.focus(); }, 30) : undefined;
+    return () => {
+      clearTimeout(t);
+      document.removeEventListener("keydown", onKey, true);
+      const i = layerStack.indexOf(id);
+      if (i >= 0) layerStack.splice(i, 1);
+      if (lockScroll && !layerStack.length) document.body.style.overflow = "";
+      if (prev && document.contains(prev)) prev.focus?.({ preventScroll: true });
+    };
+  }, [open, ref, lockScroll, autoFocus]);
+}
+
+/** Modal panel: slides up on phones, scales in on larger screens. Esc and backdrop close it.
+ *  Focus moves into the panel, Tab cycles within it, and focus returns to the trigger on close. */
+export function Sheet({ open, onClose, children, label, wide = false }: { open: boolean; onClose(): void; children: ReactNode; label: string; wide?: boolean }) {
+  const panel = useRef<HTMLDivElement>(null);
+  useModalFocus(panel, open, onClose);
 
   return createPortal(
     <AnimatePresence>
@@ -94,9 +151,16 @@ export function SecTabs({ tabs }: { tabs: Array<{ id: string; label: string }> }
           key={t.id}
           href={`#${t.id}`}
           className={active === t.id ? "is-on" : ""}
+          aria-current={active === t.id ? "location" : undefined}
           onClick={(e) => {
             e.preventDefault();
-            document.getElementById(t.id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+            const el = document.getElementById(t.id);
+            if (!el) return;
+            const reduce = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+            el.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+            // Move keyboard / screen-reader focus to the section too, not just the viewport.
+            if (!el.hasAttribute("tabindex")) el.setAttribute("tabindex", "-1");
+            el.focus({ preventScroll: true });
           }}
         >
           {active === t.id && <motion.span layoutId="sec-tab-pill" className="sec-tabs__pill" transition={{ type: "spring", stiffness: 400, damping: 34 }} />}

@@ -101,7 +101,7 @@ export default function Nourish() {
   useEffect(() => {
     const id = location.hash.replace("#", "");
     if (!id) return;
-    const t = setTimeout(() => document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" }), 650);
+    const t = setTimeout(() => document.getElementById(id)?.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" }), 650);
     return () => clearTimeout(t);
   }, [location.hash]);
 

@@ -55,9 +55,9 @@ function LobeExplorer() {
         <p className="band__caption">Tap a region. Left-side view, front of the head on the left.</p>
       </div>
       <div className="lobe">
-        <div className="seg seg--wrap" role="tablist" aria-label="Brain regions">
+        <div className="seg seg--wrap" role="group" aria-label="Brain regions">
           {(Object.keys(REGIONS) as Region[]).map((k) => (
-            <button key={k} role="tab" aria-selected={sel === k} className={sel === k ? "is-on" : ""} onClick={() => setSel(k)}>
+            <button key={k} aria-pressed={sel === k} className={sel === k ? "is-on" : ""} onClick={() => setSel(k)}>
               {REGIONS[k].name.replace(" lobe", "")}
             </button>
           ))}

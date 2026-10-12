@@ -42,9 +42,9 @@ export function Hemispheres() {
 
   return (
     <div className="diagram">
-      <div className="seg seg--wrap" role="tablist" aria-label="Hemisphere views">
+      <div className="seg seg--wrap" role="group" aria-label="Hemisphere views">
         {MODES.map((m) => (
-          <button key={m.id} role="tab" aria-selected={mode === m.id} className={mode === m.id ? "is-on" : ""} onClick={() => setMode(m.id)}>
+          <button key={m.id} aria-pressed={mode === m.id} className={mode === m.id ? "is-on" : ""} onClick={() => setMode(m.id)}>
             {m.label}
           </button>
         ))}

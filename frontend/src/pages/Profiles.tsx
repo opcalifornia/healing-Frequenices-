@@ -44,7 +44,7 @@ export default function Profiles() {
   };
 
   return (
-    <motion.main id="main" className="profiles" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+    <motion.main id="main" tabIndex={-1} className="profiles" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
       <div className="profiles__logo"><Logo /></div>
       <motion.h1
         className="profiles__title"

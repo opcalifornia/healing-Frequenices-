@@ -3,7 +3,7 @@ import { createPortal } from "react-dom";
 import { Link } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { Aurora, Reveal, TiltCard, ZoomPage } from "../rooted/motion";
-import { Evidence, SecTabs, Sheet, SourceLink, useToast } from "../rooted/ui";
+import { Evidence, SecTabs, Sheet, SourceLink, useModalFocus, useToast } from "../rooted/ui";
 import { BANDS, LIGHT_FINDINGS, LIGHT_GEAR, LIGHT_SAFETY, LIGHT_SOURCES, type LightFinding } from "../rooted/lightContent";
 import { LightLevels } from "../learn/diagrams/SleepDiagrams";
 import { ClockPathway, SkinDepth } from "../rooted/LightDiagrams";
@@ -41,8 +41,8 @@ function Spectrum() {
       <div className="spectrum__bar" role="group" aria-label="Light spectrum">
         <div className="spectrum__visible" style={{ left: `${x(380)}%`, width: `${x(750) - x(380)}%` }} aria-hidden="true" />
         {BANDS.map((q) => (
-          <button key={q.id} className={`spectrum__band ${on === q.id ? "is-on" : ""}`} style={{ left: `${x(q.nm[0])}%`, width: `${x(q.nm[1]) - x(q.nm[0])}%`, "--c": q.color } as React.CSSProperties} onClick={() => setOn(q.id)} aria-pressed={on === q.id}>
-            <span>{q.name}</span>
+          <button key={q.id} className={`spectrum__band ${on === q.id ? "is-on" : ""}`} style={{ left: `${x(q.nm[0])}%`, width: `${x(q.nm[1]) - x(q.nm[0])}%`, "--c": q.color } as React.CSSProperties} onClick={() => setOn(q.id)} aria-pressed={on === q.id} aria-label={q.name}>
+            <span aria-hidden="true">{q.name}</span>
           </button>
         ))}
       </div>
@@ -71,9 +71,9 @@ function ScreenLight({ mode, onClose }: { mode: ScreenMode; onClose(): void }) {
   const [level, setLevel] = useState(0.35);
   const [t, setT] = useState(0);
   const start = useRef(performance.now());
+  const root = useRef<HTMLDivElement>(null);
+  useModalFocus(root, true, onClose, { lockScroll: false });
   useEffect(() => {
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
-    document.addEventListener("keydown", onKey);
     let lock: { release(): Promise<void> } | null = null;
     const nav = navigator as Navigator & { wakeLock?: { request(t: "screen"): Promise<{ release(): Promise<void> }> } };
     nav.wakeLock?.request("screen").then((l) => (lock = l)).catch(() => undefined);
@@ -86,11 +86,10 @@ function ScreenLight({ mode, onClose }: { mode: ScreenMode; onClose(): void }) {
       raf = requestAnimationFrame(tick);
     }
     return () => {
-      document.removeEventListener("keydown", onKey);
       cancelAnimationFrame(raf);
       void lock?.release().catch(() => undefined);
     };
-  }, [mode, onClose]);
+  }, [mode]);
 
   // Sunrise: deep red, through orange and gold, to bright warm white.
   const sun = (p: number) => {
@@ -104,7 +103,7 @@ function ScreenLight({ mode, onClose }: { mode: ScreenMode; onClose(): void }) {
   const bg = mode.kind === "night" ? `linear-gradient(rgba(255, 110, 20, ${level}), rgba(255, 110, 20, ${level})), #000` : sun(t);
 
   return createPortal(
-    <motion.div className="screenlight" style={{ background: bg }} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={onClose} role="dialog" aria-label={mode.kind === "night" ? "Night light" : "Sunrise"}>
+    <motion.div ref={root} tabIndex={-1} aria-modal="true" className="screenlight" style={{ background: bg }} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={onClose} role="dialog" aria-label={mode.kind === "night" ? "Night light" : "Sunrise"}>
       {mode.kind === "sunrise" && <div className="screenlight__sun" style={{ transform: `translate(-50%, ${25 - t * 45}%) scale(${0.7 + t * 0.7})`, opacity: 0.55 + t * 0.45 }} />}
       <div className="screenlight__ui" onClick={(e) => e.stopPropagation()}>
         {mode.kind === "night" ? (

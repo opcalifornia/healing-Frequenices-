@@ -67,12 +67,11 @@ export function BandExplorer() {
 
   return (
     <div className="diagram">
-      <div className="bandtabs" role="tablist" aria-label="Brainwave bands">
+      <div className="bandtabs" role="group" aria-label="Brainwave bands">
         {BANDS.map((b) => (
           <button
             key={b.band}
-            role="tab"
-            aria-selected={band === b.band}
+            aria-pressed={band === b.band}
             className={`bandtab ${band === b.band ? "is-on" : ""}`}
             style={{ "--c": b.color } as React.CSSProperties}
             onClick={() => setBand(b.band)}

@@ -49,6 +49,7 @@
 .cp__lines { display: grid; gap: 10px; width: 100%; }
 .cp__lines input { height: 52px; padding: 0 18px; border-radius: 14px; background: var(--r-surface); border: 1px solid var(--r-line); font-size: 1.05rem; outline: none; }
 .cp__lines input:focus { border-color: var(--r-sand); }
+.cp__lines input:focus-visible { box-shadow: 0 0 0 2px var(--r-sand); }
 .cp__private { font-size: var(--fs-tiny); color: var(--r-text-3); }
 .cp__ground { display: grid; justify-items: center; gap: 6px; }
 .cp__ground .ground__n { grid-row: auto; }

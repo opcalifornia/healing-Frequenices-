@@ -33,7 +33,7 @@ export default function Account() {
   };
 
   return (
-    <motion.main id="main" className="profiles account" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+    <motion.main id="main" tabIndex={-1} className="profiles account" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
       <Link to="/" className="profiles__logo" aria-label="Home"><Logo /></Link>
       <div className="account__card">
         {!apiEnabled ? (

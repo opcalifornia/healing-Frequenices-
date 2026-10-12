@@ -68,7 +68,7 @@ export default function YourData() {
         <div className="data-grid">
           <Reveal className="r-card data-card">
             <span className="data-card__icon"><Icon name="user" size={22} /></span>
-            <h3>{signedIn ? "Syncing to your account" : "Stored on this device"}</h3>
+            <h2>{signedIn ? "Syncing to your account" : "Stored on this device"}</h2>
             <p>
               {signedIn
                 ? `Signed in as ${account!.email}. Your progress follows you to any device you sign in on. Newest changes win.`
@@ -87,10 +87,10 @@ export default function YourData() {
           {signedIn && (
             <Reveal delay={0.05} className="r-card data-card">
               <span className="data-card__icon"><Icon name="heart" size={22} /></span>
-              <h3>Back up private notes</h3>
+              <h2>Back up private notes</h2>
               <p>Your reflections, safety plan and mood check-ins stay on this device unless you turn this on. If you do, they're stored with your account so you don't lose them.</p>
               <label className="toggle">
-                <input type="checkbox" checked={meta.privateBackup} onChange={(e) => { setPrivateBackup(e.target.checked); if (e.target.checked) void syncNow(); }} />
+                <input type="checkbox" aria-label="Back up private notes" checked={meta.privateBackup} onChange={(e) => { setPrivateBackup(e.target.checked); if (e.target.checked) void syncNow(); }} />
                 <span className="toggle__track"><i /></span>
                 <span>{meta.privateBackup ? "On" : "Off"}</span>
               </label>

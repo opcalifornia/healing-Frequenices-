@@ -10,6 +10,7 @@ import { useCatalog } from "../store/catalog";
 import { usePlayer } from "../store/player";
 import { Icon } from "../components/Icon";
 import { haptic } from "./native";
+import { useModalFocus } from "./ui";
 
 type Stage = "before" | "gate" | "count" | "run" | "after" | "done";
 
@@ -97,18 +98,15 @@ export function BreathPlayer({ technique: t, minutes, onClose, onComplete }: Pro
   const soundRef = useRef(prefs.sound);
   soundRef.current = prefs.sound;
 
+  const root = useRef<HTMLDivElement>(null);
+  useModalFocus(root, true, onClose);
   useEffect(() => {
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
-    document.addEventListener("keydown", onKey);
-    document.body.style.overflow = "hidden";
     return () => {
-      document.removeEventListener("keydown", onKey);
-      document.body.style.overflow = "";
       stopBreathTone();
       stopSoundscape();
       stopVoice();
     };
-  }, [onClose]);
+  }, []);
   useEffect(() => {
     if (stage !== "run") return;
     let lock: { release(): Promise<void> } | null = null;
@@ -232,7 +230,7 @@ export function BreathPlayer({ technique: t, minutes, onClose, onComplete }: Pro
   const delta = before && after ? before - after : 0;
 
   return createPortal(
-    <motion.div className="bp rooted" role="dialog" aria-modal="true" aria-label={t.name} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} style={{ "--h": t.hue } as React.CSSProperties}>
+    <motion.div ref={root} tabIndex={-1} className="bp rooted" role="dialog" aria-modal="true" aria-label={t.name} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} style={{ "--h": t.hue } as React.CSSProperties}>
       <div className="bp__bg" aria-hidden="true" />
       <header className="bp__top">
         <button className="icon-btn" onClick={onClose} aria-label="Close"><Icon name="close" /></button>
@@ -249,7 +247,7 @@ export function BreathPlayer({ technique: t, minutes, onClose, onComplete }: Pro
               {menu && (
                 <motion.div className="bp__menu" initial={{ opacity: 0, y: -6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -6 }}>
                   {SCAPES.map((s) => (
-                    <button key={s.id} className={prefs.scape === s.id ? "is-on" : ""} onClick={() => { unlockChime(); setPrefs({ scape: s.id }); setMenu(false); }}>{s.name}</button>
+                    <button key={s.id} aria-pressed={prefs.scape === s.id} className={prefs.scape === s.id ? "is-on" : ""} onClick={() => { unlockChime(); setPrefs({ scape: s.id }); setMenu(false); }}>{s.name}</button>
                   ))}
                 </motion.div>
               )}

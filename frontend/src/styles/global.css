@@ -9,7 +9,7 @@
   --line: rgba(255, 255, 255, 0.12);
   --text: #fff;
   --text-2: rgba(255, 255, 255, 0.72);
-  --text-3: rgba(255, 255, 255, 0.5);
+  --text-3: rgba(255, 255, 255, 0.6); /* >= 4.5:1 on all card surfaces */
   --accent: #8b6cff;
   --accent-2: #19e3c4;
   --accent-grad: linear-gradient(90deg, #8b6cff, #19e3c4);
@@ -191,3 +191,6 @@ img.art-drift { animation: art-fade 600ms var(--ease) both, art-drift 48s ease-i
     scroll-behavior: auto !important;
   }
 }
+
+/* Programmatic focus targets (skip link, in-page section jumps) don't need a ring around the whole region. */
+main[tabindex="-1"]:focus-visible, section[tabindex="-1"]:focus-visible { outline: none; }

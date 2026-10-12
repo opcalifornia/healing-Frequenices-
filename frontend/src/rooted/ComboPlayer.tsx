@@ -1,4 +1,5 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { useModalFocus } from "./ui";
 import { createPortal } from "react-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { STEP_LABEL, type Combo, type ComboStep } from "./comboContent";
@@ -38,15 +39,8 @@ export function ComboPlayer({ combo, steps, onClose }: { combo: Combo; steps: Co
   const log = usePractice((s) => s.log);
   const step = steps[i];
 
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
-    document.addEventListener("keydown", onKey);
-    document.body.style.overflow = "hidden";
-    return () => {
-      document.removeEventListener("keydown", onKey);
-      document.body.style.overflow = "";
-    };
-  }, [onClose]);
+  const root = useRef<HTMLDivElement>(null);
+  useModalFocus(root, true, onClose);
 
   // Breath and move steps get a short "up next" card, then start on their own.
   useEffect(() => {
@@ -76,7 +70,7 @@ export function ComboPlayer({ combo, steps, onClose }: { combo: Combo; steps: Co
 
   return createPortal(
     <>
-      <motion.div className="cp rooted" role="dialog" aria-modal="true" aria-label={combo.name} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} style={{ "--h": combo.hue, "--h2": combo.hue2 } as React.CSSProperties}>
+      <motion.div ref={root} tabIndex={-1} className="cp rooted" role="dialog" aria-modal="true" aria-label={combo.name} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} style={{ "--h": combo.hue, "--h2": combo.hue2 } as React.CSSProperties}>
         <div className="cp__bg" aria-hidden="true" />
         <header className="cp__top">
           <button className="icon-btn" onClick={onClose} aria-label="Exit combo"><Icon name="close" /></button>

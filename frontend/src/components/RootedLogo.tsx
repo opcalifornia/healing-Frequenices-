@@ -3,7 +3,7 @@ import { APP_NAME } from "../brand";
 /** Original mark: a sprout above the soil line with roots below, set beside a lowercase wordmark. */
 export function RootedLogo({ compact = false }: { compact?: boolean }) {
   return (
-    <span className="logo logo--rooted" aria-label={APP_NAME}>
+    <span className="logo logo--rooted" role="img" aria-label={APP_NAME}>
       <svg className="logo__mark" viewBox="0 0 28 32" width="26" height="30" aria-hidden="true">
         <defs>
           <linearGradient id="rooted-leaf" x1="0" x2="1" y1="1" y2="0">

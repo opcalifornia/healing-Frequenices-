@@ -1,7 +1,7 @@
 /** Original wordmark: a gradient sine glyph plus a lowercase wordmark set in Figtree. */
 export function Logo({ compact = false }: { compact?: boolean }) {
   return (
-    <span className="logo" aria-label="Healing Frequencies">
+    <span className="logo" role="img" aria-label="Healing Frequencies">
       <svg className="logo__mark" viewBox="0 0 40 24" width="40" height="24" aria-hidden="true">
         <defs>
           <linearGradient id="logo-g" x1="0" x2="1" y1="0" y2="0">

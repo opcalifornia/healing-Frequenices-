@@ -10,7 +10,7 @@
   --r-clay: #e3a57a;
   --r-moss: #6f9a5a;
   --r-text-2: rgba(240, 232, 214, 0.74);
-  --r-text-3: rgba(240, 232, 214, 0.5);
+  --r-text-3: rgba(240, 232, 214, 0.62); /* >= 5:1 on surfaces up to #32321e (WCAG AA) */
   --sec-1: var(--r-sage);
   --sec-2: var(--r-clay);
   background: radial-gradient(1200px 600px at 80% -10%, rgba(156, 197, 154, 0.07), transparent 60%), var(--r-bg);

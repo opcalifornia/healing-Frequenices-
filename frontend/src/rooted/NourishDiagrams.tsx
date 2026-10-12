@@ -56,10 +56,10 @@ export function DigestiveJourney() {
           <motion.circle r="7" fill="#fff" stroke={s.color} strokeWidth="3" initial={false} animate={{ cx: s.x, cy: s.y }} transition={{ type: "spring", stiffness: 90, damping: 15 }} />
         </svg>
         <div className="gut__info">
-          <ol className="gut__steps" role="tablist" aria-label="Stages of digestion">
+          <ol className="gut__steps" aria-label="Stages of digestion">
             {STATIONS.map((st, k) => (
               <li key={st.id}>
-                <button role="tab" aria-selected={k === i} className={k === i ? "is-on" : ""} onClick={() => setI(k)} style={{ "--c": st.color } as React.CSSProperties}>
+                <button aria-pressed={k === i} className={k === i ? "is-on" : ""} onClick={() => setI(k)} style={{ "--c": st.color } as React.CSSProperties}>
                   <span>{k + 1}</span>{st.name}
                 </button>
               </li>
