@@ -20,6 +20,7 @@ import "./Combos.css";
 import "./BrainGuide.css";
 import { ProgramRail } from "../rooted/ProgramRail";
 import "./Light.css";
+import "./Programs.css";
 import "./Spirit.css";
 
 const TABS = [
