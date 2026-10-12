@@ -32,7 +32,8 @@ export default function Join() {
     }
     if (program) {
       usePrograms.getState().enroll(program.id);
-      clearPendingInvite();
+      // Keep a circle invite until the circle panel on the program page has used it.
+      if (!invite.c) clearPendingInvite();
       navigate(`/program/${program.id}`);
     } else {
       clearPendingInvite();
@@ -50,7 +51,7 @@ export default function Join() {
         <Aurora />
         <div className="sec-hero__text">
           <motion.span className="rooted__eyebrow" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.1 }}>
-            {who} invited you
+            {who} invited you{invite.c ? " to their circle" : ""}
           </motion.span>
           <motion.h1 initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }}>
             {program ? <>Do <em>{program.title}</em> together.</> : "Small, proven habits for body and mind."}

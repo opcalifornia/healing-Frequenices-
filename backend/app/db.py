@@ -38,6 +38,8 @@ async def ensure_indexes(db: AsyncIOMotorDatabase) -> None:
     await db.custom_sessions.create_index("profile_id")
     await db.app_state.create_index([("profile_id", 1), ("key", 1)], unique=True)
     await db.calendar_feeds.create_index("token", unique=True)
+    await db.circles.create_index("code", unique=True)
+    await db.circles.create_index("members.profile_id")
     await db.users.create_index("ref_code", unique=True, sparse=True)
     await db.users.create_index("referred_by", sparse=True)
     await db.calendar_feeds.create_index("profile_id", unique=True)

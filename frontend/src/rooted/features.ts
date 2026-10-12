@@ -217,6 +217,9 @@ export const FEATURES: Feature[] = [
   { id: "invite", emoji: "💌", title: "Invite a friend", area: "Plan & track", to: "/week",
     what: "Send a friend a link to join you, or to do a program together.",
     why: "Doing a habit with someone else makes it more likely you'll both keep it." },
+  { id: "circles", emoji: "🫂", title: "Circles", area: "Plan & track", to: "/program/calmer-7#circle", minutes: 1,
+    what: "Do a program with up to 12 friends or family: see each other's days done and send cheers.",
+    why: "Gentle company and a little accountability help habits stick. Only first names and days done are shared." },
 
   /* ---------------- Support ---------------- */
   { id: "crisis-lines", emoji: "📞", title: "Help now", area: "Support", to: "/support#now",

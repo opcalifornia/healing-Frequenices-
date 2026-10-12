@@ -63,6 +63,7 @@ describe("feature catalog", () => {
     const pageFor: Record<string, string> = {
       "/breathe": "Breathe", "/nourish": "Nourish", "/move": "Move", "/places": "Places", "/earth": "Earth",
       "/calendar": "Calendar", "/light": "Light", "/garden": "Garden", "/spirit": "Spirit", "/support": "Support",
+      "/program/calmer-7": "Program",
     };
     for (const f of FEATURES) {
       const [path, hash] = f.to.split("#");

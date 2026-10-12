@@ -64,6 +64,9 @@ async def delete_profile(profile: dict[str, Any] = Depends(owned_profile)) -> Re
     await db.profiles.delete_one({"_id": pid})
     for coll in (db.favorites, db.progress, db.custom_sessions, db.app_state, db.calendar_feeds):
         await coll.delete_many({"profile_id": pid})
+    from .circles import remove_profile_from_circles  # local import: circles depends on this module
+
+    await remove_profile_from_circles(pid)
     return Response(status_code=status.HTTP_204_NO_CONTENT)
 
 

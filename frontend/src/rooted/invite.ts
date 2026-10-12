@@ -13,6 +13,8 @@ export interface Invite {
   from?: string;
   /** Inviter's account invite code, for counting sign-ups. */
   ref?: string;
+  /** Circle code, to join a friend's circle for this program. */
+  c?: string;
 }
 
 const KEY = "rooted-invite";
@@ -23,6 +25,7 @@ export function cleanInvite(raw: Record<string, unknown>): Invite {
   const out: Invite = {};
   if (typeof raw.p === "string" && SAFE.test(raw.p)) out.p = raw.p;
   if (typeof raw.ref === "string" && /^[A-Za-z0-9_-]{4,16}$/.test(raw.ref)) out.ref = raw.ref;
+  if (typeof raw.c === "string" && /^[a-z0-9]{8}$/.test(raw.c)) out.c = raw.c;
   if (typeof raw.from === "string") {
     const name = raw.from.replace(/[^\p{L}\p{M} .'-]/gu, "").trim().slice(0, 24);
     if (name) out.from = name;
@@ -35,6 +38,7 @@ export function invitePath(inv: Invite): string {
   if (inv.p) q.set("p", inv.p);
   if (inv.from) q.set("from", inv.from);
   if (inv.ref) q.set("ref", inv.ref);
+  if (inv.c) q.set("c", inv.c);
   const qs = q.toString();
   return `/join${qs ? `?${qs}` : ""}`;
 }

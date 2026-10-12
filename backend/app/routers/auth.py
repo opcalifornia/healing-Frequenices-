@@ -126,6 +126,10 @@ async def delete_account(user: dict[str, Any] = Depends(current_user)) -> Respon
     if profile_ids:
         for name in PROFILE_DATA:
             await db[name].delete_many({"profile_id": {"$in": profile_ids}})
+        from .circles import remove_profile_from_circles
+
+        for pid in profile_ids:
+            await remove_profile_from_circles(pid)
         await db.profiles.delete_many({"user_id": user["_id"]})
     # Friends this person invited keep their accounts; just drop the link back.
     await db.users.update_many({"referred_by": user["_id"]}, {"$set": {"referred_by": None}})

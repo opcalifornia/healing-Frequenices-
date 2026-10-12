@@ -12,6 +12,7 @@ import NotFound from "./NotFound";
 import { ScheduleButton } from "../rooted/CalendarUI";
 import { ShareButton } from "../rooted/ShareCard";
 import { InviteButton } from "../rooted/InviteButton";
+import { CirclePanel } from "../rooted/Circles";
 import "../rooted/rooted.css";
 import "./Breathe.css";
 import "./Combos.css";
@@ -69,6 +70,10 @@ export default function ProgramPage() {
           {nd.doneToday && !nd.finished && <p className="program__note">You've done today's lesson. Coming back tomorrow builds the habit, but you can keep going if you like.</p>}
         </div>
       </header>
+
+      <section id="circle" className="sec-block program__circle">
+        <CirclePanel program={p} />
+      </section>
 
       <section className="sec-block">
         <Reveal className="sec-block__head"><h2>The days</h2></Reveal>
