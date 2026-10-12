@@ -1,6 +1,7 @@
 import type { Profile } from "../types";
 import { symbolById } from "../rooted/symbols";
 import { useUser } from "../store/user";
+import "./Avatar.css";
 
 type AvatarProfile = Pick<Profile, "name" | "hue"> & { id?: string; symbol?: string | null };
 
@@ -8,16 +9,18 @@ type AvatarProfile = Pick<Profile, "name" | "hue"> & { id?: string; symbol?: str
  * Profile picture: a photo (kept on this device) with a small symbol badge, or a
  * healing symbol on a gradient, or the first letter on the Rooted gradient.
  */
-export function Avatar({ profile, size = 40, photo }: { profile: AvatarProfile; size?: number; photo?: string | null }) {
+export function Avatar({ profile, size = 40, photo, live }: { profile: AvatarProfile; size?: number; photo?: string | null; live?: boolean }) {
   const stored = useUser((s) => (profile.id ? s.photos?.[profile.id] : undefined));
   const img = photo === undefined ? stored : photo;
   const h = profile.hue;
   const id = `av-${h}-${size}-${profile.id ?? "x"}`;
   const sym = symbolById(profile.symbol);
   const badge = Math.round(size * 0.36);
+  // Small avatars stay still; larger ones move gently.
+  const animated = live ?? size >= 90;
 
   const disc = (
-    <svg className="avatar" width={size} height={size} viewBox="0 0 100 100" aria-hidden="true">
+    <svg className={`avatar ${animated ? "avatar--live" : ""}`} width={size} height={size} viewBox="0 0 100 100" aria-hidden="true">
       <defs>
         <radialGradient id={id} cx="30%" cy="25%" r="90%">
           <stop offset="0" stopColor={`hsl(${h} 90% 72%)`} />
@@ -30,7 +33,7 @@ export function Avatar({ profile, size = 40, photo }: { profile: AvatarProfile; 
         <circle key={i} cx="50" cy="50" r={14 + i * 10} fill="none" stroke="rgba(255,255,255,0.18)" strokeWidth="1.5" />
       ))}
       {sym ? (
-        <g transform="translate(14 14) scale(0.72)">{sym.art}</g>
+        <g transform="translate(14 14) scale(0.72)"><g className={`sym sym--${sym.id}`}>{sym.art}</g></g>
       ) : (
         <text x="50" y="62" textAnchor="middle" fontSize="36" fontWeight="800" fill="#fff" fontFamily="var(--font)">
           {profile.name.slice(0, 1).toUpperCase()}

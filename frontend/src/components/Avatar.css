@@ -1,0 +1,27 @@
+/* Gentle motion for symbols on larger avatars. Calm by design, and off for reduced motion. */
+.sym { transform-box: fill-box; transform-origin: center; }
+@media (prefers-reduced-motion: no-preference) {
+  .avatar--live .sym { animation: sym-breathe 6s ease-in-out infinite; }
+  .avatar--live .sym--sun { animation: sym-spin 48s linear infinite; }
+  .avatar--live .sym--mandala { animation: sym-spin 70s linear infinite; }
+  .avatar--live .sym--flame { transform-origin: 50% 100%; animation: sym-flicker 2.6s ease-in-out infinite; }
+  .avatar--live .sym--lantern { animation: sym-glow 4s ease-in-out infinite; }
+  .avatar--live .sym--wave { animation: sym-drift 5s ease-in-out infinite; }
+  .avatar--live .sym--aurora { animation: sym-drift 7s ease-in-out infinite; }
+  .avatar--live .sym--moon, .avatar--live .sym--crystal { animation: sym-glow 5s ease-in-out infinite; }
+  .avatar--live .sym--leaf, .avatar--live .sym--feather, .avatar--live .sym--tree, .avatar--live .sym--seedling, .avatar--live .sym--bonsai { transform-origin: 50% 100%; animation: sym-sway 6s ease-in-out infinite; }
+  .avatar--live .sym--star, .avatar--live .sym--constellation { animation: sym-twinkle 3.4s ease-in-out infinite; }
+  .avatar--live .sym--heart { animation: sym-beat 3.2s ease-in-out infinite; }
+  .avatar--live .sym--lotus { animation: sym-bloom 7s ease-in-out infinite; }
+  .avatar--live .sym--dewdrop { animation: sym-bob 4s ease-in-out infinite; }
+}
+@keyframes sym-breathe { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.06); } }
+@keyframes sym-spin { to { transform: rotate(360deg); } }
+@keyframes sym-flicker { 0%, 100% { transform: scale(1, 1) rotate(0); } 30% { transform: scale(0.97, 1.05) rotate(-2deg); } 60% { transform: scale(1.02, 0.98) rotate(2deg); } }
+@keyframes sym-glow { 0%, 100% { filter: drop-shadow(0 0 0 rgba(255, 255, 255, 0)); } 50% { filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.7)); } }
+@keyframes sym-drift { 0%, 100% { transform: translateX(-2px); } 50% { transform: translateX(2px); } }
+@keyframes sym-sway { 0%, 100% { transform: rotate(-3deg); } 50% { transform: rotate(3deg); } }
+@keyframes sym-twinkle { 0%, 100% { opacity: 0.8; transform: scale(1); } 50% { opacity: 1; transform: scale(1.07); } }
+@keyframes sym-beat { 0%, 100% { transform: scale(1); } 12% { transform: scale(1.07); } 24% { transform: scale(1); } 36% { transform: scale(1.05); } }
+@keyframes sym-bloom { 0%, 100% { transform: scale(0.96); } 50% { transform: scale(1.07); } }
+@keyframes sym-bob { 0%, 100% { transform: translateY(2px); } 50% { transform: translateY(-3px); } }

@@ -140,6 +140,9 @@ export function NavBar() {
                     <Icon name="edit" size={20} /> Manage Profiles
                   </button>
                   <div className="nav__menu-sep" />
+                  <Link role="menuitem" className="nav__menu-item" to="/journey">
+                    <Icon name="leaf" size={20} /> My journey
+                  </Link>
                   <Link role="menuitem" className="nav__menu-item" to="/guide">
                     <Icon name="book" size={20} /> Guide to every tool
                   </Link>

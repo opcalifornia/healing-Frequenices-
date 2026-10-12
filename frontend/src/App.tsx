@@ -51,7 +51,9 @@ const Calendar = lazy(() => import("./pages/Calendar"));
 const Places = lazy(() => import("./pages/Places"));
 const Earth = lazy(() => import("./pages/Earth"));
 import { track } from "./rooted/metrics";
+import { UnlockNotice } from "./rooted/UnlockNotice";
 import { markVisited, untrackedMatches } from "./rooted/features";
+const Journey = lazy(() => import("./pages/Journey"));
 const Guide = lazy(() => import("./pages/Guide"));
 const FirstWin = lazy(() => import("./pages/FirstWin"));
 const Join = lazy(() => import("./pages/Join"));
@@ -150,6 +152,7 @@ export default function App() {
             <Route path="/move" element={<RequireProfile><Move /></RequireProfile>} />
             <Route path="/places" element={<RequireProfile><Places /></RequireProfile>} />
             <Route path="/earth" element={<RequireProfile><Earth /></RequireProfile>} />
+            <Route path="/journey" element={<RequireProfile><Journey /></RequireProfile>} />
             <Route path="/guide" element={<RequireProfile><Guide /></RequireProfile>} />
             <Route path="/start" element={<RequireProfile><FirstWin /></RequireProfile>} />
             <Route path="/week" element={<RequireProfile><Week /></RequireProfile>} />
@@ -183,6 +186,7 @@ export default function App() {
       {!onPicker && <MiniPlayer />}
       <HoverPreview />
       <PlayerGate />
+      {!onPicker && activeProfile && <UnlockNotice />}
       <SafetyNotice />
       <CrisisSheet />
       {!onPicker && <BedtimeToast />}

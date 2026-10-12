@@ -60,7 +60,7 @@ class AuthOut(BaseModel):
 
 #: The healing symbols a profile picture may use (see frontend/src/rooted/symbols.tsx).
 #: Profile photos are never sent to the server; only this id is.
-SYMBOLS = {"crystal", "tree", "wave", "lotus", "moon", "sun", "mountain", "feather", "leaf", "flame", "stone", "seedling", "shell", "star", "heart", "bowl"}
+SYMBOLS = {"crystal", "tree", "wave", "lotus", "moon", "sun", "mountain", "feather", "leaf", "flame", "stone", "seedling", "shell", "star", "heart", "bowl", "dewdrop", "lantern", "bonsai", "aurora", "mandala", "constellation"}
 
 
 def _check_symbol(v: str | None) -> str | None:

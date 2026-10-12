@@ -10,6 +10,8 @@ export interface Symbol {
   id: string;
   label: string;
   art: ReactNode;
+  /** Earned symbols name the milestone that unlocks them (see growth.ts). Free ones leave this out. */
+  unlock?: string;
 }
 
 const S = { fill: "none", stroke: "#fff", strokeWidth: 4, strokeLinecap: "round", strokeLinejoin: "round" } as const;
@@ -31,6 +33,13 @@ export const SYMBOLS: Symbol[] = [
   { id: "star", label: "Star", art: (<g {...S}><path d="m50 18 9 22 24 2-18 16 6 24-21-13-21 13 6-24-18-16 24-2Z" /></g>) },
   { id: "heart", label: "Heart", art: (<g {...S}><path d="M50 80C24 62 16 46 22 33c5-10 20-12 28 0 8-12 23-10 28 0 6 13-2 29-28 47Z" /></g>) },
   { id: "bowl", label: "Singing bowl", art: (<g {...S}><path d="M18 46h64c0 20-14 32-32 32S18 66 18 46Z" /><path d="M36 30c4-6 4-10 0-14M50 30c4-6 4-10 0-14M64 30c4-6 4-10 0-14" strokeWidth={3} opacity={0.7} /></g>) },
+  // Earned symbols. Cosmetic only; the server accepts the ids but doesn't check unlocks.
+  { id: "dewdrop", label: "Dewdrop", unlock: "sprout", art: (<g {...S}><path d="M50 16C50 16 28 42 28 60a22 22 0 0 0 44 0C72 42 50 16 50 16Z" /><path d="M40 62a10 10 0 0 0 8 10" strokeWidth={3} opacity={0.75} /></g>) },
+  { id: "lantern", label: "Lantern", unlock: "sapling", art: (<g {...S}><path d="M50 12v8M38 20h24" /><path d="M36 24 30 40v26l6 12h28l6-12V40l-6-16Z" /><path d="M50 66c-6-4-6-10 0-18 6 8 6 14 0 18Z" strokeWidth={3} opacity={0.85} /></g>) },
+  { id: "bonsai", label: "Bonsai", unlock: "tree", art: (<g {...S}><path d="M32 82h36l-4-10H36Z" /><path d="M50 72C42 58 58 50 48 38" /><path d="M28 40c-6-8 0-18 10-16 4-8 18-8 22 0 10-2 16 8 8 16-6 6-14 4-20 2-6 4-14 4-20-2Z" /></g>) },
+  { id: "aurora", label: "Aurora", unlock: "grove", art: (<g {...S}><path d="M14 66c14-34 26 4 38-22s22 8 34-12" /><path d="M14 78c14-30 26 2 38-18s22 6 34-10" opacity={0.7} /><circle cx="26" cy="22" r="2" fill="#fff" /><circle cx="74" cy="20" r="1.5" fill="#fff" /><circle cx="52" cy="14" r="1.5" fill="#fff" /></g>) },
+  { id: "mandala", label: "Mandala", unlock: "ancient", art: (<g {...S}><circle cx="50" cy="50" r="7" /><circle cx="50" cy="50" r="32" opacity={0.7} strokeWidth={3} />{[0, 45, 90, 135].map((a) => <ellipse key={a} cx="50" cy="31" rx="6" ry="13" transform={`rotate(${a} 50 50)`} />)}{[0, 45, 90, 135].map((a) => <ellipse key={`b${a}`} cx="50" cy="69" rx="6" ry="13" transform={`rotate(${a} 50 50)`} />)}</g>) },
+  { id: "constellation", label: "Constellation", unlock: "program", art: (<g {...S}><path d="M24 64 40 40l18 12 18-26M58 52l12 22" strokeWidth={3} opacity={0.8} />{[[24, 64], [40, 40], [58, 52], [76, 26], [70, 74]].map(([x, y]) => <circle key={`${x}${y}`} cx={x} cy={y} r="5" fill="#fff" />)}</g>) },
 ];
 
 export const SYMBOL_IDS = SYMBOLS.map((s) => s.id);

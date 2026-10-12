@@ -7,6 +7,7 @@ import { Icon } from "../components/Icon";
 import { Logo } from "../components/Logo";
 import { useUser } from "../store/user";
 import { SYMBOLS } from "../rooted/symbols";
+import { UNLOCKS, isUnlocked, useGrowth } from "../rooted/growth";
 import { processPhoto } from "../rooted/photo";
 import type { Profile } from "../types";
 import "./Profiles.css";
@@ -32,6 +33,7 @@ export default function Profiles() {
   const [photoError, setPhotoError] = useState<string | null>(null);
   const fileInput = useRef<HTMLInputElement>(null);
   const photos = useUser((s) => s.photos);
+  const growth = useGrowth();
   const navigate = useNavigate();
   const location = useLocation();
   const from = (location.state as { from?: string } | null)?.from ?? "/";
@@ -148,11 +150,23 @@ export default function Profiles() {
               <div className="dialog__label" id="symbol-label">Healing symbol</div>
               <div className="symbols" role="radiogroup" aria-labelledby="symbol-label">
                 <button role="radio" aria-checked={!draft.symbol} aria-label="No symbol, use my initial" className={`symbols__btn symbols__btn--none ${!draft.symbol ? "is-on" : ""}`} onClick={() => setDraft({ ...draft, symbol: null })}>Aa</button>
-                {SYMBOLS.map((s) => (
-                  <button key={s.id} role="radio" aria-checked={draft.symbol === s.id} aria-label={s.label} title={s.label} className={`symbols__btn ${draft.symbol === s.id ? "is-on" : ""}`} onClick={() => setDraft({ ...draft, symbol: s.id })}>
-                    <svg viewBox="0 0 100 100" aria-hidden="true">{s.art}</svg>
-                  </button>
-                ))}
+                {SYMBOLS.map((s) => {
+                  const open = isUnlocked(s.id, growth) || draft.symbol === s.id;
+                  return (
+                    <button
+                      key={s.id}
+                      role="radio"
+                      aria-checked={draft.symbol === s.id}
+                      aria-disabled={!open}
+                      aria-label={open ? s.label : `${s.label}, locked. ${UNLOCKS[s.unlock!].label}`}
+                      title={open ? s.label : UNLOCKS[s.unlock!].label}
+                      className={`symbols__btn ${draft.symbol === s.id ? "is-on" : ""} ${open ? "" : "is-locked"}`}
+                      onClick={() => open && setDraft({ ...draft, symbol: s.id })}
+                    >
+                      <svg viewBox="0 0 100 100" aria-hidden="true">{s.art}</svg>
+                    </button>
+                  );
+                })}
               </div>
               {!draft.kids && (
                 <>

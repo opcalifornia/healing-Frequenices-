@@ -48,3 +48,5 @@
 .photo-note { margin-top: 6px; color: rgba(255, 255, 255, 0.6); font-size: 0.8rem; line-height: 1.45; }
 .photo-error { margin-top: 6px; color: #ff8a80; font-size: 0.85rem; }
 .dialog { max-height: min(92vh, 860px); overflow-y: auto; }
+.symbols__btn.is-locked { opacity: 0.35; filter: grayscale(1); cursor: not-allowed; }
+.symbols__btn.is-locked:hover { transform: none; background: rgba(255, 255, 255, 0.06); }

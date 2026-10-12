@@ -1,0 +1,24 @@
+.journey { --sec-1: #9cdb8f; --sec-2: #6ec6ff; }
+.journey__hero { min-height: min(62vh, 520px); }
+.journey__text { display: grid; gap: 8px; justify-items: start; }
+.journey__avatar { margin-bottom: 6px; filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.5)); }
+.journey__private { display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; border-radius: 999px; background: rgba(156, 197, 154, 0.14); color: #cfe8c9 !important; font-size: var(--fs-small); max-width: none !important; }
+.journey__art { position: absolute; right: max(var(--gutter), 3vw); bottom: 40px; width: min(44vw, 380px); height: auto; opacity: 0.95; pointer-events: none; z-index: 0; }
+.journey__progress { display: grid; gap: 12px; padding: 22px; max-width: 760px; }
+.journey__bar { height: 12px; border-radius: 999px; background: rgba(255, 255, 255, 0.08); overflow: hidden; }
+.journey__bar i { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg, #6fa83a, #9cdb8f); }
+.journey__progress p { color: var(--r-text-2); line-height: 1.55; }
+.journey__progress strong { color: #fff; }
+.journey__stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; padding-top: 20px; max-width: 760px; }
+.journey__stat { display: grid; gap: 4px; padding: 18px; }
+.journey__stat b { font-size: clamp(1.8rem, 5vw, 2.4rem); font-weight: 900; letter-spacing: -0.03em; line-height: 1; }
+.journey__stat span { color: var(--r-text-2); font-size: var(--fs-small); font-weight: 700; }
+.journey__symbols { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 10px; }
+.journey__sym { display: grid; gap: 6px; justify-items: center; text-align: center; padding: 18px 12px; }
+.journey__sym strong { font-weight: 900; }
+.journey__sym small { color: var(--r-text-3); font-size: var(--fs-tiny); line-height: 1.4; }
+.journey__sym.is-locked .journey__symart { filter: grayscale(1) brightness(0.55); opacity: 0.7; }
+.journey__sym .btn { margin-top: 4px; }
+.journey__fine { margin: 18px 0 0; color: var(--r-text-3); font-size: var(--fs-small); }
+.journey__fine a { color: var(--r-sand); font-weight: 700; }
+@media (max-width: 760px) { .journey__art { width: 62vw; bottom: 14px; opacity: 0.4; } .journey__stats { grid-template-columns: minmax(0, 1fr); } }
