@@ -23,6 +23,7 @@ async function loadContent() {
         export { PANTRY } from "./src/rooted/pantryContent";
         export { RECIPES } from "./src/rooted/recipes.ts";
         export { ADDITIVES } from "./src/rooted/additivesContent";
+        export { NUTRIENTS } from "./src/rooted/nutrientsContent";
       `,
       resolveDir: ROOT, loader: "ts", sourcefile: "gaia-entry.ts",
     },
@@ -83,6 +84,9 @@ export async function buildIndex() {
   }
   for (const a of c.ADDITIVES) {
     items.push({ id: `additive:${a.id}`, kind: "additive", title: `${a.code} ${a.name}`, summary: clip(a.summary), level: a.level, evidence: a.evidence, to: "/scan#guide", exclude_if: [], cautions: a.careIf ? [clean(a.careIf)] : [], sources: a.sources.map((s) => s.text) });
+  }
+  for (const n of c.NUTRIENTS) {
+    items.push({ id: `nutrient:${n.id}`, kind: "nutrient", title: n.name, summary: clip(`${n.summary} Found in: ${n.plants.slice(0, 4).join(", ")}.`), why: clip(n.does.join(" ")), evidence: n.evidence, to: `/nutrients?open=${n.id}`, exclude_if: [], cautions: n.care.map(clean) });
   }
   const catalog = JSON.parse(readFileSync(join(ROOT, "src", "data", "catalog.json"), "utf8"));
   for (const t of Object.values(catalog.titles)) {

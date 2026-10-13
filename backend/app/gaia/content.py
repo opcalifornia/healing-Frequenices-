@@ -14,7 +14,7 @@ from typing import Any
 
 INDEX_PATH = Path(__file__).with_name("content_index.json")
 
-KINDS = ["tool", "breathing", "movement", "combo", "program", "food", "recipe", "additive", "sound"]
+KINDS = ["tool", "breathing", "movement", "combo", "program", "food", "recipe", "additive", "nutrient", "sound"]
 
 _STOP = {
     "a", "an", "and", "are", "can", "do", "for", "help", "how", "i", "im", "in", "is", "it", "me", "my", "of",
