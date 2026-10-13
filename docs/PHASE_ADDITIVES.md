@@ -11,6 +11,9 @@
 - Verdict rules live in `frontend/src/rooted/productVerdict.ts` and are written out in the app and tested. We use "few / some / several concerns", never a 0 to 100 score or "high-risk".
 - Not verified against the live Open Food Facts API from the build sandbox (blocked). Field names were taken from their docs, and parsing accepts both `nutriscore_grade` and `nutrition_grades`. Check a real scan on a phone, especially nutrition values, the Nutri-Score letter, and "better choices".
 
+## Library growth (v3)
+Added caramel colours (E150a-d), Red 3 (E127), BVO (E443), BHA/BHT, sorbates, phosphates, sucralose, nitrates, benzoates and about 15 gentle everyday additives. Every claim was checked against the regulator's own page. Held back until a primary source is verified: potassium bromate (E924), parabens, acesulfame K (E950), saccharin (E954), polyols, carbonated-drink acids and anything not listed in a regulator review.
+
 ## Rules for adding an additive
 1. Find the regulator review (EFSA, JECFA, IARC, FDA) or the published study first. Open the real page.
 2. Write what it found and how big the effect was. Say if it is observational, in animals, or from a single trial.

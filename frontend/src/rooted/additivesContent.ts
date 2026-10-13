@@ -31,6 +31,8 @@ export interface Additive extends AdditiveBase {
 }
 
 interface AdditiveBase {
+  /** Short risk tags. Set here, or in the TOPICS table below. */
+  topics?: string[];
   /** Lowercase code, for example "e171". */
   id: string;
   /** Display code, for example "E171". */
@@ -68,6 +70,19 @@ const CARRAGEENAN: Source = { text: "EFSA: Re-evaluation of carrageenan (E 407) 
 const CHASSAING: Source = { text: "Chassaing B et al. Dietary emulsifiers impact the mouse gut microbiota. Nature, 2015", url: "https://doi.org/10.1038/nature14232" };
 const SELLEM: Source = { text: "Sellem L et al. Food additive emulsifiers and risk of cardiovascular disease (NutriNet-Santé). BMJ, 2023", url: "https://doi.org/10.1136/bmj-2023-076058" };
 const EFSA_SULFITES: Source = { text: "EFSA: Follow-up of the re-evaluation of sulfur dioxide and sulfites (E 220-228), 2022", url: "https://www.efsa.europa.eu/en/efsajournal/pub/7594" };
+const EFSA_CARAMEL: Source = { text: "EFSA: Caramel colours, consumer exposure lower than previously estimated, 2012", url: "https://www.efsa.europa.eu/en/press/news/121219" };
+const FDA_RED3: Source = { text: "FDA: Revoking authorization for Red No. 3 in food and ingested drugs, 2025", url: "https://www.fda.gov/food/hfp-constituent-updates/fda-revoke-authorization-use-red-no-3-food-and-ingested-drugs" };
+const FDA_BVO: Source = { text: "FDA: Revoking the regulation allowing brominated vegetable oil in food, 2024", url: "https://www.fda.gov/food/hfp-constituent-updates/fda-revokes-regulation-allowing-use-brominated-vegetable-oil-bvo-food" };
+const EFSA_BHA: Source = { text: "EFSA: Exposure to butylated hydroxyanisole (E 320), statement, 2012", url: "https://www.efsa.europa.eu/en/efsajournal/pub/2759" };
+const EFSA_BHT: Source = { text: "EFSA: Re-evaluation of butylated hydroxytoluene BHT (E 321), 2012", url: "https://www.efsa.europa.eu/en/efsajournal/pub/2588" };
+const IARC_BHA: Source = { text: "IARC Monographs Vol. 40: Butylated hydroxyanisole (BHA), 1986", url: "https://inchem.org/documents/iarc/vol40/butylatedhydroxyanisole.html" };
+const EFSA_CARAMEL_2011: Source = { text: "EFSA: Caramel colours reviewed, 2011", url: "https://www.efsa.europa.eu/en/press/news/ans110308" };
+const CARAMEL_4MEI: Source = { text: "Caramel color in soft drinks and exposure to 4-methylimidazole: a quantitative risk assessment. PLoS One, 2015", url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC4333292/" };
+const EFSA_SORBATE_2015: Source = { text: "EFSA: Re-evaluation of sorbic acid, potassium sorbate and calcium sorbate (E 200-203), 2015", url: "https://www.efsa.europa.eu/en/efsajournal/pub/4144" };
+const EFSA_SORBATE_2019: Source = { text: "EFSA: Follow-up of the re-evaluation of sorbic acid (E 200) and potassium sorbate (E 202), 2019", url: "https://www.efsa.europa.eu/en/efsajournal/pub/5625" };
+const EFSA_PHOSPHATES: Source = { text: "EFSA: Re-evaluation of phosphoric acid and phosphates (E 338-341, E 343, E 450-452), 2019", url: "https://www.efsa.europa.eu/en/efsajournal/pub/5674" };
+const EFSA_NITRATE: Source = { text: "EFSA: Re-evaluation of sodium nitrate (E 251) and potassium nitrate (E 252), 2017", url: "https://www.efsa.europa.eu/en/efsajournal/pub/4787" };
+const SUCRALOSE: Source = { text: "Schiffman SS et al. Toxicological and pharmacokinetic properties of sucralose-6-acetate and its parent sucralose: in vitro screening assays. J Toxicol Environ Health B, 2023", url: "https://doi.org/10.1080/10937404.2023.2213903" };
 const EFSA_GLUTAMATE: Source = { text: "EFSA: Re-evaluation of glutamic acid and glutamates (E 620-625), 2017", url: "https://www.efsa.europa.eu/en/efsajournal/pub/4910" };
 
 const COLOUR_RESEARCH = [
@@ -331,9 +346,11 @@ const RAW: AdditiveBase[] = [
     research: [
       "In the 2023 BMJ study of 95,442 French adults, high intake of trisodium phosphate (E339) was associated with a slightly higher risk of coronary heart disease (hazard ratio 1.06).",
       "That is a small difference seen in observational data. The authors say it needs to be repeated in other groups, and that experiments are needed to understand why.",
+      "EFSA's 2019 re-evaluation of phosphates set a group safe daily intake of 40 mg per kg of body weight (as phosphorus) and found that many children's estimated intake is above it. The limit does not apply to people with reduced kidney function.",
     ],
+    careIf: "People with reduced kidney function.",
     regulation: "Authorised in the EU and the US.",
-    sources: [SELLEM],
+    sources: [SELLEM, EFSA_PHOSPHATES],
   },
   sulfite("E220", "Sulfur dioxide"),
   sulfite("E221", "Sodium sulfite"),
@@ -368,7 +385,286 @@ const RAW: AdditiveBase[] = [
   gentle("E415", "Xanthan gum", "Thickener", "Sauces, dressings, gluten-free baking and plant milks."),
   gentle("E412", "Guar gum", "Thickener", "Ice cream, sauces, gluten-free baking and drinks."),
   gentle("E306", "Tocopherols", "Antioxidant", "Oils, margarine and snacks.", "Vitamin E"),
+  gentle("E471", "Mono- and diglycerides of fatty acids", "Emulsifier", "Bread, cakes, ice cream, margarine and many packaged foods."),
+  gentle("E500", "Sodium carbonates", "Raising agent", "Baking powder, biscuits, cocoa and some drinks.", "Includes baking soda"),
+  gentle("E551", "Silicon dioxide", "Anti-caking agent", "Powdered seasonings, salt, coffee creamers and supplements."),
+  gentle("E160a", "Carotenes", "Colour (orange)", "Margarine, juices, cheese, baked goods and drinks.", "Beta-carotene"),
+  gentle("E162", "Beetroot red", "Colour (red, from beets)", "Ice cream, yoghurts, sauces and sweets.", "Betanin"),
+  gentle("E163", "Anthocyanins", "Colour (red to purple, from fruit and vegetables)", "Drinks, sweets and jams."),
+  gentle("E101", "Riboflavin", "Colour (yellow)", "Cereals, sauces, sweets and drinks.", "Vitamin B2"),
+  gentle("E270", "Lactic acid", "Acidity regulator", "Pickles, sauces, drinks and sourdough."),
+  gentle("E296", "Malic acid", "Acidity regulator", "Sweets, drinks and fruit products."),
+  gentle("E260", "Acetic acid", "Acidity regulator", "Pickles, sauces and dressings.", "The acid in vinegar"),
+  gentle("E334", "Tartaric acid", "Acidity regulator", "Wine, sweets, baking powder and drinks."),
+  gentle("E410", "Locust bean gum", "Thickener (from seeds)", "Ice cream, dairy desserts and sauces.", "Carob gum"),
+  gentle("E414", "Gum arabic", "Thickener (from acacia)", "Sweets, drinks and chewing gum.", "Acacia gum"),
+  gentle("E418", "Gellan gum", "Gelling agent", "Plant milks, jellies and drinks."),
+  gentle("E406", "Agar", "Gelling agent (from seaweed)", "Jellies, desserts and some sweets."),
+  {
+    id: "e150a",
+    code: "E150a",
+    name: "Plain caramel colour",
+    kind: "Colour (brown)",
+    found: "Whisky, sauces, baked goods and some sweets.",
+    level: "little",
+    evidence: "None",
+    summary: "EFSA set a group safe daily intake for caramel colours in 2011. Plain caramel (E150a) is made without ammonia or sulfites.",
+    research: [
+      "EFSA's 2011 review covered all four types of caramel colour (E150a to d) and set a group acceptable daily intake of 300 mg per kg of body weight.",
+      "It noted that estimated intake could be above that level for some people. In 2012 EFSA refined the estimates with new industry data and found intake was considerably lower than first thought.",
+    ],
+    topics: [],
+    regulation: "Authorised in the EU and the US.",
+    sources: [EFSA_CARAMEL_2011, EFSA_CARAMEL],
+  },
+  {
+    id: "e150b",
+    code: "E150b",
+    name: "Caustic sulfite caramel",
+    kind: "Colour (brown)",
+    found: "Sherry, some spirits and vinegars, and some sauces.",
+    level: "little",
+    evidence: "None",
+    summary: "Part of EFSA's 2011 group safe daily intake for caramel colours. Estimated intake was below it.",
+    research: [
+      "EFSA's 2011 review set a group acceptable daily intake of 300 mg per kg of body weight for caramel colours E150a to d.",
+      "For E150b specifically, estimated intake was below that level.",
+    ],
+    topics: [],
+    regulation: "Authorised in the EU and the US.",
+    sources: [EFSA_CARAMEL_2011, EFSA_CARAMEL],
+  },
+  {
+    id: "e150c",
+    code: "E150c",
+    name: "Ammonia caramel colour",
+    kind: "Colour (brown)",
+    found: "Baked goods, beer, soy sauce and some sauces.",
+    level: "some",
+    evidence: "Weak",
+    summary: "EFSA gave this type its own, lower safe daily intake because of an uncertainty about effects on the immune system.",
+    research: [
+      "EFSA's 2011 review set a lower limit of 100 mg per kg of body weight for E150c, within the group limit, because of uncertainty about possible effects of a substance in it, called THI, on the immune system.",
+      "In 2012 EFSA found intake was lower than first estimated. Toddlers and adults who eat a lot of it, mostly from bakery products and alcoholic drinks, could still go over the limit.",
+      "The ammonia types can contain a by-product called 4-methylimidazole (4-MEI). IARC lists 4-MEI as possibly carcinogenic (Group 2B), based only on animal studies.",
+    ],
+    topics: ["Immune system (uncertainty about one component)", "Intake can exceed the limit for some toddlers and adults", "4-MEI by-product: possibly carcinogenic (IARC, animal studies only)"],
+    regulation: "Authorised in the EU and the US.",
+    sources: [EFSA_CARAMEL_2011, EFSA_CARAMEL, CARAMEL_4MEI],
+  },
+  {
+    id: "e150d",
+    code: "E150d",
+    name: "Sulfite ammonia caramel colour",
+    kind: "Colour (brown)",
+    found: "Colas, soft drinks, soy sauce, vinegars, sauces and baked goods.",
+    level: "some",
+    evidence: "Weak",
+    summary: "The most common caramel colour in soft drinks. It can contain 4-MEI, a by-product that IARC lists as possibly carcinogenic, based on animal studies.",
+    research: [
+      "The ammonia types of caramel colour can contain a by-product called 4-methylimidazole (4-MEI), usually at higher levels in the sulfite ammonia type used in soft drinks. IARC lists 4-MEI as possibly carcinogenic to humans (Group 2B), based only on animal studies.",
+      "EFSA's 2011 review set a group acceptable daily intake of 300 mg per kg of body weight for caramel colours. In 2012 EFSA refined its estimates with new industry data and found that combined intake of all caramel colours stayed under that limit for every population group.",
+      "A 2015 risk assessment looked at how much 4-MEI people take in from soft drinks.",
+    ],
+    topics: ["4-MEI by-product: possibly carcinogenic (IARC, animal studies only)"],
+    regulation: "Authorised in the EU and the US.",
+    sources: [EFSA_CARAMEL_2011, EFSA_CARAMEL, CARAMEL_4MEI],
+  },
+  {
+    id: "e127",
+    code: "E127",
+    name: "Erythrosine",
+    also: "Red No. 3",
+    kind: "Colour (red)",
+    found: "Candy, cake decorations, icing, and some cherries and drinks.",
+    level: "restricted",
+    evidence: "Weak",
+    summary: "The US FDA is withdrawing approval for it in food, because of cancer seen in lab animals. Food use ends on 15 January 2027.",
+    research: [
+      "In January 2025 the FDA announced it would revoke the authorisation of Red No. 3 in food and ingested drugs, under the Delaney Clause. That law bars additives shown to cause cancer in animals.",
+      "Food use ends on 15 January 2027, and ingested drugs on 18 January 2028. Products made before then can stay on shelves. HHS and the FDA have asked companies to remove it sooner.",
+      "The decision rests on animal studies, not on cancer shown in people.",
+    ],
+    topics: ["Cancer in lab animals (basis for the US withdrawal)"],
+    regulation: "US approval for food ends 15 January 2027. Rules in other countries differ.",
+    sources: [FDA_RED3],
+  },
+  {
+    id: "e443",
+    code: "E443",
+    name: "Brominated vegetable oil",
+    also: "BVO",
+    kind: "Stabiliser in citrus drinks",
+    found: "Some fruit-flavoured soft drinks, mostly in the US, before the ban.",
+    level: "restricted",
+    evidence: "Moderate",
+    summary: "The US FDA revoked approval in 2024, saying the evidence no longer supports calling it safe.",
+    research: [
+      "The FDA revoked the authorisation for BVO in food in 2024. It took effect on 2 August 2024. Its only authorised use was to keep flavour oils from separating in fruit-flavoured drinks.",
+      "The agency said animal and human data no longer support a conclusion that BVO is safe in food, citing studies run with the National Institutes of Health.",
+      "Companies had a year to reformulate or use up stock, so older bottles may still carry it.",
+    ],
+    topics: ["Withdrawn by the FDA in 2024"],
+    regulation: "No longer authorised in US food as of the 2024 rule. Check your own country's rules.",
+    sources: [FDA_BVO],
+  },
+  {
+    id: "e320",
+    code: "E320",
+    name: "Butylated hydroxyanisole",
+    also: "BHA",
+    kind: "Preservative (antioxidant)",
+    found: "Chips, cereals, chewing gum, instant mashed potato and fats and oils.",
+    level: "some",
+    evidence: "Weak",
+    summary: "IARC classes it as possibly carcinogenic, based on animal studies. EFSA set a safe daily intake and found most people's intake from additive use is under it.",
+    research: [
+      "The International Agency for Research on Cancer (IARC) lists BHA as possibly carcinogenic to humans (Group 2B), based on stomach tumours in rodents fed high doses. IARC found no data on cancer in people. That grouping describes how strong the evidence is, not how much risk there is at the amounts in food.",
+      "EFSA's 2011 re-evaluation set an acceptable daily intake of 1.0 mg per kg of body weight, based on effects in rat pups.",
+      "A 2012 EFSA statement found intake from additive use is below that level for most groups, but combined intake from additives and food-contact materials could be above it for most groups.",
+    ],
+    topics: ["Possibly carcinogenic (IARC, based on animal studies)"],
+    regulation: "Authorised in the EU and the US, with limits.",
+    sources: [IARC_BHA, EFSA_BHA],
+  },
+  {
+    id: "e321",
+    code: "E321",
+    name: "Butylated hydroxytoluene",
+    also: "BHT",
+    kind: "Preservative (antioxidant)",
+    found: "Cereals, chewing gum, snacks, fats and oils.",
+    level: "little",
+    evidence: "Weak",
+    summary: "EFSA lowered its safe daily intake in 2012 after reviewing animal studies.",
+    research: [
+      "EFSA's 2012 re-evaluation set an acceptable daily intake of 0.25 mg per kg of body weight, based on rat studies. That is lower than the 0.3 mg per kg set earlier by the WHO and FAO expert committee (JECFA).",
+    ],
+    topics: ["Lower safe intake set by EFSA in 2012"],
+    regulation: "Authorised in the EU and the US, with limits.",
+    sources: [EFSA_BHT],
+  },
+  {
+    id: "e200",
+    code: "E200",
+    name: "Sorbic acid",
+    kind: "Preservative",
+    found: "Cheese, wine, baked goods, dried fruit and drinks.",
+    level: "little",
+    evidence: "None",
+    summary: "EFSA found no genotoxicity and raised its safe daily intake in 2019. It is often flagged online, but regulators have not found a concern.",
+    research: [
+      "EFSA's 2015 review found no evidence that sorbic acid or potassium sorbate damages DNA, and no adverse effects in rats at doses up to 9,200 mg per kg of body weight.",
+      "In 2019, after a further study, EFSA set a group acceptable daily intake of 11 mg of sorbic acid per kg of body weight for sorbic acid (E200) and potassium sorbate (E202).",
+    ],
+    topics: [],
+    regulation: "Authorised in the EU and the US with limits.",
+    sources: [EFSA_SORBATE_2015, EFSA_SORBATE_2019],
+  },
+  {
+    id: "e202",
+    code: "E202",
+    name: "Potassium sorbate",
+    kind: "Preservative",
+    found: "Wine, cheese, dried fruit, baked goods, drinks and many sauces.",
+    level: "little",
+    evidence: "None",
+    summary: "EFSA found no genotoxicity and raised its safe daily intake in 2019. Some apps flag it as high-risk, but regulators have not found a concern.",
+    research: [
+      "EFSA's 2015 review found no evidence that sorbic acid or potassium sorbate damages DNA, and no adverse effects in rats at doses up to 9,200 mg per kg of body weight.",
+      "In 2019, after a further study, EFSA set a group acceptable daily intake of 11 mg of sorbic acid per kg of body weight for sorbic acid (E200) and potassium sorbate (E202).",
+      "Calcium sorbate (E203) is treated separately because it had too little genotoxicity data.",
+    ],
+    topics: [],
+    regulation: "Authorised in the EU and the US with limits.",
+    sources: [EFSA_SORBATE_2015, EFSA_SORBATE_2019],
+  },
+  phosphate("E338", "Phosphoric acid", "Acidity regulator", "Colas, some other soft drinks, processed cheese and baked goods."),
+  phosphate("E340", "Potassium phosphates", "Acidity regulator", "Processed meat, cheese, baked goods and drinks."),
+  phosphate("E341", "Calcium phosphates", "Raising agent and anti-caking agent", "Baked goods, powdered mixes and processed foods."),
+  phosphate("E450", "Diphosphates", "Raising agent and emulsifier", "Baked goods, processed meat and cheese."),
+  phosphate("E451", "Triphosphates", "Emulsifier and stabiliser", "Processed meat, fish and cheese."),
+  phosphate("E452", "Polyphosphates", "Emulsifier and stabiliser", "Processed meat, fish, cheese and desserts."),
+  {
+    id: "e955",
+    code: "E955",
+    name: "Sucralose",
+    kind: "Sweetener",
+    found: "Diet and zero-sugar drinks, sugar-free sweets, protein products and tabletop sweeteners.",
+    level: "some",
+    evidence: "Weak",
+    summary: "A 2023 lab study on cells found a by-product could damage DNA. It was done in the lab, and it doesn't show harm in people.",
+    research: [
+      "A 2023 study (Schiffman et al.) tested sucralose and a related compound, sucralose-6-acetate, on human blood cells and gut tissue in the lab. It reported DNA damage from sucralose-6-acetate and a weakening of the gut lining's tight junctions.",
+      "The study used cells in the lab. The authors say it is not known whether the effects happen in people at normal intake.",
+    ],
+    topics: ["DNA damage in lab tests on cells (not shown in people)", "Gut lining in lab tests"],
+    regulation: "Authorised in the EU and the US.",
+    sources: [SUCRALOSE],
+  },
+  {
+    id: "e249",
+    code: "E249",
+    name: "Potassium nitrite",
+    kind: "Preservative (curing)",
+    found: "Bacon, ham, hot dogs, salami and other cured meats.",
+    level: "some",
+    evidence: "Moderate",
+    summary: "The strong research link is to eating processed meat, which can contain it. How much of that link is due to nitrite itself is not settled.",
+    research: [
+      "In 2015 the International Agency for Research on Cancer (IARC) classed processed meat as carcinogenic to humans (Group 1), based on sufficient evidence that eating it causes colorectal cancer. IARC estimated about an 18% higher risk for each 50 g eaten daily.",
+      "IARC's label describes how strong the evidence is, not how big the risk is. For one person the added risk is small, and it rises with the amount eaten.",
+      "EFSA re-evaluated nitrite as an additive in 2017 and kept a safe daily intake of 0.07 mg per kg of body weight. Average intake from additive use was below it.",
+    ],
+    topics: ["Cancer risk linked to processed meat (strong for the meat, unclear for nitrite)"],
+    regulation: "Authorised in the EU and the US for curing meat, with limits on the amount.",
+    sources: [IARC_MEAT, EFSA_NITRITE, EFSA_NITRITE_NEWS],
+  },
+  nitrate("E251", "Sodium nitrate"),
+  nitrate("E252", "Potassium nitrate"),
 ];
+
+function phosphate(code: string, name: string, kind: string, found: string): AdditiveBase {
+  return {
+    id: code.toLowerCase(),
+    code,
+    name,
+    kind,
+    found,
+    level: "some",
+    evidence: "Weak",
+    summary: "EFSA set a group safe daily intake for phosphates in 2019 and found that many children's intake may be above it. People with reduced kidney function should take care.",
+    research: [
+      "EFSA's 2019 re-evaluation set a group acceptable daily intake of 40 mg per kg of body weight (as phosphorus) for phosphoric acid and phosphates.",
+      "Estimated intake was above that level for infants, toddlers and other children on average, and for infants through adolescents at the high end. Food supplements could push it higher.",
+      "EFSA said the limit does not apply to people with moderate or severe reduced kidney function. It found no safety concern in infant formula for babies under 16 weeks.",
+    ],
+    careIf: "People with reduced kidney function.",
+    regulation: "Authorised in the EU and the US.",
+    sources: [EFSA_PHOSPHATES],
+  };
+}
+
+function nitrate(code: string, name: string): AdditiveBase {
+  return {
+    id: code.toLowerCase(),
+    code,
+    name,
+    kind: "Preservative (curing)",
+    found: "Cured meats, some cheeses and some vegetables.",
+    level: "little",
+    evidence: "Weak",
+    summary: "EFSA found no safety concern from nitrate used as an additive at current levels. Nitrate in the body can convert to nitrite.",
+    research: [
+      "EFSA's 2017 re-evaluation found that exposure to nitrate from its use as a food additive was below the acceptable daily intake of 3.7 mg per kg of body weight, and that there is no safety concern at current uses and levels.",
+      "Some nitrate is converted to nitrite in the body, which is why EFSA looked at both together. The strongest research link is between eating processed meat and colorectal cancer (IARC, 2015), which is covered under nitrite.",
+    ],
+    topics: ["Processed meat cancer link (nitrate can convert to nitrite)"],
+    regulation: "Authorised in the EU and the US with limits.",
+    sources: [EFSA_NITRATE, IARC_MEAT],
+  };
+}
+
 
 const COLOUR_TOPICS = ["Children's behaviour (small effect, mixtures)", "Label warning required in the EU"];
 const SULFITE_TOPICS = ["Sensitivity reactions, including in some people with asthma", "Intake above EFSA's safety margin"];
@@ -389,7 +685,18 @@ const TOPICS: Record<string, string[]> = {
 };
 for (const c of ["e220", "e221", "e222", "e223", "e224", "e226", "e227", "e228"]) TOPICS[c] = SULFITE_TOPICS;
 
-export const ADDITIVES: Additive[] = RAW.map((a) => ({ ...a, topics: TOPICS[a.id] ?? [] }));
+// Benzoates share one set of findings with sodium benzoate.
+const E211 = RAW.find((a) => a.id === "e211");
+if (E211) {
+  RAW.push({ ...E211, id: "e210", code: "E210", name: "Benzoic acid" }, { ...E211, id: "e212", code: "E212", name: "Potassium benzoate" });
+}
+for (const c of ["e210", "e212"]) TOPICS[c] = TOPICS.e211;
+const PHOSPHATE_TOPICS = ["Intake above EFSA's guideline for many children", "Kidney function (people with reduced function)"];
+for (const c of ["e338", "e340", "e341", "e450", "e451", "e452"]) TOPICS[c] = PHOSPHATE_TOPICS;
+TOPICS.e339 = ["Heart health (one large study, a link only)", ...PHOSPHATE_TOPICS];
+TOPICS.e249 = TOPICS.e250;
+
+export const ADDITIVES: Additive[] = RAW.map((a) => ({ ...a, topics: TOPICS[a.id] ?? a.topics ?? [] }));
 
 const BY_ID = new Map(ADDITIVES.map((a) => [a.id, a]));
 
