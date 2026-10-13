@@ -28,6 +28,7 @@ const TABS = [
   { id: "plate", label: "Your plate" },
   { id: "water", label: "Water" },
   { id: "nutrients", label: "Vitamins & minerals" },
+  { id: "animals", label: "Animal products" },
   { id: "pantry", label: "Pantry & list" },
   { id: "recipes", label: "Recipes" },
   { id: "fasting", label: "Fasting" },
@@ -190,6 +191,15 @@ export default function Nourish() {
           <p className="rooted__lead">Magnesium, vitamin D with K2, iron, B12 and every other vitamin and mineral: what they do for you, the fruit, vegetables and other foods rich in them, and who should take care.</p>
         </Reveal>
         <Reveal><Link to="/nutrients" className="btn btn--primary">Open the guide</Link></Reveal>
+      </section>
+
+      <section id="animals" className="sec-block">
+        <Reveal className="sec-block__head">
+          <span className="rooted__eyebrow">Animal products</span>
+          <h2>Meat, milk and eggs: how they're raised</h2>
+          <p className="rooted__lead">Antibiotics, hormones, feed additives, organic versus conventional, and what the labels really mean, with sources and honest ratings for how solid the evidence is.</p>
+        </Reveal>
+        <Reveal><Link to="/animal-products" className="btn btn--primary">Open the guide</Link></Reveal>
       </section>
 
       <section id="pantry" className="sec-block">
