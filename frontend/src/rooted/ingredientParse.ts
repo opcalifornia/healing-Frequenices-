@@ -42,6 +42,12 @@ const EXTRA: Record<string, string[]> = {
   e251: ["nitrate"],
   e338: ["orthophosphoric acid"],
   e968: ["meso erythritol"],
+  "flavouring-natural": ["natural flavor", "natural flavors", "natural flavoring", "natural flavourings", "natural flavour", "natural aroma"],
+  "flavouring-artificial": ["artificial flavor", "artificial flavors", "artificial flavoring", "artificial flavour", "artificial flavourings"],
+  vanillin: ["ethyl vanillin"],
+  "yeast-extract": ["autolyzed yeast extract", "autolysed yeast extract"],
+  "hydrolysed-protein": ["hydrolyzed protein", "hydrolyzed vegetable protein", "hydrolysed vegetable protein", "hydrolyzed soy protein", "hydrolysed soy protein", "hydrolyzed wheat protein"],
+  "hydrogenated-fat": ["partially hydrogenated oil", "partially hydrogenated vegetable oil", "partially hydrogenated fat", "partially hydrogenated palm oil", "partially hydrogenated soybean oil", "partially hydrogenated"],
 };
 
 /** Names too common in ordinary text to match by name: only their E-number counts. */
@@ -51,6 +57,7 @@ const NAME_OFF = new Set(["e570", "e948", "e949", "e173", "e174", "e175", "e640"
 const LOOSE: Array<{ words: string[]; label: string; ids: string[] }> = [
   { words: ["caramel color"], label: "Caramel colour (type not stated)", ids: ["e150a", "e150b", "e150c", "e150d"] },
   { words: ["sulfites", "sulphites", "sulfite"], label: "Sulfites (which one isn't stated)", ids: ["e220", "e223", "e224"] },
+  { words: ["hydrogenated"], label: "Hydrogenated fat (fully hydrogenated has almost no trans fat; partially does)", ids: ["hydrogenated-fat"] },
   { words: ["phosphates", "phosphate"], label: "Phosphates (which one isn't stated)", ids: ["e338", "e339", "e450"] },
 ];
 
@@ -59,6 +66,9 @@ function clean(text: string): string {
   return ` ${text
     .toLowerCase()
     .replace(/colour/g, "color")
+    .replace(/flavour/g, "flavor")
+    .replace(/hydrolysed/g, "hydrolyzed")
+    .replace(/autolysed/g, "autolyzed")
     .replace(/sulphur/g, "sulfur")
     .replace(/[^a-z0-9]+/g, " ")
     .trim()} `;

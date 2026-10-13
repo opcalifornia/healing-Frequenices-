@@ -707,8 +707,8 @@ const LAB_ONLY = new Set(["e466", "e433", "e955"]);
 /** The re-researched entries win over any older one with the same id. */
 const AUDITED_IDS = new Set(AUDITED.map((a) => a.id));
 const codeKey = (code: string): [number, string] => {
-  const m = code.match(/(\d+)([a-z]*)/i);
-  return [m ? Number(m[1]) : 0, m ? m[2].toLowerCase() : ""];
+  const m = code.match(/^E(\d+)([a-z]*)/i);
+  return [m ? Number(m[1]) : 99999, m ? m[2].toLowerCase() : code];
 };
 
 export const ADDITIVES: Additive[] = [
@@ -724,7 +724,7 @@ const BY_ID = new Map(ADDITIVES.map((a) => [a.id, a]));
 
 /** Find an additive from "E330", "e330", "en:e330" or "E-330". */
 export function additiveById(raw: string): Additive | undefined {
-  const code = normalizeCode(raw) ?? "";
+  const code = normalizeCode(raw) ?? raw.trim().toLowerCase();
   return BY_ID.get(code) ?? BY_ID.get(SAME_REVIEW[code] ?? "");
 }
 

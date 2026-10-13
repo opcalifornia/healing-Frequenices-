@@ -27,6 +27,7 @@ const ICONS: Record<string, ReactNode> = {
   gas: (<><circle cx="8" cy="15" r="3.5" /><circle cx="16" cy="9" r="3" /><circle cx="15" cy="17" r="2" /><circle cx="7" cy="6" r="1.5" /></>),
   bulk: (<><path d="M4 9l8-4 8 4-8 4-8-4Z" /><path d="M4 9v6l8 4 8-4V9M12 13v6" /></>),
   default: (<><path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 1.8 3h10.4a2 2 0 0 0 1.8-3l-5-9V3" /></>),
+  fat: (<><path d="M12 3c3 4 6 7 6 11a6 6 0 0 1-12 0c0-4 3-7 6-11Z" /><path d="M9 15a3 3 0 0 0 3 3" /></>),
   gap: (<><circle cx="12" cy="12" r="9" strokeDasharray="3 3" /><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 .9-1 1.7M12 17h.01" /></>),
   // concerns
   dna: (<><path d="M7 3c0 6 10 6 10 12s-10 6-10 6M17 3c0 6-10 6-10 12" /><path d="M8 7h8M8 17h8" /></>),
@@ -60,6 +61,7 @@ const FUNCTIONS: Array<{ re: RegExp; key: string; does: string }> = [
   { re: /glaz|foam/i, key: "glaze", does: "Gives food a shiny, protective coating, or stops foam forming while it is made." },
   { re: /flour|dough/i, key: "flour", does: "Improves how dough rises and holds together, so bread and baked goods turn out the same every time." },
   { re: /gas|propellant/i, key: "gas", does: "A gas that pushes food out of a can, or protects food inside its packaging." },
+  { re: /\bfat\b|\boil\b/i, key: "fat", does: "A cooking fat or oil used for texture, frying and keeping qualities." },
   { re: /bulking|carrier|solvent|humectant|chewing gum/i, key: "bulk", does: "Adds body or bulk, carries other ingredients, or helps keep food moist." },
   { re: /anti-?caking/i, key: "anticaking", does: "Keeps powders and granules free-flowing instead of clumping." },
 ];
@@ -95,6 +97,8 @@ const RISKS: Array<[RegExp, string]> = [
   [/nitrite|sorbate|cell damage|lab test/i, "dna"],
   [/emulsifier/i, "gut"],
   [/clotting/i, "heart"],
+  [/allergen/i, "breath"],
+  [/glutamate|contaminant|3-mcpd/i, "alert"],
   [/data gap|gaps|could not be assessed|not established|impurit|nano|different substance|limited/i, "gap"],
 ];
 
