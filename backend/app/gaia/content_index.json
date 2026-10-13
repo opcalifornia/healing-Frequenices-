@@ -1,6 +1,6 @@
 {
  "version": 1,
- "count": 291,
+ "count": 318,
  "items": [
   {
    "id": "additive:e101",
@@ -2171,6 +2171,358 @@
    ]
   },
   {
+   "id": "nutrient:b1",
+   "kind": "nutrient",
+   "title": "Thiamin",
+   "summary": "Helps turn food into energy and keeps nerves working. Found in: Sunflower seeds, Black beans, lentils, peas, Whole grains and brown rice, Fortified cereals and breads.",
+   "why": "Helps cells turn carbohydrate into energy (strong evidence). Supports nerve and heart function. Severe lack causes beriberi.",
+   "evidence": "Strong",
+   "to": "/nutrients?open=b1",
+   "exclude_if": [],
+   "cautions": [
+    "Thiamin from food and standard supplements is very safe. A clinician should guide it if you drink heavily or have had weight-loss surgery."
+   ]
+  },
+  {
+   "id": "nutrient:b12",
+   "kind": "nutrient",
+   "title": "Vitamin B12",
+   "summary": "Keeps nerves and blood cells healthy. Found naturally only in animal foods. Found in: None naturally. Fortified nutritional yeast, plant milks and cereals, Some fortified meat substitutes.",
+   "why": "Needed to make red blood cells and DNA, and to protect nerves (strong evidence). Low levels over time can cause anaemia and nerve damage.",
+   "evidence": "Strong",
+   "to": "/nutrients?open=b12",
+   "exclude_if": [],
+   "cautions": [
+    "Ask a clinician about a blood test if you fit the groups above, or have tingling hands and feet or unusual tiredness.",
+    "Check with a pharmacist if you take metformin or acid reducers."
+   ]
+  },
+  {
+   "id": "nutrient:b2",
+   "kind": "nutrient",
+   "title": "Riboflavin",
+   "summary": "Helps make energy and keeps skin and eyes healthy. Found in: Almonds, Mushrooms, Spinach, Fortified cereals.",
+   "why": "Helps cells make energy from food (strong evidence). Supports skin, eyes and the nervous system. High-dose riboflavin has been studied for migraine prevention with some benefit in small trials (mixed evidence).",
+   "evidence": "Strong",
+   "to": "/nutrients?open=b2",
+   "exclude_if": [],
+   "cautions": [
+    "Safe from food. Ask a clinician before using high-dose supplements for migraines."
+   ]
+  },
+  {
+   "id": "nutrient:b3",
+   "kind": "nutrient",
+   "title": "Niacin",
+   "summary": "Helps cells release energy and make and repair DNA. Found in: Peanuts and peanut butter, Mushrooms, Brown rice and whole grains, Green peas.",
+   "why": "Part of the machinery cells use to produce energy (strong evidence). Severe lack causes pellagra.",
+   "evidence": "Strong",
+   "to": "/nutrients?open=b3",
+   "exclude_if": [],
+   "cautions": [
+    "Supplement forms in higher amounts cause flushing, and in larger amounts can harm the liver. Doctors sometimes prescribe niacin for cholesterol, only with monitoring."
+   ]
+  },
+  {
+   "id": "nutrient:b5",
+   "kind": "nutrient",
+   "title": "Pantothenic acid",
+   "summary": "Helps your body use fats and carbohydrates for energy. Found in: Shiitake mushrooms, Avocado, Sweet potato, Sunflower seeds.",
+   "why": "Part of coenzyme A, which is needed to make energy and many body compounds (strong evidence).",
+   "evidence": "Strong",
+   "to": "/nutrients?open=b5",
+   "exclude_if": [],
+   "cautions": [
+    "Very safe. Very high supplement amounts can cause digestive upset."
+   ]
+  },
+  {
+   "id": "nutrient:b6",
+   "kind": "nutrient",
+   "title": "Vitamin B6",
+   "summary": "Helps make brain chemicals and process protein. Found in: Chickpeas, Potatoes, Bananas, Fortified cereals.",
+   "why": "Involved in more than 100 enzyme reactions, mostly in protein metabolism (strong evidence). Needed to make serotonin, dopamine and haemoglobin. Used in pregnancy for nausea under clinician advice (moderate evidence).",
+   "evidence": "Strong",
+   "to": "/nutrients?open=b6",
+   "exclude_if": [],
+   "cautions": [
+    "Taking too much from supplements for months can damage nerves, causing numbness and pain. Food is not a risk.",
+    "Check with a pharmacist if you take anti-seizure drugs."
+   ]
+  },
+  {
+   "id": "nutrient:b7",
+   "kind": "nutrient",
+   "title": "Biotin",
+   "summary": "Helps turn food into energy. Its famous hair and nail claims are not well supported. Found in: Sunflower seeds, Almonds and peanuts, Sweet potatoes, Spinach.",
+   "why": "Helps enzymes break down fats, carbohydrates and protein (strong evidence it's needed). Biotin for hair, skin or nails in people who are not low: little good evidence (weak evidence).",
+   "evidence": "Moderate",
+   "to": "/nutrients?open=b7",
+   "exclude_if": [],
+   "cautions": [
+    "Biotin supplements can distort common lab tests, including thyroid and heart-attack (troponin) blood tests. The US FDA warns about this. Tell any clinician or lab you take it, and stop it before tests if they advise."
+   ]
+  },
+  {
+   "id": "nutrient:calcium",
+   "kind": "nutrient",
+   "title": "Calcium",
+   "summary": "The main mineral in bones and teeth, and a signal for muscles and nerves. Found in: Calcium-set tofu, Fortified plant milks and juices, Kale, bok choy, collard greens, Broccoli.",
+   "why": "Builds and maintains bones and teeth (strong evidence). Needed for muscle contraction, nerve signals and blood clotting. Calcium supplements alone have only a small effect on fractures, and work best with enough vitamin D (moderate evidence).",
+   "evidence": "Strong",
+   "to": "/nutrients?open=calcium",
+   "exclude_if": [],
+   "cautions": [
+    "Too much from supplements can cause constipation and kidney stones. Ask a clinician about supplements, especially if you've had stones.",
+    "Calcium can reduce how well some medicines work (certain antibiotics, thyroid medicine, iron). Space them apart and ask a pharmacist."
+   ]
+  },
+  {
+   "id": "nutrient:choline",
+   "kind": "nutrient",
+   "title": "Choline",
+   "summary": "Builds cell membranes and a brain chemical for memory and muscle control. Found in: Soybeans and tofu, Quinoa, Broccoli and Brussels sprouts, Potatoes.",
+   "why": "Needed for cell membranes and for acetylcholine, a messenger for memory, mood and muscles (strong evidence). Important for a baby's brain development in pregnancy (moderate evidence).",
+   "evidence": "Moderate",
+   "to": "/nutrients?open=choline",
+   "exclude_if": [],
+   "cautions": [
+    "Very high supplement amounts can cause a fishy body odour, low blood pressure and nausea. Food is fine."
+   ]
+  },
+  {
+   "id": "nutrient:chromium",
+   "kind": "nutrient",
+   "title": "Chromium",
+   "summary": "A trace mineral often marketed for blood sugar. The evidence for that is thin. Found in: Broccoli, Whole grains, Potatoes, Grape juice.",
+   "why": "May help insulin work, but whether people need more is unclear, and true deficiency is very rare (weak evidence). Chromium supplements for blood sugar or weight loss: results are mixed and small (mixed evidence).",
+   "evidence": "Weak",
+   "to": "/nutrients?open=chromium",
+   "exclude_if": [],
+   "cautions": [
+    "If you have diabetes, ask your care team before taking chromium, since it may change how your medicines work."
+   ]
+  },
+  {
+   "id": "nutrient:copper",
+   "kind": "nutrient",
+   "title": "Copper",
+   "summary": "Helps use iron, build connective tissue and support nerves. Found in: Cashews, sunflower seeds, sesame seeds, Shiitake mushrooms, Chickpeas and lentils, Dark chocolate.",
+   "why": "Needed to make energy, use iron and form connective tissue and blood vessels (strong evidence). Supports nerve and immune function.",
+   "evidence": "Strong",
+   "to": "/nutrients?open=copper",
+   "exclude_if": [],
+   "cautions": [
+    "Supplements are rarely needed. Too much can harm the liver. Ask a clinician, especially with liver disease."
+   ]
+  },
+  {
+   "id": "nutrient:folate",
+   "kind": "nutrient",
+   "title": "Folate",
+   "summary": "Builds DNA and red blood cells. Important before and during early pregnancy. Found in: Lentils, chickpeas, black beans, Spinach, kale, romaine, Asparagus and Brussels sprouts, Broccoli.",
+   "why": "Needed to make DNA and new cells and to form red blood cells (strong evidence). Taking folic acid before and in early pregnancy lowers the chance of neural tube defects such as spina bifida (strong evidence).",
+   "evidence": "Strong",
+   "to": "/nutrients?open=folate",
+   "exclude_if": [],
+   "cautions": [
+    "If there is any chance of pregnancy, ask a clinician about folic acid. It matters before you know you are pregnant.",
+    "A lot of folic acid can hide the signs of low vitamin B12. Ask a clinician if you are over 50 or eat no animal foods."
+   ]
+  },
+  {
+   "id": "nutrient:iodine",
+   "kind": "nutrient",
+   "title": "Iodine",
+   "summary": "The thyroid needs it to make hormones that set your metabolism. Found in: Seaweed (nori, kelp, wakame: amounts vary a lot), Iodised salt, Prunes and lima beans (small amounts).",
+   "why": "Used to make thyroid hormones, which control metabolism, growth and a baby's brain development (strong evidence). Too little can cause goitre and, in pregnancy, harm brain development.",
+   "evidence": "Strong",
+   "to": "/nutrients?open=iodine",
+   "exclude_if": [],
+   "cautions": [
+    "Kelp and some seaweed hold a very large and variable amount, and too much can cause thyroid problems just as too little can. Ask a clinician before kelp supplements, and if you have thyroid disease."
+   ]
+  },
+  {
+   "id": "nutrient:iron",
+   "kind": "nutrient",
+   "title": "Iron",
+   "summary": "Carries oxygen in your blood and to your muscles. Found in: Lentils, chickpeas, beans, Tofu and tempeh, Spinach and Swiss chard, Pumpkin and sesame seeds.",
+   "why": "Makes haemoglobin, which carries oxygen in red blood cells (strong evidence). Needed for energy, focus and immune function. Low iron can bring tiredness, breathlessness and pale skin.",
+   "evidence": "Strong",
+   "to": "/nutrients?open=iron",
+   "exclude_if": [],
+   "cautions": [
+    "Don't take iron supplements unless a blood test shows you need them. Extra iron can build up and cause harm, and it upsets the stomach.",
+    "People with hemochromatosis should avoid extra iron and vitamin C supplements.",
+    "Keep iron supplements away from children. An overdose can be dangerous."
+   ]
+  },
+  {
+   "id": "nutrient:magnesium",
+   "kind": "nutrient",
+   "title": "Magnesium",
+   "summary": "A helper in over 300 reactions: muscles, nerves, blood sugar, blood pressure and bones. Found in: Pumpkin seeds and chia seeds, Almonds, cashews, peanuts, Spinach and Swiss chard, Black beans, edamame, lentils.",
+   "why": "Needed for hundreds of enzyme reactions, including making energy, muscle contraction and nerve signals (strong evidence it is essential). Higher intakes are linked to lower blood pressure, and supplements lower it modestly in some studies (moderate evidence). Helps turn vitamin D into its active form (moderate…",
+   "evidence": "Moderate",
+   "to": "/nutrients?open=magnesium",
+   "exclude_if": [],
+   "cautions": [
+    "Supplement forms (not food) can cause diarrhoea and cramps in higher amounts.",
+    "Ask a clinician or pharmacist first if you have kidney disease, or take antibiotics (tetracyclines, quinolones), bisphosphonates, diuretics or long-term stomach-acid medicines. These can interact."
+   ]
+  },
+  {
+   "id": "nutrient:manganese",
+   "kind": "nutrient",
+   "title": "Manganese",
+   "summary": "A helper for bone formation and for breaking down carbohydrates and cholesterol. Found in: Hazelnuts and pecans, Brown rice and oats, Chickpeas and lentils, Pineapple.",
+   "why": "Part of enzymes involved in bone formation, metabolism and antioxidant defence (strong evidence it's needed). Shortage is very rare, so benefits from extra are unproven (weak evidence).",
+   "evidence": "Moderate",
+   "to": "/nutrients?open=manganese",
+   "exclude_if": [],
+   "cautions": [
+    "Too much can affect the nervous system. It is most often linked to heavy workplace exposure or some well water, rather than food. Avoid high-dose supplements."
+   ]
+  },
+  {
+   "id": "nutrient:molybdenum",
+   "kind": "nutrient",
+   "title": "Molybdenum",
+   "summary": "A trace mineral for enzymes that break down toxins and process proteins. Found in: Legumes: lentils, black-eyed peas, beans, Whole grains, Nuts, Leafy vegetables.",
+   "why": "Part of enzymes that process certain amino acids and clear waste (strong evidence it's needed). Deficiency has only been seen in rare inherited conditions or unusual tube feeding.",
+   "evidence": "Moderate",
+   "to": "/nutrients?open=molybdenum",
+   "exclude_if": [],
+   "cautions": [
+    "Supplements are not needed and very high amounts can cause problems. Skip them unless a clinician advises."
+   ]
+  },
+  {
+   "id": "nutrient:phosphorus",
+   "kind": "nutrient",
+   "title": "Phosphorus",
+   "summary": "A partner of calcium in bones, and part of the molecule that carries energy. Found in: Lentils, chickpeas, beans, Nuts and seeds, Whole grains, oats, Potatoes.",
+   "why": "Builds bones and teeth with calcium (strong evidence). Part of DNA and ATP, the cell's energy currency.",
+   "evidence": "Strong",
+   "to": "/nutrients?open=phosphorus",
+   "exclude_if": [],
+   "cautions": [
+    "If you have kidney disease, you may need to limit phosphorus, including additives. Ask your care team."
+   ]
+  },
+  {
+   "id": "nutrient:potassium",
+   "kind": "nutrient",
+   "title": "Potassium",
+   "summary": "Helps balance fluids, power muscles and nerves, and keeps blood pressure in range. Found in: Potatoes and sweet potatoes, Beans, lentils, white beans, Spinach and Swiss chard, Bananas, oranges, cantaloupe.",
+   "why": "Balances fluids and supports nerve signals and muscle contraction, including the heart (strong evidence). Eating more potassium-rich foods, along with less sodium, lowers blood pressure (strong evidence, the basis of the DASH eating pattern). It may reduce the risk of kidney stones and bone loss (moderate evidence).",
+   "evidence": "Strong",
+   "to": "/nutrients?open=potassium",
+   "exclude_if": [],
+   "cautions": [
+    "Ask a clinician before increasing potassium or using salt substitutes if you have kidney disease or take ACE inhibitors, ARBs or potassium-sparing diuretics. Too much can affect heart rhythm.",
+    "Most store-bought potassium supplements hold only a small amount, so food is the main route."
+   ]
+  },
+  {
+   "id": "nutrient:selenium",
+   "kind": "nutrient",
+   "title": "Selenium",
+   "summary": "A tiny amount powers antioxidant enzymes and thyroid hormones. Found in: Brazil nuts (very high), Whole grains and brown rice, Sunflower seeds, Mushrooms.",
+   "why": "Part of enzymes that protect cells and help the thyroid make and use hormones (strong evidence). Selenium supplements have not been shown to prevent cancer or heart disease in people who aren't low (moderate evidence of no benefit).",
+   "evidence": "Strong",
+   "to": "/nutrients?open=selenium",
+   "exclude_if": [],
+   "cautions": [
+    "Too much is harmful: hair and nail loss, nerve problems. Avoid high-dose supplements and eating Brazil nuts by the handful every day."
+   ]
+  },
+  {
+   "id": "nutrient:vit-a",
+   "kind": "nutrient",
+   "title": "Vitamin A",
+   "summary": "For vision, immune defences, skin and growth. Found in: Sweet potato, Carrots, Spinach, kale, collards, Butternut squash and pumpkin.",
+   "why": "Makes the pigment your eyes use in dim light; lack is a leading cause of preventable childhood blindness worldwide (strong evidence). Supports the immune system and the lining of your skin, gut and lungs. Needed for growth and development before birth.",
+   "evidence": "Strong",
+   "to": "/nutrients?open=vit-a",
+   "exclude_if": [],
+   "cautions": [
+    "Ready-made vitamin A (retinol) from liver, cod liver oil or supplements is harmful in high amounts, and excess in pregnancy is linked to birth defects. Talk to a clinician if you are or may become pregnant.",
+    "Beta-carotene supplements raised lung cancer risk in people who smoke. Food sources are fine."
+   ]
+  },
+  {
+   "id": "nutrient:vit-c",
+   "kind": "nutrient",
+   "title": "Vitamin C",
+   "summary": "Builds collagen, supports immunity and helps you take up iron from plants. Found in: Red and yellow peppers, Oranges, grapefruit, kiwi, strawberries, Broccoli, Brussels sprouts, cauliflower, Tomatoes, potatoes.",
+   "why": "Needed to make collagen for skin, blood vessels, bones and wound healing; severe lack causes scurvy (strong evidence). Helps your body absorb iron from plant foods (strong evidence). Acts as an antioxidant. Regular extra doses may slightly shorten colds, but they don't stop them (moderate evidence).",
+   "evidence": "Strong",
+   "to": "/nutrients?open=vit-c",
+   "exclude_if": [],
+   "cautions": [
+    "Very large supplement amounts can cause stomach upset and kidney stones in some people.",
+    "Ask a clinician if you have had kidney stones or have a condition that stores too much iron."
+   ]
+  },
+  {
+   "id": "nutrient:vit-d",
+   "kind": "nutrient",
+   "title": "Vitamin D",
+   "summary": "The sunshine vitamin: helps your gut take up calcium and keeps bones and muscles working. Found in: Mushrooms exposed to UV light (D2), Fortified plant milks and cereals, Vegan D3 from lichen (supplements).",
+   "why": "Helps your body absorb calcium, so bones stay strong. Severe lack causes rickets in children and soft bones in adults (strong evidence). Supports muscle and immune function. Taking extra for general disease prevention has not held up: a large trial of over 25,000 adults found no drop in cancer or heart disease…",
+   "evidence": "Strong",
+   "to": "/nutrients?open=vit-d",
+   "exclude_if": [],
+   "cautions": [
+    "A blood test is the only way to know your level. Ask a clinician before taking high amounts: too much can raise blood calcium and harm the kidneys.",
+    "Check with a pharmacist if you take steroids, weight-loss medicines or anti-seizure drugs."
+   ]
+  },
+  {
+   "id": "nutrient:vit-e",
+   "kind": "nutrient",
+   "title": "Vitamin E",
+   "summary": "A fat-soluble antioxidant that protects cell membranes. Found in: Sunflower seeds, Almonds and hazelnuts, Wheat germ and wheat germ oil, Peanut butter.",
+   "why": "Protects fats in your cell membranes from damage by free radicals (strong evidence it is needed). Supports the immune system. Taking vitamin E supplements has not been shown to prevent heart disease or cancer in large trials (moderate evidence of no benefit).",
+   "evidence": "Moderate",
+   "to": "/nutrients?open=vit-e",
+   "exclude_if": [],
+   "cautions": [
+    "High-dose supplements can raise bleeding risk, especially with blood thinners. Ask a clinician or pharmacist first.",
+    "A large trial of vitamin E found a higher rate of prostate cancer in men taking it. Food is the safe route."
+   ]
+  },
+  {
+   "id": "nutrient:vit-k",
+   "kind": "nutrient",
+   "title": "Vitamin K",
+   "summary": "Makes the proteins that help blood clot, and others that direct calcium in bones. Found in: Kale, collards, spinach, turnip greens (K1), Broccoli, Brussels sprouts, cabbage (K1), Natto, fermented soybeans, the richest K2 (MK-7) food, Parsley, scallions, lettuce.",
+   "why": "Needed for blood clotting (strong evidence). Helps make proteins that bind calcium in bone. K2 specifically, for bone and artery health: studies so far are mixed and small, and whether K2 supplements prevent fractures or artery stiffening is not settled (mixed evidence).",
+   "evidence": "Strong",
+   "to": "/nutrients?open=vit-k",
+   "exclude_if": [],
+   "cautions": [
+    "If you take warfarin (Coumadin) or a similar blood thinner, vitamin K changes how it works. Keep your intake steady and ask your clinician before adding a supplement or changing how many greens you eat."
+   ]
+  },
+  {
+   "id": "nutrient:zinc",
+   "kind": "nutrient",
+   "title": "Zinc",
+   "summary": "For immunity, wound healing, taste and smell. Found in: Pumpkin seeds, Chickpeas, lentils, beans, Cashews and hemp seeds, Oats and whole grains.",
+   "why": "Needed for immune cells, wound healing, and your sense of taste and smell (strong evidence). Zinc lozenges started within a day of cold symptoms may shorten a cold slightly (mixed evidence).",
+   "evidence": "Strong",
+   "to": "/nutrients?open=zinc",
+   "exclude_if": [],
+   "cautions": [
+    "Taking a lot for a long time can cause copper shortage and weaken immunity.",
+    "Zinc nasal sprays have been linked to lasting loss of smell. The US FDA warns against them.",
+    "Zinc can reduce absorption of some antibiotics. Ask a pharmacist."
+   ]
+  },
+  {
    "id": "program:fiber-7",
    "kind": "program",
    "title": "7 Days to More Fiber",
@@ -3932,6 +4284,18 @@
    "area": "Sleep & light",
    "minutes": null,
    "to": "/light#tools",
+   "exclude_if": [],
+   "cautions": []
+  },
+  {
+   "id": "tool:nutrients",
+   "kind": "tool",
+   "title": "Vitamins and minerals guide",
+   "summary": "Look up any vitamin or mineral, including magnesium, vitamin D with K2 and iron: what it does, which fruits, vegetables and other foods are rich in it, who tends to run low, and how strong the research is.",
+   "why": "Knowing what each nutrient does, and where to find it, makes eating well simpler than guessing at supplements.",
+   "area": "Food",
+   "minutes": 3,
+   "to": "/nutrients",
    "exclude_if": [],
    "cautions": []
   },

@@ -48,6 +48,7 @@ const Support = lazy(() => import("./pages/Support"));
 const Spirit = lazy(() => import("./pages/Spirit"));
 const Garden = lazy(() => import("./pages/Garden"));
 const Light = lazy(() => import("./pages/Light"));
+const Nutrients = lazy(() => import("./pages/Nutrients"));
 const Program = lazy(() => import("./pages/Program"));
 const YourData = lazy(() => import("./pages/YourData"));
 const Calendar = lazy(() => import("./pages/Calendar"));
@@ -163,6 +164,7 @@ export default function App() {
             <Route path="/calendar" element={<RequireProfile><Calendar /></RequireProfile>} />
             <Route path="/your-data" element={<RequireProfile><YourData /></RequireProfile>} />
             <Route path="/program/:id" element={<RequireProfile><Program /></RequireProfile>} />
+            <Route path="/nutrients" element={<RequireProfile><Nutrients /></RequireProfile>} />
             <Route path="/light" element={<RequireProfile><Light /></RequireProfile>} />
             <Route path="/garden" element={<RequireProfile><Garden /></RequireProfile>} />
             <Route path="/spirit" element={<RequireProfile><Spirit /></RequireProfile>} />

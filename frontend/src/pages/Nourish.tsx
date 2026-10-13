@@ -27,6 +27,7 @@ const TABS = [
   { id: "sugar", label: "Blood sugar" },
   { id: "plate", label: "Your plate" },
   { id: "water", label: "Water" },
+  { id: "nutrients", label: "Vitamins & minerals" },
   { id: "pantry", label: "Pantry & list" },
   { id: "recipes", label: "Recipes" },
   { id: "fasting", label: "Fasting" },
@@ -180,6 +181,15 @@ export default function Nourish() {
           ))}
         </div>
         <p className="nourish__src">{WATER_SOURCES.map((s) => <SourceLink key={s.text} s={s} />)}</p>
+      </section>
+
+      <section id="nutrients" className="sec-block">
+        <Reveal className="sec-block__head">
+          <span className="rooted__eyebrow">Vitamins &amp; minerals</span>
+          <h2>What each one does, and where to find it</h2>
+          <p className="rooted__lead">Magnesium, vitamin D with K2, iron, B12 and every other vitamin and mineral: what they do for you, the fruit, vegetables and other foods rich in them, and who should take care.</p>
+        </Reveal>
+        <Reveal><Link to="/nutrients" className="btn btn--primary">Open the guide</Link></Reveal>
       </section>
 
       <section id="pantry" className="sec-block">
