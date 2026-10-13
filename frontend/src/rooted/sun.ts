@@ -127,3 +127,13 @@ export const PHASE_COPY: Record<Phase, { title: string; body: string }> = {
   "polar-day": { title: "The sun doesn't set here right now", body: "With light all day, keep a rhythm anyway: bright mornings outside, dim evenings, blackout curtains for sleep." },
   "polar-night": { title: "The sun doesn't rise here right now", body: "In polar winter, a light box in the morning can stand in for sunrise. See Light tools, and talk to a clinician if your mood dips." },
 };
+
+const PLACE_KEY = "rooted.sun.place";
+
+/** The place the person shared from this device in Follow the sun, if any. Kept on the device only. */
+export function readPlace(): Place | null {
+  try {
+    const p = JSON.parse(localStorage.getItem(PLACE_KEY) ?? "null") as Place | null;
+    return p && Number.isFinite(p.lat) && Number.isFinite(p.lon) ? { lat: p.lat, lon: p.lon, source: "device" } : null;
+  } catch { return null; }
+}
