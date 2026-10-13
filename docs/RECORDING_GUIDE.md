@@ -60,9 +60,9 @@ flight paths, and stop recording when people talk.
 
 7. **Waterfall**: 20–50 m back. Too close sounds like harsh hiss; distance rounds it into a roar.
 8. **Mountain stream**: 1–2 m from a small drop over rocks, mics low and angled down.
-9. **Rain**: under an eave or a tent. Try different surfaces (leaves, canvas, wood); soft surfaces sound calmer.
+9. **Rain**: under an eave or a tent. Try different surfaces (leaves, canvas, wood); soft surfaces sound softer.
 10. **Rainforest or woodland birds**: dawn chorus, about 30–60 minutes before sunrise, in still air.
-11. **Ocean surf** (for Deep Sync): 30–100 m from the water, on a calm day with long, slow waves.
+11. **Ocean surf** (for Deep Sync): 30–100 m from the water, on a still day with long, slow waves.
 
 ## Putting a track together
 
@@ -97,7 +97,7 @@ voice:
    pops.
 2. **Delivery:** slower and softer than normal speech, as if talking to
    someone falling asleep. Smile slightly; it warms the tone.
-3. **Takes:** record each cue three or four times and keep the calmest.
+3. **Takes:** record each cue three or four times and keep the softest.
    - "Breathe in"
    - "Sip in a little more"
    - "Hold"

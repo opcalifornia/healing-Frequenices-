@@ -18,7 +18,7 @@ evidence rating and a linked source. It has these sections:
   stress check-ins feed a "Your results" dashboard (what works best for you,
   8-week calendar). There's also a BOLT breath-hold test with history,
   body and heart-rhythm diagrams, 5-4-3-2-1 grounding and progressive muscle
-  relaxation. Programs (`/program/:id`, starting with 7 Days to Calmer),
+  relaxation. Programs (`/program/:id`, starting with 7 Days to Relax),
   spoken voice guidance (recorded clips in `public/audio/voice/` override the
   built-in voice), a camera heart rate and HRV check (`rooted/ppg.ts`), and
   daily reminders added to the phone's calendar.
@@ -175,7 +175,7 @@ pink / brown noise (generated buffer, seamless loop)
   navigate.
 - The visualizer pulses at the beat rate by moving shape, not brightness. The
   pulse gets shallower as the beat gets faster. It freezes under
-  `prefers-reduced-motion` or the player's "Calm visuals" toggle.
+  `prefers-reduced-motion` or the player's "Soft visuals" toggle.
 
 ## Deploy
 
