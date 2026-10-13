@@ -164,6 +164,87 @@ export function SectionArt({ s }: { s: RootedSection }) {
           </g>
         </svg>
       );
+    case "garden":
+      return (
+        <svg className="sart sart--garden" style={style} viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <g transform="translate(-45 -62)">
+            <g className="sart__plant" fill="#5aa832">
+              <path d="M200 120C188 104 188 86 198 72 208 86 208 104 200 120Z" />
+              <path d="M200 124C180 122 168 110 166 94 184 94 198 106 200 124Z" fill="#4d9a3a" />
+              <path d="M200 124C220 122 232 110 234 94 216 94 202 106 200 124Z" fill="#6cc062" />
+              <path d="M200 124V146" stroke="#4d9a3a" strokeWidth="4" strokeLinecap="round" />
+            </g>
+            <path d="M172 142H228L220 176Q219 180 214 180H186Q181 180 180 176Z" fill="#c0703c" />
+            <rect x="168" y="136" width="64" height="12" rx="4" fill="#d58650" />
+          </g>
+          <g transform="translate(-8 -62)">
+            {[0, 1, 2].map((i) => (
+              <path key={i} className="sart__steam" style={{ "--i": i } as React.CSSProperties} d={`M${236 + i * 14} 140C${230 + i * 14} 128 ${244 + i * 14} 118 ${238 + i * 14} 104`} fill="none" stroke="var(--c1)" strokeWidth="3" strokeLinecap="round" opacity="0.6" />
+            ))}
+            <path d="M226 148H282C282 168 270 178 254 178S226 168 226 148Z" fill="var(--c2)" opacity="0.85" />
+            <path d="M282 154C296 154 296 170 280 170" fill="none" stroke="var(--c2)" strokeWidth="4" strokeLinecap="round" opacity="0.85" />
+            <ellipse cx="254" cy="148" rx="28" ry="5" fill="#a1887f" />
+          </g>
+        </svg>
+      );
+    case "places":
+      return (
+        <svg className="sart sart--places" style={style} viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <g transform="translate(-40 -30)">
+          <circle className="sart__sun" cx="215" cy="74" r="34" fill="var(--c2)" opacity="0.55" />
+          <path d="M60 150L140 70 190 118 240 56 340 150Z" fill="#2c4a63" opacity="0.9" />
+          <path d="M120 150L190 92 250 150Z" fill="#3b6283" opacity="0.9" />
+          <path d="M240 56L258 78 246 74 240 86 232 74 222 78Z" fill="#dfeaf2" opacity="0.8" />
+          <path d="M40 150H380V158H40Z" fill="#1d3a4c" />
+          <ellipse cx="200" cy="152" rx="70" ry="9" fill="var(--c1)" opacity="0.55" />
+          {[0, 1, 2].map((i) => (
+            <path key={i} className="sart__steam" style={{ "--i": i } as React.CSSProperties} d={`M${176 + i * 24} 146C${170 + i * 24} 134 ${184 + i * 24} 126 ${178 + i * 24} 114`} fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" opacity="0.5" />
+          ))}
+          </g>
+        </svg>
+      );
+    case "support":
+      return (
+        <svg className="sart sart--support" style={style} viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <circle className="sart__glow" cx="190" cy="82" r="48" fill="var(--c2)" opacity="0.25" />
+          <path className="sart__heart" d="M190 106C160 86 160 58 178 56 186 55 190 62 190 62S194 55 202 56C220 58 220 86 190 106Z" fill="var(--c2)" />
+          <path d="M138 108C140 128 160 142 190 142S240 128 242 108C226 116 210 118 190 118S154 116 138 108Z" fill="var(--c1)" opacity="0.9" />
+          <path d="M138 108C128 104 124 96 128 90 136 92 142 98 150 106Z" fill="var(--c1)" opacity="0.9" />
+          <path d="M242 108C252 104 256 96 252 90 244 92 238 98 230 106Z" fill="var(--c1)" opacity="0.9" />
+        </svg>
+      );
+    case "earth":
+      return (
+        <svg className="sart sart--earth" style={style} viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <defs>
+            <clipPath id="sart-globe"><circle cx="280" cy="102" r="58" /></clipPath>
+          </defs>
+          <circle cx="280" cy="102" r="58" fill="#1d6f8a" />
+          <g clipPath="url(#sart-globe)">
+            <g className="sart__land">
+              <path d="M214 84C226 70 244 72 252 82S262 100 248 108 220 108 214 84Z" fill="#5aa832" />
+              <path d="M276 66C290 58 306 64 310 78S300 96 286 90 268 76 276 66Z" fill="#4d9a3a" />
+              <path d="M270 118C284 110 304 116 308 132S292 156 276 148 260 126 270 118Z" fill="#6cc062" />
+              <path d="M214 84C226 70 244 72 252 82S262 100 248 108 220 108 214 84Z" fill="#5aa832" transform="translate(116 0)" />
+              <path d="M276 66C290 58 306 64 310 78S300 96 286 90 268 76 276 66Z" fill="#4d9a3a" transform="translate(116 0)" />
+            </g>
+            <circle cx="262" cy="86" r="58" fill="url(#sart-shade)" />
+          </g>
+          <defs>
+            <radialGradient id="sart-shade" cx="0.35" cy="0.3" r="0.9">
+              <stop offset="0" stopColor="#fff" stopOpacity="0.28" />
+              <stop offset="0.6" stopColor="#000" stopOpacity="0" />
+              <stop offset="1" stopColor="#000" stopOpacity="0.4" />
+            </radialGradient>
+          </defs>
+          <ellipse className="sart__orbit" cx="280" cy="102" rx="86" ry="20" fill="none" stroke="var(--c2)" strokeWidth="1.5" strokeDasharray="3 7" opacity="0.6" transform="rotate(-18 280 102)" />
+          <g transform="translate(280 40)">
+            <path d="M0 0V-16" stroke="#6cc062" strokeWidth="3" strokeLinecap="round" />
+            <path d="M0 -10C-10 -12 -14 -20 -12 -26 -2 -24 2 -18 0 -10Z" fill="#6cc062" />
+            <path d="M0 -14C10 -16 14 -24 12 -30 2 -28 -2 -22 0 -14Z" fill="#8fd36a" />
+          </g>
+        </svg>
+      );
     case "light":
       return (
         <div className="sart sart--light" style={style} aria-hidden="true">

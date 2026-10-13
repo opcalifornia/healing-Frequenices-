@@ -52,6 +52,18 @@
 .sart--nourish { background: radial-gradient(ellipse at 60% 20%, color-mix(in srgb, var(--c2) 32%, transparent), transparent 62%), #12140d; }
 .sart__fruit { animation: fruit-bob 6s ease-in-out infinite; animation-delay: calc(var(--i) * -0.8s); transform-box: fill-box; transform-origin: 50% 100%; }
 @keyframes fruit-bob { 0%, 100% { translate: 0 0; } 50% { translate: 0 -3px; } }
+.sart--garden { background: radial-gradient(ellipse at 70% 30%, color-mix(in srgb, var(--c1) 30%, transparent), transparent 62%), #0e140e; }
+.sart--places { background: linear-gradient(180deg, #0f2233, #0c1a26 70%, #0a141d); }
+.sart--support { background: radial-gradient(ellipse at 55% 40%, color-mix(in srgb, var(--c2) 26%, transparent), transparent 62%), #0d1219; }
+.sart--earth { background: radial-gradient(ellipse at 70% 45%, color-mix(in srgb, var(--c2) 26%, transparent), transparent 62%), #0a1512; }
+.sart__plant { transform-box: fill-box; transform-origin: 50% 100%; animation: figure-sway 7s ease-in-out infinite alternate; }
+.sart__steam { animation: steam-rise 6s ease-in-out infinite; animation-delay: calc(var(--i) * -2s); }
+@keyframes steam-rise { 0% { translate: 0 8px; opacity: 0; } 40% { opacity: 0.6; } 100% { translate: 0 -12px; opacity: 0; } }
+.sart__glow { animation: sun-breathe 6s ease-in-out infinite alternate; transform-box: fill-box; transform-origin: center; }
+.sart__heart { animation: combo-pulse 5s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+.sart__land { animation: land-turn 40s linear infinite; }
+@keyframes land-turn { from { translate: 0 0; } to { translate: -116px 0; } }
+.sart__orbit { animation: trail-flow 20s linear infinite; }
 .sart--move { background: radial-gradient(ellipse at 75% 30%, color-mix(in srgb, var(--c1) 38%, transparent), transparent 62%), #150f0b; }
 .sart__figure { transform-box: fill-box; transform-origin: 50% 100%; animation: figure-sway 7s ease-in-out infinite alternate; }
 @keyframes figure-sway { from { rotate: -2deg; } to { rotate: 2deg; } }
@@ -90,7 +102,7 @@
 .sart--orbs span:last-child { width: 60%; aspect-ratio: 1; left: -15%; bottom: -35%; background: radial-gradient(circle, var(--c2), transparent 65%); opacity: 0.35; animation-delay: -9s; }
 
 @media (prefers-reduced-motion: reduce) {
-  .aurora__b, .sart__fruit, .sart__figure, .sart__sun, .sart__trail, .sart__pulse, .sart__link, .sart__wave, .sart__ripple, .sart__star, .sart__lotus, .sart--breathe span, .sart__node, .sart--orbs span { animation: none; }
+  .aurora__b, .sart__plant, .sart__steam, .sart__glow, .sart__heart, .sart__land, .sart__orbit, .sart__fruit, .sart__figure, .sart__sun, .sart__trail, .sart__pulse, .sart__link, .sart__wave, .sart__ripple, .sart__star, .sart__lotus, .sart--breathe span, .sart__node, .sart--orbs span { animation: none; }
 }
 
 /* Section header used by wellness pages */
