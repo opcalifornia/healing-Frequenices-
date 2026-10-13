@@ -60,9 +60,9 @@ flight paths, and stop recording when people talk.
 
 7. **Waterfall**: 20–50 m back. Too close sounds like harsh hiss; distance rounds it into a roar.
 8. **Mountain stream**: 1–2 m from a small drop over rocks, mics low and angled down.
-9. **Rain**: under an eave or a tent. Try different surfaces (leaves, canvas, wood); soft surfaces sound calmer.
+9. **Rain**: under an eave or a tent. Try different surfaces (leaves, canvas, wood); soft surfaces sound softer.
 10. **Rainforest or woodland birds**: dawn chorus, about 30–60 minutes before sunrise, in still air.
-11. **Ocean surf** (for Deep Sync): 30–100 m from the water, on a calm day with long, slow waves.
+11. **Ocean surf** (for Deep Sync): 30–100 m from the water, on a still day with long, slow waves.
 
 ## Putting a track together
 
@@ -85,6 +85,33 @@ Use a free editor such as Audacity, or Reaper.
 - **Recorded tone sessions**: these will be hosted on Cloudflare R2 through
   the media endpoint that is already in the API. Send the files over when
   they are ready, and the app will be wired to play them.
+
+## Voice cues for Breathe
+
+The breathing player speaks cues ("Breathe in", "Hold", "Breathe out"). Until
+you record your own, it uses the phone's built-in voice. To swap in your
+voice:
+
+1. **Room:** a quiet, soft room (a closet full of clothes is perfect). Mouth
+   about a hand's width from the mic, slightly off to the side to avoid
+   pops.
+2. **Delivery:** slower and softer than normal speech, as if talking to
+   someone falling asleep. Smile slightly; it warms the tone.
+3. **Takes:** record each cue three or four times and keep the softest.
+   - "Breathe in"
+   - "Sip in a little more"
+   - "Hold"
+   - "Breathe out"
+   - "Hold" (a second, slightly lower take, for after the exhale)
+   - "Well done. Let your breath return to normal."
+4. **Edit:**
+   - Trim to about 0.2 seconds of silence before each word, and cut tight
+     at the end.
+   - Normalize so all clips are the same loudness.
+   - Export mono MP3 at 128 kbps.
+5. **Install:** name the files `in.mp3`, `top.mp3`, `hold.mp3`, `out.mp3`,
+   `rest.mp3` and `done.mp3`, and put them in `frontend/public/audio/voice/`.
+   The app picks them up automatically.
 
 ## Safety
 

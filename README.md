@@ -1,6 +1,78 @@
-# Healing Frequencies
+# Rooted
 
-A streaming-style web app for frequency-based audio. Every sound is generated
+Rooted is an evidence-based wellness app. Every health claim in it carries an
+evidence rating and a linked source. It has these sections:
+
+- **Home** (`/`): a Today strip and section cards that zoom open.
+- **Healing Light** (`/light`): an interactive spectrum from UV to
+  near-infrared, diagrams of how light sets the body clock and how deep each
+  band reaches into skin, a night light and sunrise screen, a light box
+  timer, a daily light plan from your bedtime, and evidence on light
+  therapy, blue light, red light, UV and tanning beds.
+- **Healing Frequencies** (`/healing`): the binaural streaming section
+  described below.
+- **Breathe** (`/breathe`): one-tap "I want to…" picks, six guided
+  techniques and a custom pattern builder. The full-screen pacer changes
+  shape with the pattern (orb, box, triangle) and offers chimes, a rising
+  and falling breath tone, nature soundscapes and haptics. Before and after
+  stress check-ins feed a "Your results" dashboard (what works best for you,
+  8-week calendar). There's also a BOLT breath-hold test with history,
+  body and heart-rhythm diagrams, 5-4-3-2-1 grounding and progressive muscle
+  relaxation. Programs (`/program/:id`, starting with 7 Days to Relax),
+  spoken voice guidance (recorded clips in `public/audio/voice/` override the
+  built-in voice), a camera heart rate and HRV check (`rooted/ppg.ts`), and
+  daily reminders added to the phone's calendar.
+- **Nourish** (`/nourish`): diet findings, a plate builder, a water tracker,
+  fasting guidance, myth checks, and a Pantry of foods, herbs and teas that
+  feeds a downloadable shopping list.
+- **Move** (`/move`): follow-along walking, stretching, yoga, tai chi and
+  qigong with an animated figure, evidence cards and sauna safety.
+- **Combos** (`/combos`): one-tap guided flows that chain breathing, movement,
+  habits, a written reflection and a closing frequency session. Steps are
+  swapped automatically for someone's health considerations.
+- **Garden & Apothecary** (`/garden`): a planner that matches herbs to your
+  space and light, a My Garden harvest tracker, food-safe tea and remedy
+  recipes that add their ingredients to the shopping list, safety rules,
+  and small-space growing basics.
+- **Spirit & Ritual** (`/spirit`): synthesized singing bowls, chimes and gong,
+  an auto-playing sound bath, a meditation timer, a gratitude journal, and
+  traditions (chakras, crystals, grounding, forest bathing, smudging, faith)
+  with honest evidence notes.
+- **Support** (`/support`): crisis lines (988 and more), a Stanley-Brown
+  safety plan, how to help someone, therapies and practitioners. A heart
+  button in the nav opens crisis help from any screen.
+- **Health calendar** (`/calendar`): schedule breathing, walks, yoga,
+  program lessons, bedtime and appointments, once or on repeat. "Plan my day"
+  fits the daily plan around what's already booked. Import a work calendar
+  (.ics) to see busy time and free gaps; it stays on the device. Send any
+  event to Apple, Google or Outlook (.ics or a Google link), or, when signed
+  in, subscribe to a live link (`/api/calendar/{token}.ics`) that updates on
+  its own. "Add to calendar" buttons sit in Breathe, Move and Programs.
+- **Learn** (`/learn`): guides to the brain, sleep and frequency safety.
+- **About you** (`/welcome`, `/about-you`): goals, activity level, daily time
+  and optional health considerations. `frontend/src/rooted/plan.ts` turns
+  these into a daily plan on Home and hides or flags practices that aren't
+  advised (for example, power breathing in pregnancy).
+
+Signed-in profiles sync their Rooted data across devices through
+`/api/profiles/{id}/state/{key}` (last write wins by timestamp). Private notes
+(journal, safety plan, moods) only sync when the person turns on private
+backup. The **Your data** page (`/your-data`) shows what's kept and where,
+and offers export and delete.
+
+Wellness content lives in `frontend/src/rooted/*Content.ts`. Per-profile data
+(shopping list, water, practice log) is stored on the device in
+`frontend/src/store/nourish.ts` and `practice.ts`.
+
+Planned phases are written up in `docs/`. The AI Coach phase, a chat coach
+that builds a personal daily routine from the app's content, is in
+[`docs/PHASE_AI_COACH.md`](docs/PHASE_AI_COACH.md). Professional partners and
+training modules are in [`docs/PHASE_PRO_PARTNERS.md`](docs/PHASE_PRO_PARTNERS.md). The iPhone,
+Apple Watch, widgets and push plan is in [`docs/PHASE_NATIVE_APP.md`](docs/PHASE_NATIVE_APP.md).
+
+## Healing Frequencies
+
+A streaming-style section for frequency-based audio. Every sound is generated
 live in the browser with the Web Audio API, and every piece of artwork is
 painted procedurally on canvas. There are no audio or image files.
 
@@ -103,7 +175,7 @@ pink / brown noise (generated buffer, seamless loop)
   navigate.
 - The visualizer pulses at the beat rate by moving shape, not brightness. The
   pulse gets shallower as the beat gets faster. It freezes under
-  `prefers-reduced-motion` or the player's "Calm visuals" toggle.
+  `prefers-reduced-motion` or the player's "Soft visuals" toggle.
 
 ## Deploy
 
@@ -120,10 +192,44 @@ comma-separated if there are several). `JWT_SECRET` is generated for you.
 `railway.json` builds the Dockerfile and health-checks `/api/health`. Set
 `MONGO_URL`, `JWT_SECRET`, `CORS_ORIGINS` and `ENVIRONMENT=production`.
 
+Set `API_PUBLIC_URL` to the API's public address (for example
+`https://rooted-api.onrender.com`) so calendar subscription links point at it,
+and `APP_URL` to the front end's address for the "Open in Rooted" links.
+
+Set `TRUST_PROXY=true` on Render and Railway (both sit behind a load
+balancer). Sign-in, sign-up and the calendar feed are rate limited per client
+IP, and without it every request looks like it comes from the load balancer,
+so all users would share one limit. Leave it off when nothing in front of the
+API sets `X-Forwarded-For`, because clients could fake the header. The limits
+are kept in memory, so they assume a single API instance.
+
 The API refuses to start with `ENVIRONMENT=production` unless `JWT_SECRET`
 is at least 32 random characters. Render's blueprint generates one for you.
 On the free tier the API sleeps when idle. The front end waits 6 seconds for
 it, then shows the bundled catalog (same content) while it wakes.
+
+#### Anonymous usage counts
+
+The app posts anonymous feature counts to `POST /api/metrics` (a name from a
+fixed list such as `first_win_completed`, plus a "days since first open"
+bucket on `app_open`). The API only keeps daily totals in the
+`metrics_daily` collection: no user, profile or device id, IP or user agent.
+Users can turn it off on the Your data page; Do Not Track / Global Privacy
+Control turn it off by default.
+
+To read the totals, set `METRICS_ADMIN_TOKEN` to a long random string (for
+example `openssl rand -hex 32`). While it is unset the summary endpoint
+returns 404. Then:
+
+```bash
+curl -s -H "X-Admin-Token: $METRICS_ADMIN_TOKEN" \
+  "https://rooted-api.onrender.com/api/metrics/summary?days=30" | jq
+```
+
+The response has `totals` per event, `daily` per-day counts, and a `funnel`
+with `first_win_completion_rate` (first_win_completed / first_win_started) and
+`day2_return_rate` (app opens on a device's second day / opens on its first
+day, a proxy for "came back on day 2"). `days` can be 1 to 366.
 
 ### Single-file preview
 
@@ -169,6 +275,9 @@ python -m app.seed            # upserts into MongoDB (or restart with an empty D
 
 Artwork is generated from each title's `art` (`hue`, `pattern`), which is
 assigned automatically from the goal or category.
+
+The **Frequencies & Your Health** guide (`/learn/safety`) keeps its claims,
+evidence labels and linked sources in `frontend/src/learn/safetyContent.ts`.
 
 The **Better Sleep** guide (`/learn/sleep`) keeps its tips, evidence labels
 and sources in `frontend/src/learn/sleepContent.ts`. The **Bedtime** routine

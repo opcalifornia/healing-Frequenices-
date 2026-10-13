@@ -13,7 +13,7 @@ const favicon = Buffer.from(readFileSync(join(dir, "favicon.svg"))).toString("ba
 // Keep the inline script from closing early.
 const safeJs = js.replace(/<\/script/gi, "<\\/script");
 
-const page = `<title>Healing Frequencies</title>
+const page = `<title>Rooted</title>
 <meta name="theme-color" content="#000000">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,${favicon}">
 <style>${css}</style>

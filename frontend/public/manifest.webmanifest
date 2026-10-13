@@ -1,0 +1,42 @@
+{
+  "name": "Rooted",
+  "short_name": "Rooted",
+  "description": "Evidence-based wellness: food, water, breath, movement and binaural frequency sessions that may support relaxation, focus or sleep.",
+  "id": "/",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#0b0d0a",
+  "theme_color": "#0b0d0a",
+  "lang": "en",
+  "categories": ["health", "lifestyle"],
+  "icons": [
+    { "src": "/icons/rooted-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/rooted-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/rooted-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    {
+      "name": "1-minute settle-in",
+      "short_name": "Settle in",
+      "description": "A one-minute breathing break",
+      "url": "/breathe",
+      "icons": [{ "src": "/icons/rooted-192.png", "sizes": "192x192", "type": "image/png" }]
+    },
+    {
+      "name": "Calendar",
+      "short_name": "Calendar",
+      "description": "Your wellness calendar",
+      "url": "/calendar",
+      "icons": [{ "src": "/icons/rooted-192.png", "sizes": "192x192", "type": "image/png" }]
+    },
+    {
+      "name": "Crisis help",
+      "short_name": "Help",
+      "description": "Crisis lines and support resources",
+      "url": "/support",
+      "icons": [{ "src": "/icons/rooted-192.png", "sizes": "192x192", "type": "image/png" }]
+    }
+  ]
+}

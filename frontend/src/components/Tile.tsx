@@ -58,9 +58,11 @@ interface TileProps {
   shape: ArtShape;
   progress?: number;
   index?: number;
+  /** False when the tile sits inside another list item (e.g. a Top 10 card). */
+  listItem?: boolean;
 }
 
-export const Tile = memo(function Tile({ title, shape, progress, index = 0 }: TileProps) {
+export const Tile = memo(function Tile({ title, shape, progress, index = 0, listItem = true }: TileProps) {
   const timer = useRef<number>();
   const linkRef = useRef<HTMLAnchorElement>(null);
   const show = usePreview((s) => s.show);
@@ -79,7 +81,7 @@ export const Tile = memo(function Tile({ title, shape, progress, index = 0 }: Ti
   const label = `${title.name}. ${metaParts(title).join(", ")}${title.comingSoon ? ". Coming soon" : ""}`;
 
   return (
-    <div className={`tile tile--${shape}`} role="listitem">
+    <div className={`tile tile--${shape}`} role={listItem ? "listitem" : undefined}>
       <Link
         ref={linkRef}
         to={`/title/${title.id}`}
@@ -110,7 +112,7 @@ export function Top10Tile({ title, rank, index }: { title: Title; rank: number; 
         <text x={rank === 10 ? 112 : 116} y="150" textAnchor="end">{rank}</text>
       </svg>
       <div className="top10__poster">
-        <Tile title={title} shape="poster" index={index} />
+        <Tile title={title} shape="poster" index={index} listItem={false} />
       </div>
     </div>
   );

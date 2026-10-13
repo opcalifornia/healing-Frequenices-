@@ -126,12 +126,11 @@ export function Hero({ titles }: { titles: Title[] }) {
 
         {count > 1 && (
           <div className="hero__pager">
-            <div className="hero__dots" role="tablist" aria-label="Choose slide">
+            <div className="hero__dots" role="group" aria-label="Choose slide">
               {titles.map((s, i) => (
                 <button
                   key={s.id}
-                  role="tab"
-                  aria-selected={i === index}
+                  aria-current={i === index ? "true" : undefined}
                   aria-label={`Slide ${i + 1}: ${s.name}`}
                   className={`hero__dot ${i === index ? "is-active" : ""}`}
                   onClick={() => go(i)}

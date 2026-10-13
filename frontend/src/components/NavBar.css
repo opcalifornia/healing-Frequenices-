@@ -6,7 +6,7 @@
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0) 100%);
   transition: background var(--t-med) var(--ease), box-shadow var(--t-med);
 }
-.nav--solid { background: rgba(0, 0, 0, 0.94); box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06); }
+.nav--solid { background: rgba(0, 0, 0, 0.97); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06); }
 
 .logo { display: inline-flex; align-items: center; gap: 8px; }
 .logo__mark { flex: none; }
@@ -73,4 +73,19 @@
   }
   .tabbar__item.active { color: #fff; }
   .tabbar__item.active svg { color: var(--accent-2); }
+}
+
+/* Healing Frequencies section bar */
+.hnav { position: fixed; top: var(--nav-h); left: 0; right: 0; z-index: 45; display: flex; align-items: center; gap: 18px; padding: 8px var(--gutter); background: linear-gradient(180deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0)); }
+.hnav__brand .logo__word { font-size: 1rem; }
+.hnav__brand .logo__mark { width: 30px; height: 18px; }
+.hnav__links { display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; padding: 4px; border-radius: 999px; background: rgba(20, 20, 24, 0.6); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.08); }
+.hnav__links::-webkit-scrollbar { display: none; }
+.hnav__link { flex: none; padding: 6px 12px; border-radius: 999px; font-size: 0.85rem; font-weight: 700; color: var(--text-2); transition: background var(--t-fast), color var(--t-fast); }
+.hnav__link:hover { color: #fff; }
+.hnav__link.active { background: var(--accent-grad); color: #000; }
+.logo--rooted .logo__word { font-weight: 850; letter-spacing: -0.04em; background: linear-gradient(90deg, #f0e8d6, #e8d5b0 60%, #e3a57a); -webkit-background-clip: text; background-clip: text; color: transparent; }
+@media (max-width: 600px) {
+  .hnav { gap: 10px; }
+  .hnav__brand { display: none; }
 }

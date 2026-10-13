@@ -29,6 +29,7 @@ export function customToTitle(c: CustomSession): Title {
     solfeggio: c.solfeggio,
     isochronic: c.isochronic,
     ambience: c.ambience ?? null,
+    music: c.music ?? null,
     tags: ["custom"],
     year: new Date(c.createdAt).getFullYear(),
     art: { hue: Math.round((c.carrier - 100) * 1.2 + c.beat * 4) % 360, pattern: "interference" },

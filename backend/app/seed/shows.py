@@ -70,7 +70,7 @@ SHOWS = [
      "tagline": "Conversations with sound practitioners.",
      "description": "Interviews with sound-bath facilitators, music therapists and researchers about how they use sound, and how they talk about it honestly.",
      "seasons": [["The Sound Bath", "Music Therapy Today", "Singing Bowls", "Drums and Rhythm", "Voice and Chant", "The Skeptic's Chair"]]},
-    {"id": "tiny-calm", "name": "Tiny Calm", "category": "Kids & Family", "host": "Juniper & Moss", "year": 2026,
+    {"id": "tiny-ease", "name": "Tiny Ease", "category": "Kids & Family", "host": "Juniper & Moss", "year": 2026,
      "tagline": "Gentle sound play for kids.",
      "description": "Short, playful episodes that help kids notice their breath and the sounds around them. No binaural beats; volume-limited by design.",
      "seasons": [["Listening Walk", "Balloon Breath", "Sleepy Bear", "The Quiet Game", "Rain Sticks", "Goodnight Sounds"]]},
@@ -90,7 +90,7 @@ SHOWS = [
      "tagline": "Inside the 40 Hz research boom.",
      "description": "A careful look at the growing research on 40 Hz light and sound stimulation: what was found in mice, what is being tested in people, and what is still unknown.",
      "seasons": [["The Mouse Studies", "Light and Sound", "First Human Trials", "Hype vs Evidence", "Open Questions"]]},
-    {"id": "calm-at-work", "name": "Calm at Work", "category": "Teaching Series", "host": "Marcus Bell", "year": 2026,
+    {"id": "relaxed-at-work", "name": "Relaxed at Work", "category": "Teaching Series", "host": "Marcus Bell", "year": 2026,
      "tagline": "Stress skills for the workday.",
      "description": "Practical lessons on attention, breaks and boundaries, each with a session to try at your desk.",
      "seasons": [["The Morning Plan", "Single-Tasking", "Meeting Recovery", "The Afternoon Dip", "Leaving Work at Work"]]},
@@ -110,7 +110,7 @@ SHOWS = [
      "seasons": [["Finding Your Seat", "Following the Breath", "When the Mind Wanders", "Body Awareness", "Noting", "Loving-Kindness", "Making It a Habit"]]},
     {"id": "lullaby-lab", "name": "Lullaby Lab", "category": "Kids & Family", "host": "Juniper & Moss", "year": 2026,
      "tagline": "Soft songs and soft noise for little ones.",
-     "description": "Calming songs over gentle pink noise for family bedtimes. No binaural beats.",
+     "description": "Soothing songs over gentle pink noise for family bedtimes. No binaural beats.",
      "seasons": [["Twinkle Tones", "Hush Little Hum", "Ocean Lullaby", "Starlight Song", "The Sleepy Train"]]},
 ]
 # fmt: on

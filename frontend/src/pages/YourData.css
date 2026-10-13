@@ -1,0 +1,25 @@
+.yourdata { --sec-1: #c5e1a5; --sec-2: #8fd3ff; }
+.yourdata__hero { min-height: min(56vh, 480px); }
+.data-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.data-card { display: grid; gap: 10px; align-content: start; justify-items: start; padding: 22px; }
+.data-card h2, .data-card h3 { font-size: 1.2rem; font-weight: 900; }
+.data-card p { color: var(--r-text-2); line-height: 1.55; font-size: var(--fs-small); }
+.data-card__icon { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: rgba(197, 225, 165, 0.15); color: #c5e1a5; }
+.data-card__row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.data-card__muted { color: var(--r-text-3); font-size: var(--fs-tiny); }
+.toggle { display: inline-flex; align-items: center; gap: 10px; cursor: pointer; font-weight: 800; }
+.toggle input { position: absolute; opacity: 0; }
+.toggle__track { position: relative; width: 46px; height: 26px; border-radius: 999px; background: rgba(255, 255, 255, 0.15); transition: background var(--t-fast); }
+.toggle__track i { position: absolute; top: 3px; left: 3px; width: 20px; height: 20px; border-radius: 50%; background: #fff; transition: transform var(--t-med) var(--ease); }
+.toggle input:checked + .toggle__track { background: var(--r-sage); }
+.toggle input:checked + .toggle__track i { transform: translateX(20px); }
+.toggle input:focus-visible + .toggle__track { outline: 2px solid #fff; outline-offset: 2px; }
+.data-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; max-width: 760px; }
+.data-list li { display: flex; justify-content: space-between; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--r-line); }
+.data-list em { font-style: normal; font-size: var(--fs-tiny); font-weight: 800; color: var(--r-text-3); padding: 3px 10px; border-radius: 999px; background: rgba(255, 255, 255, 0.05); }
+.data-list em.is-private { color: #f5b8d6; background: rgba(245, 184, 214, 0.1); }
+.data-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+.data-actions .btn { display: inline-flex; align-items: center; gap: 6px; }
+.nourish__subhead { margin-top: 40px; }
+@media (max-width: 760px) { .data-grid { grid-template-columns: minmax(0, 1fr); } }
+.data-actions__danger { color: #ff8a80 !important; }

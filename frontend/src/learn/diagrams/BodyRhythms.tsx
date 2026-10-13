@@ -52,9 +52,9 @@ export function Hypnogram() {
         })}
         <path d={d} className="hypno__line" />
       </svg>
-      <div className="seg seg--wrap" role="tablist" aria-label="Sleep stages">
+      <div className="seg seg--wrap" role="group" aria-label="Sleep stages">
         {SLEEP_STAGES.map((s) => (
-          <button key={s.id} role="tab" aria-selected={stage === s.id} className={stage === s.id ? "is-on" : ""} onClick={() => setStage(s.id)}>
+          <button key={s.id} aria-pressed={stage === s.id} className={stage === s.id ? "is-on" : ""} onClick={() => setStage(s.id)}>
             <i className="dot-swatch" style={{ background: s.color }} /> {s.name}
           </button>
         ))}

@@ -17,7 +17,7 @@ router = APIRouter(prefix="/profiles", tags=["profiles"])
 
 
 def profile_out(p: dict[str, Any]) -> dict[str, Any]:
-    return {"id": p["_id"], "name": p["name"], "hue": p["hue"], "kids": p.get("kids", False)}
+    return {"id": p["_id"], "name": p["name"], "hue": p["hue"], "kids": p.get("kids", False), "symbol": p.get("symbol")}
 
 
 async def owned_profile(profile_id: str, user: dict[str, Any] = Depends(current_user)) -> dict[str, Any]:
@@ -62,8 +62,11 @@ async def delete_profile(profile: dict[str, Any] = Depends(owned_profile)) -> Re
         raise HTTPException(status.HTTP_400_BAD_REQUEST, "An account needs at least one profile")
     pid = profile["_id"]
     await db.profiles.delete_one({"_id": pid})
-    for coll in (db.favorites, db.progress, db.custom_sessions):
+    for coll in (db.favorites, db.progress, db.custom_sessions, db.app_state, db.calendar_feeds):
         await coll.delete_many({"profile_id": pid})
+    from .circles import remove_profile_from_circles  # local import: circles depends on this module
+
+    await remove_profile_from_circles(pid)
     return Response(status_code=status.HTTP_204_NO_CONTENT)
 
 

@@ -12,3 +12,5 @@
 .account__switch button { color: #fff; font-weight: 800; text-decoration: underline; }
 .account__skip { text-align: center; color: var(--text-3); font-size: var(--fs-small); font-weight: 600; }
 .account__skip:hover { color: #fff; }
+.account__legal a { color: inherit; text-decoration: underline; }
+.account__invites { margin: 6px 0 16px; padding: 10px 14px; border-radius: 12px; background: rgba(156, 197, 154, 0.12); color: #cfe8c9; font-size: 0.9rem; }

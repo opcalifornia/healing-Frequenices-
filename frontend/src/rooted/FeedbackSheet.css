@@ -1,0 +1,18 @@
+.fb { display: grid; gap: 12px; padding: 22px 20px 20px; }
+.fb h2 { padding-right: 44px; }
+.fb h2 { margin: 0; font-size: 1.35rem; }
+.fb__lede { margin: 0; opacity: 0.8; }
+.fb__kinds { display: flex; flex-wrap: wrap; gap: 8px; }
+.fb__label { font-weight: 600; font-size: 0.9rem; margin-top: 4px; }
+.fb textarea, .fb input[type="text"] {
+  width: 100%; box-sizing: border-box; font: inherit; color: inherit; padding: 12px 14px;
+  border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.18); background: rgba(255, 255, 255, 0.06);
+}
+.fb textarea { resize: vertical; min-height: 110px; }
+.fb textarea:focus-visible, .fb input:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+.fb__actions { display: flex; justify-content: flex-end; }
+.fb__error { margin: 0; color: #ff9b8a; }
+.fb__fine { margin: 0; font-size: 0.82rem; opacity: 0.7; line-height: 1.45; }
+.fb__link { background: none; border: 0; padding: 0; font: inherit; color: inherit; text-decoration: underline; cursor: pointer; }
+.fb__done { display: grid; gap: 12px; text-align: center; padding: 16px 0; justify-items: center; }
+.fb__done p { margin: 0; opacity: 0.85; }

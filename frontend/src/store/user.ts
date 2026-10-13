@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
+import { pendingInvite } from "../rooted/invite";
 import { api, apiEnabled, setAuthToken } from "../api/client";
 import type { ContinueEntry, CustomSession, Profile } from "../types";
 
@@ -12,6 +13,7 @@ interface Library {
 interface Account {
   id: string;
   email: string;
+  refCode?: string | null;
 }
 
 interface UserState {
@@ -20,11 +22,14 @@ interface UserState {
   profiles: Profile[];
   activeProfileId: string | null;
   libraries: Record<string, Library>;
+  /** Profile photos by profile id. Device only: never sent to the server. */
+  photos: Record<string, string>;
   safetyAcknowledged: boolean;
 
   selectProfile(id: string | null): void;
-  addProfile(name: string, hue: number, kids?: boolean): Promise<void>;
-  updateProfile(id: string, patch: Partial<Pick<Profile, "name" | "hue">>): Promise<void>;
+  addProfile(name: string, hue: number, kids?: boolean, symbol?: string | null): Promise<string>;
+  updateProfile(id: string, patch: Partial<Pick<Profile, "name" | "hue" | "symbol">>): Promise<void>;
+  setPhoto(id: string, dataUrl: string | null): void;
   removeProfile(id: string): Promise<void>;
 
   toggleFavorite(titleId: string): void;
@@ -73,18 +78,27 @@ export const useUser = create<UserState>()(
         profiles: DEFAULT_PROFILES,
         activeProfileId: null,
         libraries: {},
+        photos: {},
         safetyAcknowledged: false,
 
         selectProfile(id) {
           set({ activeProfileId: id });
         },
 
-        async addProfile(name, hue, kids) {
-          let profile: Profile = { id: `p-${uid()}`, name, hue, kids };
+        async addProfile(name, hue, kids, symbol) {
+          let profile: Profile = { id: `p-${uid()}`, name, hue, kids, symbol: symbol ?? null };
           if (apiEnabled && get().token) {
-            profile = await api<Profile>("/profiles", { method: "POST", body: { name, hue, kids: !!kids } });
+            profile = await api<Profile>("/profiles", { method: "POST", body: { name, hue, kids: !!kids, symbol: symbol ?? null } });
           }
           set({ profiles: [...get().profiles, profile] });
+          return profile.id;
+        },
+
+        setPhoto(id, dataUrl) {
+          const photos = { ...get().photos };
+          if (dataUrl) photos[id] = dataUrl;
+          else delete photos[id];
+          set({ photos });
         },
 
         async updateProfile(id, patch) {
@@ -95,7 +109,10 @@ export const useUser = create<UserState>()(
         async removeProfile(id) {
           const libraries = { ...get().libraries };
           delete libraries[id];
+          const photos = { ...get().photos };
+          delete photos[id];
           set({
+            photos,
             profiles: get().profiles.filter((p) => p.id !== id),
             libraries,
             activeProfileId: get().activeProfileId === id ? null : get().activeProfileId,
@@ -156,7 +173,7 @@ export const useUser = create<UserState>()(
         async signIn(email, password, mode) {
           const res = await api<{ token: string; user: Account }>(`/auth/${mode}`, {
             method: "POST",
-            body: { email, password },
+            body: mode === "register" && pendingInvite()?.ref ? { email, password, ref: pendingInvite()!.ref } : { email, password },
           });
           setAuthToken(res.token);
           set({ token: res.token, account: res.user, activeProfileId: null });
@@ -165,7 +182,7 @@ export const useUser = create<UserState>()(
 
         signOut() {
           setAuthToken(null);
-          set({ token: null, account: null, profiles: DEFAULT_PROFILES, libraries: {}, activeProfileId: null });
+          set({ token: null, account: null, profiles: DEFAULT_PROFILES, libraries: {}, photos: {}, activeProfileId: null });
         },
 
         async refreshFromServer() {
@@ -202,6 +219,7 @@ export const useUser = create<UserState>()(
         profiles: s.profiles,
         activeProfileId: s.activeProfileId,
         libraries: s.libraries,
+        photos: s.photos,
         safetyAcknowledged: s.safetyAcknowledged,
       }),
       onRehydrateStorage: () => (state) => {

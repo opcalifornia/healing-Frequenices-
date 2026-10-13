@@ -11,6 +11,7 @@ import { BrainLateral } from "../learn/diagrams/BrainLateral";
 import "./Learn.css";
 import "./BrainGuide.css";
 import "./SleepGuide.css";
+import "./SafetyGuide.css";
 
 const BANDS: Array<[Band, string]> = [
   ["delta", "Deep sleep"],
@@ -61,6 +62,19 @@ export default function Learn() {
           <span className="btn btn--primary btn--small">Read the guide</span>
         </div>
         <div className="learn-sleep-art" aria-hidden="true"><span /></div>
+      </Link>
+
+      <Link to="/learn/safety" className="guide-card learn-safety-card">
+        <div className="guide-card__text">
+          <span className="hero__eyebrow">New · Guide · 8 chapters</span>
+          <h2>Frequencies & Your Health</h2>
+          <p>
+            Which frequencies can really harm you, what research says about Bluetooth, Wi-Fi and 5G (with links to the studies), and how to set
+            up headphones so binaural beats work.
+          </p>
+          <span className="btn btn--primary btn--small">Read the guide</span>
+        </div>
+        <div className="learn-safety-art" aria-hidden="true"><span /><span /><span /></div>
       </Link>
 
       {lead && (

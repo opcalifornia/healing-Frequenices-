@@ -32,7 +32,7 @@ ARTICLES = [
             "## Theta, 4 to 8 Hz",
             "Common in drowsiness, light sleep and some meditative states. Theta sessions in the catalog are aimed at meditation and the drifting moments before sleep.",
             "## Alpha, 8 to 13 Hz",
-            "Often strongest when you are awake and relaxed with your eyes closed. Alpha sessions are designed for calm, easy relaxation.",
+            "Often strongest when you are awake and relaxed with your eyes closed. Alpha sessions are designed for easy relaxation.",
             "## Beta, 13 to 30 Hz",
             "Associated with active thinking, problem solving and alert attention. Beta sessions are aimed at focus and work.",
             "## Gamma, 30 Hz and above",

@@ -1,6 +1,7 @@
 import type { BinauralPair, LayerMix, NoiseColor } from "../types";
 import { LOOP_TAIL, makeNoiseBuffer } from "./noise";
 import { loadAmbience, type AmbienceId } from "./ambience";
+import { MusicLayer, hashSeed, type MusicStyle } from "./music";
 
 /**
  * Live binaural engine built on the Web Audio API. No audio files.
@@ -28,6 +29,9 @@ export interface EngineSettings {
   /** Extra binaural pairs layered under the main one. */
   pairs?: BinauralPair[];
   ambience?: AmbienceId | null;
+  music?: MusicStyle | null;
+  /** Seed so each session's music is the same every play. */
+  seed?: string;
   mix: LayerMix;
   volume: number;
 }
@@ -35,10 +39,10 @@ export interface EngineSettings {
 /** Ocean-swell timing: one wave roughly every 11 seconds. */
 export const SURF_RATE = 0.09;
 
-export const DEFAULT_MIX: LayerMix = { binaural: 0.8, isochronic: 0.35, solfeggio: 0.3, noise: 0.5, ambience: 0.7 };
+export const DEFAULT_MIX: LayerMix = { binaural: 0.8, isochronic: 0.35, solfeggio: 0.3, noise: 0.5, ambience: 0.7, music: 0.55 };
 
 /** Per-layer headroom so a full mix never clips. */
-const LEVEL = { binaural: 0.28, isochronic: 0.1, solfeggio: 0.07, noise: 0.42, ambience: 0.55 };
+const LEVEL = { binaural: 0.28, isochronic: 0.1, solfeggio: 0.07, noise: 0.42, ambience: 0.55, music: 0.9 };
 const MIN_RAMP = 0.03;
 
 export function channelFrequencies(carrier: number, beat: number): { left: number; right: number } {
@@ -66,6 +70,8 @@ interface Graph {
   ambienceBus: GainNode;
   ambienceSrc: AudioBufferSourceNode | null;
   ambienceId: AmbienceId | null;
+  musicBus: GainNode;
+  music: MusicLayer | null;
   mixBus: GainNode;
   nodes: AudioNode[];
 }
@@ -268,14 +274,20 @@ export class BinauralEngine {
     ambienceBus.gain.value = settings.ambience ? LEVEL.ambience * settings.mix.ambience : 0;
     ambienceBus.connect(mixBus);
 
+    // Generative music bed.
+    const musicBus = track(ctx.createGain());
+    musicBus.gain.value = settings.music ? LEVEL.music * settings.mix.music : 0;
+    musicBus.connect(mixBus);
+
     const now = ctx.currentTime;
     for (const osc of [leftOsc, rightOsc, isoOsc, isoLfo, solfOsc, ...pairOscs]) osc.start(now);
 
     this.graph = {
       leftOsc, rightOsc, binauralBus, isoOsc, isoLfo, isoSmooth, isoBus, solfOsc, solfBus,
       noiseSrc: null, noiseColor: null, noiseChain: [], pairOscs, noiseBus, mixBus, nodes,
-      ambienceBus, ambienceSrc: null, ambienceId: null,
+      ambienceBus, ambienceSrc: null, ambienceId: null, musicBus, music: null,
     };
+    if (settings.music) this.startMusic(settings.music);
     if (settings.noise) this.startNoise(settings.noise);
     if (settings.ambience) void this.startAmbience(settings.ambience);
 
@@ -383,6 +395,22 @@ export class BinauralEngine {
     g.ambienceSrc = src;
   }
 
+  private startMusic(style: MusicStyle) {
+    const g = this.graph;
+    const s = this.settings;
+    if (!g || !s || !this.ctx) return;
+    if (g.music?.style === style) return;
+    g.music?.stop();
+    const { left, right } = channelFrequencies(s.carrier, s.beat);
+    g.music = new MusicLayer(this.ctx, g.musicBus, { style, carrier: s.carrier, seed: hashSeed(s.seed ?? style), avoid: [left, right] });
+    g.music.start();
+  }
+
+  private stopMusic(g: Graph | null = this.graph) {
+    g?.music?.stop();
+    if (g) g.music = null;
+  }
+
   private stopAmbience(g: Graph | null = this.graph) {
     if (!g?.ambienceSrc) return;
     try {
@@ -404,6 +432,7 @@ export class BinauralEngine {
     this.ramp(g.isoLfo.frequency, beat, rampSeconds);
     this.ramp(g.isoOsc.frequency, carrier * 1.5, rampSeconds);
     g.isoSmooth.frequency.value = Math.min(400, Math.max(20, beat * 6));
+    g.music?.setCarrier(carrier, [left, right]);
     this.settings = { ...this.settings, carrier, beat };
   }
 
@@ -413,13 +442,20 @@ export class BinauralEngine {
     this.applyLevels();
   }
 
-  setLayers(layers: Partial<Pick<EngineSettings, "noise" | "solfeggio" | "isochronic" | "ambience">>) {
+  setLayers(layers: Partial<Pick<EngineSettings, "noise" | "solfeggio" | "isochronic" | "ambience" | "music">>) {
     if (!this.graph || !this.settings) return;
     this.settings = { ...this.settings, ...layers };
     if ("noise" in layers) {
       if (layers.noise) this.startNoise(layers.noise);
     }
     if (layers.solfeggio) this.ramp(this.graph.solfOsc.frequency, layers.solfeggio, 0.05);
+    if ("music" in layers) {
+      if (layers.music) this.startMusic(layers.music);
+      else {
+        const g = this.graph;
+        setTimeout(() => this.graph === g && !this.settings?.music && this.stopMusic(g), 400);
+      }
+    }
     if ("ambience" in layers) {
       if (layers.ambience) void this.startAmbience(layers.ambience);
       else this.graph.ambienceId = null;
@@ -436,6 +472,7 @@ export class BinauralEngine {
     this.ramp(g.solfBus.gain, s.solfeggio ? LEVEL.solfeggio * s.mix.solfeggio : 0, t);
     this.ramp(g.noiseBus.gain, s.noise ? LEVEL.noise * s.mix.noise : 0, t);
     this.ramp(g.ambienceBus.gain, s.ambience ? LEVEL.ambience * s.mix.ambience : 0, t);
+    this.ramp(g.musicBus.gain, s.music ? LEVEL.music * s.mix.music : 0, t);
     if (!s.ambience && g.ambienceSrc) {
       setTimeout(() => this.graph === g && !this.settings?.ambience && this.stopAmbience(g), 400);
     }
@@ -484,6 +521,7 @@ export class BinauralEngine {
   private teardown(g: Graph) {
     this.stopNoise(g);
     this.stopAmbience(g);
+    this.stopMusic(g);
     for (const osc of [g.leftOsc, g.rightOsc, g.isoOsc, g.isoLfo, g.solfOsc, ...g.pairOscs]) {
       try {
         osc.stop();

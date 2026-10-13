@@ -1,9 +1,9 @@
-import { useState, type FormEvent } from "react";
+import { useEffect, useState, type FormEvent } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Logo } from "../components/Logo";
 import { useUser } from "../store/user";
-import { apiEnabled } from "../api/client";
+import { api, apiEnabled } from "../api/client";
 import "./Profiles.css";
 import "./Account.css";
 
@@ -33,7 +33,7 @@ export default function Account() {
   };
 
   return (
-    <motion.main id="main" className="profiles account" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+    <motion.main id="main" tabIndex={-1} className="profiles account" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
       <Link to="/" className="profiles__logo" aria-label="Home"><Logo /></Link>
       <div className="account__card">
         {!apiEnabled ? (
@@ -49,6 +49,7 @@ export default function Account() {
           <>
             <h1>Signed in</h1>
             <p className="account__muted">{account.email}</p>
+            <InviteStats />
             <div className="dialog__actions">
               <Link to="/profiles" className="btn btn--primary">Choose profile</Link>
               <button className="btn btn--secondary" onClick={signOut}>Sign out</button>
@@ -76,6 +77,11 @@ export default function Account() {
               {mode === "register" && <small className="account__muted">At least 8 characters.</small>}
             </div>
             {error && <p className="account__error" role="alert">{error}</p>}
+            {mode === "register" && (
+              <p className="account__muted account__legal">
+                By creating an account you agree to the <Link to="/terms">Terms</Link> and <Link to="/privacy">Privacy policy</Link>. We never sell your data.
+              </p>
+            )}
             <button className="btn btn--primary account__submit" disabled={busy || !email || password.length < 8}>
               {busy ? "Please wait…" : mode === "login" ? "Sign in" : "Create account"}
             </button>
@@ -91,4 +97,14 @@ export default function Account() {
       </div>
     </motion.main>
   );
+}
+
+/** How many friends joined from this account's invites. A count only, never who. */
+function InviteStats() {
+  const [n, setN] = useState<number | null>(null);
+  useEffect(() => {
+    api<{ joined: number }>("/me/referrals").then((r) => setN(r.joined)).catch(() => setN(null));
+  }, []);
+  if (n === null) return null;
+  return <p className="account__invites">{n === 0 ? "Invite a friend from any program to do it together." : `${n} friend${n === 1 ? "" : "s"} joined from your invites. Thank you for spreading the word.`}</p>;
 }

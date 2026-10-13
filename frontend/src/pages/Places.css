@@ -1,0 +1,106 @@
+.places { --sec-1: #4fc3f7; --sec-2: #ffe082; }
+
+/* Hero art: sun over rippling water */
+.places__art { position: absolute; right: max(var(--gutter), 4vw); top: calc(var(--nav-h) + 20px); width: min(38vw, 360px); opacity: 0.9; pointer-events: none; }
+.places__ripples { width: 100%; height: auto; overflow: visible; }
+.places__sun { fill: #ffe082; filter: drop-shadow(0 0 24px rgba(255, 224, 130, 0.7)); animation: pl-sun 8s ease-in-out infinite alternate; }
+.places__ripple { fill: none; stroke: rgba(79, 195, 247, 0.7); stroke-width: 1.4; transform-box: fill-box; transform-origin: center; animation: pl-ripple 6s ease-out infinite; opacity: 0; }
+.places__wave { fill: none; stroke: #4fc3f7; stroke-width: 2.4; stroke-linecap: round; animation: pl-wave 7s ease-in-out infinite alternate; }
+.places__wave--2 { stroke: rgba(79, 195, 247, 0.45); animation-duration: 9s; animation-delay: -3s; }
+@keyframes pl-sun { to { transform: translateY(-6px); } }
+@keyframes pl-ripple { 0% { opacity: 0.9; transform: scale(0.4); } 100% { opacity: 0; transform: scale(4.5); } }
+@keyframes pl-wave { to { transform: translateX(-14px); } }
+
+/* World map */
+.wmap { padding: clamp(14px, 2.5vw, 26px); overflow: hidden; }
+.wmap__svg { display: block; width: 100%; height: auto; }
+.wmap__grid line { stroke: rgba(232, 213, 176, 0.06); stroke-width: 1; }
+.wmap__eq { stroke: rgba(79, 195, 247, 0.25) !important; stroke-dasharray: 4 6; }
+.wmap__land path { fill: rgba(156, 197, 154, 0.16); stroke: rgba(156, 197, 154, 0.35); stroke-width: 1; }
+.wmap__pin { cursor: pointer; outline: none; }
+.wmap__halo { opacity: 0.55; transition: opacity var(--t-fast); }
+.wmap__pin:hover .wmap__halo, .wmap__pin.is-on .wmap__halo, .wmap__pin:focus-visible .wmap__halo { opacity: 1; }
+.wmap__dot { fill: #4fc3f7; stroke: #fff; stroke-width: 2; }
+.wmap__ring { fill: none; stroke: #4fc3f7; stroke-width: 1.5; transform-box: fill-box; transform-origin: center; animation: pl-ping 2.8s ease-out infinite; }
+.wmap__ring--2 { animation-delay: 1.4s; }
+@keyframes pl-ping { 0% { transform: scale(1); opacity: 0.9; } 100% { transform: scale(4); opacity: 0; } }
+.wmap__hit { fill: transparent; }
+.wmap__label { fill: #fff; font-size: 13px; font-weight: 800; paint-order: stroke; stroke: rgba(0, 0, 0, 0.7); stroke-width: 3px; }
+.wmap__pin:focus-visible .wmap__dot { stroke: var(--r-sand); stroke-width: 3; }
+.wmap__hint { display: flex; align-items: center; gap: 6px; margin-top: 10px; color: var(--r-text-3); font-size: var(--fs-tiny); }
+
+/* Zone cards */
+.zones { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 12px; margin-top: 18px; }
+.zone { display: grid; gap: 6px; align-content: start; height: 100%; padding: 20px; border-radius: 20px; text-align: left; background: linear-gradient(160deg, hsl(var(--h) 55% 22% / 0.9), var(--r-surface)); border: 1px solid hsl(var(--h) 60% 60% / 0.25); }
+.zone h3 { font-size: 1.2rem; font-weight: 900; }
+.zone p { color: var(--r-text-2); font-size: var(--fs-small); line-height: 1.5; }
+.zcaveat { display: grid; gap: 8px; justify-items: start; margin-top: 14px; padding: 20px; border-left: 4px solid #ffc857; }
+.zcaveat h3 { display: flex; align-items: center; gap: 8px; font-weight: 900; }
+.zcaveat p { color: var(--r-text-2); line-height: 1.55; font-size: var(--fs-small); max-width: 75ch; }
+
+/* Power 9 */
+.power9 { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+.p9 { display: grid; gap: 8px; align-content: start; justify-items: start; padding: 20px; border-top: 3px solid hsl(var(--h) 70% 62%); }
+.p9__top { display: flex; align-items: center; gap: 10px; }
+.p9__n { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: hsl(var(--h) 70% 62% / 0.18); color: hsl(var(--h) 80% 75%); font-weight: 900; }
+.p9__group { font-size: var(--fs-tiny); font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: var(--r-text-3); }
+.p9 h3 { font-weight: 900; }
+.p9 p { color: var(--r-text-2); font-size: var(--fs-small); line-height: 1.5; }
+
+/* Place cards and notes */
+.places-findings .place-card { cursor: pointer; }
+.place__note { color: var(--r-text-3); font-size: var(--fs-tiny); }
+
+/* Nature dose ring */
+.dose { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 28px; align-items: center; padding: clamp(18px, 3vw, 32px); }
+.dose__ring { position: relative; width: 220px; aspect-ratio: 1; }
+.dose__ring svg { width: 100%; height: 100%; overflow: visible; }
+.dose__bg { fill: none; stroke: rgba(255, 255, 255, 0.08); stroke-width: 16; }
+.dose__fill { fill: none; stroke: #4fc3f7; stroke-width: 16; stroke-linecap: round; transition: stroke var(--t-med); }
+.dose__fill.is-met { stroke: #9cdb8f; }
+.dose__mark { stroke: var(--r-sand); stroke-width: 3; stroke-linecap: round; }
+.dose__marklabel { fill: var(--r-sand); font-size: 12px; font-weight: 900; }
+.dose__center { position: absolute; inset: 0; display: grid; place-content: center; text-align: center; }
+.dose__center strong { font-size: 2.6rem; font-weight: 900; line-height: 1; }
+.dose__center span { color: var(--r-text-3); font-size: var(--fs-tiny); font-weight: 700; }
+.dose__body { display: grid; gap: 14px; }
+.dose__body h3 { font-size: 1.2rem; font-weight: 900; }
+.dose__slider { width: 100%; accent-color: #4fc3f7; }
+.dose__msg { color: var(--r-text-2); line-height: 1.55; }
+.dose__msg.is-met { color: #9cdb8f; font-weight: 700; }
+.dose__note { color: var(--r-text-3); font-size: var(--fs-small); line-height: 1.55; }
+
+/* Bring it home checklist */
+.places .home { display: grid; gap: 16px; padding: clamp(18px, 3vw, 28px); }
+.places .home__head { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; }
+.places .home__meter { flex: 1 1 200px; height: 10px; border-radius: 999px; background: rgba(255, 255, 255, 0.08); overflow: hidden; }
+.places .home__meter span { display: block; height: 100%; background: linear-gradient(90deg, #4fc3f7, #9cdb8f); transform-origin: left; border-radius: inherit; }
+.places .home__count { color: var(--r-text-2); font-size: var(--fs-small); }
+.places .home__count strong { color: #fff; font-size: 1.2rem; }
+.places .home__list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 8px; }
+.places .home__item { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 12px; align-items: start; width: 100%; padding: 14px; border-radius: 14px; text-align: left; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--r-line); color: #fff; transition: background var(--t-fast), border-color var(--t-fast); }
+.places .home__item:hover { border-color: hsl(var(--h) 60% 60% / 0.5); }
+.places .home__item.is-on { background: hsl(var(--h) 50% 40% / 0.18); border-color: hsl(var(--h) 60% 60% / 0.6); }
+.places .home__box { display: grid; place-items: center; width: 24px; height: 24px; border-radius: 7px; border: 2px solid rgba(240, 232, 214, 0.4); color: #14140f; }
+.places .home__item.is-on .home__box { background: hsl(var(--h) 70% 65%); border-color: transparent; }
+.places .home__text { display: grid; gap: 3px; font-weight: 700; line-height: 1.4; }
+.places .home__text small { color: var(--r-text-3); font-weight: 600; font-size: var(--fs-tiny); }
+.places .home__sched { margin-top: 14px; }
+
+/* Retreats */
+.retreat__ok { background: rgba(156, 219, 143, 0.18) !important; color: #9cdb8f !important; }
+.retreat__cols { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 14px; }
+.retreat__red, .retreat__ask { display: grid; gap: 10px; align-content: start; padding: 22px; }
+.retreat__red h3, .retreat__ask h3 { font-weight: 900; }
+.places__sources { margin-top: 24px; }
+
+@media (max-width: 760px) {
+  .places__art { width: 46vw; top: calc(var(--nav-h) + 8px); opacity: 0.5; }
+  .dose { grid-template-columns: minmax(0, 1fr); justify-items: center; }
+  .dose__ring { width: 190px; }
+  .retreat__cols { grid-template-columns: minmax(0, 1fr); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .places__sun, .places__ripple, .places__wave, .wmap__ring { animation: none; }
+}
+.place-card h3 small { display: block; margin-top: 3px; font-size: var(--fs-tiny); font-weight: 700; color: var(--r-text-3); letter-spacing: 0.02em; }

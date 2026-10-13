@@ -1,4 +1,5 @@
 import type { AmbienceId } from "./audio/ambience";
+import type { MusicStyle } from "./audio/music";
 
 export type Goal = "sleep" | "meditate" | "focus" | "relax" | "energize";
 export type Band = "delta" | "theta" | "alpha" | "beta" | "gamma";
@@ -15,6 +16,8 @@ export interface LayerMix {
   noise: number;
   /** Nature soundscape (rain, waterfall, ...). */
   ambience: number;
+  /** Generative music. */
+  music: number;
 }
 
 /** An extra binaural pair layered under the main one. `level` is 0..1 of the main pair. */
@@ -64,6 +67,8 @@ export interface Title {
   pairs?: BinauralPair[];
   /** Nature soundscape layered under the tones. */
   ambience?: AmbienceId | null;
+  /** Generative music style; undefined = pick from the goal, null = off. */
+  music?: MusicStyle | null;
   mix?: Partial<LayerMix>;
   stages?: Stage[];
   tags: string[];
@@ -122,6 +127,7 @@ export interface CustomSession {
   solfeggio: number | null;
   isochronic: boolean;
   ambience?: AmbienceId | null;
+  music?: MusicStyle | null;
   createdAt: string;
 }
 
@@ -138,4 +144,6 @@ export interface Profile {
   name: string;
   hue: number;
   kids?: boolean;
+  /** A healing symbol id from rooted/symbols.tsx. */
+  symbol?: string | null;
 }
