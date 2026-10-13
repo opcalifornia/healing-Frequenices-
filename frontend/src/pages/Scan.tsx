@@ -1,10 +1,10 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Aurora, Reveal, ZoomPage } from "../rooted/motion";
 import { Evidence, SourceLink } from "../rooted/ui";
 import { BarcodeScanner } from "../rooted/BarcodeScanner";
-import { ADDITIVES, LEVEL_LABEL, LEVEL_ORDER, additiveById, searchAdditives, type Additive, type ConcernLevel } from "../rooted/additivesContent";
+import { ADDITIVES, TIERS, TIER_ORDER, additiveById, searchAdditives, tierInfo, tierOf, type Additive, type Tier } from "../rooted/additivesContent";
 import { isValidBarcode, lookupBarcode, similarProducts, type Product } from "../rooted/foodLookup";
 import { NOVA_LABEL, VERDICT_LABEL, assess, compare, isBetterChoice, nutrientRows, nutritionReason, overallLabel, type Assessment, type Verdict } from "../rooted/productVerdict";
 import { useScanHistory, useScans } from "../store/scans";
@@ -19,7 +19,7 @@ import { Icon } from "../components/Icon";
 import "../rooted/rooted.css";
 import "./Scan.css";
 
-const COUNT_WORDS: Record<ConcernLevel, string> = { restricted: "restricted by regulators", some: "with some research concern", little: "with little concern found" };
+const COUNT_WORDS: Record<Tier, string> = { restricted: "restricted by regulators", notable: "with notable concern", some: "with some concern", minor: "with minor concern", clear: "with nothing flagged" };
 const EFSA = "https://www.efsa.europa.eu/en/topics/topic/food-additives";
 
 type State =
@@ -34,8 +34,43 @@ const ERRORS: Record<"invalid" | "notfound" | "network", string> = {
   network: "We couldn't reach the product database. Check your connection and try again.",
 };
 
-function Pill({ level }: { level: ConcernLevel | "unknown" }) {
-  return <span className={`lvl lvl--${level}`}>{level === "unknown" ? "Not reviewed here yet" : LEVEL_LABEL[level]}</span>;
+const SHAPES: Record<(typeof TIERS)[number]["shape"], string> = {
+  circle: "M8 2a6 6 0 1 0 0 12A6 6 0 0 0 8 2Z",
+  triangle: "M8 2l6.4 11.2H1.6L8 2Z",
+  diamond: "M8 1.2l6.8 6.8L8 14.8 1.2 8 8 1.2Z",
+  square: "M3 2.6h10a.4.4 0 0 1 .4.4v10a.4.4 0 0 1-.4.4H3a.4.4 0 0 1-.4-.4V3a.4.4 0 0 1 .4-.4Z",
+  octagon: "M5.2 1.6h5.6l3.6 3.6v5.6l-3.6 3.6H5.2l-3.6-3.6V5.2l3.6-3.6Z",
+};
+
+/** The shape and colour of a step on the risk scale. The word is always shown next to it. */
+function TierShape({ tier }: { tier: Tier }) {
+  const t = tierInfo(tier);
+  return <svg className="tier__shape" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d={SHAPES[t.shape]} fill={t.color} /></svg>;
+}
+
+function TierBadge({ a, short = false }: { a: Additive; short?: boolean }) {
+  const tier = tierOf(a);
+  const t = tierInfo(tier);
+  return (
+    <span className={`tier tier--${tier}`} style={{ "--tc": t.color } as React.CSSProperties}>
+      <TierShape tier={tier} />
+      <span>{short ? t.short : t.label}</span>
+    </span>
+  );
+}
+
+/** The scale, worst to best, for anyone who wants to know what the shapes mean. */
+function TierLegend() {
+  return (
+    <ul className="tlegend" aria-label="What the shapes and colours mean">
+      {TIERS.map((t) => (
+        <li key={t.id}>
+          <TierShape tier={t.id} />
+          <span><strong>{t.label}.</strong> {t.means}</span>
+        </li>
+      ))}
+    </ul>
+  );
 }
 
 const TONE: Record<Verdict, string> = { good: "little", fair: "some", poor: "restricted" };
@@ -51,7 +86,7 @@ function split(p: Product) {
     if (a) known.push(a);
     else unknown.push(id.toUpperCase());
   }
-  known.sort((x, y) => LEVEL_ORDER[x.level] - LEVEL_ORDER[y.level]);
+  known.sort((x, y) => TIER_ORDER[tierOf(x)] - TIER_ORDER[tierOf(y)] || x.code.localeCompare(y.code, undefined, { numeric: true }));
   return { known, unknown };
 }
 
@@ -59,10 +94,8 @@ function Row({ a, forYou, onOpen }: { a: Additive; forYou: boolean; onOpen(): vo
   return (
     <li className="addi">
       <button className="addi__head" onClick={onOpen} aria-haspopup="dialog">
-        <span className="addi__code">{a.code}</span>
-        <span className="addi__name"><strong>{a.name}</strong><small>{a.kind}</small></span>
-        <Pill level={a.level} />
-        {forYou && <span className="addi__flag">For you</span>}
+        <span className="addi__name"><strong>{a.name}</strong><small>{a.code} · {a.kind}{forYou ? " · for you" : ""}</small></span>
+        <TierBadge a={a} short />
         <Icon name="chevronRight" size={18} className="addi__caret" />
       </button>
     </li>
@@ -70,17 +103,54 @@ function Row({ a, forYou, onOpen }: { a: Additive; forYou: boolean; onOpen(): vo
 }
 
 /** One additive on its own page: what it does, what the research flags, and where that comes from. */
-function AdditiveSheet({ a, forYou, onClose, onMethod }: { a: Additive | null; forYou: boolean; onClose(): void; onMethod(): void }) {
+function AdditiveSheet({ a, list, backLabel, forYou, onClose, onMethod, onGo }: { a: Additive | null; list: Additive[]; backLabel: string; forYou: boolean; onClose(): void; onMethod(): void; onGo(next: Additive): void }) {
   const fn = a ? functionInfo(a.kind) : null;
+  const i = a ? list.findIndex((x) => x.id === a.id) : -1;
+  const prev = i > 0 ? list[i - 1] : null;
+  const next = i >= 0 && i < list.length - 1 ? list[i + 1] : null;
+  const root = useRef<HTMLDivElement>(null);
+  const touch = useRef<{ x: number; y: number } | null>(null);
+
+  const go = (to: Additive | null) => {
+    if (!to) return;
+    onGo(to);
+    // Back to the top of the next page.
+    window.setTimeout(() => root.current?.closest<HTMLElement>(".sheet__panel")?.scrollTo({ top: 0 }), 0);
+  };
+
   return (
     <Sheet open={!!a} onClose={onClose} label={a ? `${a.name}, additive` : "Additive"} wide>
       {a && fn && (
-        <div className="apage">
+        <div
+          className="apage"
+          ref={root}
+          onTouchStart={(e) => { touch.current = { x: e.touches[0].clientX, y: e.touches[0].clientY }; }}
+          onTouchEnd={(e) => {
+            const t0 = touch.current;
+            touch.current = null;
+            if (!t0 || list.length < 2) return;
+            const dx = e.changedTouches[0].clientX - t0.x;
+            const dy = e.changedTouches[0].clientY - t0.y;
+            // A clear sideways swipe, not a scroll. Scrolling the tile row doesn't count.
+            if (Math.abs(dx) > 70 && Math.abs(dy) < 40 && !(e.target as HTMLElement).closest(".arisk")) go(dx < 0 ? next : prev);
+          }}
+        >
+          <nav className="apage__nav" aria-label="Additive navigation">
+            <button className="apage__back" onClick={onClose}><Icon name="chevronLeft" size={18} /> {backLabel}</button>
+            {list.length > 1 && (
+              <span className="apage__step">
+                <button onClick={() => go(prev)} disabled={!prev} aria-label={prev ? `Previous: ${prev.name}` : "No previous additive"}><Icon name="chevronLeft" size={18} /></button>
+                <span>{i + 1} of {list.length}</span>
+                <button onClick={() => go(next)} disabled={!next} aria-label={next ? `Next: ${next.name}` : "No next additive"}><Icon name="chevronRight" size={18} /></button>
+              </span>
+            )}
+          </nav>
           <header className="apage__head">
             <span className="apage__code">{a.code}</span>
             <h2>{a.name}</h2>
             {a.also && <p className="apage__also">Also written: {a.also}</p>}
-            <p className="apage__tags"><Pill level={a.level} /> {forYou && <span className="addi__flag">For you</span>}</p>
+            <p className="apage__tags"><TierBadge a={a} /> {forYou && <span className="addi__flag">For you</span>}</p>
+            <p className="apage__means">{tierInfo(tierOf(a)).means}</p>
           </header>
 
           <div className="afun">
@@ -128,13 +198,38 @@ function AdditiveSheet({ a, forYou, onClose, onMethod }: { a: Additive | null; f
               <summary>Scientific sources <small>({a.sources.length})</small></summary>
               <ul className="addi__src">{a.sources.map((s) => <li key={s.text}><SourceLink s={s} /></li>)}</ul>
             </details>
-            <button onClick={() => { onClose(); onMethod(); }}>Methodology <Icon name="chevronRight" size={16} /></button>
+            <button onClick={() => { onClose(); window.setTimeout(onMethod, 120); }}>Methodology <Icon name="chevronRight" size={16} /></button>
           </div>
+          {(prev || next) && (
+            <div className="apage__more">
+              {prev ? <button onClick={() => go(prev)}><small>Previous</small><strong>{prev.name}</strong></button> : <span />}
+              {next ? <button onClick={() => go(next)}><small>Next</small><strong>{next.name}</strong></button> : <span />}
+            </div>
+          )}
           <p className="apage__fine">Wellness education, not medical advice. A concern is not proof of harm: many people eat these at levels regulators consider acceptable.</p>
         </div>
       )}
     </Sheet>
   );
+}
+
+/** The product being looked at survives leaving the page and coming back (this visit only). */
+const LAST_KEY = "rooted.scan.last";
+function readLast(): Product | null {
+  try {
+    const raw = sessionStorage.getItem(LAST_KEY);
+    const p = raw ? (JSON.parse(raw) as Product) : null;
+    return p && typeof p.code === "string" && Array.isArray(p.additives) ? p : null;
+  } catch {
+    return null;
+  }
+}
+function writeLast(p: Product): void {
+  try {
+    sessionStorage.setItem(LAST_KEY, JSON.stringify(p));
+  } catch {
+    /* private mode: the page just won't remember */
+  }
 }
 
 function histLabel(p: Product): string {
@@ -154,6 +249,9 @@ function Method({ open, onClose }: { open: boolean; onClose(): void }) {
       <div className="method">
         <h2>How we rate products</h2>
         <p>Every product gets a short verdict, <strong>few concerns</strong>, <strong>some concerns</strong> or <strong>several concerns</strong>. It is built from two parts, and the product is only as good as its weakest part.</p>
+        <h3>The risk scale</h3>
+        <p>Every additive sits on a five-step scale. Each step has its own colour and shape, so you can read it at a glance, even without colour.</p>
+        <TierLegend />
         <h3>1. Additives</h3>
         <ul>
           <li><strong>Several concerns:</strong> any additive that regulators have restricted, or three or more with some research concern.</li>
@@ -233,11 +331,14 @@ export default function Scan() {
   const history = useScanHistory();
   const addScan = useScans((s) => s.add);
   const clearScans = useScans((s) => s.clear);
-  const [state, setState] = useState<State>({ s: "idle" });
+  const [state, setState] = useState<State>(() => {
+    const last = readLast();
+    return last ? { s: "result", product: last } : { s: "idle" };
+  });
   const [scanning, setScanning] = useState(false);
   const [method, setMethod] = useState(false);
   const [number, setNumber] = useState("");
-  const [active, setActive] = useState<Additive | null>(null);
+  const [active, setActive] = useState<{ a: Additive; list: Additive[]; from: string } | null>(null);
   const [q, setQ] = useState("");
   const [alts, setAlts] = useState<Array<{ p: Product; a: Assessment; n: number }> | null>(null);
   const [textOpen, setTextOpen] = useState(false);
@@ -248,6 +349,7 @@ export default function Scan() {
   const show = useCallback(
     (product: Product, remember = true) => {
       setState({ s: "result", product });
+      writeLast(product);
       setNumber(product.code === TEXT_PRODUCT_CODE ? "" : product.code);
       if (remember && product.code !== TEXT_PRODUCT_CODE) {
         const { known, unknown } = split(product);
@@ -303,9 +405,9 @@ export default function Scan() {
   }, [code, category]);
 
   const counts = found
-    ? (["restricted", "some", "little"] as const).map((l) => [l, found.known.filter((a) => a.level === l).length] as const).filter(([, n]) => n > 0)
+    ? TIERS.map((t) => [t.id, found.known.filter((a) => tierOf(a) === t.id).length] as const).filter(([, n]) => n > 0)
     : [];
-  const browse = useMemo(() => searchAdditives(q).slice().sort((a, b) => LEVEL_ORDER[a.level] - LEVEL_ORDER[b.level] || a.code.localeCompare(b.code, undefined, { numeric: true })), [q]);
+  const browse = useMemo(() => searchAdditives(q).slice().sort((a, b) => TIER_ORDER[tierOf(a)] - TIER_ORDER[tierOf(b)] || a.code.localeCompare(b.code, undefined, { numeric: true })), [q]);
   const canLookup = isValidBarcode(number) && state.s !== "loading";
   const total = found ? found.known.length + found.unknown.length : 0;
 
@@ -386,7 +488,7 @@ export default function Scan() {
               <h3>Additives <small>{total === 0 ? "none listed" : `${total} listed`}</small></h3>
               {total === 0 && <p className="scan__muted">No additives are listed for this product. The database can be incomplete, so check the label.</p>}
               {counts.length > 0 && <p className="scan__muted">{counts.map(([l, n]) => `${n} ${COUNT_WORDS[l]}`).join(", ")}.</p>}
-              {found.known.length > 0 && <ul className="addi-list">{found.known.map((a) => <Row key={a.id} a={a} forYou={forYou(a)} onOpen={() => setActive(a)} />)}</ul>}
+              {found.known.length > 0 && <ul className="addi-list">{found.known.map((a) => <Row key={a.id} a={a} forYou={forYou(a)} onOpen={() => setActive({ a, list: found.known, from: state.s === "result" ? state.product.name : "Back" })} />)}</ul>}
               {(state.product.notes?.length ?? 0) > 0 && (
                 <p className="scan__muted scan__unknown">
                   Also on the label: <strong>{state.product.notes!.join("; ")}</strong>. The label doesn't say which one, so we can't rate it. Look up the types in the guide below.
@@ -458,10 +560,14 @@ export default function Scan() {
           <h2>Look one up</h2>
           <p>{ADDITIVES.length} common additives, each with what regulators and researchers have found. Search by name or E-number.</p>
         </Reveal>
+        <details className="scan__legend">
+          <summary>What the shapes and colours mean</summary>
+          <TierLegend />
+        </details>
         <label htmlFor="addi-search" className="visually-hidden">Search additives</label>
         <input id="addi-search" className="scan__search" type="search" placeholder="Try aspartame, E171 or red 40" value={q} onChange={(e) => setQ(e.target.value)} autoComplete="off" />
         {browse.length ? (
-          <ul className="addi-list">{browse.map((a) => <Row key={a.id} a={a} forYou={forYou(a)} onOpen={() => setActive(a)} />)}</ul>
+          <ul className="addi-list">{browse.map((a) => <Row key={a.id} a={a} forYou={forYou(a)} onOpen={() => setActive({ a, list: browse, from: "Additive guide" })} />)}</ul>
         ) : (
           <p className="scan__status">Nothing matches that yet. Try an E-number such as E330.</p>
         )}
@@ -481,7 +587,7 @@ export default function Scan() {
       <Footer />
       <BarcodeScanner open={scanning} onCode={(c) => void run(c)} onClose={() => setScanning(false)} />
       <Method open={method} onClose={() => setMethod(false)} />
-      <AdditiveSheet a={active} forYou={active ? forYou(active) : false} onClose={() => setActive(null)} onMethod={() => setMethod(true)} />
+      <AdditiveSheet a={active?.a ?? null} list={active?.list ?? []} backLabel={active?.from ?? "Back"} forYou={active ? forYou(active.a) : false} onClose={() => setActive(null)} onMethod={() => setMethod(true)} onGo={(next) => setActive((cur) => (cur ? { ...cur, a: next } : cur))} />
     </ZoomPage>
   );
 }

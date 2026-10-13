@@ -93,11 +93,66 @@ export function useModalFocus(ref: RefObject<HTMLElement>, open: boolean, onClos
   }, [open, ref, lockScroll, autoFocus]);
 }
 
+/**
+ * Lets the phone's back gesture (or the browser's back button) close the top pop-up page
+ * instead of leaving the screen underneath. Each open sheet adds one history entry; closing
+ * it by hand (X, backdrop, Escape) removes that entry again. A single listener closes only the
+ * topmost sheet, and pops caused by our own clean-up are ignored.
+ */
+interface SheetEntry {
+  id: number;
+  close(): void;
+}
+const sheetStack: SheetEntry[] = [];
+let sheetUid = 0;
+let ignorePops = 0;
+let popBound = false;
+
+function bindPop() {
+  if (popBound || typeof window === "undefined") return;
+  popBound = true;
+  window.addEventListener("popstate", () => {
+    if (ignorePops > 0) {
+      ignorePops--;
+      return;
+    }
+    const top = sheetStack.pop();
+    top?.close();
+  });
+}
+
+export function useBackToClose(open: boolean, onClose: () => void) {
+  const latest = useRef(onClose);
+  latest.current = onClose;
+  useEffect(() => {
+    if (!open || typeof window === "undefined") return;
+    bindPop();
+    const entry: SheetEntry = { id: ++sheetUid, close: () => latest.current() };
+    try {
+      window.history.pushState({ ...(window.history.state ?? {}), rootedSheet: entry.id }, "");
+    } catch {
+      return;
+    }
+    sheetStack.push(entry);
+    return () => {
+      const i = sheetStack.indexOf(entry);
+      if (i < 0) return; // it was closed by the back gesture, which already removed the entry
+      sheetStack.splice(i, 1);
+      // Closed by hand: take our entry back off, but only if we are still on it (not after navigating away).
+      if ((window.history.state as { rootedSheet?: number } | null)?.rootedSheet === entry.id) {
+        ignorePops++;
+        window.history.back();
+      }
+    };
+  }, [open]);
+}
+
 /** Modal panel: slides up on phones, scales in on larger screens. Esc and backdrop close it.
  *  Focus moves into the panel, Tab cycles within it, and focus returns to the trigger on close. */
 export function Sheet({ open, onClose, children, label, wide = false }: { open: boolean; onClose(): void; children: ReactNode; label: string; wide?: boolean }) {
   const panel = useRef<HTMLDivElement>(null);
   useModalFocus(panel, open, onClose);
+  useBackToClose(open, onClose);
 
   return createPortal(
     <AnimatePresence>
