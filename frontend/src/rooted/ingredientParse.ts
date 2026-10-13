@@ -112,7 +112,7 @@ export function findAdditives(text: string): IngredientMatch {
   // 1. E-numbers. Skip "vitamin E 400" style amounts.
   let work = ` ${text.toLowerCase().replace(/colour/g, "color")} `;
   work = work.replace(/(\bvitamin\s+)e[\s-]?\d{2,4}\b/g, " $1 ");
-  work = work.replace(/\be[\s-]?(\d{3,4}[a-z]?)(?:\s?\((?:[ivx]+)\))?(?![a-z0-9])/g, (_m, digits: string) => {
+  work = work.replace(/\be[\s-]?(\d{3,4}[a-f]?)(?:\s?\((?:[ivx]+)\)|[ivx]{1,3}(?![a-z0-9]))?(?![a-z0-9])/g, (_m, digits: string) => {
     const code = normalizeCode(`e${digits}`);
     if (code) codes.add(code);
     return " ";

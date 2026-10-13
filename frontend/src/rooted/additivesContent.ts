@@ -730,7 +730,7 @@ export function additiveById(raw: string): Additive | undefined {
 
 /** "en:e330" -> "e330". Returns undefined for anything that isn't an E-number. */
 export function normalizeCode(raw: string): string | undefined {
-  const m = raw.trim().toLowerCase().replace(/^[a-z]{2}:/, "").replace(/[\s-]/g, "").match(/^e(\d{3,4}[a-z]?)(?:[ivx]+)?$/);
+  const m = raw.trim().toLowerCase().replace(/^[a-z]{2}:/, "").replace(/[\s-]/g, "").match(/^e(\d{3,4}[a-f]?)(?:[ivx]+)?$/);
   return m ? `e${m[1]}` : undefined;
 }
 

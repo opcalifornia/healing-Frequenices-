@@ -79,4 +79,8 @@ describe("allergens", () => {
     expect(r.codes).toEqual([]);
     expect(r.notes[0]).toMatch(/Hydrogenated fat/);
   });
+
+  it("reads E-numbers written with roman-numeral sub-types", () => {
+    expect(findAdditives("Emulsifier (E322i), raising agent E500ii, colour E160a(ii), E450iii").codes.sort()).toEqual(["e160a", "e322", "e450", "e500"]);
+  });
 });

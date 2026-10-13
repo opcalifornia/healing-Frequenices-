@@ -37,6 +37,10 @@ describe("additive research library", () => {
     for (const bad of ["toxic", "poison", "poisonous", "cure", "cures", "detox", "miracle", "guarantee", "carcinogen-free", "calm"]) expect(text, bad).not.toMatch(new RegExp(`\\b${bad}\\b`));
   });
 
+  it("reads sub-type suffixes: roman numerals are dropped, letters are kept", () => {
+    for (const [raw, id] of [["en:e322i", "e322"], ["en:e500ii", "e500"], ["en:e160aii", "e160a"], ["en:e150d", "e150d"], ["en:e407a", "e407a"], ["en:e472b", "e472b"], ["en:e450iii", "e450"], ["E1442", "e1442"]] as const) expect(normalizeCode(raw), raw).toBe(id);
+  });
+
   it("finds additives from the ways a label or database writes the code", () => {
     for (const raw of ["E171", "e171", "en:e171", "E-171", " e 171 "]) expect(additiveById(raw)?.name).toBe("Titanium dioxide");
     expect(normalizeCode("en:e150d")).toBe("e150d");

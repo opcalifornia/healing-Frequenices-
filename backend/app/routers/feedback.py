@@ -26,7 +26,7 @@ from ..ratelimit import client_ip, too_many
 router = APIRouter(tags=["feedback"])
 
 #: Keep in sync with FEEDBACK_KINDS in frontend/src/rooted/feedback.ts.
-FeedbackKind = Literal["confusing", "bug", "idea", "love"]
+FeedbackKind = Literal["confusing", "bug", "idea", "love", "rating"]
 
 
 class FeedbackIn(BaseModel):

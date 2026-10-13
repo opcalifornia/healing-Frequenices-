@@ -10,7 +10,9 @@ import { NOVA_LABEL, VERDICT_LABEL, assess, compare, isBetterChoice, nutrientRow
 import { useScanHistory, useScans } from "../store/scans";
 import { ALLERGENS, allergenHits, allergenLabel } from "../rooted/allergens";
 import { TEXT_PRODUCT_CODE, productFromIngredients } from "../rooted/ingredientParse";
+import { APP_NAME } from "../brand";
 import { eNumber } from "../rooted/eNumbers";
+import { useFeedback } from "../rooted/feedback";
 import { useAllergenStore, useWatchedAllergens } from "../store/allergens";
 import { Sheet } from "../rooted/ui";
 import { CheckIcon, FunctionIcon, RiskIcon, functionInfo } from "../rooted/AdditiveArt";
@@ -300,6 +302,17 @@ function Method({ open, onClose }: { open: boolean; onClose(): void }) {
   );
 }
 
+/** Share a short summary of a scan: the product, its verdict and why. Uses the share sheet, or copies to the clipboard. */
+async function shareResult(p: Product, a: ReturnType<typeof assess>) {
+  const text = `${p.name}${p.brand ? ` (${p.brand})` : ""}: ${overallLabel(a)}.${a.reasons.length ? `\n- ${a.reasons.join("\n- ")}` : ""}\nChecked with ${APP_NAME}: ${location.origin}${location.pathname}`;
+  try {
+    if (typeof navigator.share === "function") await navigator.share({ text });
+    else await navigator.clipboard?.writeText(text);
+  } catch {
+    // The person closed the share sheet: nothing to do.
+  }
+}
+
 function NutritionCard({ p }: { p: Product }) {
   const rows = nutrientRows(p.nutrition, p.isDrink);
   const unit = p.isDrink ? "100 ml" : "100 g";
@@ -351,6 +364,7 @@ export default function Scan() {
   const [number, setNumber] = useState("");
   const [active, setActive] = useState<{ a: Additive; list: Additive[]; from: string } | null>(null);
   const [q, setQ] = useState("");
+  const [tierFilter, setTierFilter] = useState<Tier | "all">("all");
   const [alts, setAlts] = useState<Array<{ p: Product; a: Assessment; n: number }> | null>(null);
   const [textOpen, setTextOpen] = useState(false);
   const [text, setText] = useState("");
@@ -418,7 +432,7 @@ export default function Scan() {
   const counts = found
     ? TIERS.map((t) => [t.id, found.known.filter((a) => tierOf(a) === t.id).length] as const).filter(([, n]) => n > 0)
     : [];
-  const browse = useMemo(() => searchAdditives(q).slice().sort((a, b) => TIER_ORDER[tierOf(a)] - TIER_ORDER[tierOf(b)] || a.code.localeCompare(b.code, undefined, { numeric: true })), [q]);
+  const browse = useMemo(() => searchAdditives(q).filter((a) => tierFilter === "all" || tierOf(a) === tierFilter).slice().sort((a, b) => TIER_ORDER[tierOf(a)] - TIER_ORDER[tierOf(b)] || a.code.localeCompare(b.code, undefined, { numeric: true })), [q, tierFilter]);
   const canLookup = isValidBarcode(number) && state.s !== "loading";
   const total = found ? found.known.length + found.unknown.length : 0;
 
@@ -497,7 +511,11 @@ export default function Scan() {
                   {result.partial && " Some additives aren't reviewed here yet, so this covers the ones we know."}{result.overall === "good" && !result.complete && !result.partial && " It has no nutrition facts to check, so this covers the additives only."}
                 </p>
                 {state.product.allergens.length > 0 && <p className="scan__muted">Allergens listed: {state.product.allergens.map(allergenLabel).join(", ").toLowerCase()}.</p>}
-                <button className="scan__link" onClick={() => setMethod(true)}>How we rate</button>
+                <p className="scan__actions">
+                  <button className="scan__link" onClick={() => setMethod(true)}>How we rate</button>
+                  <button className="scan__link" onClick={() => void shareResult(state.product, result)}>Share</button>
+                  <button className="scan__link" onClick={() => useFeedback.getState().show({ kind: "rating", message: `About ${state.product.name}${state.product.code !== TEXT_PRODUCT_CODE ? ` (barcode ${state.product.code})` : ""}: ` })}>Rating looks wrong?</button>
+                </p>
               </div>
             </div>
 
@@ -577,7 +595,7 @@ export default function Scan() {
         <Reveal className="sec-block__head">
           <span className="rooted__eyebrow">Additive guide</span>
           <h2>Look one up</h2>
-          <p>{ADDITIVES.length} common additives, each with what regulators and researchers have found. Search by name or E-number.</p>
+          <p>{ADDITIVES.length} additives and ingredients, each with what regulators and researchers have found, how strong the evidence is, and its sources. Search by name or E-number, or filter by concern level.</p>
         </Reveal>
         <details className="scan__legend">
           <summary>What the shapes and colours mean</summary>
@@ -585,6 +603,10 @@ export default function Scan() {
         </details>
         <label htmlFor="addi-search" className="visually-hidden">Search additives</label>
         <input id="addi-search" className="scan__search" type="search" placeholder="Try aspartame, E171 or red 40" value={q} onChange={(e) => setQ(e.target.value)} autoComplete="off" />
+        <div className="scan__chips" role="group" aria-label="Filter by concern level">
+          <button className={`chip ${tierFilter === "all" ? "is-on" : ""}`} aria-pressed={tierFilter === "all"} onClick={() => setTierFilter("all")}>All</button>
+          {TIERS.map((t) => <button key={t.id} className={`chip ${tierFilter === t.id ? "is-on" : ""}`} aria-pressed={tierFilter === t.id} onClick={() => setTierFilter(t.id)}>{t.short}</button>)}
+        </div>
         {browse.length ? (
           <ul className="addi-list">{browse.map((a) => <Row key={a.id} a={a} forYou={forYou(a)} onOpen={() => setActive({ a, list: browse, from: "Additive guide" })} />)}</ul>
         ) : (

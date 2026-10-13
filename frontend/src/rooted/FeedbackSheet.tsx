@@ -8,7 +8,7 @@ import "./FeedbackSheet.css";
 
 /** "Send feedback" sheet. Opens from the footer or the profile menu, and remembers which screen it was opened on. */
 export function FeedbackSheet() {
-  const { open, hide } = useFeedback();
+  const { open, hide, prefill } = useFeedback();
   const showHelp = useCrisis((s) => s.show);
   const { pathname } = useLocation();
   const [page, setPage] = useState("/");
@@ -23,6 +23,8 @@ export function FeedbackSheet() {
     if (open) {
       setPage(pathname);
       setResult(null);
+      setKind(prefill?.kind ?? "confusing");
+      setMessage(prefill?.message ?? "");
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [open]);

@@ -53,3 +53,8 @@ def test_read_back_needs_admin_token(client, admin):
 
 def test_read_back_hidden_without_token(client):
     assert client.get("/api/feedback").status_code == 404
+
+
+def test_accepts_a_scanner_rating_note(client):
+    r = client.post("/api/feedback", json={"kind": "rating", "message": "About Product X (barcode 123): rated too gently", "page": "/scan"})
+    assert r.status_code == 204
