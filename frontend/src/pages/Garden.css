@@ -63,3 +63,5 @@
   .plants { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
   .grow-facts div { grid-template-columns: minmax(0, 1fr); gap: 2px; }
 }
+.tdetail__body > section, .tdetail__body > p { min-width: 0; overflow-wrap: break-word; }
+.tdetail__body .ndetail__chips { display: flex; flex-wrap: wrap; gap: 6px; }

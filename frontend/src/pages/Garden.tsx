@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { Aurora, Reveal, TiltCard, ZoomPage } from "../rooted/motion";
 import { Evidence, SecTabs, Sheet, SourceLink, useToast } from "../rooted/ui";
-import { BASICS, GARDEN_SOURCES, LIGHT_LABEL, PLANTS, RECIPES, SAFETY_RULES, SPACE_LABEL, fits, type Light, type Plant, type Recipe, type Space } from "../rooted/gardenContent";
+import { BASICS, GARDEN_SOURCES, KIND_LABEL, LIGHT_LABEL, MORE_BASICS, PLANTS, RECIPES, SAFETY_RULES, SEASON_LABEL, SOIL_SAFETY, SPACE_LABEL, WHY_GARDEN, fits, nutrientsFor, plantingAdvice, type Light, type Plant, type PlantKind, type Recipe, type Space } from "../rooted/gardenContent";
+import { nutrientById } from "../rooted/nutrientsContent";
+import { guessPlace, readPlace } from "../rooted/sun";
 import { pantryById } from "../rooted/pantryContent";
 import { useNourish, useShoppingList } from "../store/nourish";
 import { daysSince, useGarden, useMyGarden } from "../store/garden";
@@ -18,6 +20,7 @@ import "./Garden.css";
 
 const TABS = [
   { id: "plan", label: "Plan your garden" },
+  { id: "why", label: "Why garden" },
   { id: "mine", label: "My garden" },
   { id: "apothecary", label: "Apothecary" },
   { id: "safety", label: "Safety" },
@@ -38,6 +41,9 @@ function Sprout({ hue = 120, small = false }: { hue?: number; small?: boolean })
 export default function Garden() {
   const [space, setSpace] = useState<Space>("windowsill");
   const [light, setLight] = useState<Light>("part");
+  const [kind, setKind] = useState<PlantKind | "all">("all");
+  const where = useMemo(() => readPlace() ?? guessPlace(), []);
+  const month = new Date().getMonth();
   const [plant, setPlant] = useState<Plant | null>(null);
   const [recipe, setRecipe] = useState<Recipe | null>(null);
   const mine = useMyGarden();
@@ -46,8 +52,9 @@ export default function Garden() {
   const list = useShoppingList();
   const toast = useToast();
   const careHerbs = flags(useAbout().considerations).careHerbs;
-  const good = PLANTS.filter((p) => fits(p, space, light));
-  const rest = PLANTS.filter((p) => !fits(p, space, light));
+  const shown = PLANTS.filter((p) => kind === "all" || p.kind === kind);
+  const good = shown.filter((p) => fits(p, space, light));
+  const rest = shown.filter((p) => !fits(p, space, light));
 
   const addRecipeToList = (r: Recipe) => {
     let n = 0;
@@ -72,7 +79,7 @@ export default function Garden() {
           <motion.span className="rooted__eyebrow" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }}>Rooted · Garden &amp; Apothecary</motion.span>
           <motion.h1 initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.22, duration: 0.7 }}>Grow it.<br />Brew it. Safely.</motion.h1>
           <motion.p initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.32, duration: 0.7 }}>
-            Herbs for any space, from a windowsill to a backyard bed, simple teas and remedies made with them, and the safety rules every home apothecary needs.
+            Herbs, vegetables and fruit for any space, from a windowsill to a backyard bed, what each one gives your body, simple teas made with them, and the safety rules every home garden needs.
           </motion.p>
           <motion.div className="breathe__cta" initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.42, duration: 0.7 }}>
             <a className="btn btn--primary btn--big" href="#plan" onClick={(e) => { e.preventDefault(); document.getElementById("plan")?.scrollIntoView({ behavior: "smooth" }); }}><Icon name="leaf" size={22} /> What can I grow?</a>
@@ -97,6 +104,13 @@ export default function Garden() {
             <span>How much light?</span>
             <div className="tdetail__mins">{(Object.keys(LIGHT_LABEL) as Light[]).map((l) => <button key={l} className={`chip ${light === l ? "is-on" : ""}`} aria-pressed={light === l} onClick={() => setLight(l)}>{LIGHT_LABEL[l]}</button>)}</div>
           </div>
+          <div className="planner__q">
+            <span>What do you want to grow?</span>
+            <div className="tdetail__mins">
+              <button className={`chip ${kind === "all" ? "is-on" : ""}`} aria-pressed={kind === "all"} onClick={() => setKind("all")}>Everything</button>
+              {(Object.keys(KIND_LABEL) as PlantKind[]).map((k) => <button key={k} className={`chip ${kind === k ? "is-on" : ""}`} aria-pressed={kind === k} onClick={() => setKind(k)}>{KIND_LABEL[k]}</button>)}
+            </div>
+          </div>
           <p className="planner__count"><strong>{good.length}</strong> plants will do well there.</p>
         </div>
         <motion.div className="plants" layout>
@@ -107,9 +121,9 @@ export default function Garden() {
                 <TiltCard className={`plant ${ok ? "" : "is-dim"}`} onClick={() => setPlant(p)} label={`${p.name}: how to grow`} max={5} style={{ "--h": p.hue } as React.CSSProperties}>
                   <div className="plant__art"><Sprout hue={p.hue} small /></div>
                   <div className="plant__text">
-                    <span className="tech__short">{p.level} · first harvest ~{p.harvestDays < 60 ? `${p.harvestDays} days` : `${Math.round(p.harvestDays / 30)} months`}</span>
+                    <span className="tech__short">{KIND_LABEL[p.kind].replace(/s$/, "")} · {p.level} · first harvest ~{p.harvestDays < 60 ? `${p.harvestDays} days` : `${Math.round(p.harvestDays / 30)} months`}</span>
                     <strong>{p.name}</strong>
-                    {ok ? <span className="plant__fit">Great fit</span> : <span className="plant__nofit">Needs {LIGHT_LABEL[p.needs].toLowerCase()}</span>}
+                    {ok ? <span className="plant__fit">Great fit{plantingAdvice(p, month, where.lat).now && p.season !== "any" ? " · plant now" : ""}</span> : <span className="plant__nofit">Needs {LIGHT_LABEL[p.needs].toLowerCase()}</span>}
                   </div>
                   {mine.some((m) => m.plantId === p.id) && <span className="pcard__in" title="Growing"><Icon name="leaf" size={15} /></span>}
                 </TiltCard>
@@ -117,6 +131,27 @@ export default function Garden() {
             );
           })}
         </motion.div>
+      </section>
+
+      <section id="why" className="sec-block">
+        <Reveal className="sec-block__head">
+          <span className="rooted__eyebrow">Why garden</span>
+          <h2>What the research says</h2>
+          <p className="rooted__lead">Growing things is good for more than the plate. Here is what the studies show, and how sure we can be.</p>
+        </Reveal>
+        <div className="findings">
+          {WHY_GARDEN.map((w, i) => (
+            <Reveal key={w.id} delay={i * 0.06} className="r-card finding" style={{ "--h": w.hue } as React.CSSProperties}>
+              <span className="finding__stat">{w.stat}</span>
+              <span className="finding__label">{w.statLabel}</span>
+              <h3>{w.title}</h3>
+              <Evidence s={w.rating} />
+              <p>{w.body}</p>
+              {w.source && <SourceLink s={w.source} />}
+              {w.link && <Link className="btn btn--secondary btn--small" to={w.link.to}>{w.link.label}</Link>}
+            </Reveal>
+          ))}
+        </div>
       </section>
 
       <section id="mine" className="sec-block">
@@ -177,7 +212,7 @@ export default function Garden() {
           <h2>Rules for a home apothecary</h2>
         </Reveal>
         <div className="rules">
-          {SAFETY_RULES.map((s, i) => (
+          {[SOIL_SAFETY, ...SAFETY_RULES].map((s, i) => (
             <Reveal key={s.title} delay={(i % 3) * 0.05} className="r-card rule">
               <span className="rule__n">{i + 1}</span>
               <h3>{s.title}</h3>
@@ -194,7 +229,7 @@ export default function Garden() {
           <h2>Small-space farming, simply</h2>
         </Reveal>
         <div className="rules">
-          {BASICS.map((b, i) => (
+          {[...BASICS, ...MORE_BASICS].map((b, i) => (
             <Reveal key={b.title} delay={(i % 3) * 0.05} className="r-card rule basic" >
               <div style={{ "--h": b.hue } as React.CSSProperties} className="basic__dot" />
               <h3>{b.title}</h3>
@@ -230,6 +265,17 @@ export default function Garden() {
                 <div><dt>Water</dt><dd>{plant.water}</dd></div>
                 <div><dt>Use it for</dt><dd>{plant.use}</dd></div>
               </dl>
+              <section>
+                <h3>When to plant</h3>
+                <p><strong>{SEASON_LABEL[plant.season]}.</strong> {plantingAdvice(plant, month, where.lat).text}</p>
+              </section>
+              {nutrientsFor(plant).length > 0 && (
+                <section>
+                  <h3>What it gives you</h3>
+                  <p>A good source of these vitamins and minerals:</p>
+                  <div className="ndetail__chips">{nutrientsFor(plant).map((id) => <Link key={id} className="chip" to={`/nutrients?open=${id}`} onClick={() => setPlant(null)}>{nutrientById(id)?.name}</Link>)}</div>
+                </section>
+              )}
               <section><h3>Grower's tip</h3><p>{plant.tip}</p></section>
               {plant.caution && <p className="for-you"><span><strong>Heads up:</strong> {plant.caution}</span></p>}
               {plant.pantryId && <Link className="btn btn--secondary btn--small" to="/nourish#pantry" onClick={() => setPlant(null)}>What the research says about {pantryById(plant.pantryId)?.name.toLowerCase()}</Link>}

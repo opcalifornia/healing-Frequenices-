@@ -1,16 +1,9 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { guessPlace, PHASE_COPY, sunNow, sunPosition, type Place } from "./sun";
+import { guessPlace, PHASE_COPY, readPlace, sunNow, sunPosition, type Place } from "./sun";
 import "./SunTracker.css";
 
 const KEY = "rooted.sun.place";
 const RAD = Math.PI / 180;
-
-function readPlace(): Place | null {
-  try {
-    const p = JSON.parse(localStorage.getItem(KEY) ?? "null") as Place | null;
-    return p && Number.isFinite(p.lat) && Number.isFinite(p.lon) ? { lat: p.lat, lon: p.lon, source: "device" } : null;
-  } catch { return null; }
-}
 
 const fmt = (t?: number) => (t === undefined ? "none" : new Date(t).toLocaleTimeString([], { hour: "numeric", minute: "2-digit" }));
 
