@@ -53,3 +53,42 @@
   .addi__head { grid-template-columns: auto 1fr auto auto; grid-template-areas: "code name pill caret"; }
   .addi__flag { grid-area: auto; }
 }
+
+.scan__verdict { margin: 8px 0 0; }
+.scan__link { background: none; border: 0; padding: 0; font: inherit; color: inherit; text-decoration: underline; cursor: pointer; }
+.scan__muted { margin: 6px 0 0; color: var(--r-text-2); line-height: 1.5; }
+.scan__additives, .scan__nutri, .scan__alts { margin-top: 14px; padding: 16px; }
+.scan__additives h3, .scan__nutri h3, .scan__alts h3 { margin: 0; display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; }
+.scan__additives h3 small, .scan__nutri h3 small, .scan__alts h3 small { font-weight: 500; color: var(--r-text-2); font-size: 0.85rem; }
+.scan__unknown { margin-top: 12px; }
+.nutri__group { margin-top: 12px; }
+.nutri__group h4 { margin: 0 0 6px; font-size: 0.85rem; color: var(--r-text-2); text-transform: uppercase; letter-spacing: 0.06em; }
+.nutri__group ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.nutri__group li { display: grid; grid-template-columns: auto 1fr auto; gap: 10px; align-items: center; }
+.nutri__name { display: grid; }
+.nutri__name small { color: var(--r-text-2); }
+.nutri__val { font-variant-numeric: tabular-nums; font-weight: 600; }
+.nutri__chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.dot { width: 12px; height: 12px; border-radius: 50%; background: currentColor; }
+.dot--high { color: #ff9a8a; }
+.dot--medium { color: #f0b95a; }
+.dot--low { color: #9fd47a; }
+.scan__alts ul, .hist { list-style: none; margin: 12px 0 0; padding: 0; display: grid; gap: 8px; }
+.scan__alts li button, .hist li button { width: 100%; display: grid; grid-template-columns: auto 1fr auto; gap: 12px; align-items: center; text-align: left; padding: 10px; border-radius: 12px; border: 1px solid var(--r-line); background: rgba(255, 255, 255, 0.04); color: inherit; font: inherit; cursor: pointer; }
+.scan__alts li button:focus-visible, .hist li button:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+.scan__alts img, .hist img, .alts__ph { width: 48px; height: 48px; border-radius: 10px; object-fit: contain; background: #fff; flex: none; }
+.alts__ph { background: rgba(255, 255, 255, 0.08); display: block; }
+.alts__text { display: grid; min-width: 0; }
+.alts__text strong { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.alts__text small { color: var(--r-text-2); }
+.addi__chips { list-style: none; padding-left: 0 !important; display: flex !important; flex-wrap: wrap; gap: 8px !important; }
+.addi__chips li { padding: 5px 11px; border-radius: 999px; background: rgba(255, 255, 255, 0.08); font-size: 0.85rem; }
+.method { padding: 22px 20px 24px; display: grid; gap: 10px; line-height: 1.55; }
+.method h2 { margin: 0; padding-right: 44px; }
+.method h3 { margin: 10px 0 0; }
+.method p { margin: 0; }
+.method ul { margin: 0; padding-left: 18px; display: grid; gap: 6px; }
+.method__table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+.method__table th, .method__table td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--r-line); font-weight: 500; }
+.method__table thead th { color: var(--r-text-2); font-size: 0.8rem; }
+.method__table tbody th { font-weight: 700; }

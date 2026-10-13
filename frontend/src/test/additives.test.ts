@@ -24,6 +24,13 @@ describe("additive research library", () => {
     }
   });
 
+  it("tags every flagged additive with at least one potential risk, and keeps tags honest", () => {
+    for (const a of ADDITIVES) {
+      if (a.level === "little" && a.evidence === "None") expect(a.topics, a.code).toEqual([]);
+      else expect(a.topics.length, a.code).toBeGreaterThan(0);
+    }
+  });
+
   it("never uses alarmist or cure language, or the word calm", () => {
     const text = JSON.stringify(ADDITIVES).toLowerCase();
     // Whole words only: "toxicity studies" is normal science wording, "toxic" as a label is not.

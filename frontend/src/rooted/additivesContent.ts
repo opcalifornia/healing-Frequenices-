@@ -25,7 +25,12 @@ export const LEVEL_LABEL: Record<ConcernLevel, string> = {
   little: "Little concern found",
 };
 
-export interface Additive {
+export interface Additive extends AdditiveBase {
+  /** Short "potential associated risks" tags, each worded with how strong the finding is. Empty when there is none. */
+  topics: string[];
+}
+
+interface AdditiveBase {
   /** Lowercase code, for example "e171". */
   id: string;
   /** Display code, for example "E171". */
@@ -73,7 +78,7 @@ const COLOUR_RESEARCH = [
 const COLOUR_CARE = "Children, and families who notice a link between colourful foods and behaviour.";
 const COLOUR_REG = "In the EU, products with this colour must carry a warning about children's activity and attention. Rules in other countries differ.";
 
-function colour(code: string, name: string, also: string | undefined, found: string, extra?: string): Additive {
+function colour(code: string, name: string, also: string | undefined, found: string, extra?: string): AdditiveBase {
   return {
     id: code.toLowerCase(),
     code,
@@ -92,7 +97,7 @@ function colour(code: string, name: string, also: string | undefined, found: str
 }
 
 const SULFITE_FOUND = "Wine, dried fruit, some juices, pickles and processed potatoes.";
-function sulfite(code: string, name: string): Additive {
+function sulfite(code: string, name: string): AdditiveBase {
   return {
     id: code.toLowerCase(),
     code,
@@ -113,7 +118,7 @@ function sulfite(code: string, name: string): Additive {
   };
 }
 
-function gentle(code: string, name: string, kind: string, found: string, also?: string): Additive {
+function gentle(code: string, name: string, kind: string, found: string, also?: string): AdditiveBase {
   return {
     id: code.toLowerCase(),
     code,
@@ -133,7 +138,7 @@ function gentle(code: string, name: string, kind: string, found: string, also?: 
   };
 }
 
-export const ADDITIVES: Additive[] = [
+const RAW: AdditiveBase[] = [
   {
     id: "e171",
     code: "E171",
@@ -364,6 +369,27 @@ export const ADDITIVES: Additive[] = [
   gentle("E412", "Guar gum", "Thickener", "Ice cream, sauces, gluten-free baking and drinks."),
   gentle("E306", "Tocopherols", "Antioxidant", "Oils, margarine and snacks.", "Vitamin E"),
 ];
+
+const COLOUR_TOPICS = ["Children's behaviour (small effect, mixtures)", "Label warning required in the EU"];
+const SULFITE_TOPICS = ["Sensitivity reactions, including in some people with asthma", "Intake above EFSA's safety margin"];
+const TOPICS: Record<string, string[]> = {
+  e171: ["Regulators removed it in the EU", "DNA damage could not be ruled out"],
+  e250: ["Cancer risk linked to processed meat (strong for the meat, unclear for nitrite)"],
+  e102: COLOUR_TOPICS, e104: COLOUR_TOPICS, e110: COLOUR_TOPICS, e122: COLOUR_TOPICS, e124: COLOUR_TOPICS, e129: COLOUR_TOPICS,
+  e211: ["Benzene can form with vitamin C", "Children's behaviour (in colour mixtures)"],
+  e951: ["Possibly carcinogenic (IARC, limited evidence)", "Must be avoided with PKU"],
+  e968: ["Heart health (one study, a link only)"],
+  e407: ["Gut health (debated, EFSA found no cancer concern)"],
+  e466: ["Gut health (animal studies)"],
+  e433: ["Gut health (animal studies)"],
+  e472b: ["Heart health (one large study, a link only)"],
+  e472c: ["Heart health (one large study, a link only)"],
+  e339: ["Heart health (one large study, a link only)"],
+  e621: ["Intake above the guideline for some people"],
+};
+for (const c of ["e220", "e221", "e222", "e223", "e224", "e226", "e227", "e228"]) TOPICS[c] = SULFITE_TOPICS;
+
+export const ADDITIVES: Additive[] = RAW.map((a) => ({ ...a, topics: TOPICS[a.id] ?? [] }));
 
 const BY_ID = new Map(ADDITIVES.map((a) => [a.id, a]));
 
