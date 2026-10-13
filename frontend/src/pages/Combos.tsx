@@ -14,6 +14,8 @@ import { Icon } from "../components/Icon";
 import "../rooted/rooted.css";
 import "./Breathe.css";
 import "./Move.css";
+import { SectionArt } from "../rooted/SectionArt";
+import { sectionById } from "../rooted/sections";
 import "./Combos.css";
 
 const WHEN_SLOT = { morning: "morning", midday: "midday", evening: "evening" } as const;
@@ -45,6 +47,7 @@ export default function Combos() {
     <ZoomPage className="rooted combos">
       <header className="sec-hero combos__hero" style={{ "--h": featured.hue, "--h2": featured.hue2 } as React.CSSProperties}>
         <Aurora />
+        <SectionArt s={sectionById("combos")} hero />
         <div className="combos__chain" aria-hidden="true">
           {resolveSteps(featured, f).map((s, k) => (
             <motion.span key={k} initial={{ opacity: 0, scale: 0.6 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.4 + k * 0.12, type: "spring", stiffness: 200, damping: 16 }}>
