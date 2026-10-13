@@ -6,7 +6,7 @@ describe("additive research library", () => {
   it("has unique ids that match their codes", () => {
     const ids = ADDITIVES.map((a) => a.id);
     expect(new Set(ids).size).toBe(ids.length);
-    for (const a of ADDITIVES) expect(a.id).toBe(a.code.toLowerCase());
+    for (const a of ADDITIVES) if (/^E\d/.test(a.code)) expect(a.id).toBe(a.code.toLowerCase());
   });
 
   it("cites at least one source with a real https link for every entry", () => {

@@ -7204,5 +7204,197 @@ export const AUDITED: AuditedAdditive[] = [
     "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7009459"
    }
   ]
+ },
+ {
+  "id": "flavouring-artificial",
+  "code": "Ingredient",
+  "name": "Artificial flavouring",
+  "kind": "Flavouring",
+  "found": "Sweets, drinks, snacks and ready meals.",
+  "level": "little",
+  "evidence": "Weak",
+  "summary": "Synthetic flavour molecules, each authorised on its own. The label doesn't say which ones are used.",
+  "research": [
+   "In the EU, artificial flavouring means flavour substances made by chemistry that don't occur in nature. Regulators review flavour substances one at a time, and a few have been withdrawn after review.",
+   "A single \"artificial flavouring\" on a label can hide many separate substances, so you can't tell which are in your food.",
+   "We found no study showing harm from \"artificial flavouring\" as a class at food levels."
+  ],
+  "regulation": "Each substance must be authorised in the EU and US. The label has to say \"artificial\" where it applies.",
+  "topics": [
+   "Limited transparency: contents not listed"
+  ],
+  "contested": "Consumer apps usually rate it more strictly than natural flavouring. The difference is mostly about label wording and transparency rather than strong evidence of harm.",
+  "sources": [
+   {
+    "text": "EU Regulation (EC) No 1334/2008 on flavourings (definitions, natural flavouring rules)",
+    "url": "https://eur-lex.europa.eu/eli/reg/2008/1334/2019-01-31/eng"
+   }
+  ]
+ },
+ {
+  "id": "flavouring-natural",
+  "code": "Ingredient",
+  "name": "Natural flavouring",
+  "kind": "Flavouring",
+  "found": "Sweets, drinks, snacks, sauces and ready meals.",
+  "level": "little",
+  "evidence": "Weak",
+  "summary": "The label doesn't say what the flavour is made of. \"Natural\" describes where it came from or how it was made, not that it is simpler or safer.",
+  "research": [
+   "In the EU, a natural flavouring substance is one that is naturally present and has been identified in nature. The word \"natural\" can only be used in a flavouring's description if it contains only natural flavouring substances and flavouring preparations.",
+   "A single \"natural flavouring\" on a label can hide many separate substances. Regulators assess flavour substances one by one, and allergens still have to be named on the pack.",
+   "We found no study that links \"natural flavouring\" as a class to harm. The concern is mainly transparency: you can't tell what you are eating."
+  ],
+  "regulation": "Allowed in the EU and US when the flavour substances are authorised. Must be declared as a flavouring on the label.",
+  "topics": [
+   "Limited transparency: contents not listed"
+  ],
+  "contested": "Some apps rate flavourings more cautiously than regulators do because the contents are not listed. That is a fair point about transparency, but we found no evidence of harm from natural flavourings as a class.",
+  "sources": [
+   {
+    "text": "EU Regulation (EC) No 1334/2008 on flavourings (definitions, natural flavouring rules)",
+    "url": "https://eur-lex.europa.eu/eli/reg/2008/1334/2019-01-31/eng"
+   }
+  ]
+ },
+ {
+  "id": "hydrogenated-fat",
+  "code": "Ingredient",
+  "name": "Partially hydrogenated oil",
+  "kind": "Cooking fat (industrial trans fat)",
+  "found": "Margarine, some baked goods, biscuits, frying fats and snack foods.",
+  "level": "restricted",
+  "evidence": "Strong",
+  "summary": "Partially hydrogenated oils are the main source of industrial trans fat, which raises heart disease risk. The US has removed their GRAS status, and the EU caps trans fat.",
+  "research": [
+   "Partial hydrogenation creates industrial trans fats. Public-health bodies link them to higher LDL cholesterol and a higher risk of heart disease.",
+   "In 2015 the FDA concluded there is no longer a consensus among qualified experts that partially hydrogenated oils are generally recognised as safe for any use in human food. Compliance dates were extended in stages and ran until 2021 for some foods.",
+   "The EU, in Regulation (EU) 2019/649, limits trans fat other than the kind that occurs naturally in animal fat to 2 g per 100 g of fat in food for consumers and retail.",
+   "Fully hydrogenated fat contains very little trans fat, but a label that just says \"hydrogenated\" doesn't tell you which kind it is."
+  ],
+  "regulation": "Not GRAS in the US. The EU caps industrial trans fat at 2 g per 100 g of fat.",
+  "topics": [
+   "Heart disease risk (strong evidence for industrial trans fats)"
+  ],
+  "contested": "Consumer groups have long urged avoiding partially hydrogenated oils, and regulators have moved the same way, so there is no real disagreement.",
+  "sources": [
+   {
+    "text": "FDA: Final determination regarding partially hydrogenated oils (removing trans fat)",
+    "url": "https://www.fda.gov/food/food-additives-petitions/final-determination-regarding-partially-hydrogenated-oils-removing-trans-fat"
+   },
+   {
+    "text": "Federal Register: Final determination regarding partially hydrogenated oils, 17 June 2015",
+    "url": "https://www.govinfo.gov/content/pkg/FR-2015-06-17/html/2015-14883.htm"
+   },
+   {
+    "text": "EU Commission Regulation (EU) 2019/649 on trans fat other than trans fat naturally occurring in fat of animal origin",
+    "url": "https://eur-lex.europa.eu/eli/reg/2019/649"
+   }
+  ]
+ },
+ {
+  "id": "hydrolysed-protein",
+  "code": "Ingredient",
+  "name": "Hydrolysed protein",
+  "kind": "Savoury flavour",
+  "found": "Stock cubes, soups, snacks and sauces.",
+  "level": "little",
+  "evidence": "Weak",
+  "summary": "Protein broken into amino acids to add savoury taste. Acid-hydrolysed types can contain a process contaminant called 3-MCPD.",
+  "research": [
+   "Hydrolysed protein from soy, wheat or milk is a food ingredient with high free glutamate. The label has to name the source, and soy, wheat and milk are allergens.",
+   "Acid hydrolysis can create 3-MCPD, a contaminant. EFSA's 2018 review set a group tolerable daily intake of 2 micrograms per kg of body weight for 3-MCPD. It found average intake below it, with a slight exceedance for some high-consuming young people and infants on formula. These are estimates for all foods, not just this ingredient."
+  ],
+  "careIf": "People with a soy, wheat or milk allergy, depending on the source.",
+  "regulation": "A food ingredient in the EU and US. EU rules set maximum levels for 3-MCPD in some foods.",
+  "topics": [
+   "Contaminant (3-MCPD) in acid-hydrolysed types",
+   "Allergen source (soy, wheat or milk)"
+  ],
+  "sources": [
+   {
+    "text": "EFSA: 3-MCPD in food, tolerable intake set in 2018",
+    "url": "https://www.efsa.europa.eu/pt/press/news/180110"
+   }
+  ]
+ },
+ {
+  "id": "maltodextrin",
+  "code": "Ingredient",
+  "name": "Maltodextrin",
+  "kind": "Bulking agent, thickener, carrier",
+  "found": "Sports drinks, sauces, snacks, sweeteners and ready meals.",
+  "level": "little",
+  "evidence": "Weak",
+  "labOnly": true,
+  "summary": "A quickly digested starch product. Lab and mouse studies suggest it may favour some gut bacteria linked to Crohn's disease. This hasn't been shown in people.",
+  "research": [
+   "Maltodextrin is made by breaking down starch. It is digested fast and can raise blood sugar quickly, like other refined carbohydrates.",
+   "A 2012 lab study found that maltodextrin increased biofilm formation by a strain of E. coli linked to Crohn's disease. Mouse studies reported more gut inflammation.",
+   "These are lab and animal findings. We found no human trial that links maltodextrin to Crohn's disease outcomes."
+  ],
+  "regulation": "A food ingredient in the EU and US, not an E-number additive.",
+  "topics": [
+   "Gut bacteria and inflammation (lab and animal studies)",
+   "Quick rise in blood sugar"
+  ],
+  "sources": [
+   {
+    "text": "Nickerson KP, McDonald C. Crohn's disease-associated adherent-invasive E. coli adhesion is enhanced by exposure to the dietary polysaccharide maltodextrin. PLoS ONE, 2012",
+    "url": "https://doi.org/10.1371/journal.pone.0052132"
+   }
+  ]
+ },
+ {
+  "id": "vanillin",
+  "code": "Ingredient",
+  "name": "Vanillin",
+  "kind": "Flavouring",
+  "found": "Biscuits, ice cream, chocolate and baked goods.",
+  "level": "little",
+  "evidence": "None",
+  "summary": "The main flavour compound of vanilla. Most vanillin in food is made from other sources. Regulators allow it as a flavour.",
+  "research": [
+   "Vanillin can come from vanilla beans, from wood lignin, from chemicals such as guaiacol, or from fermentation. The label may say vanilla flavour or vanillin without naming the source.",
+   "It has been evaluated by the international food additive expert committee (JECFA) and is a recognised flavour in the US. We found no recent human studies of concern at food levels."
+  ],
+  "regulation": "Authorised as a flavouring in the EU and US.",
+  "topics": [],
+  "sources": [
+   {
+    "text": "FEMA Flavor Library: Vanillin (industry flavour association)",
+    "url": "https://www.femaflavor.org/flavor-library/vanillin"
+   },
+   {
+    "text": "US Code of Federal Regulations 21 CFR 182.60: synthetic flavoring substances and adjuvants",
+    "url": "https://www.law.cornell.edu/cfr/text/21/182.60"
+   }
+  ]
+ },
+ {
+  "id": "yeast-extract",
+  "code": "Ingredient",
+  "name": "Yeast extract",
+  "kind": "Savoury flavour (contains natural glutamate)",
+  "found": "Stock cubes, soups, crisps, sauces and ready meals.",
+  "level": "little",
+  "evidence": "Weak",
+  "summary": "A food ingredient, not an E-number. It contains natural free glutamate, which gives savoury taste, as added MSG does.",
+  "research": [
+   "It is made from yeast broken down by its own enzymes, then concentrated. It contains free glutamate and nucleotides, which add savoury taste, in the same way as added MSG.",
+   "Because it is a food ingredient and not an additive, EFSA's group safe intake for added glutamates (E 620 to 625) doesn't formally apply to it. Glutamate from all sources can still add up.",
+   "\"No added MSG\" on a label can still include yeast extract. We found no clinical trials showing harm at normal food levels."
+  ],
+  "regulation": "A food ingredient in the EU and US. Not covered by the additive limits for glutamates.",
+  "topics": [
+   "Free glutamate (see MSG)"
+  ],
+  "contested": "Some apps rate it more strictly than regulators because of its free glutamate. That is true chemically, but trials on glutamate are mixed and we found nothing specific to yeast extract.",
+  "sources": [
+   {
+    "text": "EFSA: Re-evaluation of glutamic acid and glutamates (E 620-625), 2017",
+    "url": "https://www.efsa.europa.eu/en/efsajournal/pub/4910"
+   }
+  ]
  }
 ];

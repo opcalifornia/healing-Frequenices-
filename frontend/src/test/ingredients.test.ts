@@ -68,4 +68,15 @@ describe("allergens", () => {
     expect(findAdditives("Omega-3 fatty acids, oxygen-free packaging, lactic acid bacteria, gold medal flour").codes).toEqual([]);
     expect(findAdditives("E570, E640").codes.sort()).toEqual(["e570", "e640"]);
   });
+
+  it("finds flavourings and other ingredient-level concerns by name", () => {
+    expect(findAdditives("Sugar, natural flavours, yeast extract, maltodextrin").codes.sort()).toEqual(["flavouring-natural", "maltodextrin", "yeast-extract"]);
+    expect(findAdditives("Artificial flavouring, hydrolysed vegetable protein").codes.sort()).toEqual(["flavouring-artificial", "hydrolysed-protein"]);
+  });
+  it("only counts partially hydrogenated oil as trans fat, and notes plain 'hydrogenated'", () => {
+    expect(findAdditives("Partially hydrogenated soybean oil").codes).toEqual(["hydrogenated-fat"]);
+    const r = findAdditives("Fully hydrogenated palm oil");
+    expect(r.codes).toEqual([]);
+    expect(r.notes[0]).toMatch(/Hydrogenated fat/);
+  });
 });

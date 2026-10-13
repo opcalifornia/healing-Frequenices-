@@ -1,6 +1,6 @@
 {
  "version": 1,
- "count": 477,
+ "count": 484,
  "items": [
   {
    "id": "additive:e100",
@@ -3642,6 +3642,109 @@
     "EFSA ANS Panel. Scientific opinion on the safety of advantame for the proposed uses as a food additive. EFSA Journal, 2013",
     "European Commission. Regulation (EU) No 497/2014 (advantame, E 969)",
     "WHO/PAHO. WHO advises not to use non-sugar sweeteners for weight control in newly released guideline. 2023"
+   ]
+  },
+  {
+   "id": "additive:flavouring-artificial",
+   "kind": "additive",
+   "title": "Ingredient Artificial flavouring",
+   "summary": "Synthetic flavour molecules, each authorised on its own. The label doesn't say which ones are used.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EU Regulation (EC) No 1334/2008 on flavourings (definitions, natural flavouring rules)"
+   ]
+  },
+  {
+   "id": "additive:flavouring-natural",
+   "kind": "additive",
+   "title": "Ingredient Natural flavouring",
+   "summary": "The label doesn't say what the flavour is made of. \"Natural\" describes where it came from or how it was made, not that it is simpler or safer.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EU Regulation (EC) No 1334/2008 on flavourings (definitions, natural flavouring rules)"
+   ]
+  },
+  {
+   "id": "additive:hydrogenated-fat",
+   "kind": "additive",
+   "title": "Ingredient Partially hydrogenated oil",
+   "summary": "Partially hydrogenated oils are the main source of industrial trans fat, which raises heart disease risk. The US has removed their GRAS status, and the EU caps trans fat.",
+   "level": "restricted",
+   "evidence": "Strong",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "FDA: Final determination regarding partially hydrogenated oils (removing trans fat)",
+    "Federal Register: Final determination regarding partially hydrogenated oils, 17 June 2015",
+    "EU Commission Regulation (EU) 2019/649 on trans fat other than trans fat naturally occurring in fat of animal origin"
+   ]
+  },
+  {
+   "id": "additive:hydrolysed-protein",
+   "kind": "additive",
+   "title": "Ingredient Hydrolysed protein",
+   "summary": "Protein broken into amino acids to add savoury taste. Acid-hydrolysed types can contain a process contaminant called 3-MCPD.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "People with a soy, wheat or milk allergy, depending on the source."
+   ],
+   "sources": [
+    "EFSA: 3-MCPD in food, tolerable intake set in 2018"
+   ]
+  },
+  {
+   "id": "additive:maltodextrin",
+   "kind": "additive",
+   "title": "Ingredient Maltodextrin",
+   "summary": "A quickly digested starch product. Lab and mouse studies suggest it may favour some gut bacteria linked to Crohn's disease. This hasn't been shown in people.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "Nickerson KP, McDonald C. Crohn's disease-associated adherent-invasive E. coli adhesion is enhanced by exposure to the dietary polysaccharide maltodextrin. PLoS ONE, 2012"
+   ]
+  },
+  {
+   "id": "additive:vanillin",
+   "kind": "additive",
+   "title": "Ingredient Vanillin",
+   "summary": "The main flavour compound of vanilla. Most vanillin in food is made from other sources. Regulators allow it as a flavour.",
+   "level": "little",
+   "evidence": "None",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "FEMA Flavor Library: Vanillin (industry flavour association)",
+    "US Code of Federal Regulations 21 CFR 182.60: synthetic flavoring substances and adjuvants"
+   ]
+  },
+  {
+   "id": "additive:yeast-extract",
+   "kind": "additive",
+   "title": "Ingredient Yeast extract",
+   "summary": "A food ingredient, not an E-number. It contains natural free glutamate, which gives savoury taste, as added MSG does.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA: Re-evaluation of glutamic acid and glutamates (E 620-625), 2017"
    ]
   },
   {
