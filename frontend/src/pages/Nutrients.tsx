@@ -1,9 +1,10 @@
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Aurora, Reveal, ZoomPage } from "../rooted/motion";
 import { Evidence, SecTabs, Sheet, SourceLink } from "../rooted/ui";
-import { GROUP_LABEL, GROUP_NOTE, NUTRIENTS, NUTRIENT_SOURCES, PAIRINGS, foodIndex, nutrientById, type Nutrient, type NutrientGroup } from "../rooted/nutrientsContent";
+import { GROUP_LABEL, GROUP_NOTE, NUTRIENTS, NUTRIENT_SOURCES, PAIRINGS, nutrientById, type Nutrient, type NutrientGroup } from "../rooted/nutrientsContent";
+import { FoodExplorer, TopFoods } from "../rooted/FoodExplorer";
 import { Footer } from "../components/Footer";
 import "../rooted/rooted.css";
 import "./BrainGuide.css";
@@ -12,7 +13,7 @@ import "./Nutrients.css";
 const TABS = [
   { id: "all", label: "All nutrients" },
   { id: "pairs", label: "Better together" },
-  { id: "foods", label: "Find by food" },
+  { id: "database", label: "Food database" },
   { id: "sources", label: "Sources" },
 ];
 
@@ -37,6 +38,7 @@ function Detail({ n, onOpen }: { n: Nutrient; onOpen(id: string): void }) {
           {n.other.length > 0 && <div><strong>Animal and fortified foods</strong><ul>{n.other.map((f) => <li key={f}>{f}</li>)}</ul></div>}
         </div>
       </section>
+      <TopFoods nutrientId={n.id} />
       <section><h3>Good to know</h3><ul>{n.tips.map((t) => <li key={t}>{t}</li>)}</ul></section>
       <section><h3>Who tends to run low</h3><p>{n.lowRisk}</p></section>
       <section className="ndetail__care"><h3>Check with a clinician or pharmacist first if</h3><ul>{n.care.map((c) => <li key={c}>{c}</li>)}</ul></section>
@@ -64,14 +66,11 @@ export default function Nutrients() {
   const [params, setParams] = useSearchParams();
   const [group, setGroup] = useState<NutrientGroup | "all">("all");
   const [q, setQ] = useState("");
-  const [food, setFood] = useState("");
   const open = params.get("open");
   const active = open ? nutrientById(open) : undefined;
   const setOpen = (id: string | null) => setParams(id ? { open: id } : {}, { replace: false });
-  const foods = useMemo(foodIndex, []);
 
   const shown = NUTRIENTS.filter((n) => (group === "all" || n.group === group) && (!q.trim() || `${n.name} ${n.also ?? ""} ${n.summary}`.toLowerCase().includes(q.trim().toLowerCase())));
-  const foodHits = foods.filter((f) => !food.trim() || f.name.toLowerCase().includes(food.trim().toLowerCase())).slice(0, food.trim() ? 40 : 30);
 
   return (
     <ZoomPage className="rooted nutrients">
@@ -137,23 +136,13 @@ export default function Nutrients() {
         </div>
       </section>
 
-      <section id="foods" className="sec-block">
+      <section id="database" className="sec-block">
         <Reveal className="sec-block__head">
-          <span className="rooted__eyebrow">Find by food</span>
-          <h2>What's in my fruit and vegetables?</h2>
-          <p className="rooted__lead">Type a food to see which vitamins and minerals it is a good source of. Foods with the most are listed first.</p>
+          <span className="rooted__eyebrow">Food database</span>
+          <h2>Look up any food, or rank foods by a nutrient</h2>
+          <p className="rooted__lead">Over 8,000 foods from the USDA's FoodData Central, with calories, protein, vitamins and minerals for each. Pick a nutrient to see which foods are richest in it.</p>
         </Reveal>
-        <div className="nfilter"><input type="search" placeholder="Try spinach, banana, lentils…" value={food} onChange={(e) => setFood(e.target.value)} aria-label="Search foods" /></div>
-        <ul className="nfoods">
-          {foodHits.map((f) => (
-            <li key={f.name} className="r-card">
-              <strong>{f.name}</strong>
-              <span className="ndetail__chips">{f.nutrients.map((id) => <button key={id} className="chip" onClick={() => setOpen(id)}>{nutrientById(id)?.name}</button>)}</span>
-            </li>
-          ))}
-          {foodHits.length === 0 && <li className="rooted__lead">Not in the guide yet. Try a simpler name.</li>}
-        </ul>
-        <p className="nfilter__note">Lists show foods that are a good source in this guide, not every nutrient a food contains. For exact numbers, see USDA FoodData Central under Sources.</p>
+        <FoodExplorer onGuide={setOpen} />
       </section>
 
       <section id="sources" className="sec-block">
