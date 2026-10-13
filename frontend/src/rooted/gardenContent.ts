@@ -241,3 +241,18 @@ export const SOIL_SAFETY = {
   url: "https://www.epa.gov/node/299831",
   label: "EPA: healthy gardening",
 };
+
+/**
+ * Typical care for plants in pots, as a starting rhythm. Real needs depend on weather, pot size and soil,
+ * so reminders say "check", not "water": press a finger into the top inch of soil first.
+ * Feeding is a diluted balanced fertiliser every few weeks while the plant is growing, per the product label.
+ */
+export const CARE: Record<string, { water: number; feed?: number }> = {
+  microgreens: { water: 1 }, "green-onion": { water: 2 }, mint: { water: 3 }, "lemon-balm": { water: 3 }, basil: { water: 3, feed: 21 },
+  parsley: { water: 3 }, cilantro: { water: 3 }, thyme: { water: 7 }, rosemary: { water: 7 }, chamomile: { water: 3 }, calendula: { water: 3 },
+  lavender: { water: 10 }, tulsi: { water: 3 }, aloe: { water: 14 }, ginger: { water: 4 }, turmeric: { water: 4 }, garlic: { water: 7 },
+  lettuce: { water: 2 }, spinach: { water: 2 }, kale: { water: 3, feed: 21 }, radish: { water: 2 }, peas: { water: 3 }, carrots: { water: 3 },
+  beets: { water: 3 }, chard: { water: 3 }, broccoli: { water: 3, feed: 21 }, potatoes: { water: 4, feed: 21 }, tomatoes: { water: 2, feed: 14 },
+  peppers: { water: 3, feed: 14 }, "green-beans": { water: 3 }, cucumbers: { water: 2, feed: 14 }, zucchini: { water: 3, feed: 14 },
+  "sweet-potatoes": { water: 5 }, strawberries: { water: 2, feed: 14 }, blueberries: { water: 3, feed: 30 }, raspberries: { water: 4 },
+};
