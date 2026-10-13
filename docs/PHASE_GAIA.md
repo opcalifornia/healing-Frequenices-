@@ -15,7 +15,11 @@
 | Personality | Warm and grounded, with a little gentle humour. A friend who knows the research. |
 | How you talk to it | **Voice and text.** Press and hold to talk; GAIA can answer out loud or in text. |
 | Where it lives | A **floating GAIA button**, one tap away on every screen. |
-| Speaking up first | **Off by default.** Each person can turn on a morning "here's your day" or an evening check-in. (My recommendation; confirm.) |
+| Speaking up first | **Off by default.** Each person can turn on a morning "here's your day" or an evening check-in. |
+| GAIA's voice | Warm, unhurried and natural. People choose from a few voices (no single default gender); text-only is always an option. |
+| Free tier | **10 GAIA conversations a month** free, then Rooted Plus for unlimited. Provisional: revisit after measuring real costs in beta. |
+| Chat history | **Kept 30 days, then deleted automatically.** One tap deletes it sooner. Facts on the "What GAIA knows" page stay until the person removes them. |
+| Backup name | **"Rooted Guide"** if the trademark check fails, a plain name that's safe to use. Any new name gets the same check. |
 | When people meet it | Not at sign-up. Offered after the first win, or when someone seems stuck. Never pops up uninvited. |
 
 ## 2. The three powers
@@ -96,7 +100,7 @@ cannot get around them by being asked cleverly.
 - Pretend to be human. It's warm, but it says it's an AI if asked.
 
 **Spirit and faith:** follows the person's lead, respects every tradition, and
-stays neutral unless asked. (Confirm.)
+stays neutral unless asked.
 
 ## 5. Safety
 
@@ -188,8 +192,4 @@ stays neutral unless asked. (Confirm.)
 
 ## 10. Still to decide
 
-- Is "speaking up first" off by default? (Recommended: yes.)
-- GAIA's voice: what should it sound like?
-- How many free conversations a month?
-- Chat history: keep for 30 days, 7 days, or not at all?
-- A backup name, in case the trademark check fails.
+Nothing blocking. Decisions in section 1 can change after beta feedback.
