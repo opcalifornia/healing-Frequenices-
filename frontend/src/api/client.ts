@@ -14,6 +14,11 @@ export function setAuthToken(token: string | null) {
   authToken = token;
 }
 
+/** The Authorization header for requests made outside `api()`, such as streams. */
+export function authHeader(): Record<string, string> {
+  return authToken ? { Authorization: `Bearer ${authToken}` } : {};
+}
+
 export async function api<T>(path: string, init: { method?: string; body?: unknown; signal?: AbortSignal } = {}): Promise<T> {
   const headers: Record<string, string> = { Accept: "application/json" };
   if (init.body !== undefined) headers["Content-Type"] = "application/json";

@@ -1,0 +1,38 @@
+.gaia-fab { position: fixed; left: var(--gutter); bottom: calc(var(--tab-h, 0px) + var(--mini-h, 0px) + 20px); z-index: 41; display: flex; align-items: center; gap: 8px; padding: 8px 14px 8px 8px; border-radius: 999px; border: 1px solid rgba(156, 197, 154, 0.45); background: rgba(16, 22, 16, 0.92); color: #fff; font: inherit; font-weight: 850; letter-spacing: 0.08em; box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55); cursor: pointer; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+.gaia-fab:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+.gaia-fab__orb, .gaia__orb { width: 30px; height: 30px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #d9f2c4, #6fa83a 45%, #2f6f8f 100%); box-shadow: 0 0 18px rgba(111, 168, 58, 0.55); animation: gaia-breathe 6s ease-in-out infinite; flex: none; }
+@keyframes gaia-breathe { 50% { scale: 1.08; box-shadow: 0 0 26px rgba(111, 168, 58, 0.75); } }
+.gaia-fab__label { font-size: 0.85rem; }
+
+.gaia { display: grid; grid-template-rows: auto 1fr auto auto; gap: 10px; padding: 18px 16px 14px; height: min(78vh, 680px); box-sizing: border-box; }
+.gaia__head { display: flex; align-items: center; gap: 12px; padding-right: 44px; }
+.gaia__head h2 { margin: 0; font-size: 1.2rem; letter-spacing: 0.06em; }
+.gaia__head p { margin: 0; font-size: 0.85rem; color: var(--r-text-2); }
+.gaia__orb { width: 38px; height: 38px; }
+.gaia__clear { margin-left: auto; background: none; border: 1px solid var(--r-line); color: inherit; border-radius: 999px; padding: 6px 12px; font: inherit; font-size: 0.85rem; cursor: pointer; }
+.gaia__log { overflow-y: auto; display: grid; align-content: start; gap: 12px; padding: 4px 2px; overscroll-behavior: contain; }
+.gaia__hello p { margin: 0 0 12px; line-height: 1.55; }
+.gaia__starters { display: flex; flex-wrap: wrap; gap: 8px; }
+.gaia__turn { display: grid; gap: 8px; }
+.gaia__turn--user { justify-items: end; }
+.gaia__bubble { margin: 0; max-width: 88%; padding: 10px 14px; border-radius: 18px; line-height: 1.5; white-space: pre-wrap; }
+.gaia__turn--user .gaia__bubble { background: var(--r-sand, #e8d5b0); color: #14140f; border-bottom-right-radius: 6px; }
+.gaia__turn--assistant .gaia__bubble { background: rgba(255, 255, 255, 0.07); border-bottom-left-radius: 6px; }
+.gaia__typing { display: flex; gap: 5px; }
+.gaia__typing span { width: 7px; height: 7px; border-radius: 50%; background: currentColor; opacity: 0.5; animation: gaia-dot 1.2s ease-in-out infinite; }
+.gaia__typing span:nth-child(2) { animation-delay: 0.15s; }
+.gaia__typing span:nth-child(3) { animation-delay: 0.3s; }
+@keyframes gaia-dot { 50% { opacity: 1; translate: 0 -3px; } }
+.gaia__cards { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; max-width: 92%; }
+.gaia__cards a { display: grid; gap: 4px; padding: 12px 14px; border-radius: 14px; border: 1px solid rgba(156, 197, 154, 0.35); background: rgba(156, 197, 154, 0.08); color: inherit; text-decoration: none; }
+.gaia__cards small { color: var(--r-text-2); line-height: 1.4; }
+.gaia__meta { display: flex; gap: 10px; align-items: center; font-size: 0.8rem; color: var(--r-text-2); }
+.gaia__opened { margin: 0; display: flex; gap: 6px; align-items: center; font-size: 0.85rem; color: #9fd47a; }
+.gaia__error { margin: 0; color: #ffb4a6; font-size: 0.9rem; }
+.gaia__form { display: flex; gap: 8px; }
+.gaia__form input { flex: 1; min-width: 0; font: inherit; color: inherit; padding: 12px 14px; border-radius: 999px; border: 1px solid var(--r-line); background: rgba(255, 255, 255, 0.06); }
+.gaia__form input:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+.gaia__send { width: 46px; height: 46px; border-radius: 50%; border: 0; background: var(--r-sand, #e8d5b0); color: #14140f; display: grid; place-items: center; cursor: pointer; }
+.gaia__send:disabled { opacity: 0.45; cursor: default; }
+.gaia__fine { margin: 0; font-size: 0.75rem; color: var(--r-text-2); text-align: center; }
+@media (prefers-reduced-motion: reduce) { .gaia-fab__orb, .gaia__orb, .gaia__typing span { animation: none; } }

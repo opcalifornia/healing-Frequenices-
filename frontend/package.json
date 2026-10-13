@@ -14,7 +14,8 @@
     "build:artifact": "tsc -b && vite build --mode artifact && node scripts/build-artifact.mjs",
     "cap:sync": "npm run build && npx cap sync",
     "cap:ios": "npx cap open ios",
-    "build:preview": "npm run build:artifact && node scripts/build-preview.mjs"
+    "build:preview": "npm run build:artifact && node scripts/build-preview.mjs",
+    "build:gaia-index": "node scripts/build-gaia-index.mjs"
   },
   "dependencies": {
     "@capacitor/core": "8.5.3",

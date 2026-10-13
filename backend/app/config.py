@@ -44,6 +44,24 @@ class Settings(BaseSettings):
     #: (sent as X-Admin-Token). Unset means that endpoint does not exist.
     metrics_admin_token: str | None = None
 
+    # GAIA, the AI guide (docs/PHASE_GAIA.md). Off unless switched on and a key is set.
+    gaia_enabled: bool = False
+    anthropic_api_key: str | None = None
+    #: Comma-separated emails allowed to use GAIA while it's private. Empty = any signed-in account.
+    gaia_allowed_emails: Annotated[list[str], NoDecode] = []
+    gaia_model: str = "claude-opus-5-5"
+    #: Small, fast model for the crisis screen that runs before every reply.
+    gaia_screen_model: str = "claude-haiku-5-5"
+    gaia_hourly_limit: int = 40
+    gaia_daily_limit: int = 200
+
+    @field_validator("gaia_allowed_emails", mode="before")
+    @classmethod
+    def split_emails(cls, v: object) -> object:
+        if isinstance(v, str):
+            return [e.strip() for e in v.split(",") if e.strip()]
+        return v
+
     @field_validator("cors_origins", mode="before")
     @classmethod
     def split_origins(cls, v: object) -> object:

@@ -1,4 +1,5 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { Aurora, Reveal, TiltCard, ZoomPage } from "../rooted/motion";
 import { Evidence, Sheet } from "../rooted/ui";
@@ -42,6 +43,17 @@ export default function Combos() {
     setOpen(null);
     setRun(c);
   };
+
+  // "?open=evening" (from GAIA or a link) opens that combo's steps.
+  const [params, setParams] = useSearchParams();
+  useEffect(() => {
+    const id = params.get("open");
+    if (!id) return;
+    const c = COMBOS.find((x) => x.id === id);
+    if (c) setOpen(c);
+    params.delete("open");
+    setParams(params, { replace: true });
+  }, [params, setParams]);
 
   return (
     <ZoomPage className="rooted combos">

@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
+import { safeTechnique } from "../rooted/programs";
 import { AnimatePresence, motion } from "framer-motion";
 import { Aurora, Reveal, TiltCard, ZoomPage } from "../rooted/motion";
 import { Evidence, SecTabs, Sheet, SourceLink } from "../rooted/ui";
@@ -148,6 +150,18 @@ export default function Breathe() {
     setOpen(null);
     setRun({ t, m });
   };
+
+  // "?open=box" (from GAIA or a link) opens that technique, swapped for a safe one if needed.
+  const [params, setParams] = useSearchParams();
+  useEffect(() => {
+    const id = params.get("open");
+    if (!id) return;
+    const t = TECHNIQUES.find((x) => x.id === safeTechnique(id, f));
+    if (t) setOpen(t);
+    params.delete("open");
+    setParams(params, { replace: true });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [params]);
 
   return (
     <ZoomPage className="rooted breathe">

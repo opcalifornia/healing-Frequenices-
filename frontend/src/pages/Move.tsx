@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
+import { safeRoutine } from "../rooted/programs";
 import { AnimatePresence, motion } from "framer-motion";
 import { Aurora, Reveal, TiltCard, ZoomPage } from "../rooted/motion";
 import { Evidence, SecTabs, Sheet, SourceLink } from "../rooted/ui";
@@ -85,6 +87,18 @@ export default function MovePage() {
   };
   const walk = ROUTINES[0];
   const f = flags(useAbout().considerations);
+
+  // "?open=desk" (from GAIA or a link) opens that routine, swapped for a seated one if needed.
+  const [params, setParams] = useSearchParams();
+  useEffect(() => {
+    const id = params.get("open");
+    if (!id) return;
+    const r = ROUTINES.find((x) => x.id === safeRoutine(id, f));
+    if (r) setOpen(r);
+    params.delete("open");
+    setParams(params, { replace: true });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [params]);
   const shown = ROUTINES.filter((r) => kind === "all" || r.kind === kind);
 
   return (

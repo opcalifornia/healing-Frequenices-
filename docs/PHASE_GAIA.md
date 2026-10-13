@@ -190,6 +190,37 @@ stays neutral unless asked.
 7. **Plus tier and the morning brief.**
 8. **Native app:** Apple Health, Apple Watch and native notifications.
 
-## 10. Still to decide
+## 10. Prototype (built)
+
+Step 1 of the build order is done: a private, text-only GAIA behind the floating button.
+
+**What it does today**
+- Chats in text, streaming the reply as it's written.
+- Searches everything in Rooted (291 items: tools, breathing, movement, combos, programs, foods, recipes, additives, sound sessions), with the safety flags applied in code before the model sees a result.
+- Shows recommendations as tappable cards, and opens screens for you. Breathe, Move and Combos open straight to the practice (`?open=<id>`), swapped for a safe one if your profile needs it. You tap Start yourself.
+- Runs a crisis check on every message (word list plus a fast model screen) and opens the crisis sheet with 988 when needed.
+- Can't change plans, calendars, lists or saved details yet. It says so and opens the right screen.
+- Stores nothing on the server. The conversation stays on the device and goes with each message.
+
+**Where the code is**
+- `backend/app/gaia/`: instructions (`prompt.py`), tools (`tools.py`), safety (`safety.py`), search (`content.py`), the turn loop (`agent.py`), and the content index (`content_index.json`).
+- `backend/app/routers/gaia.py`: `GET /api/gaia/status` and `POST /api/gaia/chat` (a text/event-stream).
+- `frontend/src/rooted/Gaia.tsx` and `gaia.ts`: the floating button and chat sheet.
+- Rebuild the index after content changes: `cd frontend && npm run build:gaia-index`.
+
+**How to switch it on (on the server, for example Render)**
+1. Create an API key in the Claude Console and add it as `ANTHROPIC_API_KEY`.
+2. Set `GAIA_ENABLED` to `true`.
+3. While it's private, set `GAIA_ALLOWED_EMAILS` to the accounts that can use it, comma-separated. Leave it empty to allow every signed-in account.
+4. Optional: `GAIA_MODEL` (default `claude-opus-5-5`), `GAIA_SCREEN_MODEL` (default `claude-haiku-5-5`), `GAIA_HOURLY_LIMIT` (40) and `GAIA_DAILY_LIMIT` (200) per account.
+
+The button only appears for signed-in accounts the server allows, so the shareable GitHub preview (which has no server) never shows it.
+
+**How it was tested**
+- 18 server tests with a scripted stand-in for Claude: safety filtering, crisis handling, refusals, limits, sign-in, input checks and the tool loop.
+- An end-to-end run of the real Claude SDK against a local pretend Claude server speaking the real streaming format, and a browser run of the chat sheet against it.
+- Not yet tried against the real Claude API: that needs the API key on the server.
+
+## 11. Still to decide
 
 Nothing blocking. Decisions in section 1 can change after beta feedback.
