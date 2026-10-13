@@ -7,3 +7,4 @@
 @keyframes bscan-pulse { 50% { border-color: rgba(255, 255, 255, 0.4); } }
 .bscan__error { margin: 0; color: #ffb4a6; }
 @media (prefers-reduced-motion: reduce) { .bscan__frame { animation: none; } }
+.bscan__tip { margin: 0; opacity: 0.85; }
