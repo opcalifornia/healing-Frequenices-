@@ -80,6 +80,9 @@ function Privacy() {
       <p>To learn which parts of {APP_NAME} help people, the app adds one to a daily total when a feature is used, such as "finished a first session" or "opened the app today". Each count is a feature name from a fixed list and, for opening the app, a rough "days since first opened on this device" range (same day, next day, 2 to 6, 7 to 29, or 30 or more days).</p>
       <p>Counts are never linked to you or your account: no name, email, profile or device ID, and your IP address is used only to stop abuse and is not stored. They never include health data, moods, notes, goals or anything you type. You can turn them off on <Link to="/your-data">Your data</Link>, and they start off if your browser sends Do Not Track or Global Privacy Control.</p>
 
+      <h3>Product scans</h3>
+      <p>When you scan or type a barcode, the app asks Open Food Facts, an open food database, for that product. The barcode number is sent, along with your IP address as with any web request. Nothing else is sent: not your name, profile, health considerations or anything else in the app. Camera images stay on your device and are only used to read the barcode.</p>
+
       <h3>Feedback you send</h3>
       <p>If you use "Send feedback", we receive what you type, the type of note you chose, and the screen you were on. We store nothing that identifies your account, profile or device. A way to reply is stored only if you choose to type one. Please don't include health details or passwords in a note.</p>
 

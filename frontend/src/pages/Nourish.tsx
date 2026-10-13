@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { Icon } from "../components/Icon";
 import { motion } from "framer-motion";
 import { Aurora, Reveal, TiltCard, ZoomPage } from "../rooted/motion";
 import { Evidence, SecTabs, Sheet, SourceLink } from "../rooted/ui";
@@ -99,6 +100,9 @@ export default function Nourish() {
             What the strongest studies say about eating well, tools to put it on your plate, and a shopping list that teaches you what each food and
             herb actually does. Every claim is rated, and every source is linked.
           </motion.p>
+          <motion.div className="breathe__cta" initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.42, duration: 0.7 }}>
+            <Link className="btn btn--primary btn--big" to="/scan"><Icon name="barcode" size={22} /> Scan a product's additives</Link>
+          </motion.div>
         </div>
       </header>
 
