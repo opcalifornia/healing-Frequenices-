@@ -4,6 +4,7 @@ const PATHS: Record<string, string> = {
   plus: "M12 5v14M5 12h14",
   check: "M5 12.5l4.5 4.5L19 7.5",
   search: "M10.5 4a6.5 6.5 0 1 1 0 13 6.5 6.5 0 0 1 0-13ZM20 20l-4.8-4.8",
+  barcode: "M4 8V6a2 2 0 0 1 2-2h2M16 4h2a2 2 0 0 1 2 2v2M20 16v2a2 2 0 0 1-2 2h-2M8 20H6a2 2 0 0 1-2-2v-2M8 9v6M11 9v6M13.5 9v6M16 9v6",
   close: "M6 6l12 12M18 6L6 18",
   chevronLeft: "M15 5l-7 7 7 7",
   chevronRight: "M9 5l7 7-7 7",

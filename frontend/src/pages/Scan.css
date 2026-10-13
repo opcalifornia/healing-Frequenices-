@@ -1,0 +1,55 @@
+.scan__hero { min-height: auto; padding-bottom: 36px; }
+.scan__cta { display: grid; gap: 14px; margin-top: 18px; justify-items: start; }
+.scan__type { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.scan__type input, .scan__search { font: inherit; color: inherit; padding: 12px 14px; border-radius: 12px; border: 1px solid var(--r-line); background: rgba(255, 255, 255, 0.06); min-width: 0; }
+.scan__type input { width: min(260px, 60vw); }
+.scan__search { width: 100%; box-sizing: border-box; margin-bottom: 16px; }
+.scan__type input:focus-visible, .scan__search:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+.scan__status { color: var(--r-text-2); }
+.scan__status--error { color: #ffb4a6; }
+.scan__result { padding-top: 8px; }
+.scan__product { display: flex; gap: 16px; align-items: center; padding: 16px; }
+.scan__product img { border-radius: 12px; object-fit: contain; background: #fff; flex: none; }
+.scan__product h2 { margin: 0; font-size: 1.25rem; }
+.scan__brand { margin: 2px 0 0; color: var(--r-text-2); }
+.scan__count { margin: 8px 0 0; }
+.scan__unknown { margin-top: 14px; padding: 16px; }
+.scan__unknown h3 { margin: 0 0 6px; }
+.scan__unknown p { margin: 0; color: var(--r-text-2); line-height: 1.5; }
+.scan__ingredients { margin-top: 14px; color: var(--r-text-2); }
+.scan__ingredients summary { cursor: pointer; font-weight: 600; }
+.scan__fine { margin-top: 14px; font-size: 0.85rem; color: var(--r-text-2); }
+.scan__about ul { display: grid; gap: 10px; padding-left: 18px; margin: 10px 0 0; line-height: 1.5; color: var(--r-text-2); }
+.scan__about h2 { margin: 0; }
+.scan__about .r-card { padding: 18px; }
+
+.addi-list { list-style: none; margin: 14px 0 0; padding: 0; display: grid; gap: 10px; }
+.addi { border: 1px solid var(--r-line); border-radius: 14px; background: rgba(255, 255, 255, 0.04); overflow: hidden; }
+.addi__head { width: 100%; display: grid; grid-template-columns: auto 1fr auto; grid-template-areas: "code name caret" "pill pill pill"; gap: 6px 12px; align-items: center; text-align: left; padding: 14px; background: none; border: 0; color: inherit; font: inherit; cursor: pointer; }
+.addi__head:focus-visible { outline: 2px solid currentColor; outline-offset: -2px; }
+.addi__code { grid-area: code; font-weight: 800; font-variant-numeric: tabular-nums; padding: 4px 8px; border-radius: 8px; background: rgba(255, 255, 255, 0.1); }
+.addi__name { grid-area: name; display: grid; }
+.addi__name small { color: var(--r-text-2); }
+.addi__caret { grid-area: caret; transition: rotate 0.2s; }
+.addi.is-open .addi__caret { rotate: 180deg; }
+.addi__head .lvl { grid-area: pill; justify-self: start; }
+.addi__flag { justify-self: start; font-size: 0.78rem; font-weight: 700; padding: 3px 9px; border-radius: 999px; background: var(--r-sand); color: #14140f; }
+.lvl { display: inline-flex; align-items: center; gap: 7px; font-size: 0.8rem; font-weight: 700; padding: 3px 10px; border-radius: 999px; border: 1px solid currentColor; }
+.lvl::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
+.lvl--restricted { color: #ff9a8a; }
+.lvl--some { color: #f0b95a; }
+.lvl--little { color: #9fd47a; }
+.lvl--unknown { color: #b7b7ae; }
+.addi__body { overflow: hidden; }
+.addi__detail { padding: 0 14px 16px; display: grid; gap: 10px; line-height: 1.55; }
+.addi__detail h4 { margin: 4px 0 0; }
+.addi__detail ul { margin: 0; padding-left: 18px; display: grid; gap: 8px; }
+.addi__detail p { margin: 0; }
+.addi__summary { font-weight: 600; }
+.addi__ev { display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap; color: var(--r-text-2); font-size: 0.9rem; }
+.addi__you { font-style: normal; font-weight: 700; }
+.addi__src { list-style: none; padding-left: 0 !important; font-size: 0.88rem; }
+@media (min-width: 700px) {
+  .addi__head { grid-template-columns: auto 1fr auto auto; grid-template-areas: "code name pill caret"; }
+  .addi__flag { grid-area: auto; }
+}

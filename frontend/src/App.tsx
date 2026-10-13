@@ -38,6 +38,7 @@ const Bedtime = lazy(() => import("./pages/Bedtime"));
 const SleepGuide = lazy(() => import("./pages/SleepGuide"));
 const SafetyGuide = lazy(() => import("./pages/SafetyGuide"));
 const Nourish = lazy(() => import("./pages/Nourish"));
+const Scan = lazy(() => import("./pages/Scan"));
 const Breathe = lazy(() => import("./pages/Breathe"));
 const Move = lazy(() => import("./pages/Move"));
 const Welcome = lazy(() => import("./pages/Welcome"));
@@ -149,6 +150,7 @@ export default function App() {
             <Route path="/" element={<RequireProfile><Hub /></RequireProfile>} />
             <Route path="/healing" element={<RequireProfile><Home /></RequireProfile>} />
             <Route path="/nourish" element={<RequireProfile><Nourish /></RequireProfile>} />
+            <Route path="/scan" element={<RequireProfile><Scan /></RequireProfile>} />
             <Route path="/breathe" element={<RequireProfile><Breathe /></RequireProfile>} />
             <Route path="/move" element={<RequireProfile><Move /></RequireProfile>} />
             <Route path="/places" element={<RequireProfile><Places /></RequireProfile>} />
