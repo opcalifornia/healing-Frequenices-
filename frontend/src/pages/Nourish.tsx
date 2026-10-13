@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Aurora, Reveal, TiltCard, ZoomPage, useParallax } from "../rooted/motion";
+import { Aurora, Reveal, TiltCard, ZoomPage } from "../rooted/motion";
 import { Evidence, SecTabs, Sheet, SourceLink } from "../rooted/ui";
 import { FASTING, FINDINGS, MYTHS, PLATE_SOURCE, WATER_FACTS, WATER_SOURCES, type Finding } from "../rooted/nourishContent";
 import { PlateBuilder, WaterTracker } from "../rooted/NourishTools";
@@ -15,6 +15,8 @@ import "./Programs.css";
 import { flags, useAbout } from "../store/wellness";
 import "../rooted/rooted.css";
 import "./BrainGuide.css";
+import { SectionArt } from "../rooted/SectionArt";
+import { sectionById } from "../rooted/sections";
 import "./Nourish.css";
 
 const TABS = [
@@ -29,28 +31,6 @@ const TABS = [
   { id: "fasting", label: "Fasting" },
   { id: "myths", label: "Myths" },
 ];
-
-function HeroProduce() {
-  const y1 = useParallax(-0.18);
-  const y2 = useParallax(-0.08);
-  const leaves = [
-    { x: "62%", t: "18%", r: -20, s: 1.2, c: "#9ccc65", y: y1 },
-    { x: "80%", t: "40%", r: 35, s: 0.9, c: "#e8b04a", y: y2 },
-    { x: "70%", t: "62%", r: 120, s: 1.5, c: "#6f9a5a", y: y1 },
-    { x: "90%", t: "12%", r: 200, s: 0.7, c: "#e3a57a", y: y2 },
-    { x: "55%", t: "48%", r: 60, s: 0.6, c: "#cfe3a0", y: y2 },
-  ];
-  return (
-    <div className="nh-produce" aria-hidden="true">
-      {leaves.map((l, i) => (
-        <motion.svg key={i} viewBox="0 0 80 50" className="nh-leaf" style={{ left: l.x, top: l.t, y: l.y as never, rotate: l.r, scale: l.s, "--d": `${i * -2.1}s` } as never}>
-          <path d="M2 40C14 8 50 0 78 6 70 34 36 52 2 40Z" fill={l.c} opacity="0.75" />
-          <path d="M4 39C26 26 50 14 76 7" stroke="rgba(0,0,0,.3)" strokeWidth="1.6" fill="none" />
-        </motion.svg>
-      ))}
-    </div>
-  );
-}
 
 function FindingCard({ f, onOpen }: { f: Finding; onOpen(): void }) {
   return (
@@ -109,7 +89,7 @@ export default function Nourish() {
     <ZoomPage className="rooted nourish">
       <header className="sec-hero nourish__hero">
         <Aurora />
-        <HeroProduce />
+        <SectionArt s={sectionById("nourish")} hero />
         <div className="sec-hero__text">
           <motion.span className="rooted__eyebrow" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }}>Rooted · Nourish</motion.span>
           <motion.h1 initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.22, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}>

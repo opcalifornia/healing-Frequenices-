@@ -6,7 +6,7 @@
 .combos__chain span { display: grid; place-items: center; width: clamp(54px, 6vw, 84px); aspect-ratio: 1; border-radius: 50%; background: rgba(20, 24, 19, 0.6); border: 1.5px solid hsl(var(--h) 70% 75% / 0.6); backdrop-filter: blur(10px); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5); color: #fff; }
 .combos__chain span + span { margin-left: clamp(16px, 2vw, 30px); position: relative; }
 .combos__chain span + span::before { content: ""; position: absolute; right: 100%; width: clamp(16px, 2vw, 30px); height: 2px; background: linear-gradient(90deg, hsl(var(--h) 70% 75% / 0.6), hsl(var(--h2) 70% 75% / 0.6)); }
-@media (max-width: 900px) { .combos__chain { top: 26%; right: auto; left: var(--gutter); opacity: 0.6; } }
+@media (max-width: 900px) { .combos__chain { top: 50%; right: auto; left: var(--gutter); } }
 
 .combo-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; perspective: 1200px; }
 .combo { display: flex; flex-direction: column; gap: 6px; min-height: 230px; padding: 22px; border-radius: 22px; overflow: hidden; border: 1px solid var(--r-line);

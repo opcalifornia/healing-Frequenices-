@@ -18,6 +18,8 @@ import { ScheduleButton } from "../rooted/CalendarUI";
 import "../rooted/rooted.css";
 import "./Breathe.css";
 import "./BrainGuide.css";
+import { SectionArt } from "../rooted/SectionArt";
+import { sectionById } from "../rooted/sections";
 import "./Move.css";
 
 const TABS = [
@@ -89,7 +91,7 @@ export default function MovePage() {
     <ZoomPage className="rooted move">
       <header className="sec-hero move__hero">
         <Aurora />
-        <div className="move__demo" aria-hidden="true"><Figure a="cow" b="cat" period={7} /></div>
+        <SectionArt s={sectionById("move")} hero />
         <div className="sec-hero__text">
           <motion.span className="rooted__eyebrow" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }}>Rooted · Move</motion.span>
           <motion.h1 initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.22, duration: 0.7 }}>Gentle movement,<br />every day.</motion.h1>

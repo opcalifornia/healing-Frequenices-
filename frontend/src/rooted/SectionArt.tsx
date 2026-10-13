@@ -1,15 +1,16 @@
 import type { RootedSection } from "./sections";
 import { LiveWaves } from "../components/LiveWaves";
 
+// Each y puts the bottom of the piece on the tabletop (y 96), resting slightly into it.
 const PRODUCE = [
-  { id: "grapes", x: 30, y: 56, s: 1 },
-  { id: "carrot", x: 78, y: 66, s: 1 },
-  { id: "broccoli", x: 128, y: 58, s: 1.05 },
-  { id: "apple", x: 180, y: 64, s: 1 },
-  { id: "pear", x: 228, y: 58, s: 1 },
-  { id: "beet", x: 278, y: 64, s: 1 },
-  { id: "tomato", x: 326, y: 70, s: 0.95 },
-  { id: "lemon", x: 368, y: 72, s: 0.9 },
+  { id: "grapes", x: 26, y: 62, s: 1 },
+  { id: "carrot", x: 74, y: 62, s: 1 },
+  { id: "broccoli", x: 122, y: 62, s: 1.05 },
+  { id: "apple", x: 170, y: 66, s: 1 },
+  { id: "pear", x: 218, y: 62, s: 1 },
+  { id: "beet", x: 266, y: 62, s: 1 },
+  { id: "tomato", x: 314, y: 67, s: 0.95 },
+  { id: "lemon", x: 358, y: 69, s: 0.9 },
 ] as const;
 
 /** Each piece is drawn around (0,0), about 40 units tall, with its base near y=30. */
@@ -79,25 +80,28 @@ const PRODUCE_ART: Record<(typeof PRODUCE)[number]["id"], React.ReactNode> = {
 };
 
 /** Slow, procedural art per section. Pure SVG/CSS so it costs nothing to load. */
-export function SectionArt({ s }: { s: RootedSection }) {
+export function SectionArt({ s, hero = false }: { s: RootedSection; hero?: boolean }) {
+  // As a page header the whole picture is shown (and not cropped to fill a card).
+  const fit = hero ? "xMidYMid meet" : "xMidYMid slice";
+  const cls = (name: string) => `sart sart--${name}${hero ? " sart--hero" : ""}`;
   const style = { "--c1": s.c1, "--c2": s.c2 } as React.CSSProperties;
   switch (s.id) {
     case "healing":
       return (
-        <div className="sart sart--healing" style={style}>
+        <div className={cls("healing")} style={style}>
           <LiveWaves seed="rooted-hub" hue={262} beat={6} baseline={0.62} className="sart__waves" />
         </div>
       );
     case "nourish":
       return (
-        <svg className="sart sart--nourish" style={style} viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <svg className={cls("nourish")} style={style} viewBox="0 0 400 200" preserveAspectRatio={fit} aria-hidden="true">
           <defs>
             <linearGradient id="sart-table" x1="0" y1="0" x2="0" y2="1">
               <stop offset="0" stopColor="#8a5a34" />
               <stop offset="1" stopColor="#4b2f1b" />
             </linearGradient>
           </defs>
-          <rect x="0" y="96" width="400" height="104" fill="url(#sart-table)" opacity="0.9" />
+          <rect x="0" y="96" width="400" height={hero ? 36 : 104} fill="url(#sart-table)" opacity="0.9" />
           <rect x="0" y="96" width="400" height="2" fill="#c89a62" opacity="0.5" />
           {PRODUCE.map((p, i) => (
             <g key={p.id} transform={`translate(${p.x} ${p.y})`}>
@@ -108,7 +112,7 @@ export function SectionArt({ s }: { s: RootedSection }) {
       );
     case "move":
       return (
-        <svg className="sart sart--move" style={style} viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <svg className={cls("move")} style={style} viewBox="0 0 400 200" preserveAspectRatio={fit} aria-hidden="true">
           <g transform="translate(-95 0)">
           <circle className="sart__sun" cx="300" cy="78" r="46" fill="var(--c2)" opacity="0.28" />
           <path className="sart__trail" d="M20 160C90 140 140 170 210 150S330 120 390 140" fill="none" stroke="var(--c2)" strokeWidth="2.5" strokeLinecap="round" strokeDasharray="4 9" opacity="0.5" />
@@ -126,7 +130,7 @@ export function SectionArt({ s }: { s: RootedSection }) {
       );
     case "combos":
       return (
-        <svg className="sart sart--combos" style={style} viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <svg className={cls("combos")} style={style} viewBox="0 0 400 200" preserveAspectRatio={fit} aria-hidden="true">
           <g transform="translate(-42 -8)">
           <path className="sart__link" d="M190 70C225 70 235 100 270 100M190 130C225 130 235 100 270 100" fill="none" stroke="var(--c2)" strokeWidth="2" strokeLinecap="round" strokeDasharray="3 8" opacity="0.6" />
           <g transform="translate(165 70)">
@@ -145,7 +149,7 @@ export function SectionArt({ s }: { s: RootedSection }) {
       );
     case "spirit":
       return (
-        <svg className="sart sart--spirit" style={style} viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <svg className={cls("spirit")} style={style} viewBox="0 0 400 200" preserveAspectRatio={fit} aria-hidden="true">
           <g transform="translate(-85 0)">
           {[0, 1, 2].map((i) => (
             <ellipse key={i} className="sart__ripple" style={{ "--i": i } as React.CSSProperties} cx="290" cy="120" rx="70" ry="16" fill="none" stroke="var(--c2)" strokeWidth="2" />
@@ -166,7 +170,7 @@ export function SectionArt({ s }: { s: RootedSection }) {
       );
     case "garden":
       return (
-        <svg className="sart sart--garden" style={style} viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <svg className={cls("garden")} style={style} viewBox="0 0 400 200" preserveAspectRatio={fit} aria-hidden="true">
           <g transform="translate(-45 -62)">
             <g className="sart__plant" fill="#5aa832">
               <path d="M200 120C188 104 188 86 198 72 208 86 208 104 200 120Z" />
@@ -189,7 +193,7 @@ export function SectionArt({ s }: { s: RootedSection }) {
       );
     case "places":
       return (
-        <svg className="sart sart--places" style={style} viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <svg className={cls("places")} style={style} viewBox="0 0 400 200" preserveAspectRatio={fit} aria-hidden="true">
           <g transform="translate(-40 -30)">
           <circle className="sart__sun" cx="215" cy="74" r="34" fill="var(--c2)" opacity="0.55" />
           <path d="M60 150L140 70 190 118 240 56 340 150Z" fill="#2c4a63" opacity="0.9" />
@@ -205,7 +209,7 @@ export function SectionArt({ s }: { s: RootedSection }) {
       );
     case "support":
       return (
-        <svg className="sart sart--support" style={style} viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <svg className={cls("support")} style={style} viewBox="0 0 400 200" preserveAspectRatio={fit} aria-hidden="true">
           <circle className="sart__glow" cx="190" cy="82" r="48" fill="var(--c2)" opacity="0.25" />
           <path className="sart__heart" d="M190 106C160 86 160 58 178 56 186 55 190 62 190 62S194 55 202 56C220 58 220 86 190 106Z" fill="var(--c2)" />
           <path d="M138 108C140 128 160 142 190 142S240 128 242 108C226 116 210 118 190 118S154 116 138 108Z" fill="var(--c1)" opacity="0.9" />
@@ -215,7 +219,7 @@ export function SectionArt({ s }: { s: RootedSection }) {
       );
     case "earth":
       return (
-        <svg className="sart sart--earth" style={style} viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <svg className={cls("earth")} style={style} viewBox="0 0 400 200" preserveAspectRatio={fit} aria-hidden="true">
           <defs>
             <clipPath id="sart-globe"><circle cx="280" cy="102" r="58" /></clipPath>
           </defs>
@@ -247,19 +251,19 @@ export function SectionArt({ s }: { s: RootedSection }) {
       );
     case "light":
       return (
-        <div className="sart sart--light" style={style} aria-hidden="true">
+        <div className={cls("light")} style={style} aria-hidden="true">
           <span /><span /><span />
         </div>
       );
     case "breathe":
       return (
-        <div className="sart sart--breathe" style={style} aria-hidden="true">
+        <div className={cls("breathe")} style={style} aria-hidden="true">
           <span /><span /><span />
         </div>
       );
     case "learn":
       return (
-        <svg className="sart sart--learn" style={style} viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <svg className={cls("learn")} style={style} viewBox="0 0 400 200" preserveAspectRatio={fit} aria-hidden="true">
           {Array.from({ length: 14 }, (_, i) => (
             <circle key={i} className="sart__node" style={{ "--i": i } as React.CSSProperties} cx={30 + ((i * 97) % 360)} cy={30 + ((i * 53) % 150)} r={3 + (i % 4)} fill={i % 2 ? "var(--c1)" : "var(--c2)"} />
           ))}
@@ -270,7 +274,7 @@ export function SectionArt({ s }: { s: RootedSection }) {
       );
     default:
       return (
-        <div className="sart sart--orbs" style={style} aria-hidden="true">
+        <div className={cls("orbs")} style={style} aria-hidden="true">
           <span /><span />
         </div>
       );

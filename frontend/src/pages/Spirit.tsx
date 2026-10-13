@@ -21,6 +21,8 @@ import "./BrainGuide.css";
 import { ProgramRail } from "../rooted/ProgramRail";
 import "./Light.css";
 import "./Programs.css";
+import { SectionArt } from "../rooted/SectionArt";
+import { sectionById } from "../rooted/sections";
 import "./Spirit.css";
 
 const TABS = [
@@ -267,7 +269,7 @@ export default function Spirit() {
     <ZoomPage className="rooted spirit">
       <header className="sec-hero spirit__hero">
         <Aurora />
-        <div className="spirit__bowl" aria-hidden="true"><span /><span /><span /><i /></div>
+        <SectionArt s={sectionById("spirit")} hero />
         <div className="sec-hero__text">
           <motion.span className="rooted__eyebrow" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }}>Rooted · Spirit &amp; Ritual</motion.span>
           <motion.h1 initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.22, duration: 0.7 }}>Stillness,<br />sound and meaning.</motion.h1>

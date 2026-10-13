@@ -224,3 +224,7 @@ a.src-link:hover { color: var(--r-sand); }
 .unlock a { color: var(--r-sand, #e8d5b0); font-weight: 800; text-decoration: underline; text-underline-offset: 3px; }
 .unlock button { color: rgba(240, 232, 214, 0.7); font-size: 1.2rem; line-height: 1; padding: 0 4px; }
 @media (prefers-reduced-motion: reduce) { .sart__ripple { opacity: 0.35; } }
+
+/* Section art used as a page header: whole picture, top of the page, soft edges. */
+.sart.sart--hero { inset: calc(var(--nav-h, 64px) + 12px) 4vw auto auto; width: min(640px, 92vw); height: min(44%, 340px); background: none; pointer-events: none; -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent); mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent); }
+@media (max-width: 760px) { .sart.sart--hero { inset: calc(var(--nav-h, 64px) + 8px) 0 auto 0; width: 100%; height: 40%; } }
