@@ -8,3 +8,6 @@
 .bscan__error { margin: 0; color: #ffb4a6; }
 @media (prefers-reduced-motion: reduce) { .bscan__frame { animation: none; } }
 .bscan__tip { margin: 0; opacity: 0.85; }
+.bscan__view--lock .bscan__frame { border-color: #4ade80; box-shadow: 0 0 0 999px rgba(0, 0, 0, 0.35), 0 0 24px rgba(74, 222, 128, 0.7); animation: none; }
+.bscan__zoom { display: grid; gap: 4px; font-size: 0.9rem; opacity: 0.9; }
+.bscan__zoom input { width: 100%; }
