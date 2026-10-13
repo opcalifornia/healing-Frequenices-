@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { addDays, careIcs, dueItems, dueWords, nextDue, resolvePlant, tasksOf } from "../rooted/gardenCare";
+import { addDays, careIcs, dueItems, dueWords, nextDue, reminderItems, reminderText, resolvePlant, tasksOf } from "../rooted/gardenCare";
+import { DEFAULT_PREFS } from "../store/garden";
 import type { CustomPlant, Planting } from "../store/garden";
 
 const basil: Planting = { plantId: "basil", planted: "2026-05-01" };
@@ -47,12 +48,38 @@ describe("garden care", () => {
     expect(addDays("2026-02-27", 3)).toBe("2026-03-02");
   });
   it("builds repeating calendar alarms for every task", () => {
-    const ics = careIcs([basil], [], "08:00", "https://example.org/", "2026-05-10", new Date("2026-05-10T07:00:00Z"));
+    const ics = careIcs([basil], [], DEFAULT_PREFS, "https://example.org/", "2026-05-10", new Date("2026-05-10T07:00:00Z"));
     expect(ics).toContain("RRULE:FREQ=DAILY;INTERVAL=3");
     expect(ics).toContain("RRULE:FREQ=DAILY;INTERVAL=21");
     expect(ics).toContain("DTSTART:20260510T080000");
     expect(ics).toContain("SUMMARY:Basil: check water");
     expect(ics).toContain("BEGIN:VALARM");
     expect(ics.split("BEGIN:VEVENT").length - 1).toBe(2);
+  });
+  it("only adds the kinds of reminder the person chose", () => {
+    const waterOnly = careIcs([basil], [], { ...DEFAULT_PREFS, feed: false }, "https://example.org/", "2026-05-10");
+    expect(waterOnly.split("BEGIN:VEVENT").length - 1).toBe(1);
+    expect(waterOnly).not.toContain("feed");
+    expect(careIcs([basil], [], { ...DEFAULT_PREFS, water: false, feed: false }, "https://example.org/", "2026-05-10")).not.toContain("BEGIN:VEVENT");
+  });
+  it("can make one daily garden check instead of one per plant", () => {
+    const list: Planting[] = [basil, { plantId: "mint", planted: "2026-05-05" }];
+    const ics = careIcs(list, [], { ...DEFAULT_PREFS, mode: "daily", time: "18:00" }, "https://example.org/", "2026-05-10");
+    expect(ics.split("BEGIN:VEVENT").length - 1).toBe(1);
+    expect(ics).toContain("RRULE:FREQ=DAILY;INTERVAL=1");
+    expect(ics).toContain("SUMMARY:Garden check: water and feed");
+    expect(ics).toContain("Basil");
+    expect(ics).toContain("DTSTART:20260510T180000");
+  });
+  it("picks who to remind: what is due, or everyone for a daily check", () => {
+    const list: Planting[] = [basil, { plantId: "aloe", planted: "2026-05-09", done: { water: "2026-05-09" } }];
+    expect(reminderItems(list, [], DEFAULT_PREFS, "2026-05-10").map((i) => i.name)).toEqual(["Basil"]);
+    expect(reminderItems(list, [], { ...DEFAULT_PREFS, mode: "daily" }, "2026-05-10").map((i) => i.name)).toEqual(["Basil", "Aloe vera"]);
+    expect(reminderItems(list, [], { ...DEFAULT_PREFS, water: false, feed: false }, "2026-05-10")).toEqual([]);
+  });
+  it("words the reminder in plain English", () => {
+    const t = reminderText([{ name: "Basil", kinds: ["water", "feed"] }, { name: "Rose", kinds: ["water"] }]);
+    expect(t.body).toBe("Time to check water for Basil and Rose, and feed Basil. Test the soil before you water.");
+    expect(reminderText([]).body).toMatch(/garden check/i);
   });
 });

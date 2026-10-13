@@ -10,6 +10,7 @@ import { useMediaSession } from "./hooks/useMediaSession";
 import { usePlayer } from "./store/player";
 import { HoverPreview } from "./components/HoverPreview";
 import { BedtimeToast, useBedtimeReminder } from "./components/Bedtime";
+import { GardenToast, useGardenReminder } from "./rooted/gardenReminder";
 import Hub from "./pages/Hub";
 import { startSync } from "./rooted/sync";
 import { apiEnabled } from "./api/client";
@@ -87,6 +88,7 @@ export default function App() {
   }, [token, activeProfile]);
   useMediaSession();
   useBedtimeReminder();
+  useGardenReminder();
 
   useEffect(() => {
     loadCatalog();
@@ -200,6 +202,7 @@ export default function App() {
       <FeedbackSheet />
       {!onPicker && activeProfile && <GaiaButton />}
       {!onPicker && <BedtimeToast />}
+      {!onPicker && <GardenToast />}
     </>
   );
 }

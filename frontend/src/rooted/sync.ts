@@ -31,7 +31,7 @@ export const SLICES: Slice[] = [
   { key: "practice", store: usePractice as unknown as Slice["store"], fields: ["logs", "customs", "bolts", "hearts"] },
   { key: "wellness", store: useWellness as unknown as Slice["store"], fields: ["about"] },
   { key: "programs", store: usePrograms as unknown as Slice["store"], fields: ["enrolled"] },
-  { key: "garden", store: useGarden as unknown as Slice["store"], fields: ["beds", "custom"] },
+  { key: "garden", store: useGarden as unknown as Slice["store"], fields: ["beds", "custom", "prefs"] },
   { key: "bedtime", store: useBedtime as unknown as Slice["store"], fields: ["plans", "nights"] },
   // Work-calendar busy blocks stay on the device; only health events sync.
   { key: "calendar", store: useCalendar as unknown as Slice["store"], fields: ["events"] },

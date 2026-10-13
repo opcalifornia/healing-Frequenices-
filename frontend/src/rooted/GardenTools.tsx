@@ -3,8 +3,9 @@ import { motion } from "framer-motion";
 import { Sheet } from "./ui";
 import { Icon } from "../components/Icon";
 import { saveTextFile } from "./download";
-import { TASK_HELP, TASK_LABEL, addDays, careIcs, dueItems, dueWords, nextDue, resolvePlant, tasksOf, type DueItem } from "./gardenCare";
-import { daysSince, useGarden, useMyCustomPlants, useMyGarden, type CustomPlant, type Planting, type TaskKind } from "../store/garden";
+import { TASK_HELP, TASK_LABEL, addDays, careIcs, dueItems, dueWords, nextDue, reminderItems, reminderText, resolvePlant, tasksOf, type DueItem } from "./gardenCare";
+import { showGardenReminder } from "./gardenReminder";
+import { daysSince, useGarden, useGardenPrefs, useMyCustomPlants, useMyGarden, type CustomPlant, type Planting, type TaskKind } from "../store/garden";
 import { todayKey } from "../store/nourish";
 
 /** Today's care: what to check, feed or water, with Done and Not yet. */
@@ -46,30 +47,96 @@ export function TodayCard({ onOpen }: { onOpen(plantId: string): void }) {
   );
 }
 
-/** Pick when to be nudged, and add repeating alarms for every plant's care to the phone's calendar. */
+const TIMES: Array<[string, string]> = [["07:30", "Morning"], ["12:30", "Midday"], ["18:00", "Evening"]];
+
+function notifyState(): "unsupported" | "default" | "granted" | "denied" {
+  return typeof Notification === "undefined" ? "unsupported" : Notification.permission;
+}
+
+/**
+ * Set up garden reminders in one place: what for, how often, what time, and where. Two ways to be reminded, and
+ * either or both: repeating alarms in the phone's calendar (work even when Rooted is closed), or Rooted's own
+ * reminder (a banner when the app is open, and a system notification where the browser allows it).
+ */
 export function CareReminderCard() {
   const mine = useMyGarden();
   const custom = useMyCustomPlants();
-  const [time, setTime] = useState("08:00");
+  const prefs = useGardenPrefs();
+  const setPrefs = useGarden((s) => s.setPrefs);
   const [saved, setSaved] = useState(false);
+  const [perm, setPerm] = useState(notifyState());
   if (!mine.length) return null;
+  const today = todayKey();
   const url = `${location.origin}${location.pathname}#/garden`;
-  const count = mine.reduce((n, pl) => n + (resolvePlant(pl.plantId, custom) ? tasksOf(pl, resolvePlant(pl.plantId, custom)!).length : 0), 0);
+  const kinds = (prefs.water ? 1 : 0) + (prefs.feed ? 1 : 0);
+  const items = reminderItems(mine, custom, prefs, today);
+  const count = prefs.mode === "daily" ? (kinds ? 1 : 0) : mine.reduce((n, pl) => { const rp = resolvePlant(pl.plantId, custom); return n + (rp ? tasksOf(pl, rp).filter((t) => (t.kind === "water" ? prefs.water : prefs.feed)).length : 0); }, 0);
+
+  const toggleApp = async () => {
+    if (prefs.app) return setPrefs({ app: false });
+    if (typeof Notification !== "undefined" && Notification.permission === "default") {
+      try { setPerm(await Notification.requestPermission()); } catch { /* the browser said no */ }
+    }
+    setPerm(notifyState());
+    setPrefs({ app: true, lastShown: undefined });
+  };
+  const sendTest = () => {
+    const t = reminderText(items.length ? items : [{ name: "Your plants", kinds: ["water"] }]);
+    showGardenReminder(t.title, t.body);
+  };
+
   return (
     <div className="r-card remind">
       <div className="remind__head">
         <span className="heart__icon remind__icon"><Icon name="bell" size={26} /></span>
         <div>
-          <h3>Care reminders</h3>
-          <p>Add repeating alarms to your phone's calendar for every plant's watering and feeding, so they work even when Rooted is closed. Each says "check", so you test the soil before you water.</p>
+          <h3>Reminders</h3>
+          <p>Set it up once. Choose what to be reminded about, how often, and where.</p>
         </div>
       </div>
-      <div className="remind__actions">
-        <label className="remind__time">Remind me at <input type="time" value={time} onChange={(e) => setTime(e.target.value)} aria-label="Reminder time" /></label>
-        <motion.button whileTap={{ scale: 0.96 }} className="btn btn--primary" onClick={() => { void saveTextFile("rooted-garden-reminders.ics", careIcs(mine, custom, time, url, todayKey()), "text/calendar"); setSaved(true); }}>
-          <Icon name="bell" size={18} /> Add {count} reminder{count === 1 ? "" : "s"} to my calendar
-        </motion.button>
-        {saved && <span className="slist__note">Open the downloaded file to add the alarms. Planting something new? Add them again.</span>}
+
+      <div className="rsetup">
+        <p className="rsetup__q"><span>1</span> What for?</p>
+        <div className="ndetail__chips">
+          <button className={`chip ${prefs.water ? "is-on" : ""}`} aria-pressed={prefs.water} onClick={() => setPrefs({ water: !prefs.water })}>Watering</button>
+          <button className={`chip ${prefs.feed ? "is-on" : ""}`} aria-pressed={prefs.feed} onClick={() => setPrefs({ feed: !prefs.feed })}>Nutrients and feeding</button>
+        </div>
+
+        <p className="rsetup__q"><span>2</span> How often?</p>
+        <div className="ndetail__chips" role="radiogroup" aria-label="How often">
+          <button role="radio" aria-checked={prefs.mode === "daily"} className={`chip ${prefs.mode === "daily" ? "is-on" : ""}`} onClick={() => setPrefs({ mode: "daily" })}>Every day</button>
+          <button role="radio" aria-checked={prefs.mode === "rhythm"} className={`chip ${prefs.mode === "rhythm" ? "is-on" : ""}`} onClick={() => setPrefs({ mode: "rhythm" })}>When each plant needs it</button>
+        </div>
+        <p className="care__hint">{prefs.mode === "daily" ? "One reminder every day to look over your garden." : "Each plant on its own schedule, which you can adjust under Care. Recommended."}</p>
+
+        <p className="rsetup__q"><span>3</span> What time?</p>
+        <div className="ndetail__chips">
+          {TIMES.map(([t, l]) => <button key={t} className={`chip ${prefs.time === t ? "is-on" : ""}`} aria-pressed={prefs.time === t} onClick={() => setPrefs({ time: t })}>{l}</button>)}
+          <input className="rsetup__time" type="time" value={prefs.time} onChange={(e) => e.target.value && setPrefs({ time: e.target.value })} aria-label="Reminder time" />
+        </div>
+
+        <p className="rsetup__q"><span>4</span> Where?</p>
+        <div className="rsetup__ways">
+          <div className="rsetup__way">
+            <strong>On your phone's calendar</strong>
+            <small>Repeating alarms that work even when Rooted is closed.</small>
+            <motion.button whileTap={{ scale: 0.96 }} className="btn btn--primary btn--small" disabled={!kinds} onClick={() => { void saveTextFile("rooted-garden-reminders.ics", careIcs(mine, custom, prefs, url, today), "text/calendar"); setSaved(true); }}>
+              <Icon name="bell" size={16} /> Add {count} reminder{count === 1 ? "" : "s"}
+            </motion.button>
+            {saved && <small className="slist__note">Open the downloaded file to add the alarms. Planting something new, or changing a time? Add them again.</small>}
+          </div>
+          <div className="rsetup__way">
+            <strong>In Rooted</strong>
+            <small>A reminder when you open the app at or after your time{perm === "granted" ? ", plus a notification when the browser allows it" : ""}.</small>
+            <button className={`btn btn--small ${prefs.app ? "btn--secondary" : "btn--primary"}`} disabled={!kinds} aria-pressed={prefs.app} onClick={() => void toggleApp()}>
+              <Icon name={prefs.app ? "check" : "bell"} size={16} /> {prefs.app ? "On: tap to turn off" : "Turn on"}
+            </button>
+            {prefs.app && <button className="scan__link" onClick={sendTest}>Send me a test</button>}
+            {prefs.app && perm === "denied" && <small className="slist__note">Notifications are blocked in your browser settings, so you'll see the reminder inside Rooted only.</small>}
+            {prefs.app && perm === "unsupported" && <small className="slist__note">This browser can't show notifications. You'll see the reminder inside Rooted. For alerts when the app is closed, use the calendar.</small>}
+          </div>
+        </div>
+        <p className="care__hint">Every reminder says "check", so test the soil with a finger before you water. For alerts while Rooted is fully closed, the calendar option is the most reliable on iPhone until the app has its own native notifications.</p>
       </div>
     </div>
   );
