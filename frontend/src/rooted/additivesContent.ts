@@ -31,6 +31,8 @@ export interface Additive extends AdditiveBase {
 }
 
 interface AdditiveBase {
+  /** The concern rests only on lab or animal studies so far, which keeps it to a "minor" step. */
+  labOnly?: boolean;
   /** Short risk tags. Set here, or in the TOPICS table below. */
   topics?: string[];
   /** Lowercase code, for example "e171". */
@@ -696,7 +698,9 @@ for (const c of ["e338", "e340", "e341", "e450", "e451", "e452"]) TOPICS[c] = PH
 TOPICS.e339 = ["Heart health (one large study, a link only)", ...PHOSPHATE_TOPICS];
 TOPICS.e249 = TOPICS.e250;
 
-export const ADDITIVES: Additive[] = RAW.map((a) => ({ ...a, topics: TOPICS[a.id] ?? a.topics ?? [] }));
+const LAB_ONLY = new Set(["e466", "e433", "e955"]);
+
+export const ADDITIVES: Additive[] = RAW.map((a) => ({ ...a, topics: TOPICS[a.id] ?? a.topics ?? [], labOnly: LAB_ONLY.has(a.id) || a.labOnly }));
 
 const BY_ID = new Map(ADDITIVES.map((a) => [a.id, a]));
 
@@ -712,6 +716,39 @@ export function normalizeCode(raw: string): string | undefined {
 }
 
 export const LEVEL_ORDER: Record<ConcernLevel, number> = { restricted: 0, some: 1, little: 2 };
+
+/**
+ * A five-step scale for how much concern the research and regulators show, worst first.
+ * Each step has its own colour AND shape so it reads at a glance, even without colour.
+ *
+ *  restricted  regulators have acted (removed, withdrawn or restricted)
+ *  notable     a real concern backed by moderate or better evidence in people
+ *  some        a concern with limited or mixed evidence
+ *  minor       a small or early concern (lab or animal studies only, or EFSA noted a limit)
+ *  clear       reviewed, and nothing flagged
+ */
+export type Tier = "restricted" | "notable" | "some" | "minor" | "clear";
+
+export const TIERS: Array<{ id: Tier; label: string; short: string; shape: "octagon" | "square" | "diamond" | "triangle" | "circle"; color: string; means: string }> = [
+  { id: "restricted", label: "Restricted by regulators", short: "Restricted", shape: "octagon", color: "#ff5d5d", means: "A regulator has removed, withdrawn or restricted it." },
+  { id: "notable", label: "Notable concern", short: "Notable", shape: "square", color: "#ff8a5b", means: "A real concern, backed by moderate or stronger evidence." },
+  { id: "some", label: "Some concern", short: "Some concern", shape: "diamond", color: "#f5a742", means: "A concern with limited or mixed evidence, so far." },
+  { id: "minor", label: "Minor concern", short: "Minor", shape: "triangle", color: "#f2d24b", means: "A small or early concern, such as lab or animal studies only." },
+  { id: "clear", label: "Nothing flagged", short: "Clear", shape: "circle", color: "#8fd46a", means: "Reviewed, and nothing was flagged at the amounts allowed in food." },
+];
+
+export const TIER_ORDER: Record<Tier, number> = { restricted: 0, notable: 1, some: 2, minor: 3, clear: 4 };
+
+export function tierOf(a: Pick<Additive, "level" | "evidence" | "labOnly">): Tier {
+  if (a.level === "restricted") return "restricted";
+  if (a.level === "some") {
+    if (a.evidence === "Moderate" || a.evidence === "Strong") return "notable";
+    return a.labOnly ? "minor" : "some";
+  }
+  return a.evidence === "None" ? "clear" : "minor";
+}
+
+export const tierInfo = (t: Tier) => TIERS.find((x) => x.id === t)!;
 
 export function searchAdditives(q: string): Additive[] {
   const s = q.trim().toLowerCase();

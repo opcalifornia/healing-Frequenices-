@@ -133,3 +133,34 @@
 .alinks details .addi__src { margin-top: 10px; }
 .alinks > button { display: flex; justify-content: space-between; align-items: center; background: none; border-inline: 0; border-top: 0; color: #8fb8ff; font: inherit; font-weight: 600; text-align: left; cursor: pointer; }
 .alinks summary:focus-visible, .alinks > button:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+
+/* Risk scale: colour and shape together */
+.tier { display: inline-flex; align-items: center; gap: 7px; font-size: 0.82rem; font-weight: 700; line-height: 1.2; color: var(--tc, currentColor); }
+.tier > span { color: #fff; }
+.tier__shape { flex: none; filter: drop-shadow(0 0 0.5px rgba(0, 0, 0, 0.5)); }
+.tier--unknown { color: #b7b7ae; }
+.addi__head { grid-template-columns: 1fr auto auto !important; grid-template-areas: "name tier caret" !important; gap: 10px !important; }
+.addi__head .addi__name { grid-area: name; min-width: 0; }
+.addi__head .tier { grid-area: tier; justify-self: end; text-align: right; max-width: 9.5em; }
+.addi__head .addi__caret { grid-area: caret; }
+.addi__name strong { overflow-wrap: anywhere; }
+.apage__means { color: var(--r-text-2); font-size: 0.9rem; }
+.apage__tags .tier { font-size: 0.95rem; padding: 6px 12px; border-radius: 999px; border: 1.5px solid var(--tc); }
+.tlegend { list-style: none; margin: 10px 0 0; padding: 0; display: grid; gap: 10px; font-size: 0.9rem; line-height: 1.45; }
+.tlegend li { display: grid; grid-template-columns: auto 1fr; gap: 10px; align-items: start; }
+.tlegend svg { margin-top: 3px; }
+.scan__legend { margin: 0 0 14px; }
+.scan__legend summary { cursor: pointer; font-weight: 600; color: #8fb8ff; }
+
+/* Additive page navigation */
+.apage__nav { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding-right: 44px; margin: -4px 0 -2px; }
+.apage__back { display: inline-flex; align-items: center; gap: 4px; background: none; border: 0; color: #8fb8ff; font: inherit; font-weight: 600; padding: 6px 4px; cursor: pointer; max-width: 11em; }
+.apage__back { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.apage__step { display: inline-flex; align-items: center; gap: 4px; font-size: 0.85rem; color: var(--r-text-2); }
+.apage__step button { width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--r-line); background: rgba(255, 255, 255, 0.06); color: inherit; display: grid; place-items: center; cursor: pointer; }
+.apage__step button:disabled { opacity: 0.35; cursor: default; }
+.apage__back:focus-visible, .apage__step button:focus-visible, .apage__more button:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+.apage__more { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 4px; }
+.apage__more button { display: grid; gap: 2px; text-align: left; padding: 12px 14px; border-radius: 14px; border: 1px solid var(--r-line); background: rgba(255, 255, 255, 0.05); color: inherit; font: inherit; cursor: pointer; }
+.apage__more button:nth-child(2) { text-align: right; }
+.apage__more small { color: var(--r-text-2); }

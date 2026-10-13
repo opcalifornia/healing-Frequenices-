@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { ADDITIVES, additiveById, normalizeCode, searchAdditives } from "../rooted/additivesContent";
+import { ADDITIVES, TIERS, TIER_ORDER, additiveById, normalizeCode, searchAdditives, tierOf } from "../rooted/additivesContent";
 import { isValidBarcode, lookupBarcode, parseProduct } from "../rooted/foodLookup";
 
 describe("additive research library", () => {
@@ -82,5 +82,34 @@ describe("barcode lookup", () => {
     expect(await lookupBarcode("5449000000996", (async () => { throw new Error("offline"); }) as typeof fetch)).toEqual({ ok: false, reason: "network" });
     const hit = await lookupBarcode("5449000000996", ok({ status: 1, product: { product_name: "Cola", additives_tags: ["en:e150d"] } }));
     expect(hit).toMatchObject({ ok: true, product: { name: "Cola", additives: ["e150d"] } });
+  });
+});
+
+describe("risk scale", () => {
+  it("gives every step its own colour and its own shape", () => {
+    expect(new Set(TIERS.map((t) => t.color)).size).toBe(TIERS.length);
+    expect(new Set(TIERS.map((t) => t.shape)).size).toBe(TIERS.length);
+    expect(TIERS.map((t) => t.id)).toEqual(Object.keys(TIER_ORDER).sort((a, b) => TIER_ORDER[a as keyof typeof TIER_ORDER] - TIER_ORDER[b as keyof typeof TIER_ORDER]));
+  });
+
+  it("places well-known additives where the evidence puts them", () => {
+    const t = (id: string) => tierOf(additiveById(id)!);
+    expect(t("e171")).toBe("restricted");
+    expect(t("e127")).toBe("restricted");
+    expect(t("e443")).toBe("restricted");
+    expect(t("e250")).toBe("notable"); // processed meat link, moderate evidence
+    expect(t("e220")).toBe("notable"); // sulfites
+    expect(t("e110")).toBe("some"); // colours, mixed evidence
+    expect(t("e951")).toBe("some"); // aspartame, limited evidence
+    expect(t("e466")).toBe("minor"); // mouse studies
+    expect(t("e955")).toBe("minor"); // lab study on cells
+    expect(t("e621")).toBe("minor"); // MSG
+    expect(t("e330")).toBe("clear");
+    expect(t("e202")).toBe("clear");
+  });
+
+  it("uses every step of the scale at least once", () => {
+    const used = new Set(ADDITIVES.map(tierOf));
+    for (const t of TIERS) expect(used.has(t.id), t.id).toBe(true);
   });
 });
