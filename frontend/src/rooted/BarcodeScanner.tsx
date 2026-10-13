@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Sheet } from "./ui";
 import { Icon } from "../components/Icon";
+import { isValidBarcode } from "./foodLookup";
 import "./BarcodeScanner.css";
 
 interface Detector {
@@ -71,6 +72,8 @@ export function BarcodeScanner({ open, onCode, onClose }: { open: boolean; onCod
   const [slow, setSlow] = useState(false);
   const [reading, setReading] = useState(false);
   const [photoFail, setPhotoFail] = useState(false);
+  const [locked, setLocked] = useState(false);
+  const [zoom, setZoom] = useState<{ min: number; max: number; step: number; value: number } | null>(null);
   const track = useRef<MediaStreamTrack | null>(null);
   // Keep the latest callback without restarting the camera when the page re-renders.
   const cb = useRef(onCode);
@@ -108,10 +111,11 @@ export function BarcodeScanner({ open, onCode, onClose }: { open: boolean; onCod
     setDark(false);
     setSlow(false);
     setPhotoFail(false);
+    setLocked(false);
+    setZoom(null);
     let stopped = false;
     let found = false;
     let stream: MediaStream | null = null;
-    let stopZxing: (() => void) | null = null;
     let timer = 0;
     let darkTimer = 0;
     const slowTimer = window.setTimeout(() => setSlow(true), 8000);
@@ -121,7 +125,8 @@ export function BarcodeScanner({ open, onCode, onClose }: { open: boolean; onCod
       const media = el.srcObject as MediaStream | null;
       const t = media?.getVideoTracks()[0] ?? null;
       track.current = t;
-      const caps = (t?.getCapabilities?.() ?? {}) as { torch?: boolean; focusMode?: string[] };
+      const caps = (t?.getCapabilities?.() ?? {}) as { torch?: boolean; focusMode?: string[]; zoom?: { min: number; max: number; step?: number } };
+      if (caps.zoom && caps.zoom.max > caps.zoom.min) setZoom({ min: caps.zoom.min, max: caps.zoom.max, step: caps.zoom.step || 0.1, value: caps.zoom.min });
       setTorchOk(!!caps.torch);
       if (t && caps.focusMode?.includes("continuous")) void t.applyConstraints({ advanced: [{ focusMode: "continuous" } as MediaTrackConstraintSet] }).catch(() => undefined);
       const canvas = document.createElement("canvas");
@@ -138,10 +143,14 @@ export function BarcodeScanner({ open, onCode, onClose }: { open: boolean; onCod
       }, 1000);
     };
 
-    const hit = (code: string) => {
-      if (found || stopped) return;
+    // Every frame: cut out the middle of the picture (where the frame is), enlarge it, and read it.
+    // A code only counts when its check digit is right and two reads in a row agree, so a bad read never gets through.
+    let last = "";
+    const lock = (code: string) => {
       found = true;
-      cb.current(code);
+      setLocked(true);
+      try { navigator.vibrate?.(40); } catch { /* not every device can buzz */ }
+      window.setTimeout(() => { if (!stopped) cb.current(code); }, 380);
     };
 
     (async () => {
@@ -149,38 +158,41 @@ export function BarcodeScanner({ open, onCode, onClose }: { open: boolean; onCod
         if (!navigator.mediaDevices?.getUserMedia) throw new Error("no camera api");
         const el = video.current;
         if (!el) return;
+        stream = await navigator.mediaDevices.getUserMedia({ video: VIDEO, audio: false });
+        if (stopped) return;
+        el.srcObject = stream;
+        await el.play();
+        watch(el);
         const Native = native();
-        if (Native) {
-          stream = await navigator.mediaDevices.getUserMedia({ video: VIDEO, audio: false });
-          if (stopped) return;
-          el.srcObject = stream;
-          await el.play();
-          watch(el);
-          const detector = new Native({ formats: FORMATS });
-          const tick = async () => {
-            if (stopped || found) return;
-            try {
-              const codes = await detector.detect(el);
-              if (codes[0]?.rawValue) return hit(codes[0].rawValue);
-            } catch {
-              /* a frame that can't be read is fine, try the next one */
+        const detector = Native ? new Native({ formats: FORMATS }) : null;
+        const zx = detector ? null : await loadZxing();
+        const reader = zx ? new zx.BrowserMultiFormatReader(zx.hints as never) : null;
+        const canvas = document.createElement("canvas");
+        const ctx = canvas.getContext("2d", { willReadFrequently: true });
+        const tick = async () => {
+          if (stopped || found) return;
+          let code = "";
+          try {
+            if (el.videoWidth > 0 && ctx) {
+              const vw = el.videoWidth, vh = el.videoHeight;
+              const sw = Math.round(vw * 0.9), sh = Math.round(vh * 0.6);
+              const scale = Math.min(1.5, 1280 / sw);
+              canvas.width = Math.round(sw * scale);
+              canvas.height = Math.round(sh * scale);
+              ctx.drawImage(el, Math.round((vw - sw) / 2), Math.round((vh - sh) / 2), sw, sh, 0, 0, canvas.width, canvas.height);
+              if (detector) code = (await detector.detect(canvas as unknown as ImageBitmap))[0]?.rawValue ?? "";
+              else if (reader) code = reader.decodeFromCanvas(canvas).getText();
             }
-            timer = window.setTimeout(tick, 150);
-          };
-          void tick();
-        } else {
-          const { BrowserMultiFormatReader, hints } = await loadZxing();
-          if (stopped) return;
-          const reader = new BrowserMultiFormatReader(hints as never, { delayBetweenScanAttempts: 120 });
-          const controls = await reader.decodeFromConstraints({ video: VIDEO, audio: false }, el, (result) => {
-            if (result) hit(result.getText());
-          });
-          if (stopped) controls.stop();
-          else {
-            stopZxing = () => controls.stop();
-            watch(el);
+          } catch {
+            /* nothing readable in this frame, try the next one */
           }
-        }
+          if (code && isValidBarcode(code)) {
+            if (code === last) return lock(code);
+            last = code;
+          } else if (!code) last = "";
+          timer = window.setTimeout(tick, 80);
+        };
+        void tick();
       } catch (e) {
         if (!stopped) setError(cameraMessage(e));
       }
@@ -192,7 +204,6 @@ export function BarcodeScanner({ open, onCode, onClose }: { open: boolean; onCod
       window.clearTimeout(slowTimer);
       window.clearInterval(darkTimer);
       track.current = null;
-      stopZxing?.();
       stream?.getTracks().forEach((t) => t.stop());
       if (video.current) video.current.srcObject = null;
     };
@@ -202,11 +213,16 @@ export function BarcodeScanner({ open, onCode, onClose }: { open: boolean; onCod
     <Sheet open={open} onClose={onClose} label="Scan a barcode">
       <div className="bscan">
         <h2>Scan a barcode</h2>
-        <p className="bscan__lede">Hold the barcode flat inside the frame, about a hand's length away, in good light.</p>
-        <div className="bscan__view">
+        <p className="bscan__lede">Hold the barcode flat inside the frame, about a hand's length away, in good light. When it locks, the frame turns green.</p>
+        <div className={`bscan__view${locked ? " bscan__view--lock" : ""}`}>
           <video ref={video} muted playsInline aria-label="Camera view" />
           <span className="bscan__frame" aria-hidden="true" />
         </div>
+        {!error && zoom && (
+          <label className="bscan__zoom">Zoom
+            <input type="range" min={zoom.min} max={zoom.max} step={zoom.step} value={zoom.value} onChange={(e) => { const v = Number(e.target.value); setZoom({ ...zoom, value: v }); void track.current?.applyConstraints({ advanced: [{ zoom: v } as MediaTrackConstraintSet] }).catch(() => undefined); }} />
+          </label>
+        )}
         {!error && torchOk && (
           <button className={`btn ${dark && !torchOn ? "btn--primary" : "btn--secondary"}`} onClick={toggleTorch} aria-pressed={torchOn}>
             <Icon name="sun" size={20} /> {torchOn ? "Turn the light off" : dark ? "It looks dark. Turn on the light" : "Turn on the light"}
