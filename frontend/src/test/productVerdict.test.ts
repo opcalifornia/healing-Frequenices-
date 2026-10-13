@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { additiveById } from "../rooted/additivesContent";
 import { parseProduct } from "../rooted/foodLookup";
-import { additiveVerdict, assess, isBetterChoice, level, nutrientRows, nutritionReason, nutritionVerdict } from "../rooted/productVerdict";
+import { additiveVerdict, assess, isBetterChoice, level, nutrientRows, nutritionReason, nutritionVerdict, overallLabel } from "../rooted/productVerdict";
 
 const A = (...ids: string[]) => ids.map((i) => additiveById(i)!);
 
@@ -105,5 +105,24 @@ describe("better choices", () => {
   it("explains a nutrition verdict in a sentence", () => {
     expect(nutritionReason({ grade: "e", nutrition: { sugars: 30 }, isDrink: false })).toBe("Rated several concerns because its Nutri-Score is E and it is high in sugars.");
     expect(nutritionReason({ grade: "a", isDrink: false })).toBeUndefined();
+  });
+});
+
+describe("so-far wording", () => {
+  const mk = (extra: object) => parseProduct({ status: 1, product: { product_name: "X", ...extra } }, "1")!;
+  it("only says a flat 'few concerns' when everything was checked", () => {
+    const full = assess(mk({ nutrition_grades: "a" }), A("e330"), 0);
+    expect(full.complete).toBe(true);
+    expect(overallLabel(full)).toBe("Few concerns");
+    const unknownAdditive = assess(mk({ nutrition_grades: "a" }), A("e330"), 2);
+    expect(overallLabel(unknownAdditive)).toBe("Few concerns so far");
+    const noNutrition = assess(mk({}), A("e330"), 0);
+    expect(overallLabel(noNutrition)).toBe("Few concerns so far");
+  });
+  it("never softens a worse verdict", () => {
+    const poor = assess(mk({}), A("e171"), 3);
+    expect(overallLabel(poor)).toBe("Several concerns");
+    const fair = assess(mk({}), A("e951"), 1);
+    expect(overallLabel(fair)).toBe("Some concerns");
   });
 });

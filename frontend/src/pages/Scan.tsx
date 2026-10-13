@@ -6,8 +6,11 @@ import { Evidence, SourceLink } from "../rooted/ui";
 import { BarcodeScanner } from "../rooted/BarcodeScanner";
 import { ADDITIVES, LEVEL_LABEL, LEVEL_ORDER, additiveById, searchAdditives, type Additive, type ConcernLevel } from "../rooted/additivesContent";
 import { isValidBarcode, lookupBarcode, similarProducts, type Product } from "../rooted/foodLookup";
-import { NOVA_LABEL, VERDICT_LABEL, assess, compare, isBetterChoice, nutrientRows, nutritionReason, type Assessment, type Verdict } from "../rooted/productVerdict";
+import { NOVA_LABEL, VERDICT_LABEL, assess, compare, isBetterChoice, nutrientRows, nutritionReason, overallLabel, type Assessment, type Verdict } from "../rooted/productVerdict";
 import { useScanHistory, useScans } from "../store/scans";
+import { ALLERGENS, allergenHits, allergenLabel } from "../rooted/allergens";
+import { TEXT_PRODUCT_CODE, productFromIngredients } from "../rooted/ingredientParse";
+import { useAllergenStore, useWatchedAllergens } from "../store/allergens";
 import { Sheet } from "../rooted/ui";
 import { useAbout } from "../store/wellness";
 import { Footer } from "../components/Footer";
@@ -92,6 +95,11 @@ function Row({ a, forYou, open, onToggle }: { a: Additive; forYou: boolean; open
   );
 }
 
+function histLabel(p: Product): string {
+  const { known, unknown } = split(p);
+  return overallLabel(assess(p, known, unknown.length));
+}
+
 const METHOD_SOURCES = [
   { text: "UK front-of-pack nutrition labelling guidance (2016): the low, medium and high cut-offs", url: "https://www.gov.uk/government/publications/front-of-pack-nutrition-labelling-guidance" },
   { text: "Two dimensions of nutritional value: Nutri-Score and NOVA (Nutrients, 2021)", url: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8399905/" },
@@ -108,7 +116,7 @@ function Method({ open, onClose }: { open: boolean; onClose(): void }) {
         <ul>
           <li><strong>Several concerns:</strong> any additive that regulators have restricted, or three or more with some research concern.</li>
           <li><strong>Some concerns:</strong> one or two additives with some research concern.</li>
-          <li><strong>Few concerns:</strong> none of those.</li>
+          <li><strong>Few concerns:</strong> none of those. If some of a product's additives aren't reviewed here yet, or it has no nutrition facts, we say "few concerns so far".</li>
         </ul>
         <p>Each additive's level comes from regulator reviews and published studies, shown in full on its page with the strength of the evidence. We only describe additives we can back with a source. Others show as "not reviewed here yet" and are left out of the verdict.</p>
         <h3>2. Nutrition</h3>
@@ -190,13 +198,17 @@ export default function Scan() {
   const [open, setOpen] = useState<string | null>(null);
   const [q, setQ] = useState("");
   const [alts, setAlts] = useState<Array<{ p: Product; a: Assessment; n: number }> | null>(null);
+  const [textOpen, setTextOpen] = useState(false);
+  const [text, setText] = useState("");
+  const watched = useWatchedAllergens();
+  const toggleAllergen = useAllergenStore((s) => s.toggle);
 
   const show = useCallback(
     (product: Product, remember = true) => {
       setOpen(null);
       setState({ s: "result", product });
-      setNumber(product.code);
-      if (remember) {
+      setNumber(product.code === TEXT_PRODUCT_CODE ? "" : product.code);
+      if (remember && product.code !== TEXT_PRODUCT_CODE) {
         const { known, unknown } = split(product);
         addScan({ code: product.code, verdict: assess(product, known, unknown.length).overall, product });
       }
@@ -274,25 +286,58 @@ export default function Scan() {
               <input id="barcode" inputMode="numeric" autoComplete="off" placeholder="Or type the number" value={number} onChange={(e) => setNumber(e.target.value.replace(/[^\d\s]/g, ""))} />
               <button className="btn btn--secondary" type="submit" disabled={!canLookup}>Look up</button>
             </form>
+            <button className="scan__link" onClick={() => setTextOpen((o) => !o)} aria-expanded={textOpen}>No barcode? Check an ingredient list</button>
+            {textOpen && (
+              <form className="scan__text" onSubmit={(e) => { e.preventDefault(); if (text.trim()) show(productFromIngredients(text), false); }}>
+                <label htmlFor="ingredients" className="visually-hidden">Ingredient list</label>
+                <textarea id="ingredients" rows={4} value={text} onChange={(e) => setText(e.target.value)} placeholder="Paste or type the ingredients, for example: Water, sugar, caramel colour, sodium benzoate, E330" />
+                <p className="scan__muted">On an iPhone, tap the box, then the camera button or &quot;Scan Text&quot; above the keyboard, and point it at the ingredient list. Nothing leaves your phone.</p>
+                <button className="btn btn--secondary" type="submit" disabled={!text.trim()}>Check these ingredients</button>
+              </form>
+            )}
           </motion.div>
         </div>
       </header>
+
+      <section className="sec-block scan__watch">
+        <details>
+          <summary>Allergens to flag: {watched.length ? watched.map(allergenLabel).join(", ") : "none set"}</summary>
+          <p className="scan__muted">Pick the ones you avoid. Scans will say when a product contains them, or may contain traces. Saved on this device only.</p>
+          <div className="scan__chips" role="group" aria-label="Allergens to flag">
+            {ALLERGENS.map((a) => (
+              <button key={a.id} className={`chip ${watched.includes(a.id) ? "is-on" : ""}`} aria-pressed={watched.includes(a.id)} onClick={() => toggleAllergen(a.id)}>{a.label}</button>
+            ))}
+          </div>
+        </details>
+      </section>
 
       <section className="sec-block scan__result" aria-live="polite">
         {state.s === "loading" && <p className="scan__status">Looking it up…</p>}
         {state.s === "error" && <p className="scan__status scan__status--error" role="alert">{ERRORS[state.reason]}</p>}
         {state.s === "result" && found && result && (
           <Reveal>
+            {(() => {
+              const hit = allergenHits(watched, state.product);
+              if (!hit.contains.length && !hit.traces.length) return null;
+              return (
+                <div className="r-card scan__allergy" role="alert">
+                  {hit.contains.length > 0 && <p><strong>Contains {hit.contains.map(allergenLabel).join(", ").toLowerCase()}.</strong> That is on your list.</p>}
+                  {hit.traces.length > 0 && <p><strong>May contain traces of {hit.traces.map(allergenLabel).join(", ").toLowerCase()}.</strong> That is on your list.</p>}
+                  <p className="scan__muted">Always read the pack. The database can be wrong or out of date.</p>
+                </div>
+              );
+            })()}
             <div className="r-card scan__product">
               {state.product.image && <img src={state.product.image} alt="" width={88} height={88} loading="lazy" />}
               <div>
                 <h2>{state.product.name}</h2>
                 {(state.product.brand || state.product.quantity) && <p className="scan__brand">{[state.product.brand, state.product.quantity].filter(Boolean).join(" · ")}</p>}
-                <p className="scan__verdict"><Badge v={result.overall} /></p>
+                <p className="scan__verdict"><Badge v={result.overall} label={overallLabel(result)} /></p>
                 <p className="scan__count">
-                  {result.nutrition ? `Additives: ${VERDICT_LABEL[result.additives].toLowerCase()}. Nutrition: ${VERDICT_LABEL[result.nutrition].toLowerCase()}.` : `Additives: ${VERDICT_LABEL[result.additives].toLowerCase()}. No nutrition facts in the database.`}
-                  {result.partial && " Some additives aren't reviewed here yet, so this covers the ones we know."}
+                  {result.nutrition ? `Additives: ${VERDICT_LABEL[result.additives].toLowerCase()}. Nutrition: ${VERDICT_LABEL[result.nutrition].toLowerCase()}.` : `Additives: ${VERDICT_LABEL[result.additives].toLowerCase()}. ${state.product.code === TEXT_PRODUCT_CODE ? "Nutrition isn't checked for an ingredient list." : "No nutrition facts in the database."}`}
+                  {result.partial && " Some additives aren't reviewed here yet, so this covers the ones we know."}{result.overall === "good" && !result.complete && !result.partial && " It has no nutrition facts to check, so this covers the additives only."}
                 </p>
+                {state.product.allergens.length > 0 && <p className="scan__muted">Allergens listed: {state.product.allergens.map(allergenLabel).join(", ").toLowerCase()}.</p>}
                 <button className="scan__link" onClick={() => setMethod(true)}>How we rate</button>
               </div>
             </div>
@@ -302,6 +347,11 @@ export default function Scan() {
               {total === 0 && <p className="scan__muted">No additives are listed for this product. The database can be incomplete, so check the label.</p>}
               {counts.length > 0 && <p className="scan__muted">{counts.map(([l, n]) => `${n} ${COUNT_WORDS[l]}`).join(", ")}.</p>}
               {found.known.length > 0 && <ul className="addi-list">{found.known.map((a) => <Row key={a.id} a={a} forYou={forYou(a)} open={open === a.id} onToggle={() => setOpen(open === a.id ? null : a.id)} />)}</ul>}
+              {(state.product.notes?.length ?? 0) > 0 && (
+                <p className="scan__muted scan__unknown">
+                  Also on the label: <strong>{state.product.notes!.join("; ")}</strong>. The label doesn't say which one, so we can't rate it. Look up the types in the guide below.
+                </p>
+              )}
               {found.unknown.length > 0 && (
                 <p className="scan__muted scan__unknown">
                   Not reviewed here yet: <strong>{found.unknown.join(", ")}</strong>. We only describe an additive when we can back it with a regulator's review or a published study. <a href={EFSA} target="_blank" rel="noreferrer">EFSA's additive pages ↗</a>
@@ -320,7 +370,7 @@ export default function Scan() {
                       <button onClick={() => show(p)}>
                         {p.image ? <img src={p.image} alt="" width={56} height={56} loading="lazy" /> : <span className="alts__ph" aria-hidden="true" />}
                         <span className="alts__text"><strong>{p.name}</strong><small>{p.brand ?? ""}{n === 0 ? " · no flagged additives" : ""}</small></span>
-                        <Badge v={a.overall} />
+                        <Badge v={a.overall} label={overallLabel(a)} />
                       </button>
                     </li>
                   ))}
@@ -353,7 +403,7 @@ export default function Scan() {
                 <button onClick={() => show(h.product, false)}>
                   {h.product.image ? <img src={h.product.image} alt="" width={48} height={48} loading="lazy" /> : <span className="alts__ph" aria-hidden="true" />}
                   <span className="alts__text"><strong>{h.product.name}</strong><small>{h.product.brand ?? ""}</small></span>
-                  <Badge v={h.verdict} />
+                  <Badge v={h.verdict} label={histLabel(h.product)} />
                 </button>
               </li>
             ))}

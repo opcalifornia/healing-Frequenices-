@@ -4,6 +4,7 @@
  * Only the barcode is sent. Nothing about the person or their profile leaves the device.
  */
 import { normalizeCode } from "./additivesContent";
+import { allergenIds, type AllergenId } from "./allergens";
 
 /** Nutrition per 100 g (or 100 ml for drinks). Anything the database doesn't have is left out. */
 export interface Nutrition {
@@ -24,6 +25,11 @@ export interface Product {
   ingredients?: string;
   /** Lowercase E-codes found, for example ["e330", "e415"]. */
   additives: string[];
+  /** Loose mentions we can't pin to one additive, for example "Caramel colour (type not stated)". Only for pasted text. */
+  notes?: string[];
+  /** Allergens the database says the product contains, and may contain as traces. */
+  allergens: AllergenId[];
+  traces: AllergenId[];
   nutrition?: Nutrition;
   /** Nutri-Score letter, a to e. */
   grade?: "a" | "b" | "c" | "d" | "e";
@@ -61,6 +67,8 @@ interface OffProduct {
   additives_tags?: unknown;
   categories_tags?: unknown;
   nutriments?: Record<string, unknown>;
+  allergens_tags?: unknown;
+  traces_tags?: unknown;
   nutriscore_grade?: unknown;
   nutrition_grades?: unknown;
   nova_group?: unknown;
@@ -104,6 +112,8 @@ export function parseProduct(json: unknown, code: string): Product | null {
     quantity: p.quantity?.trim() || undefined,
     ingredients: p.ingredients_text?.trim() || undefined,
     additives,
+    allergens: allergenIds(p.allergens_tags),
+    traces: allergenIds(p.traces_tags),
     nutrition: parseNutrition(p.nutriments),
     grade: ["a", "b", "c", "d", "e"].includes(g) ? (g as Product["grade"]) : undefined,
     nova: [1, 2, 3, 4].includes(nova) ? (nova as Product["nova"]) : undefined,
@@ -112,7 +122,7 @@ export function parseProduct(json: unknown, code: string): Product | null {
   };
 }
 
-const FIELDS = "code,product_name,generic_name,brands,quantity,image_front_small_url,ingredients_text,additives_tags,categories_tags,nutriments,nutriscore_grade,nutrition_grades,nova_group";
+const FIELDS = "code,product_name,generic_name,brands,quantity,image_front_small_url,ingredients_text,additives_tags,categories_tags,allergens_tags,traces_tags,nutriments,nutriscore_grade,nutrition_grades,nova_group";
 
 /**
  * Popular products from the same category, for "better choices". The database can't
