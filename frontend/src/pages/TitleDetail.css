@@ -55,3 +55,5 @@
   .episode { grid-template-columns: 130px 1fr; gap: 12px; padding: 8px 0; }
   .episode__body p { display: none; }
 }
+.detail__length { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 12px 0 4px; }
+.detail__length > span { font-size: var(--fs-small); font-weight: 800; color: var(--text-2); margin-right: 4px; }

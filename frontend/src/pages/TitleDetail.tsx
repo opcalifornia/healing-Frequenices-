@@ -10,6 +10,7 @@ import { Tile, TileArt } from "../components/Tile";
 import { useArt } from "../art/useArt";
 import { specForTitle } from "../art/painter";
 import { useCatalog, useTitle } from "../store/catalog";
+import { usePlayer, type TimerChoice } from "../store/player";
 import { BAND_LABEL, BAND_RANGE, formatDuration, formatHz, GOAL_LABEL } from "../format";
 import { bandFor } from "../custom";
 import type { Stage, Title } from "../types";
@@ -102,6 +103,23 @@ function Episodes({ t }: { t: Title }) {
   );
 }
 
+const LENGTHS: Array<[TimerChoice, string]> = [[null, ""], [30, "30 min"], [60, "1 hour"], [90, "90 min"]];
+
+/** Pick how long a session plays before you start it. Saved, and used for every session until changed. */
+function LengthPicker({ t }: { t: Title }) {
+  const timer = usePlayer((s) => s.timer);
+  const setTimer = usePlayer((s) => s.setTimer);
+  return (
+    <div className="detail__length" role="radiogroup" aria-label="Play for">
+      <span>Play for</span>
+      {LENGTHS.map(([v, label]) => {
+        const text = v === null ? `As made (${formatDuration(t.durationMin)})` : label;
+        return <button key={text} role="radio" aria-checked={timer === v} className={`chip ${timer === v ? "is-on" : ""}`} onClick={() => setTimer(v)}>{text}</button>;
+      })}
+    </div>
+  );
+}
+
 export default function TitleDetail() {
   const { id } = useParams();
   const t = useTitle(id);
@@ -138,6 +156,7 @@ export default function TitleDetail() {
           <p className="detail__tagline">{t.tagline}</p>
           <p className="detail__desc">{t.description}</p>
           {t.host && <p className="detail__host">Hosted by {t.host}</p>}
+          {t.kind === "session" && !t.comingSoon && <LengthPicker t={t} />}
           <div className="hero__actions">
             {t.comingSoon ? <RemindButton title={t} /> : <PlayButton title={t} />}
             {!t.comingSoon && <FavoriteButton title={t} />}
