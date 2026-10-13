@@ -164,3 +164,4 @@
 .apage__more button { display: grid; gap: 2px; text-align: left; padding: 12px 14px; border-radius: 14px; border: 1px solid var(--r-line); background: rgba(255, 255, 255, 0.05); color: inherit; font: inherit; cursor: pointer; }
 .apage__more button:nth-child(2) { text-align: right; }
 .apage__more small { color: var(--r-text-2); }
+.scan__enum { display: block; margin: 4px 0 0; }

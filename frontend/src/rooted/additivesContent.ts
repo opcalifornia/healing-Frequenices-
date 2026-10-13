@@ -1,6 +1,7 @@
 import type { Strength } from "../learn/brainContent";
 import type { Consideration } from "../store/wellness";
 import type { Source } from "./pantryContent";
+import { SAME_REVIEW } from "./eNumbers";
 
 /**
  * Food additives: what the research says, and how strong it is.
@@ -706,7 +707,8 @@ const BY_ID = new Map(ADDITIVES.map((a) => [a.id, a]));
 
 /** Find an additive from "E330", "e330", "en:e330" or "E-330". */
 export function additiveById(raw: string): Additive | undefined {
-  return BY_ID.get(normalizeCode(raw) ?? "");
+  const code = normalizeCode(raw) ?? "";
+  return BY_ID.get(code) ?? BY_ID.get(SAME_REVIEW[code] ?? "");
 }
 
 /** "en:e330" -> "e330". Returns undefined for anything that isn't an E-number. */
