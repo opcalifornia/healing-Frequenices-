@@ -1,6 +1,6 @@
 # Phase: Rooted AI Coach
 
-**Status:** planned, not started. Logged so it can be picked up later.
+**Status:** superseded by `PHASE_GAIA.md` (the agreed blueprint). Kept as background.
 
 ## The idea
 

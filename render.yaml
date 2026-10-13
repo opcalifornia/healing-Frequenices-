@@ -27,3 +27,10 @@ services:
         sync: false
       - key: TRUST_PROXY
         value: "true"
+      # GAIA, the AI guide (docs/PHASE_GAIA.md). Off until GAIA_ENABLED is "true" and a key is set.
+      - key: GAIA_ENABLED
+        value: "false"
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: GAIA_ALLOWED_EMAILS
+        sync: false

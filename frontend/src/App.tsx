@@ -15,6 +15,7 @@ import { startSync } from "./rooted/sync";
 import { apiEnabled } from "./api/client";
 import { CrisisSheet } from "./rooted/Crisis";
 import { FeedbackSheet } from "./rooted/FeedbackSheet";
+import { GaiaButton } from "./rooted/Gaia";
 import Profiles from "./pages/Profiles";
 
 const Home = lazy(() => import("./pages/Home"));
@@ -193,6 +194,7 @@ export default function App() {
       <SafetyNotice />
       <CrisisSheet />
       <FeedbackSheet />
+      {!onPicker && activeProfile && <GaiaButton />}
       {!onPicker && <BedtimeToast />}
     </>
   );

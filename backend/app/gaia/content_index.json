@@ -1,0 +1,4251 @@
+{
+ "version": 1,
+ "count": 291,
+ "items": [
+  {
+   "id": "additive:e101",
+   "kind": "additive",
+   "title": "E101 Riboflavin",
+   "summary": "Regulators have not identified a safety concern at the levels allowed in food.",
+   "level": "little",
+   "evidence": "None",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA: Food additives"
+   ]
+  },
+  {
+   "id": "additive:e102",
+   "kind": "additive",
+   "title": "E102 Tartrazine",
+   "summary": "Linked to a small rise in hyperactive behaviour in some children, when eaten in mixtures. The evidence is mixed.",
+   "level": "some",
+   "evidence": "Mixed",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "Children, and families who notice a link between colourful foods and behaviour."
+   ],
+   "sources": [
+    "McCann D et al. Food additives and hyperactive behaviour in children. Lancet, 2007",
+    "EU Regulation (EC) No 1333/2008 on food additives (labelling rules)"
+   ]
+  },
+  {
+   "id": "additive:e104",
+   "kind": "additive",
+   "title": "E104 Quinoline yellow",
+   "summary": "Linked to a small rise in hyperactive behaviour in some children, when eaten in mixtures. The evidence is mixed.",
+   "level": "some",
+   "evidence": "Mixed",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "Children, and families who notice a link between colourful foods and behaviour."
+   ],
+   "sources": [
+    "McCann D et al. Food additives and hyperactive behaviour in children. Lancet, 2007",
+    "EU Regulation (EC) No 1333/2008 on food additives (labelling rules)"
+   ]
+  },
+  {
+   "id": "additive:e110",
+   "kind": "additive",
+   "title": "E110 Sunset yellow FCF",
+   "summary": "Linked to a small rise in hyperactive behaviour in some children, when eaten in mixtures. The evidence is mixed.",
+   "level": "some",
+   "evidence": "Mixed",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "Children, and families who notice a link between colourful foods and behaviour."
+   ],
+   "sources": [
+    "McCann D et al. Food additives and hyperactive behaviour in children. Lancet, 2007",
+    "EU Regulation (EC) No 1333/2008 on food additives (labelling rules)"
+   ]
+  },
+  {
+   "id": "additive:e122",
+   "kind": "additive",
+   "title": "E122 Carmoisine",
+   "summary": "Linked to a small rise in hyperactive behaviour in some children, when eaten in mixtures. The evidence is mixed.",
+   "level": "some",
+   "evidence": "Mixed",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "Children, and families who notice a link between colourful foods and behaviour."
+   ],
+   "sources": [
+    "McCann D et al. Food additives and hyperactive behaviour in children. Lancet, 2007",
+    "EU Regulation (EC) No 1333/2008 on food additives (labelling rules)"
+   ]
+  },
+  {
+   "id": "additive:e124",
+   "kind": "additive",
+   "title": "E124 Ponceau 4R",
+   "summary": "Linked to a small rise in hyperactive behaviour in some children, when eaten in mixtures. The evidence is mixed.",
+   "level": "some",
+   "evidence": "Mixed",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "Children, and families who notice a link between colourful foods and behaviour."
+   ],
+   "sources": [
+    "McCann D et al. Food additives and hyperactive behaviour in children. Lancet, 2007",
+    "EU Regulation (EC) No 1333/2008 on food additives (labelling rules)"
+   ]
+  },
+  {
+   "id": "additive:e127",
+   "kind": "additive",
+   "title": "E127 Erythrosine",
+   "summary": "The US FDA is withdrawing approval for it in food, because of cancer seen in lab animals. Food use ends on 15 January 2027.",
+   "level": "restricted",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "FDA: Revoking authorization for Red No. 3 in food and ingested drugs, 2025"
+   ]
+  },
+  {
+   "id": "additive:e129",
+   "kind": "additive",
+   "title": "E129 Allura red AC",
+   "summary": "Linked to a small rise in hyperactive behaviour in some children, when eaten in mixtures. The evidence is mixed.",
+   "level": "some",
+   "evidence": "Mixed",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "Children, and families who notice a link between colourful foods and behaviour."
+   ],
+   "sources": [
+    "McCann D et al. Food additives and hyperactive behaviour in children. Lancet, 2007",
+    "EU Regulation (EC) No 1333/2008 on food additives (labelling rules)"
+   ]
+  },
+  {
+   "id": "additive:e150a",
+   "kind": "additive",
+   "title": "E150a Plain caramel colour",
+   "summary": "EFSA set a group safe daily intake for caramel colours in 2011. Plain caramel (E150a) is made without ammonia or sulfites.",
+   "level": "little",
+   "evidence": "None",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA: Caramel colours reviewed, 2011",
+    "EFSA: Caramel colours, consumer exposure lower than previously estimated, 2012"
+   ]
+  },
+  {
+   "id": "additive:e150b",
+   "kind": "additive",
+   "title": "E150b Caustic sulfite caramel",
+   "summary": "Part of EFSA's 2011 group safe daily intake for caramel colours. Estimated intake was below it.",
+   "level": "little",
+   "evidence": "None",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA: Caramel colours reviewed, 2011",
+    "EFSA: Caramel colours, consumer exposure lower than previously estimated, 2012"
+   ]
+  },
+  {
+   "id": "additive:e150c",
+   "kind": "additive",
+   "title": "E150c Ammonia caramel colour",
+   "summary": "EFSA gave this type its own, lower safe daily intake because of an uncertainty about effects on the immune system.",
+   "level": "some",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA: Caramel colours reviewed, 2011",
+    "EFSA: Caramel colours, consumer exposure lower than previously estimated, 2012",
+    "Caramel color in soft drinks and exposure to 4-methylimidazole: a quantitative risk assessment. PLoS One, 2015"
+   ]
+  },
+  {
+   "id": "additive:e150d",
+   "kind": "additive",
+   "title": "E150d Sulfite ammonia caramel colour",
+   "summary": "The most common caramel colour in soft drinks. It can contain 4-MEI, a by-product that IARC lists as possibly carcinogenic, based on animal studies.",
+   "level": "some",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA: Caramel colours reviewed, 2011",
+    "EFSA: Caramel colours, consumer exposure lower than previously estimated, 2012",
+    "Caramel color in soft drinks and exposure to 4-methylimidazole: a quantitative risk assessment. PLoS One, 2015"
+   ]
+  },
+  {
+   "id": "additive:e160a",
+   "kind": "additive",
+   "title": "E160a Carotenes",
+   "summary": "Regulators have not identified a safety concern at the levels allowed in food.",
+   "level": "little",
+   "evidence": "None",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA: Food additives"
+   ]
+  },
+  {
+   "id": "additive:e162",
+   "kind": "additive",
+   "title": "E162 Beetroot red",
+   "summary": "Regulators have not identified a safety concern at the levels allowed in food.",
+   "level": "little",
+   "evidence": "None",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA: Food additives"
+   ]
+  },
+  {
+   "id": "additive:e163",
+   "kind": "additive",
+   "title": "E163 Anthocyanins",
+   "summary": "Regulators have not identified a safety concern at the levels allowed in food.",
+   "level": "little",
+   "evidence": "None",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA: Food additives"
+   ]
+  },
+  {
+   "id": "additive:e171",
+   "kind": "additive",
+   "title": "E171 Titanium dioxide",
+   "summary": "EFSA concluded in 2021 that it can no longer be considered safe as a food additive, because a risk to DNA could not be ruled out.",
+   "level": "restricted",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA: Titanium dioxide (E171) no longer considered safe as a food additive, 2021"
+   ]
+  },
+  {
+   "id": "additive:e200",
+   "kind": "additive",
+   "title": "E200 Sorbic acid",
+   "summary": "EFSA found no genotoxicity and raised its safe daily intake in 2019. It is often flagged online, but regulators have not found a concern.",
+   "level": "little",
+   "evidence": "None",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA: Re-evaluation of sorbic acid, potassium sorbate and calcium sorbate (E 200-203), 2015",
+    "EFSA: Follow-up of the re-evaluation of sorbic acid (E 200) and potassium sorbate (E 202), 2019"
+   ]
+  },
+  {
+   "id": "additive:e202",
+   "kind": "additive",
+   "title": "E202 Potassium sorbate",
+   "summary": "EFSA found no genotoxicity and raised its safe daily intake in 2019. Some apps flag it as high-risk, but regulators have not found a concern.",
+   "level": "little",
+   "evidence": "None",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA: Re-evaluation of sorbic acid, potassium sorbate and calcium sorbate (E 200-203), 2015",
+    "EFSA: Follow-up of the re-evaluation of sorbic acid (E 200) and potassium sorbate (E 202), 2019"
+   ]
+  },
+  {
+   "id": "additive:e210",
+   "kind": "additive",
+   "title": "E210 Benzoic acid",
+   "summary": "Can form tiny amounts of benzene in drinks that also contain vitamin C. It was also part of the colour mix in the 2007 hyperactivity study.",
+   "level": "some",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "Children, if a family notices a link between these drinks and behaviour."
+   ],
+   "sources": [
+    "FDA: Benzene in soft drinks and other beverages (Q&A)",
+    "McCann D et al. Food additives and hyperactive behaviour in children. Lancet, 2007"
+   ]
+  },
+  {
+   "id": "additive:e211",
+   "kind": "additive",
+   "title": "E211 Sodium benzoate",
+   "summary": "Can form tiny amounts of benzene in drinks that also contain vitamin C. It was also part of the colour mix in the 2007 hyperactivity study.",
+   "level": "some",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "Children, if a family notices a link between these drinks and behaviour."
+   ],
+   "sources": [
+    "FDA: Benzene in soft drinks and other beverages (Q&A)",
+    "McCann D et al. Food additives and hyperactive behaviour in children. Lancet, 2007"
+   ]
+  },
+  {
+   "id": "additive:e212",
+   "kind": "additive",
+   "title": "E212 Potassium benzoate",
+   "summary": "Can form tiny amounts of benzene in drinks that also contain vitamin C. It was also part of the colour mix in the 2007 hyperactivity study.",
+   "level": "some",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "Children, if a family notices a link between these drinks and behaviour."
+   ],
+   "sources": [
+    "FDA: Benzene in soft drinks and other beverages (Q&A)",
+    "McCann D et al. Food additives and hyperactive behaviour in children. Lancet, 2007"
+   ]
+  },
+  {
+   "id": "additive:e220",
+   "kind": "additive",
+   "title": "E220 Sulfur dioxide",
+   "summary": "Can trigger reactions in people who are sensitive to sulfites. EFSA also flagged a safety concern about how much some people eat.",
+   "level": "some",
+   "evidence": "Moderate",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "People with asthma or a known sulfite sensitivity."
+   ],
+   "sources": [
+    "EFSA: Follow-up of the re-evaluation of sulfur dioxide and sulfites (E 220-228), 2022"
+   ]
+  },
+  {
+   "id": "additive:e221",
+   "kind": "additive",
+   "title": "E221 Sodium sulfite",
+   "summary": "Can trigger reactions in people who are sensitive to sulfites. EFSA also flagged a safety concern about how much some people eat.",
+   "level": "some",
+   "evidence": "Moderate",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "People with asthma or a known sulfite sensitivity."
+   ],
+   "sources": [
+    "EFSA: Follow-up of the re-evaluation of sulfur dioxide and sulfites (E 220-228), 2022"
+   ]
+  },
+  {
+   "id": "additive:e222",
+   "kind": "additive",
+   "title": "E222 Sodium bisulfite",
+   "summary": "Can trigger reactions in people who are sensitive to sulfites. EFSA also flagged a safety concern about how much some people eat.",
+   "level": "some",
+   "evidence": "Moderate",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "People with asthma or a known sulfite sensitivity."
+   ],
+   "sources": [
+    "EFSA: Follow-up of the re-evaluation of sulfur dioxide and sulfites (E 220-228), 2022"
+   ]
+  },
+  {
+   "id": "additive:e223",
+   "kind": "additive",
+   "title": "E223 Sodium metabisulfite",
+   "summary": "Can trigger reactions in people who are sensitive to sulfites. EFSA also flagged a safety concern about how much some people eat.",
+   "level": "some",
+   "evidence": "Moderate",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "People with asthma or a known sulfite sensitivity."
+   ],
+   "sources": [
+    "EFSA: Follow-up of the re-evaluation of sulfur dioxide and sulfites (E 220-228), 2022"
+   ]
+  },
+  {
+   "id": "additive:e224",
+   "kind": "additive",
+   "title": "E224 Potassium metabisulfite",
+   "summary": "Can trigger reactions in people who are sensitive to sulfites. EFSA also flagged a safety concern about how much some people eat.",
+   "level": "some",
+   "evidence": "Moderate",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "People with asthma or a known sulfite sensitivity."
+   ],
+   "sources": [
+    "EFSA: Follow-up of the re-evaluation of sulfur dioxide and sulfites (E 220-228), 2022"
+   ]
+  },
+  {
+   "id": "additive:e226",
+   "kind": "additive",
+   "title": "E226 Calcium sulfite",
+   "summary": "Can trigger reactions in people who are sensitive to sulfites. EFSA also flagged a safety concern about how much some people eat.",
+   "level": "some",
+   "evidence": "Moderate",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "People with asthma or a known sulfite sensitivity."
+   ],
+   "sources": [
+    "EFSA: Follow-up of the re-evaluation of sulfur dioxide and sulfites (E 220-228), 2022"
+   ]
+  },
+  {
+   "id": "additive:e227",
+   "kind": "additive",
+   "title": "E227 Calcium bisulfite",
+   "summary": "Can trigger reactions in people who are sensitive to sulfites. EFSA also flagged a safety concern about how much some people eat.",
+   "level": "some",
+   "evidence": "Moderate",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "People with asthma or a known sulfite sensitivity."
+   ],
+   "sources": [
+    "EFSA: Follow-up of the re-evaluation of sulfur dioxide and sulfites (E 220-228), 2022"
+   ]
+  },
+  {
+   "id": "additive:e228",
+   "kind": "additive",
+   "title": "E228 Potassium bisulfite",
+   "summary": "Can trigger reactions in people who are sensitive to sulfites. EFSA also flagged a safety concern about how much some people eat.",
+   "level": "some",
+   "evidence": "Moderate",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "People with asthma or a known sulfite sensitivity."
+   ],
+   "sources": [
+    "EFSA: Follow-up of the re-evaluation of sulfur dioxide and sulfites (E 220-228), 2022"
+   ]
+  },
+  {
+   "id": "additive:e249",
+   "kind": "additive",
+   "title": "E249 Potassium nitrite",
+   "summary": "The strong research link is to eating processed meat, which can contain it. How much of that link is due to nitrite itself is not settled.",
+   "level": "some",
+   "evidence": "Moderate",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "IARC: Evaluation of consumption of red meat and processed meat, 2015",
+    "EFSA: Re-evaluation of potassium nitrite (E 249) and sodium nitrite (E 250), 2017",
+    "EFSA: Safe levels for nitrites and nitrates added to food, 2017"
+   ]
+  },
+  {
+   "id": "additive:e250",
+   "kind": "additive",
+   "title": "E250 Sodium nitrite",
+   "summary": "The strong research link is to eating processed meat, which can contain it. How much of that link is due to nitrite itself is not settled.",
+   "level": "some",
+   "evidence": "Moderate",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "IARC: Evaluation of consumption of red meat and processed meat, 2015",
+    "EFSA: Re-evaluation of potassium nitrite (E 249) and sodium nitrite (E 250), 2017",
+    "EFSA: Safe levels for nitrites and nitrates added to food, 2017"
+   ]
+  },
+  {
+   "id": "additive:e251",
+   "kind": "additive",
+   "title": "E251 Sodium nitrate",
+   "summary": "EFSA found no safety concern from nitrate used as an additive at current levels. Nitrate in the body can convert to nitrite.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA: Re-evaluation of sodium nitrate (E 251) and potassium nitrate (E 252), 2017",
+    "IARC: Evaluation of consumption of red meat and processed meat, 2015"
+   ]
+  },
+  {
+   "id": "additive:e252",
+   "kind": "additive",
+   "title": "E252 Potassium nitrate",
+   "summary": "EFSA found no safety concern from nitrate used as an additive at current levels. Nitrate in the body can convert to nitrite.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA: Re-evaluation of sodium nitrate (E 251) and potassium nitrate (E 252), 2017",
+    "IARC: Evaluation of consumption of red meat and processed meat, 2015"
+   ]
+  },
+  {
+   "id": "additive:e260",
+   "kind": "additive",
+   "title": "E260 Acetic acid",
+   "summary": "Regulators have not identified a safety concern at the levels allowed in food.",
+   "level": "little",
+   "evidence": "None",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA: Food additives"
+   ]
+  },
+  {
+   "id": "additive:e270",
+   "kind": "additive",
+   "title": "E270 Lactic acid",
+   "summary": "Regulators have not identified a safety concern at the levels allowed in food.",
+   "level": "little",
+   "evidence": "None",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA: Food additives"
+   ]
+  },
+  {
+   "id": "additive:e296",
+   "kind": "additive",
+   "title": "E296 Malic acid",
+   "summary": "Regulators have not identified a safety concern at the levels allowed in food.",
+   "level": "little",
+   "evidence": "None",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA: Food additives"
+   ]
+  },
+  {
+   "id": "additive:e300",
+   "kind": "additive",
+   "title": "E300 Ascorbic acid",
+   "summary": "Regulators have not identified a safety concern at the levels allowed in food.",
+   "level": "little",
+   "evidence": "None",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA: Food additives"
+   ]
+  },
+  {
+   "id": "additive:e306",
+   "kind": "additive",
+   "title": "E306 Tocopherols",
+   "summary": "Regulators have not identified a safety concern at the levels allowed in food.",
+   "level": "little",
+   "evidence": "None",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA: Food additives"
+   ]
+  },
+  {
+   "id": "additive:e320",
+   "kind": "additive",
+   "title": "E320 Butylated hydroxyanisole",
+   "summary": "IARC classes it as possibly carcinogenic, based on animal studies. EFSA set a safe daily intake and found most people's intake from additive use is under it.",
+   "level": "some",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "IARC Monographs Vol. 40: Butylated hydroxyanisole (BHA), 1986",
+    "EFSA: Exposure to butylated hydroxyanisole (E 320), statement, 2012"
+   ]
+  },
+  {
+   "id": "additive:e321",
+   "kind": "additive",
+   "title": "E321 Butylated hydroxytoluene",
+   "summary": "EFSA lowered its safe daily intake in 2012 after reviewing animal studies.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA: Re-evaluation of butylated hydroxytoluene BHT (E 321), 2012"
+   ]
+  },
+  {
+   "id": "additive:e322",
+   "kind": "additive",
+   "title": "E322 Lecithin",
+   "summary": "Regulators have not identified a safety concern at the levels allowed in food.",
+   "level": "little",
+   "evidence": "None",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA: Food additives"
+   ]
+  },
+  {
+   "id": "additive:e330",
+   "kind": "additive",
+   "title": "E330 Citric acid",
+   "summary": "Regulators have not identified a safety concern at the levels allowed in food.",
+   "level": "little",
+   "evidence": "None",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA: Food additives"
+   ]
+  },
+  {
+   "id": "additive:e334",
+   "kind": "additive",
+   "title": "E334 Tartaric acid",
+   "summary": "Regulators have not identified a safety concern at the levels allowed in food.",
+   "level": "little",
+   "evidence": "None",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA: Food additives"
+   ]
+  },
+  {
+   "id": "additive:e338",
+   "kind": "additive",
+   "title": "E338 Phosphoric acid",
+   "summary": "EFSA set a group safe daily intake for phosphates in 2019 and found that many children's intake may be above it. People with reduced kidney function should take care.",
+   "level": "some",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "People with reduced kidney function."
+   ],
+   "sources": [
+    "EFSA: Re-evaluation of phosphoric acid and phosphates (E 338-341, E 343, E 450-452), 2019"
+   ]
+  },
+  {
+   "id": "additive:e339",
+   "kind": "additive",
+   "title": "E339 Sodium phosphates",
+   "summary": "In one large French study, higher intake was linked to a slightly higher risk of coronary heart disease. It shows a link, not cause and effect.",
+   "level": "some",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "People with reduced kidney function."
+   ],
+   "sources": [
+    "Sellem L et al. Food additive emulsifiers and risk of cardiovascular disease (NutriNet-Santé). BMJ, 2023",
+    "EFSA: Re-evaluation of phosphoric acid and phosphates (E 338-341, E 343, E 450-452), 2019"
+   ]
+  },
+  {
+   "id": "additive:e340",
+   "kind": "additive",
+   "title": "E340 Potassium phosphates",
+   "summary": "EFSA set a group safe daily intake for phosphates in 2019 and found that many children's intake may be above it. People with reduced kidney function should take care.",
+   "level": "some",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "People with reduced kidney function."
+   ],
+   "sources": [
+    "EFSA: Re-evaluation of phosphoric acid and phosphates (E 338-341, E 343, E 450-452), 2019"
+   ]
+  },
+  {
+   "id": "additive:e341",
+   "kind": "additive",
+   "title": "E341 Calcium phosphates",
+   "summary": "EFSA set a group safe daily intake for phosphates in 2019 and found that many children's intake may be above it. People with reduced kidney function should take care.",
+   "level": "some",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "People with reduced kidney function."
+   ],
+   "sources": [
+    "EFSA: Re-evaluation of phosphoric acid and phosphates (E 338-341, E 343, E 450-452), 2019"
+   ]
+  },
+  {
+   "id": "additive:e406",
+   "kind": "additive",
+   "title": "E406 Agar",
+   "summary": "Regulators have not identified a safety concern at the levels allowed in food.",
+   "level": "little",
+   "evidence": "None",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA: Food additives"
+   ]
+  },
+  {
+   "id": "additive:e407",
+   "kind": "additive",
+   "title": "E407 Carrageenan",
+   "summary": "Often debated online. EFSA's 2018 review found no concern about cancer risk, but asked for more data on some uses.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA: Re-evaluation of carrageenan (E 407) and processed Eucheuma seaweed (E 407a), 2018"
+   ]
+  },
+  {
+   "id": "additive:e410",
+   "kind": "additive",
+   "title": "E410 Locust bean gum",
+   "summary": "Regulators have not identified a safety concern at the levels allowed in food.",
+   "level": "little",
+   "evidence": "None",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA: Food additives"
+   ]
+  },
+  {
+   "id": "additive:e412",
+   "kind": "additive",
+   "title": "E412 Guar gum",
+   "summary": "Regulators have not identified a safety concern at the levels allowed in food.",
+   "level": "little",
+   "evidence": "None",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA: Food additives"
+   ]
+  },
+  {
+   "id": "additive:e414",
+   "kind": "additive",
+   "title": "E414 Gum arabic",
+   "summary": "Regulators have not identified a safety concern at the levels allowed in food.",
+   "level": "little",
+   "evidence": "None",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA: Food additives"
+   ]
+  },
+  {
+   "id": "additive:e415",
+   "kind": "additive",
+   "title": "E415 Xanthan gum",
+   "summary": "Regulators have not identified a safety concern at the levels allowed in food.",
+   "level": "little",
+   "evidence": "None",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA: Food additives"
+   ]
+  },
+  {
+   "id": "additive:e418",
+   "kind": "additive",
+   "title": "E418 Gellan gum",
+   "summary": "Regulators have not identified a safety concern at the levels allowed in food.",
+   "level": "little",
+   "evidence": "None",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA: Food additives"
+   ]
+  },
+  {
+   "id": "additive:e433",
+   "kind": "additive",
+   "title": "E433 Polysorbate 80",
+   "summary": "In mice, low doses changed gut bacteria and caused inflammation. Human evidence is limited.",
+   "level": "some",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "Chassaing B et al. Dietary emulsifiers impact the mouse gut microbiota. Nature, 2015"
+   ]
+  },
+  {
+   "id": "additive:e440",
+   "kind": "additive",
+   "title": "E440 Pectin",
+   "summary": "Regulators have not identified a safety concern at the levels allowed in food.",
+   "level": "little",
+   "evidence": "None",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA: Food additives"
+   ]
+  },
+  {
+   "id": "additive:e443",
+   "kind": "additive",
+   "title": "E443 Brominated vegetable oil",
+   "summary": "The US FDA revoked approval in 2024, saying the evidence no longer supports calling it safe.",
+   "level": "restricted",
+   "evidence": "Moderate",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "FDA: Revoking the regulation allowing brominated vegetable oil in food, 2024"
+   ]
+  },
+  {
+   "id": "additive:e450",
+   "kind": "additive",
+   "title": "E450 Diphosphates",
+   "summary": "EFSA set a group safe daily intake for phosphates in 2019 and found that many children's intake may be above it. People with reduced kidney function should take care.",
+   "level": "some",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "People with reduced kidney function."
+   ],
+   "sources": [
+    "EFSA: Re-evaluation of phosphoric acid and phosphates (E 338-341, E 343, E 450-452), 2019"
+   ]
+  },
+  {
+   "id": "additive:e451",
+   "kind": "additive",
+   "title": "E451 Triphosphates",
+   "summary": "EFSA set a group safe daily intake for phosphates in 2019 and found that many children's intake may be above it. People with reduced kidney function should take care.",
+   "level": "some",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "People with reduced kidney function."
+   ],
+   "sources": [
+    "EFSA: Re-evaluation of phosphoric acid and phosphates (E 338-341, E 343, E 450-452), 2019"
+   ]
+  },
+  {
+   "id": "additive:e452",
+   "kind": "additive",
+   "title": "E452 Polyphosphates",
+   "summary": "EFSA set a group safe daily intake for phosphates in 2019 and found that many children's intake may be above it. People with reduced kidney function should take care.",
+   "level": "some",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "People with reduced kidney function."
+   ],
+   "sources": [
+    "EFSA: Re-evaluation of phosphoric acid and phosphates (E 338-341, E 343, E 450-452), 2019"
+   ]
+  },
+  {
+   "id": "additive:e466",
+   "kind": "additive",
+   "title": "E466 Carboxymethylcellulose",
+   "summary": "In mice, low doses changed gut bacteria and caused inflammation. Human evidence is limited.",
+   "level": "some",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "Chassaing B et al. Dietary emulsifiers impact the mouse gut microbiota. Nature, 2015"
+   ]
+  },
+  {
+   "id": "additive:e471",
+   "kind": "additive",
+   "title": "E471 Mono- and diglycerides of fatty acids",
+   "summary": "Regulators have not identified a safety concern at the levels allowed in food.",
+   "level": "little",
+   "evidence": "None",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA: Food additives"
+   ]
+  },
+  {
+   "id": "additive:e472b",
+   "kind": "additive",
+   "title": "E472b Lactic acid esters of mono- and diglycerides",
+   "summary": "In a large French study, higher intake went with a higher risk of cardiovascular disease. It shows a link, not cause and effect.",
+   "level": "some",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "Sellem L et al. Food additive emulsifiers and risk of cardiovascular disease (NutriNet-Santé). BMJ, 2023"
+   ]
+  },
+  {
+   "id": "additive:e472c",
+   "kind": "additive",
+   "title": "E472c Citric acid esters of mono- and diglycerides",
+   "summary": "In a large French study, higher intake went with a higher risk of cardiovascular and coronary heart disease. It shows a link, not cause and effect.",
+   "level": "some",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "Sellem L et al. Food additive emulsifiers and risk of cardiovascular disease (NutriNet-Santé). BMJ, 2023"
+   ]
+  },
+  {
+   "id": "additive:e500",
+   "kind": "additive",
+   "title": "E500 Sodium carbonates",
+   "summary": "Regulators have not identified a safety concern at the levels allowed in food.",
+   "level": "little",
+   "evidence": "None",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA: Food additives"
+   ]
+  },
+  {
+   "id": "additive:e551",
+   "kind": "additive",
+   "title": "E551 Silicon dioxide",
+   "summary": "Regulators have not identified a safety concern at the levels allowed in food.",
+   "level": "little",
+   "evidence": "None",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA: Food additives"
+   ]
+  },
+  {
+   "id": "additive:e621",
+   "kind": "additive",
+   "title": "E621 Monosodium glutamate",
+   "summary": "Glutamate also occurs naturally in foods like tomatoes and cheese. EFSA set a group safe daily intake in 2017, and noted some people may eat more than that.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA: Re-evaluation of glutamic acid and glutamates (E 620-625), 2017"
+   ]
+  },
+  {
+   "id": "additive:e951",
+   "kind": "additive",
+   "title": "E951 Aspartame",
+   "summary": "IARC classed it as possibly carcinogenic in 2023, based on limited evidence. A separate WHO committee kept its safe daily intake unchanged.",
+   "level": "some",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "People with phenylketonuria (PKU) must avoid it. Labels say it contains a source of phenylalanine."
+   ],
+   "sources": [
+    "WHO and IARC: Aspartame hazard and risk assessment results, 2023"
+   ]
+  },
+  {
+   "id": "additive:e955",
+   "kind": "additive",
+   "title": "E955 Sucralose",
+   "summary": "A 2023 lab study on cells found a by-product could damage DNA. It was done in the lab, and it doesn't show harm in people.",
+   "level": "some",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "Schiffman SS et al. Toxicological and pharmacokinetic properties of sucralose-6-acetate and its parent sucralose: in vitro screening assays. J Toxicol Environ Health B, 2023"
+   ]
+  },
+  {
+   "id": "additive:e968",
+   "kind": "additive",
+   "title": "E968 Erythritol",
+   "summary": "One 2023 study linked higher blood levels to more heart attacks and strokes in people already at higher heart risk. It shows a link, not cause and effect.",
+   "level": "some",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "People who already have heart disease or high heart risk may want to ask their clinician."
+   ],
+   "sources": [
+    "Witkowski M et al. The artificial sweetener erythritol and cardiovascular event risk. Nature Medicine, 2023"
+   ]
+  },
+  {
+   "id": "breath:478",
+   "kind": "breathing",
+   "title": "4-7-8 breathing",
+   "summary": "4 in · 7 hold · 8 out. In bed, to help you drift off. Popularized by Dr. Andrew Weil.",
+   "why": "A very long exhale with a hold slows breathing to about three breaths a minute. Small studies show short-term drops in heart rate and blood pressure. It may feel light-headed at first; start with four cycles.",
+   "evidence": "Weak",
+   "minutes": 1,
+   "to": "/breathe?open=478",
+   "exclude_if": [
+    "breathHoldCare"
+   ],
+   "cautions": [],
+   "goals": [
+    "sleep"
+   ]
+  },
+  {
+   "id": "breath:box",
+   "kind": "breathing",
+   "title": "Box breathing",
+   "summary": "4 · 4 · 4 · 4. Before a big moment: a meeting, a game, a hard conversation.",
+   "why": "Used by military and first responders to stay steady under pressure. In the same Stanford trial, box breathing improved mood too, a little less than cyclic sighing. Research on it alone is limited.",
+   "evidence": "Weak",
+   "minutes": 2,
+   "to": "/breathe?open=box",
+   "exclude_if": [
+    "breathHoldCare"
+   ],
+   "cautions": [],
+   "goals": [
+    "focus"
+   ]
+  },
+  {
+   "id": "breath:calm",
+   "kind": "breathing",
+   "title": "Settle in",
+   "summary": "4 in · 6 out. Any time you feel wound up. A gentle place to begin.",
+   "why": "Breathing out for longer than you breathe in, at around six breaths a minute, shifts your body toward its relaxed, rest-and-digest mode. Slow-paced breathing reliably raises heart rate variability, a marker of that shift.",
+   "evidence": "Moderate",
+   "minutes": 1,
+   "to": "/breathe?open=calm",
+   "exclude_if": [],
+   "cautions": [],
+   "goals": [
+    "relax"
+   ]
+  },
+  {
+   "id": "breath:coherent",
+   "kind": "breathing",
+   "title": "Coherent breathing",
+   "summary": "5.5 in · 5.5 out. A steady 10-minute practice for everyday resilience.",
+   "why": "About five and a half breaths a minute lines your breathing up with your heart's natural rhythm (resonance). A meta-analysis of 58 studies found practicing this pace improves anxiety, stress and mood.",
+   "evidence": "Moderate",
+   "minutes": 5,
+   "to": "/breathe?open=coherent",
+   "exclude_if": [],
+   "cautions": [],
+   "goals": [
+    "meditate"
+   ]
+  },
+  {
+   "id": "breath:power",
+   "kind": "breathing",
+   "title": "Power breathing",
+   "summary": "Rounds of deep breaths and holds. Morning energy. Inspired by the Wim Hof style. Sit or lie down.",
+   "why": "Fast, deep breathing followed by a breath hold. In the Stanford trial it raised energy and mood. A well-known 2014 study found trained practitioners had a dampened immune response to a bacterial toxin. It's powerful, and it can make you faint.",
+   "evidence": "Mixed",
+   "minutes": null,
+   "to": "/breathe?open=power",
+   "exclude_if": [
+    "noPowerBreathing"
+   ],
+   "cautions": [
+    "Has a safety check before it starts. Sit or lie down."
+   ],
+   "goals": [
+    "energize"
+   ]
+  },
+  {
+   "id": "breath:sigh",
+   "kind": "breathing",
+   "title": "Physiological sigh",
+   "summary": "In, top up, long out. The fastest reset when stress spikes. Even one or two help.",
+   "why": "In a Stanford trial of 111 people, five minutes a day of cyclic sighing for a month improved mood and lowered breathing rate more than mindfulness meditation did. The double inhale re-opens tiny air sacs in the lungs; the long exhale slows the heart.",
+   "evidence": "Moderate",
+   "minutes": 1,
+   "to": "/breathe?open=sigh",
+   "exclude_if": [],
+   "cautions": [],
+   "goals": [
+    "relax"
+   ]
+  },
+  {
+   "id": "combo:evening",
+   "kind": "combo",
+   "title": "Evening Reset",
+   "summary": "From wired to winding down. Best in the evening.",
+   "why": "Each piece has its own evidence: dim light and no screens before bed, slow breathing, muscle relaxation, and a relaxing sound. Together they give your body a clear signal that the day is over.",
+   "evidence": "Moderate",
+   "to": "/combos?open=evening",
+   "exclude_if": [],
+   "cautions": [],
+   "goals": [
+    "sleep",
+    "stress"
+   ]
+  },
+  {
+   "id": "combo:focus",
+   "kind": "combo",
+   "title": "Focus Launch",
+   "summary": "Clear the decks, then go deep. Best any time.",
+   "why": "Removing your phone from sight reduces distraction, and a short breathing practice settles you before you start. The evidence for binaural beats and focus is mixed, so treat the session as a pleasant, consistent start signal.",
+   "evidence": "Weak",
+   "to": "/combos?open=focus",
+   "exclude_if": [],
+   "cautions": [],
+   "goals": [
+    "focus"
+   ]
+  },
+  {
+   "id": "combo:gratitude",
+   "kind": "combo",
+   "title": "Gratitude Minute",
+   "summary": "Write it down, breathe it in. Best any time.",
+   "why": "Regularly writing down things you're grateful for is linked with better mood in many studies, though effects are modest. Pairing it with slow breathing makes it a relaxed minute either way.",
+   "evidence": "Mixed",
+   "to": "/combos?open=gratitude",
+   "exclude_if": [],
+   "cautions": [],
+   "goals": [
+    "connect",
+    "stress"
+   ]
+  },
+  {
+   "id": "combo:midday",
+   "kind": "combo",
+   "title": "Midday Reset",
+   "summary": "Undo the morning slump. Best in the midday.",
+   "why": "Breaking up sitting, light walking after a meal, and a glass of water are simple, well-supported ways to steady energy and blood sugar in the afternoon.",
+   "evidence": "Moderate",
+   "to": "/combos?open=midday",
+   "exclude_if": [],
+   "cautions": [],
+   "goals": [
+    "energy",
+    "aches",
+    "move"
+   ]
+  },
+  {
+   "id": "combo:morning",
+   "kind": "combo",
+   "title": "Morning Armor",
+   "summary": "Light, water, breath, go. Best in the morning.",
+   "why": "Morning daylight sets your body clock and helps you feel alert, water replaces what you lost overnight, and a few minutes of breathing and movement wake up your body before the day starts pulling at you.",
+   "evidence": "Moderate",
+   "to": "/combos?open=morning",
+   "exclude_if": [],
+   "cautions": [],
+   "goals": [
+    "energy",
+    "focus"
+   ]
+  },
+  {
+   "id": "combo:sos",
+   "kind": "combo",
+   "title": "Gentle Reset",
+   "summary": "Three minutes back to ease. Best any time.",
+   "why": "Cyclic sighing is one of the fastest ways to lower arousal, grounding pulls your attention out of the spiral and into the room, and slow breathing keeps you there.",
+   "evidence": "Moderate",
+   "to": "/combos?open=sos",
+   "exclude_if": [],
+   "cautions": [],
+   "goals": [
+    "stress"
+   ]
+  },
+  {
+   "id": "combo:sunday",
+   "kind": "combo",
+   "title": "Sunday Restore",
+   "summary": "A slower reset for the week ahead. Best any time.",
+   "why": "Gentle yoga eases stiffness and stress, a moment of reflection helps you choose what matters, and reaching out to someone is one of the most reliable mood boosters there is.",
+   "evidence": "Moderate",
+   "to": "/combos?open=sunday",
+   "exclude_if": [],
+   "cautions": [],
+   "goals": [
+    "stress",
+    "aches",
+    "connect"
+   ]
+  },
+  {
+   "id": "food:acv",
+   "kind": "food",
+   "title": "Apple cider vinegar",
+   "summary": "Great in dressings. The health claims are mostly small studies.",
+   "why": "Small studies show vinegar with a meal can slightly blunt the blood sugar rise afterwards. Weight-loss and 'detox' claims aren't well supported.",
+   "evidence": "Weak",
+   "to": "/nourish#pantry",
+   "exclude_if": [],
+   "cautions": [
+    "Undiluted vinegar can burn your throat and wear away tooth enamel.",
+    "Can lower potassium, especially with diuretics or insulin.",
+    "Pregnant, breastfeeding, on prescription medicine, or managing a health condition? Check with a clinician or pharmacist before using it as a remedy."
+   ],
+   "care_if": [
+    "careHerbs"
+   ]
+  },
+  {
+   "id": "food:almonds",
+   "kind": "food",
+   "title": "Almonds",
+   "summary": "Protein, fiber, vitamin E and magnesium in one handful.",
+   "why": "Part of the nut mix in PREDIMED. A good source of vitamin E and magnesium.",
+   "evidence": "Moderate",
+   "to": "/nourish#pantry",
+   "exclude_if": [],
+   "cautions": [
+    "Tree nut allergy."
+   ],
+   "care_if": []
+  },
+  {
+   "id": "food:ashwagandha",
+   "kind": "food",
+   "title": "Ashwagandha",
+   "summary": "An Ayurvedic root sold mostly as a supplement for stress and sleep.",
+   "why": "Some small, short trials suggest it may reduce stress and improve sleep. Longer, larger studies are lacking (NCCIH).",
+   "evidence": "Mixed",
+   "to": "/nourish#pantry",
+   "exclude_if": [],
+   "cautions": [
+    "Linked to rare cases of liver injury (NCCIH).",
+    "Avoid in pregnancy. May affect thyroid hormone levels and interact with sedatives and immune-suppressing medicine.",
+    "Sold as a supplement, which the FDA doesn't check for purity or strength before sale. If you buy one, look for a USP or NSF seal.",
+    "Pregnant, breastfeeding, on prescription medicine, or managing a health condition? Check with a clinician or pharmacist before using it as a remedy."
+   ],
+   "care_if": [
+    "careHerbs"
+   ]
+  },
+  {
+   "id": "food:avocado",
+   "kind": "food",
+   "title": "Avocado",
+   "summary": "Creamy, filling, and full of fiber and unsaturated fat.",
+   "why": "About 10 grams of fiber per avocado (USDA). Swapping saturated fats for unsaturated fats like these lowers LDL cholesterol.",
+   "evidence": "Moderate",
+   "to": "/nourish#pantry",
+   "exclude_if": [],
+   "cautions": [
+    "Calorie-dense; enjoy it in place of other fats, not on top of them."
+   ],
+   "care_if": []
+  },
+  {
+   "id": "food:barley",
+   "kind": "food",
+   "title": "Barley",
+   "summary": "A chewy whole grain with the same cholesterol-lowering fiber as oats.",
+   "why": "Covered by the same FDA beta-glucan health claim as oats. A whole grain high in fiber.",
+   "evidence": "Strong",
+   "to": "/nourish#pantry",
+   "exclude_if": [],
+   "cautions": [
+    "Contains gluten."
+   ],
+   "care_if": []
+  },
+  {
+   "id": "food:beets",
+   "kind": "food",
+   "title": "Beets",
+   "summary": "Sweet, earthy and one of the richest food sources of nitrate.",
+   "why": "Beetroot juice modestly lowers blood pressure in trials (meta-analysis). Studied for exercise endurance, with some positive results.",
+   "evidence": "Moderate",
+   "to": "/nourish#pantry",
+   "exclude_if": [],
+   "cautions": [
+    "Can turn urine pink. It's harmless.",
+    "High in oxalate if you're prone to kidney stones."
+   ],
+   "care_if": []
+  },
+  {
+   "id": "food:black-beans",
+   "kind": "food",
+   "title": "Black beans",
+   "summary": "Fiber-rich, satisfying, and cheap.",
+   "why": "Pulses lower LDL cholesterol in trials. About 15 grams of fiber per cooked cup (USDA).",
+   "evidence": "Strong",
+   "to": "/nourish#pantry",
+   "exclude_if": [],
+   "cautions": [
+    "Rinse canned beans to reduce sodium."
+   ],
+   "care_if": []
+  },
+  {
+   "id": "food:blueberries",
+   "kind": "food",
+   "title": "Blueberries",
+   "summary": "Fiber and anthocyanins. Frozen counts.",
+   "why": "Higher berry and flavonoid intake is linked with lower type 2 diabetes and heart risk in large observational studies. A good source of fiber and vitamin C.",
+   "evidence": "Moderate",
+   "to": "/nourish#pantry",
+   "exclude_if": [],
+   "cautions": [
+    "None for most people."
+   ],
+   "care_if": []
+  },
+  {
+   "id": "food:broccoli",
+   "kind": "food",
+   "title": "Broccoli",
+   "summary": "A cruciferous vegetable with fiber, vitamin C and sulforaphane.",
+   "why": "Cruciferous vegetables are linked to lower risk of some diseases in observational studies. Very high in vitamin C and fiber.",
+   "evidence": "Moderate",
+   "to": "/nourish#pantry",
+   "exclude_if": [],
+   "cautions": [
+    "Can cause gas as you increase fiber. Build up slowly."
+   ],
+   "care_if": []
+  },
+  {
+   "id": "food:burdock-root",
+   "kind": "food",
+   "title": "Burdock root",
+   "summary": "A long, earthy root eaten as a vegetable in Japan and used in herbal traditions worldwide.",
+   "why": "Rich in inulin, a prebiotic fiber that feeds gut bacteria, like other fiber-rich foods. Lab and animal studies show antioxidant compounds, but there are very few studies in people. Claims that it 'purifies the blood' or detoxes the body aren't backed by human research. Your liver and kidneys do that job.",
+   "evidence": "Weak",
+   "to": "/nourish#pantry",
+   "exclude_if": [],
+   "cautions": [
+    "Buy it, don't forage it. Wild burdock root can be confused with toxic plants like belladonna.",
+    "May lower blood sugar. If you take diabetes medicine, watch your levels.",
+    "Avoid if you're allergic to ragweed, daisies or chrysanthemums (same plant family).",
+    "Pregnant, breastfeeding, on prescription medicine, or managing a health condition? Check with a clinician or pharmacist before using it as a remedy."
+   ],
+   "care_if": [
+    "careHerbs"
+   ]
+  },
+  {
+   "id": "food:chamomile",
+   "kind": "food",
+   "title": "Chamomile tea",
+   "summary": "The classic bedtime tea. A warm, caffeine-free ritual with modest evidence.",
+   "why": "Small studies on sleep and anxiety show modest or mixed results (NCCIH). A warm caffeine-free drink is a good wind-down cue in itself.",
+   "evidence": "Weak",
+   "to": "/nourish#pantry",
+   "exclude_if": [],
+   "cautions": [
+    "Avoid if you're allergic to ragweed or daisies.",
+    "May interact with some medicines, including warfarin and cyclosporine.",
+    "Pregnant, breastfeeding, on prescription medicine, or managing a health condition? Check with a clinician or pharmacist before using it as a remedy."
+   ],
+   "care_if": [
+    "careHerbs"
+   ]
+  },
+  {
+   "id": "food:chia",
+   "kind": "food",
+   "title": "Chia seeds",
+   "summary": "Tiny seeds with a big dose of fiber.",
+   "why": "About 10 grams of fiber per ounce (USDA). Contain ALA, a plant omega-3.",
+   "evidence": "Moderate",
+   "to": "/nourish#pantry",
+   "exclude_if": [],
+   "cautions": [
+    "Always soak chia or eat it with plenty of liquid. Dry seeds swell and have caused choking.",
+    "Increase slowly as with any high-fiber food."
+   ],
+   "care_if": []
+  },
+  {
+   "id": "food:chickpeas",
+   "kind": "food",
+   "title": "Chickpeas",
+   "summary": "The base of hummus, falafel and countless stews.",
+   "why": "Pulses lower LDL cholesterol in trials. High in fiber, protein and folate.",
+   "evidence": "Strong",
+   "to": "/nourish#pantry",
+   "exclude_if": [],
+   "cautions": [
+    "Rinse canned chickpeas to reduce sodium."
+   ],
+   "care_if": []
+  },
+  {
+   "id": "food:cinnamon",
+   "kind": "food",
+   "title": "Cinnamon (Ceylon)",
+   "summary": "A warm spice studied for blood sugar, with inconsistent results.",
+   "why": "Studies on blood sugar in type 2 diabetes conflict. It isn't a substitute for treatment (NCCIH). A good way to add sweetness and flavor without adding sugar.",
+   "evidence": "Mixed",
+   "to": "/nourish#pantry",
+   "exclude_if": [],
+   "cautions": [
+    "Common cassia cinnamon contains coumarin, which in large amounts can harm the liver. Ceylon cinnamon has far less. Sprinkling it on food is fine; heaping spoonfuls every day aren't.",
+    "Pregnant, breastfeeding, on prescription medicine, or managing a health condition? Check with a clinician or pharmacist before using it as a remedy."
+   ],
+   "care_if": [
+    "careHerbs"
+   ]
+  },
+  {
+   "id": "food:dandelion-greens",
+   "kind": "food",
+   "title": "Dandelion greens",
+   "summary": "A bitter leafy green, rich in vitamins A and K.",
+   "why": "Very nutrient-dense: lots of vitamin K and vitamin A, plus fiber (USDA). One small human study suggested a mild diuretic effect. That's all the human evidence there is.",
+   "evidence": "Weak",
+   "to": "/nourish#pantry",
+   "exclude_if": [],
+   "cautions": [
+    "Large amounts of vitamin K can change how warfarin works. If you take it, keep your intake steady and tell your clinician.",
+    "If you forage, avoid lawns, roadsides and anywhere that might be sprayed.",
+    "Avoid if you're allergic to ragweed or daisies.",
+    "Pregnant, breastfeeding, on prescription medicine, or managing a health condition? Check with a clinician or pharmacist before using it as a remedy."
+   ],
+   "care_if": [
+    "careHerbs"
+   ]
+  },
+  {
+   "id": "food:dark-chocolate",
+   "kind": "food",
+   "title": "Dark chocolate (70%+)",
+   "summary": "A treat with interesting, but mixed, heart research.",
+   "why": "In the COSMOS trial, cocoa flavanol supplements didn't significantly reduce overall heart events, though deaths from heart disease were lower. Chocolate bars contain far less flavanol, plus sugar.",
+   "evidence": "Mixed",
+   "to": "/nourish#pantry",
+   "exclude_if": [],
+   "cautions": [
+    "Some dark chocolate bars have tested high for lead and cadmium. Vary brands and keep portions small."
+   ],
+   "care_if": []
+  },
+  {
+   "id": "food:elderberry",
+   "kind": "food",
+   "title": "Elderberry",
+   "summary": "Dark purple berries made into syrups, popular for colds and flu.",
+   "why": "A few small studies suggest it may shorten flu or cold symptoms, but the evidence is limited (NCCIH).",
+   "evidence": "Weak",
+   "to": "/nourish#pantry",
+   "exclude_if": [],
+   "cautions": [
+    "Raw berries, leaves and stems can cause nausea and vomiting. Always cook elderberries.",
+    "Pregnant, breastfeeding, on prescription medicine, or managing a health condition? Check with a clinician or pharmacist before using it as a remedy."
+   ],
+   "care_if": [
+    "careHerbs"
+   ]
+  },
+  {
+   "id": "food:epsom-salt",
+   "kind": "food",
+   "title": "Epsom salt",
+   "summary": "A bath soak. The warm bath helps; magnesium through the skin isn't proven.",
+   "why": "There's no good evidence that your skin absorbs meaningful magnesium from a bath (Nutrients, 2017 review). A warm bath 1 to 2 hours before bed can help you fall asleep, salt or no salt.",
+   "evidence": "None",
+   "to": "/nourish#pantry",
+   "exclude_if": [],
+   "cautions": [
+    "If you have diabetes or nerve damage in your feet, ask before long foot soaks.",
+    "Avoid on broken skin."
+   ],
+   "care_if": []
+  },
+  {
+   "id": "food:evoo",
+   "kind": "food",
+   "title": "Extra virgin olive oil",
+   "summary": "The backbone of the Mediterranean diet, backed by a large trial.",
+   "why": "In PREDIMED, a Mediterranean diet with about 4 tablespoons a day of extra virgin olive oil cut major heart events by about 30% versus a low-fat diet.",
+   "evidence": "Strong",
+   "to": "/nourish#pantry",
+   "exclude_if": [],
+   "cautions": [
+    "Calorie-dense. Use it in place of butter and other fats."
+   ],
+   "care_if": []
+  },
+  {
+   "id": "food:flaxseed",
+   "kind": "food",
+   "title": "Ground flaxseed",
+   "summary": "Fiber and omega-3, with a trial showing lower blood pressure.",
+   "why": "In a six-month trial, 30 g of ground flaxseed a day lowered blood pressure in people with peripheral artery disease. Rich in fiber and ALA.",
+   "evidence": "Moderate",
+   "to": "/nourish#pantry",
+   "exclude_if": [],
+   "cautions": [
+    "Drink water with it.",
+    "May affect blood sugar and blood thinners in large amounts.",
+    "Pregnant, breastfeeding, on prescription medicine, or managing a health condition? Check with a clinician or pharmacist before using it as a remedy."
+   ],
+   "care_if": [
+    "careHerbs"
+   ]
+  },
+  {
+   "id": "food:garlic",
+   "kind": "food",
+   "title": "Garlic",
+   "summary": "A kitchen essential with small, real effects on blood pressure and cholesterol in some studies.",
+   "why": "Some studies find small drops in blood pressure and cholesterol, but results vary (NCCIH). There's no good evidence that garlic prevents colds.",
+   "evidence": "Mixed",
+   "to": "/nourish#pantry",
+   "exclude_if": [],
+   "cautions": [
+    "Garlic supplements can increase bleeding risk with blood thinners and before surgery.",
+    "Can cause heartburn and, well, garlic breath.",
+    "Pregnant, breastfeeding, on prescription medicine, or managing a health condition? Check with a clinician or pharmacist before using it as a remedy."
+   ],
+   "care_if": [
+    "careHerbs"
+   ]
+  },
+  {
+   "id": "food:ginger",
+   "kind": "food",
+   "title": "Ginger",
+   "summary": "A spicy root with the best evidence of any kitchen herb, for nausea.",
+   "why": "May ease nausea and vomiting in pregnancy, according to NCCIH's review of trials. Studied for nausea after surgery and during chemotherapy, with mixed results. Small trials on arthritis pain and menstrual cramps are promising but not conclusive.",
+   "evidence": "Moderate",
+   "to": "/nourish#pantry",
+   "exclude_if": [],
+   "cautions": [
+    "Can cause heartburn or stomach upset in large amounts.",
+    "Talk to your clinician before using ginger for nausea in pregnancy.",
+    "Pregnant, breastfeeding, on prescription medicine, or managing a health condition? Check with a clinician or pharmacist before using it as a remedy."
+   ],
+   "care_if": [
+    "careHerbs"
+   ]
+  },
+  {
+   "id": "food:green-tea",
+   "kind": "food",
+   "title": "Green tea",
+   "summary": "A gentler caffeine source, with L-theanine for a gentler lift.",
+   "why": "Has about a third to half the caffeine of coffee, plus L-theanine, which may smooth the jitters. Observational studies link it to better heart health, but trials haven't proven it prevents disease (NCCIH).",
+   "evidence": "Mixed",
+   "to": "/nourish#pantry",
+   "exclude_if": [],
+   "cautions": [
+    "Concentrated green tea extract supplements have been linked to liver injury. The tea itself hasn't.",
+    "Counts toward your daily caffeine (FDA suggests up to 400 mg a day for most adults).",
+    "Pregnant, breastfeeding, on prescription medicine, or managing a health condition? Check with a clinician or pharmacist before using it as a remedy."
+   ],
+   "care_if": [
+    "careHerbs"
+   ]
+  },
+  {
+   "id": "food:hibiscus",
+   "kind": "food",
+   "title": "Hibiscus tea",
+   "summary": "Tart, ruby-red and caffeine-free. Small trials suggest a modest effect on blood pressure.",
+   "why": "Several small trials found modest drops in blood pressure in people with mildly high blood pressure. It isn't a substitute for medicine.",
+   "evidence": "Mixed",
+   "to": "/nourish#pantry",
+   "exclude_if": [],
+   "cautions": [
+    "May add to the effect of blood pressure medicine.",
+    "Avoid in pregnancy.",
+    "Pregnant, breastfeeding, on prescription medicine, or managing a health condition? Check with a clinician or pharmacist before using it as a remedy."
+   ],
+   "care_if": [
+    "careHerbs"
+   ]
+  },
+  {
+   "id": "food:kefir",
+   "kind": "food",
+   "title": "Kefir",
+   "summary": "A drinkable fermented milk with many strains of microbes.",
+   "why": "Part of the fermented-food diet that raised microbiome diversity in the 2021 Stanford trial. Usually well tolerated by people with lactose intolerance.",
+   "evidence": "Weak",
+   "to": "/nourish#pantry",
+   "exclude_if": [],
+   "cautions": [
+    "Choose plain to avoid added sugar."
+   ],
+   "care_if": []
+  },
+  {
+   "id": "food:kimchi",
+   "kind": "food",
+   "title": "Kimchi",
+   "summary": "Spicy fermented cabbage, a Korean staple.",
+   "why": "A fermented food with live microbes; part of the 2021 Stanford trial diet. Research on specific health effects is early.",
+   "evidence": "Weak",
+   "to": "/nourish#pantry",
+   "exclude_if": [],
+   "cautions": [
+    "High in sodium. A little goes a long way if you watch salt."
+   ],
+   "care_if": []
+  },
+  {
+   "id": "food:kombucha",
+   "kind": "food",
+   "title": "Kombucha",
+   "summary": "Fizzy fermented tea. Popular, with almost no human research.",
+   "why": "A lower-sugar alternative to soda. Health claims are based mainly on lab and animal studies.",
+   "evidence": "Weak",
+   "to": "/nourish#pantry",
+   "exclude_if": [],
+   "cautions": [
+    "Contains a little alcohol and caffeine.",
+    "Home brewing can grow harmful microbes; follow tested methods.",
+    "Not recommended in pregnancy or for people with weakened immune systems."
+   ],
+   "care_if": []
+  },
+  {
+   "id": "food:leafy-greens",
+   "kind": "food",
+   "title": "Kale and collards",
+   "summary": "Dark leafy greens: fiber, folate, vitamin K and nitrate.",
+   "why": "Dietary nitrate from leafy greens and beets modestly lowers blood pressure in trials. Higher vegetable intake is linked with lower heart disease risk in large cohorts.",
+   "evidence": "Moderate",
+   "to": "/nourish#pantry",
+   "exclude_if": [],
+   "cautions": [
+    "Large amounts of vitamin K can change how warfarin works. If you take it, keep your intake steady and tell your clinician."
+   ],
+   "care_if": [
+    "careHerbs"
+   ]
+  },
+  {
+   "id": "food:lemon-balm",
+   "kind": "food",
+   "title": "Lemon balm tea",
+   "summary": "A lemony mint-family herb, used for relaxation and sleep.",
+   "why": "A few small trials suggest relaxing effects, often in blends with valerian. Better studies are needed.",
+   "evidence": "Weak",
+   "to": "/nourish#pantry",
+   "exclude_if": [],
+   "cautions": [
+    "May add to the effect of sedatives and thyroid medicine.",
+    "Pregnant, breastfeeding, on prescription medicine, or managing a health condition? Check with a clinician or pharmacist before using it as a remedy."
+   ],
+   "care_if": [
+    "careHerbs"
+   ]
+  },
+  {
+   "id": "food:lentils",
+   "kind": "food",
+   "title": "Lentils",
+   "summary": "Fast-cooking, cheap, and packed with protein and fiber.",
+   "why": "About one serving of beans, peas or lentils a day lowered LDL cholesterol in a meta-analysis of trials. Legumes are a daily staple in every Blue Zone.",
+   "evidence": "Strong",
+   "to": "/nourish#pantry",
+   "exclude_if": [],
+   "cautions": [
+    "Increase slowly if you're not used to fiber, and drink water with it."
+   ],
+   "care_if": []
+  },
+  {
+   "id": "food:miso",
+   "kind": "food",
+   "title": "Miso",
+   "summary": "Fermented soybean paste that adds deep savory flavor.",
+   "why": "A fermented food, but cooking or boiling it kills the live microbes. Adds savory depth with a small amount.",
+   "evidence": "Weak",
+   "to": "/nourish#pantry",
+   "exclude_if": [],
+   "cautions": [
+    "Very high in sodium."
+   ],
+   "care_if": []
+  },
+  {
+   "id": "food:moringa",
+   "kind": "food",
+   "title": "Moringa leaf",
+   "summary": "A nutrient-dense leaf from a fast-growing tropical tree, usually sold as a powder.",
+   "why": "The leaves are rich in vitamins and minerals. Human trials for blood sugar and other claims are small and early.",
+   "evidence": "Weak",
+   "to": "/nourish#pantry",
+   "exclude_if": [],
+   "cautions": [
+    "Avoid the root and bark, especially in pregnancy.",
+    "May lower blood sugar and blood pressure.",
+    "Sold as a supplement, which the FDA doesn't check for purity or strength before sale. If you buy one, look for a USP or NSF seal.",
+    "Pregnant, breastfeeding, on prescription medicine, or managing a health condition? Check with a clinician or pharmacist before using it as a remedy."
+   ],
+   "care_if": [
+    "careHerbs"
+   ]
+  },
+  {
+   "id": "food:nettle",
+   "kind": "food",
+   "title": "Stinging nettle",
+   "summary": "A wild green that loses its sting when cooked. Tastes like earthy spinach.",
+   "why": "Nutritious as a cooked green. Studied for hay fever and enlarged prostate, with small and mixed results.",
+   "evidence": "Weak",
+   "to": "/nourish#pantry",
+   "exclude_if": [],
+   "cautions": [
+    "Raw leaves sting. Wear gloves when handling.",
+    "May affect blood pressure, blood sugar and diuretic medicines.",
+    "Pregnant, breastfeeding, on prescription medicine, or managing a health condition? Check with a clinician or pharmacist before using it as a remedy."
+   ],
+   "care_if": [
+    "careHerbs"
+   ]
+  },
+  {
+   "id": "food:oats",
+   "kind": "food",
+   "title": "Oats",
+   "summary": "One of the few foods with an FDA-authorized heart health claim.",
+   "why": "Beta-glucan, the soluble fiber in oats, lowers LDL cholesterol. The FDA allows a heart-health claim at 3 g of beta-glucan a day (about 1.5 cups of cooked oatmeal). High-fiber diets (25 to 29 g a day) are linked to 15 to 30% lower risk of heart disease, stroke, type 2 diabetes and colorectal cancer (Lancet, 2019).",
+   "evidence": "Strong",
+   "to": "/nourish#pantry",
+   "exclude_if": [],
+   "cautions": [
+    "If you have celiac disease, buy oats labelled gluten-free."
+   ],
+   "care_if": []
+  },
+  {
+   "id": "food:peppermint",
+   "kind": "food",
+   "title": "Peppermint tea",
+   "summary": "Refreshing and caffeine-free. Peppermint oil capsules have real evidence for IBS.",
+   "why": "Enteric-coated peppermint oil capsules may ease irritable bowel syndrome symptoms (NCCIH). The tea is much weaker, but many people find it soothing after meals.",
+   "evidence": "Moderate",
+   "to": "/nourish#pantry",
+   "exclude_if": [],
+   "cautions": [
+    "Can worsen heartburn and acid reflux.",
+    "Pregnant, breastfeeding, on prescription medicine, or managing a health condition? Check with a clinician or pharmacist before using it as a remedy."
+   ],
+   "care_if": [
+    "careHerbs"
+   ]
+  },
+  {
+   "id": "food:pumpkin-seeds",
+   "kind": "food",
+   "title": "Pumpkin seeds",
+   "summary": "One of the richest food sources of magnesium.",
+   "why": "About 150 mg of magnesium per ounce, more than a third of the daily need for most adults (NIH). Food sources of magnesium have no upper limit; the 350 mg limit applies only to supplements.",
+   "evidence": "Moderate",
+   "to": "/nourish#pantry",
+   "exclude_if": [],
+   "cautions": [
+    "None for most people."
+   ],
+   "care_if": []
+  },
+  {
+   "id": "food:quinoa",
+   "kind": "food",
+   "title": "Quinoa",
+   "summary": "A quick-cooking whole grain with complete protein.",
+   "why": "Contains all essential amino acids, plus fiber and magnesium. Whole grains in place of refined grains are linked to lower disease risk.",
+   "evidence": "Moderate",
+   "to": "/nourish#pantry",
+   "exclude_if": [],
+   "cautions": [
+    "Rinse it to remove its bitter coating (saponins)."
+   ],
+   "care_if": []
+  },
+  {
+   "id": "food:raw-honey",
+   "kind": "food",
+   "title": "Raw honey",
+   "summary": "A sweetener with a real use: soothing coughs in children over one.",
+   "why": "A Cochrane review found honey may ease cough symptoms in children better than no treatment.",
+   "evidence": "Moderate",
+   "to": "/nourish#pantry",
+   "exclude_if": [],
+   "cautions": [
+    "Never give honey to babies under 12 months. It can cause infant botulism.",
+    "It's still sugar, so be mindful if you're managing blood sugar."
+   ],
+   "care_if": []
+  },
+  {
+   "id": "food:rooibos",
+   "kind": "food",
+   "title": "Rooibos tea",
+   "summary": "A naturally caffeine-free red tea from South Africa. Good for evenings.",
+   "why": "Caffeine-free and low in tannins. Antioxidant claims come mostly from lab studies; human research is limited.",
+   "evidence": "Weak",
+   "to": "/nourish#pantry",
+   "exclude_if": [],
+   "cautions": [
+    "Generally considered safe as a drink."
+   ],
+   "care_if": []
+  },
+  {
+   "id": "food:salmon",
+   "kind": "food",
+   "title": "Salmon",
+   "summary": "Omega-3 rich fish. The American Heart Association recommends two servings of fish a week.",
+   "why": "Eating fish once or twice a week is linked to lower risk of heart disease death (AHA science advisory). Rich in EPA and DHA omega-3s, protein and vitamin D.",
+   "evidence": "Moderate",
+   "to": "/nourish#pantry",
+   "exclude_if": [],
+   "cautions": [
+    "Salmon is low in mercury and on the FDA's 'best choices' list."
+   ],
+   "care_if": []
+  },
+  {
+   "id": "food:sardines",
+   "kind": "food",
+   "title": "Sardines",
+   "summary": "Small, cheap, low in mercury, and loaded with omega-3s and calcium.",
+   "why": "Among the richest sources of omega-3s. Eaten with their soft bones, they're a good calcium source.",
+   "evidence": "Moderate",
+   "to": "/nourish#pantry",
+   "exclude_if": [],
+   "cautions": [
+    "Low in mercury (FDA 'best choices'). Canned can be salty; check labels."
+   ],
+   "care_if": []
+  },
+  {
+   "id": "food:sauerkraut",
+   "kind": "food",
+   "title": "Sauerkraut",
+   "summary": "Fermented cabbage. Only the refrigerated kind has live cultures.",
+   "why": "A fermented food with live microbes, when unpasteurized. Easy to make at home with cabbage and salt.",
+   "evidence": "Weak",
+   "to": "/nourish#pantry",
+   "exclude_if": [],
+   "cautions": [
+    "High in sodium.",
+    "Shelf-stable jars are pasteurized, so the microbes are gone."
+   ],
+   "care_if": []
+  },
+  {
+   "id": "food:sea-moss",
+   "kind": "food",
+   "title": "Sea moss",
+   "summary": "A red seaweed that's popular online, with very little research in people.",
+   "why": "Contains some minerals and fiber like other seaweeds. Popular claims about '92 minerals', immunity and thyroid health have little human research behind them.",
+   "evidence": "Weak",
+   "to": "/nourish#pantry",
+   "exclude_if": [],
+   "cautions": [
+    "Iodine content varies a lot and can be very high, which can upset your thyroid.",
+    "Seaweed can carry heavy metals. Buy brands that publish lab testing.",
+    "Ask your clinician first if you have a thyroid condition."
+   ],
+   "care_if": [
+    "careHerbs"
+   ]
+  },
+  {
+   "id": "food:shiitake",
+   "kind": "food",
+   "title": "Shiitake mushrooms",
+   "summary": "Savory, meaty mushrooms with a small amount of immune research.",
+   "why": "One small trial found changes in immune markers after daily shiitake. It's early research. Adds deep savory flavor, so you need less salt.",
+   "evidence": "Weak",
+   "to": "/nourish#pantry",
+   "exclude_if": [],
+   "cautions": [
+    "Cook them well. Raw or undercooked shiitake can cause an itchy, streaky rash in some people."
+   ],
+   "care_if": []
+  },
+  {
+   "id": "food:spinach",
+   "kind": "food",
+   "title": "Spinach",
+   "summary": "An easy green that disappears into almost anything.",
+   "why": "A source of folate, vitamin K, magnesium and nitrate. Nitrate-rich vegetables modestly lower blood pressure.",
+   "evidence": "Moderate",
+   "to": "/nourish#pantry",
+   "exclude_if": [],
+   "cautions": [
+    "High in oxalate. If you've had calcium-oxalate kidney stones, ask about portion sizes.",
+    "Large amounts of vitamin K can change how warfarin works. If you take it, keep your intake steady and tell your clinician."
+   ],
+   "care_if": [
+    "careHerbs"
+   ]
+  },
+  {
+   "id": "food:sweet-potato",
+   "kind": "food",
+   "title": "Sweet potato",
+   "summary": "Fiber, potassium and lots of beta-carotene.",
+   "why": "One medium sweet potato covers more than a day's vitamin A, as beta-carotene (USDA). Fiber-rich whole foods are linked to lower disease risk.",
+   "evidence": "Moderate",
+   "to": "/nourish#pantry",
+   "exclude_if": [],
+   "cautions": [
+    "None for most people."
+   ],
+   "care_if": []
+  },
+  {
+   "id": "food:tulsi",
+   "kind": "food",
+   "title": "Holy basil",
+   "summary": "A fragrant basil sacred in Hinduism, now popular as a relaxing tea.",
+   "why": "A few small trials suggest it may help with stress, but they're small and short. A pleasant, caffeine-free tea.",
+   "evidence": "Weak",
+   "to": "/nourish#pantry",
+   "exclude_if": [],
+   "cautions": [
+    "Avoid in pregnancy or if trying to conceive; animal studies raise questions.",
+    "Pregnant, breastfeeding, on prescription medicine, or managing a health condition? Check with a clinician or pharmacist before using it as a remedy."
+   ],
+   "care_if": [
+    "careHerbs"
+   ]
+  },
+  {
+   "id": "food:turmeric",
+   "kind": "food",
+   "title": "Turmeric",
+   "summary": "The golden spice in curry. Hugely popular, though the research is weaker than the hype.",
+   "why": "Curcumin, its main compound, is studied for joint pain and inflammation, with mixed and mostly small trials. Curcumin is poorly absorbed on its own. Black pepper and fat increase absorption. As a spice in food, it's safe and flavorful. The case for high-dose supplements isn't settled.",
+   "evidence": "Mixed",
+   "to": "/nourish#pantry",
+   "exclude_if": [],
+   "cautions": [
+    "Turmeric supplements have been linked to rare cases of liver injury (NCCIH). This hasn't been seen with turmeric in food.",
+    "Supplements may interact with blood thinners and diabetes medicine.",
+    "Sold as a supplement, which the FDA doesn't check for purity or strength before sale. If you buy one, look for a USP or NSF seal.",
+    "Pregnant, breastfeeding, on prescription medicine, or managing a health condition? Check with a clinician or pharmacist before using it as a remedy."
+   ],
+   "care_if": [
+    "careHerbs"
+   ]
+  },
+  {
+   "id": "food:valerian",
+   "kind": "food",
+   "title": "Valerian root tea",
+   "summary": "An old sleep remedy. Strong smell, mixed evidence.",
+   "why": "Studies on sleep are inconsistent; some people report it helps them fall asleep (NCCIH).",
+   "evidence": "Mixed",
+   "to": "/nourish#pantry",
+   "exclude_if": [],
+   "cautions": [
+    "Don't combine with alcohol, sleep aids or other sedatives, or drive after taking it.",
+    "Not recommended in pregnancy or for children under 3.",
+    "Pregnant, breastfeeding, on prescription medicine, or managing a health condition? Check with a clinician or pharmacist before using it as a remedy."
+   ],
+   "care_if": [
+    "careHerbs"
+   ]
+  },
+  {
+   "id": "food:walnuts",
+   "kind": "food",
+   "title": "Walnuts",
+   "summary": "The nut highest in plant omega-3 (ALA).",
+   "why": "In PREDIMED, a Mediterranean diet with a daily handful of mixed nuts (half walnuts) cut major heart events by about 30% versus a low-fat diet. Rich in ALA, a plant omega-3.",
+   "evidence": "Moderate",
+   "to": "/nourish#pantry",
+   "exclude_if": [],
+   "cautions": [
+    "Tree nut allergy."
+   ],
+   "care_if": []
+  },
+  {
+   "id": "food:yogurt",
+   "kind": "food",
+   "title": "Plain yogurt",
+   "summary": "Protein, calcium and live cultures.",
+   "why": "In 2024 the FDA allowed a qualified claim that eating yogurt regularly may reduce type 2 diabetes risk (limited evidence). In a 10-week trial, a diet high in fermented foods increased gut microbiome diversity and lowered inflammation markers.",
+   "evidence": "Moderate",
+   "to": "/nourish#pantry",
+   "exclude_if": [],
+   "cautions": [
+    "Choose plain; flavored yogurts can have as much sugar as dessert.",
+    "Look for 'live and active cultures' on the label."
+   ],
+   "care_if": []
+  },
+  {
+   "id": "move:bedtime",
+   "kind": "movement",
+   "title": "Bedtime stretch",
+   "summary": "Stretching, 5 min. In bed or on the floor, with the lights low.",
+   "minutes": 5,
+   "to": "/move?open=bedtime",
+   "exclude_if": [
+    "seated"
+   ],
+   "cautions": [],
+   "goals": [
+    "sleep"
+   ]
+  },
+  {
+   "id": "move:brocades",
+   "kind": "movement",
+   "title": "Qigong: Eight Brocades, part one",
+   "summary": "Qigong, 5 min. Morning energy without strain. The first four movements of Ba Duan Jin.",
+   "minutes": 5,
+   "to": "/move?open=brocades",
+   "exclude_if": [
+    "seated"
+   ],
+   "cautions": [],
+   "goals": [
+    "energize"
+   ]
+  },
+  {
+   "id": "move:desk",
+   "kind": "movement",
+   "title": "Desk reset",
+   "summary": "Stretching, 3 min. Every hour or two of sitting. No need to stand up.",
+   "minutes": 3,
+   "to": "/move?open=desk",
+   "exclude_if": [],
+   "cautions": [],
+   "goals": [
+    "focus"
+   ]
+  },
+  {
+   "id": "move:taichi",
+   "kind": "movement",
+   "title": "Tai chi basics",
+   "summary": "Tai chi, 5 min. Standing, any time. Slow and smooth is the whole point.",
+   "minutes": 5,
+   "to": "/move?open=taichi",
+   "exclude_if": [
+    "seated"
+   ],
+   "cautions": [],
+   "goals": [
+    "meditate"
+   ]
+  },
+  {
+   "id": "move:wake",
+   "kind": "movement",
+   "title": "Morning wake-up",
+   "summary": "Stretching, 4 min. Right after you get up, ideally near a window.",
+   "minutes": 4,
+   "to": "/move?open=wake",
+   "exclude_if": [
+    "seated"
+   ],
+   "cautions": [],
+   "goals": [
+    "energize"
+   ]
+  },
+  {
+   "id": "move:walk",
+   "kind": "movement",
+   "title": "After-meal walk",
+   "summary": "Walking, 10 min. After your biggest meal. Even two minutes blunts the blood sugar spike.",
+   "minutes": 10,
+   "to": "/move?open=walk",
+   "exclude_if": [
+    "seated"
+   ],
+   "cautions": [],
+   "goals": []
+  },
+  {
+   "id": "move:yoga",
+   "kind": "movement",
+   "title": "Gentle yoga flow",
+   "summary": "Yoga, 8 min. Morning or evening, on a mat or carpet. Beginner friendly.",
+   "minutes": 8,
+   "to": "/move?open=yoga",
+   "exclude_if": [
+    "seated"
+   ],
+   "cautions": [],
+   "goals": [
+    "relax"
+   ]
+  },
+  {
+   "id": "program:fiber-7",
+   "kind": "program",
+   "title": "7 Days to More Fiber",
+   "summary": "Small swaps toward 25 to 29 grams a day. 7 days.",
+   "why": "Most adults eat about half the fiber linked to the biggest health benefits. One small, tasty swap a day, the science behind it, and a shopping list that builds itself.",
+   "evidence": "Strong",
+   "to": "/program/fiber-7",
+   "exclude_if": [],
+   "cautions": [],
+   "goals": []
+  },
+  {
+   "id": "program:gratitude-5",
+   "kind": "program",
+   "title": "5 Days of Gratitude",
+   "summary": "Notice the good and reach out to the people who matter. 5 days.",
+   "why": "Five short practices from positive psychology: three good things, savoring, a thank-you to someone in your life, a loving-kindness meditation, and a plan to keep it going. The research suggests modest benefits for mood. About 5 to 7 minutes a day.",
+   "evidence": "Mixed",
+   "to": "/program/gratitude-5",
+   "exclude_if": [],
+   "cautions": [],
+   "goals": []
+  },
+  {
+   "id": "program:mornings-5",
+   "kind": "program",
+   "title": "5 Gentle Mornings",
+   "summary": "Wake up your body in about 10 minutes a day. 5 days.",
+   "why": "Five mornings, five ways to start the day: daylight, water, gentle movement and breath. No equipment, no gym, nothing strenuous. About 10 minutes each.",
+   "evidence": "Moderate",
+   "to": "/program/mornings-5",
+   "exclude_if": [],
+   "cautions": [],
+   "goals": []
+  },
+  {
+   "id": "program:move-10",
+   "kind": "program",
+   "title": "10 Days of Yoga & Stretch",
+   "summary": "Gentle mobility basics, about 10 minutes a day. 10 days.",
+   "why": "Ten short sessions to loosen up and build an easy daily habit: morning stretches, gentle yoga, a desk reset, tai chi, qigong and a bedtime stretch. Nothing strenuous. If you've told us you have limited mobility, every routine switches to a seated version. About 7 to 10 minutes a day.",
+   "evidence": "Moderate",
+   "to": "/program/move-10",
+   "exclude_if": [],
+   "cautions": [],
+   "goals": []
+  },
+  {
+   "id": "program:relax-7",
+   "kind": "program",
+   "title": "7 Days to Relax",
+   "summary": "A few minutes a day to retrain how you respond to stress. 7 days.",
+   "why": "One short lesson a day. You'll learn why slow breathing works, practice the five most useful techniques, and finish knowing which one works best for you. About 5 minutes a day.",
+   "evidence": "Moderate",
+   "to": "/program/relax-7",
+   "exclude_if": [],
+   "cautions": [],
+   "goals": []
+  },
+  {
+   "id": "program:sleep-7",
+   "kind": "program",
+   "title": "7 Nights of Better Sleep",
+   "summary": "Light, timing and a more relaxed wind-down, one habit a night. 7 days.",
+   "why": "Seven short lessons on the habits most linked to better sleep: morning light, a caffeine cutoff, a wind-down routine, slow breathing in bed, a cool dark bedroom, parking your worries, and what sleep researchers teach about using your bed for sleep. This is education, not treatment. About 5 to 8 minutes a day.",
+   "evidence": "Moderate",
+   "to": "/program/sleep-7",
+   "exclude_if": [],
+   "cautions": [],
+   "goals": []
+  },
+  {
+   "id": "recipe:black-bean-tacos",
+   "kind": "recipe",
+   "title": "Black bean tacos with avocado",
+   "summary": "Fifteen minutes, crunchy slaw, no oven. 15 min.",
+   "why": "Black beans have about 15 grams of fiber per cooked cup, and pulses lower LDL cholesterol in trials. Avocado adds mostly unsaturated fat, the kind linked to better heart health.",
+   "evidence": "Strong",
+   "minutes": 15,
+   "to": "/nourish#recipes",
+   "exclude_if": [],
+   "cautions": [
+    "Canned beans, broth and sauces can be salty. Rinse beans and choose low-sodium versions if you're watching salt.",
+    "New to beans or lots of fiber? Start with smaller portions and drink water; your gut adjusts in a few weeks."
+   ],
+   "allergens": []
+  },
+  {
+   "id": "recipe:ginger-turmeric-dal",
+   "kind": "recipe",
+   "title": "Ginger-turmeric red lentil dal",
+   "summary": "Red lentils melt into a cozy, golden stew. 30 min.",
+   "why": "The proven benefit here is from the lentils: pulses lower LDL cholesterol in trials. Ginger and turmeric add flavor; research on curcumin for inflammation is mixed and mostly uses supplements, so treat the spices as taste, not treatment. Black pepper and oil help the body absorb curcumin.",
+   "evidence": "Strong",
+   "minutes": 30,
+   "to": "/nourish#recipes",
+   "exclude_if": [],
+   "cautions": [
+    "Turmeric and ginger here are normal cooking amounts. The Pantry's cautions about blood thinners and liver effects are about turmeric supplements, not food.",
+    "Leafy greens are high in vitamin K. If you take warfarin, keep how much you eat steady from week to week and tell your clinician.",
+    "New to beans or lots of fiber? Start with smaller portions and drink water; your gut adjusts in a few weeks."
+   ],
+   "allergens": []
+  },
+  {
+   "id": "recipe:greek-chickpea-salad",
+   "kind": "recipe",
+   "title": "Greek salad with chickpeas",
+   "summary": "No cooking. A big bowl in about 15 minutes. 15 min.",
+   "why": "This is a Mediterranean-style meal: vegetables, legumes and extra virgin olive oil. In the PREDIMED trial, a Mediterranean diet with extra olive oil lowered major cardiovascular events compared with a lower-fat diet.",
+   "evidence": "Strong",
+   "minutes": 15,
+   "to": "/nourish#recipes",
+   "exclude_if": [],
+   "cautions": [
+    "Canned beans, broth and sauces can be salty. Rinse beans and choose low-sodium versions if you're watching salt.",
+    "Olives and feta are salty, so you may not need extra salt."
+   ],
+   "allergens": [
+    "dairy"
+   ]
+  },
+  {
+   "id": "recipe:kinpira-gobo",
+   "kind": "recipe",
+   "title": "Burdock & carrot kinpira",
+   "summary": "A classic Japanese side: sweet, salty and crunchy. 20 min.",
+   "why": "Burdock is rich in inulin, a prebiotic fiber that feeds gut bacteria. Studies of burdock itself in people are few; the reliable benefit is the fiber, the same as other vegetables. Claims that it 'purifies the blood' aren't supported; your liver and kidneys do that job.",
+   "evidence": "Weak",
+   "minutes": 20,
+   "to": "/nourish#recipes",
+   "exclude_if": [],
+   "cautions": [
+    "Buy burdock at a store, don't forage it: wild burdock can be confused with toxic plants.",
+    "Burdock may lower blood sugar. If you take diabetes medicine, watch your levels.",
+    "Soy sauce contains wheat; use tamari labelled gluten-free if needed.",
+    "Inulin can cause gas at first. Start with a small serving."
+   ],
+   "allergens": [
+    "soy",
+    "gluten",
+    "sesame"
+   ]
+  },
+  {
+   "id": "recipe:lentil-soup",
+   "kind": "recipe",
+   "title": "Weeknight lentil soup",
+   "summary": "One pot, pantry staples, even better the next day. 30 min.",
+   "why": "About one serving of beans, peas or lentils a day lowered LDL cholesterol in a meta-analysis of trials, and lentils bring protein and fiber together. Half the pot is vegetables, which matches the plate model.",
+   "evidence": "Strong",
+   "minutes": 30,
+   "to": "/nourish#recipes",
+   "exclude_if": [],
+   "cautions": [
+    "Leafy greens are high in vitamin K. If you take warfarin, keep how much you eat steady from week to week and tell your clinician.",
+    "Canned beans, broth and sauces can be salty. Rinse beans and choose low-sodium versions if you're watching salt.",
+    "New to beans or lots of fiber? Start with smaller portions and drink water; your gut adjusts in a few weeks."
+   ],
+   "allergens": []
+  },
+  {
+   "id": "recipe:minestrone",
+   "kind": "recipe",
+   "title": "Quick minestrone",
+   "summary": "Beans, greens and a little pasta in one pot. 30 min.",
+   "why": "Eating more vegetables and fruit is linked to lower risk of heart disease and early death in a large meta-analysis, with benefits up to about 800 g a day. Beans and whole wheat pasta add fiber and protein.",
+   "evidence": "Moderate",
+   "minutes": 30,
+   "to": "/nourish#recipes",
+   "exclude_if": [],
+   "cautions": [
+    "Leafy greens are high in vitamin K. If you take warfarin, keep how much you eat steady from week to week and tell your clinician.",
+    "Canned beans, broth and sauces can be salty. Rinse beans and choose low-sodium versions if you're watching salt."
+   ],
+   "allergens": [
+    "gluten"
+   ]
+  },
+  {
+   "id": "recipe:miso-greens-soup",
+   "kind": "recipe",
+   "title": "Miso soup with greens & shiitake",
+   "summary": "Ten minutes to a warm, savory bowl. 10 min.",
+   "why": "Miso is a fermented food. In a 10-week Stanford trial, eating more fermented foods increased gut microbiome diversity and lowered some inflammation markers. Cooking reduces live microbes, so stirring miso in off the heat keeps more of them; the evidence for miso specifically is limited.",
+   "evidence": "Weak",
+   "minutes": 10,
+   "to": "/nourish#recipes",
+   "exclude_if": [],
+   "cautions": [
+    "Miso is very high in sodium. If you're watching salt, use less and add more mushrooms for flavor.",
+    "Leafy greens are high in vitamin K. If you take warfarin, keep how much you eat steady from week to week and tell your clinician."
+   ],
+   "allergens": [
+    "soy"
+   ]
+  },
+  {
+   "id": "recipe:overnight-oats",
+   "kind": "recipe",
+   "title": "Overnight oats with berries & chia",
+   "summary": "Stir it together at night, grab it in the morning. 5 min.",
+   "why": "Oats carry beta-glucan, the soluble fiber behind an FDA-authorized heart-health claim, and chia and berries add more fiber. Eating more fiber and whole grains is linked to lower risk of heart disease and type 2 diabetes in large reviews. Yogurt with live cultures is a fermented food.",
+   "evidence": "Strong",
+   "minutes": 5,
+   "to": "/nourish#recipes",
+   "exclude_if": [],
+   "cautions": [
+    "Oats are naturally gluten-free but often cross-contaminated. If you have celiac disease, buy oats labelled gluten-free.",
+    "Chia swells a lot in liquid; give it time to soak and drink water with it."
+   ],
+   "allergens": [
+    "dairy"
+   ]
+  },
+  {
+   "id": "recipe:sheet-pan-salmon",
+   "kind": "recipe",
+   "title": "Sheet-pan salmon (or tofu) with greens",
+   "summary": "Everything on one tray, about 25 minutes. 25 min.",
+   "why": "Fatty fish like salmon is the richest food source of the omega-3s EPA and DHA. The American Heart Association recommends one to two seafood meals a week, based on lower cardiovascular risk in studies, and salmon is on the FDA's low-mercury 'best choices' list.",
+   "evidence": "Moderate",
+   "minutes": 25,
+   "to": "/nourish#recipes",
+   "exclude_if": [],
+   "cautions": [
+    "Contains fish. The tofu version contains soy instead.",
+    "Leafy greens are high in vitamin K. If you take warfarin, keep how much you eat steady from week to week and tell your clinician."
+   ],
+   "allergens": [
+    "fish"
+   ]
+  },
+  {
+   "id": "recipe:sweet-potato-kale-bowl",
+   "kind": "recipe",
+   "title": "Roasted sweet potato & kale bowl",
+   "summary": "Crispy chickpeas, quinoa and a lemony tahini drizzle. 30 min.",
+   "why": "Built on the plate model: half vegetables, a quarter whole grains, a quarter protein, with olive oil. Chickpeas are a pulse, which lower LDL cholesterol in trials, and sweet potatoes are rich in beta-carotene and fiber.",
+   "evidence": "Strong",
+   "minutes": 30,
+   "to": "/nourish#recipes",
+   "exclude_if": [],
+   "cautions": [
+    "Tahini is made from sesame.",
+    "Leafy greens are high in vitamin K. If you take warfarin, keep how much you eat steady from week to week and tell your clinician.",
+    "New to beans or lots of fiber? Start with smaller portions and drink water; your gut adjusts in a few weeks."
+   ],
+   "allergens": [
+    "sesame"
+   ]
+  },
+  {
+   "id": "recipe:veggie-stir-fry",
+   "kind": "recipe",
+   "title": "Veggie stir-fry with brown rice",
+   "summary": "Use whatever vegetables are in the fridge. 25 min.",
+   "why": "Swapping refined grains for whole grains like brown rice is linked to lower risk of heart disease and type 2 diabetes in a large Lancet review. Tofu or edamame adds plant protein, and the plate is about half vegetables.",
+   "evidence": "Strong",
+   "minutes": 25,
+   "to": "/nourish#recipes",
+   "exclude_if": [],
+   "cautions": [
+    "Soy sauce contains wheat; use tamari labelled gluten-free if needed.",
+    "Canned beans, broth and sauces can be salty. Rinse beans and choose low-sodium versions if you're watching salt."
+   ],
+   "allergens": [
+    "soy",
+    "gluten"
+   ]
+  },
+  {
+   "id": "recipe:yogurt-parfait",
+   "kind": "recipe",
+   "title": "Yogurt parfait with walnuts",
+   "summary": "Layer it in a glass in five minutes. 5 min.",
+   "why": "Yogurt with live cultures is a fermented food, and walnuts and flaxseed are among the richest plant sources of omega-3 ALA. In the PREDIMED trial, a Mediterranean diet with daily nuts lowered cardiovascular events.",
+   "evidence": "Moderate",
+   "minutes": 5,
+   "to": "/nourish#recipes",
+   "exclude_if": [],
+   "cautions": [
+    "Contains tree nuts (walnuts).",
+    "Never give honey to babies under 12 months; it can cause infant botulism.",
+    "Choose plain yogurt; flavored ones can be very sugary."
+   ],
+   "allergens": [
+    "dairy",
+    "nuts"
+   ]
+  },
+  {
+   "id": "session:afternoon-lift",
+   "kind": "sound",
+   "title": "Afternoon Lift",
+   "summary": "Beat the post-lunch slump. 20 min, beta.",
+   "minutes": 20,
+   "to": "/title/afternoon-lift",
+   "exclude_if": [],
+   "cautions": [
+    "Use headphones at a low volume. Not while driving. Check with a doctor first if you have epilepsy."
+   ],
+   "goals": [
+    "energize"
+   ]
+  },
+  {
+   "id": "session:alpha-shore",
+   "kind": "sound",
+   "title": "Alpha Shore",
+   "summary": "The classic 10 Hz relaxation beat. 30 min, alpha.",
+   "minutes": 30,
+   "to": "/title/alpha-shore",
+   "exclude_if": [],
+   "cautions": [
+    "Use headphones at a low volume. Not while driving. Check with a doctor first if you have epilepsy."
+   ],
+   "goals": [
+    "relax"
+   ]
+  },
+  {
+   "id": "session:attention-40",
+   "kind": "sound",
+   "title": "Attention 40",
+   "summary": "The much-studied 40 Hz rhythm. 30 min, gamma.",
+   "minutes": 30,
+   "to": "/title/attention-40",
+   "exclude_if": [],
+   "cautions": [
+    "Use headphones at a low volume. Not while driving. Check with a doctor first if you have epilepsy."
+   ],
+   "goals": [
+    "focus"
+   ]
+  },
+  {
+   "id": "session:body-scan",
+   "kind": "sound",
+   "title": "Body Scan",
+   "summary": "Move attention slowly from feet to crown. 25 min, theta.",
+   "minutes": 25,
+   "to": "/title/body-scan",
+   "exclude_if": [],
+   "cautions": [
+    "Use headphones at a low volume. Not while driving. Check with a doctor first if you have epilepsy."
+   ],
+   "goals": [
+    "meditate"
+   ]
+  },
+  {
+   "id": "session:breath-of-earth",
+   "kind": "sound",
+   "title": "Breath of Earth",
+   "summary": "A low 136.1 Hz carrier under deep theta. 30 min, theta.",
+   "minutes": 30,
+   "to": "/title/breath-of-earth",
+   "exclude_if": [],
+   "cautions": [
+    "Use headphones at a low volume. Not while driving. Check with a doctor first if you have epilepsy."
+   ],
+   "goals": [
+    "meditate"
+   ]
+  },
+  {
+   "id": "session:bright-spark",
+   "kind": "sound",
+   "title": "Bright Spark",
+   "summary": "Ten minutes of high beta. 10 min, beta.",
+   "minutes": 10,
+   "to": "/title/bright-spark",
+   "exclude_if": [],
+   "cautions": [
+    "Use headphones at a low volume. Not while driving. Check with a doctor first if you have epilepsy."
+   ],
+   "goals": [
+    "energize"
+   ]
+  },
+  {
+   "id": "session:clarity-741",
+   "kind": "sound",
+   "title": "Clarity 741",
+   "summary": "Beta with a 741 Hz tone. 30 min, beta.",
+   "minutes": 30,
+   "to": "/title/clarity-741",
+   "exclude_if": [],
+   "cautions": [
+    "Use headphones at a low volume. Not while driving. Check with a doctor first if you have epilepsy."
+   ],
+   "goals": [
+    "focus"
+   ]
+  },
+  {
+   "id": "session:cloud-harbor",
+   "kind": "sound",
+   "title": "Cloud Harbor",
+   "summary": "A soft landing at the end of a long day. 30 min, delta.",
+   "minutes": 30,
+   "to": "/title/cloud-harbor",
+   "exclude_if": [],
+   "cautions": [
+    "Use headphones at a low volume. Not while driving. Check with a doctor first if you have epilepsy."
+   ],
+   "goals": [
+    "sleep"
+   ]
+  },
+  {
+   "id": "session:code-zone",
+   "kind": "sound",
+   "title": "Code Zone",
+   "summary": "Ninety minutes of mid beta. 90 min, beta.",
+   "minutes": 90,
+   "to": "/title/code-zone",
+   "exclude_if": [],
+   "cautions": [
+    "Use headphones at a low volume. Not while driving. Check with a doctor first if you have epilepsy."
+   ],
+   "goals": [
+    "focus"
+   ]
+  },
+  {
+   "id": "session:compassion-gamma",
+   "kind": "sound",
+   "title": "Compassion Gamma",
+   "summary": "A fast gamma beat for open-hearted practice. 20 min, gamma.",
+   "minutes": 20,
+   "to": "/title/compassion-gamma",
+   "exclude_if": [],
+   "cautions": [
+    "Use headphones at a low volume. Not while driving. Check with a doctor first if you have epilepsy."
+   ],
+   "goals": [
+    "meditate"
+   ]
+  },
+  {
+   "id": "session:creative-flow",
+   "kind": "sound",
+   "title": "Creative Flow",
+   "summary": "Alpha for ideas, not deadlines. 45 min, alpha.",
+   "minutes": 45,
+   "to": "/title/creative-flow",
+   "exclude_if": [],
+   "cautions": [
+    "Use headphones at a low volume. Not while driving. Check with a doctor first if you have epilepsy."
+   ],
+   "goals": [
+    "focus"
+   ]
+  },
+  {
+   "id": "session:crystal-cave",
+   "kind": "sound",
+   "title": "Crystal Cave",
+   "summary": "Bright overtones in a dark, still space. 15 min, theta.",
+   "minutes": 15,
+   "to": "/title/crystal-cave",
+   "exclude_if": [],
+   "cautions": [
+    "Use headphones at a low volume. Not while driving. Check with a doctor first if you have epilepsy."
+   ],
+   "goals": [
+    "meditate"
+   ]
+  },
+  {
+   "id": "session:deep-rest",
+   "kind": "sound",
+   "title": "Deep Rest",
+   "summary": "A slow delta bed for winding all the way down. 60 min, delta.",
+   "minutes": 60,
+   "to": "/title/deep-rest",
+   "exclude_if": [],
+   "cautions": [
+    "Use headphones at a low volume. Not while driving. Check with a doctor first if you have epilepsy."
+   ],
+   "goals": [
+    "sleep"
+   ]
+  },
+  {
+   "id": "session:deep-work",
+   "kind": "sound",
+   "title": "Deep Work",
+   "summary": "An hour of steady beta for heads-down work. 60 min, beta.",
+   "minutes": 60,
+   "to": "/title/deep-work",
+   "exclude_if": [],
+   "cautions": [
+    "Use headphones at a low volume. Not while driving. Check with a doctor first if you have epilepsy."
+   ],
+   "goals": [
+    "focus"
+   ]
+  },
+  {
+   "id": "session:dream-gate",
+   "kind": "sound",
+   "title": "Dream Gate",
+   "summary": "Theta for the drifting moments before sleep. 30 min, theta.",
+   "minutes": 30,
+   "to": "/title/dream-gate",
+   "exclude_if": [],
+   "cautions": [
+    "Use headphones at a low volume. Not while driving. Check with a doctor first if you have epilepsy."
+   ],
+   "goals": [
+    "sleep"
+   ]
+  },
+  {
+   "id": "session:earth-resonance",
+   "kind": "sound",
+   "title": "Earth Resonance 7.83",
+   "summary": "A 7.83 Hz beat inspired by the Schumann resonance. 30 min, theta.",
+   "minutes": 30,
+   "to": "/title/earth-resonance",
+   "exclude_if": [],
+   "cautions": [
+    "Use headphones at a low volume. Not while driving. Check with a doctor first if you have epilepsy."
+   ],
+   "goals": [
+    "meditate"
+   ]
+  },
+  {
+   "id": "session:evening-wind-down",
+   "kind": "sound",
+   "title": "Evening Wind-Down",
+   "summary": "A bridge between the day and the night. 30 min, alpha.",
+   "minutes": 30,
+   "to": "/title/evening-wind-down",
+   "exclude_if": [],
+   "cautions": [
+    "Use headphones at a low volume. Not while driving. Check with a doctor first if you have epilepsy."
+   ],
+   "goals": [
+    "relax"
+   ]
+  },
+  {
+   "id": "session:exam-prep",
+   "kind": "sound",
+   "title": "Exam Prep",
+   "summary": "An hour of review, steadied. 60 min, beta.",
+   "minutes": 60,
+   "to": "/title/exam-prep",
+   "exclude_if": [],
+   "cautions": [
+    "Use headphones at a low volume. Not while driving. Check with a doctor first if you have epilepsy."
+   ],
+   "goals": [
+    "focus"
+   ]
+  },
+  {
+   "id": "session:forest-light",
+   "kind": "sound",
+   "title": "Forest Light",
+   "summary": "Dappled alpha with a 639 Hz layer. 25 min, alpha.",
+   "minutes": 25,
+   "to": "/title/forest-light",
+   "exclude_if": [],
+   "cautions": [
+    "Use headphones at a low volume. Not while driving. Check with a doctor first if you have epilepsy."
+   ],
+   "goals": [
+    "relax"
+   ]
+  },
+  {
+   "id": "session:full-sleep-cycle",
+   "kind": "sound",
+   "title": "Full Sleep Cycle",
+   "summary": "Two hours of the slowest beat in the catalog. 120 min, delta.",
+   "minutes": 120,
+   "to": "/title/full-sleep-cycle",
+   "exclude_if": [],
+   "cautions": [
+    "Use headphones at a low volume. Not while driving. Check with a doctor first if you have epilepsy."
+   ],
+   "goals": [
+    "sleep"
+   ]
+  },
+  {
+   "id": "session:gamma-40",
+   "kind": "sound",
+   "title": "Gamma 40",
+   "summary": "Fast, clean, and short. 20 min, gamma.",
+   "minutes": 20,
+   "to": "/title/gamma-40",
+   "exclude_if": [],
+   "cautions": [
+    "Use headphones at a low volume. Not while driving. Check with a doctor first if you have epilepsy."
+   ],
+   "goals": [
+    "energize"
+   ]
+  },
+  {
+   "id": "session:gamma-insight",
+   "kind": "sound",
+   "title": "Gamma Insight",
+   "summary": "A short, bright gamma session. 20 min, gamma.",
+   "minutes": 20,
+   "to": "/title/gamma-insight",
+   "exclude_if": [],
+   "cautions": [
+    "Use headphones at a low volume. Not while driving. Check with a doctor first if you have epilepsy."
+   ],
+   "goals": [
+    "focus"
+   ]
+  },
+  {
+   "id": "session:gentle-current",
+   "kind": "sound",
+   "title": "Gentle Current",
+   "summary": "Relaxed and alert at once. 30 min, alpha.",
+   "minutes": 30,
+   "to": "/title/gentle-current",
+   "exclude_if": [],
+   "cautions": [
+    "Use headphones at a low volume. Not while driving. Check with a doctor first if you have epilepsy."
+   ],
+   "goals": [
+    "relax"
+   ]
+  },
+  {
+   "id": "session:golden-hour",
+   "kind": "sound",
+   "title": "Golden Hour",
+   "summary": "Warm light, slow breath, loose shoulders. 20 min, alpha.",
+   "minutes": 20,
+   "to": "/title/golden-hour",
+   "exclude_if": [],
+   "cautions": [
+    "Use headphones at a low volume. Not while driving. Check with a doctor first if you have epilepsy."
+   ],
+   "goals": [
+    "relax"
+   ]
+  },
+  {
+   "id": "session:hammock-theta",
+   "kind": "sound",
+   "title": "Hammock Theta",
+   "summary": "Swaying somewhere between awake and asleep. 30 min, theta.",
+   "minutes": 30,
+   "to": "/title/hammock-theta",
+   "exclude_if": [],
+   "cautions": [
+    "Use headphones at a low volume. Not while driving. Check with a doctor first if you have epilepsy."
+   ],
+   "goals": [
+    "relax"
+   ]
+  },
+  {
+   "id": "session:harmony-639",
+   "kind": "sound",
+   "title": "Harmony 639",
+   "summary": "Alpha with the 639 Hz tone. 20 min, alpha.",
+   "minutes": 20,
+   "to": "/title/harmony-639",
+   "exclude_if": [],
+   "cautions": [
+    "Use headphones at a low volume. Not while driving. Check with a doctor first if you have epilepsy."
+   ],
+   "goals": [
+    "relax"
+   ]
+  },
+  {
+   "id": "session:heart-tone-528",
+   "kind": "sound",
+   "title": "Heart Tone 528",
+   "summary": "Theta with the well-known 528 Hz tone. 30 min, theta.",
+   "minutes": 30,
+   "to": "/title/heart-tone-528",
+   "exclude_if": [],
+   "cautions": [
+    "Use headphones at a low volume. Not while driving. Check with a doctor first if you have epilepsy."
+   ],
+   "goals": [
+    "meditate"
+   ]
+  },
+  {
+   "id": "session:high-gamma",
+   "kind": "sound",
+   "title": "High Gamma",
+   "summary": "The fastest beat in the catalog. 15 min, gamma.",
+   "minutes": 15,
+   "to": "/title/high-gamma",
+   "exclude_if": [],
+   "cautions": [
+    "Use headphones at a low volume. Not while driving. Check with a doctor first if you have epilepsy."
+   ],
+   "goals": [
+    "energize"
+   ]
+  },
+  {
+   "id": "session:inner-stillness",
+   "kind": "sound",
+   "title": "Inner Stillness",
+   "summary": "Clean tones, no noise, nothing in the way. 20 min, theta.",
+   "minutes": 20,
+   "to": "/title/inner-stillness",
+   "exclude_if": [],
+   "cautions": [
+    "Use headphones at a low volume. Not while driving. Check with a doctor first if you have epilepsy."
+   ],
+   "goals": [
+    "meditate"
+   ]
+  },
+  {
+   "id": "session:inner-vision",
+   "kind": "sound",
+   "title": "Inner Vision",
+   "summary": "Theta and a high solfeggio tone for visualization. 30 min, theta.",
+   "minutes": 30,
+   "to": "/title/inner-vision",
+   "exclude_if": [],
+   "cautions": [
+    "Use headphones at a low volume. Not while driving. Check with a doctor first if you have epilepsy."
+   ],
+   "goals": [
+    "meditate"
+   ]
+  },
+  {
+   "id": "session:kinetic",
+   "kind": "sound",
+   "title": "Kinetic",
+   "summary": "High beta for movement. 20 min, beta.",
+   "minutes": 20,
+   "to": "/title/kinetic",
+   "exclude_if": [],
+   "cautions": [
+    "Use headphones at a low volume. Not while driving. Check with a doctor first if you have epilepsy."
+   ],
+   "goals": [
+    "energize"
+   ]
+  },
+  {
+   "id": "session:laser-beta",
+   "kind": "sound",
+   "title": "Laser Beta",
+   "summary": "Binaural plus an isochronic pulse. 30 min, beta.",
+   "minutes": 30,
+   "to": "/title/laser-beta",
+   "exclude_if": [],
+   "cautions": [
+    "Use headphones at a low volume. Not while driving. Check with a doctor first if you have epilepsy."
+   ],
+   "goals": [
+    "focus"
+   ]
+  },
+  {
+   "id": "session:late-night-unwind",
+   "kind": "sound",
+   "title": "Late Night Unwind",
+   "summary": "For when your mind is still running at bedtime. 25 min, theta.",
+   "minutes": 25,
+   "to": "/title/late-night-unwind",
+   "exclude_if": [],
+   "cautions": [
+    "Use headphones at a low volume. Not while driving. Check with a doctor first if you have epilepsy."
+   ],
+   "goals": [
+    "sleep"
+   ]
+  },
+  {
+   "id": "session:lotus-drift",
+   "kind": "sound",
+   "title": "Lotus Drift",
+   "summary": "Upper theta for a soft, open focus. 25 min, theta.",
+   "minutes": 25,
+   "to": "/title/lotus-drift",
+   "exclude_if": [],
+   "cautions": [
+    "Use headphones at a low volume. Not while driving. Check with a doctor first if you have epilepsy."
+   ],
+   "goals": [
+    "meditate"
+   ]
+  },
+  {
+   "id": "session:lullaby-174",
+   "kind": "sound",
+   "title": "Lullaby 174",
+   "summary": "The lowest solfeggio tone under a gentle delta beat. 45 min, delta.",
+   "minutes": 45,
+   "to": "/title/lullaby-174",
+   "exclude_if": [],
+   "cautions": [
+    "Use headphones at a low volume. Not while driving. Check with a doctor first if you have epilepsy."
+   ],
+   "goals": [
+    "sleep"
+   ]
+  },
+  {
+   "id": "session:mantra-field",
+   "kind": "sound",
+   "title": "Mantra Field",
+   "summary": "A low hum to repeat your mantra over. 20 min, theta.",
+   "minutes": 20,
+   "to": "/title/mantra-field",
+   "exclude_if": [],
+   "cautions": [
+    "Use headphones at a low volume. Not while driving. Check with a doctor first if you have epilepsy."
+   ],
+   "goals": [
+    "meditate"
+   ]
+  },
+  {
+   "id": "session:midnight-tide",
+   "kind": "sound",
+   "title": "Midnight Tide",
+   "summary": "Long, low swells for the middle of the night. 90 min, delta.",
+   "minutes": 90,
+   "to": "/title/midnight-tide",
+   "exclude_if": [],
+   "cautions": [
+    "Use headphones at a low volume. Not while driving. Check with a doctor first if you have epilepsy."
+   ],
+   "goals": [
+    "sleep"
+   ]
+  },
+  {
+   "id": "session:moon-breath",
+   "kind": "sound",
+   "title": "Moon Breath",
+   "summary": "Breathe with the pulse and let your thoughts thin out. 20 min, delta.",
+   "minutes": 20,
+   "to": "/title/moon-breath",
+   "exclude_if": [],
+   "cautions": [
+    "Use headphones at a low volume. Not while driving. Check with a doctor first if you have epilepsy."
+   ],
+   "goals": [
+    "sleep"
+   ]
+  },
+  {
+   "id": "session:morning-rise",
+   "kind": "sound",
+   "title": "Morning Rise",
+   "summary": "A bright start without the jitters. 15 min, beta.",
+   "minutes": 15,
+   "to": "/title/morning-rise",
+   "exclude_if": [],
+   "cautions": [
+    "Use headphones at a low volume. Not while driving. Check with a doctor first if you have epilepsy."
+   ],
+   "goals": [
+    "energize"
+   ]
+  },
+  {
+   "id": "session:morning-sit",
+   "kind": "sound",
+   "title": "Morning Sit",
+   "summary": "Ten minutes before the day gets loud. 10 min, theta.",
+   "minutes": 10,
+   "to": "/title/morning-sit",
+   "exclude_if": [],
+   "cautions": [
+    "Use headphones at a low volume. Not while driving. Check with a doctor first if you have epilepsy."
+   ],
+   "goals": [
+    "meditate"
+   ]
+  },
+  {
+   "id": "session:mountain-stream",
+   "kind": "sound",
+   "title": "Mountain Stream",
+   "summary": "A babbling brook and a classic 10 Hz alpha beat. 30 min, alpha.",
+   "minutes": 30,
+   "to": "/title/mountain-stream",
+   "exclude_if": [],
+   "cautions": [
+    "Use headphones at a low volume. Not while driving. Check with a doctor first if you have epilepsy."
+   ],
+   "goals": [
+    "relax"
+   ]
+  },
+  {
+   "id": "session:night-garden",
+   "kind": "sound",
+   "title": "Night Garden",
+   "summary": "Warm, dark and slow, like a garden after rain. 40 min, delta.",
+   "minutes": 40,
+   "to": "/title/night-garden",
+   "exclude_if": [],
+   "cautions": [
+    "Use headphones at a low volume. Not while driving. Check with a doctor first if you have epilepsy."
+   ],
+   "goals": [
+    "sleep"
+   ]
+  },
+  {
+   "id": "session:peak-gamma",
+   "kind": "sound",
+   "title": "Peak Gamma",
+   "summary": "A short, high-energy gamma burst. 15 min, gamma.",
+   "minutes": 15,
+   "to": "/title/peak-gamma",
+   "exclude_if": [],
+   "cautions": [
+    "Use headphones at a low volume. Not while driving. Check with a doctor first if you have epilepsy."
+   ],
+   "goals": [
+    "energize"
+   ]
+  },
+  {
+   "id": "session:power-nap",
+   "kind": "sound",
+   "title": "Power Nap",
+   "summary": "Twenty minutes, then back to your day. 20 min, delta.",
+   "minutes": 20,
+   "to": "/title/power-nap",
+   "exclude_if": [],
+   "cautions": [
+    "Use headphones at a low volume. Not while driving. Check with a doctor first if you have epilepsy."
+   ],
+   "goals": [
+    "sleep"
+   ]
+  },
+  {
+   "id": "session:rain-on-leaves",
+   "kind": "sound",
+   "title": "Rain on Leaves",
+   "summary": "Rainfall on leaves over a slow delta beat. 60 min, delta.",
+   "minutes": 60,
+   "to": "/title/rain-on-leaves",
+   "exclude_if": [],
+   "cautions": [
+    "Use headphones at a low volume. Not while driving. Check with a doctor first if you have epilepsy."
+   ],
+   "goals": [
+    "sleep"
+   ]
+  },
+  {
+   "id": "session:rainforest-nature-only",
+   "kind": "sound",
+   "title": "Rainforest Canopy (Nature Only)",
+   "summary": "Just the rainforest. No tones, no headphones needed. 60 min, alpha.",
+   "minutes": 60,
+   "to": "/title/rainforest-nature-only",
+   "exclude_if": [],
+   "cautions": [
+    "Use headphones at a low volume. Not while driving. Check with a doctor first if you have epilepsy."
+   ],
+   "goals": [
+    "relax"
+   ]
+  },
+  {
+   "id": "session:rainforest-theta",
+   "kind": "sound",
+   "title": "Rainforest Theta",
+   "summary": "Canopy birds and soft rain over a 6 Hz theta beat. 30 min, theta.",
+   "minutes": 30,
+   "to": "/title/rainforest-theta",
+   "exclude_if": [],
+   "cautions": [
+    "Use headphones at a low volume. Not while driving. Check with a doctor first if you have epilepsy."
+   ],
+   "goals": [
+    "meditate"
+   ]
+  },
+  {
+   "id": "session:reading-room",
+   "kind": "sound",
+   "title": "Reading Room",
+   "summary": "Quiet, low beta for long reads. 40 min, beta.",
+   "minutes": 40,
+   "to": "/title/reading-room",
+   "exclude_if": [],
+   "cautions": [
+    "Use headphones at a low volume. Not while driving. Check with a doctor first if you have epilepsy."
+   ],
+   "goals": [
+    "focus"
+   ]
+  },
+  {
+   "id": "session:release-396",
+   "kind": "sound",
+   "title": "Release 396",
+   "summary": "Alpha with the 396 Hz tone. 20 min, alpha.",
+   "minutes": 20,
+   "to": "/title/release-396",
+   "exclude_if": [],
+   "cautions": [
+    "Use headphones at a low volume. Not while driving. Check with a doctor first if you have epilepsy."
+   ],
+   "goals": [
+    "relax"
+   ]
+  },
+  {
+   "id": "session:seaside-drift",
+   "kind": "sound",
+   "title": "Seaside Drift",
+   "summary": "An hour by the water. 60 min, alpha.",
+   "minutes": 60,
+   "to": "/title/seaside-drift",
+   "exclude_if": [],
+   "cautions": [
+    "Use headphones at a low volume. Not while driving. Check with a doctor first if you have epilepsy."
+   ],
+   "goals": [
+    "relax"
+   ]
+  },
+  {
+   "id": "session:slow-wave-drift",
+   "kind": "sound",
+   "title": "Slow Wave Drift",
+   "summary": "One beat per second. Nothing else to do. 60 min, delta.",
+   "minutes": 60,
+   "to": "/title/slow-wave-drift",
+   "exclude_if": [],
+   "cautions": [
+    "Use headphones at a low volume. Not while driving. Check with a doctor first if you have epilepsy."
+   ],
+   "goals": [
+    "sleep"
+   ]
+  },
+  {
+   "id": "session:soft-focus",
+   "kind": "sound",
+   "title": "Soft Focus",
+   "summary": "Upper alpha, clean tones only. 30 min, alpha.",
+   "minutes": 30,
+   "to": "/title/soft-focus",
+   "exclude_if": [],
+   "cautions": [
+    "Use headphones at a low volume. Not while driving. Check with a doctor first if you have epilepsy."
+   ],
+   "goals": [
+    "relax"
+   ]
+  },
+  {
+   "id": "session:sprint-25",
+   "kind": "sound",
+   "title": "Sprint 25",
+   "summary": "One focused sprint. Then take a break. 25 min, beta.",
+   "minutes": 25,
+   "to": "/title/sprint-25",
+   "exclude_if": [],
+   "cautions": [
+    "Use headphones at a low volume. Not while driving. Check with a doctor first if you have epilepsy."
+   ],
+   "goals": [
+    "focus"
+   ]
+  },
+  {
+   "id": "session:steady-mind",
+   "kind": "sound",
+   "title": "Steady Mind",
+   "summary": "Two hours at the bottom of beta. 120 min, beta.",
+   "minutes": 120,
+   "to": "/title/steady-mind",
+   "exclude_if": [],
+   "cautions": [
+    "Use headphones at a low volume. Not while driving. Check with a doctor first if you have epilepsy."
+   ],
+   "goals": [
+    "focus"
+   ]
+  },
+  {
+   "id": "session:study-flow",
+   "kind": "sound",
+   "title": "Study Flow",
+   "summary": "Low beta for reading and note-taking. 45 min, beta.",
+   "minutes": 45,
+   "to": "/title/study-flow",
+   "exclude_if": [],
+   "cautions": [
+    "Use headphones at a low volume. Not while driving. Check with a doctor first if you have epilepsy."
+   ],
+   "goals": [
+    "focus"
+   ]
+  },
+  {
+   "id": "session:sun-salute",
+   "kind": "sound",
+   "title": "Sun Salute",
+   "summary": "Beta with the 417 Hz tone. 15 min, beta.",
+   "minutes": 15,
+   "to": "/title/sun-salute",
+   "exclude_if": [],
+   "cautions": [
+    "Use headphones at a low volume. Not while driving. Check with a doctor first if you have epilepsy."
+   ],
+   "goals": [
+    "energize"
+   ]
+  },
+  {
+   "id": "session:sunday-float",
+   "kind": "sound",
+   "title": "Sunday Float",
+   "summary": "No plans, no hurry. 45 min, alpha.",
+   "minutes": 45,
+   "to": "/title/sunday-float",
+   "exclude_if": [],
+   "cautions": [
+    "Use headphones at a low volume. Not while driving. Check with a doctor first if you have epilepsy."
+   ],
+   "goals": [
+    "relax"
+   ]
+  },
+  {
+   "id": "session:tea-break",
+   "kind": "sound",
+   "title": "Tea Break",
+   "summary": "A ten-minute reset. 10 min, alpha.",
+   "minutes": 10,
+   "to": "/title/tea-break",
+   "exclude_if": [],
+   "cautions": [
+    "Use headphones at a low volume. Not while driving. Check with a doctor first if you have epilepsy."
+   ],
+   "goals": [
+    "relax"
+   ]
+  },
+  {
+   "id": "session:theta-temple",
+   "kind": "sound",
+   "title": "Theta Temple",
+   "summary": "A spacious 6 Hz theta field for sitting practice. 30 min, theta.",
+   "minutes": 30,
+   "to": "/title/theta-temple",
+   "exclude_if": [],
+   "cautions": [
+    "Use headphones at a low volume. Not while driving. Check with a doctor first if you have epilepsy."
+   ],
+   "goals": [
+    "meditate"
+   ]
+  },
+  {
+   "id": "session:velvet-dark",
+   "kind": "sound",
+   "title": "Velvet Dark",
+   "summary": "Heavy curtains for your ears. 60 min, delta.",
+   "minutes": 60,
+   "to": "/title/velvet-dark",
+   "exclude_if": [],
+   "cautions": [
+    "Use headphones at a low volume. Not while driving. Check with a doctor first if you have epilepsy."
+   ],
+   "goals": [
+    "sleep"
+   ]
+  },
+  {
+   "id": "session:wake-gently",
+   "kind": "sound",
+   "title": "Wake Gently",
+   "summary": "Upper alpha for slow mornings. 10 min, alpha.",
+   "minutes": 10,
+   "to": "/title/wake-gently",
+   "exclude_if": [],
+   "cautions": [
+    "Use headphones at a low volume. Not while driving. Check with a doctor first if you have epilepsy."
+   ],
+   "goals": [
+    "energize"
+   ]
+  },
+  {
+   "id": "session:waterfall-focus",
+   "kind": "sound",
+   "title": "Waterfall Focus",
+   "summary": "A steady waterfall roar that masks distractions. 45 min, beta.",
+   "minutes": 45,
+   "to": "/title/waterfall-focus",
+   "exclude_if": [],
+   "cautions": [
+    "Use headphones at a low volume. Not while driving. Check with a doctor first if you have epilepsy."
+   ],
+   "goals": [
+    "focus"
+   ]
+  },
+  {
+   "id": "session:waterfall-nature-only",
+   "kind": "sound",
+   "title": "Waterfall (Nature Only)",
+   "summary": "Just the waterfall. No tones, no headphones needed. 60 min, delta.",
+   "minutes": 60,
+   "to": "/title/waterfall-nature-only",
+   "exclude_if": [],
+   "cautions": [
+    "Use headphones at a low volume. Not while driving. Check with a doctor first if you have epilepsy."
+   ],
+   "goals": [
+    "sleep"
+   ]
+  },
+  {
+   "id": "session:workout-pulse",
+   "kind": "sound",
+   "title": "Workout Pulse",
+   "summary": "Gamma for training sessions. 30 min, gamma.",
+   "minutes": 30,
+   "to": "/title/workout-pulse",
+   "exclude_if": [],
+   "cautions": [
+    "Use headphones at a low volume. Not while driving. Check with a doctor first if you have epilepsy."
+   ],
+   "goals": [
+    "energize"
+   ]
+  },
+  {
+   "id": "session:writers-room",
+   "kind": "sound",
+   "title": "Writer's Room",
+   "summary": "Fifty minutes for the page. 50 min, beta.",
+   "minutes": 50,
+   "to": "/title/writers-room",
+   "exclude_if": [],
+   "cautions": [
+    "Use headphones at a low volume. Not while driving. Check with a doctor first if you have epilepsy."
+   ],
+   "goals": [
+    "focus"
+   ]
+  },
+  {
+   "id": "session:yoga-nidra-delta",
+   "kind": "sound",
+   "title": "Yoga Nidra Delta",
+   "summary": "Deep delta for lying-down meditation. 35 min, delta.",
+   "minutes": 35,
+   "to": "/title/yoga-nidra-delta",
+   "exclude_if": [],
+   "cautions": [
+    "Use headphones at a low volume. Not while driving. Check with a doctor first if you have epilepsy."
+   ],
+   "goals": [
+    "meditate"
+   ]
+  },
+  {
+   "id": "session:zen-river",
+   "kind": "sound",
+   "title": "Zen River",
+   "summary": "Forty minutes of moving stillness. 40 min, theta.",
+   "minutes": 40,
+   "to": "/title/zen-river",
+   "exclude_if": [],
+   "cautions": [
+    "Use headphones at a low volume. Not while driving. Check with a doctor first if you have epilepsy."
+   ],
+   "goals": [
+    "meditate"
+   ]
+  },
+  {
+   "id": "tool:about-you",
+   "kind": "tool",
+   "title": "Tell us your goals",
+   "summary": "Pick what you want most, how active you are, how much time you have, and anything we should know about your health.",
+   "why": "Your daily plan, suggestions and safety notes are tailored to what you tell us.",
+   "area": "Start here",
+   "minutes": 1,
+   "to": "/about-you",
+   "exclude_if": [],
+   "cautions": []
+  },
+  {
+   "id": "tool:account",
+   "kind": "tool",
+   "title": "Sign in and sync",
+   "summary": "Create an account to back up your data and use Rooted on more than one device.",
+   "why": "You won't lose your progress if you change phones.",
+   "area": "Your account",
+   "minutes": null,
+   "to": "/account",
+   "exclude_if": [],
+   "cautions": []
+  },
+  {
+   "id": "tool:additive-scan",
+   "kind": "tool",
+   "title": "Scan a product's additives",
+   "summary": "Scan a barcode, type its number or paste an ingredient list to see the additives in a packaged food, what the research says about each, and how strong that research is. You can also flag allergens you avoid.",
+   "why": "Labels list long names. Seeing what studies and regulators have found makes it easier to choose for yourself.",
+   "area": "Food",
+   "minutes": 1,
+   "to": "/scan",
+   "exclude_if": [],
+   "cautions": []
+  },
+  {
+   "id": "tool:apothecary",
+   "kind": "tool",
+   "title": "Home apothecary",
+   "summary": "Simple teas and remedies from what you grow, with safety rules for each.",
+   "why": "Some herbs have useful evidence behind them, and some interact with medicines. Both matter.",
+   "area": "Food",
+   "minutes": null,
+   "to": "/garden#apothecary",
+   "exclude_if": [],
+   "cautions": []
+  },
+  {
+   "id": "tool:bedtime",
+   "kind": "tool",
+   "title": "Bedtime routine",
+   "summary": "Set your bedtime and wake time, pick a wind-down and sleep session, get a reminder, and track your streak.",
+   "why": "A steady wind-down and a regular schedule are two of the best-supported sleep habits.",
+   "area": "Sleep & light",
+   "minutes": 30,
+   "to": "/bedtime",
+   "exclude_if": [],
+   "cautions": []
+  },
+  {
+   "id": "tool:blue-zones",
+   "kind": "tool",
+   "title": "Blue Zones and healing places",
+   "summary": "Explore the five places known for long lives, the nine habits they share, and nature spots that may help you feel better.",
+   "why": "The habits of long-lived communities are simple and borrowable.",
+   "area": "Body & movement",
+   "minutes": null,
+   "to": "/places#zones",
+   "exclude_if": [],
+   "cautions": []
+  },
+  {
+   "id": "tool:bolt",
+   "kind": "tool",
+   "title": "Breath test (BOLT)",
+   "summary": "Time how long you can comfortably pause after a normal exhale, and track it week to week.",
+   "why": "A simple number to see whether your everyday breathing is getting more relaxed over time.",
+   "area": "Relax & breathe",
+   "minutes": 1,
+   "to": "/breathe#bolt",
+   "exclude_if": [],
+   "cautions": []
+  },
+  {
+   "id": "tool:brain-guide",
+   "kind": "tool",
+   "title": "Inside your brain",
+   "summary": "An illustrated guide to brain regions, brainwaves, hearing, sleep and what the evidence says about sound.",
+   "why": "Knowing how your brain works helps you judge wellness claims for yourself.",
+   "area": "Mind & spirit",
+   "minutes": 10,
+   "to": "/learn/brain",
+   "exclude_if": [],
+   "cautions": []
+  },
+  {
+   "id": "tool:breath-library",
+   "kind": "tool",
+   "title": "Breathing techniques",
+   "summary": "Box breathing, 4-7-8, the physiological sigh, coherent and power breathing, each with when to use it and the evidence.",
+   "why": "Different patterns suit different moments, like panic, focus or falling asleep.",
+   "area": "Relax & breathe",
+   "minutes": 2,
+   "to": "/breathe#breathe",
+   "exclude_if": [],
+   "cautions": []
+  },
+  {
+   "id": "tool:breath-reminders",
+   "kind": "tool",
+   "title": "Breathing reminders",
+   "summary": "Pick times of day and add daily breathing reminders to your phone's calendar.",
+   "why": "A reminder at the right moment turns a good intention into a habit.",
+   "area": "Relax & breathe",
+   "minutes": null,
+   "to": "/breathe#results",
+   "exclude_if": [],
+   "cautions": []
+  },
+  {
+   "id": "tool:breath-results",
+   "kind": "tool",
+   "title": "Before and after check-ins",
+   "summary": "Rate your stress before and after a session and see which techniques help you most.",
+   "why": "Your own results are a better guide than anyone's general advice.",
+   "area": "Relax & breathe",
+   "minutes": null,
+   "to": "/breathe#results",
+   "exclude_if": [],
+   "cautions": []
+  },
+  {
+   "id": "tool:breath-sounds",
+   "kind": "tool",
+   "title": "Chimes, voice or tone",
+   "summary": "Choose how a breathing session guides you: chimes, a spoken voice, a tone or silence, with optional rain or stream sounds.",
+   "why": "Being guided by sound lets you close your eyes and stop watching the screen.",
+   "area": "Relax & breathe",
+   "minutes": null,
+   "to": "/breathe",
+   "exclude_if": [],
+   "cautions": []
+  },
+  {
+   "id": "tool:bring-home",
+   "kind": "tool",
+   "title": "Bring it home checklist",
+   "summary": "Tick off small weekly ways to bring a healing place into ordinary life, and schedule a nature walk.",
+   "why": "You don't need a retreat. A little every week adds up.",
+   "area": "Body & movement",
+   "minutes": null,
+   "to": "/places#home",
+   "exclude_if": [],
+   "cautions": []
+  },
+  {
+   "id": "tool:build-session",
+   "kind": "tool",
+   "title": "Build your own session",
+   "summary": "Pick a carrier tone, beat, noise and layers, name it, and save it.",
+   "why": "Tuning a session to your own ears makes it more pleasant to use.",
+   "area": "Sound",
+   "minutes": 2,
+   "to": "/build",
+   "exclude_if": [],
+   "cautions": []
+  },
+  {
+   "id": "tool:calendar",
+   "kind": "tool",
+   "title": "Health calendar",
+   "summary": "Schedule walks, breathing, meals and appointments, repeat them, and check them off.",
+   "why": "Habits with a set time are far more likely to happen.",
+   "area": "Plan & track",
+   "minutes": null,
+   "to": "/calendar",
+   "exclude_if": [],
+   "cautions": []
+  },
+  {
+   "id": "tool:calendar-export",
+   "kind": "tool",
+   "title": "Send to Apple or Google",
+   "summary": "Send events to Apple, Google or Outlook with a 5-minute reminder, or, when signed in, subscribe with a live link.",
+   "why": "Reminders show up where you already look every day.",
+   "area": "Plan & track",
+   "minutes": null,
+   "to": "/calendar#connect",
+   "exclude_if": [],
+   "cautions": []
+  },
+  {
+   "id": "tool:circles",
+   "kind": "tool",
+   "title": "Circles",
+   "summary": "Do a program with up to 12 friends or family: see each other's days done and send cheers.",
+   "why": "Gentle company and a little accountability help habits stick. Only first names and days done are shared.",
+   "area": "Plan & track",
+   "minutes": 1,
+   "to": "/program/relax-7#circle",
+   "exclude_if": [],
+   "cautions": []
+  },
+  {
+   "id": "tool:combos",
+   "kind": "tool",
+   "title": "Combos",
+   "summary": "Short guided flows that stack breath, movement, light and reflection, like Morning Armor, Evening Reset and Gentle Reset.",
+   "why": "Linking a few small habits into one routine makes each one easier to keep.",
+   "area": "Relax & breathe",
+   "minutes": 5,
+   "to": "/combos",
+   "exclude_if": [],
+   "cautions": []
+  },
+  {
+   "id": "tool:crisis-lines",
+   "kind": "tool",
+   "title": "Help now",
+   "summary": "Crisis lines to call or text any time. The heart button at the top of every page opens them too.",
+   "why": "When things are really hard, talking to someone right away matters most.",
+   "area": "Support",
+   "minutes": null,
+   "to": "/support#now",
+   "exclude_if": [],
+   "cautions": []
+  },
+  {
+   "id": "tool:daily-plan",
+   "kind": "tool",
+   "title": "Today's plan",
+   "summary": "Home shows a few small things picked for your goals and the time of day, and checks them off as you go.",
+   "why": "A short, specific list is easier to start than a whole app full of choices.",
+   "area": "Start here",
+   "minutes": null,
+   "to": "/",
+   "exclude_if": [],
+   "cautions": []
+  },
+  {
+   "id": "tool:digestion",
+   "kind": "tool",
+   "title": "Inside your gut",
+   "summary": "Follow a bite through your body, see how fiber works, and why a walk after meals flattens blood sugar.",
+   "why": "Understanding the why makes small food changes feel worth it.",
+   "area": "Food",
+   "minutes": null,
+   "to": "/nourish#gut",
+   "exclude_if": [],
+   "cautions": []
+  },
+  {
+   "id": "tool:garden",
+   "kind": "tool",
+   "title": "Plan your garden",
+   "summary": "Tell us your space and light, get herbs and vegetables that suit it, and track what you've planted.",
+   "why": "Growing even a few herbs gets you outside, moving and eating fresher food.",
+   "area": "Food",
+   "minutes": null,
+   "to": "/garden#plan",
+   "exclude_if": [],
+   "cautions": []
+  },
+  {
+   "id": "tool:good-deeds",
+   "kind": "tool",
+   "title": "Good deeds log",
+   "summary": "Jot down kind things you did and see how many this week, with ideas when you're stuck.",
+   "why": "Kindness is linked with better mood for the giver, too.",
+   "area": "Mind & spirit",
+   "minutes": null,
+   "to": "/earth#deeds",
+   "exclude_if": [],
+   "cautions": []
+  },
+  {
+   "id": "tool:gratitude",
+   "kind": "tool",
+   "title": "Gratitude journal",
+   "summary": "Write down three good things from today and keep a private streak.",
+   "why": "Noticing good moments is linked with small but real lifts in mood.",
+   "area": "Mind & spirit",
+   "minutes": 3,
+   "to": "/spirit#gratitude",
+   "exclude_if": [],
+   "cautions": []
+  },
+  {
+   "id": "tool:grounding",
+   "kind": "tool",
+   "title": "5-4-3-2-1 grounding",
+   "summary": "A step-by-step walk through five things you see, four you feel, three you hear, two you smell and one you taste.",
+   "why": "Turning attention to your senses can interrupt a spiral of worry or panic.",
+   "area": "Relax & breathe",
+   "minutes": 2,
+   "to": "/breathe#ground",
+   "exclude_if": [],
+   "cautions": []
+  },
+  {
+   "id": "tool:healing-sessions",
+   "kind": "tool",
+   "title": "Healing Frequencies sessions",
+   "summary": "Binaural beat sessions for sleep, focus and relaxation, generated live in your browser.",
+   "why": "Many people find steady, gentle sound helps them relax or focus. Evidence is mixed, and we say so.",
+   "area": "Sound",
+   "minutes": 20,
+   "to": "/healing",
+   "exclude_if": [],
+   "cautions": []
+  },
+  {
+   "id": "tool:heart-check",
+   "kind": "tool",
+   "title": "Camera heart check",
+   "summary": "Rest a fingertip on your phone's camera to estimate your heart rate and see it respond to slow breathing.",
+   "why": "Watching your heart slow down shows you the effect is real. It's an estimate, not a medical test.",
+   "area": "Relax & breathe",
+   "minutes": 2,
+   "to": "/breathe#heart",
+   "exclude_if": [],
+   "cautions": []
+  },
+  {
+   "id": "tool:invite",
+   "kind": "tool",
+   "title": "Invite a friend",
+   "summary": "Send a friend a link to join you, or to do a program together.",
+   "why": "Doing a habit with someone else makes it more likely you'll both keep it.",
+   "area": "Plan & track",
+   "minutes": null,
+   "to": "/week",
+   "exclude_if": [],
+   "cautions": []
+  },
+  {
+   "id": "tool:journey",
+   "kind": "tool",
+   "title": "My journey",
+   "summary": "A private page that shows how you've grown, from Seed to Ancient grove, and the special symbols you can earn.",
+   "why": "Seeing your own progress can help you keep going. It counts days you showed up, never streaks, and it's never shared.",
+   "area": "Your account",
+   "minutes": null,
+   "to": "/journey",
+   "exclude_if": [],
+   "cautions": []
+  },
+  {
+   "id": "tool:legal",
+   "kind": "tool",
+   "title": "Privacy, terms and disclaimer",
+   "summary": "Plain-language privacy policy, terms of use, and a health disclaimer.",
+   "why": "Know exactly what Rooted does with your information, and what it isn't.",
+   "area": "Your account",
+   "minutes": null,
+   "to": "/privacy",
+   "exclude_if": [],
+   "cautions": []
+  },
+  {
+   "id": "tool:light-box",
+   "kind": "tool",
+   "title": "Light box timer",
+   "summary": "Time a morning light session, outdoors or with a light box.",
+   "why": "Bright morning light helps set your body clock, which can improve sleep and mood.",
+   "area": "Sleep & light",
+   "minutes": 20,
+   "to": "/light#tools",
+   "exclude_if": [],
+   "cautions": []
+  },
+  {
+   "id": "tool:light-day",
+   "kind": "tool",
+   "title": "Your light day",
+   "summary": "A timeline of when to get bright light and when to keep it dim, based on your wake time.",
+   "why": "Bright days and dark nights are the simplest way to work with your body clock.",
+   "area": "Sleep & light",
+   "minutes": null,
+   "to": "/light#day",
+   "exclude_if": [],
+   "cautions": []
+  },
+  {
+   "id": "tool:meditate",
+   "kind": "tool",
+   "title": "Meditation timer",
+   "summary": "A quiet timer with a gentle bell, plus a diagram of what stillness changes in your body under stress.",
+   "why": "Regular short sits are linked with lower stress for many people.",
+   "area": "Mind & spirit",
+   "minutes": 5,
+   "to": "/spirit#sit",
+   "exclude_if": [],
+   "cautions": []
+  },
+  {
+   "id": "tool:mood-check",
+   "kind": "tool",
+   "title": "How are you today?",
+   "summary": "Tap one of five faces on Home to check in. A low day gently surfaces support.",
+   "why": "Noticing how you feel, day to day, helps you see patterns and what's helping.",
+   "area": "Start here",
+   "minutes": null,
+   "to": "/",
+   "exclude_if": [],
+   "cautions": []
+  },
+  {
+   "id": "tool:move-routines",
+   "kind": "tool",
+   "title": "Follow-along routines",
+   "summary": "Press play on an after-meal walk, a desk reset, yoga, tai chi or qigong, with animated figures to follow.",
+   "why": "Seeing each move makes it easy to do it right, with no class or equipment.",
+   "area": "Body & movement",
+   "minutes": 10,
+   "to": "/move#routines",
+   "exclude_if": [],
+   "cautions": []
+  },
+  {
+   "id": "tool:muscle-map",
+   "kind": "tool",
+   "title": "Muscle map",
+   "summary": "See which muscles each routine reaches, highlighted on a body diagram.",
+   "why": "Knowing what a routine works helps you pick one for how your body feels today.",
+   "area": "Body & movement",
+   "minutes": null,
+   "to": "/move#works",
+   "exclude_if": [],
+   "cautions": []
+  },
+  {
+   "id": "tool:my-stuff",
+   "kind": "tool",
+   "title": "My Stuff",
+   "summary": "Your saved list, sessions you've built, what you were listening to, and reminders.",
+   "why": "Everything you like, in one place.",
+   "area": "Sound",
+   "minutes": null,
+   "to": "/my-stuff",
+   "exclude_if": [],
+   "cautions": []
+  },
+  {
+   "id": "tool:nature-dose",
+   "kind": "tool",
+   "title": "Your nature dose",
+   "summary": "Slide to your minutes outdoors this week and see how close you are to about two hours.",
+   "why": "Research links roughly two hours a week in nature with better health and wellbeing.",
+   "area": "Body & movement",
+   "minutes": null,
+   "to": "/places#dose",
+   "exclude_if": [],
+   "cautions": []
+  },
+  {
+   "id": "tool:night-light",
+   "kind": "tool",
+   "title": "Night light and sunrise",
+   "summary": "Turn your screen into a dim amber night light, or a slow red-to-white sunrise for waking up.",
+   "why": "Warm, dim light at night disturbs your body clock the least.",
+   "area": "Sleep & light",
+   "minutes": null,
+   "to": "/light#tools",
+   "exclude_if": [],
+   "cautions": []
+  },
+  {
+   "id": "tool:one-minute-calm",
+   "kind": "tool",
+   "title": "One-minute settle-in",
+   "summary": "Follow a growing and shrinking circle, breathing in for 4 and out for 6. Quick picks below it start the right pattern for panic, sleep, focus or energy.",
+   "why": "Slow breathing with a longer exhale is one of the quickest ways to settle a racing body.",
+   "area": "Start here",
+   "minutes": 1,
+   "to": "/breathe",
+   "exclude_if": [],
+   "cautions": []
+  },
+  {
+   "id": "tool:pantry",
+   "kind": "tool",
+   "title": "Pantry and body map",
+   "summary": "Look up foods, herbs and spices, see where in the body the research suggests they may help, and how strong the evidence is.",
+   "why": "Honest evidence ratings help you spend on food that's worth it.",
+   "area": "Food",
+   "minutes": null,
+   "to": "/nourish#pantry",
+   "exclude_if": [],
+   "cautions": []
+  },
+  {
+   "id": "tool:pattern-builder",
+   "kind": "tool",
+   "title": "Build a breath pattern",
+   "summary": "Set your own counts for breathing in, holding, breathing out and resting, then save it.",
+   "why": "A pattern that feels comfortable to you is one you'll actually use.",
+   "area": "Relax & breathe",
+   "minutes": 2,
+   "to": "/breathe#breathe",
+   "exclude_if": [],
+   "cautions": []
+  },
+  {
+   "id": "tool:plan-day",
+   "kind": "tool",
+   "title": "Plan my day",
+   "summary": "Let Rooted fit a few small practices into the free gaps in your day.",
+   "why": "It does the fitting-in for you, so a busy day still has room to breathe.",
+   "area": "Plan & track",
+   "minutes": null,
+   "to": "/calendar",
+   "exclude_if": [],
+   "cautions": []
+  },
+  {
+   "id": "tool:plate-builder",
+   "kind": "tool",
+   "title": "Plate builder",
+   "summary": "Tap foods to build a plate and compare it with the Healthy Eating Plate.",
+   "why": "A simple picture of a balanced meal is easier to follow than counting.",
+   "area": "Food",
+   "minutes": 2,
+   "to": "/nourish#plate",
+   "exclude_if": [],
+   "cautions": []
+  },
+  {
+   "id": "tool:pledges",
+   "kind": "tool",
+   "title": "Footprint pledges",
+   "summary": "Pledge small habits that lighten your footprint, with an honest impact rating on each.",
+   "why": "Acting on what you care about is linked with a sense of purpose.",
+   "area": "Mind & spirit",
+   "minutes": null,
+   "to": "/earth#habits",
+   "exclude_if": [],
+   "cautions": []
+  },
+  {
+   "id": "tool:pmr",
+   "kind": "tool",
+   "title": "Muscle relaxation",
+   "summary": "A guided round of tensing and then releasing each muscle group.",
+   "why": "Feeling the contrast teaches your body what letting go of tension feels like.",
+   "area": "Relax & breathe",
+   "minutes": 3,
+   "to": "/breathe#relax",
+   "exclude_if": [],
+   "cautions": []
+  },
+  {
+   "id": "tool:profile-picture",
+   "kind": "tool",
+   "title": "Profile picture",
+   "summary": "Pick a healing symbol (crystal, tree, wave, lotus and more) or add your own photo.",
+   "why": "Makes the app feel like yours. Photos stay on your device and are never shown to friends.",
+   "area": "Your account",
+   "minutes": null,
+   "to": "/profiles",
+   "exclude_if": [],
+   "cautions": []
+  },
+  {
+   "id": "tool:profiles",
+   "kind": "tool",
+   "title": "Profiles",
+   "summary": "Add a profile for each person in your home so plans, logs and lists stay separate.",
+   "why": "Everyone gets suggestions that fit them.",
+   "area": "Your account",
+   "minutes": null,
+   "to": "/profiles",
+   "exclude_if": [],
+   "cautions": []
+  },
+  {
+   "id": "tool:programs",
+   "kind": "tool",
+   "title": "Daily programs",
+   "summary": "Multi-day programs, like 7 Days to Relax or 5 Gentle Mornings, with one short lesson a day.",
+   "why": "A day-by-day path removes the guesswork about what to do next.",
+   "area": "Plan & track",
+   "minutes": 10,
+   "to": "/breathe#programs",
+   "exclude_if": [],
+   "cautions": []
+  },
+  {
+   "id": "tool:recipes",
+   "kind": "tool",
+   "title": "Pantry recipes",
+   "summary": "Simple meals from pantry staples, with steps, timing and a button to schedule cooking.",
+   "why": "Cooking at home is one of the easiest ways to eat more fiber and less sugar.",
+   "area": "Food",
+   "minutes": 20,
+   "to": "/nourish#recipes",
+   "exclude_if": [],
+   "cautions": []
+  },
+  {
+   "id": "tool:safety-guide",
+   "kind": "tool",
+   "title": "Frequency safety guide",
+   "summary": "Safe volumes, flashing light, low frequencies, headphones and common myths about sound.",
+   "why": "Listening safely protects your hearing and keeps sessions comfortable.",
+   "area": "Sound",
+   "minutes": 6,
+   "to": "/learn/safety",
+   "exclude_if": [],
+   "cautions": []
+  },
+  {
+   "id": "tool:safety-plan",
+   "kind": "tool",
+   "title": "Safety plan",
+   "summary": "Write down your warning signs, what helps, and who to call, ready for hard moments. Private to this device.",
+   "why": "Safety plans are recommended by crisis professionals because they help in the moment.",
+   "area": "Support",
+   "minutes": 10,
+   "to": "/support#plan",
+   "exclude_if": [],
+   "cautions": []
+  },
+  {
+   "id": "tool:share-card",
+   "kind": "tool",
+   "title": "Share cards",
+   "summary": "Make a picture of your week or a finished program to share or save.",
+   "why": "Sharing a win with a friend can help you stick with it.",
+   "area": "Plan & track",
+   "minutes": null,
+   "to": "/week",
+   "exclude_if": [],
+   "cautions": []
+  },
+  {
+   "id": "tool:shopping-list",
+   "kind": "tool",
+   "title": "Shopping list",
+   "summary": "Add pantry items to a list grouped by store aisle, check them off as you shop, and plan a grocery trip.",
+   "why": "A list made while you're thinking about health keeps the good stuff in your cart.",
+   "area": "Food",
+   "minutes": null,
+   "to": "/nourish#pantry",
+   "exclude_if": [],
+   "cautions": []
+  },
+  {
+   "id": "tool:shows",
+   "kind": "tool",
+   "title": "Shows",
+   "summary": "Longer multi-part listening series you can play in order.",
+   "why": "A series gives you something to come back to each day.",
+   "area": "Sound",
+   "minutes": null,
+   "to": "/shows",
+   "exclude_if": [],
+   "cautions": []
+  },
+  {
+   "id": "tool:sleep-guide",
+   "kind": "tool",
+   "title": "Better sleep guide",
+   "summary": "How your sleep clock works, plus morning, evening, caffeine, temperature and nap habits.",
+   "why": "Small, well-supported changes often help more than any gadget.",
+   "area": "Sleep & light",
+   "minutes": 8,
+   "to": "/learn/sleep",
+   "exclude_if": [],
+   "cautions": []
+  },
+  {
+   "id": "tool:sound-bath",
+   "kind": "tool",
+   "title": "Sound bath",
+   "summary": "Strike singing bowls, chimes and a gong, or let a sound bath play by itself. All synthesized live.",
+   "why": "Many people find it a relaxing focus point for rest or meditation.",
+   "area": "Mind & spirit",
+   "minutes": 10,
+   "to": "/spirit#sound",
+   "exclude_if": [],
+   "cautions": []
+  },
+  {
+   "id": "tool:sound-mixer",
+   "kind": "tool",
+   "title": "Mix your sound",
+   "summary": "In the full-screen player, add music, nature sounds or a solfeggio tone, set a sleep timer, and check your headphones.",
+   "why": "The right mix is the one you enjoy enough to keep listening to.",
+   "area": "Sound",
+   "minutes": null,
+   "to": "/frequencies",
+   "exclude_if": [],
+   "cautions": []
+  },
+  {
+   "id": "tool:store-finder",
+   "kind": "tool",
+   "title": "Store finder",
+   "summary": "See which kinds of shops carry what's on your list, and open a map search for ones near you.",
+   "why": "Knowing where to go saves a wasted trip.",
+   "area": "Food",
+   "minutes": null,
+   "to": "/nourish#pantry",
+   "exclude_if": [],
+   "cautions": []
+  },
+  {
+   "id": "tool:therapy",
+   "kind": "tool",
+   "title": "Therapy and bodywork",
+   "summary": "Therapies with good evidence, how to find a therapist, questions to ask, and what massage, acupuncture and more can and can't do.",
+   "why": "Knowing your options makes it easier to take the first step toward care.",
+   "area": "Support",
+   "minutes": null,
+   "to": "/support#therapy",
+   "exclude_if": [],
+   "cautions": []
+  },
+  {
+   "id": "tool:water",
+   "kind": "tool",
+   "title": "Water tracker",
+   "summary": "Tap to log glasses of water and watch the glass fill toward your daily goal.",
+   "why": "Many people drink less than they think. A quick tap makes it visible.",
+   "area": "Food",
+   "minutes": null,
+   "to": "/nourish#water",
+   "exclude_if": [],
+   "cautions": []
+  },
+  {
+   "id": "tool:week",
+   "kind": "tool",
+   "title": "Your week",
+   "summary": "A recap of your minutes, sessions, mood, water and calendar over the last seven days.",
+   "why": "Seeing progress, even small, keeps you going.",
+   "area": "Plan & track",
+   "minutes": null,
+   "to": "/week",
+   "exclude_if": [],
+   "cautions": []
+  },
+  {
+   "id": "tool:work-import",
+   "kind": "tool",
+   "title": "Import your work calendar",
+   "summary": "Bring in meetings and shifts from a calendar file as gray busy blocks, so plans fit around them. They stay on this device.",
+   "why": "Seeing health plans beside real commitments keeps them realistic.",
+   "area": "Plan & track",
+   "minutes": null,
+   "to": "/calendar#connect",
+   "exclude_if": [],
+   "cautions": []
+  },
+  {
+   "id": "tool:worried",
+   "kind": "tool",
+   "title": "Worried about someone",
+   "summary": "What to say, what to avoid, and how to help someone who's struggling.",
+   "why": "Asking directly and listening well can make a real difference.",
+   "area": "Support",
+   "minutes": null,
+   "to": "/support#worried",
+   "exclude_if": [],
+   "cautions": []
+  },
+  {
+   "id": "tool:your-data",
+   "kind": "tool",
+   "title": "Your data",
+   "summary": "See what's kept, download it, back up private notes if you choose, or delete it all.",
+   "why": "Your health data is yours. You stay in control of it.",
+   "area": "Your account",
+   "minutes": null,
+   "to": "/your-data",
+   "exclude_if": [],
+   "cautions": []
+  }
+ ]
+}
