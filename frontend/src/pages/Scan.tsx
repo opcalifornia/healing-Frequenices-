@@ -10,6 +10,7 @@ import { NOVA_LABEL, VERDICT_LABEL, assess, compare, isBetterChoice, nutrientRow
 import { useScanHistory, useScans } from "../store/scans";
 import { ALLERGENS, allergenHits, allergenLabel } from "../rooted/allergens";
 import { TEXT_PRODUCT_CODE, productFromIngredients } from "../rooted/ingredientParse";
+import { eNumber } from "../rooted/eNumbers";
 import { useAllergenStore, useWatchedAllergens } from "../store/allergens";
 import { Sheet } from "../rooted/ui";
 import { CheckIcon, FunctionIcon, RiskIcon, functionInfo } from "../rooted/AdditiveArt";
@@ -455,7 +456,12 @@ export default function Scan() {
 
       <section className="sec-block scan__result" aria-live="polite">
         {state.s === "loading" && <p className="scan__status">Looking it up…</p>}
-        {state.s === "error" && <p className="scan__status scan__status--error" role="alert">{ERRORS[state.reason]}</p>}
+        {state.s === "error" && (
+          <>
+            <p className="scan__status scan__status--error" role="alert">{ERRORS[state.reason]}</p>
+            {state.reason === "notfound" && <button className="scan__link" onClick={() => setTextOpen(true)}>Type in the ingredient list instead</button>}
+          </>
+        )}
         {state.s === "result" && found && result && (
           <Reveal>
             {(() => {
@@ -496,7 +502,9 @@ export default function Scan() {
               )}
               {found.unknown.length > 0 && (
                 <p className="scan__muted scan__unknown">
-                  Not reviewed here yet: <strong>{found.unknown.join(", ")}</strong>. We only describe an additive when we can back it with a regulator's review or a published study. <a href={EFSA} target="_blank" rel="noreferrer">EFSA's additive pages ↗</a>
+                  Not reviewed here yet:
+                  {found.unknown.map((u) => { const e = eNumber(u); return <span key={u} className="scan__enum"><strong>{u}</strong>{e ? ` ${e.name} (${e.does.toLowerCase()}${e.note ? `; ${e.note.toLowerCase()}` : ""})` : ""}</span>; })}
+                  We only describe an additive when we can back it with a regulator's review or a published study. <a href={EFSA} target="_blank" rel="noreferrer">EFSA's additive pages ↗</a>
                 </p>
               )}
             </div>

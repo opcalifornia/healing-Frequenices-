@@ -4,6 +4,7 @@
  * Only the barcode is sent. Nothing about the person or their profile leaves the device.
  */
 import { normalizeCode } from "./additivesContent";
+import { findAdditives } from "./ingredientParse";
 import { allergenIds, type AllergenId } from "./allergens";
 
 /** Nutrition per 100 g (or 100 ml for drinks). Anything the database doesn't have is left out. */
@@ -98,7 +99,11 @@ export function parseProduct(json: unknown, code: string): Product | null {
   const p = root?.product;
   if (!p || root?.status === 0) return null;
   const tags = Array.isArray(p.additives_tags) ? (p.additives_tags as unknown[]) : [];
-  const additives = [...new Set(tags.map((t) => (typeof t === "string" ? normalizeCode(t) : undefined)).filter((c): c is string => !!c))];
+  const fromTags = tags.map((t) => (typeof t === "string" ? normalizeCode(t) : undefined)).filter((c): c is string => !!c);
+  // The tags can lag behind the printed list, so read the ingredient text too.
+  const text = p.ingredients_text?.trim();
+  const fromText = text ? findAdditives(text) : { codes: [], notes: [] };
+  const additives = [...new Set([...fromTags, ...fromText.codes])];
   const name = (p.product_name || p.generic_name || "").trim();
   const cats = Array.isArray(p.categories_tags) ? (p.categories_tags as unknown[]).filter((c): c is string => typeof c === "string") : [];
   const g = String(p.nutriscore_grade ?? p.nutrition_grades ?? "").toLowerCase();
@@ -112,6 +117,7 @@ export function parseProduct(json: unknown, code: string): Product | null {
     quantity: p.quantity?.trim() || undefined,
     ingredients: p.ingredients_text?.trim() || undefined,
     additives,
+    notes: fromText.notes.length ? fromText.notes : undefined,
     allergens: allergenIds(p.allergens_tags),
     traces: allergenIds(p.traces_tags),
     nutrition: parseNutrition(p.nutriments),
