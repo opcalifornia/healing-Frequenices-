@@ -1,0 +1,14 @@
+.animals .nutrients__hero .aurora__b--1 { background: radial-gradient(circle, #e3a57a, transparent 65%); }
+.animals .nutrients__hero .aurora__b--2 { background: radial-gradient(circle, #6f9a5a, transparent 65%); }
+.animals__grid { margin-top: 16px; }
+.animals__stat { font-weight: 900; color: var(--r-sand); }
+.animals__table { padding: 8px 4px; display: grid; }
+.animals__row { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 12px; padding: 12px 16px; border-bottom: 1px solid var(--r-line); align-items: center; color: var(--r-text-2); }
+.animals__row:last-child { border-bottom: 0; }
+.animals__row--head { font-size: 0.78rem; font-weight: 800; color: var(--r-text-3); }
+.animals__row strong { color: inherit; font-weight: 800; }
+.animals__src { margin-top: 12px; }
+.animals__steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.animals__steps li { padding: 16px 18px; display: grid; gap: 6px; }
+.animals__steps p { margin: 0; color: var(--r-text-2); line-height: 1.6; }
+@media (max-width: 560px) { .animals__row { grid-template-columns: 1fr 1fr; } .animals__row > :first-child { grid-column: 1 / -1; } .animals__row--head > :nth-child(n+2) { display: none; } }

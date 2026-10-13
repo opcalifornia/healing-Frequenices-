@@ -32,7 +32,7 @@ const exactRoute = (path: string) => routes.find((r) => r === path) ?? routes.fi
 describe("feature catalog", () => {
   it("has a healthy number of tools", () => {
     expect(FEATURES.length).toBeGreaterThanOrEqual(45);
-    expect(FEATURES.length).toBeLessThanOrEqual(70);
+    expect(FEATURES.length).toBeLessThanOrEqual(75);
   });
 
   it("has unique ids", () => {
