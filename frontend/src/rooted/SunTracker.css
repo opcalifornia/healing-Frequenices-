@@ -1,0 +1,27 @@
+.suntrack { padding: 0; overflow: hidden; }
+.suntrack__sky { position: relative; height: clamp(190px, 38vw, 260px); transition: background 0.6s linear; }
+.suntrack__sky svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.suntrack__sun { transition: transform 0.6s ease; }
+.suntrack__stars { position: absolute; inset: 0; background-image: radial-gradient(1.2px 1.2px at 12% 20%, #fff, transparent), radial-gradient(1px 1px at 30% 40%, #fff, transparent), radial-gradient(1.4px 1.4px at 55% 15%, #fff, transparent), radial-gradient(1px 1px at 72% 35%, #fff, transparent), radial-gradient(1.2px 1.2px at 88% 18%, #fff, transparent), radial-gradient(1px 1px at 45% 55%, #fff, transparent); }
+.suntrack__time { position: absolute; left: 16px; top: 14px; display: grid; color: #fff; text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5); }
+.suntrack__time strong { font-size: 1.6rem; font-weight: 900; }
+.suntrack__time span { font-size: 0.8rem; font-weight: 800; opacity: 0.9; }
+.suntrack__body { display: grid; grid-template-columns: auto 1fr; gap: clamp(16px, 3vw, 28px); align-items: center; padding: clamp(18px, 3vw, 28px); }
+.suntrack__info h3 { font-size: 1.3rem; font-weight: 900; margin: 0 0 6px; }
+.suntrack__info p { color: var(--r-text-2); line-height: 1.6; margin: 0 0 12px; }
+.suntrack__facts { display: flex; gap: 10px; flex-wrap: wrap; margin: 0; }
+.suntrack__facts div { padding: 8px 12px; border-radius: 12px; background: rgba(255, 255, 255, 0.05); }
+.suntrack__facts dt { font-size: 0.7rem; font-weight: 800; color: var(--r-text-3); }
+.suntrack__facts dd { margin: 0; font-weight: 900; }
+.sunglobe { position: relative; flex: none; }
+.sunglobe canvas { width: 100%; height: 100%; border-radius: 50%; box-shadow: 0 0 40px rgba(110, 170, 230, 0.25), inset 0 0 20px rgba(0, 0, 0, 0.4); image-rendering: auto; }
+.sunglobe__pin { position: absolute; left: 50%; top: 50%; translate: -50% -50%; width: 14px; height: 14px; }
+.sunglobe__pin i { display: block; width: 100%; height: 100%; border-radius: 50%; background: #ff7043; border: 2px solid #fff; box-shadow: 0 0 0 0 rgba(255, 112, 67, 0.7); animation: pin-pulse 2.2s ease-out infinite; }
+@keyframes pin-pulse { to { box-shadow: 0 0 0 16px rgba(255, 112, 67, 0); } }
+.suntrack__controls { padding: 0 clamp(18px, 3vw, 28px) clamp(18px, 3vw, 24px); display: grid; gap: 10px; }
+.suntrack__controls label { display: grid; gap: 4px; font-size: 0.8rem; font-weight: 800; color: var(--r-text-2); }
+.suntrack__controls input[type="range"] { width: 100%; accent-color: #ffd54f; }
+.suntrack__btns { display: flex; gap: 8px; flex-wrap: wrap; }
+.suntrack__note { margin: 0; font-size: 0.8rem; color: var(--r-text-3); }
+@media (max-width: 600px) { .suntrack__body { grid-template-columns: 1fr; justify-items: center; text-align: left; } }
+@media (prefers-reduced-motion: reduce) { .suntrack__sun, .suntrack__sky { transition: none; } .sunglobe__pin i { animation: none; } }
