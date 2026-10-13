@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Aurora, Reveal, ZoomPage } from "../rooted/motion";
 import { Evidence, SourceLink } from "../rooted/ui";
 import { BarcodeScanner } from "../rooted/BarcodeScanner";
-import { ADDITIVES, TIERS, TIER_ORDER, additiveById, searchAdditives, tierInfo, tierOf, type Additive, type Tier } from "../rooted/additivesContent";
+import { ADDITIVES, TIERS, TIER_ORDER, additiveById, searchAdditives, shownName, tierInfo, tierOf, type Additive, type Tier } from "../rooted/additivesContent";
 import { isValidBarcode, lookupBarcode, similarProducts, type Product } from "../rooted/foodLookup";
 import { NOVA_LABEL, VERDICT_LABEL, assess, compare, isBetterChoice, nutrientRows, nutritionReason, overallLabel, type Assessment, type Verdict } from "../rooted/productVerdict";
 import { useScanHistory, useScans } from "../store/scans";
@@ -97,7 +97,7 @@ function Row({ a, forYou, onOpen }: { a: Additive; forYou: boolean; onOpen(): vo
   return (
     <li className="addi">
       <button className="addi__head" onClick={onOpen} aria-haspopup="dialog">
-        <span className="addi__name"><strong>{a.name}</strong><small>{a.code} · {a.kind}{forYou ? " · for you" : ""}</small></span>
+        <span className="addi__name"><strong>{shownName(a)}</strong><small>{a.code}{a.labelName ? ` · ${a.name}` : ""} · {a.kind}{forYou ? " · for you" : ""}</small></span>
         <TierBadge a={a} short />
         <Icon name="chevronRight" size={18} className="addi__caret" />
       </button>
@@ -122,7 +122,7 @@ function AdditiveSheet({ a, list, backLabel, forYou, onClose, onMethod, onGo }: 
   };
 
   return (
-    <Sheet open={!!a} onClose={onClose} label={a ? `${a.name}, additive` : "Additive"} wide>
+    <Sheet open={!!a} onClose={onClose} label={a ? `${shownName(a)}, additive` : "Additive"} wide>
       {a && fn && (
         <div
           className="apage"
@@ -142,15 +142,16 @@ function AdditiveSheet({ a, list, backLabel, forYou, onClose, onMethod, onGo }: 
             <button className="apage__back" onClick={onClose}><Icon name="chevronLeft" size={18} /> {backLabel}</button>
             {list.length > 1 && (
               <span className="apage__step">
-                <button onClick={() => go(prev)} disabled={!prev} aria-label={prev ? `Previous: ${prev.name}` : "No previous additive"}><Icon name="chevronLeft" size={18} /></button>
+                <button onClick={() => go(prev)} disabled={!prev} aria-label={prev ? `Previous: ${shownName(prev)}` : "No previous additive"}><Icon name="chevronLeft" size={18} /></button>
                 <span>{i + 1} of {list.length}</span>
-                <button onClick={() => go(next)} disabled={!next} aria-label={next ? `Next: ${next.name}` : "No next additive"}><Icon name="chevronRight" size={18} /></button>
+                <button onClick={() => go(next)} disabled={!next} aria-label={next ? `Next: ${shownName(next)}` : "No next additive"}><Icon name="chevronRight" size={18} /></button>
               </span>
             )}
           </nav>
           <header className="apage__head">
             <span className="apage__code">{a.code}</span>
-            <h2>{a.name}</h2>
+            <h2>{shownName(a)}</h2>
+            {a.labelName && <p className="apage__also">Scientific name: {a.name}</p>}
             {a.also && <p className="apage__also">Also written: {a.also}</p>}
             <p className="apage__tags"><TierBadge a={a} /> {forYou && <span className="addi__flag">For you</span>}</p>
             <p className="apage__means">{tierInfo(tierOf(a)).means}</p>
@@ -206,8 +207,8 @@ function AdditiveSheet({ a, list, backLabel, forYou, onClose, onMethod, onGo }: 
           </div>
           {(prev || next) && (
             <div className="apage__more">
-              {prev ? <button onClick={() => go(prev)}><small>Previous</small><strong>{prev.name}</strong></button> : <span />}
-              {next ? <button onClick={() => go(next)}><small>Next</small><strong>{next.name}</strong></button> : <span />}
+              {prev ? <button onClick={() => go(prev)}><small>Previous</small><strong>{shownName(prev)}</strong></button> : <span />}
+              {next ? <button onClick={() => go(next)}><small>Next</small><strong>{shownName(next)}</strong></button> : <span />}
             </div>
           )}
           <p className="apage__fine">Wellness education, not medical advice. A concern is not proof of harm: many people eat these at levels regulators consider acceptable.</p>

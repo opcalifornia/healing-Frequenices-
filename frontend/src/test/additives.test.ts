@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { ADDITIVES, TIERS, TIER_ORDER, additiveById, normalizeCode, searchAdditives, tierOf } from "../rooted/additivesContent";
+import { ADDITIVES, TIERS, TIER_ORDER, additiveById, normalizeCode, shownName, searchAdditives, tierOf } from "../rooted/additivesContent";
 import { isValidBarcode, lookupBarcode, parseProduct } from "../rooted/foodLookup";
 
 describe("additive research library", () => {
@@ -39,6 +39,16 @@ describe("additive research library", () => {
 
   it("reads sub-type suffixes: roman numerals are dropped, letters are kept", () => {
     for (const [raw, id] of [["en:e322i", "e322"], ["en:e500ii", "e500"], ["en:e160aii", "e160a"], ["en:e150d", "e150d"], ["en:e407a", "e407a"], ["en:e472b", "e472b"], ["en:e450iii", "e450"], ["E1442", "e1442"]] as const) expect(normalizeCode(raw), raw).toBe(id);
+  });
+
+  it("shows the name printed on the pack, with the scientific name kept for the detail page", () => {
+    expect(shownName(additiveById("e129")!)).toBe("Red 40");
+    expect(additiveById("e129")!.name).toBe("Allura red AC");
+    expect(shownName(additiveById("e102")!)).toBe("Yellow 5");
+    expect(shownName(additiveById("e110")!)).toBe("Yellow 6");
+    expect(shownName(additiveById("e330")!)).toBe("Citric acid");
+    expect(searchAdditives("red 40").map((a) => a.id)).toContain("e129");
+    expect(searchAdditives("allura").map((a) => a.id)).toContain("e129");
   });
 
   it("finds additives from the ways a label or database writes the code", () => {
@@ -103,7 +113,9 @@ describe("risk scale", () => {
     expect(t("e443")).toBe("restricted");
     expect(t("e250")).toBe("notable"); // processed meat link, moderate evidence
     expect(t("e220")).toBe("notable"); // sulfites
-    expect(t("e110")).toBe("some"); // colours, mixed evidence
+    expect(t("e110")).toBe("notable"); // synthetic dyes: OEHHA review, EU warning, FDA phase-out request
+    expect(t("e102")).toBe("notable");
+    expect(t("e129")).toBe("notable");
     expect(t("e951")).toBe("some"); // aspartame, limited evidence
     expect(t("e433")).toBe("minor"); // mouse studies only
     expect(t("e466")).toBe("some"); // mouse studies plus a small human trial and a cohort link
