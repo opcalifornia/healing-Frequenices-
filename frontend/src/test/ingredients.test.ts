@@ -63,4 +63,9 @@ describe("allergens", () => {
     expect(hit).toEqual({ contains: ["milk"], traces: ["nuts"] });
     expect(allergenHits([], { allergens: ["milk"], traces: [] })).toEqual({ contains: [], traces: [] });
   });
+
+  it("doesn't mistake ordinary words for additives", () => {
+    expect(findAdditives("Omega-3 fatty acids, oxygen-free packaging, lactic acid bacteria, gold medal flour").codes).toEqual([]);
+    expect(findAdditives("E570, E640").codes.sort()).toEqual(["e570", "e640"]);
+  });
 });

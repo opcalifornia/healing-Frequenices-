@@ -2,6 +2,7 @@ import type { Strength } from "../learn/brainContent";
 import type { Consideration } from "../store/wellness";
 import type { Source } from "./pantryContent";
 import { SAME_REVIEW } from "./eNumbers";
+import { AUDITED } from "./additivesAudited";
 
 /**
  * Food additives: what the research says, and how strong it is.
@@ -34,6 +35,8 @@ export interface Additive extends AdditiveBase {
 interface AdditiveBase {
   /** The concern rests only on lab or animal studies so far, which keeps it to a "minor" step. */
   labOnly?: boolean;
+  /** Where other rating systems (consumer groups, apps) rate it differently from regulators, and why. */
+  contested?: string;
   /** Short risk tags. Set here, or in the TOPICS table below. */
   topics?: string[];
   /** Lowercase code, for example "e171". */
@@ -701,7 +704,21 @@ TOPICS.e249 = TOPICS.e250;
 
 const LAB_ONLY = new Set(["e466", "e433", "e955"]);
 
-export const ADDITIVES: Additive[] = RAW.map((a) => ({ ...a, topics: TOPICS[a.id] ?? a.topics ?? [], labOnly: LAB_ONLY.has(a.id) || a.labOnly }));
+/** The re-researched entries win over any older one with the same id. */
+const AUDITED_IDS = new Set(AUDITED.map((a) => a.id));
+const codeKey = (code: string): [number, string] => {
+  const m = code.match(/(\d+)([a-z]*)/i);
+  return [m ? Number(m[1]) : 0, m ? m[2].toLowerCase() : ""];
+};
+
+export const ADDITIVES: Additive[] = [
+  ...RAW.filter((a) => !AUDITED_IDS.has(a.id)).map((a) => ({ ...a, topics: TOPICS[a.id] ?? a.topics ?? [], labOnly: LAB_ONLY.has(a.id) || a.labOnly })),
+  ...AUDITED.map((a): Additive => ({ ...a, topics: a.topics ?? [] })),
+].sort((a, b) => {
+  const [an, as] = codeKey(a.code);
+  const [bn, bs] = codeKey(b.code);
+  return an - bn || as.localeCompare(bs);
+});
 
 const BY_ID = new Map(ADDITIVES.map((a) => [a.id, a]));
 
@@ -727,7 +744,7 @@ export const LEVEL_ORDER: Record<ConcernLevel, number> = { restricted: 0, some: 
  *  notable     a real concern backed by moderate or better evidence in people
  *  some        a concern with limited or mixed evidence
  *  minor       a small or early concern (lab or animal studies only, or EFSA noted a limit)
- *  clear       reviewed, and nothing flagged
+ *  clear       reviewed, and no concern found
  */
 export type Tier = "restricted" | "notable" | "some" | "minor" | "clear";
 
@@ -736,7 +753,7 @@ export const TIERS: Array<{ id: Tier; label: string; short: string; shape: "octa
   { id: "notable", label: "Notable concern", short: "Notable", shape: "square", color: "#ff8a5b", means: "A real concern, backed by moderate or stronger evidence." },
   { id: "some", label: "Some concern", short: "Some concern", shape: "diamond", color: "#f5a742", means: "A concern with limited or mixed evidence, so far." },
   { id: "minor", label: "Minor concern", short: "Minor", shape: "triangle", color: "#f2d24b", means: "A small or early concern, such as lab or animal studies only." },
-  { id: "clear", label: "Nothing flagged", short: "Clear", shape: "circle", color: "#8fd46a", means: "Reviewed, and nothing was flagged at the amounts allowed in food." },
+  { id: "clear", label: "No concern found", short: "Clear", shape: "circle", color: "#8fd46a", means: "Regulators and the studies we checked raised no concern at the amounts allowed in food. Research continues, so this is not a guarantee." },
 ];
 
 export const TIER_ORDER: Record<Tier, number> = { restricted: 0, notable: 1, some: 2, minor: 3, clear: 4 };

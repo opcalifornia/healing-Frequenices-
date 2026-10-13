@@ -7,7 +7,7 @@
  *   UK front-of-pack traffic-light cut-offs (2016), plus the Nutri-Score letter when there is one.
  * - Overall: a product is only as good as its weakest part.
  */
-import type { Additive } from "./additivesContent";
+import { TIER_ORDER, tierOf, type Additive } from "./additivesContent";
 import type { Nutrition, Product } from "./foodLookup";
 
 export type Verdict = "good" | "fair" | "poor";
@@ -66,10 +66,38 @@ export function nutrientRows(n: Nutrition | undefined, isDrink: boolean): Nutrie
   return rows.sort((a, b) => rank[a.level] - rank[b.level]);
 }
 
-export function additiveVerdict(known: Additive[]): Verdict {
-  const some = known.filter((a) => a.level === "some").length;
-  if (known.some((a) => a.level === "restricted") || some >= 3) return "poor";
-  return some >= 1 ? "fair" : "good";
+/** Points per additive by how strong the concern is. A product's additive score is the sum. */
+const POINTS = { restricted: 99, notable: 3, some: 2, minor: 1, clear: 0 } as const;
+/** At this many additives or more, a product can't be "few concerns": nobody has studied them in combination. */
+export const MANY_ADDITIVES = 8;
+
+export function additiveScore(known: Additive[]): number {
+  return known.reduce((sum, a) => sum + POINTS[tierOf(a)], 0);
+}
+
+/**
+ * Additives are judged by their rating, not just counted: a restricted additive or a score of 6 or more is "several
+ * concerns", any real concern or two minor ones is "some", and a long list is never "few concerns" on its own.
+ */
+export function additiveVerdict(known: Additive[], total = known.length): Verdict {
+  const score = additiveScore(known);
+  const notable = known.filter((a) => TIER_ORDER[tierOf(a)] <= TIER_ORDER.notable).length;
+  if (known.some((a) => a.level === "restricted") || score >= 6 || notable >= 2) return "poor";
+  if (score >= 2 || total >= MANY_ADDITIVES) return "fair";
+  return "good";
+}
+
+/** The reasons behind the additive part of the verdict, in plain words. */
+export function additiveReasons(known: Additive[], unknownCount: number): string[] {
+  const out: string[] = [];
+  const by = (t: ReturnType<typeof tierOf>) => known.filter((a) => tierOf(a) === t).length;
+  if (known.some((a) => a.level === "restricted")) out.push("Contains an additive that a regulator has restricted.");
+  const flagged = by("notable") + by("some") + by("minor");
+  if (flagged > 0) out.push(`${flagged} of ${known.length} reviewed additive${known.length === 1 ? "" : "s"} carr${flagged === 1 ? "ies" : "y"} a concern, from minor to notable.`);
+  const total = known.length + unknownCount;
+  if (total >= MANY_ADDITIVES) out.push(`${total} additives in one product. Their effects in combination haven't been studied.`);
+  if (unknownCount > 0) out.push(`${unknownCount} additive${unknownCount === 1 ? " isn't" : "s aren't"} reviewed here yet, so they aren't counted.`);
+  return out;
 }
 
 export function nutritionVerdict(p: Pick<Product, "nutrition" | "grade" | "isDrink">): Verdict | undefined {
@@ -82,6 +110,8 @@ export function nutritionVerdict(p: Pick<Product, "nutrition" | "grade" | "isDri
 }
 
 export interface Assessment {
+  /** Plain-language reasons for the verdict. */
+  reasons: string[];
   additives: Verdict;
   nutrition?: Verdict;
   overall: Verdict;
@@ -97,10 +127,16 @@ export function overallLabel(a: Pick<Assessment, "overall" | "complete">): strin
 }
 
 export function assess(p: Product, known: Additive[], unknownCount: number): Assessment {
-  const additives = additiveVerdict(known);
+  const additives = additiveVerdict(known, known.length + unknownCount);
   const nutrition = nutritionVerdict(p);
-  const overall = [additives, nutrition].filter((v): v is Verdict => !!v).sort((a, b) => ORDER[b] - ORDER[a])[0];
-  return { additives, nutrition, overall, partial: unknownCount > 0, complete: unknownCount === 0 && nutrition !== undefined };
+  const reasons = additiveReasons(known, unknownCount);
+  let overall = [additives, nutrition].filter((v): v is Verdict => !!v).sort((a, b) => ORDER[b] - ORDER[a])[0];
+  // Ultra-processed foods are linked to many poorer health outcomes, so they never read as "few concerns".
+  if (p.nova === 4) {
+    reasons.push("Ultra-processed (NOVA group 4): diets high in these are linked to poorer health in large studies.");
+    if (overall === "good") overall = "fair";
+  }
+  return { reasons, additives, nutrition, overall, partial: unknownCount > 0, complete: unknownCount === 0 && nutrition !== undefined };
 }
 
 /** How much better `a` is than `b`: negative means `a` is the better product. */

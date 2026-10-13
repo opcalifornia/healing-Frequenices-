@@ -46,7 +46,7 @@ describe("additive research library", () => {
   });
 
   it("searches by name, other name and code", () => {
-    expect(searchAdditives("aspartame").map((a) => a.id)).toEqual(["e951"]);
+    expect(searchAdditives("aspartame").map((a) => a.id)).toEqual(["e951", "e962"]);
     expect(searchAdditives("red 40").map((a) => a.id)).toEqual(["e129"]);
     expect(searchAdditives("E330")[0].name).toBe("Citric acid");
     expect(searchAdditives("")).toHaveLength(ADDITIVES.length);
@@ -101,11 +101,19 @@ describe("risk scale", () => {
     expect(t("e220")).toBe("notable"); // sulfites
     expect(t("e110")).toBe("some"); // colours, mixed evidence
     expect(t("e951")).toBe("some"); // aspartame, limited evidence
-    expect(t("e466")).toBe("minor"); // mouse studies
-    expect(t("e955")).toBe("minor"); // lab study on cells
-    expect(t("e621")).toBe("minor"); // MSG
+    expect(t("e433")).toBe("minor"); // mouse studies only
+    expect(t("e466")).toBe("some"); // mouse studies plus a small human trial and a cohort link
+    expect(t("e621")).toBe("some"); // MSG: EFSA flagged intake above its limit for some groups
+    expect(t("e471")).toBe("some"); // same French cohorts as E472b and E472c
+    expect(t("e472b")).toBe("some");
+    expect(t("e341")).toBe("some"); // phosphates: EFSA 2019, children above the limit
+    expect(t("e450")).toBe("some");
+    expect(t("e200")).toBe("minor"); // sorbates: regulators fine, lab DNA findings unresolved
+    expect(t("e202")).toBe("minor");
+    expect(t("e435")).toBe("minor");
+    expect(t("e481")).toBe("minor");
     expect(t("e330")).toBe("clear");
-    expect(t("e202")).toBe("clear");
+    expect(t("e1440")).toBe("clear");
   });
 
   it("uses every step of the scale at least once", () => {

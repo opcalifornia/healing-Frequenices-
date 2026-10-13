@@ -10,11 +10,20 @@ describe("additive verdict", () => {
     expect(additiveVerdict([])).toBe("good");
     expect(additiveVerdict(A("e330", "e300"))).toBe("good");
   });
-  it("is fair with one or two research concerns and poor with three, or anything regulators restricted", () => {
-    expect(additiveVerdict(A("e330", "e951"))).toBe("fair");
+  it("scores additives by strength: minor ones add up, real concerns count more", () => {
+    expect(additiveVerdict(A("e330", "e200"))).toBe("good"); // one minor concern
+    expect(additiveVerdict(A("e200", "e202"))).toBe("fair"); // two minor concerns
+    expect(additiveVerdict(A("e330", "e951"))).toBe("fair"); // one real concern
     expect(additiveVerdict(A("e951", "e211"))).toBe("fair");
-    expect(additiveVerdict(A("e951", "e211", "e110"))).toBe("poor");
-    expect(additiveVerdict(A("e171"))).toBe("poor");
+    expect(additiveVerdict(A("e951", "e211", "e110"))).toBe("poor"); // score 6
+    expect(additiveVerdict(A("e341", "e450", "e471"))).toBe("poor");
+    expect(additiveVerdict(A("e220", "e250"))).toBe("poor"); // two notable concerns
+    expect(additiveVerdict(A("e171"))).toBe("poor"); // restricted
+  });
+  it("is never 'good' for a long list of additives, even when each looks gentle", () => {
+    const gentle = A("e330", "e300", "e322", "e440", "e412", "e270", "e101", "e414");
+    expect(additiveVerdict(gentle)).toBe("fair");
+    expect(additiveVerdict(gentle.slice(0, 7))).toBe("good");
   });
 });
 
@@ -124,5 +133,20 @@ describe("so-far wording", () => {
     expect(overallLabel(poor)).toBe("Several concerns");
     const fair = assess(mk({}), A("e951"), 1);
     expect(overallLabel(fair)).toBe("Some concerns");
+  });
+});
+
+describe("reasons and ultra-processing", () => {
+  const mk = (extra: object) => parseProduct({ status: 1, product: { product_name: "X", ...extra } }, "1")!;
+  it("explains the additive verdict", () => {
+    const r = assess(mk({ nutrition_grades: "a" }), A("e341", "e450", "e471", "e330"), 1).reasons;
+    expect(r.join(" ")).toMatch(/3 of 4 reviewed additives/);
+    expect(r.join(" ")).toMatch(/isn't reviewed here yet/);
+  });
+  it("never calls an ultra-processed food 'few concerns'", () => {
+    const p = parseProduct({ status: 1, product: { product_name: "x", nova_group: 4, nutrition_grades: "a" } }, "5449000000996")!;
+    const a = assess(p, A("e330"), 0);
+    expect(a.overall).toBe("fair");
+    expect(a.reasons.join(" ")).toMatch(/Ultra-processed/);
   });
 });
