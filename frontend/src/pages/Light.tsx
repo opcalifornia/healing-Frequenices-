@@ -6,6 +6,7 @@ import { Aurora, Reveal, TiltCard, ZoomPage } from "../rooted/motion";
 import { Evidence, SecTabs, Sheet, SourceLink, useModalFocus, useToast } from "../rooted/ui";
 import { BANDS, LIGHT_FINDINGS, LIGHT_GEAR, LIGHT_SAFETY, LIGHT_SOURCES, type LightFinding } from "../rooted/lightContent";
 import { LightLevels } from "../learn/diagrams/SleepDiagrams";
+import { SunTracker } from "../rooted/SunTracker";
 import { ClockPathway, SkinDepth } from "../rooted/LightDiagrams";
 import { chime, unlockChime } from "../rooted/chime";
 import { usePractice } from "../store/practice";
@@ -20,6 +21,7 @@ import "./Breathe.css";
 import "./Light.css";
 
 const TABS = [
+  { id: "sun", label: "Follow the sun" },
   { id: "spectrum", label: "The spectrum" },
   { id: "clock", label: "Your body clock" },
   { id: "tools", label: "Light tools" },
@@ -225,6 +227,15 @@ export default function Light() {
       </header>
 
       <SecTabs tabs={TABS} />
+
+      <section id="sun" className="sec-block">
+        <Reveal className="sec-block__head">
+          <span className="rooted__eyebrow">Follow the sun</span>
+          <h2>Where the sun is, right where you are</h2>
+          <p className="rooted__lead">Slide through the day to watch the sun cross your sky and light up the Earth. Your body clock follows the same light.</p>
+        </Reveal>
+        <Reveal><SunTracker /></Reveal>
+      </section>
 
       <section id="spectrum" className="sec-block">
         <Reveal className="sec-block__head">
