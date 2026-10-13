@@ -87,13 +87,20 @@ export interface Assessment {
   overall: Verdict;
   /** True when some additives aren't in our library yet, so the additive verdict covers only what we know. */
   partial: boolean;
+  /** True only when both parts were judged and every additive is in our library. A "good" verdict that isn't complete is worded "so far". */
+  complete: boolean;
+}
+
+/** The verdict as words. A good verdict we couldn't fully check says "so far", so it never reads as an all-clear. */
+export function overallLabel(a: Pick<Assessment, "overall" | "complete">): string {
+  return a.overall === "good" && !a.complete ? `${VERDICT_LABEL.good} so far` : VERDICT_LABEL[a.overall];
 }
 
 export function assess(p: Product, known: Additive[], unknownCount: number): Assessment {
   const additives = additiveVerdict(known);
   const nutrition = nutritionVerdict(p);
   const overall = [additives, nutrition].filter((v): v is Verdict => !!v).sort((a, b) => ORDER[b] - ORDER[a])[0];
-  return { additives, nutrition, overall, partial: unknownCount > 0 };
+  return { additives, nutrition, overall, partial: unknownCount > 0, complete: unknownCount === 0 && nutrition !== undefined };
 }
 
 /** How much better `a` is than `b`: negative means `a` is the better product. */

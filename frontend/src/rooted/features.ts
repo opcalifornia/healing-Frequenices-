@@ -137,7 +137,7 @@ export const FEATURES: Feature[] = [
     what: "Look up foods, herbs and spices, see where in the body the research suggests they may help, and how strong the evidence is.",
     why: "Honest evidence ratings help you spend on food that's worth it." },
   { id: "additive-scan", emoji: "📷", title: "Scan a product's additives", area: "Food", to: "/scan", minutes: 1,
-    what: "Scan a barcode or type its number to see the additives in a packaged food, what the research says about each, and how strong that research is.",
+    what: "Scan a barcode, type its number or paste an ingredient list to see the additives in a packaged food, what the research says about each, and how strong that research is. You can also flag allergens you avoid.",
     why: "Labels list long names. Seeing what studies and regulators have found makes it easier to choose for yourself." },
   { id: "shopping-list", emoji: "🛒", title: "Shopping list", area: "Food", to: "/nourish#pantry", triedBy: { has: "listItems" },
     what: "Add pantry items to a list grouped by store aisle, check them off as you shop, and plan a grocery trip.",

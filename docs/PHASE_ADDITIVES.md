@@ -14,6 +14,11 @@
 ## Library growth (v3)
 Added caramel colours (E150a-d), Red 3 (E127), BVO (E443), BHA/BHT, sorbates, phosphates, sucralose, nitrates, benzoates and about 15 gentle everyday additives. Every claim was checked against the regulator's own page. Held back until a primary source is verified: potassium bromate (E924), parabens, acesulfame K (E950), saccharin (E954), polyols, carbonated-drink acids and anything not listed in a regulator review.
 
+## Also built (v4)
+- Verdicts say "few concerns so far" whenever an additive isn't reviewed or nutrition facts are missing.
+- Ingredient list checker for products with no barcode: paste, or use the phone's own text scanner (iPhone "Scan Text"). Parsing is in `ingredientParse.ts` and runs on the device.
+- Allergen flags per profile (device only): the 14 major allergens, matched to the database's allergen and trace tags. Always paired with "read the pack".
+
 ## Rules for adding an additive
 1. Find the regulator review (EFSA, JECFA, IARC, FDA) or the published study first. Open the real page.
 2. Write what it found and how big the effect was. Say if it is observational, in animals, or from a single trial.

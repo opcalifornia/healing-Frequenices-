@@ -92,3 +92,12 @@
 .method__table th, .method__table td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--r-line); font-weight: 500; }
 .method__table thead th { color: var(--r-text-2); font-size: 0.8rem; }
 .method__table tbody th { font-weight: 700; }
+
+.scan__text { display: grid; gap: 8px; width: min(560px, 100%); }
+.scan__text textarea { font: inherit; color: inherit; padding: 12px 14px; border-radius: 12px; border: 1px solid var(--r-line); background: rgba(255, 255, 255, 0.06); resize: vertical; min-height: 96px; box-sizing: border-box; width: 100%; }
+.scan__text textarea:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+.scan__watch { padding-top: 0; }
+.scan__watch summary { cursor: pointer; font-weight: 600; }
+.scan__chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.scan__allergy { margin-bottom: 14px; padding: 14px 16px; border-color: #ff9a8a; display: grid; gap: 6px; }
+.scan__allergy p { margin: 0; }
