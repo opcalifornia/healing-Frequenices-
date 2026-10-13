@@ -25,6 +25,21 @@ export interface Planting {
   journal?: JournalEntry[];
 }
 
+/** How and when the person wants garden reminders. */
+export interface GardenPrefs {
+  water: boolean;
+  feed: boolean;
+  /** "rhythm": each plant on its own schedule. "daily": one check every day. */
+  mode: "rhythm" | "daily";
+  time: string;
+  /** Remind inside Rooted (a banner, and a system notification when allowed). */
+  app: boolean;
+  /** The last day the in-app reminder was shown. */
+  lastShown?: string;
+}
+
+export const DEFAULT_PREFS: GardenPrefs = { water: true, feed: true, mode: "rhythm", time: "08:00", app: false };
+
 /** A plant the person added themselves, such as a rose or a houseplant. */
 export interface CustomPlant {
   id: string;
@@ -37,6 +52,8 @@ export interface CustomPlant {
 interface GardenState {
   beds: Record<string, Planting[]>;
   custom: Record<string, CustomPlant[]>;
+  prefs: Record<string, GardenPrefs>;
+  setPrefs(patch: Partial<GardenPrefs>): void;
   plant(id: string, day?: string): void;
   remove(id: string): void;
   complete(id: string, task: TaskKind, day?: string): void;
@@ -57,6 +74,10 @@ export const useGarden = create<GardenState>()(
       return {
         beds: {},
         custom: {},
+        prefs: {},
+        setPrefs(patch) {
+          set({ prefs: { ...get().prefs, [pid()]: { ...DEFAULT_PREFS, ...get().prefs[pid()], ...patch } } });
+        },
         plant(id, day = todayKey()) {
           edit((l) => [...l.filter((x) => x.plantId !== id), { plantId: id, planted: day }]);
         },
@@ -99,6 +120,11 @@ export const useGarden = create<GardenState>()(
 
 const EMPTY: Planting[] = [];
 const EMPTY_CUSTOM: CustomPlant[] = [];
+export function useGardenPrefs(): GardenPrefs {
+  const p = useUser((s) => s.activeProfileId) ?? "guest";
+  const stored = useGarden((s) => s.prefs[p]);
+  return stored ? { ...DEFAULT_PREFS, ...stored } : DEFAULT_PREFS;
+}
 export function useMyGarden(): Planting[] {
   const p = useUser((s) => s.activeProfileId) ?? "guest";
   return useGarden((s) => s.beds[p] ?? EMPTY);

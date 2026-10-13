@@ -95,3 +95,11 @@
 .addplant .btn { justify-self: start; margin-top: 8px; }
 .remind__time { display: inline-flex; align-items: center; gap: 8px; font-weight: 800; font-size: var(--fs-small); }
 .remind__time input { padding: 8px 10px; border-radius: 10px; border: 1px solid var(--r-line); background: rgba(255, 255, 255, 0.05); color: inherit; font: inherit; }
+
+.rsetup { display: grid; gap: 6px; }
+.rsetup__q { display: flex; align-items: center; gap: 8px; margin: 12px 0 2px; font-weight: 850; }
+.rsetup__q span { display: grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; background: rgba(156, 197, 154, 0.2); color: var(--sec-1); font-size: 0.8rem; font-weight: 900; }
+.rsetup__time { padding: 8px 10px; border-radius: 10px; border: 1px solid var(--r-line); background: rgba(255, 255, 255, 0.05); color: inherit; font: inherit; }
+.rsetup__ways { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin-top: 4px; }
+.rsetup__way { display: grid; gap: 6px; align-content: start; justify-items: start; padding: 14px 16px; border-radius: 14px; background: rgba(255, 255, 255, 0.04); border: 1px solid var(--r-line); }
+.rsetup__way small { color: var(--r-text-3); line-height: 1.45; }
