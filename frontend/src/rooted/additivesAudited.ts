@@ -2132,6 +2132,32 @@ export const AUDITED: AuditedAdditive[] = [
   ]
  },
  {
+  "id": "e242",
+  "code": "E242",
+  "name": "Dimethyl dicarbonate",
+  "also": "DMDC",
+  "kind": "Preservative",
+  "found": "Soft drinks, wine, juices, tea drinks",
+  "level": "little",
+  "evidence": "Weak",
+  "summary": "DMDC is a cold-sterilising preservative that breaks down after use. Regulators found no toxicological concern, but we could not read EFSA's opinion.",
+  "research": [
+   "The EU Scientific Committee on Food reviewed it in 2001 and found no toxicological concern at 250 mg/l, because it breaks down into substances considered harmless. A 2012 EU regulation authorised its use in alcoholic drinks on that basis.",
+   "A consumer site reports that it breaks down to methanol and carbon dioxide. We could not confirm amounts from a primary source.",
+   "EFSA has a re-evaluation of E 242 listed in databases. We could not confirm its conclusions and so do not state an ADI."
+  ],
+  "regulation": "Authorised in the EU in drinks, including alcoholic drinks since 2012.",
+  "topics": [
+   "Limited data (no regulator concern found)"
+  ],
+  "sources": [
+   {
+    "text": "EU. Commission Regulation (EU) No 1166/2012",
+    "url": "https://www.legislation.gov.uk/eur/2012/1166/data.html"
+   }
+  ]
+ },
+ {
   "id": "e249",
   "code": "E249",
   "name": "Potassium nitrite",
@@ -2539,6 +2565,38 @@ export const AUDITED: AuditedAdditive[] = [
    {
     "text": "CSPI. Chemical Cuisine: Calcium (or sodium) propionate",
     "url": "https://cspinet.org/article/calcium-or-sodium-propionate"
+   }
+  ]
+ },
+ {
+  "id": "e290",
+  "code": "E290",
+  "name": "Carbon dioxide",
+  "also": "CO2, fizz gas",
+  "kind": "Gas for fizz and packaging",
+  "found": "Fizzy drinks, sparkling water, beer, packaged fresh foods",
+  "level": "little",
+  "evidence": "None",
+  "summary": "Carbon dioxide is the gas that makes drinks fizzy. We found no safety concern from regulators for this use.",
+  "research": [
+   "JECFA last evaluated carbon dioxide in 1985 and did not specify an ADI, which means no numerical limit was thought necessary. In the US it is listed by FDA among substances affirmed as GRAS.",
+   "EFSA has put carbon dioxide in a group of gaseous additives for re-evaluation and ran a call for data that closed on 31 March 2024. We could not confirm that a final EFSA opinion on E 290 has been published.",
+   "We did not find a credible human safety signal at food-additive levels. The gas is also made in the body and breathed out."
+  ],
+  "regulation": "Authorised in the EU and the US. Re-evaluation by EFSA was still pending when we searched.",
+  "topics": [],
+  "sources": [
+   {
+    "text": "IPCS INCHEM. JECFA evaluation summary: carbon dioxide",
+    "url": "https://inchem.org/documents/jecfa/jeceval/jec_362.htm"
+   },
+   {
+    "text": "EFSA. Call for data for the re-evaluation of food additives in gaseous form",
+    "url": "https://www.efsa.europa.eu/en/call/call-data-re-evaluation-food-additives-gaseous-form"
+   },
+   {
+    "text": "US eCFR. 21 CFR Part 184 Subpart B, GRAS substances (includes 184.1240 carbon dioxide)",
+    "url": "https://www.law.cornell.edu/cfr/text/21/part-184/subpart-B"
    }
   ]
  },
@@ -3197,6 +3255,34 @@ export const AUDITED: AuditedAdditive[] = [
    {
     "text": "EFSA FAF Panel. Re-evaluation of l(+)-tartaric acid (E 334) and tartrates, full text. EFSA Journal, 2020",
     "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7448015"
+   }
+  ]
+ },
+ {
+  "id": "e336",
+  "code": "E336",
+  "name": "Potassium tartrates",
+  "also": "Cream of tartar, potassium hydrogen tartrate",
+  "kind": "Acidity regulator",
+  "found": "Baking powder, wine, jams, sweets",
+  "level": "little",
+  "evidence": "None",
+  "summary": "Potassium tartrates come from grapes and wine-making. EFSA found no safety concern at current use.",
+  "research": [
+   "EFSA re-evaluated tartaric acid and its tartrate salts in 2020 (E 334 to 337 and E 354) and set a group ADI of 240 mg/kg body weight per day, expressed as tartaric acid. Estimated intakes for all population groups in the refined scenario did not exceed it.",
+   "The Panel reported no sign of genotoxicity for tartaric acid or its sodium and potassium salts, and no kidney toxicity in studies of the natural l(+) form. A long rat study of monosodium tartrate showed no cancer at the highest dose tested.",
+   "The older limit was 30 mg/kg bw per day (SCF and JECFA). The newer figure is higher because EFSA used a newer rat study."
+  ],
+  "regulation": "Authorised in the EU. A 2024 EU regulation notes that uses could be withdrawn where no technical-use data were supplied for a food category.",
+  "topics": [],
+  "sources": [
+   {
+    "text": "EFSA ANS Panel. Re-evaluation of l(+)-tartaric acid (E 334), sodium tartrates (E 335), potassium tartrates (E 336) and others as food additives. EFSA Journal, 2020",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7448015"
+   },
+   {
+    "text": "EU. Commission Regulation (EU) 2024/1451",
+    "url": "https://eur-lex.europa.eu/eli/reg/2024/1451/oj/eng"
    }
   ]
  },
@@ -4092,6 +4178,37 @@ export const AUDITED: AuditedAdditive[] = [
   ]
  },
  {
+  "id": "e426",
+  "code": "E426",
+  "name": "Soybean hemicellulose",
+  "also": "Soy fibre, soluble soybean polysaccharide",
+  "kind": "Thickener and stabiliser",
+  "found": "Flavoured drinks, acidified milk drinks, some desserts",
+  "level": "little",
+  "evidence": "Weak",
+  "summary": "Soybean hemicellulose is a fibre from soy. EFSA judged a safety concern very unlikely, but it may carry traces of soy protein.",
+  "research": [
+   "EFSA re-evaluated it in 2017. It is not absorbed whole but is fermented by gut microbes. A 90-day rat study showed no adverse effects at the highest doses, and EFSA did not find a genotoxicity concern.",
+   "The highest exposure estimate, based on maximum permitted levels, was 191 mg/kg bw per day for children at the 95th percentile. EFSA thought real exposure was likely far lower because few uses were reported. No numerical ADI was needed.",
+   "EFSA advised keeping residual proteins as low as possible and informing consumers about potentially allergenic proteins. This is why the soy origin matters for people with soy allergy."
+  ],
+  "careIf": "People with soy allergy may want to check labels.",
+  "regulation": "Authorised in the EU for a small number of food categories.",
+  "topics": [
+   "Soy origin (allergen note)"
+  ],
+  "sources": [
+   {
+    "text": "EFSA ANS Panel. Re-evaluation of soybean hemicellulose (E 426) as a food additive. EFSA Journal, 2017",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7010024"
+   },
+   {
+    "text": "EU. Commission Regulation (EU) 2020/279",
+    "url": "https://eur-lex.europa.eu/eli/reg/2020/279/oj"
+   }
+  ]
+ },
+ {
   "id": "e427",
   "code": "E427",
   "name": "Cassia gum",
@@ -4292,6 +4409,40 @@ export const AUDITED: AuditedAdditive[] = [
    {
     "text": "EFSA FAF Panel. Pectin and amidated pectin in foods for infants below 16 weeks. EFSA Journal, 2021",
     "url": "https://efsa.europa.eu/en/efsajournal/pub/6387"
+   }
+  ]
+ },
+ {
+  "id": "e441",
+  "code": "E441",
+  "name": "Gelatine",
+  "also": "Gelatin",
+  "kind": "Gelling agent",
+  "found": "Gummy sweets, marshmallows, desserts, yoghurt, capsules",
+  "level": "little",
+  "evidence": "None",
+  "summary": "Gelatine is a protein made from animal skin and bones, so it is not vegetarian or vegan. We found no chemical safety concern for the substance itself.",
+  "research": [
+   "Gelatine is made from collagen of cattle, pigs or fish. Sources describe it as a by-product of the meat and leather industries. Anyone avoiding animal products, or following halal or kosher diets, should check the source on the label.",
+   "In the EU, gelatine for food is made under hygiene rules in Regulation (EC) 853/2004. Export certificates for gelatine refer to that regulation and set raw-material and production conditions. For bovine, ovine and caprine gelatine (other than from hides and skins) these include a negligible BSE-risk origin requirement.",
+   "EFSA has assessed BSE risk from ruminant collagen and gelatine, including from bones, and a summary of that work says gelatine from ruminant bones was considered safe from BSE. We could not read the full opinions."
+  ],
+  "careIf": "People who avoid animal products, or follow halal or kosher diets.",
+  "regulation": "Gelatine is treated as a food rather than an additive in the EU, with hygiene and BSE-related rules in Regulation (EC) 853/2004. In the US it is on the FDA GRAS side of the system. We could not confirm the exact legal wording.",
+  "topics": [],
+  "contested": "CSPI's Chemical Cuisine rates gelatin as Safe and notes it is a protein from animal hides and bones with little nutritional value. We agree on safety. The main issue is origin, not toxicity.",
+  "sources": [
+   {
+    "text": "CSPI. Chemical Cuisine: Gelatin",
+    "url": "https://www.cspi.org/chemical-cuisine/gelatin"
+   },
+   {
+    "text": "EFSA BIOHAZ Panel. Potential BSE risk posed by the use of ruminant collagen and gelatine in feed for non-ruminant farmed animals. EFSA Journal, 2020",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7592076/"
+   },
+   {
+    "text": "UK Government. Export health certificate 8390 for gelatine (refers to Reg. 853/2004, Annex III, Section XIV)",
+    "url": "https://assets.publishing.service.gov.uk/media/6659b80cd470e3279dd33480/8390_EN_V3.pdf"
    }
   ]
  },
@@ -5309,6 +5460,125 @@ export const AUDITED: AuditedAdditive[] = [
   ]
  },
  {
+  "id": "e507",
+  "code": "E507",
+  "name": "Hydrochloric acid",
+  "kind": "Acidity regulator",
+  "found": "Processing aid in starch, sugar and gelatine production; rarely in the final food",
+  "level": "little",
+  "evidence": "None",
+  "summary": "Hydrochloric acid is used in small amounts in processing and ends up as chloride salts. EFSA saw no safety concern.",
+  "research": [
+   "EFSA re-evaluated the four chlorides together in 2019. The Panel judged them to have low acute and short-term oral toxicity and saw no concern for genotoxicity. Some in-vitro positives appeared only at high concentrations linked to low pH or high osmolality, which the Panel judged not to occur in the body.",
+   "The Panel used a human reference value of 40 mg chloride per kg body weight per day. Mean exposure from additive use was below or at that value in all age groups, and EFSA concluded there was no safety concern. Chloride is also an essential nutrient. Average intake estimates ranged from about 2 mg/kg bw per day in the elderly to about 42 in toddlers (non-brand-loyal scenario). These are estimates.",
+   "We could not read the full opinion text, so details such as specification changes are not covered here."
+  ],
+  "regulation": "Authorised in the EU. FDA lists several chlorides as GRAS.",
+  "topics": [],
+  "sources": [
+   {
+    "text": "EFSA FAF Panel. Re-evaluation of hydrochloric acid (E 507), potassium chloride (E 508), calcium chloride (E 509) and magnesium chloride (E 511) as food additives. EFSA Journal, 2019",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7009240/"
+   }
+  ]
+ },
+ {
+  "id": "e508",
+  "code": "E508",
+  "name": "Potassium chloride",
+  "also": "Salt substitute",
+  "kind": "Salt substitute and gelling aid",
+  "found": "Reduced-sodium foods, low-sodium salt, sauces, jellies",
+  "level": "little",
+  "evidence": "Weak",
+  "summary": "Potassium chloride is a common replacer for sodium. EFSA found no safety concern at additive use, but extra potassium needs care for some people.",
+  "research": [
+   "EFSA re-evaluated the four chlorides together in 2019. The Panel judged them to have low acute and short-term oral toxicity and saw no concern for genotoxicity. Some in-vitro positives appeared only at high concentrations linked to low pH or high osmolality, which the Panel judged not to occur in the body.",
+   "The Panel used a human reference value of 40 mg chloride per kg body weight per day. Mean exposure from additive use was below or at that value in all age groups, and EFSA concluded there was no safety concern. Chloride is also an essential nutrient. Average intake estimates ranged from about 2 mg/kg bw per day in the elderly to about 42 in toddlers (non-brand-loyal scenario). These are estimates.",
+   "We could not read the full opinion text, so details such as specification changes are not covered here.",
+   "Potassium is the part that matters in practice. Clinical reviews report high blood potassium (hyperkalaemia) from salt substitutes in people with kidney disease or taking some blood-pressure medicines such as ACE inhibitors. We saw these points only in summaries of that literature, not as a regulator rule for the additive."
+  ],
+  "careIf": "People with kidney disease, or on medicines that raise blood potassium, should ask a clinician before using potassium-based salt substitutes.",
+  "regulation": "Authorised in the EU. In the US it is GRAS (21 CFR 184.1622), and FDA guidance allows the name 'potassium chloride salt' on labels.",
+  "topics": [
+   "Potassium load in kidney disease or some medicines"
+  ],
+  "contested": "Some consumer apps flag a moderate risk of exceeding intake limits. We could not find that in the EFSA opinion, which used a chloride reference value and found mean exposure at or below it.",
+  "sources": [
+   {
+    "text": "EFSA FAF Panel. Re-evaluation of hydrochloric acid (E 507), potassium chloride (E 508), calcium chloride (E 509) and magnesium chloride (E 511) as food additives. EFSA Journal, 2019",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7009240/"
+   },
+   {
+    "text": "US eCFR. 21 CFR 184.1622 Potassium chloride",
+    "url": "https://www.ecfr.gov/current/title-21/chapter-I/subchapter-B/part-184/subpart-B/section-184.1622"
+   },
+   {
+    "text": "US FDA. The Use of an Alternate Name for Potassium Chloride in Food Labeling",
+    "url": "https://www.fda.gov/media/125081/download"
+   },
+   {
+    "text": "Clinical review of salt substitutes and hyperkalaemia, PMC",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5137987"
+   }
+  ]
+ },
+ {
+  "id": "e509",
+  "code": "E509",
+  "name": "Calcium chloride",
+  "kind": "Firming agent",
+  "found": "Canned vegetables, cheese, pickles, tofu",
+  "level": "little",
+  "evidence": "None",
+  "summary": "Calcium chloride keeps foods firm. EFSA saw no safety concern at current use.",
+  "research": [
+   "EFSA re-evaluated the four chlorides together in 2019. The Panel judged them to have low acute and short-term oral toxicity and saw no concern for genotoxicity. Some in-vitro positives appeared only at high concentrations linked to low pH or high osmolality, which the Panel judged not to occur in the body.",
+   "The Panel used a human reference value of 40 mg chloride per kg body weight per day. Mean exposure from additive use was below or at that value in all age groups, and EFSA concluded there was no safety concern. Chloride is also an essential nutrient. Average intake estimates ranged from about 2 mg/kg bw per day in the elderly to about 42 in toddlers (non-brand-loyal scenario). These are estimates.",
+   "We could not read the full opinion text, so details such as specification changes are not covered here."
+  ],
+  "regulation": "Authorised in the EU. In the US it is GRAS (21 CFR 184.1193).",
+  "topics": [],
+  "sources": [
+   {
+    "text": "EFSA FAF Panel. Re-evaluation of hydrochloric acid (E 507), potassium chloride (E 508), calcium chloride (E 509) and magnesium chloride (E 511) as food additives. EFSA Journal, 2019",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7009240/"
+   },
+   {
+    "text": "US eCFR. 21 CFR 184.1193 Calcium chloride",
+    "url": "https://www.ecfr.gov/current/title-21/chapter-I/subchapter-B/part-184/subpart-B/section-184.1193"
+   }
+  ]
+ },
+ {
+  "id": "e511",
+  "code": "E511",
+  "name": "Magnesium chloride",
+  "also": "Nigari",
+  "kind": "Firming agent",
+  "found": "Tofu, some drinks and supplements",
+  "level": "little",
+  "evidence": "None",
+  "summary": "Magnesium chloride is used to set tofu and firm foods. EFSA saw no safety concern at current use.",
+  "research": [
+   "EFSA re-evaluated the four chlorides together in 2019. The Panel judged them to have low acute and short-term oral toxicity and saw no concern for genotoxicity. Some in-vitro positives appeared only at high concentrations linked to low pH or high osmolality, which the Panel judged not to occur in the body.",
+   "The Panel used a human reference value of 40 mg chloride per kg body weight per day. Mean exposure from additive use was below or at that value in all age groups, and EFSA concluded there was no safety concern. Chloride is also an essential nutrient. Average intake estimates ranged from about 2 mg/kg bw per day in the elderly to about 42 in toddlers (non-brand-loyal scenario). These are estimates.",
+   "We could not read the full opinion text, so details such as specification changes are not covered here."
+  ],
+  "regulation": "Authorised in the EU. In the US it is GRAS (21 CFR 184.1426).",
+  "topics": [],
+  "sources": [
+   {
+    "text": "EFSA FAF Panel. Re-evaluation of hydrochloric acid (E 507), potassium chloride (E 508), calcium chloride (E 509) and magnesium chloride (E 511) as food additives. EFSA Journal, 2019",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7009240/"
+   },
+   {
+    "text": "US eCFR. 21 CFR 184.1426 Magnesium chloride",
+    "url": "https://www.ecfr.gov/current/title-21/chapter-I/subchapter-B/part-184/subpart-B/section-184.1426"
+   }
+  ]
+ },
+ {
   "id": "e513",
   "code": "E513",
   "name": "Sulfuric acid",
@@ -5356,6 +5626,30 @@ export const AUDITED: AuditedAdditive[] = [
   ]
  },
  {
+  "id": "e516",
+  "code": "E516",
+  "name": "Calcium sulfate",
+  "also": "Gypsum",
+  "kind": "Firming agent and flour treatment",
+  "found": "Tofu, bread dough, canned vegetables, brewing",
+  "level": "little",
+  "evidence": "None",
+  "summary": "Calcium sulfate is a mineral salt used in tofu and baking. EFSA saw no safety concern.",
+  "research": [
+   "EFSA re-evaluated sulphuric acid and its sodium, potassium, calcium and ammonium salts (E 513 to 517) in 2019. The Panel concluded there is no safety concern at the reported uses and no need for a numerical ADI.",
+   "Sulfates have low acute toxicity, with no genotoxicity or carcinogenicity concern. The known effect of large sulfate doses is a laxative effect, at 300 mg/kg in humans; estimated intakes were far below this. Mean exposure ranged from 0.4 mg sulphate/kg bw per day in infants to 35 in toddlers (estimates for the whole group).",
+   "Calcium sulfate is not a sulfite and does not carry sulfite allergy warnings."
+  ],
+  "regulation": "Authorised in the EU.",
+  "topics": [],
+  "sources": [
+   {
+    "text": "EFSA FAF Panel. Re-evaluation of sulphuric acid and its sodium, potassium, calcium and ammonium salts (E 513, 514, 515, 516, 517) as food additives. EFSA Journal, 2019",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7008880/"
+   }
+  ]
+ },
+ {
   "id": "e524",
   "code": "E524",
   "name": "Sodium hydroxide",
@@ -5376,6 +5670,121 @@ export const AUDITED: AuditedAdditive[] = [
    {
     "text": "EFSA. Call for data for the re-evaluation of food additives (EU programme under Regulation 257/2010), 2012",
     "url": "https://efsa.europa.eu/sites/default/files/consultation/120706a.pdf"
+   }
+  ]
+ },
+ {
+  "id": "e529",
+  "code": "E529",
+  "name": "Calcium oxide",
+  "also": "Quicklime",
+  "kind": "Alkali and acidity regulator",
+  "found": "Processing: cocoa, sugar, nixtamalised corn",
+  "level": "little",
+  "evidence": "None",
+  "summary": "Calcium oxide is lime, used to adjust acidity during processing. We could not confirm a recent EFSA opinion.",
+  "research": [
+   "JECFA last evaluated calcium oxide and calcium hydroxide in 1965 and gave an ADI of 'not limited'.",
+   "A 2009 EU directive adjusted purity limits because lime products cannot meet the earlier limits for magnesium and alkali salts, citing magnesium salts as of no safety concern.",
+   "Strong lime is caustic as a powder, but in food it is neutralised during processing."
+  ],
+  "regulation": "Authorised in the EU.",
+  "topics": [],
+  "sources": [
+   {
+    "text": "IPCS INCHEM. JECFA evaluation: calcium hydroxide and calcium oxide",
+    "url": "https://inchem.org/documents/jecfa/jeceval/jec_320.htm"
+   },
+   {
+    "text": "EU. Commission Directive 2009/10/EC",
+    "url": "https://eur-lex.europa.eu/eli/dir/2009/10/oj"
+   }
+  ]
+ },
+ {
+  "id": "e535",
+  "code": "E535",
+  "name": "Sodium ferrocyanide",
+  "kind": "Anti-caking agent",
+  "found": "Salt and salt substitutes",
+  "level": "little",
+  "evidence": "Weak",
+  "summary": "Ferrocyanides are used mainly as anti-caking agents in salt. EFSA set a low group ADI and found current intake well below it.",
+  "research": [
+   "EFSA re-evaluated sodium, potassium and calcium ferrocyanide (E 535, E 536, E 538) in 2018 and set a group ADI of 0.03 mg/kg body weight per day, expressed as ferrocyanide ion. The kidney was the target organ.",
+   "Absorption is low and the substances do not accumulate in humans. EFSA saw no concern for genotoxicity or carcinogenicity.",
+   "Maximum-level exposure reached up to 0.009 mg/kg bw per day for children and adolescents, and the refined estimate was up to 0.003 (estimates). That is below the ADI. Use is authorised in only two food categories, both salt substitutes."
+  ],
+  "regulation": "Authorised in the EU in a very limited set of uses.",
+  "topics": [
+   "Limited data (no regulator concern found)"
+  ],
+  "sources": [
+   {
+    "text": "EFSA ANS Panel. Re-evaluation of sodium ferrocyanide (E 535), potassium ferrocyanide (E 536) and calcium ferrocyanide (E 538) as food additives. EFSA Journal, 2018",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7009536/"
+   },
+   {
+    "text": "EFSA Journal 2018;16(7):5374",
+    "url": "https://www.efsa.europa.eu/de/efsajournal/pub/5374"
+   }
+  ]
+ },
+ {
+  "id": "e536",
+  "code": "E536",
+  "name": "Potassium ferrocyanide",
+  "kind": "Anti-caking agent",
+  "found": "Salt and salt substitutes",
+  "level": "little",
+  "evidence": "Weak",
+  "summary": "Ferrocyanides are used mainly as anti-caking agents in salt. EFSA set a low group ADI and found current intake well below it.",
+  "research": [
+   "EFSA re-evaluated sodium, potassium and calcium ferrocyanide (E 535, E 536, E 538) in 2018 and set a group ADI of 0.03 mg/kg body weight per day, expressed as ferrocyanide ion. The kidney was the target organ.",
+   "Absorption is low and the substances do not accumulate in humans. EFSA saw no concern for genotoxicity or carcinogenicity.",
+   "Maximum-level exposure reached up to 0.009 mg/kg bw per day for children and adolescents, and the refined estimate was up to 0.003 (estimates). That is below the ADI. Use is authorised in only two food categories, both salt substitutes."
+  ],
+  "regulation": "Authorised in the EU in a very limited set of uses.",
+  "topics": [
+   "Limited data (no regulator concern found)"
+  ],
+  "sources": [
+   {
+    "text": "EFSA ANS Panel. Re-evaluation of sodium ferrocyanide (E 535), potassium ferrocyanide (E 536) and calcium ferrocyanide (E 538) as food additives. EFSA Journal, 2018",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7009536/"
+   },
+   {
+    "text": "EFSA Journal 2018;16(7):5374",
+    "url": "https://www.efsa.europa.eu/de/efsajournal/pub/5374"
+   }
+  ]
+ },
+ {
+  "id": "e538",
+  "code": "E538",
+  "name": "Calcium ferrocyanide",
+  "kind": "Anti-caking agent",
+  "found": "Salt and salt substitutes",
+  "level": "little",
+  "evidence": "Weak",
+  "summary": "Ferrocyanides are used mainly as anti-caking agents in salt. EFSA set a low group ADI and found current intake well below it.",
+  "research": [
+   "EFSA re-evaluated sodium, potassium and calcium ferrocyanide (E 535, E 536, E 538) in 2018 and set a group ADI of 0.03 mg/kg body weight per day, expressed as ferrocyanide ion. The kidney was the target organ.",
+   "Absorption is low and the substances do not accumulate in humans. EFSA saw no concern for genotoxicity or carcinogenicity.",
+   "Maximum-level exposure reached up to 0.009 mg/kg bw per day for children and adolescents, and the refined estimate was up to 0.003 (estimates). That is below the ADI. Use is authorised in only two food categories, both salt substitutes."
+  ],
+  "regulation": "Authorised in the EU in a very limited set of uses.",
+  "topics": [
+   "Limited data (no regulator concern found)"
+  ],
+  "sources": [
+   {
+    "text": "EFSA ANS Panel. Re-evaluation of sodium ferrocyanide (E 535), potassium ferrocyanide (E 536) and calcium ferrocyanide (E 538) as food additives. EFSA Journal, 2018",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7009536/"
+   },
+   {
+    "text": "EFSA Journal 2018;16(7):5374",
+    "url": "https://www.efsa.europa.eu/de/efsajournal/pub/5374"
    }
   ]
  },
@@ -6195,6 +6604,36 @@ export const AUDITED: AuditedAdditive[] = [
   ]
  },
  {
+  "id": "e941",
+  "code": "E941",
+  "name": "Nitrogen",
+  "kind": "Packaging gas",
+  "found": "Packaged snacks, salads, wine, coffee, whipped products",
+  "level": "little",
+  "evidence": "None",
+  "summary": "Nitrogen is the main gas in air and is used to keep food fresh. We found no safety concern.",
+  "research": [
+   "Nitrogen is inert. EFSA included it in a call for data on gaseous additives, and published an opinion on argon and helium in 2024 concluding no safety concern because of their physical properties. We could not confirm that a nitrogen opinion has been published.",
+   "In the US nitrogen is listed in the GRAS regulations (21 CFR 184.1540)."
+  ],
+  "regulation": "Authorised in the EU; re-evaluation pending when we searched.",
+  "topics": [],
+  "sources": [
+   {
+    "text": "EFSA. Call for data for the re-evaluation of food additives in gaseous form",
+    "url": "https://www.efsa.europa.eu/en/call/call-data-re-evaluation-food-additives-gaseous-form"
+   },
+   {
+    "text": "EFSA FAF Panel. Re-evaluation of argon (E 938) and helium (E 939) as food additives. EFSA Journal, 2024",
+    "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11515913/"
+   },
+   {
+    "text": "US eCFR. 21 CFR Part 184 Subpart B, GRAS substances (includes 184.1540 nitrogen)",
+    "url": "https://www.law.cornell.edu/cfr/text/21/part-184/subpart-B"
+   }
+  ]
+ },
+ {
   "id": "e943a",
   "code": "E943a",
   "name": "Butane",
@@ -6850,6 +7289,37 @@ export const AUDITED: AuditedAdditive[] = [
   ]
  },
  {
+  "id": "e999",
+  "code": "E999",
+  "name": "Quillaia extract",
+  "also": "Soapbark extract",
+  "kind": "Foaming agent",
+  "found": "Soft drinks (foam, cloud), cider",
+  "level": "little",
+  "evidence": "Weak",
+  "summary": "Quillaia extract is a foaming agent from tree bark. EFSA set an ADI in 2019 and later warned that wider use could exceed it.",
+  "research": [
+   "EFSA re-evaluated quillaia extract in 2019 and set an ADI of 3 mg saponins per kg body weight per day. It was based on a two-year rat study (NOAEL 1,500 mg extract/kg bw per day), assuming about 20% saponins in Type 1 extract and a 100-fold uncertainty factor. Adverse effects were attributed to the saponins. No genotoxicity concern was found in the data reviewed.",
+   "The Panel noted data gaps and recommended tighter specifications based on saponin content, so more data were requested.",
+   "A 2024 follow-up opinion on extending use to food supplements found that intake could exceed the ADI for children, adolescents and the elderly at the high end, and for all groups at the 95th percentile. It recommended lower limits for lead, mercury and arsenic and new limits for cadmium and calcium oxalate."
+  ],
+  "regulation": "Authorised in the EU for flavoured drinks and cider/perry, according to a secondary source citing the 2024 follow-up. We did not check later changes.",
+  "topics": [
+   "Intake near the ADI if uses widen",
+   "Data gaps on saponin content"
+  ],
+  "sources": [
+   {
+    "text": "EFSA ANS Panel. Re-evaluation of quillaia extract (E 999) as a food additive and safety of the proposed extension of use. EFSA Journal, 2019",
+    "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7009130/"
+   },
+   {
+    "text": "EFSA FAF Panel. Follow-up of the re-evaluation of quillaia extract (E 999) and safety of the proposed extension of uses. EFSA Journal, 2024",
+    "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10844984/"
+   }
+  ]
+ },
+ {
   "id": "e1103",
   "code": "E1103",
   "name": "Invertase",
@@ -6923,6 +7393,62 @@ export const AUDITED: AuditedAdditive[] = [
    {
     "text": "EFSA FAF Panel. Re-evaluation of polydextrose (E 1200) as a food additive. EFSA Journal, 2021",
     "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7792022/"
+   }
+  ]
+ },
+ {
+  "id": "e1201",
+  "code": "E1201",
+  "name": "Polyvinylpyrrolidone",
+  "also": "PVP, povidone",
+  "kind": "Coating and binding agent",
+  "found": "Tablets and supplements, sweeteners",
+  "level": "little",
+  "evidence": "None",
+  "summary": "PVP is a synthetic polymer used in tablets and supplements. EFSA found no safety concern.",
+  "research": [
+   "EFSA re-evaluated E 1201 and E 1202 together in 2020. It found no need for a numerical ADI and no safety concern at the reported uses and use levels. Absorption of both is very low.",
+   "EFSA also judged a proposed extension of E 1201 to foods for special medical purposes unlikely to be a safety concern at the proposed level. A 2025 EU regulation repeats the no-ADI, no-concern finding.",
+   "We could not read the full opinion text."
+  ],
+  "regulation": "Authorised in the EU in two food categories each.",
+  "topics": [],
+  "sources": [
+   {
+    "text": "EFSA FAF Panel. Re-evaluation of polyvinylpyrrolidone (E 1201) and polyvinylpolypyrrolidone (E 1202) as food additives. EFSA Journal, 2020",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7416752"
+   },
+   {
+    "text": "EU. Commission Regulation (EU) 2025/1337",
+    "url": "https://eur-lex.europa.eu/eli/reg/2025/1337/oj/eng"
+   }
+  ]
+ },
+ {
+  "id": "e1202",
+  "code": "E1202",
+  "name": "Polyvinylpolypyrrolidone",
+  "also": "PVPP, crospovidone",
+  "kind": "Clarifying agent",
+  "found": "Beer and wine (fining), supplements",
+  "level": "little",
+  "evidence": "None",
+  "summary": "PVPP is a synthetic polymer used to clear beer and wine. EFSA found no safety concern.",
+  "research": [
+   "EFSA re-evaluated E 1201 and E 1202 together in 2020. It found no need for a numerical ADI and no safety concern at the reported uses and use levels. Absorption of both is very low.",
+   "EFSA also judged a proposed extension of E 1201 to foods for special medical purposes unlikely to be a safety concern at the proposed level. A 2025 EU regulation repeats the no-ADI, no-concern finding.",
+   "We could not read the full opinion text."
+  ],
+  "regulation": "Authorised in the EU in two food categories each.",
+  "topics": [],
+  "sources": [
+   {
+    "text": "EFSA FAF Panel. Re-evaluation of polyvinylpyrrolidone (E 1201) and polyvinylpolypyrrolidone (E 1202) as food additives. EFSA Journal, 2020",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7416752"
+   },
+   {
+    "text": "EU. Commission Regulation (EU) 2025/1337",
+    "url": "https://eur-lex.europa.eu/eli/reg/2025/1337/oj/eng"
    }
   ]
  },
@@ -7283,6 +7809,36 @@ export const AUDITED: AuditedAdditive[] = [
    {
     "text": "EFSA ANS Panel. Re-evaluation of propane-1,2-diol (E 1520) as a food additive. EFSA Journal, 2018",
     "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7009459"
+   }
+  ]
+ },
+ {
+  "id": "e1521",
+  "code": "E1521",
+  "name": "Polyethylene glycol",
+  "also": "PEG",
+  "kind": "Coating and anti-foaming agent",
+  "found": "Supplement tablets, sweetener tablets, coatings",
+  "level": "little",
+  "evidence": "Weak",
+  "summary": "PEG is a synthetic polymer with older ADIs. EFSA's 2018 exposure assessment found estimated intake near the range of those ADIs.",
+  "research": [
+   "EFSA published a refined exposure assessment in 2018 rather than a new ADI. Estimated exposure reached up to 3.5 mg/kg bw per day at the mean and 6.1 at the high level, which EFSA thought very likely overestimated real intake.",
+   "The Panel noted that the highest estimate falls within the range of the SCF group ADI (5 mg/kg bw per day for PEG 300 to 4000) and the JECFA ADI (10 mg/kg bw per day for PEG 200 to 10000, set in 1979).",
+   "We did not review PEG allergy reports or other human data."
+  ],
+  "regulation": "Authorised in the EU.",
+  "topics": [
+   "Intake near older ADIs (estimates)"
+  ],
+  "sources": [
+   {
+    "text": "EFSA ANS Panel. Refined exposure assessment of polyethylene glycol (E 1521) from its use as a food additive. EFSA Journal, 2018",
+    "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7009417/"
+   },
+   {
+    "text": "IPCS INCHEM. JECFA evaluation: polyethylene glycols",
+    "url": "https://inchem.org/documents/jecfa/jeceval/jec_1944.htm"
    }
   ]
  },

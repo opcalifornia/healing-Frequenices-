@@ -62,7 +62,7 @@ const FUNCTIONS: Array<{ re: RegExp; key: string; does: string }> = [
   { re: /flour|dough/i, key: "flour", does: "Improves how dough rises and holds together, so bread and baked goods turn out the same every time." },
   { re: /gas|propellant/i, key: "gas", does: "A gas that pushes food out of a can, or protects food inside its packaging." },
   { re: /\bfat\b|\boil\b/i, key: "fat", does: "A cooking fat or oil used for texture, frying and keeping qualities." },
-  { re: /bulking|carrier|solvent|humectant|chewing gum/i, key: "bulk", does: "Adds body or bulk, carries other ingredients, or helps keep food moist." },
+  { re: /bulking|carrier|solvent|humectant|chewing gum|firming|alkali|coating|binding|clarif/i, key: "bulk", does: "Adds body or bulk, carries other ingredients, or helps keep food moist." },
   { re: /anti-?caking/i, key: "anticaking", does: "Keeps powders and granules free-flowing instead of clumping." },
 ];
 

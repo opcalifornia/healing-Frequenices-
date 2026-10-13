@@ -56,3 +56,9 @@ Prompted by a scan where a product with many additives read as mostly safe while
 - Generic ingredients that aren't E-numbers (natural and artificial flavourings, vanillin, yeast extract, hydrolysed protein, maltodextrin, dextrose, glucose-fructose syrup, palm oil, hydrogenated fat) were researched but not added: they need ingredient-level matching. Research is kept for later.
 - E477 (propane-1,2-diol esters) still needs a source.
 - Re-check entries whose EFSA re-evaluations were still open (many acidity regulators, ribonucleotides, sorbitol and maltitol) when EFSA publishes.
+
+**Follow-up round**
+- Emulsifier findings were checked against the NutriNet-Santé papers. The 2023 BMJ heart-disease paper named E339, E460, E466, E472b and E472c; the 2024 diabetes paper named carrageenans, E340, E472e, E331, E412, E414 and E415; the 2024 cancer paper named E471 and carrageenans. Ratings now match what each paper reported (observational, modest, one cohort).
+- Fixed E-number parsing for sub-types: "E500ii", "E322i" and "E160a(ii)" now match the library instead of showing as unknown.
+- Added E477 and 19 more additives (gelatine, potassium chloride, quillaia extract and others). The library has 254 entries. E261 and E375 could not be sourced and are still unreviewed.
+- Result cards have Share and "Rating looks wrong?" (a pre-filled note including the product, for side-by-side testing against other apps). The additive guide filters by concern level.

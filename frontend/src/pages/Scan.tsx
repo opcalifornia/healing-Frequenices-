@@ -514,7 +514,7 @@ export default function Scan() {
                 <p className="scan__actions">
                   <button className="scan__link" onClick={() => setMethod(true)}>How we rate</button>
                   <button className="scan__link" onClick={() => void shareResult(state.product, result)}>Share</button>
-                  <button className="scan__link" onClick={() => useFeedback.getState().show({ kind: "rating", message: `About ${state.product.name}${state.product.code !== TEXT_PRODUCT_CODE ? ` (barcode ${state.product.code})` : ""}: ` })}>Rating looks wrong?</button>
+                  <button className="scan__link" onClick={() => useFeedback.getState().show({ kind: "rating", message: `About ${state.product.name}${state.product.code !== TEXT_PRODUCT_CODE ? ` (barcode ${state.product.code})` : ""}.${state.product.code === TEXT_PRODUCT_CODE && state.product.ingredients ? `\nIngredients: ${state.product.ingredients.slice(0, 300)}` : ""}\n\nWhat looks wrong: ` })}>Rating looks wrong?</button>
                 </p>
               </div>
             </div>
