@@ -1,0 +1,49 @@
+name: Build food database
+
+# Run by hand from the Actions tab. Downloads USDA FoodData Central (public domain, CC0 1.0),
+# builds frontend/src/data/foods.json and commits it to the branch it ran on.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Download SR Legacy and Foundation Foods
+        run: |
+          mkdir -p /tmp/fdc && cd /tmp/fdc
+          curl -fsSL https://fdc.nal.usda.gov/download-datasets -o page.html || curl -fsSL https://fdc.nal.usda.gov/download-datasets.html -o page.html
+          grep -oE 'https://fdc\.nal\.usda\.gov/fdc-datasets/[A-Za-z0-9_.-]+\.zip|/fdc-datasets/[A-Za-z0-9_.-]+\.zip' page.html | sort -u | tee links.txt
+          pick() { grep -iE "$1" links.txt | sort | tail -1; }
+          for pat in 'sr_legacy_food_json' 'foundation_food_json'; do
+            link=$(pick "$pat")
+            [ -z "$link" ] && { echo "No link found for $pat"; continue; }
+            case "$link" in /*) link="https://fdc.nal.usda.gov$link";; esac
+            echo "Downloading $link"
+            curl -fsSL "$link" -o "$pat.zip"
+            unzip -o -q "$pat.zip" -d "$pat"
+          done
+          find . -name '*.json' -size +100k | head
+      - name: Build foods.json
+        working-directory: frontend
+        run: |
+          mkdir -p /tmp/fdc/json
+          find /tmp/fdc -name '*.json' -size +100k -exec cp {} /tmp/fdc/json/ \;
+          ls -la /tmp/fdc/json
+          node scripts/build-food-data.mjs /tmp/fdc/json src/data/foods.json
+          ls -la src/data/foods.json
+      - name: Commit
+        run: |
+          git config user.name "food-data-bot"
+          git config user.email "food-data-bot@users.noreply.github.com"
+          git add frontend/src/data/foods.json
+          git diff --cached --quiet && { echo "No change"; exit 0; }
+          git commit -m "Update food database from USDA FoodData Central"
+          git push
