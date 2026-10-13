@@ -7,7 +7,7 @@
  *   UK front-of-pack traffic-light cut-offs (2016), plus the Nutri-Score letter when there is one.
  * - Overall: a product is only as good as its weakest part.
  */
-import { TIER_ORDER, tierOf, type Additive } from "./additivesContent";
+import { TIER_ORDER, shownName, tierOf, type Additive } from "./additivesContent";
 import type { Nutrition, Product } from "./foodLookup";
 
 export type Verdict = "good" | "fair" | "poor";
@@ -92,6 +92,8 @@ export function additiveReasons(known: Additive[], unknownCount: number): string
   const out: string[] = [];
   const by = (t: ReturnType<typeof tierOf>) => known.filter((a) => tierOf(a) === t).length;
   if (known.some((a) => a.level === "restricted")) out.push("Contains an additive that a regulator has restricted.");
+  const worst = known.filter((a) => tierOf(a) === "notable" || tierOf(a) === "restricted");
+  if (worst.length) out.push(`Highest concern: ${worst.slice(0, 4).map(shownName).join(", ")}${worst.length > 4 ? ` and ${worst.length - 4} more` : ""}.`);
   const flagged = by("notable") + by("some") + by("minor");
   if (flagged > 0) out.push(`${flagged} of ${known.length} reviewed additive${known.length === 1 ? "" : "s"} carr${flagged === 1 ? "ies" : "y"} a concern, from minor to notable.`);
   const total = known.length + unknownCount;

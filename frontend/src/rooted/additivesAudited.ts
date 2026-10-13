@@ -10,6 +10,8 @@ export interface AuditedAdditive {
   id: string;
   code: string;
   name: string;
+  /** The name printed on US ingredient labels, when it differs, for example "Red 40" for Allura red AC. */
+  labelName?: string;
   also?: string;
   kind: string;
   found: string;
@@ -61,6 +63,7 @@ export const AUDITED: AuditedAdditive[] = [
   "id": "e101",
   "code": "E101",
   "name": "Riboflavin",
+  "labelName": "Riboflavin (vitamin B2)",
   "also": "Vitamin B2, riboflavin-5'-phosphate",
   "kind": "Colour (yellow)",
   "found": "Cereals, sauces, sweets, drinks and fortified foods.",
@@ -89,25 +92,27 @@ export const AUDITED: AuditedAdditive[] = [
   "id": "e102",
   "code": "E102",
   "name": "Tartrazine",
+  "labelName": "Yellow 5",
   "also": "Yellow 5 in the US",
   "kind": "Colour",
   "found": "Fizzy drinks, sweets, desserts, crisps and sauces.",
   "level": "some",
-  "evidence": "Mixed",
-  "summary": "Linked to a small rise in hyperactive behaviour in some children when eaten in colour mixtures. The evidence is mixed, and regulators have kept a safe daily intake.",
+  "evidence": "Moderate",
+  "summary": "Linked to hyperactivity and inattention in some children. A California state review (2021) concluded synthetic dyes can affect children's behaviour, the EU requires a warning label, and US regulators are asking industry to phase them out.",
   "research": [
    "A 2007 randomised, double-blind trial in the UK (McCann et al.) gave children drinks containing a mix of artificial colours plus sodium benzoate. Some groups showed a small rise in hyperactive behaviour compared with a placebo drink. The effect was small and came from mixtures, so it cannot be pinned on one colour.",
    "EFSA reviewed this study and judged it could not be used to change the safe daily intake of this colour. EFSA's 2009 re-evaluation also said a small number of people may react to colours of this type.",
-   "EFSA's safe daily intake (ADI) for this colour is 7.5 mg per kg of body weight per day. Refined intake estimates at maximum reported use levels were below it. EFSA noted that tartrazine can trigger intolerance reactions in a small fraction of people, possibly at doses within the ADI.",
-   "In 2021 the California Office of Environmental Health Hazard Assessment (OEHHA) reviewed 27 clinical trials in children and concluded that synthetic dyes can cause or worsen behaviour problems in some children. It said current US safe-intake levels may not fully protect children's behaviour. This is a state agency review, not an EU or FDA finding."
+   "In 2021 the California Office of Environmental Health Hazard Assessment (OEHHA) reviewed 27 clinical trials in children, 25 of them challenge studies. It concluded that synthetic food dyes can affect behaviour in some children, and that children differ in how sensitive they are. In a journal review by the same group, 16 of the 25 challenge studies (64%) found some association with hyperactivity or inattention, and 13 (52%) found a statistically significant one. The effects were small on average, and not every study found them.",
+   "EFSA's safe daily intake (ADI) for this colour is 7.5 mg per kg of body weight per day. Refined intake estimates at maximum reported use levels were below it. EFSA noted that tartrazine can trigger intolerance reactions in a small fraction of people, possibly at doses within the ADI."
   ],
   "careIf": "Children, and families who notice a link between brightly coloured foods and behaviour. The EU label rule names children's activity and attention.",
   "regulation": "In the EU, foods with this colour must carry the warning that it \"may have an adverse effect on activity and attention in children\" (Regulation 1333/2008, Annex V).  In the US, FDA has asked industry to phase out the remaining petroleum-based colours by the end of 2026. This is voluntary, not a ban. Some states have acted on their own: West Virginia restricts seven dyes in school meals (from August 2025) and in food sales (from 2028), and California's school food law (AB 2316) covers six dyes from the end of 2027.",
   "topics": [
-   "Children's attention and activity (small effects in trials of colour mixtures)",
+   "Children's attention and activity (challenge trials, small effects)",
+   "Label warning required in the EU",
    "Sensitivity reactions in a small number of people"
   ],
-  "contested": "CSPI advises avoiding artificial dyes in general and has urged FDA to ban dyes linked to behaviour problems, which is stricter than EFSA and FDA. The evidence behind that view is real but limited: small effects in challenge trials using mixtures, mostly in children who may be more sensitive, and no way to separate one dye from another. EFSA kept its safe daily intake, so regulators and advocacy groups mostly differ on how to act on uncertain behavioural evidence, not on a proven harmful effect. We rate it as a real but modest signal.",
+  "contested": "We rate this dye a notable concern, a step above most other additives, because of the state-agency review, the EU warning label and the US phase-out request. Regulators have not banned it: EFSA kept its safe daily intake and the FDA's phase-out is voluntary. The evidence is real but the effect is small on average and concentrated in sensitive children, and the trials used mixtures of dyes, so one dye can't be singled out. Consumer groups such as CSPI go further and urge avoiding artificial dyes altogether.",
   "sources": [
    {
     "text": "EFSA. Re-evaluation of tartrazine (E 102), 2009",
@@ -118,12 +123,20 @@ export const AUDITED: AuditedAdditive[] = [
     "url": "https://doi.org/10.1016/S0140-6736(07)61306-3"
    },
    {
-    "text": "California OEHHA. Health effects assessment: potential neurobehavioral effects of synthetic food dyes in children, 2021",
-    "url": "https://www.oehha.ca.gov/risk-assessment/report/health-effects-assessment-potential-neurobehavioral-effects-synthetic-food-dyes-children"
-   },
-   {
     "text": "CSPI. CSPI urges FDA to ban artificial food dyes linked to behavior problems",
     "url": "https://www.cspinet.org/node/2617"
+   },
+   {
+    "text": "OEHHA (California). Health effects assessment: potential neurobehavioral effects of synthetic food dyes in children, 2021",
+    "url": "https://oehha.ca.gov/sites/default/files/media/downloads/risk-assessment/report/healthefftsassess041621.pdf"
+   },
+   {
+    "text": "Potential impacts of synthetic food dyes on activity and attention in children: a review of the human and animal evidence. Environmental Health, 2022",
+    "url": "https://link.springer.com/article/10.1186/s12940-022-00849-9"
+   },
+   {
+    "text": "CSPI: FDA's plan to remove food dyes (advocacy group summary)",
+    "url": "https://www.cspi.org/cspi-news/fdas-plan-remove-food-dyes-industry-understanding"
    }
   ]
  },
@@ -134,21 +147,22 @@ export const AUDITED: AuditedAdditive[] = [
   "kind": "Colour",
   "found": "Sweets, drinks, ice lollies and coated snacks.",
   "level": "some",
-  "evidence": "Mixed",
-  "summary": "Linked to a small rise in hyperactive behaviour in some children when eaten in colour mixtures. The evidence is mixed, and regulators have kept a safe daily intake.",
+  "evidence": "Moderate",
+  "summary": "Linked to hyperactivity and inattention in some children. A California state review (2021) concluded synthetic dyes can affect children's behaviour, the EU requires a warning label, and US regulators are asking industry to phase them out.",
   "research": [
    "A 2007 randomised, double-blind trial in the UK (McCann et al.) gave children drinks containing a mix of artificial colours plus sodium benzoate. Some groups showed a small rise in hyperactive behaviour compared with a placebo drink. The effect was small and came from mixtures, so it cannot be pinned on one colour.",
    "EFSA reviewed this study and judged it could not be used to change the safe daily intake of this colour. EFSA's 2009 re-evaluation also said a small number of people may react to colours of this type.",
-   "EFSA's safe daily intake (ADI) for this colour is 0.5 mg per kg of body weight per day (EFSA lowered it from 10 in 2009). In 2009 intake estimates were generally well above the new ADI, so the EU cut maximum levels in many foods. EFSA's 2015 refined assessment found mean and high intake below the ADI for all groups.",
-   "In 2021 the California Office of Environmental Health Hazard Assessment (OEHHA) reviewed 27 clinical trials in children and concluded that synthetic dyes can cause or worsen behaviour problems in some children. It said current US safe-intake levels may not fully protect children's behaviour. This is a state agency review, not an EU or FDA finding."
+   "In 2021 the California Office of Environmental Health Hazard Assessment (OEHHA) reviewed 27 clinical trials in children, 25 of them challenge studies. It concluded that synthetic food dyes can affect behaviour in some children, and that children differ in how sensitive they are. In a journal review by the same group, 16 of the 25 challenge studies (64%) found some association with hyperactivity or inattention, and 13 (52%) found a statistically significant one. The effects were small on average, and not every study found them.",
+   "EFSA's safe daily intake (ADI) for this colour is 0.5 mg per kg of body weight per day (EFSA lowered it from 10 in 2009). In 2009 intake estimates were generally well above the new ADI, so the EU cut maximum levels in many foods. EFSA's 2015 refined assessment found mean and high intake below the ADI for all groups."
   ],
   "careIf": "Children, and families who notice a link between brightly coloured foods and behaviour. The EU label rule names children's activity and attention.",
   "regulation": "In the EU, foods with this colour must carry the warning that it \"may have an adverse effect on activity and attention in children\" (Regulation 1333/2008, Annex V). Maximum levels for this colour were lowered in the EU in 2012. In the US, FDA has asked industry to phase out the remaining petroleum-based colours by the end of 2026. This is voluntary, not a ban. Some states have acted on their own: West Virginia restricts seven dyes in school meals (from August 2025) and in food sales (from 2028), and California's school food law (AB 2316) covers six dyes from the end of 2027.",
   "topics": [
-   "Children's attention and activity (small effects in trials of colour mixtures)",
+   "Children's attention and activity (challenge trials, small effects)",
+   "Label warning required in the EU",
    "Sensitivity reactions in a small number of people"
   ],
-  "contested": "CSPI advises avoiding artificial dyes in general and has urged FDA to ban dyes linked to behaviour problems, which is stricter than EFSA and FDA. The evidence behind that view is real but limited: small effects in challenge trials using mixtures, mostly in children who may be more sensitive, and no way to separate one dye from another. EFSA kept its safe daily intake, so regulators and advocacy groups mostly differ on how to act on uncertain behavioural evidence, not on a proven harmful effect. We rate it as a real but modest signal.",
+  "contested": "We rate this dye a notable concern, a step above most other additives, because of the state-agency review, the EU warning label and the US phase-out request. Regulators have not banned it: EFSA kept its safe daily intake and the FDA's phase-out is voluntary. The evidence is real but the effect is small on average and concentrated in sensitive children, and the trials used mixtures of dyes, so one dye can't be singled out. Consumer groups such as CSPI go further and urge avoiding artificial dyes altogether.",
   "sources": [
    {
     "text": "EFSA. Refined exposure assessment for quinoline yellow (E 104), 2015",
@@ -163,12 +177,20 @@ export const AUDITED: AuditedAdditive[] = [
     "url": "https://doi.org/10.1016/S0140-6736(07)61306-3"
    },
    {
-    "text": "California OEHHA. Health effects assessment: potential neurobehavioral effects of synthetic food dyes in children, 2021",
-    "url": "https://www.oehha.ca.gov/risk-assessment/report/health-effects-assessment-potential-neurobehavioral-effects-synthetic-food-dyes-children"
-   },
-   {
     "text": "CSPI. CSPI urges FDA to ban artificial food dyes linked to behavior problems",
     "url": "https://www.cspinet.org/node/2617"
+   },
+   {
+    "text": "OEHHA (California). Health effects assessment: potential neurobehavioral effects of synthetic food dyes in children, 2021",
+    "url": "https://oehha.ca.gov/sites/default/files/media/downloads/risk-assessment/report/healthefftsassess041621.pdf"
+   },
+   {
+    "text": "Potential impacts of synthetic food dyes on activity and attention in children: a review of the human and animal evidence. Environmental Health, 2022",
+    "url": "https://link.springer.com/article/10.1186/s12940-022-00849-9"
+   },
+   {
+    "text": "CSPI: FDA's plan to remove food dyes (advocacy group summary)",
+    "url": "https://www.cspi.org/cspi-news/fdas-plan-remove-food-dyes-industry-understanding"
    }
   ]
  },
@@ -176,25 +198,27 @@ export const AUDITED: AuditedAdditive[] = [
   "id": "e110",
   "code": "E110",
   "name": "Sunset yellow FCF",
+  "labelName": "Yellow 6",
   "also": "Yellow 6 in the US",
   "kind": "Colour",
   "found": "Orange drinks, sweets, biscuits and snacks.",
   "level": "some",
-  "evidence": "Mixed",
-  "summary": "Linked to a small rise in hyperactive behaviour in some children when eaten in colour mixtures. The evidence is mixed, and regulators have kept a safe daily intake.",
+  "evidence": "Moderate",
+  "summary": "Linked to hyperactivity and inattention in some children. A California state review (2021) concluded synthetic dyes can affect children's behaviour, the EU requires a warning label, and US regulators are asking industry to phase them out.",
   "research": [
    "A 2007 randomised, double-blind trial in the UK (McCann et al.) gave children drinks containing a mix of artificial colours plus sodium benzoate. Some groups showed a small rise in hyperactive behaviour compared with a placebo drink. The effect was small and came from mixtures, so it cannot be pinned on one colour.",
    "EFSA reviewed this study and judged it could not be used to change the safe daily intake of this colour. EFSA's 2009 re-evaluation also said a small number of people may react to colours of this type.",
-   "EFSA's safe daily intake (ADI) for this colour is 4 mg per kg of body weight per day. In 2009 EFSA set a temporary ADI of 1 mg/kg and noted children could exceed it. In 2014 it reconsidered after new studies, raised the ADI to 4 mg/kg (matching JECFA), and found exposure well below it for all groups.",
-   "In 2021 the California Office of Environmental Health Hazard Assessment (OEHHA) reviewed 27 clinical trials in children and concluded that synthetic dyes can cause or worsen behaviour problems in some children. It said current US safe-intake levels may not fully protect children's behaviour. This is a state agency review, not an EU or FDA finding."
+   "In 2021 the California Office of Environmental Health Hazard Assessment (OEHHA) reviewed 27 clinical trials in children, 25 of them challenge studies. It concluded that synthetic food dyes can affect behaviour in some children, and that children differ in how sensitive they are. In a journal review by the same group, 16 of the 25 challenge studies (64%) found some association with hyperactivity or inattention, and 13 (52%) found a statistically significant one. The effects were small on average, and not every study found them.",
+   "EFSA's safe daily intake (ADI) for this colour is 4 mg per kg of body weight per day. In 2009 EFSA set a temporary ADI of 1 mg/kg and noted children could exceed it. In 2014 it reconsidered after new studies, raised the ADI to 4 mg/kg (matching JECFA), and found exposure well below it for all groups."
   ],
   "careIf": "Children, and families who notice a link between brightly coloured foods and behaviour. The EU label rule names children's activity and attention.",
   "regulation": "In the EU, foods with this colour must carry the warning that it \"may have an adverse effect on activity and attention in children\" (Regulation 1333/2008, Annex V).  In the US, FDA has asked industry to phase out the remaining petroleum-based colours by the end of 2026. This is voluntary, not a ban. Some states have acted on their own: West Virginia restricts seven dyes in school meals (from August 2025) and in food sales (from 2028), and California's school food law (AB 2316) covers six dyes from the end of 2027.",
   "topics": [
-   "Children's attention and activity (small effects in trials of colour mixtures)",
+   "Children's attention and activity (challenge trials, small effects)",
+   "Label warning required in the EU",
    "Sensitivity reactions in a small number of people"
   ],
-  "contested": "CSPI advises avoiding artificial dyes in general and has urged FDA to ban dyes linked to behaviour problems, which is stricter than EFSA and FDA. The evidence behind that view is real but limited: small effects in challenge trials using mixtures, mostly in children who may be more sensitive, and no way to separate one dye from another. EFSA kept its safe daily intake, so regulators and advocacy groups mostly differ on how to act on uncertain behavioural evidence, not on a proven harmful effect. We rate it as a real but modest signal.",
+  "contested": "We rate this dye a notable concern, a step above most other additives, because of the state-agency review, the EU warning label and the US phase-out request. Regulators have not banned it: EFSA kept its safe daily intake and the FDA's phase-out is voluntary. The evidence is real but the effect is small on average and concentrated in sensitive children, and the trials used mixtures of dyes, so one dye can't be singled out. Consumer groups such as CSPI go further and urge avoiding artificial dyes altogether.",
   "sources": [
    {
     "text": "EFSA. Reconsideration of the temporary ADI and refined exposure assessment for sunset yellow FCF (E 110), 2014",
@@ -209,12 +233,20 @@ export const AUDITED: AuditedAdditive[] = [
     "url": "https://doi.org/10.1016/S0140-6736(07)61306-3"
    },
    {
-    "text": "California OEHHA. Health effects assessment: potential neurobehavioral effects of synthetic food dyes in children, 2021",
-    "url": "https://www.oehha.ca.gov/risk-assessment/report/health-effects-assessment-potential-neurobehavioral-effects-synthetic-food-dyes-children"
-   },
-   {
     "text": "CSPI. CSPI urges FDA to ban artificial food dyes linked to behavior problems",
     "url": "https://www.cspinet.org/node/2617"
+   },
+   {
+    "text": "OEHHA (California). Health effects assessment: potential neurobehavioral effects of synthetic food dyes in children, 2021",
+    "url": "https://oehha.ca.gov/sites/default/files/media/downloads/risk-assessment/report/healthefftsassess041621.pdf"
+   },
+   {
+    "text": "Potential impacts of synthetic food dyes on activity and attention in children: a review of the human and animal evidence. Environmental Health, 2022",
+    "url": "https://link.springer.com/article/10.1186/s12940-022-00849-9"
+   },
+   {
+    "text": "CSPI: FDA's plan to remove food dyes (advocacy group summary)",
+    "url": "https://www.cspi.org/cspi-news/fdas-plan-remove-food-dyes-industry-understanding"
    }
   ]
  },
@@ -262,21 +294,22 @@ export const AUDITED: AuditedAdditive[] = [
   "kind": "Colour",
   "found": "Jelly, sweets, jams and some desserts.",
   "level": "some",
-  "evidence": "Mixed",
-  "summary": "Linked to a small rise in hyperactive behaviour in some children when eaten in colour mixtures. The evidence is mixed, and regulators have kept a safe daily intake.",
+  "evidence": "Moderate",
+  "summary": "Linked to hyperactivity and inattention in some children. A California state review (2021) concluded synthetic dyes can affect children's behaviour, the EU requires a warning label, and US regulators are asking industry to phase them out.",
   "research": [
    "A 2007 randomised, double-blind trial in the UK (McCann et al.) gave children drinks containing a mix of artificial colours plus sodium benzoate. Some groups showed a small rise in hyperactive behaviour compared with a placebo drink. The effect was small and came from mixtures, so it cannot be pinned on one colour.",
    "EFSA reviewed this study and judged it could not be used to change the safe daily intake of this colour. EFSA's 2009 re-evaluation also said a small number of people may react to colours of this type.",
-   "EFSA's safe daily intake (ADI) for this colour is 4 mg per kg of body weight per day. In 2009 high-intake children aged 1 to 10 could slightly exceed it. EFSA's 2015 refined assessment found the ADI was not exceeded for any group. EFSA found no genotoxicity concern.",
-   "In 2021 the California Office of Environmental Health Hazard Assessment (OEHHA) reviewed 27 clinical trials in children and concluded that synthetic dyes can cause or worsen behaviour problems in some children. It said current US safe-intake levels may not fully protect children's behaviour. This is a state agency review, not an EU or FDA finding."
+   "In 2021 the California Office of Environmental Health Hazard Assessment (OEHHA) reviewed 27 clinical trials in children, 25 of them challenge studies. It concluded that synthetic food dyes can affect behaviour in some children, and that children differ in how sensitive they are. In a journal review by the same group, 16 of the 25 challenge studies (64%) found some association with hyperactivity or inattention, and 13 (52%) found a statistically significant one. The effects were small on average, and not every study found them.",
+   "EFSA's safe daily intake (ADI) for this colour is 4 mg per kg of body weight per day. In 2009 high-intake children aged 1 to 10 could slightly exceed it. EFSA's 2015 refined assessment found the ADI was not exceeded for any group. EFSA found no genotoxicity concern."
   ],
   "careIf": "Children, and families who notice a link between brightly coloured foods and behaviour. The EU label rule names children's activity and attention.",
   "regulation": "In the EU, foods with this colour must carry the warning that it \"may have an adverse effect on activity and attention in children\" (Regulation 1333/2008, Annex V).  In the US, FDA has asked industry to phase out the remaining petroleum-based colours by the end of 2026. This is voluntary, not a ban. Some states have acted on their own: West Virginia restricts seven dyes in school meals (from August 2025) and in food sales (from 2028), and California's school food law (AB 2316) covers six dyes from the end of 2027.",
   "topics": [
-   "Children's attention and activity (small effects in trials of colour mixtures)",
+   "Children's attention and activity (challenge trials, small effects)",
+   "Label warning required in the EU",
    "Sensitivity reactions in a small number of people"
   ],
-  "contested": "CSPI advises avoiding artificial dyes in general and has urged FDA to ban dyes linked to behaviour problems, which is stricter than EFSA and FDA. The evidence behind that view is real but limited: small effects in challenge trials using mixtures, mostly in children who may be more sensitive, and no way to separate one dye from another. EFSA kept its safe daily intake, so regulators and advocacy groups mostly differ on how to act on uncertain behavioural evidence, not on a proven harmful effect. We rate it as a real but modest signal.",
+  "contested": "We rate this dye a notable concern, a step above most other additives, because of the state-agency review, the EU warning label and the US phase-out request. Regulators have not banned it: EFSA kept its safe daily intake and the FDA's phase-out is voluntary. The evidence is real but the effect is small on average and concentrated in sensitive children, and the trials used mixtures of dyes, so one dye can't be singled out. Consumer groups such as CSPI go further and urge avoiding artificial dyes altogether.",
   "sources": [
    {
     "text": "EFSA. Re-evaluation of azorubine/carmoisine (E 122), 2009",
@@ -287,12 +320,20 @@ export const AUDITED: AuditedAdditive[] = [
     "url": "https://doi.org/10.1016/S0140-6736(07)61306-3"
    },
    {
-    "text": "California OEHHA. Health effects assessment: potential neurobehavioral effects of synthetic food dyes in children, 2021",
-    "url": "https://www.oehha.ca.gov/risk-assessment/report/health-effects-assessment-potential-neurobehavioral-effects-synthetic-food-dyes-children"
-   },
-   {
     "text": "CSPI. CSPI urges FDA to ban artificial food dyes linked to behavior problems",
     "url": "https://www.cspinet.org/node/2617"
+   },
+   {
+    "text": "OEHHA (California). Health effects assessment: potential neurobehavioral effects of synthetic food dyes in children, 2021",
+    "url": "https://oehha.ca.gov/sites/default/files/media/downloads/risk-assessment/report/healthefftsassess041621.pdf"
+   },
+   {
+    "text": "Potential impacts of synthetic food dyes on activity and attention in children: a review of the human and animal evidence. Environmental Health, 2022",
+    "url": "https://link.springer.com/article/10.1186/s12940-022-00849-9"
+   },
+   {
+    "text": "CSPI: FDA's plan to remove food dyes (advocacy group summary)",
+    "url": "https://www.cspi.org/cspi-news/fdas-plan-remove-food-dyes-industry-understanding"
    }
   ]
  },
@@ -300,6 +341,7 @@ export const AUDITED: AuditedAdditive[] = [
   "id": "e123",
   "code": "E123",
   "name": "Amaranth",
+  "labelName": "Red 2",
   "also": "Red No. 2 (a different dye from Allura red)",
   "kind": "Colour (red)",
   "found": "Aperitif wines and spirits, fish roe and some other products.",
@@ -339,21 +381,22 @@ export const AUDITED: AuditedAdditive[] = [
   "kind": "Colour",
   "found": "Sweets, desserts, drinks and processed meats.",
   "level": "some",
-  "evidence": "Mixed",
-  "summary": "Linked to a small rise in hyperactive behaviour in some children when eaten in colour mixtures. The evidence is mixed, and regulators have kept a safe daily intake.",
+  "evidence": "Moderate",
+  "summary": "Linked to hyperactivity and inattention in some children. A California state review (2021) concluded synthetic dyes can affect children's behaviour, the EU requires a warning label, and US regulators are asking industry to phase them out.",
   "research": [
    "A 2007 randomised, double-blind trial in the UK (McCann et al.) gave children drinks containing a mix of artificial colours plus sodium benzoate. Some groups showed a small rise in hyperactive behaviour compared with a placebo drink. The effect was small and came from mixtures, so it cannot be pinned on one colour.",
    "EFSA reviewed this study and judged it could not be used to change the safe daily intake of this colour. EFSA's 2009 re-evaluation also said a small number of people may react to colours of this type.",
-   "EFSA's safe daily intake (ADI) for this colour is 0.7 mg per kg of body weight per day (EFSA lowered it in 2009 after kidney findings in mice). In 2009 adults at high intake and children could exceed it, so the EU withdrew or cut use levels in dozens of food categories from June 2013. EFSA's 2015 refined assessment found no group above the ADI.",
-   "In 2021 the California Office of Environmental Health Hazard Assessment (OEHHA) reviewed 27 clinical trials in children and concluded that synthetic dyes can cause or worsen behaviour problems in some children. It said current US safe-intake levels may not fully protect children's behaviour. This is a state agency review, not an EU or FDA finding."
+   "In 2021 the California Office of Environmental Health Hazard Assessment (OEHHA) reviewed 27 clinical trials in children, 25 of them challenge studies. It concluded that synthetic food dyes can affect behaviour in some children, and that children differ in how sensitive they are. In a journal review by the same group, 16 of the 25 challenge studies (64%) found some association with hyperactivity or inattention, and 13 (52%) found a statistically significant one. The effects were small on average, and not every study found them.",
+   "EFSA's safe daily intake (ADI) for this colour is 0.7 mg per kg of body weight per day (EFSA lowered it in 2009 after kidney findings in mice). In 2009 adults at high intake and children could exceed it, so the EU withdrew or cut use levels in dozens of food categories from June 2013. EFSA's 2015 refined assessment found no group above the ADI."
   ],
   "careIf": "Children, and families who notice a link between brightly coloured foods and behaviour. The EU label rule names children's activity and attention.",
   "regulation": "In the EU, foods with this colour must carry the warning that it \"may have an adverse effect on activity and attention in children\" (Regulation 1333/2008, Annex V). Many maximum levels for this colour were withdrawn or cut in the EU from 2013. In the US, FDA has asked industry to phase out the remaining petroleum-based colours by the end of 2026. This is voluntary, not a ban. Some states have acted on their own: West Virginia restricts seven dyes in school meals (from August 2025) and in food sales (from 2028), and California's school food law (AB 2316) covers six dyes from the end of 2027.",
   "topics": [
-   "Children's attention and activity (small effects in trials of colour mixtures)",
+   "Children's attention and activity (challenge trials, small effects)",
+   "Label warning required in the EU",
    "Sensitivity reactions in a small number of people"
   ],
-  "contested": "CSPI advises avoiding artificial dyes in general and has urged FDA to ban dyes linked to behaviour problems, which is stricter than EFSA and FDA. The evidence behind that view is real but limited: small effects in challenge trials using mixtures, mostly in children who may be more sensitive, and no way to separate one dye from another. EFSA kept its safe daily intake, so regulators and advocacy groups mostly differ on how to act on uncertain behavioural evidence, not on a proven harmful effect. We rate it as a real but modest signal.",
+  "contested": "We rate this dye a notable concern, a step above most other additives, because of the state-agency review, the EU warning label and the US phase-out request. Regulators have not banned it: EFSA kept its safe daily intake and the FDA's phase-out is voluntary. The evidence is real but the effect is small on average and concentrated in sensitive children, and the trials used mixtures of dyes, so one dye can't be singled out. Consumer groups such as CSPI go further and urge avoiding artificial dyes altogether.",
   "sources": [
    {
     "text": "EFSA. Refined exposure assessment for Ponceau 4R (E 124), 2015",
@@ -368,12 +411,20 @@ export const AUDITED: AuditedAdditive[] = [
     "url": "https://doi.org/10.1016/S0140-6736(07)61306-3"
    },
    {
-    "text": "California OEHHA. Health effects assessment: potential neurobehavioral effects of synthetic food dyes in children, 2021",
-    "url": "https://www.oehha.ca.gov/risk-assessment/report/health-effects-assessment-potential-neurobehavioral-effects-synthetic-food-dyes-children"
-   },
-   {
     "text": "CSPI. CSPI urges FDA to ban artificial food dyes linked to behavior problems",
     "url": "https://www.cspinet.org/node/2617"
+   },
+   {
+    "text": "OEHHA (California). Health effects assessment: potential neurobehavioral effects of synthetic food dyes in children, 2021",
+    "url": "https://oehha.ca.gov/sites/default/files/media/downloads/risk-assessment/report/healthefftsassess041621.pdf"
+   },
+   {
+    "text": "Potential impacts of synthetic food dyes on activity and attention in children: a review of the human and animal evidence. Environmental Health, 2022",
+    "url": "https://link.springer.com/article/10.1186/s12940-022-00849-9"
+   },
+   {
+    "text": "CSPI: FDA's plan to remove food dyes (advocacy group summary)",
+    "url": "https://www.cspi.org/cspi-news/fdas-plan-remove-food-dyes-industry-understanding"
    }
   ]
  },
@@ -381,6 +432,7 @@ export const AUDITED: AuditedAdditive[] = [
   "id": "e127",
   "code": "E127",
   "name": "Erythrosine",
+  "labelName": "Red 3",
   "also": "Red No. 3",
   "kind": "Colour (red)",
   "found": "Cocktail and glace cherries, candy, cake decorations, icing, and some drinks and medicines.",
@@ -437,25 +489,27 @@ export const AUDITED: AuditedAdditive[] = [
   "id": "e129",
   "code": "E129",
   "name": "Allura red AC",
+  "labelName": "Red 40",
   "also": "Red 40 in the US",
   "kind": "Colour",
   "found": "Sweets, drinks, cereals and snack foods.",
   "level": "some",
-  "evidence": "Mixed",
-  "summary": "Linked to a small rise in hyperactive behaviour in some children when eaten in colour mixtures. The evidence is mixed, and regulators have kept a safe daily intake.",
+  "evidence": "Moderate",
+  "summary": "Linked to hyperactivity and inattention in some children. A California state review (2021) concluded synthetic dyes can affect children's behaviour, the EU requires a warning label, and US regulators are asking industry to phase them out.",
   "research": [
    "A 2007 randomised, double-blind trial in the UK (McCann et al.) gave children drinks containing a mix of artificial colours plus sodium benzoate. Some groups showed a small rise in hyperactive behaviour compared with a placebo drink. The effect was small and came from mixtures, so it cannot be pinned on one colour.",
    "EFSA reviewed this study and judged it could not be used to change the safe daily intake of this colour. EFSA's 2009 re-evaluation also said a small number of people may react to colours of this type.",
-   "EFSA's safe daily intake (ADI) for this colour is 7 mg per kg of body weight per day. In 2009 intake in children aged 1 to 10 could exceed it. EFSA's refined assessment later found no group above the ADI. In 2013 EFSA looked at a mouse genotoxicity study and said it was not enough to change the ADI, and asked for more data on related azo dyes.",
-   "In 2021 the California Office of Environmental Health Hazard Assessment (OEHHA) reviewed 27 clinical trials in children and concluded that synthetic dyes can cause or worsen behaviour problems in some children. It said current US safe-intake levels may not fully protect children's behaviour. This is a state agency review, not an EU or FDA finding."
+   "In 2021 the California Office of Environmental Health Hazard Assessment (OEHHA) reviewed 27 clinical trials in children, 25 of them challenge studies. It concluded that synthetic food dyes can affect behaviour in some children, and that children differ in how sensitive they are. In a journal review by the same group, 16 of the 25 challenge studies (64%) found some association with hyperactivity or inattention, and 13 (52%) found a statistically significant one. The effects were small on average, and not every study found them.",
+   "EFSA's safe daily intake (ADI) for this colour is 7 mg per kg of body weight per day. In 2009 intake in children aged 1 to 10 could exceed it. EFSA's refined assessment later found no group above the ADI. In 2013 EFSA looked at a mouse genotoxicity study and said it was not enough to change the ADI, and asked for more data on related azo dyes."
   ],
   "careIf": "Children, and families who notice a link between brightly coloured foods and behaviour. The EU label rule names children's activity and attention.",
   "regulation": "In the EU, foods with this colour must carry the warning that it \"may have an adverse effect on activity and attention in children\" (Regulation 1333/2008, Annex V).  In the US, FDA has asked industry to phase out the remaining petroleum-based colours by the end of 2026. This is voluntary, not a ban. Some states have acted on their own: West Virginia restricts seven dyes in school meals (from August 2025) and in food sales (from 2028), and California's school food law (AB 2316) covers six dyes from the end of 2027.",
   "topics": [
-   "Children's attention and activity (small effects in trials of colour mixtures)",
+   "Children's attention and activity (challenge trials, small effects)",
+   "Label warning required in the EU",
    "Sensitivity reactions in a small number of people"
   ],
-  "contested": "CSPI advises avoiding artificial dyes in general and has urged FDA to ban dyes linked to behaviour problems, which is stricter than EFSA and FDA. The evidence behind that view is real but limited: small effects in challenge trials using mixtures, mostly in children who may be more sensitive, and no way to separate one dye from another. EFSA kept its safe daily intake, so regulators and advocacy groups mostly differ on how to act on uncertain behavioural evidence, not on a proven harmful effect. We rate it as a real but modest signal.",
+  "contested": "We rate this dye a notable concern, a step above most other additives, because of the state-agency review, the EU warning label and the US phase-out request. Regulators have not banned it: EFSA kept its safe daily intake and the FDA's phase-out is voluntary. The evidence is real but the effect is small on average and concentrated in sensitive children, and the trials used mixtures of dyes, so one dye can't be singled out. Consumer groups such as CSPI go further and urge avoiding artificial dyes altogether.",
   "sources": [
    {
     "text": "EFSA. Refined exposure assessment for Allura red AC (E 129)",
@@ -466,12 +520,20 @@ export const AUDITED: AuditedAdditive[] = [
     "url": "https://doi.org/10.1016/S0140-6736(07)61306-3"
    },
    {
-    "text": "California OEHHA. Health effects assessment: potential neurobehavioral effects of synthetic food dyes in children, 2021",
-    "url": "https://www.oehha.ca.gov/risk-assessment/report/health-effects-assessment-potential-neurobehavioral-effects-synthetic-food-dyes-children"
-   },
-   {
     "text": "CSPI. CSPI urges FDA to ban artificial food dyes linked to behavior problems",
     "url": "https://www.cspinet.org/node/2617"
+   },
+   {
+    "text": "OEHHA (California). Health effects assessment: potential neurobehavioral effects of synthetic food dyes in children, 2021",
+    "url": "https://oehha.ca.gov/sites/default/files/media/downloads/risk-assessment/report/healthefftsassess041621.pdf"
+   },
+   {
+    "text": "Potential impacts of synthetic food dyes on activity and attention in children: a review of the human and animal evidence. Environmental Health, 2022",
+    "url": "https://link.springer.com/article/10.1186/s12940-022-00849-9"
+   },
+   {
+    "text": "CSPI: FDA's plan to remove food dyes (advocacy group summary)",
+    "url": "https://www.cspi.org/cspi-news/fdas-plan-remove-food-dyes-industry-understanding"
    }
   ]
  },
@@ -505,6 +567,7 @@ export const AUDITED: AuditedAdditive[] = [
   "id": "e132",
   "code": "E132",
   "name": "Indigo carmine",
+  "labelName": "Blue 2",
   "also": "Indigotine",
   "kind": "Colour (blue)",
   "found": "Sweets, ice cream, biscuits and some drinks.",
@@ -537,6 +600,7 @@ export const AUDITED: AuditedAdditive[] = [
   "id": "e133",
   "code": "E133",
   "name": "Brilliant blue FCF",
+  "labelName": "Blue 1",
   "also": "Blue 1 in the US",
   "kind": "Colour (blue)",
   "found": "Sweets, ice cream, drinks, cake icing and mouth-rinse products.",
@@ -654,6 +718,7 @@ export const AUDITED: AuditedAdditive[] = [
   "id": "e150a",
   "code": "E150a",
   "name": "Plain caramel colour",
+  "labelName": "Caramel color",
   "kind": "Colour (brown)",
   "found": "Whisky, sauces, baked goods and some sweets.",
   "level": "little",
@@ -686,6 +751,7 @@ export const AUDITED: AuditedAdditive[] = [
   "id": "e150b",
   "code": "E150b",
   "name": "Caustic sulfite caramel colour",
+  "labelName": "Caramel color",
   "kind": "Colour (brown)",
   "found": "Sherry, some spirits and vinegars, and some sauces.",
   "level": "little",
@@ -719,6 +785,7 @@ export const AUDITED: AuditedAdditive[] = [
   "id": "e150c",
   "code": "E150c",
   "name": "Ammonia caramel colour",
+  "labelName": "Caramel color",
   "kind": "Colour (brown)",
   "found": "Baked goods, beer, soy sauce and some sauces.",
   "level": "some",
@@ -759,6 +826,7 @@ export const AUDITED: AuditedAdditive[] = [
   "id": "e150d",
   "code": "E150d",
   "name": "Sulfite ammonia caramel colour",
+  "labelName": "Caramel color",
   "kind": "Colour (brown)",
   "found": "Colas, soft drinks, soy sauce, vinegars, sauces and baked goods.",
   "level": "some",
@@ -885,6 +953,7 @@ export const AUDITED: AuditedAdditive[] = [
   "id": "e160a",
   "code": "E160a",
   "name": "Carotenes",
+  "labelName": "Beta-carotene",
   "also": "Beta-carotene, mixed carotenes",
   "kind": "Colour (orange)",
   "found": "Margarine, juices, cheese, baked goods and drinks.",
@@ -2652,6 +2721,7 @@ export const AUDITED: AuditedAdditive[] = [
   "id": "e300",
   "code": "E300",
   "name": "Ascorbic acid",
+  "labelName": "Vitamin C (ascorbic acid)",
   "kind": "Antioxidant (vitamin C)",
   "found": "Fruit drinks, jams, processed meats, bread flour, canned fruit and vegetables.",
   "level": "little",
@@ -3008,6 +3078,7 @@ export const AUDITED: AuditedAdditive[] = [
   "id": "e322",
   "code": "E322",
   "name": "Lecithins",
+  "labelName": "Lecithin",
   "also": "Soy lecithin, sunflower lecithin",
   "kind": "Emulsifier",
   "found": "Chocolate, margarine, baked goods, infant formula and many packaged foods.",
@@ -4791,6 +4862,7 @@ export const AUDITED: AuditedAdditive[] = [
   "id": "e471",
   "code": "E471",
   "name": "Mono- and diglycerides of fatty acids",
+  "labelName": "Mono- and diglycerides",
   "also": "Glycerol mono- and distearate; glyceryl monostearate",
   "kind": "Emulsifier",
   "found": "Bread, cakes, margarine, ice cream, chocolate, peanut butter and many packaged foods.",
@@ -6084,6 +6156,7 @@ export const AUDITED: AuditedAdditive[] = [
   "id": "e621",
   "code": "E621",
   "name": "Monosodium glutamate",
+  "labelName": "MSG",
   "also": "MSG",
   "kind": "Flavour enhancer",
   "found": "Savoury snacks, instant noodles, stock cubes, sauces and restaurant food.",

@@ -84,7 +84,7 @@ function buildAliases(): Alias[] {
   const out: Alias[] = [];
   for (const a of ADDITIVES) {
     if (NAME_OFF.has(a.id)) continue;
-    const names = new Set<string>([a.name, ...(EXTRA[a.id] ?? [])]);
+    const names = new Set<string>([a.name, ...(a.labelName && !/^caramel colou?r$/i.test(a.labelName) ? [a.labelName] : []), ...(EXTRA[a.id] ?? [])]);
     for (const n of names) {
       const c = clean(n).trim();
       if (c.length < 3) continue;

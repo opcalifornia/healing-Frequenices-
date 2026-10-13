@@ -44,6 +44,8 @@ interface AdditiveBase {
   /** Display code, for example "E171". */
   code: string;
   name: string;
+  /** The name printed on US ingredient labels, when it differs, for example "Red 40" for Allura red AC. */
+  labelName?: string;
   also?: string;
   /** What it is used for. */
   kind: string;
@@ -767,6 +769,9 @@ export function tierOf(a: Pick<Additive, "level" | "evidence" | "labOnly">): Tie
   return a.evidence === "None" ? "clear" : "minor";
 }
 
+/** The name people see on the pack: "Red 40", not "Allura red AC". The scientific name stays on the detail page. */
+export const shownName = (a: Pick<Additive, "name" | "labelName">) => a.labelName ?? a.name;
+
 export const tierInfo = (t: Tier) => TIERS.find((x) => x.id === t)!;
 
 export function searchAdditives(q: string): Additive[] {
@@ -774,6 +779,6 @@ export function searchAdditives(q: string): Additive[] {
   if (!s) return ADDITIVES;
   const code = normalizeCode(s);
   return ADDITIVES.filter(
-    (a) => a.id === code || a.id.startsWith(s) || a.name.toLowerCase().includes(s) || (a.also ?? "").toLowerCase().includes(s) || a.kind.toLowerCase().includes(s),
+    (a) => a.id === code || a.id.startsWith(s) || a.name.toLowerCase().includes(s) || (a.labelName ?? "").toLowerCase().includes(s) || (a.also ?? "").toLowerCase().includes(s) || a.kind.toLowerCase().includes(s),
   );
 }
