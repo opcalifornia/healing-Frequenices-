@@ -14,14 +14,21 @@ export const FEEDBACK_KINDS = [
   { id: "bug", label: "Something didn't work" },
   { id: "idea", label: "I have an idea" },
   { id: "love", label: "I loved something" },
+  { id: "rating", label: "A scanner rating looks wrong" },
 ] as const;
 export type FeedbackKind = (typeof FEEDBACK_KINDS)[number]["id"];
 
 export const MAX_FEEDBACK = 2000;
 
-export const useFeedback = create<{ open: boolean; show(): void; hide(): void }>((set) => ({
+export interface FeedbackPrefill {
+  kind?: FeedbackKind;
+  message?: string;
+}
+
+export const useFeedback = create<{ open: boolean; prefill: FeedbackPrefill | null; show(prefill?: FeedbackPrefill): void; hide(): void }>((set) => ({
   open: false,
-  show: () => set({ open: true }),
+  prefill: null,
+  show: (prefill) => set({ open: true, prefill: prefill ?? null }),
   hide: () => set({ open: false }),
 }));
 

@@ -2132,6 +2132,32 @@ export const AUDITED: AuditedAdditive[] = [
   ]
  },
  {
+  "id": "e242",
+  "code": "E242",
+  "name": "Dimethyl dicarbonate",
+  "also": "DMDC",
+  "kind": "Preservative",
+  "found": "Soft drinks, wine, juices, tea drinks",
+  "level": "little",
+  "evidence": "Weak",
+  "summary": "DMDC is a cold-sterilising preservative that breaks down after use. Regulators found no toxicological concern, but we could not read EFSA's opinion.",
+  "research": [
+   "The EU Scientific Committee on Food reviewed it in 2001 and found no toxicological concern at 250 mg/l, because it breaks down into substances considered harmless. A 2012 EU regulation authorised its use in alcoholic drinks on that basis.",
+   "A consumer site reports that it breaks down to methanol and carbon dioxide. We could not confirm amounts from a primary source.",
+   "EFSA has a re-evaluation of E 242 listed in databases. We could not confirm its conclusions and so do not state an ADI."
+  ],
+  "regulation": "Authorised in the EU in drinks, including alcoholic drinks since 2012.",
+  "topics": [
+   "Limited data (no regulator concern found)"
+  ],
+  "sources": [
+   {
+    "text": "EU. Commission Regulation (EU) No 1166/2012",
+    "url": "https://www.legislation.gov.uk/eur/2012/1166/data.html"
+   }
+  ]
+ },
+ {
   "id": "e249",
   "code": "E249",
   "name": "Potassium nitrite",
@@ -2539,6 +2565,38 @@ export const AUDITED: AuditedAdditive[] = [
    {
     "text": "CSPI. Chemical Cuisine: Calcium (or sodium) propionate",
     "url": "https://cspinet.org/article/calcium-or-sodium-propionate"
+   }
+  ]
+ },
+ {
+  "id": "e290",
+  "code": "E290",
+  "name": "Carbon dioxide",
+  "also": "CO2, fizz gas",
+  "kind": "Gas for fizz and packaging",
+  "found": "Fizzy drinks, sparkling water, beer, packaged fresh foods",
+  "level": "little",
+  "evidence": "None",
+  "summary": "Carbon dioxide is the gas that makes drinks fizzy. We found no safety concern from regulators for this use.",
+  "research": [
+   "JECFA last evaluated carbon dioxide in 1985 and did not specify an ADI, which means no numerical limit was thought necessary. In the US it is listed by FDA among substances affirmed as GRAS.",
+   "EFSA has put carbon dioxide in a group of gaseous additives for re-evaluation and ran a call for data that closed on 31 March 2024. We could not confirm that a final EFSA opinion on E 290 has been published.",
+   "We did not find a credible human safety signal at food-additive levels. The gas is also made in the body and breathed out."
+  ],
+  "regulation": "Authorised in the EU and the US. Re-evaluation by EFSA was still pending when we searched.",
+  "topics": [],
+  "sources": [
+   {
+    "text": "IPCS INCHEM. JECFA evaluation summary: carbon dioxide",
+    "url": "https://inchem.org/documents/jecfa/jeceval/jec_362.htm"
+   },
+   {
+    "text": "EFSA. Call for data for the re-evaluation of food additives in gaseous form",
+    "url": "https://www.efsa.europa.eu/en/call/call-data-re-evaluation-food-additives-gaseous-form"
+   },
+   {
+    "text": "US eCFR. 21 CFR Part 184 Subpart B, GRAS substances (includes 184.1240 carbon dioxide)",
+    "url": "https://www.law.cornell.edu/cfr/text/21/part-184/subpart-B"
    }
   ]
  },
@@ -3085,16 +3143,19 @@ export const AUDITED: AuditedAdditive[] = [
   "kind": "Acidity regulator, emulsifying salt",
   "found": "Processed cheese, drinks, jams, sweets, ice cream, canned foods.",
   "level": "little",
-  "evidence": "None",
-  "summary": "Salts of citric acid (sodium form). No safety concern has been raised by regulators.",
+  "evidence": "Weak",
+  "summary": "Salts of citric acid (sodium form). No safety concern has been raised by regulators. One large French cohort linked higher intake to type 2 diabetes, so we show a minor concern.",
   "research": [
    "Citrates are salts of citric acid, a normal part of metabolism. The EU's Scientific Committee on Food set no numerical limit for citric acid in 1990.",
    "EFSA's re-evaluation of citric acid and its salts is part of its programme and collected data in a Batch 5 call. EFSA's formal re-evaluation of this additive is still under way, so there is no new EFSA opinion to cite yet.",
-   "We found no credible human or lab signal at food levels."
+   "We found no credible human or lab signal at food levels.",
+   "In the NutriNet-Santé cohort (Lancet Diabetes & Endocrinology 2024, about 104,000 adults), higher intake of sodium citrate (E331) was among the emulsifier-labelled additives associated with a higher risk of type 2 diabetes. These are observational studies, so they show links and not cause. The authors note possible measurement error in food records, residual confounding, and a cohort that is mostly women and better educated than average, and say the results need repeating."
   ],
   "regulation": "Authorised in the EU and the US with few limits.",
-  "topics": [],
-  "contested": "CSPI and most consumer databases list citric acid and its salts as safe.",
+  "topics": [
+   "Type 2 diabetes (one observational cohort)"
+  ],
+  "contested": "CSPI and most consumer databases list citric acid and its salts as safe. The diabetes signal comes from one cohort and has not been tested in experiments.",
   "sources": [
    {
     "text": "EFSA. Call for data (Batch 5) covering citric acid and citrates (E 330-333)",
@@ -3103,6 +3164,10 @@ export const AUDITED: AuditedAdditive[] = [
    {
     "text": "European Commission. Regulation (EU) 2020/1419 (notes SCF 1990 assessment of citric acid, ADI not specified)",
     "url": "https://eur-lex.europa.eu/eli/reg/2020/1419/oj/eng"
+   },
+   {
+    "text": "Salame C et al. Food additive emulsifiers and the risk of type 2 diabetes: NutriNet-Santé cohort. Lancet Diabetes & Endocrinology, 2024",
+    "url": "https://www.thelancet.com/journals/landia/article/PIIS2213-8587(24)00086-X/fulltext"
    }
   ]
  },
@@ -3190,6 +3255,34 @@ export const AUDITED: AuditedAdditive[] = [
    {
     "text": "EFSA FAF Panel. Re-evaluation of l(+)-tartaric acid (E 334) and tartrates, full text. EFSA Journal, 2020",
     "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7448015"
+   }
+  ]
+ },
+ {
+  "id": "e336",
+  "code": "E336",
+  "name": "Potassium tartrates",
+  "also": "Cream of tartar, potassium hydrogen tartrate",
+  "kind": "Acidity regulator",
+  "found": "Baking powder, wine, jams, sweets",
+  "level": "little",
+  "evidence": "None",
+  "summary": "Potassium tartrates come from grapes and wine-making. EFSA found no safety concern at current use.",
+  "research": [
+   "EFSA re-evaluated tartaric acid and its tartrate salts in 2020 (E 334 to 337 and E 354) and set a group ADI of 240 mg/kg body weight per day, expressed as tartaric acid. Estimated intakes for all population groups in the refined scenario did not exceed it.",
+   "The Panel reported no sign of genotoxicity for tartaric acid or its sodium and potassium salts, and no kidney toxicity in studies of the natural l(+) form. A long rat study of monosodium tartrate showed no cancer at the highest dose tested.",
+   "The older limit was 30 mg/kg bw per day (SCF and JECFA). The newer figure is higher because EFSA used a newer rat study."
+  ],
+  "regulation": "Authorised in the EU. A 2024 EU regulation notes that uses could be withdrawn where no technical-use data were supplied for a food category.",
+  "topics": [],
+  "sources": [
+   {
+    "text": "EFSA ANS Panel. Re-evaluation of l(+)-tartaric acid (E 334), sodium tartrates (E 335), potassium tartrates (E 336) and others as food additives. EFSA Journal, 2020",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7448015"
+   },
+   {
+    "text": "EU. Commission Regulation (EU) 2024/1451",
+    "url": "https://eur-lex.europa.eu/eli/reg/2024/1451/oj/eng"
    }
   ]
  },
@@ -3292,6 +3385,7 @@ export const AUDITED: AuditedAdditive[] = [
   "summary": "EFSA set a group safe daily intake for phosphates in 2019 and estimated that many children go above it. People with reduced kidney function are advised to limit them.",
   "research": [
    "Potassium phosphates also add potassium, which people with advanced kidney disease are often told to limit as well.",
+   "In the French NutriNet-Santé cohort (Lancet Diabetes & Endocrinology 2024), higher intake of tripotassium phosphate (E340) was among the emulsifiers associated with a higher risk of type 2 diabetes. These are observational studies, so they show links and not cause. The authors note possible measurement error in food records, residual confounding, and a cohort that is mostly women and better educated than average, and say the results need repeating.",
    "EFSA re-evaluated phosphoric acid and its salts as a group in 2019. It set a group safe daily intake (ADI) of 40 mg per kg of body weight per day, counted as phosphorus. The figure covers phosphorus from natural food and from additives together. Kidney effects in animal studies were the most sensitive endpoint behind the limit.",
    "EFSA estimated that intake is above this ADI for infants, toddlers and other children on average, and for adolescents and older children at the high end (95th percentile). Food supplements containing phosphate additives also went over it. Additives were estimated to add roughly 6 to 30 percent of total phosphorus intake. EFSA suggested the European Commission consider a maximum level for phosphates in food supplements.",
    "The ADI does not apply to people with moderate or severe kidney impairment. In chronic kidney disease, higher blood phosphate is linked to higher risk of death and heart disease in observational studies (for example, a 2024 US NHANES analysis). Phosphate from additives is absorbed far more fully than phosphorus bound in plant foods, which is why additives matter more for people who must limit phosphorus.",
@@ -3300,6 +3394,7 @@ export const AUDITED: AuditedAdditive[] = [
   "careIf": "People with moderate or severe kidney disease, who often must limit phosphorus. EFSA's safe limit does not apply to them. Children and regular users of phosphate-containing supplements may exceed the limit.",
   "regulation": "Authorised in the EU (group safe intake set by EFSA in 2019; EFSA suggested a maximum level for food supplements). Phosphates are generally recognised as safe (GRAS) for food use by the US FDA.",
   "topics": [
+   "Type 2 diabetes (observational cohort)",
    "Kidney disease (people with reduced function)",
    "Intake above safe limit (children)",
    "Heart health (observational, weak)"
@@ -3321,6 +3416,10 @@ export const AUDITED: AuditedAdditive[] = [
    {
     "text": "Relationship between serum phosphorus and mortality in non-dialysis chronic kidney disease patients: NHANES 2001-2018. 2024",
     "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10918918/"
+   },
+   {
+    "text": "Salame C et al. Food additive emulsifiers and the risk of type 2 diabetes: NutriNet-Santé cohort. Lancet Diabetes & Endocrinology, 2024",
+    "url": "https://www.thelancet.com/journals/landia/article/PIIS2213-8587(24)00086-X/fulltext"
    }
   ]
  },
@@ -3596,22 +3695,23 @@ export const AUDITED: AuditedAdditive[] = [
   "found": "Plant milks, ice cream, deli meats, yoghurts, chocolate milk and desserts.",
   "level": "some",
   "evidence": "Weak",
-  "labOnly": true,
-  "summary": "Food-grade carrageenan passed EFSA's 2018 review, but gut-inflammation findings in animals and cells, a data gap for young infants and a debate over contamination with a degraded form keep it on our watch list.",
+  "summary": "Food-grade carrageenan passed EFSA's 2018 review, but large French cohort studies linked higher intake to more cancer and type 2 diabetes, and animal and cell studies show gut inflammation. EFSA also asked for more infant data.",
   "research": [
    "EFSA's 2018 re-evaluation covered carrageenan (E 407) and processed Eucheuma seaweed (E 407a). It noted that the degraded form (poligeenan) is not authorised and has no food use. EFSA asked for more data, including on infants, and opened a follow-up data call (infants under 16 weeks).",
    "Degraded carrageenan (poligeenan) is a different, low-molecular-weight substance. It has been used in lab studies to cause gut ulcers and is classed by IARC as possibly carcinogenic (group 2B). Food-grade carrageenan is not the same material, but some researchers argue that small amounts of degraded pieces could form or be present.",
    "In lab and animal studies, food-grade carrageenan has been linked to gut inflammation and changes in gut bacteria. Whether this happens at normal human intakes has not been shown, and the debate is not settled.",
-   "In the large French NutriNet-Santé cohort (BMJ 2023, about 95,000 adults), carrageenans (E 407, E 407a) showed no significant link with cardiovascular disease, in contrast to some other emulsifiers. That is observational and does not show absence of effect, but it is not a cardiovascular warning for carrageenan."
+   "In the French NutriNet-Santé cohort, higher intake of carrageenans was associated with a higher risk of type 2 diabetes (Lancet Diabetes & Endocrinology 2024, about 104,000 adults, hazard ratio about 1.03 per 100 mg a day) and with higher overall, breast and prostate cancer risk (PLOS Medicine 2024). It was not among the emulsifiers linked to cardiovascular disease in the 2023 BMJ paper.",
+   "These are observational studies, so they show links and not cause. The authors note possible measurement error in food records, residual confounding, and a cohort that is mostly women and better educated than average, and say the results need repeating."
   ],
   "careIf": "Infants: EFSA's first opinion excluded very young infants and asked for more data. People with inflammatory bowel disease sometimes choose to avoid it, although We found no regulator advice to do so.",
   "regulation": "Authorised in the EU and the US. The EU follow-up on use in foods for young infants was still being gathered at the time of our search.",
   "topics": [
+   "Cancer (observational cohort)",
+   "Type 2 diabetes (observational cohort)",
    "Gut inflammation (animal and cell studies)",
-   "Data gap for infants",
-   "Degraded form is a different substance"
+   "Data gap for infants"
   ],
-  "contested": "CSPI rates carrageenan 'Caution' because of gut harm in animals and the 2B listing for degraded carrageenan, and it says any cancer risk from food-grade carrageenan would be quite small. Regulators (EFSA, JECFA, FDA) accept food-grade carrageenan at current uses. The evidence supports caution about the degraded form and about infants, but it does not show harm from food-grade carrageenan in people.",
+  "contested": "CSPI rates carrageenan \"Caution\" because of gut harm in animals and the 2B listing for degraded carrageenan. Regulators (EFSA, JECFA, FDA) accept food-grade carrageenan at current uses. The newer human cohort links are real but observational and modest, so we rate it \"some concern\" with weak evidence, not a proven harm.",
   "sources": [
    {
     "text": "EFSA ANS Panel. Re-evaluation of carrageenan (E 407) and processed Eucheuma seaweed (E 407a) as food additives. EFSA Journal, 2018",
@@ -3628,6 +3728,14 @@ export const AUDITED: AuditedAdditive[] = [
    {
     "text": "Center for Science in the Public Interest. Carrageenan (rating: Caution). CSPI",
     "url": "https://www.cspi.org/article/carrageenan"
+   },
+   {
+    "text": "Salame C et al. Food additive emulsifiers and the risk of type 2 diabetes: NutriNet-Santé cohort. Lancet Diabetes & Endocrinology, 2024",
+    "url": "https://www.thelancet.com/journals/landia/article/PIIS2213-8587(24)00086-X/fulltext"
+   },
+   {
+    "text": "Sellem L et al. Food additive emulsifiers and cancer risk: results from the French NutriNet-Santé cohort. PLOS Medicine, 2024",
+    "url": "https://journals.plos.org/plosmedicine/article?id=10.1371%2Fjournal.pmed.1004338"
    }
   ]
  },
@@ -3640,19 +3748,21 @@ export const AUDITED: AuditedAdditive[] = [
   "found": "Dairy desserts, plant milks, deli meats and sauces.",
   "level": "some",
   "evidence": "Weak",
-  "labOnly": true,
-  "summary": "A less refined form of carrageenan, reviewed by EFSA together with E 407. The same open questions apply.",
+  "summary": "Food-grade carrageenan passed EFSA's 2018 review, but large French cohort studies linked higher intake to more cancer and type 2 diabetes, and animal and cell studies show gut inflammation. EFSA also asked for more infant data.",
   "research": [
    "EFSA treated processed Eucheuma seaweed (PES) together with carrageenan in its 2018 re-evaluation because the two are structurally similar. Conclusions and data gaps are shared with E 407.",
-   "Lab and animal studies have linked carrageenans to gut inflammation. Human evidence at food levels is lacking. In the NutriNet-Santé cohort (BMJ 2023), carrageenans (E 407, E 407a) showed no significant link with cardiovascular outcomes."
+   "In the French NutriNet-Santé cohort, higher intake of carrageenans was associated with a higher risk of type 2 diabetes (Lancet Diabetes & Endocrinology 2024, about 104,000 adults, hazard ratio about 1.03 per 100 mg a day) and with higher overall, breast and prostate cancer risk (PLOS Medicine 2024). It was not among the emulsifiers linked to cardiovascular disease in the 2023 BMJ paper.",
+   "These are observational studies, so they show links and not cause. The authors note possible measurement error in food records, residual confounding, and a cohort that is mostly women and better educated than average, and say the results need repeating."
   ],
   "careIf": "Infants: EFSA asked for more data for very young infants.",
   "regulation": "Authorised in the EU. In the US, this type of seaweed product is generally covered under carrageenan rules.",
   "topics": [
+   "Cancer (observational cohort)",
+   "Type 2 diabetes (observational cohort)",
    "Gut inflammation (animal and cell studies)",
    "Data gap for infants"
   ],
-  "contested": "CSPI rates carrageenan 'Caution'. EFSA found no safety concern for the reported uses but wanted more data. Evidence for people is thin in both directions.",
+  "contested": "CSPI rates carrageenan \"Caution\" because of gut harm in animals and the 2B listing for degraded carrageenan. Regulators (EFSA, JECFA, FDA) accept food-grade carrageenan at current uses. The newer human cohort links are real but observational and modest, so we rate it \"some concern\" with weak evidence, not a proven harm.",
   "sources": [
    {
     "text": "EFSA ANS Panel. Re-evaluation of carrageenan (E 407) and processed Eucheuma seaweed (E 407a) as food additives. EFSA Journal, 2018",
@@ -3669,6 +3779,14 @@ export const AUDITED: AuditedAdditive[] = [
    {
     "text": "Center for Science in the Public Interest. Carrageenan (rating: Caution). CSPI",
     "url": "https://www.cspi.org/article/carrageenan"
+   },
+   {
+    "text": "Salame C et al. Food additive emulsifiers and the risk of type 2 diabetes: NutriNet-Santé cohort. Lancet Diabetes & Endocrinology, 2024",
+    "url": "https://www.thelancet.com/journals/landia/article/PIIS2213-8587(24)00086-X/fulltext"
+   },
+   {
+    "text": "Sellem L et al. Food additive emulsifiers and cancer risk: results from the French NutriNet-Santé cohort. PLOS Medicine, 2024",
+    "url": "https://journals.plos.org/plosmedicine/article?id=10.1371%2Fjournal.pmed.1004338"
    }
   ]
  },
@@ -3714,15 +3832,18 @@ export const AUDITED: AuditedAdditive[] = [
   "kind": "Thickener (from guar beans)",
   "found": "Ice cream, sauces, gluten-free bakery, dressings and dairy desserts.",
   "level": "little",
-  "evidence": "None",
-  "summary": "A plant fibre. EFSA's 2017 re-evaluation found adequate data and no need for a numerical limit.",
+  "evidence": "Weak",
+  "summary": "A plant fibre. EFSA's 2017 re-evaluation found adequate data and no need for a numerical limit. One large French cohort linked higher intake to type 2 diabetes, so we show a minor concern.",
   "research": [
    "JECFA and the EU Scientific Committee for Food had set an ADI of 'not specified'. EFSA's 2017 re-evaluation concluded that adequate exposure and toxicity data were available under its framework. We did not retrieve the exact final wording.",
-   "Guar is a fibre that is fermented by gut bacteria; large amounts may cause gas or loose stools."
+   "Guar is a fibre that is fermented by gut bacteria; large amounts may cause gas or loose stools.",
+   "In the NutriNet-Santé cohort (Lancet Diabetes & Endocrinology 2024, about 104,000 adults), higher intake of guar gum (E412) was among the emulsifier-labelled additives associated with a higher risk of type 2 diabetes. These are observational studies, so they show links and not cause. The authors note possible measurement error in food records, residual confounding, and a cohort that is mostly women and better educated than average, and say the results need repeating."
   ],
   "regulation": "Authorised in the EU and the US.",
-  "topics": [],
-  "contested": "CSPI's Chemical Cuisine groups several gums under one 'certain people should avoid' entry. It says they are poorly tested but probably safe, and it names occasional allergic reactions to tragacanth and an infant-thickener warning linked to xanthan. EFSA's re-evaluations found no safety concern at current uses, so this is a more cautious view, based mostly on limited testing and rare reactions rather than on harm shown at normal intakes.",
+  "topics": [
+   "Type 2 diabetes (one observational cohort)"
+  ],
+  "contested": "CSPI's Chemical Cuisine groups several gums under one 'certain people should avoid' entry. It says they are poorly tested but probably safe, and it names occasional allergic reactions to tragacanth and an infant-thickener warning linked to xanthan. EFSA's re-evaluations found no safety concern at current uses, so this is a more cautious view, based mostly on limited testing and rare reactions rather than on harm shown at normal intakes. The diabetes signal comes from one cohort and has not been tested in experiments.",
   "sources": [
    {
     "text": "EFSA ANS Panel. Re-evaluation of guar gum (E 412) as a food additive. EFSA Journal, 2017",
@@ -3731,6 +3852,10 @@ export const AUDITED: AuditedAdditive[] = [
    {
     "text": "Center for Science in the Public Interest. Chemical Cuisine: gums (arabic, gellan, guar, karaya, locust bean, tragacanth, xanthan). CSPI",
     "url": "https://www.cspi.org/chemical-cuisine/gums-arabic-furcelleran-gellan-ghatti-guar-karaya-locust-bean-tragacanth-xanthan"
+   },
+   {
+    "text": "Salame C et al. Food additive emulsifiers and the risk of type 2 diabetes: NutriNet-Santé cohort. Lancet Diabetes & Endocrinology, 2024",
+    "url": "https://www.thelancet.com/journals/landia/article/PIIS2213-8587(24)00086-X/fulltext"
    }
   ]
  },
@@ -3773,15 +3898,18 @@ export const AUDITED: AuditedAdditive[] = [
   "kind": "Thickener and stabiliser (tree gum)",
   "found": "Soft drinks, sweets, chewing gum, drink emulsions and flavour coatings.",
   "level": "little",
-  "evidence": "None",
-  "summary": "A tree gum eaten for a long time. EFSA's 2017 review found no safety concern.",
+  "evidence": "Weak",
+  "summary": "A tree gum eaten for a long time. EFSA's 2017 review found no safety concern. One large French cohort linked higher intake to type 2 diabetes, so we show a minor concern.",
   "research": [
    "EFSA's 2017 re-evaluation found that acacia gum is unlikely to be absorbed whole and is only slightly fermented in the gut. Subchronic and cancer studies showed no adverse effects at the highest doses tested, and EFSA saw no genotoxicity concern. It concluded that no numerical ADI was needed.",
-   "In one human intake study some people had gas, which EFSA judged undesirable but not harmful. A 2019 EFSA follow-up looked at use in foods for infants under 16 weeks and recommended tighter limits for heavy metals in the specification."
+   "In one human intake study some people had gas, which EFSA judged undesirable but not harmful. A 2019 EFSA follow-up looked at use in foods for infants under 16 weeks and recommended tighter limits for heavy metals in the specification.",
+   "In the NutriNet-Santé cohort (Lancet Diabetes & Endocrinology 2024, about 104,000 adults), higher intake of gum arabic (E414) was among the emulsifier-labelled additives associated with a higher risk of type 2 diabetes. These are observational studies, so they show links and not cause. The authors note possible measurement error in food records, residual confounding, and a cohort that is mostly women and better educated than average, and say the results need repeating."
   ],
   "regulation": "Authorised in the EU and the US.",
-  "topics": [],
-  "contested": "CSPI's Chemical Cuisine groups several gums under one 'certain people should avoid' entry. It says they are poorly tested but probably safe, and it names occasional allergic reactions to tragacanth and an infant-thickener warning linked to xanthan. EFSA's re-evaluations found no safety concern at current uses, so this is a more cautious view, based mostly on limited testing and rare reactions rather than on harm shown at normal intakes.",
+  "topics": [
+   "Type 2 diabetes (one observational cohort)"
+  ],
+  "contested": "CSPI's Chemical Cuisine groups several gums under one 'certain people should avoid' entry. It says they are poorly tested but probably safe, and it names occasional allergic reactions to tragacanth and an infant-thickener warning linked to xanthan. EFSA's re-evaluations found no safety concern at current uses, so this is a more cautious view, based mostly on limited testing and rare reactions rather than on harm shown at normal intakes. The diabetes signal comes from one cohort and has not been tested in experiments.",
   "sources": [
    {
     "text": "EFSA ANS Panel. Re-evaluation of acacia gum (E 414) as a food additive. EFSA Journal, 2017",
@@ -3790,6 +3918,10 @@ export const AUDITED: AuditedAdditive[] = [
    {
     "text": "Center for Science in the Public Interest. Chemical Cuisine: gums (arabic, gellan, guar, karaya, locust bean, tragacanth, xanthan). CSPI",
     "url": "https://www.cspi.org/chemical-cuisine/gums-arabic-furcelleran-gellan-ghatti-guar-karaya-locust-bean-tragacanth-xanthan"
+   },
+   {
+    "text": "Salame C et al. Food additive emulsifiers and the risk of type 2 diabetes: NutriNet-Santé cohort. Lancet Diabetes & Endocrinology, 2024",
+    "url": "https://www.thelancet.com/journals/landia/article/PIIS2213-8587(24)00086-X/fulltext"
    }
   ]
  },
@@ -3804,12 +3936,14 @@ export const AUDITED: AuditedAdditive[] = [
   "summary": "EFSA found no safety concern in 2017 and again in a 2023 infant follow-up, but a thickener containing xanthan has been linked to a serious bowel illness in premature infants.",
   "research": [
    "EFSA's 2017 re-evaluation found that xanthan gum is unlikely to be absorbed whole and is fermented by gut bacteria. A 2023 EFSA opinion on foods for infants under 16 weeks judged the available clinical studies to be of low validity, but concluded from piglet studies that there is no safety concern in infant foods for special medical purposes. We have not checked the full text.",
-   "CSPI notes the US FDA warning against giving a xanthan-based thickener (SimplyThick) to infants after cases of a serious intestinal condition. It is unclear whether the gum, contamination or something else was the cause."
+   "CSPI notes the US FDA warning against giving a xanthan-based thickener (SimplyThick) to infants after cases of a serious intestinal condition. It is unclear whether the gum, contamination or something else was the cause.",
+   "In the NutriNet-Santé cohort (Lancet Diabetes & Endocrinology 2024), higher intake of xanthan gum (E415) was among the emulsifier-labelled additives associated with a higher risk of type 2 diabetes. These are observational studies, so they show links and not cause. The authors note possible measurement error in food records, residual confounding, and a cohort that is mostly women and better educated than average, and say the results need repeating."
   ],
   "careIf": "Premature and very young infants: do not add thickeners to feeds unless a doctor advises it.",
   "regulation": "Authorised in the EU and the US.",
   "topics": [
-   "Infant thickener warning (US FDA)"
+   "Infant thickener warning (US FDA)",
+   "Type 2 diabetes (one observational cohort)"
   ],
   "contested": "CSPI's Chemical Cuisine groups several gums under one 'certain people should avoid' entry. It says they are poorly tested but probably safe, and it names occasional allergic reactions to tragacanth and an infant-thickener warning linked to xanthan. EFSA's re-evaluations found no safety concern at current uses, so this is a more cautious view, based mostly on limited testing and rare reactions rather than on harm shown at normal intakes.",
   "sources": [
@@ -3824,6 +3958,10 @@ export const AUDITED: AuditedAdditive[] = [
    {
     "text": "Center for Science in the Public Interest. Chemical Cuisine: gums (arabic, gellan, guar, karaya, locust bean, tragacanth, xanthan). CSPI",
     "url": "https://www.cspi.org/chemical-cuisine/gums-arabic-furcelleran-gellan-ghatti-guar-karaya-locust-bean-tragacanth-xanthan"
+   },
+   {
+    "text": "Salame C et al. Food additive emulsifiers and the risk of type 2 diabetes: NutriNet-Santé cohort. Lancet Diabetes & Endocrinology, 2024",
+    "url": "https://www.thelancet.com/journals/landia/article/PIIS2213-8587(24)00086-X/fulltext"
    }
   ]
  },
@@ -4040,6 +4178,37 @@ export const AUDITED: AuditedAdditive[] = [
   ]
  },
  {
+  "id": "e426",
+  "code": "E426",
+  "name": "Soybean hemicellulose",
+  "also": "Soy fibre, soluble soybean polysaccharide",
+  "kind": "Thickener and stabiliser",
+  "found": "Flavoured drinks, acidified milk drinks, some desserts",
+  "level": "little",
+  "evidence": "Weak",
+  "summary": "Soybean hemicellulose is a fibre from soy. EFSA judged a safety concern very unlikely, but it may carry traces of soy protein.",
+  "research": [
+   "EFSA re-evaluated it in 2017. It is not absorbed whole but is fermented by gut microbes. A 90-day rat study showed no adverse effects at the highest doses, and EFSA did not find a genotoxicity concern.",
+   "The highest exposure estimate, based on maximum permitted levels, was 191 mg/kg bw per day for children at the 95th percentile. EFSA thought real exposure was likely far lower because few uses were reported. No numerical ADI was needed.",
+   "EFSA advised keeping residual proteins as low as possible and informing consumers about potentially allergenic proteins. This is why the soy origin matters for people with soy allergy."
+  ],
+  "careIf": "People with soy allergy may want to check labels.",
+  "regulation": "Authorised in the EU for a small number of food categories.",
+  "topics": [
+   "Soy origin (allergen note)"
+  ],
+  "sources": [
+   {
+    "text": "EFSA ANS Panel. Re-evaluation of soybean hemicellulose (E 426) as a food additive. EFSA Journal, 2017",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7010024"
+   },
+   {
+    "text": "EU. Commission Regulation (EU) 2020/279",
+    "url": "https://eur-lex.europa.eu/eli/reg/2020/279/oj"
+   }
+  ]
+ },
+ {
   "id": "e427",
   "code": "E427",
   "name": "Cassia gum",
@@ -4244,6 +4413,40 @@ export const AUDITED: AuditedAdditive[] = [
   ]
  },
  {
+  "id": "e441",
+  "code": "E441",
+  "name": "Gelatine",
+  "also": "Gelatin",
+  "kind": "Gelling agent",
+  "found": "Gummy sweets, marshmallows, desserts, yoghurt, capsules",
+  "level": "little",
+  "evidence": "None",
+  "summary": "Gelatine is a protein made from animal skin and bones, so it is not vegetarian or vegan. We found no chemical safety concern for the substance itself.",
+  "research": [
+   "Gelatine is made from collagen of cattle, pigs or fish. Sources describe it as a by-product of the meat and leather industries. Anyone avoiding animal products, or following halal or kosher diets, should check the source on the label.",
+   "In the EU, gelatine for food is made under hygiene rules in Regulation (EC) 853/2004. Export certificates for gelatine refer to that regulation and set raw-material and production conditions. For bovine, ovine and caprine gelatine (other than from hides and skins) these include a negligible BSE-risk origin requirement.",
+   "EFSA has assessed BSE risk from ruminant collagen and gelatine, including from bones, and a summary of that work says gelatine from ruminant bones was considered safe from BSE. We could not read the full opinions."
+  ],
+  "careIf": "People who avoid animal products, or follow halal or kosher diets.",
+  "regulation": "Gelatine is treated as a food rather than an additive in the EU, with hygiene and BSE-related rules in Regulation (EC) 853/2004. In the US it is on the FDA GRAS side of the system. We could not confirm the exact legal wording.",
+  "topics": [],
+  "contested": "CSPI's Chemical Cuisine rates gelatin as Safe and notes it is a protein from animal hides and bones with little nutritional value. We agree on safety. The main issue is origin, not toxicity.",
+  "sources": [
+   {
+    "text": "CSPI. Chemical Cuisine: Gelatin",
+    "url": "https://www.cspi.org/chemical-cuisine/gelatin"
+   },
+   {
+    "text": "EFSA BIOHAZ Panel. Potential BSE risk posed by the use of ruminant collagen and gelatine in feed for non-ruminant farmed animals. EFSA Journal, 2020",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7592076/"
+   },
+   {
+    "text": "UK Government. Export health certificate 8390 for gelatine (refers to Reg. 853/2004, Annex III, Section XIV)",
+    "url": "https://assets.publishing.service.gov.uk/media/6659b80cd470e3279dd33480/8390_EN_V3.pdf"
+   }
+  ]
+ },
+ {
   "id": "e442",
   "code": "E442",
   "name": "Ammonium phosphatides",
@@ -4403,16 +4606,16 @@ export const AUDITED: AuditedAdditive[] = [
   "found": "Grated cheese, baked goods, tablets and low-fat products.",
   "level": "some",
   "evidence": "Weak",
-  "summary": "Plant fibre judged safe by EFSA, but it is part of a cellulose group that showed a small link to heart disease in one large French cohort.",
+  "summary": "Plant fibre judged safe by EFSA, but in one large French cohort higher intake of cellulose (E460) was linked to a small rise in cardiovascular disease.",
   "research": [
    "EFSA re-evaluated all the celluloses together in 2018 (E 460 to E 469). JECFA and the EU committee had given them 'not specified' ADIs. EFSA found low acute toxicity and no genotoxicity concern, and read across between the celluloses because they are chemically similar. Specific toxicity data were not available for every cellulose and endpoint.",
-   "In the NutriNet-Santé cohort (BMJ 2023, about 95,000 adults, median follow-up 7.4 years), higher intake of celluloses as a group (E 460 to E 468) was linked to a small increase in cardiovascular disease (hazard ratio 1.05 per standard deviation of intake, 95% CI 1.02 to 1.09) and in coronary heart disease (1.07, 1.02 to 1.12). This is an association from food diaries and does not show the additives caused the effect."
+   "In the NutriNet-Santé cohort (BMJ 2023, 95,442 adults, median follow-up 7.4 years), higher intake of cellulose (E460) was individually associated with a higher risk of cardiovascular disease (hazard ratio about 1.05 per standard deviation of intake). These are observational studies, so they show links and not cause. The authors note possible measurement error in food records and residual confounding, and say the results need repeating."
   ],
   "regulation": "Authorised in the EU and the US.",
   "topics": [
    "Heart disease (cohort association)"
   ],
-  "contested": "Regulators see no safety concern at current uses. A 2023 French cohort study (NutriNet-Santé) found a small positive association between total cellulose-additive intake and cardiovascular disease. It is observational, which cannot prove cause, and the effect was small.",
+  "contested": "Regulators see no safety concern at current uses. The French cohort found a small positive association for E460. It is observational, which cannot prove cause, and the effect was small.",
   "sources": [
    {
     "text": "EFSA ANS Panel. Re-evaluation of celluloses E 460(i), E 460(ii), E 461, E 462, E 463, E 464, E 465, E 466, E 468 and E 469 as food additives. EFSA Journal, 2018",
@@ -4431,18 +4634,18 @@ export const AUDITED: AuditedAdditive[] = [
   "also": "MC",
   "kind": "Thickener and emulsifier (modified cellulose)",
   "found": "Vegetarian burgers, gluten-free bread, fried-food batters and ice cream.",
-  "level": "some",
+  "level": "little",
   "evidence": "Weak",
-  "summary": "Modified plant fibre judged safe by EFSA. Part of a cellulose group that showed a small link to heart disease in one large cohort.",
+  "summary": "Modified plant fibre judged safe by EFSA in its 2018 review of the celluloses. It wasn't singled out in the large French cohort, which did link two other celluloses (E460 and E466) to heart disease.",
   "research": [
    "EFSA re-evaluated all the celluloses together in 2018 (E 460 to E 469). JECFA and the EU committee had given them 'not specified' ADIs. EFSA found low acute toxicity and no genotoxicity concern, and read across between the celluloses because they are chemically similar. Specific toxicity data were not available for every cellulose and endpoint.",
-   "In the NutriNet-Santé cohort (BMJ 2023, about 95,000 adults, median follow-up 7.4 years), higher intake of celluloses as a group (E 460 to E 468) was linked to a small increase in cardiovascular disease (hazard ratio 1.05 per standard deviation of intake, 95% CI 1.02 to 1.09) and in coronary heart disease (1.07, 1.02 to 1.12). This is an association from food diaries and does not show the additives caused the effect."
+   "The 2023 NutriNet-Santé study linked cellulose (E460) and carboxymethylcellulose (E466) to cardiovascular disease. We could not confirm a separate result for this additive, so we show a minor concern because it belongs to the same group of chemically similar fibres."
   ],
   "regulation": "Authorised in the EU and the US.",
   "topics": [
-   "Heart disease (cohort association)"
+   "Limited data (related celluloses linked to heart disease in one cohort)"
   ],
-  "contested": "Regulators see no safety concern at current uses. A 2023 French cohort study (NutriNet-Santé) found a small positive association between total cellulose-additive intake and cardiovascular disease. It is observational, which cannot prove cause, and the effect was small.",
+  "contested": "Regulators see no concern. Related celluloses showed small associations in one cohort, so we flag this one at the minor step without claiming a result for it.",
   "sources": [
    {
     "text": "EFSA ANS Panel. Re-evaluation of celluloses E 460(i), E 460(ii), E 461, E 462, E 463, E 464, E 465, E 466, E 468 and E 469 as food additives. EFSA Journal, 2018",
@@ -4490,18 +4693,18 @@ export const AUDITED: AuditedAdditive[] = [
   "also": "HPMC, hypromellose",
   "kind": "Thickener and emulsifier (modified cellulose)",
   "found": "Vegan egg and meat substitutes, capsules, gluten-free baking and sauces.",
-  "level": "some",
+  "level": "little",
   "evidence": "Weak",
-  "summary": "Modified plant fibre judged safe by EFSA. Part of a cellulose group that showed a small link to heart disease in one large cohort.",
+  "summary": "Modified plant fibre judged safe by EFSA in its 2018 review of the celluloses. It wasn't singled out in the large French cohort, which did link two other celluloses (E460 and E466) to heart disease.",
   "research": [
    "EFSA re-evaluated all the celluloses together in 2018 (E 460 to E 469). JECFA and the EU committee had given them 'not specified' ADIs. EFSA found low acute toxicity and no genotoxicity concern, and read across between the celluloses because they are chemically similar. Specific toxicity data were not available for every cellulose and endpoint.",
-   "In the NutriNet-Santé cohort (BMJ 2023, about 95,000 adults, median follow-up 7.4 years), higher intake of celluloses as a group (E 460 to E 468) was linked to a small increase in cardiovascular disease (hazard ratio 1.05 per standard deviation of intake, 95% CI 1.02 to 1.09) and in coronary heart disease (1.07, 1.02 to 1.12). This is an association from food diaries and does not show the additives caused the effect."
+   "The 2023 NutriNet-Santé study linked cellulose (E460) and carboxymethylcellulose (E466) to cardiovascular disease. We could not confirm a separate result for this additive, so we show a minor concern because it belongs to the same group of chemically similar fibres."
   ],
   "regulation": "Authorised in the EU and the US.",
   "topics": [
-   "Heart disease (cohort association)"
+   "Limited data (related celluloses linked to heart disease in one cohort)"
   ],
-  "contested": "Regulators see no safety concern at current uses. A 2023 French cohort study (NutriNet-Santé) found a small positive association between total cellulose-additive intake and cardiovascular disease. It is observational, which cannot prove cause, and the effect was small.",
+  "contested": "Regulators see no concern. Related celluloses showed small associations in one cohort, so we flag this one at the minor step without claiming a result for it.",
   "sources": [
    {
     "text": "EFSA ANS Panel. Re-evaluation of celluloses E 460(i), E 460(ii), E 461, E 462, E 463, E 464, E 465, E 466, E 468 and E 469 as food additives. EFSA Journal, 2018",
@@ -4593,31 +4796,26 @@ export const AUDITED: AuditedAdditive[] = [
   "found": "Bread, cakes, margarine, ice cream, chocolate, peanut butter and many packaged foods.",
   "level": "some",
   "evidence": "Weak",
-  "summary": "EFSA found no safety concern at current uses. But large French cohort studies linked higher intake to more cancer and cardiovascular disease. These are associations, not proof of cause.",
+  "summary": "EFSA found no safety concern at current uses. A large French cohort linked higher intake to more cancer. This is an association, not proof of cause.",
   "research": [
-   "The NutriNet-Santé studies in France link higher intake of mono- and diglycerides of fatty acids (E471) to some health outcomes. A 2023 BMJ paper (Sellem et al., 95,442 adults, median follow-up 7.4 years, 1,995 cardiovascular events) reported that higher intake of E471 and of E472 esters went with higher risks of cardiovascular, coronary and cerebrovascular disease. Press material from the journal lists E472b with cardiovascular and cerebrovascular disease, and E472c with cardiovascular and coronary heart disease. Reported hazard ratios in this paper are small (for example 1.03 to 1.07 per standard deviation of intake for the cellulose emulsifiers).",
-   "A 2024 PLOS Medicine paper (Sellem et al., about 92,000 adults, 6.7 years, 2,604 cancers) compared highest with lowest intake of E471. It found hazard ratios of 1.15 (95% CI 1.04 to 1.27) for overall cancer, 1.24 (1.03 to 1.51) for breast cancer and 1.46 (1.09 to 1.97) for prostate cancer. Carrageenans (E407, E407a) were linked to breast cancer in the same paper.",
-   "The 2024 Lancet Diabetes & Endocrinology paper (Salame et al., 104,139 adults, 1,056 type 2 diabetes cases) named several other emulsifiers, including E472e, carrageenans and some gums. We could not confirm from the sources we could read that it reported an E471 result, so we do not claim one.",
-   "EFSA re-evaluated E471 in 2017. It said no numerical ADI was needed because the body breaks these fats down into glycerol and fatty acids. It asked for tighter specifications, mainly on contaminants from processing. These are observational studies. They cannot show cause. The authors point to possible measurement error in food records, residual confounding (people who eat more ultra-processed food differ in many other ways), and a cohort that is mostly women and better educated than average. They say the results need repeating in other populations and testing in experiments."
+   "In the NutriNet-Santé study in France (PLOS Medicine 2024, about 92,000 adults followed for around 7 years, 2,604 cancers), people in the highest third of intake of mono- and diglycerides of fatty acids (E471) had a higher risk of overall cancer (hazard ratio about 1.15), breast cancer (about 1.24) and prostate cancer (about 1.46) than those in the lowest third. No link was found with colorectal cancer.",
+   "The same research group found links between other emulsifiers in the same family and heart disease (E472b, E472c) and between several emulsifiers and type 2 diabetes. We did not confirm that those papers reported a separate result for E471, so we don't claim one.",
+   "EFSA re-evaluated E471 in 2017. It said no numerical safe intake was needed because the body breaks these fats down into glycerol and fatty acids, and asked for tighter specifications for contaminants from processing.",
+   "These are observational studies, so they show links and not cause. The authors note possible measurement error in food records, residual confounding, and a cohort that is mostly women and better educated than average, and say the results need repeating."
   ],
   "regulation": "Authorised in the EU (EFSA 2017: no numerical ADI needed) and generally recognised as safe in the US. Not banned anywhere we found.",
   "topics": [
-   "Cancer (observational cohort)",
-   "Cardiovascular disease (observational cohort)"
+   "Cancer (observational cohort)"
   ],
-  "contested": "Regulators found no concern and EFSA's 2017 opinion predates these cohort papers. Some consumer apps rate E471 more strictly, mostly because of them. The cohort evidence is real but weak: small to moderate hazard ratios from one French cohort, no experiment, and E471 is a marker of ultra-processed food intake. We rate it as a minor concern, the same as E472b and E472c, which came from the same cohort. We did not verify the Center for Science in the Public Interest rating for this additive.",
+  "contested": "Regulators found no concern, and EFSA's 2017 opinion predates these cohort papers. Some consumer apps rate E471 more strictly, mostly because of them. The cohort evidence is real but weak: modest hazard ratios from one French cohort, no experiment, and E471 is also a marker of ultra-processed food. We rate it \"some concern\" with weak evidence, like E472b and E472c, which come from the same research group.",
   "sources": [
    {
-    "text": "Sellem L et al. Food additive emulsifiers and cancer risk: results from the French prospective NutriNet-Santé cohort. PLoS Medicine, 2024",
-    "url": "https://pubmed.ncbi.nlm.nih.gov/38349899/"
+    "text": "Sellem L et al. Food additive emulsifiers and cancer risk: results from the French NutriNet-Santé cohort. PLOS Medicine, 2024",
+    "url": "https://journals.plos.org/plosmedicine/article?id=10.1371%2Fjournal.pmed.1004338"
    },
    {
     "text": "Sellem L et al. Food additive emulsifiers and risk of cardiovascular disease in the NutriNet-Santé cohort. BMJ, 2023",
     "url": "https://doi.org/10.1136/bmj-2023-076058"
-   },
-   {
-    "text": "BMJ Group. High intake of several emulsifier E numbers linked to increased cardiovascular disease risk, 2023",
-    "url": "https://bmjgroup.com/high-intake-of-several-emulsifier-e-numbers-linked-to-increased-cardiovascular-disease-risk/"
    }
   ]
  },
@@ -4663,17 +4861,17 @@ export const AUDITED: AuditedAdditive[] = [
   "found": "Bread, cakes, margarine, whipped toppings and packaged desserts.",
   "level": "some",
   "evidence": "Weak",
-  "summary": "A large French study linked higher intake to more cardiovascular and cerebrovascular disease. It shows a link, not cause and effect.",
+  "summary": "A large French study linked higher intake to more cardiovascular disease. It shows a link, not cause and effect.",
   "research": [
-   "A 2023 BMJ study followed 95,442 French adults for a median of 7.4 years (1,995 cardiovascular events, 974 cerebrovascular). Higher intake of E472b was associated with higher risks of cardiovascular and cerebrovascular disease, according to the journal's summary. The effect sizes for emulsifiers in this paper were small (hazard ratios around 1.03 to 1.07 per standard deviation of intake for the ones we could check).",
+   "A 2023 BMJ study followed 95,442 French adults for a median of 7.4 years (1,995 cardiovascular events). Higher intake of lactic acid esters of mono- and diglycerides (E472b) was associated with a higher risk of cardiovascular disease (hazard ratio about 1.06 per standard deviation of intake).",
    "EFSA re-evaluated E472a-f together in 2020. It found no adverse effects relevant to humans in the animal and lab safety data and said no numerical ADI was needed for E472a, b and c. It said only L(+)-tartaric acid should be used to make E472d, e and f.",
-   "These are observational studies. They cannot show cause. The authors point to possible measurement error in food records, residual confounding (people who eat more ultra-processed food differ in many other ways), and a cohort that is mostly women and better educated than average. They say the results need repeating in other populations and testing in experiments. The same cohort also linked E471 to cancer in 2024, and we rate it the same way."
+   "These are observational studies, so they show links and not cause. The authors note possible measurement error in food records, residual confounding, and a cohort that is mostly women and better educated than average, and say the results need repeating."
   ],
   "regulation": "Authorised in the EU and the US. EFSA 2020 re-evaluated the whole E472a-f group.",
   "topics": [
    "Cardiovascular disease (observational cohort)"
   ],
-  "contested": "Regulators saw no concern; the signal comes from one French cohort. The cohort estimates were modest and the authors say they need replication. We rate E472b and E472c as a minor concern, and E471, which the same cohort and a 2024 cancer paper also named, the same way. We did not verify the CSPI rating.",
+  "contested": "Regulators saw no concern; the signal comes from one French cohort with modest estimates. We rate E472b, E472c and E471 \"some concern\" with weak evidence, because each was named in a large cohort paper by the same research group.",
   "sources": [
    {
     "text": "Sellem L et al. Food additive emulsifiers and risk of cardiovascular disease in the NutriNet-Santé cohort. BMJ, 2023",
@@ -4701,17 +4899,17 @@ export const AUDITED: AuditedAdditive[] = [
   "found": "Infant formula, bread, margarine and packaged desserts.",
   "level": "some",
   "evidence": "Weak",
-  "summary": "A large French study linked higher intake to more cardiovascular and coronary heart disease. It shows a link, not cause and effect.",
+  "summary": "A large French study linked higher intake to more cardiovascular disease and coronary heart disease. It shows a link, not cause and effect.",
   "research": [
-   "A 2023 BMJ study followed 95,442 French adults for a median of 7.4 years (1,995 cardiovascular events, 1,044 coronary heart disease). Higher intake of E472c was associated with higher risks of cardiovascular disease and coronary heart disease, according to the journal's summary. The effect sizes were small.",
+   "A 2023 BMJ study followed 95,442 French adults for a median of 7.4 years. Higher intake of citric acid esters of mono- and diglycerides (E472c) was associated with a higher risk of cardiovascular disease (hazard ratio about 1.04) and coronary heart disease (about 1.06), per standard deviation of intake.",
    "EFSA re-evaluated E472a-f together in 2020. It found no adverse effects relevant to humans in the animal and lab safety data and said no numerical ADI was needed for E472a, b and c. It said only L(+)-tartaric acid should be used to make E472d, e and f.",
-   "These are observational studies. They cannot show cause. The authors point to possible measurement error in food records, residual confounding (people who eat more ultra-processed food differ in many other ways), and a cohort that is mostly women and better educated than average. They say the results need repeating in other populations and testing in experiments."
+   "These are observational studies, so they show links and not cause. The authors note possible measurement error in food records, residual confounding, and a cohort that is mostly women and better educated than average, and say the results need repeating."
   ],
   "regulation": "Authorised in the EU and the US. EFSA 2020 re-evaluated the whole E472a-f group.",
   "topics": [
    "Cardiovascular disease (observational cohort)"
   ],
-  "contested": "Regulators saw no concern; the signal comes from one French cohort. The cohort estimates were modest and the authors say they need replication. We rate E472b and E472c as a minor concern, and E471, which the same cohort and a 2024 cancer paper also named, the same way. We did not verify the CSPI rating.",
+  "contested": "Regulators saw no concern; the signal comes from one French cohort with modest estimates. We rate E472b, E472c and E471 \"some concern\" with weak evidence, because each was named in a large cohort paper by the same research group.",
   "sources": [
    {
     "text": "Sellem L et al. Food additive emulsifiers and risk of cardiovascular disease in the NutriNet-Santé cohort. BMJ, 2023",
@@ -4791,6 +4989,10 @@ export const AUDITED: AuditedAdditive[] = [
    {
     "text": "INRAE. The consumption of certain food additive emulsifiers could be associated with the risk of developing type 2 diabetes, 2024",
     "url": "https://www.inrae.fr/en/news/consumption-certain-food-additive-emulsifiers-could-be-associated-risk-developing-type-2-diabetes"
+   },
+   {
+    "text": "Salame C et al. Food additive emulsifiers and the risk of type 2 diabetes: NutriNet-Santé cohort. Lancet Diabetes & Endocrinology, 2024",
+    "url": "https://www.thelancet.com/journals/landia/article/PIIS2213-8587(24)00086-X/fulltext"
    }
   ]
  },
@@ -4933,6 +5135,36 @@ export const AUDITED: AuditedAdditive[] = [
    {
     "text": "EFSA FAF Panel. Follow-up of the re-evaluation of polyglycerol polyricinoleate (E 476), 2022",
     "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9066526/"
+   }
+  ]
+ },
+ {
+  "id": "e477",
+  "code": "E477",
+  "name": "Propane-1,2-diol esters of fatty acids",
+  "kind": "Emulsifier",
+  "found": "Cakes, sponges, whipped toppings and some desserts.",
+  "level": "little",
+  "evidence": "Weak",
+  "summary": "EFSA found no safety concern at current uses in 2018. It noted there are no long-term studies on the ester itself, so it relies on data for propane-1,2-diol.",
+  "research": [
+   "EFSA's 2018 re-evaluation confirmed an acceptable daily intake of 25 mg per kg of body weight per day, expressed as propane-1,2-diol (about 80 mg per kg of the additive itself). Estimated exposure did not exceed it in any population group.",
+   "EFSA said any effect of this additive would come from propane-1,2-diol. It noted that no long-term, cancer, reproductive or developmental studies on the ester itself were available, and that it saw no genotoxicity concern.",
+   "Propane-1,2-diol also reaches the diet through E 1520 and propane-1,2-diol alginate (E 405). EFSA said it would look at whether a group limit for all of them makes sense.",
+   "We found no recent human studies linking this additive to harm."
+  ],
+  "regulation": "Authorised in the EU and the US with limits.",
+  "topics": [
+   "Limited data (no long-term studies on the ester itself)"
+  ],
+  "sources": [
+   {
+    "text": "EFSA: Re-evaluation of propane-1,2-diol esters of fatty acids (E 477) as a food additive, 2018",
+    "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7009423/"
+   },
+   {
+    "text": "EFSA Journal 2018;16(12):5497, doi 10.2903/j.efsa.2018.5497",
+    "url": "https://doi.org/10.2903/j.efsa.2018.5497"
    }
   ]
  },
@@ -5228,6 +5460,125 @@ export const AUDITED: AuditedAdditive[] = [
   ]
  },
  {
+  "id": "e507",
+  "code": "E507",
+  "name": "Hydrochloric acid",
+  "kind": "Acidity regulator",
+  "found": "Processing aid in starch, sugar and gelatine production; rarely in the final food",
+  "level": "little",
+  "evidence": "None",
+  "summary": "Hydrochloric acid is used in small amounts in processing and ends up as chloride salts. EFSA saw no safety concern.",
+  "research": [
+   "EFSA re-evaluated the four chlorides together in 2019. The Panel judged them to have low acute and short-term oral toxicity and saw no concern for genotoxicity. Some in-vitro positives appeared only at high concentrations linked to low pH or high osmolality, which the Panel judged not to occur in the body.",
+   "The Panel used a human reference value of 40 mg chloride per kg body weight per day. Mean exposure from additive use was below or at that value in all age groups, and EFSA concluded there was no safety concern. Chloride is also an essential nutrient. Average intake estimates ranged from about 2 mg/kg bw per day in the elderly to about 42 in toddlers (non-brand-loyal scenario). These are estimates.",
+   "We could not read the full opinion text, so details such as specification changes are not covered here."
+  ],
+  "regulation": "Authorised in the EU. FDA lists several chlorides as GRAS.",
+  "topics": [],
+  "sources": [
+   {
+    "text": "EFSA FAF Panel. Re-evaluation of hydrochloric acid (E 507), potassium chloride (E 508), calcium chloride (E 509) and magnesium chloride (E 511) as food additives. EFSA Journal, 2019",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7009240/"
+   }
+  ]
+ },
+ {
+  "id": "e508",
+  "code": "E508",
+  "name": "Potassium chloride",
+  "also": "Salt substitute",
+  "kind": "Salt substitute and gelling aid",
+  "found": "Reduced-sodium foods, low-sodium salt, sauces, jellies",
+  "level": "little",
+  "evidence": "Weak",
+  "summary": "Potassium chloride is a common replacer for sodium. EFSA found no safety concern at additive use, but extra potassium needs care for some people.",
+  "research": [
+   "EFSA re-evaluated the four chlorides together in 2019. The Panel judged them to have low acute and short-term oral toxicity and saw no concern for genotoxicity. Some in-vitro positives appeared only at high concentrations linked to low pH or high osmolality, which the Panel judged not to occur in the body.",
+   "The Panel used a human reference value of 40 mg chloride per kg body weight per day. Mean exposure from additive use was below or at that value in all age groups, and EFSA concluded there was no safety concern. Chloride is also an essential nutrient. Average intake estimates ranged from about 2 mg/kg bw per day in the elderly to about 42 in toddlers (non-brand-loyal scenario). These are estimates.",
+   "We could not read the full opinion text, so details such as specification changes are not covered here.",
+   "Potassium is the part that matters in practice. Clinical reviews report high blood potassium (hyperkalaemia) from salt substitutes in people with kidney disease or taking some blood-pressure medicines such as ACE inhibitors. We saw these points only in summaries of that literature, not as a regulator rule for the additive."
+  ],
+  "careIf": "People with kidney disease, or on medicines that raise blood potassium, should ask a clinician before using potassium-based salt substitutes.",
+  "regulation": "Authorised in the EU. In the US it is GRAS (21 CFR 184.1622), and FDA guidance allows the name 'potassium chloride salt' on labels.",
+  "topics": [
+   "Potassium load in kidney disease or some medicines"
+  ],
+  "contested": "Some consumer apps flag a moderate risk of exceeding intake limits. We could not find that in the EFSA opinion, which used a chloride reference value and found mean exposure at or below it.",
+  "sources": [
+   {
+    "text": "EFSA FAF Panel. Re-evaluation of hydrochloric acid (E 507), potassium chloride (E 508), calcium chloride (E 509) and magnesium chloride (E 511) as food additives. EFSA Journal, 2019",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7009240/"
+   },
+   {
+    "text": "US eCFR. 21 CFR 184.1622 Potassium chloride",
+    "url": "https://www.ecfr.gov/current/title-21/chapter-I/subchapter-B/part-184/subpart-B/section-184.1622"
+   },
+   {
+    "text": "US FDA. The Use of an Alternate Name for Potassium Chloride in Food Labeling",
+    "url": "https://www.fda.gov/media/125081/download"
+   },
+   {
+    "text": "Clinical review of salt substitutes and hyperkalaemia, PMC",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5137987"
+   }
+  ]
+ },
+ {
+  "id": "e509",
+  "code": "E509",
+  "name": "Calcium chloride",
+  "kind": "Firming agent",
+  "found": "Canned vegetables, cheese, pickles, tofu",
+  "level": "little",
+  "evidence": "None",
+  "summary": "Calcium chloride keeps foods firm. EFSA saw no safety concern at current use.",
+  "research": [
+   "EFSA re-evaluated the four chlorides together in 2019. The Panel judged them to have low acute and short-term oral toxicity and saw no concern for genotoxicity. Some in-vitro positives appeared only at high concentrations linked to low pH or high osmolality, which the Panel judged not to occur in the body.",
+   "The Panel used a human reference value of 40 mg chloride per kg body weight per day. Mean exposure from additive use was below or at that value in all age groups, and EFSA concluded there was no safety concern. Chloride is also an essential nutrient. Average intake estimates ranged from about 2 mg/kg bw per day in the elderly to about 42 in toddlers (non-brand-loyal scenario). These are estimates.",
+   "We could not read the full opinion text, so details such as specification changes are not covered here."
+  ],
+  "regulation": "Authorised in the EU. In the US it is GRAS (21 CFR 184.1193).",
+  "topics": [],
+  "sources": [
+   {
+    "text": "EFSA FAF Panel. Re-evaluation of hydrochloric acid (E 507), potassium chloride (E 508), calcium chloride (E 509) and magnesium chloride (E 511) as food additives. EFSA Journal, 2019",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7009240/"
+   },
+   {
+    "text": "US eCFR. 21 CFR 184.1193 Calcium chloride",
+    "url": "https://www.ecfr.gov/current/title-21/chapter-I/subchapter-B/part-184/subpart-B/section-184.1193"
+   }
+  ]
+ },
+ {
+  "id": "e511",
+  "code": "E511",
+  "name": "Magnesium chloride",
+  "also": "Nigari",
+  "kind": "Firming agent",
+  "found": "Tofu, some drinks and supplements",
+  "level": "little",
+  "evidence": "None",
+  "summary": "Magnesium chloride is used to set tofu and firm foods. EFSA saw no safety concern at current use.",
+  "research": [
+   "EFSA re-evaluated the four chlorides together in 2019. The Panel judged them to have low acute and short-term oral toxicity and saw no concern for genotoxicity. Some in-vitro positives appeared only at high concentrations linked to low pH or high osmolality, which the Panel judged not to occur in the body.",
+   "The Panel used a human reference value of 40 mg chloride per kg body weight per day. Mean exposure from additive use was below or at that value in all age groups, and EFSA concluded there was no safety concern. Chloride is also an essential nutrient. Average intake estimates ranged from about 2 mg/kg bw per day in the elderly to about 42 in toddlers (non-brand-loyal scenario). These are estimates.",
+   "We could not read the full opinion text, so details such as specification changes are not covered here."
+  ],
+  "regulation": "Authorised in the EU. In the US it is GRAS (21 CFR 184.1426).",
+  "topics": [],
+  "sources": [
+   {
+    "text": "EFSA FAF Panel. Re-evaluation of hydrochloric acid (E 507), potassium chloride (E 508), calcium chloride (E 509) and magnesium chloride (E 511) as food additives. EFSA Journal, 2019",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7009240/"
+   },
+   {
+    "text": "US eCFR. 21 CFR 184.1426 Magnesium chloride",
+    "url": "https://www.ecfr.gov/current/title-21/chapter-I/subchapter-B/part-184/subpart-B/section-184.1426"
+   }
+  ]
+ },
+ {
   "id": "e513",
   "code": "E513",
   "name": "Sulfuric acid",
@@ -5275,6 +5626,30 @@ export const AUDITED: AuditedAdditive[] = [
   ]
  },
  {
+  "id": "e516",
+  "code": "E516",
+  "name": "Calcium sulfate",
+  "also": "Gypsum",
+  "kind": "Firming agent and flour treatment",
+  "found": "Tofu, bread dough, canned vegetables, brewing",
+  "level": "little",
+  "evidence": "None",
+  "summary": "Calcium sulfate is a mineral salt used in tofu and baking. EFSA saw no safety concern.",
+  "research": [
+   "EFSA re-evaluated sulphuric acid and its sodium, potassium, calcium and ammonium salts (E 513 to 517) in 2019. The Panel concluded there is no safety concern at the reported uses and no need for a numerical ADI.",
+   "Sulfates have low acute toxicity, with no genotoxicity or carcinogenicity concern. The known effect of large sulfate doses is a laxative effect, at 300 mg/kg in humans; estimated intakes were far below this. Mean exposure ranged from 0.4 mg sulphate/kg bw per day in infants to 35 in toddlers (estimates for the whole group).",
+   "Calcium sulfate is not a sulfite and does not carry sulfite allergy warnings."
+  ],
+  "regulation": "Authorised in the EU.",
+  "topics": [],
+  "sources": [
+   {
+    "text": "EFSA FAF Panel. Re-evaluation of sulphuric acid and its sodium, potassium, calcium and ammonium salts (E 513, 514, 515, 516, 517) as food additives. EFSA Journal, 2019",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7008880/"
+   }
+  ]
+ },
+ {
   "id": "e524",
   "code": "E524",
   "name": "Sodium hydroxide",
@@ -5295,6 +5670,121 @@ export const AUDITED: AuditedAdditive[] = [
    {
     "text": "EFSA. Call for data for the re-evaluation of food additives (EU programme under Regulation 257/2010), 2012",
     "url": "https://efsa.europa.eu/sites/default/files/consultation/120706a.pdf"
+   }
+  ]
+ },
+ {
+  "id": "e529",
+  "code": "E529",
+  "name": "Calcium oxide",
+  "also": "Quicklime",
+  "kind": "Alkali and acidity regulator",
+  "found": "Processing: cocoa, sugar, nixtamalised corn",
+  "level": "little",
+  "evidence": "None",
+  "summary": "Calcium oxide is lime, used to adjust acidity during processing. We could not confirm a recent EFSA opinion.",
+  "research": [
+   "JECFA last evaluated calcium oxide and calcium hydroxide in 1965 and gave an ADI of 'not limited'.",
+   "A 2009 EU directive adjusted purity limits because lime products cannot meet the earlier limits for magnesium and alkali salts, citing magnesium salts as of no safety concern.",
+   "Strong lime is caustic as a powder, but in food it is neutralised during processing."
+  ],
+  "regulation": "Authorised in the EU.",
+  "topics": [],
+  "sources": [
+   {
+    "text": "IPCS INCHEM. JECFA evaluation: calcium hydroxide and calcium oxide",
+    "url": "https://inchem.org/documents/jecfa/jeceval/jec_320.htm"
+   },
+   {
+    "text": "EU. Commission Directive 2009/10/EC",
+    "url": "https://eur-lex.europa.eu/eli/dir/2009/10/oj"
+   }
+  ]
+ },
+ {
+  "id": "e535",
+  "code": "E535",
+  "name": "Sodium ferrocyanide",
+  "kind": "Anti-caking agent",
+  "found": "Salt and salt substitutes",
+  "level": "little",
+  "evidence": "Weak",
+  "summary": "Ferrocyanides are used mainly as anti-caking agents in salt. EFSA set a low group ADI and found current intake well below it.",
+  "research": [
+   "EFSA re-evaluated sodium, potassium and calcium ferrocyanide (E 535, E 536, E 538) in 2018 and set a group ADI of 0.03 mg/kg body weight per day, expressed as ferrocyanide ion. The kidney was the target organ.",
+   "Absorption is low and the substances do not accumulate in humans. EFSA saw no concern for genotoxicity or carcinogenicity.",
+   "Maximum-level exposure reached up to 0.009 mg/kg bw per day for children and adolescents, and the refined estimate was up to 0.003 (estimates). That is below the ADI. Use is authorised in only two food categories, both salt substitutes."
+  ],
+  "regulation": "Authorised in the EU in a very limited set of uses.",
+  "topics": [
+   "Limited data (no regulator concern found)"
+  ],
+  "sources": [
+   {
+    "text": "EFSA ANS Panel. Re-evaluation of sodium ferrocyanide (E 535), potassium ferrocyanide (E 536) and calcium ferrocyanide (E 538) as food additives. EFSA Journal, 2018",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7009536/"
+   },
+   {
+    "text": "EFSA Journal 2018;16(7):5374",
+    "url": "https://www.efsa.europa.eu/de/efsajournal/pub/5374"
+   }
+  ]
+ },
+ {
+  "id": "e536",
+  "code": "E536",
+  "name": "Potassium ferrocyanide",
+  "kind": "Anti-caking agent",
+  "found": "Salt and salt substitutes",
+  "level": "little",
+  "evidence": "Weak",
+  "summary": "Ferrocyanides are used mainly as anti-caking agents in salt. EFSA set a low group ADI and found current intake well below it.",
+  "research": [
+   "EFSA re-evaluated sodium, potassium and calcium ferrocyanide (E 535, E 536, E 538) in 2018 and set a group ADI of 0.03 mg/kg body weight per day, expressed as ferrocyanide ion. The kidney was the target organ.",
+   "Absorption is low and the substances do not accumulate in humans. EFSA saw no concern for genotoxicity or carcinogenicity.",
+   "Maximum-level exposure reached up to 0.009 mg/kg bw per day for children and adolescents, and the refined estimate was up to 0.003 (estimates). That is below the ADI. Use is authorised in only two food categories, both salt substitutes."
+  ],
+  "regulation": "Authorised in the EU in a very limited set of uses.",
+  "topics": [
+   "Limited data (no regulator concern found)"
+  ],
+  "sources": [
+   {
+    "text": "EFSA ANS Panel. Re-evaluation of sodium ferrocyanide (E 535), potassium ferrocyanide (E 536) and calcium ferrocyanide (E 538) as food additives. EFSA Journal, 2018",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7009536/"
+   },
+   {
+    "text": "EFSA Journal 2018;16(7):5374",
+    "url": "https://www.efsa.europa.eu/de/efsajournal/pub/5374"
+   }
+  ]
+ },
+ {
+  "id": "e538",
+  "code": "E538",
+  "name": "Calcium ferrocyanide",
+  "kind": "Anti-caking agent",
+  "found": "Salt and salt substitutes",
+  "level": "little",
+  "evidence": "Weak",
+  "summary": "Ferrocyanides are used mainly as anti-caking agents in salt. EFSA set a low group ADI and found current intake well below it.",
+  "research": [
+   "EFSA re-evaluated sodium, potassium and calcium ferrocyanide (E 535, E 536, E 538) in 2018 and set a group ADI of 0.03 mg/kg body weight per day, expressed as ferrocyanide ion. The kidney was the target organ.",
+   "Absorption is low and the substances do not accumulate in humans. EFSA saw no concern for genotoxicity or carcinogenicity.",
+   "Maximum-level exposure reached up to 0.009 mg/kg bw per day for children and adolescents, and the refined estimate was up to 0.003 (estimates). That is below the ADI. Use is authorised in only two food categories, both salt substitutes."
+  ],
+  "regulation": "Authorised in the EU in a very limited set of uses.",
+  "topics": [
+   "Limited data (no regulator concern found)"
+  ],
+  "sources": [
+   {
+    "text": "EFSA ANS Panel. Re-evaluation of sodium ferrocyanide (E 535), potassium ferrocyanide (E 536) and calcium ferrocyanide (E 538) as food additives. EFSA Journal, 2018",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7009536/"
+   },
+   {
+    "text": "EFSA Journal 2018;16(7):5374",
+    "url": "https://www.efsa.europa.eu/de/efsajournal/pub/5374"
    }
   ]
  },
@@ -6114,6 +6604,36 @@ export const AUDITED: AuditedAdditive[] = [
   ]
  },
  {
+  "id": "e941",
+  "code": "E941",
+  "name": "Nitrogen",
+  "kind": "Packaging gas",
+  "found": "Packaged snacks, salads, wine, coffee, whipped products",
+  "level": "little",
+  "evidence": "None",
+  "summary": "Nitrogen is the main gas in air and is used to keep food fresh. We found no safety concern.",
+  "research": [
+   "Nitrogen is inert. EFSA included it in a call for data on gaseous additives, and published an opinion on argon and helium in 2024 concluding no safety concern because of their physical properties. We could not confirm that a nitrogen opinion has been published.",
+   "In the US nitrogen is listed in the GRAS regulations (21 CFR 184.1540)."
+  ],
+  "regulation": "Authorised in the EU; re-evaluation pending when we searched.",
+  "topics": [],
+  "sources": [
+   {
+    "text": "EFSA. Call for data for the re-evaluation of food additives in gaseous form",
+    "url": "https://www.efsa.europa.eu/en/call/call-data-re-evaluation-food-additives-gaseous-form"
+   },
+   {
+    "text": "EFSA FAF Panel. Re-evaluation of argon (E 938) and helium (E 939) as food additives. EFSA Journal, 2024",
+    "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11515913/"
+   },
+   {
+    "text": "US eCFR. 21 CFR Part 184 Subpart B, GRAS substances (includes 184.1540 nitrogen)",
+    "url": "https://www.law.cornell.edu/cfr/text/21/part-184/subpart-B"
+   }
+  ]
+ },
+ {
   "id": "e943a",
   "code": "E943a",
   "name": "Butane",
@@ -6769,6 +7289,37 @@ export const AUDITED: AuditedAdditive[] = [
   ]
  },
  {
+  "id": "e999",
+  "code": "E999",
+  "name": "Quillaia extract",
+  "also": "Soapbark extract",
+  "kind": "Foaming agent",
+  "found": "Soft drinks (foam, cloud), cider",
+  "level": "little",
+  "evidence": "Weak",
+  "summary": "Quillaia extract is a foaming agent from tree bark. EFSA set an ADI in 2019 and later warned that wider use could exceed it.",
+  "research": [
+   "EFSA re-evaluated quillaia extract in 2019 and set an ADI of 3 mg saponins per kg body weight per day. It was based on a two-year rat study (NOAEL 1,500 mg extract/kg bw per day), assuming about 20% saponins in Type 1 extract and a 100-fold uncertainty factor. Adverse effects were attributed to the saponins. No genotoxicity concern was found in the data reviewed.",
+   "The Panel noted data gaps and recommended tighter specifications based on saponin content, so more data were requested.",
+   "A 2024 follow-up opinion on extending use to food supplements found that intake could exceed the ADI for children, adolescents and the elderly at the high end, and for all groups at the 95th percentile. It recommended lower limits for lead, mercury and arsenic and new limits for cadmium and calcium oxalate."
+  ],
+  "regulation": "Authorised in the EU for flavoured drinks and cider/perry, according to a secondary source citing the 2024 follow-up. We did not check later changes.",
+  "topics": [
+   "Intake near the ADI if uses widen",
+   "Data gaps on saponin content"
+  ],
+  "sources": [
+   {
+    "text": "EFSA ANS Panel. Re-evaluation of quillaia extract (E 999) as a food additive and safety of the proposed extension of use. EFSA Journal, 2019",
+    "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7009130/"
+   },
+   {
+    "text": "EFSA FAF Panel. Follow-up of the re-evaluation of quillaia extract (E 999) and safety of the proposed extension of uses. EFSA Journal, 2024",
+    "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10844984/"
+   }
+  ]
+ },
+ {
   "id": "e1103",
   "code": "E1103",
   "name": "Invertase",
@@ -6842,6 +7393,62 @@ export const AUDITED: AuditedAdditive[] = [
    {
     "text": "EFSA FAF Panel. Re-evaluation of polydextrose (E 1200) as a food additive. EFSA Journal, 2021",
     "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7792022/"
+   }
+  ]
+ },
+ {
+  "id": "e1201",
+  "code": "E1201",
+  "name": "Polyvinylpyrrolidone",
+  "also": "PVP, povidone",
+  "kind": "Coating and binding agent",
+  "found": "Tablets and supplements, sweeteners",
+  "level": "little",
+  "evidence": "None",
+  "summary": "PVP is a synthetic polymer used in tablets and supplements. EFSA found no safety concern.",
+  "research": [
+   "EFSA re-evaluated E 1201 and E 1202 together in 2020. It found no need for a numerical ADI and no safety concern at the reported uses and use levels. Absorption of both is very low.",
+   "EFSA also judged a proposed extension of E 1201 to foods for special medical purposes unlikely to be a safety concern at the proposed level. A 2025 EU regulation repeats the no-ADI, no-concern finding.",
+   "We could not read the full opinion text."
+  ],
+  "regulation": "Authorised in the EU in two food categories each.",
+  "topics": [],
+  "sources": [
+   {
+    "text": "EFSA FAF Panel. Re-evaluation of polyvinylpyrrolidone (E 1201) and polyvinylpolypyrrolidone (E 1202) as food additives. EFSA Journal, 2020",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7416752"
+   },
+   {
+    "text": "EU. Commission Regulation (EU) 2025/1337",
+    "url": "https://eur-lex.europa.eu/eli/reg/2025/1337/oj/eng"
+   }
+  ]
+ },
+ {
+  "id": "e1202",
+  "code": "E1202",
+  "name": "Polyvinylpolypyrrolidone",
+  "also": "PVPP, crospovidone",
+  "kind": "Clarifying agent",
+  "found": "Beer and wine (fining), supplements",
+  "level": "little",
+  "evidence": "None",
+  "summary": "PVPP is a synthetic polymer used to clear beer and wine. EFSA found no safety concern.",
+  "research": [
+   "EFSA re-evaluated E 1201 and E 1202 together in 2020. It found no need for a numerical ADI and no safety concern at the reported uses and use levels. Absorption of both is very low.",
+   "EFSA also judged a proposed extension of E 1201 to foods for special medical purposes unlikely to be a safety concern at the proposed level. A 2025 EU regulation repeats the no-ADI, no-concern finding.",
+   "We could not read the full opinion text."
+  ],
+  "regulation": "Authorised in the EU in two food categories each.",
+  "topics": [],
+  "sources": [
+   {
+    "text": "EFSA FAF Panel. Re-evaluation of polyvinylpyrrolidone (E 1201) and polyvinylpolypyrrolidone (E 1202) as food additives. EFSA Journal, 2020",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7416752"
+   },
+   {
+    "text": "EU. Commission Regulation (EU) 2025/1337",
+    "url": "https://eur-lex.europa.eu/eli/reg/2025/1337/oj/eng"
    }
   ]
  },
@@ -7202,6 +7809,36 @@ export const AUDITED: AuditedAdditive[] = [
    {
     "text": "EFSA ANS Panel. Re-evaluation of propane-1,2-diol (E 1520) as a food additive. EFSA Journal, 2018",
     "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7009459"
+   }
+  ]
+ },
+ {
+  "id": "e1521",
+  "code": "E1521",
+  "name": "Polyethylene glycol",
+  "also": "PEG",
+  "kind": "Coating and anti-foaming agent",
+  "found": "Supplement tablets, sweetener tablets, coatings",
+  "level": "little",
+  "evidence": "Weak",
+  "summary": "PEG is a synthetic polymer with older ADIs. EFSA's 2018 exposure assessment found estimated intake near the range of those ADIs.",
+  "research": [
+   "EFSA published a refined exposure assessment in 2018 rather than a new ADI. Estimated exposure reached up to 3.5 mg/kg bw per day at the mean and 6.1 at the high level, which EFSA thought very likely overestimated real intake.",
+   "The Panel noted that the highest estimate falls within the range of the SCF group ADI (5 mg/kg bw per day for PEG 300 to 4000) and the JECFA ADI (10 mg/kg bw per day for PEG 200 to 10000, set in 1979).",
+   "We did not review PEG allergy reports or other human data."
+  ],
+  "regulation": "Authorised in the EU.",
+  "topics": [
+   "Intake near older ADIs (estimates)"
+  ],
+  "sources": [
+   {
+    "text": "EFSA ANS Panel. Refined exposure assessment of polyethylene glycol (E 1521) from its use as a food additive. EFSA Journal, 2018",
+    "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7009417/"
+   },
+   {
+    "text": "IPCS INCHEM. JECFA evaluation: polyethylene glycols",
+    "url": "https://inchem.org/documents/jecfa/jeceval/jec_1944.htm"
    }
   ]
  },

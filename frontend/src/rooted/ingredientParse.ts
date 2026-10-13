@@ -42,6 +42,7 @@ const EXTRA: Record<string, string[]> = {
   e251: ["nitrate"],
   e338: ["orthophosphoric acid"],
   e968: ["meso erythritol"],
+  e441: ["gelatin", "beef gelatin", "pork gelatin", "bovine gelatin"],
   "flavouring-natural": ["natural flavor", "natural flavors", "natural flavoring", "natural flavourings", "natural flavour", "natural aroma"],
   "flavouring-artificial": ["artificial flavor", "artificial flavors", "artificial flavoring", "artificial flavour", "artificial flavourings"],
   vanillin: ["ethyl vanillin"],
@@ -51,7 +52,7 @@ const EXTRA: Record<string, string[]> = {
 };
 
 /** Names too common in ordinary text to match by name: only their E-number counts. */
-const NAME_OFF = new Set(["e570", "e948", "e949", "e173", "e174", "e175", "e640"]);
+const NAME_OFF = new Set(["e570", "e948", "e949", "e173", "e174", "e175", "e640", "e941"]);
 
 /** Names that point to a group of additives and don't say which one. */
 const LOOSE: Array<{ words: string[]; label: string; ids: string[] }> = [
@@ -112,7 +113,7 @@ export function findAdditives(text: string): IngredientMatch {
   // 1. E-numbers. Skip "vitamin E 400" style amounts.
   let work = ` ${text.toLowerCase().replace(/colour/g, "color")} `;
   work = work.replace(/(\bvitamin\s+)e[\s-]?\d{2,4}\b/g, " $1 ");
-  work = work.replace(/\be[\s-]?(\d{3,4}[a-z]?)(?:\s?\((?:[ivx]+)\))?(?![a-z0-9])/g, (_m, digits: string) => {
+  work = work.replace(/\be[\s-]?(\d{3,4}[a-f]?)(?:\s?\((?:[ivx]+)\)|[ivx]{1,3}(?![a-z0-9]))?(?![a-z0-9])/g, (_m, digits: string) => {
     const code = normalizeCode(`e${digits}`);
     if (code) codes.add(code);
     return " ";

@@ -1,6 +1,6 @@
 {
  "version": 1,
- "count": 488,
+ "count": 508,
  "items": [
   {
    "id": "additive:e100",
@@ -153,6 +153,36 @@
    "cautions": [],
    "sources": [
     "EFSA FAF Panel. Re-evaluation of polydextrose (E 1200) as a food additive. EFSA Journal, 2021"
+   ]
+  },
+  {
+   "id": "additive:e1201",
+   "kind": "additive",
+   "title": "E1201 Polyvinylpyrrolidone",
+   "summary": "PVP is a synthetic polymer used in tablets and supplements. EFSA found no safety concern.",
+   "level": "little",
+   "evidence": "None",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA FAF Panel. Re-evaluation of polyvinylpyrrolidone (E 1201) and polyvinylpolypyrrolidone (E 1202) as food additives. EFSA Journal, 2020",
+    "EU. Commission Regulation (EU) 2025/1337"
+   ]
+  },
+  {
+   "id": "additive:e1202",
+   "kind": "additive",
+   "title": "E1202 Polyvinylpolypyrrolidone",
+   "summary": "PVPP is a synthetic polymer used to clear beer and wine. EFSA found no safety concern.",
+   "level": "little",
+   "evidence": "None",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA FAF Panel. Re-evaluation of polyvinylpyrrolidone (E 1201) and polyvinylpolypyrrolidone (E 1202) as food additives. EFSA Journal, 2020",
+    "EU. Commission Regulation (EU) 2025/1337"
    ]
   },
   {
@@ -629,6 +659,21 @@
    "cautions": [],
    "sources": [
     "EFSA ANS Panel. Re-evaluation of propane-1,2-diol (E 1520) as a food additive. EFSA Journal, 2018"
+   ]
+  },
+  {
+   "id": "additive:e1521",
+   "kind": "additive",
+   "title": "E1521 Polyethylene glycol",
+   "summary": "PEG is a synthetic polymer with older ADIs. EFSA's 2018 exposure assessment found estimated intake near the range of those ADIs.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA ANS Panel. Refined exposure assessment of polyethylene glycol (E 1521) from its use as a food additive. EFSA Journal, 2018",
+    "IPCS INCHEM. JECFA evaluation: polyethylene glycols"
    ]
   },
   {
@@ -1262,6 +1307,20 @@
    ]
   },
   {
+   "id": "additive:e242",
+   "kind": "additive",
+   "title": "E242 Dimethyl dicarbonate",
+   "summary": "DMDC is a cold-sterilising preservative that breaks down after use. Regulators found no toxicological concern, but we could not read EFSA's opinion.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EU. Commission Regulation (EU) No 1166/2012"
+   ]
+  },
+  {
    "id": "additive:e249",
    "kind": "additive",
    "title": "E249 Potassium nitrite",
@@ -1463,6 +1522,22 @@
     "EFSA. Re-evaluation of propionic acid and its salts (E 280-283), as summarised in Commission Regulation (EU) 2016/683",
     "Harvard T.H. Chan School of Public Health. Could a popular food ingredient raise the risk for diabetes and obesity? 2019",
     "CSPI. Chemical Cuisine: Calcium (or sodium) propionate"
+   ]
+  },
+  {
+   "id": "additive:e290",
+   "kind": "additive",
+   "title": "E290 Carbon dioxide",
+   "summary": "Carbon dioxide is the gas that makes drinks fizzy. We found no safety concern from regulators for this use.",
+   "level": "little",
+   "evidence": "None",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "IPCS INCHEM. JECFA evaluation summary: carbon dioxide",
+    "EFSA. Call for data for the re-evaluation of food additives in gaseous form",
+    "US eCFR. 21 CFR Part 184 Subpart B, GRAS substances (includes 184.1240 carbon dioxide)"
    ]
   },
   {
@@ -1759,15 +1834,16 @@
    "id": "additive:e331",
    "kind": "additive",
    "title": "E331 Sodium citrates",
-   "summary": "Salts of citric acid (sodium form). No safety concern has been raised by regulators.",
+   "summary": "Salts of citric acid (sodium form). No safety concern has been raised by regulators. One large French cohort linked higher intake to type 2 diabetes, so we show a minor concern.",
    "level": "little",
-   "evidence": "None",
+   "evidence": "Weak",
    "to": "/scan#guide",
    "exclude_if": [],
    "cautions": [],
    "sources": [
     "EFSA. Call for data (Batch 5) covering citric acid and citrates (E 330-333)",
-    "European Commission. Regulation (EU) 2020/1419 (notes SCF 1990 assessment of citric acid, ADI not specified)"
+    "European Commission. Regulation (EU) 2020/1419 (notes SCF 1990 assessment of citric acid, ADI not specified)",
+    "Salame C et al. Food additive emulsifiers and the risk of type 2 diabetes: NutriNet-Santé cohort. Lancet Diabetes & Endocrinology, 2024"
    ]
   },
   {
@@ -1815,6 +1891,21 @@
    "sources": [
     "EFSA. Re-evaluation of l(+)-tartaric acid (E 334), tartrates (E 335, 336, 337) and calcium tartrate (E 354) as food additives. EFSA Journal, 2020",
     "EFSA FAF Panel. Re-evaluation of l(+)-tartaric acid (E 334) and tartrates, full text. EFSA Journal, 2020"
+   ]
+  },
+  {
+   "id": "additive:e336",
+   "kind": "additive",
+   "title": "E336 Potassium tartrates",
+   "summary": "Potassium tartrates come from grapes and wine-making. EFSA found no safety concern at current use.",
+   "level": "little",
+   "evidence": "None",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA ANS Panel. Re-evaluation of l(+)-tartaric acid (E 334), sodium tartrates (E 335), potassium tartrates (E 336) and others as food additives. EFSA Journal, 2020",
+    "EU. Commission Regulation (EU) 2024/1451"
    ]
   },
   {
@@ -1871,7 +1962,8 @@
     "EFSA ANS Panel. Re-evaluation of phosphoric acid, phosphates, di-, tri- and polyphosphates (E 338-341, E 343, E 450-452) as food additives. EFSA Journal, 2019",
     "BfR. Babies, infants and children can exceed the health guidance values for phosphate (summary of the EFSA opinion)",
     "CSPI. Chemical Cuisine: Phosphoric acid, phosphates (rating: cut back)",
-    "Relationship between serum phosphorus and mortality in non-dialysis chronic kidney disease patients: NHANES 2001-2018. 2024"
+    "Relationship between serum phosphorus and mortality in non-dialysis chronic kidney disease patients: NHANES 2001-2018. 2024",
+    "Salame C et al. Food additive emulsifiers and the risk of type 2 diabetes: NutriNet-Santé cohort. Lancet Diabetes & Endocrinology, 2024"
    ]
   },
   {
@@ -2015,7 +2107,7 @@
    "id": "additive:e407",
    "kind": "additive",
    "title": "E407 Carrageenan",
-   "summary": "Food-grade carrageenan passed EFSA's 2018 review, but gut-inflammation findings in animals and cells, a data gap for young infants and a debate over contamination with a degraded form keep it on our watch list.",
+   "summary": "Food-grade carrageenan passed EFSA's 2018 review, but large French cohort studies linked higher intake to more cancer and type 2 diabetes, and animal and cell studies show gut inflammation. EFSA also asked for more infant data.",
    "level": "some",
    "evidence": "Weak",
    "to": "/scan#guide",
@@ -2027,14 +2119,16 @@
     "EFSA ANS Panel. Re-evaluation of carrageenan (E 407) and processed Eucheuma seaweed (E 407a) as food additives. EFSA Journal, 2018",
     "EFSA. Call for technical and toxicological data on carrageenan (E 407) in infant foods (EFSA-Q-2018-00771)",
     "Sellem L et al. Food additive emulsifiers and risk of cardiovascular disease in the NutriNet-Santé cohort. BMJ, 2023",
-    "Center for Science in the Public Interest. Carrageenan (rating: Caution). CSPI"
+    "Center for Science in the Public Interest. Carrageenan (rating: Caution). CSPI",
+    "Salame C et al. Food additive emulsifiers and the risk of type 2 diabetes: NutriNet-Santé cohort. Lancet Diabetes & Endocrinology, 2024",
+    "Sellem L et al. Food additive emulsifiers and cancer risk: results from the French NutriNet-Santé cohort. PLOS Medicine, 2024"
    ]
   },
   {
    "id": "additive:e407a",
    "kind": "additive",
    "title": "E407a Processed Eucheuma seaweed",
-   "summary": "A less refined form of carrageenan, reviewed by EFSA together with E 407. The same open questions apply.",
+   "summary": "Food-grade carrageenan passed EFSA's 2018 review, but large French cohort studies linked higher intake to more cancer and type 2 diabetes, and animal and cell studies show gut inflammation. EFSA also asked for more infant data.",
    "level": "some",
    "evidence": "Weak",
    "to": "/scan#guide",
@@ -2046,7 +2140,9 @@
     "EFSA ANS Panel. Re-evaluation of carrageenan (E 407) and processed Eucheuma seaweed (E 407a) as food additives. EFSA Journal, 2018",
     "EFSA. Call for technical and toxicological data on carrageenan (E 407) in infant foods (EFSA-Q-2018-00771)",
     "Sellem L et al. Food additive emulsifiers and risk of cardiovascular disease in the NutriNet-Santé cohort. BMJ, 2023",
-    "Center for Science in the Public Interest. Carrageenan (rating: Caution). CSPI"
+    "Center for Science in the Public Interest. Carrageenan (rating: Caution). CSPI",
+    "Salame C et al. Food additive emulsifiers and the risk of type 2 diabetes: NutriNet-Santé cohort. Lancet Diabetes & Endocrinology, 2024",
+    "Sellem L et al. Food additive emulsifiers and cancer risk: results from the French NutriNet-Santé cohort. PLOS Medicine, 2024"
    ]
   },
   {
@@ -2071,15 +2167,16 @@
    "id": "additive:e412",
    "kind": "additive",
    "title": "E412 Guar gum",
-   "summary": "A plant fibre. EFSA's 2017 re-evaluation found adequate data and no need for a numerical limit.",
+   "summary": "A plant fibre. EFSA's 2017 re-evaluation found adequate data and no need for a numerical limit. One large French cohort linked higher intake to type 2 diabetes, so we show a minor concern.",
    "level": "little",
-   "evidence": "None",
+   "evidence": "Weak",
    "to": "/scan#guide",
    "exclude_if": [],
    "cautions": [],
    "sources": [
     "EFSA ANS Panel. Re-evaluation of guar gum (E 412) as a food additive. EFSA Journal, 2017",
-    "Center for Science in the Public Interest. Chemical Cuisine: gums (arabic, gellan, guar, karaya, locust bean, tragacanth, xanthan). CSPI"
+    "Center for Science in the Public Interest. Chemical Cuisine: gums (arabic, gellan, guar, karaya, locust bean, tragacanth, xanthan). CSPI",
+    "Salame C et al. Food additive emulsifiers and the risk of type 2 diabetes: NutriNet-Santé cohort. Lancet Diabetes & Endocrinology, 2024"
    ]
   },
   {
@@ -2103,15 +2200,16 @@
    "id": "additive:e414",
    "kind": "additive",
    "title": "E414 Acacia gum",
-   "summary": "A tree gum eaten for a long time. EFSA's 2017 review found no safety concern.",
+   "summary": "A tree gum eaten for a long time. EFSA's 2017 review found no safety concern. One large French cohort linked higher intake to type 2 diabetes, so we show a minor concern.",
    "level": "little",
-   "evidence": "None",
+   "evidence": "Weak",
    "to": "/scan#guide",
    "exclude_if": [],
    "cautions": [],
    "sources": [
     "EFSA ANS Panel. Re-evaluation of acacia gum (E 414) as a food additive. EFSA Journal, 2017",
-    "Center for Science in the Public Interest. Chemical Cuisine: gums (arabic, gellan, guar, karaya, locust bean, tragacanth, xanthan). CSPI"
+    "Center for Science in the Public Interest. Chemical Cuisine: gums (arabic, gellan, guar, karaya, locust bean, tragacanth, xanthan). CSPI",
+    "Salame C et al. Food additive emulsifiers and the risk of type 2 diabetes: NutriNet-Santé cohort. Lancet Diabetes & Endocrinology, 2024"
    ]
   },
   {
@@ -2129,7 +2227,8 @@
    "sources": [
     "EFSA ANS Panel. Re-evaluation of xanthan gum (E 415) as a food additive. EFSA Journal, 2017",
     "EFSA FAF Panel. Re-evaluation of xanthan gum (E 415) in foods for infants below 16 weeks of age. EFSA Journal, 2023",
-    "Center for Science in the Public Interest. Chemical Cuisine: gums (arabic, gellan, guar, karaya, locust bean, tragacanth, xanthan). CSPI"
+    "Center for Science in the Public Interest. Chemical Cuisine: gums (arabic, gellan, guar, karaya, locust bean, tragacanth, xanthan). CSPI",
+    "Salame C et al. Food additive emulsifiers and the risk of type 2 diabetes: NutriNet-Santé cohort. Lancet Diabetes & Endocrinology, 2024"
    ]
   },
   {
@@ -2245,6 +2344,23 @@
    ]
   },
   {
+   "id": "additive:e426",
+   "kind": "additive",
+   "title": "E426 Soybean hemicellulose",
+   "summary": "Soybean hemicellulose is a fibre from soy. EFSA judged a safety concern very unlikely, but it may carry traces of soy protein.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "People with soy allergy may want to check labels."
+   ],
+   "sources": [
+    "EFSA ANS Panel. Re-evaluation of soybean hemicellulose (E 426) as a food additive. EFSA Journal, 2017",
+    "EU. Commission Regulation (EU) 2020/279"
+   ]
+  },
+  {
    "id": "additive:e427",
    "kind": "additive",
    "title": "E427 Cassia gum",
@@ -2351,6 +2467,24 @@
    ]
   },
   {
+   "id": "additive:e441",
+   "kind": "additive",
+   "title": "E441 Gelatine",
+   "summary": "Gelatine is a protein made from animal skin and bones, so it is not vegetarian or vegan. We found no chemical safety concern for the substance itself.",
+   "level": "little",
+   "evidence": "None",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "People who avoid animal products, or follow halal or kosher diets."
+   ],
+   "sources": [
+    "CSPI. Chemical Cuisine: Gelatin",
+    "EFSA BIOHAZ Panel. Potential BSE risk posed by the use of ruminant collagen and gelatine in feed for non-ruminant farmed animals. EFSA Journal, 2020",
+    "UK Government. Export health certificate 8390 for gelatine (refers to Reg. 853/2004, Annex III, Section XIV)"
+   ]
+  },
+  {
    "id": "additive:e442",
    "kind": "additive",
    "title": "E442 Ammonium phosphatides",
@@ -2439,7 +2573,7 @@
    "id": "additive:e460",
    "kind": "additive",
    "title": "E460 Cellulose",
-   "summary": "Plant fibre judged safe by EFSA, but it is part of a cellulose group that showed a small link to heart disease in one large French cohort.",
+   "summary": "Plant fibre judged safe by EFSA, but in one large French cohort higher intake of cellulose (E460) was linked to a small rise in cardiovascular disease.",
    "level": "some",
    "evidence": "Weak",
    "to": "/scan#guide",
@@ -2454,8 +2588,8 @@
    "id": "additive:e461",
    "kind": "additive",
    "title": "E461 Methylcellulose",
-   "summary": "Modified plant fibre judged safe by EFSA. Part of a cellulose group that showed a small link to heart disease in one large cohort.",
-   "level": "some",
+   "summary": "Modified plant fibre judged safe by EFSA in its 2018 review of the celluloses. It wasn't singled out in the large French cohort, which did link two other celluloses (E460 and E466) to heart disease.",
+   "level": "little",
    "evidence": "Weak",
    "to": "/scan#guide",
    "exclude_if": [],
@@ -2484,8 +2618,8 @@
    "id": "additive:e464",
    "kind": "additive",
    "title": "E464 Hydroxypropyl methylcellulose",
-   "summary": "Modified plant fibre judged safe by EFSA. Part of a cellulose group that showed a small link to heart disease in one large cohort.",
-   "level": "some",
+   "summary": "Modified plant fibre judged safe by EFSA in its 2018 review of the celluloses. It wasn't singled out in the large French cohort, which did link two other celluloses (E460 and E466) to heart disease.",
+   "level": "little",
    "evidence": "Weak",
    "to": "/scan#guide",
    "exclude_if": [],
@@ -2533,16 +2667,15 @@
    "id": "additive:e471",
    "kind": "additive",
    "title": "E471 Mono- and diglycerides of fatty acids",
-   "summary": "EFSA found no safety concern at current uses. But large French cohort studies linked higher intake to more cancer and cardiovascular disease. These are associations, not proof of cause.",
+   "summary": "EFSA found no safety concern at current uses. A large French cohort linked higher intake to more cancer. This is an association, not proof of cause.",
    "level": "some",
    "evidence": "Weak",
    "to": "/scan#guide",
    "exclude_if": [],
    "cautions": [],
    "sources": [
-    "Sellem L et al. Food additive emulsifiers and cancer risk: results from the French prospective NutriNet-Santé cohort. PLoS Medicine, 2024",
-    "Sellem L et al. Food additive emulsifiers and risk of cardiovascular disease in the NutriNet-Santé cohort. BMJ, 2023",
-    "BMJ Group. High intake of several emulsifier E numbers linked to increased cardiovascular disease risk, 2023"
+    "Sellem L et al. Food additive emulsifiers and cancer risk: results from the French NutriNet-Santé cohort. PLOS Medicine, 2024",
+    "Sellem L et al. Food additive emulsifiers and risk of cardiovascular disease in the NutriNet-Santé cohort. BMJ, 2023"
    ]
   },
   {
@@ -2565,7 +2698,7 @@
    "id": "additive:e472b",
    "kind": "additive",
    "title": "E472b Lactic acid esters of mono- and diglycerides",
-   "summary": "A large French study linked higher intake to more cardiovascular and cerebrovascular disease. It shows a link, not cause and effect.",
+   "summary": "A large French study linked higher intake to more cardiovascular disease. It shows a link, not cause and effect.",
    "level": "some",
    "evidence": "Weak",
    "to": "/scan#guide",
@@ -2582,7 +2715,7 @@
    "id": "additive:e472c",
    "kind": "additive",
    "title": "E472c Citric acid esters of mono- and diglycerides",
-   "summary": "A large French study linked higher intake to more cardiovascular and coronary heart disease. It shows a link, not cause and effect.",
+   "summary": "A large French study linked higher intake to more cardiovascular disease and coronary heart disease. It shows a link, not cause and effect.",
    "level": "some",
    "evidence": "Weak",
    "to": "/scan#guide",
@@ -2623,7 +2756,8 @@
    "sources": [
     "EFSA FAF Panel. Re-evaluation of acetic, lactic, citric, tartaric and mono- and diacetyltartaric acid esters of mono- and diglycerides of fatty acids (E 472a-f). EFSA Journal, 2020",
     "Salame C et al. Food additive emulsifiers and the risk of type 2 diabetes (NutriNet-Santé). Lancet Diabetes & Endocrinology, 2024",
-    "INRAE. The consumption of certain food additive emulsifiers could be associated with the risk of developing type 2 diabetes, 2024"
+    "INRAE. The consumption of certain food additive emulsifiers could be associated with the risk of developing type 2 diabetes, 2024",
+    "Salame C et al. Food additive emulsifiers and the risk of type 2 diabetes: NutriNet-Santé cohort. Lancet Diabetes & Endocrinology, 2024"
    ]
   },
   {
@@ -2700,6 +2834,21 @@
    "sources": [
     "EFSA ANS Panel. Re-evaluation of polyglycerol polyricinoleate (E 476) as a food additive. EFSA Journal, 2017",
     "EFSA FAF Panel. Follow-up of the re-evaluation of polyglycerol polyricinoleate (E 476), 2022"
+   ]
+  },
+  {
+   "id": "additive:e477",
+   "kind": "additive",
+   "title": "E477 Propane-1,2-diol esters of fatty acids",
+   "summary": "EFSA found no safety concern at current uses in 2018. It noted there are no long-term studies on the ester itself, so it relies on data for propane-1,2-diol.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA: Re-evaluation of propane-1,2-diol esters of fatty acids (E 477) as a food additive, 2018",
+    "EFSA Journal 2018;16(12):5497, doi 10.2903/j.efsa.2018.5497"
    ]
   },
   {
@@ -2861,6 +3010,69 @@
    ]
   },
   {
+   "id": "additive:e507",
+   "kind": "additive",
+   "title": "E507 Hydrochloric acid",
+   "summary": "Hydrochloric acid is used in small amounts in processing and ends up as chloride salts. EFSA saw no safety concern.",
+   "level": "little",
+   "evidence": "None",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA FAF Panel. Re-evaluation of hydrochloric acid (E 507), potassium chloride (E 508), calcium chloride (E 509) and magnesium chloride (E 511) as food additives. EFSA Journal, 2019"
+   ]
+  },
+  {
+   "id": "additive:e508",
+   "kind": "additive",
+   "title": "E508 Potassium chloride",
+   "summary": "Potassium chloride is a common replacer for sodium. EFSA found no safety concern at additive use, but extra potassium needs care for some people.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "People with kidney disease, or on medicines that raise blood potassium, should ask a clinician before using potassium-based salt substitutes."
+   ],
+   "sources": [
+    "EFSA FAF Panel. Re-evaluation of hydrochloric acid (E 507), potassium chloride (E 508), calcium chloride (E 509) and magnesium chloride (E 511) as food additives. EFSA Journal, 2019",
+    "US eCFR. 21 CFR 184.1622 Potassium chloride",
+    "US FDA. The Use of an Alternate Name for Potassium Chloride in Food Labeling",
+    "Clinical review of salt substitutes and hyperkalaemia, PMC"
+   ]
+  },
+  {
+   "id": "additive:e509",
+   "kind": "additive",
+   "title": "E509 Calcium chloride",
+   "summary": "Calcium chloride keeps foods firm. EFSA saw no safety concern at current use.",
+   "level": "little",
+   "evidence": "None",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA FAF Panel. Re-evaluation of hydrochloric acid (E 507), potassium chloride (E 508), calcium chloride (E 509) and magnesium chloride (E 511) as food additives. EFSA Journal, 2019",
+    "US eCFR. 21 CFR 184.1193 Calcium chloride"
+   ]
+  },
+  {
+   "id": "additive:e511",
+   "kind": "additive",
+   "title": "E511 Magnesium chloride",
+   "summary": "Magnesium chloride is used to set tofu and firm foods. EFSA saw no safety concern at current use.",
+   "level": "little",
+   "evidence": "None",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA FAF Panel. Re-evaluation of hydrochloric acid (E 507), potassium chloride (E 508), calcium chloride (E 509) and magnesium chloride (E 511) as food additives. EFSA Journal, 2019",
+    "US eCFR. 21 CFR 184.1426 Magnesium chloride"
+   ]
+  },
+  {
    "id": "additive:e513",
    "kind": "additive",
    "title": "E513 Sulfuric acid",
@@ -2889,6 +3101,20 @@
    ]
   },
   {
+   "id": "additive:e516",
+   "kind": "additive",
+   "title": "E516 Calcium sulfate",
+   "summary": "Calcium sulfate is a mineral salt used in tofu and baking. EFSA saw no safety concern.",
+   "level": "little",
+   "evidence": "None",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA FAF Panel. Re-evaluation of sulphuric acid and its sodium, potassium, calcium and ammonium salts (E 513, 514, 515, 516, 517) as food additives. EFSA Journal, 2019"
+   ]
+  },
+  {
    "id": "additive:e524",
    "kind": "additive",
    "title": "E524 Sodium hydroxide",
@@ -2900,6 +3126,66 @@
    "cautions": [],
    "sources": [
     "EFSA. Call for data for the re-evaluation of food additives (EU programme under Regulation 257/2010), 2012"
+   ]
+  },
+  {
+   "id": "additive:e529",
+   "kind": "additive",
+   "title": "E529 Calcium oxide",
+   "summary": "Calcium oxide is lime, used to adjust acidity during processing. We could not confirm a recent EFSA opinion.",
+   "level": "little",
+   "evidence": "None",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "IPCS INCHEM. JECFA evaluation: calcium hydroxide and calcium oxide",
+    "EU. Commission Directive 2009/10/EC"
+   ]
+  },
+  {
+   "id": "additive:e535",
+   "kind": "additive",
+   "title": "E535 Sodium ferrocyanide",
+   "summary": "Ferrocyanides are used mainly as anti-caking agents in salt. EFSA set a low group ADI and found current intake well below it.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA ANS Panel. Re-evaluation of sodium ferrocyanide (E 535), potassium ferrocyanide (E 536) and calcium ferrocyanide (E 538) as food additives. EFSA Journal, 2018",
+    "EFSA Journal 2018;16(7):5374"
+   ]
+  },
+  {
+   "id": "additive:e536",
+   "kind": "additive",
+   "title": "E536 Potassium ferrocyanide",
+   "summary": "Ferrocyanides are used mainly as anti-caking agents in salt. EFSA set a low group ADI and found current intake well below it.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA ANS Panel. Re-evaluation of sodium ferrocyanide (E 535), potassium ferrocyanide (E 536) and calcium ferrocyanide (E 538) as food additives. EFSA Journal, 2018",
+    "EFSA Journal 2018;16(7):5374"
+   ]
+  },
+  {
+   "id": "additive:e538",
+   "kind": "additive",
+   "title": "E538 Calcium ferrocyanide",
+   "summary": "Ferrocyanides are used mainly as anti-caking agents in salt. EFSA set a low group ADI and found current intake well below it.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA ANS Panel. Re-evaluation of sodium ferrocyanide (E 535), potassium ferrocyanide (E 536) and calcium ferrocyanide (E 538) as food additives. EFSA Journal, 2018",
+    "EFSA Journal 2018;16(7):5374"
    ]
   },
   {
@@ -3321,6 +3607,22 @@
    ]
   },
   {
+   "id": "additive:e941",
+   "kind": "additive",
+   "title": "E941 Nitrogen",
+   "summary": "Nitrogen is the main gas in air and is used to keep food fresh. We found no safety concern.",
+   "level": "little",
+   "evidence": "None",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA. Call for data for the re-evaluation of food additives in gaseous form",
+    "EFSA FAF Panel. Re-evaluation of argon (E 938) and helium (E 939) as food additives. EFSA Journal, 2024",
+    "US eCFR. 21 CFR Part 184 Subpart B, GRAS substances (includes 184.1540 nitrogen)"
+   ]
+  },
+  {
    "id": "additive:e943a",
    "kind": "additive",
    "title": "E943a Butane",
@@ -3642,6 +3944,21 @@
     "EFSA ANS Panel. Scientific opinion on the safety of advantame for the proposed uses as a food additive. EFSA Journal, 2013",
     "European Commission. Regulation (EU) No 497/2014 (advantame, E 969)",
     "WHO/PAHO. WHO advises not to use non-sugar sweeteners for weight control in newly released guideline. 2023"
+   ]
+  },
+  {
+   "id": "additive:e999",
+   "kind": "additive",
+   "title": "E999 Quillaia extract",
+   "summary": "Quillaia extract is a foaming agent from tree bark. EFSA set an ADI in 2019 and later warned that wider use could exceed it.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA ANS Panel. Re-evaluation of quillaia extract (E 999) as a food additive and safety of the proposed extension of use. EFSA Journal, 2019",
+    "EFSA FAF Panel. Follow-up of the re-evaluation of quillaia extract (E 999) and safety of the proposed extension of uses. EFSA Journal, 2024"
    ]
   },
   {

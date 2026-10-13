@@ -79,4 +79,13 @@ describe("allergens", () => {
     expect(r.codes).toEqual([]);
     expect(r.notes[0]).toMatch(/Hydrogenated fat/);
   });
+
+  it("reads E-numbers written with roman-numeral sub-types", () => {
+    expect(findAdditives("Emulsifier (E322i), raising agent E500ii, colour E160a(ii), E450iii").codes.sort()).toEqual(["e160a", "e322", "e450", "e500"]);
+  });
+
+  it("finds gelatin and doesn't treat plain nitrogen as an additive", () => {
+    expect(findAdditives("Water, gelatin, sugar").codes).toEqual(["e441"]);
+    expect(findAdditives("Packed under nitrogen").codes).toEqual([]);
+  });
 });
