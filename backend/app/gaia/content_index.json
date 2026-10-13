@@ -1,856 +1,2367 @@
 {
  "version": 1,
- "count": 318,
+ "count": 477,
  "items": [
+  {
+   "id": "additive:e100",
+   "kind": "additive",
+   "title": "E100 Curcumin",
+   "summary": "Curcumin is the yellow pigment of turmeric. EFSA set a safe daily intake in 2010 but said some lab genotoxicity findings were not fully settled.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "People with liver, gall bladder or bile duct problems, and anyone taking medicines, when using curcumin supplements. This concerns supplements, not the small amounts used as a colour."
+   ],
+   "sources": [
+    "UK COT committee. Statement on curcumin in food supplements"
+   ]
+  },
   {
    "id": "additive:e101",
    "kind": "additive",
    "title": "E101 Riboflavin",
-   "summary": "Regulators have not identified a safety concern at the levels allowed in food.",
+   "summary": "Riboflavin is vitamin B2. EFSA found no genotoxicity concern and no adverse effects in the animal studies it reviewed.",
    "level": "little",
    "evidence": "None",
    "to": "/scan#guide",
    "exclude_if": [],
    "cautions": [],
    "sources": [
-    "EFSA: Food additives"
+    "EFSA ANS Panel. Re-evaluation of riboflavin (E 101(i)) and riboflavin-5'-phosphate sodium (E 101(ii)) as food additives. EFSA Journal, 2013",
+    "EFSA ANS Panel. Riboflavin re-evaluation (open-access copy), 2013"
    ]
   },
   {
    "id": "additive:e102",
    "kind": "additive",
    "title": "E102 Tartrazine",
-   "summary": "Linked to a small rise in hyperactive behaviour in some children, when eaten in mixtures. The evidence is mixed.",
+   "summary": "Linked to a small rise in hyperactive behaviour in some children when eaten in colour mixtures. The evidence is mixed, and regulators have kept a safe daily intake.",
    "level": "some",
    "evidence": "Mixed",
    "to": "/scan#guide",
    "exclude_if": [],
    "cautions": [
-    "Children, and families who notice a link between colourful foods and behaviour."
+    "Children, and families who notice a link between brightly coloured foods and behaviour. The EU label rule names children's activity and attention."
    ],
    "sources": [
+    "EFSA. Re-evaluation of tartrazine (E 102), 2009",
     "McCann D et al. Food additives and hyperactive behaviour in children. Lancet, 2007",
-    "EU Regulation (EC) No 1333/2008 on food additives (labelling rules)"
+    "California OEHHA. Health effects assessment: potential neurobehavioral effects of synthetic food dyes in children, 2021",
+    "CSPI. CSPI urges FDA to ban artificial food dyes linked to behavior problems"
    ]
   },
   {
    "id": "additive:e104",
    "kind": "additive",
    "title": "E104 Quinoline yellow",
-   "summary": "Linked to a small rise in hyperactive behaviour in some children, when eaten in mixtures. The evidence is mixed.",
+   "summary": "Linked to a small rise in hyperactive behaviour in some children when eaten in colour mixtures. The evidence is mixed, and regulators have kept a safe daily intake.",
    "level": "some",
    "evidence": "Mixed",
    "to": "/scan#guide",
    "exclude_if": [],
    "cautions": [
-    "Children, and families who notice a link between colourful foods and behaviour."
+    "Children, and families who notice a link between brightly coloured foods and behaviour. The EU label rule names children's activity and attention."
    ],
    "sources": [
+    "EFSA. Refined exposure assessment for quinoline yellow (E 104), 2015",
+    "Commission Regulation (EU) No 232/2012 (lower use levels for E 104 and E 124)",
     "McCann D et al. Food additives and hyperactive behaviour in children. Lancet, 2007",
-    "EU Regulation (EC) No 1333/2008 on food additives (labelling rules)"
+    "California OEHHA. Health effects assessment: potential neurobehavioral effects of synthetic food dyes in children, 2021",
+    "CSPI. CSPI urges FDA to ban artificial food dyes linked to behavior problems"
    ]
   },
   {
    "id": "additive:e110",
    "kind": "additive",
    "title": "E110 Sunset yellow FCF",
-   "summary": "Linked to a small rise in hyperactive behaviour in some children, when eaten in mixtures. The evidence is mixed.",
+   "summary": "Linked to a small rise in hyperactive behaviour in some children when eaten in colour mixtures. The evidence is mixed, and regulators have kept a safe daily intake.",
    "level": "some",
    "evidence": "Mixed",
    "to": "/scan#guide",
    "exclude_if": [],
    "cautions": [
-    "Children, and families who notice a link between colourful foods and behaviour."
+    "Children, and families who notice a link between brightly coloured foods and behaviour. The EU label rule names children's activity and attention."
    ],
    "sources": [
+    "EFSA. Reconsideration of the temporary ADI and refined exposure assessment for sunset yellow FCF (E 110), 2014",
+    "EFSA. Sunset yellow: EFSA sets ADI (news), 2014",
     "McCann D et al. Food additives and hyperactive behaviour in children. Lancet, 2007",
-    "EU Regulation (EC) No 1333/2008 on food additives (labelling rules)"
+    "California OEHHA. Health effects assessment: potential neurobehavioral effects of synthetic food dyes in children, 2021",
+    "CSPI. CSPI urges FDA to ban artificial food dyes linked to behavior problems"
+   ]
+  },
+  {
+   "id": "additive:e1103",
+   "kind": "additive",
+   "title": "E1103 Invertase",
+   "summary": "An enzyme from yeast that splits sugar. JECFA found it acceptable; We could not find an EFSA additive re-evaluation.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "JECFA. Invertase from Saccharomyces cerevisiae (INCHEM)",
+    "EFSA CEP Panel. Safety evaluation of the food enzyme beta-fructofuranosidase from S. cerevisiae strain INV. EFSA Journal, 2023"
+   ]
+  },
+  {
+   "id": "additive:e1105",
+   "kind": "additive",
+   "title": "E1105 Lysozyme",
+   "summary": "Made from hen's egg white. EFSA said in 2011 that lysozyme in wine may trigger allergic reactions in egg-allergic people.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "People with egg allergy. EFSA and EU labelling rules treat egg-derived lysozyme as an allergen."
+   ],
+   "sources": [
+    "EFSA NDA Panel. Lysozyme labelling opinion, EFSA Journal 2011"
+   ]
+  },
+  {
+   "id": "additive:e120",
+   "kind": "additive",
+   "title": "E120 Carmine",
+   "summary": "Carmine is a red dye made from crushed cochineal insects. It can cause allergic reactions in some people, occasionally severe.",
+   "level": "some",
+   "evidence": "Moderate",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "People with allergies to carmine or cochineal, and possibly people with insect allergies. Vegans and vegetarians avoid it for ethical reasons."
+   ],
+   "sources": [
+    "EFSA ANS Panel. Re-evaluation of cochineal, carminic acid, carmines (E 120) as a food additive. EFSA Journal, 2015",
+    "FDA. Listing of color additives exempt from certification; food labeling: cochineal extract and carmine. Federal Register, 2009",
+    "CSPI. Chemical Cuisine: carmine and cochineal"
+   ]
+  },
+  {
+   "id": "additive:e1200",
+   "kind": "additive",
+   "title": "E1200 Polydextrose",
+   "summary": "EFSA's 2021 review found no safety concern at reported uses and no need for a numerical daily limit.",
+   "level": "little",
+   "evidence": "None",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA FAF Panel. Re-evaluation of polydextrose (E 1200) as a food additive. EFSA Journal, 2021"
    ]
   },
   {
    "id": "additive:e122",
    "kind": "additive",
    "title": "E122 Carmoisine",
-   "summary": "Linked to a small rise in hyperactive behaviour in some children, when eaten in mixtures. The evidence is mixed.",
+   "summary": "Linked to a small rise in hyperactive behaviour in some children when eaten in colour mixtures. The evidence is mixed, and regulators have kept a safe daily intake.",
    "level": "some",
    "evidence": "Mixed",
    "to": "/scan#guide",
    "exclude_if": [],
    "cautions": [
-    "Children, and families who notice a link between colourful foods and behaviour."
+    "Children, and families who notice a link between brightly coloured foods and behaviour. The EU label rule names children's activity and attention."
    ],
    "sources": [
+    "EFSA. Re-evaluation of azorubine/carmoisine (E 122), 2009",
     "McCann D et al. Food additives and hyperactive behaviour in children. Lancet, 2007",
-    "EU Regulation (EC) No 1333/2008 on food additives (labelling rules)"
+    "California OEHHA. Health effects assessment: potential neurobehavioral effects of synthetic food dyes in children, 2021",
+    "CSPI. CSPI urges FDA to ban artificial food dyes linked to behavior problems"
+   ]
+  },
+  {
+   "id": "additive:e123",
+   "kind": "additive",
+   "title": "E123 Amaranth",
+   "summary": "EFSA lowered its safe daily intake in 2010 and found no sign of DNA damage or cancer. It is not allowed in US food, and little of it is used in the EU.",
+   "level": "restricted",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA. Re-evaluation of amaranth (E 123) as a food additive, 2010",
+    "EFSA. Refined exposure assessment for amaranth (E 123)",
+    "EFSA. EFSA lowers ADI on amaranth (news), 2010"
    ]
   },
   {
    "id": "additive:e124",
    "kind": "additive",
    "title": "E124 Ponceau 4R",
-   "summary": "Linked to a small rise in hyperactive behaviour in some children, when eaten in mixtures. The evidence is mixed.",
+   "summary": "Linked to a small rise in hyperactive behaviour in some children when eaten in colour mixtures. The evidence is mixed, and regulators have kept a safe daily intake.",
    "level": "some",
    "evidence": "Mixed",
    "to": "/scan#guide",
    "exclude_if": [],
    "cautions": [
-    "Children, and families who notice a link between colourful foods and behaviour."
+    "Children, and families who notice a link between brightly coloured foods and behaviour. The EU label rule names children's activity and attention."
    ],
    "sources": [
+    "EFSA. Refined exposure assessment for Ponceau 4R (E 124), 2015",
+    "Commission Regulation (EU) No 232/2012 (lower use levels for E 104 and E 124)",
     "McCann D et al. Food additives and hyperactive behaviour in children. Lancet, 2007",
-    "EU Regulation (EC) No 1333/2008 on food additives (labelling rules)"
+    "California OEHHA. Health effects assessment: potential neurobehavioral effects of synthetic food dyes in children, 2021",
+    "CSPI. CSPI urges FDA to ban artificial food dyes linked to behavior problems"
    ]
   },
   {
    "id": "additive:e127",
    "kind": "additive",
    "title": "E127 Erythrosine",
-   "summary": "The US FDA is withdrawing approval for it in food, because of cancer seen in lab animals. Food use ends on 15 January 2027.",
+   "summary": "The US FDA is withdrawing approval for it in food because it caused thyroid tumours in male rats. FDA and EFSA both say the rat finding is not expected to apply to people.",
    "level": "restricted",
    "evidence": "Weak",
    "to": "/scan#guide",
    "exclude_if": [],
    "cautions": [],
    "sources": [
-    "FDA: Revoking authorization for Red No. 3 in food and ingested drugs, 2025"
+    "FDA. Revoking authorization for Red No. 3 in food and ingested drugs, 2025"
+   ]
+  },
+  {
+   "id": "additive:e128",
+   "kind": "additive",
+   "title": "E128 Red 2G",
+   "summary": "Suspended in the EU in 2007 after EFSA raised a cancer concern about aniline, a substance the body can form from it. It is not an approved food colour.",
+   "level": "restricted",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "FoodNavigator. EFSA condemns Red 2G colour as carcinogen, 2007"
    ]
   },
   {
    "id": "additive:e129",
    "kind": "additive",
    "title": "E129 Allura red AC",
-   "summary": "Linked to a small rise in hyperactive behaviour in some children, when eaten in mixtures. The evidence is mixed.",
+   "summary": "Linked to a small rise in hyperactive behaviour in some children when eaten in colour mixtures. The evidence is mixed, and regulators have kept a safe daily intake.",
    "level": "some",
    "evidence": "Mixed",
    "to": "/scan#guide",
    "exclude_if": [],
    "cautions": [
-    "Children, and families who notice a link between colourful foods and behaviour."
+    "Children, and families who notice a link between brightly coloured foods and behaviour. The EU label rule names children's activity and attention."
    ],
    "sources": [
+    "EFSA. Refined exposure assessment for Allura red AC (E 129)",
     "McCann D et al. Food additives and hyperactive behaviour in children. Lancet, 2007",
-    "EU Regulation (EC) No 1333/2008 on food additives (labelling rules)"
+    "California OEHHA. Health effects assessment: potential neurobehavioral effects of synthetic food dyes in children, 2021",
+    "CSPI. CSPI urges FDA to ban artificial food dyes linked to behavior problems"
+   ]
+  },
+  {
+   "id": "additive:e131",
+   "kind": "additive",
+   "title": "E131 Patent blue V",
+   "summary": "EFSA lowered its safe daily intake in 2013. At maximum permitted levels, toddlers and children with high intake could exceed it, so it is worth keeping to a small part of the diet.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA. Re-evaluation of Patent Blue V (E 131) as a food additive, 2013"
+   ]
+  },
+  {
+   "id": "additive:e132",
+   "kind": "additive",
+   "title": "E132 Indigo carmine",
+   "summary": "EFSA confirmed a safe daily intake of 5 mg per kg of body weight in 2014 and again in 2023, after a study checking an earlier worry about the testes did not repeat it.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA. Follow-up of the re-evaluation of indigo carmine (E 132), 2023",
+    "EFSA. Re-evaluation of indigo carmine (E 132), 2014"
+   ]
+  },
+  {
+   "id": "additive:e133",
+   "kind": "additive",
+   "title": "E133 Brilliant blue FCF",
+   "summary": "EFSA set a safe daily intake of 6 mg per kg of body weight in 2010. Intake was under it in the refined estimate.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA. Re-evaluation of brilliant blue FCF (E 133), 2010",
+    "California OEHHA. Health effects assessment: potential neurobehavioral effects of synthetic food dyes in children, 2021",
+    "CSPI. Chemical Cuisine: artificial colorings (synthetic food dyes)"
+   ]
+  },
+  {
+   "id": "additive:e140",
+   "kind": "additive",
+   "title": "E140 Chlorophylls",
+   "summary": "Chlorophyll is the green pigment of plants. Safety work on the chlorophyllin forms is still open at EFSA.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA. Re-evaluation of chlorophylls and copper complexes (EFSA Journal, 2015)",
+    "EFSA. Update on the working group on re-evaluation, July 2026 (annex)"
+   ]
+  },
+  {
+   "id": "additive:e1404",
+   "kind": "additive",
+   "title": "E1404 Oxidised starch",
+   "summary": "EFSA's 2017 group review found no safety concern at current uses and no need for a numerical daily limit (ADI not specified).",
+   "level": "little",
+   "evidence": "None",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA ANS Panel. Re-evaluation of modified starches E 1404, E 1410, E 1412, E 1413, E 1414, E 1420, E 1422, E 1440, E 1442, E 1450, E 1451 and E 1452 as food additives. EFSA Journal, 2017"
+   ]
+  },
+  {
+   "id": "additive:e141",
+   "kind": "additive",
+   "title": "E141 Copper complexes of chlorophylls and chlorophyllins",
+   "summary": "EFSA said in 2015 that safety could not be assessed because reliable studies were missing. This is a data gap, not a proven harm.",
+   "level": "some",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA ANS Panel. Re-evaluation of copper complexes of chlorophylls (E 141(i)) and chlorophyllins (E 141(ii)) as food additives. EFSA Journal, 2015"
+   ]
+  },
+  {
+   "id": "additive:e1410",
+   "kind": "additive",
+   "title": "E1410 Monostarch phosphate",
+   "summary": "EFSA's 2017 group review found no safety concern at current uses and no need for a numerical daily limit (ADI not specified).",
+   "level": "little",
+   "evidence": "None",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA ANS Panel. Re-evaluation of modified starches E 1404, E 1410, E 1412, E 1413, E 1414, E 1420, E 1422, E 1440, E 1442, E 1450, E 1451 and E 1452 as food additives. EFSA Journal, 2017"
+   ]
+  },
+  {
+   "id": "additive:e1412",
+   "kind": "additive",
+   "title": "E1412 Distarch phosphate",
+   "summary": "EFSA's 2017 group review found no safety concern at current uses and no need for a numerical daily limit (ADI not specified).",
+   "level": "little",
+   "evidence": "None",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA ANS Panel. Re-evaluation of modified starches E 1404, E 1410, E 1412, E 1413, E 1414, E 1420, E 1422, E 1440, E 1442, E 1450, E 1451 and E 1452 as food additives. EFSA Journal, 2017"
+   ]
+  },
+  {
+   "id": "additive:e1413",
+   "kind": "additive",
+   "title": "E1413 Phosphated distarch phosphate",
+   "summary": "EFSA's 2017 group review found no safety concern at current uses and no need for a numerical daily limit (ADI not specified).",
+   "level": "little",
+   "evidence": "None",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA ANS Panel. Re-evaluation of modified starches E 1404, E 1410, E 1412, E 1413, E 1414, E 1420, E 1422, E 1440, E 1442, E 1450, E 1451 and E 1452 as food additives. EFSA Journal, 2017"
+   ]
+  },
+  {
+   "id": "additive:e1414",
+   "kind": "additive",
+   "title": "E1414 Acetylated distarch phosphate",
+   "summary": "EFSA's 2017 group review found no safety concern at current uses and no need for a numerical daily limit (ADI not specified).",
+   "level": "little",
+   "evidence": "None",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA ANS Panel. Re-evaluation of modified starches E 1404, E 1410, E 1412, E 1413, E 1414, E 1420, E 1422, E 1440, E 1442, E 1450, E 1451 and E 1452 as food additives. EFSA Journal, 2017"
+   ]
+  },
+  {
+   "id": "additive:e142",
+   "kind": "additive",
+   "title": "E142 Green S",
+   "summary": "EFSA kept the safe daily intake of 5 mg per kg of body weight in 2010 but noted that its DNA-damage data were thin.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA. Re-evaluation of Green S (E 142), 2010 (record)"
+   ]
+  },
+  {
+   "id": "additive:e1420",
+   "kind": "additive",
+   "title": "E1420 Acetylated starch",
+   "summary": "EFSA's 2017 group review found no safety concern at current uses and no need for a numerical daily limit (ADI not specified).",
+   "level": "little",
+   "evidence": "None",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA ANS Panel. Re-evaluation of modified starches E 1404, E 1410, E 1412, E 1413, E 1414, E 1420, E 1422, E 1440, E 1442, E 1450, E 1451 and E 1452 as food additives. EFSA Journal, 2017"
+   ]
+  },
+  {
+   "id": "additive:e1422",
+   "kind": "additive",
+   "title": "E1422 Acetylated distarch adipate",
+   "summary": "EFSA's 2017 group review found no safety concern at current uses and no need for a numerical daily limit (ADI not specified).",
+   "level": "little",
+   "evidence": "None",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA ANS Panel. Re-evaluation of modified starches E 1404, E 1410, E 1412, E 1413, E 1414, E 1420, E 1422, E 1440, E 1442, E 1450, E 1451 and E 1452 as food additives. EFSA Journal, 2017"
+   ]
+  },
+  {
+   "id": "additive:e1440",
+   "kind": "additive",
+   "title": "E1440 Hydroxypropyl starch",
+   "summary": "EFSA's 2017 group review found no safety concern at current uses and no need for a numerical daily limit (ADI not specified).",
+   "level": "little",
+   "evidence": "None",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA ANS Panel. Re-evaluation of modified starches E 1404, E 1410, E 1412, E 1413, E 1414, E 1420, E 1422, E 1440, E 1442, E 1450, E 1451 and E 1452 as food additives. EFSA Journal, 2017"
+   ]
+  },
+  {
+   "id": "additive:e1442",
+   "kind": "additive",
+   "title": "E1442 Hydroxypropyl distarch phosphate",
+   "summary": "EFSA's 2017 group review found no safety concern at current uses and no need for a numerical daily limit (ADI not specified).",
+   "level": "little",
+   "evidence": "None",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA ANS Panel. Re-evaluation of modified starches E 1404, E 1410, E 1412, E 1413, E 1414, E 1420, E 1422, E 1440, E 1442, E 1450, E 1451 and E 1452 as food additives. EFSA Journal, 2017"
+   ]
+  },
+  {
+   "id": "additive:e1450",
+   "kind": "additive",
+   "title": "E1450 Starch sodium octenyl succinate",
+   "summary": "EFSA's 2017 group review found no safety concern at current uses and no need for a numerical daily limit (ADI not specified).",
+   "level": "little",
+   "evidence": "None",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "Very young infants (under 16 weeks) on special formulas: EFSA reviewed this use separately in 2020."
+   ],
+   "sources": [
+    "EFSA ANS Panel. Re-evaluation of modified starches E 1404, E 1410, E 1412, E 1413, E 1414, E 1420, E 1422, E 1440, E 1442, E 1450, E 1451 and E 1452 as food additives. EFSA Journal, 2017",
+    "EFSA. Re-evaluation of starch sodium octenyl succinate (E 1450) in infant foods and follow-up. EFSA Journal, 2020"
+   ]
+  },
+  {
+   "id": "additive:e1451",
+   "kind": "additive",
+   "title": "E1451 Acetylated oxidised starch",
+   "summary": "EFSA's 2017 group review found no safety concern at current uses and no need for a numerical daily limit (ADI not specified).",
+   "level": "little",
+   "evidence": "None",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA ANS Panel. Re-evaluation of modified starches E 1404, E 1410, E 1412, E 1413, E 1414, E 1420, E 1422, E 1440, E 1442, E 1450, E 1451 and E 1452 as food additives. EFSA Journal, 2017"
+   ]
+  },
+  {
+   "id": "additive:e1505",
+   "kind": "additive",
+   "title": "E1505 Triethyl citrate",
+   "summary": "JECFA set an ADI of 0 to 20 mg per kg of body weight. EFSA has not completed its own re-evaluation, so this is an older safety picture.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "JECFA evaluations of triethyl citrate (ADI 0 to 20 mg/kg) and triacetin (ADI not specified) (INCHEM)",
+    "JECFA evaluation (INCHEM), second record",
+    "EFSA. Re-evaluation of food additives: 2020 plan (lists triethyl citrate as pending a data call)"
    ]
   },
   {
    "id": "additive:e150a",
    "kind": "additive",
    "title": "E150a Plain caramel colour",
-   "summary": "EFSA set a group safe daily intake for caramel colours in 2011. Plain caramel (E150a) is made without ammonia or sulfites.",
+   "summary": "Plain caramel is made by heating sugar without ammonia or sulfites. It sits under EFSA's group safe intake for caramel colours.",
    "level": "little",
    "evidence": "None",
    "to": "/scan#guide",
    "exclude_if": [],
    "cautions": [],
    "sources": [
-    "EFSA: Caramel colours reviewed, 2011",
-    "EFSA: Caramel colours, consumer exposure lower than previously estimated, 2012"
+    "EFSA. Scientific Opinion on the re-evaluation of caramel colours (E 150 a,b,c,d) as food additives. EFSA Journal, 2011",
+    "EFSA. Caramel colours reviewed (news release). EFSA, 2011",
+    "EFSA. Caramel colours: consumer exposure lower than previously estimated. EFSA, 2012"
    ]
   },
   {
    "id": "additive:e150b",
    "kind": "additive",
-   "title": "E150b Caustic sulfite caramel",
-   "summary": "Part of EFSA's 2011 group safe daily intake for caramel colours. Estimated intake was below it.",
+   "title": "E150b Caustic sulfite caramel colour",
+   "summary": "Made with sulfites but no ammonia. It sits under EFSA's group safe intake, with estimated intake below it.",
    "level": "little",
    "evidence": "None",
    "to": "/scan#guide",
    "exclude_if": [],
-   "cautions": [],
+   "cautions": [
+    "People with sulfite-sensitive asthma may want to check labels."
+   ],
    "sources": [
-    "EFSA: Caramel colours reviewed, 2011",
-    "EFSA: Caramel colours, consumer exposure lower than previously estimated, 2012"
+    "EFSA. Scientific Opinion on the re-evaluation of caramel colours (E 150 a,b,c,d) as food additives. EFSA Journal, 2011",
+    "EFSA. Caramel colours reviewed (news release). EFSA, 2011",
+    "EFSA. Caramel colours: consumer exposure lower than previously estimated. EFSA, 2012"
    ]
   },
   {
    "id": "additive:e150c",
    "kind": "additive",
    "title": "E150c Ammonia caramel colour",
-   "summary": "EFSA gave this type its own, lower safe daily intake because of an uncertainty about effects on the immune system.",
+   "summary": "EFSA gave this type its own lower safe daily intake because of uncertainty about immune effects. It can contain 4-MEI, which IARC lists as possibly carcinogenic from animal studies.",
    "level": "some",
    "evidence": "Weak",
    "to": "/scan#guide",
    "exclude_if": [],
    "cautions": [],
    "sources": [
-    "EFSA: Caramel colours reviewed, 2011",
-    "EFSA: Caramel colours, consumer exposure lower than previously estimated, 2012",
-    "Caramel color in soft drinks and exposure to 4-methylimidazole: a quantitative risk assessment. PLoS One, 2015"
+    "EFSA. Scientific Opinion on the re-evaluation of caramel colours (E 150 a,b,c,d) as food additives. EFSA Journal, 2011",
+    "EFSA. Caramel colours reviewed (news release). EFSA, 2011",
+    "EFSA. Caramel colours: consumer exposure lower than previously estimated. EFSA, 2012",
+    "OEHHA (California). 4-Methylimidazole findings and Proposition 65 no significant risk level, 2011"
    ]
   },
   {
    "id": "additive:e150d",
    "kind": "additive",
    "title": "E150d Sulfite ammonia caramel colour",
-   "summary": "The most common caramel colour in soft drinks. It can contain 4-MEI, a by-product that IARC lists as possibly carcinogenic, based on animal studies.",
+   "summary": "The caramel colour used in most colas. It can contain 4-MEI, which IARC lists as possibly carcinogenic based on animal studies only.",
    "level": "some",
    "evidence": "Weak",
    "to": "/scan#guide",
    "exclude_if": [],
    "cautions": [],
    "sources": [
-    "EFSA: Caramel colours reviewed, 2011",
-    "EFSA: Caramel colours, consumer exposure lower than previously estimated, 2012",
-    "Caramel color in soft drinks and exposure to 4-methylimidazole: a quantitative risk assessment. PLoS One, 2015"
+    "EFSA. Scientific Opinion on the re-evaluation of caramel colours (E 150 a,b,c,d) as food additives. EFSA Journal, 2011",
+    "EFSA. Caramel colours reviewed (news release). EFSA, 2011",
+    "EFSA. Caramel colours: consumer exposure lower than previously estimated. EFSA, 2012",
+    "Caramel color in soft drinks and exposure to 4-methylimidazole: a quantitative risk assessment. PLoS One, 2015",
+    "OEHHA (California). 4-Methylimidazole findings and Proposition 65 no significant risk level, 2011"
+   ]
+  },
+  {
+   "id": "additive:e151",
+   "kind": "additive",
+   "title": "E151 Brilliant black BN",
+   "summary": "EFSA kept a safe daily intake of 5 mg per kg of body weight. Some DNA-damage signals were seen in cell tests but not in long-term animal studies.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA. Refined exposure assessment for brilliant black BN (E 151), 2015",
+    "EFSA. EFSA publishes safety assessments of three food colours (news), 2010"
+   ]
+  },
+  {
+   "id": "additive:e1518",
+   "kind": "additive",
+   "title": "E1518 Glyceryl triacetate",
+   "summary": "JECFA put its ADI at 'not specified' in 1975. We could not find a completed modern EFSA re-evaluation.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "JECFA evaluations of triethyl citrate (ADI 0 to 20 mg/kg) and triacetin (ADI not specified) (INCHEM)",
+    "JECFA evaluation (INCHEM), second record"
+   ]
+  },
+  {
+   "id": "additive:e1520",
+   "kind": "additive",
+   "title": "E1520 Propylene glycol",
+   "summary": "EFSA's 2018 re-evaluation kept the safe daily intake at 25 mg per kg of body weight. It is not antifreeze (that is ethylene glycol).",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA ANS Panel. Re-evaluation of propane-1,2-diol (E 1520) as a food additive. EFSA Journal, 2018"
+   ]
+  },
+  {
+   "id": "additive:e153",
+   "kind": "additive",
+   "title": "E153 Vegetable carbon",
+   "summary": "A black colour made from burnt plant material. EFSA reviewed it in 2012 and again in 2026 to tighten limits on impurities.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA. Scientific opinion on the amendment of the specifications for vegetable carbon (E 153) as a food additive. EFSA Journal, 2026"
+   ]
+  },
+  {
+   "id": "additive:e155",
+   "kind": "additive",
+   "title": "E155 Brown HT",
+   "summary": "EFSA halved its safe daily intake in 2010 to 1.5 mg per kg of body weight. A later estimate still showed high-intake groups above it in some scenarios.",
+   "level": "some",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA. EFSA publishes safety assessments of three food colours (news), 2010"
    ]
   },
   {
    "id": "additive:e160a",
    "kind": "additive",
    "title": "E160a Carotenes",
-   "summary": "Regulators have not identified a safety concern at the levels allowed in food.",
+   "summary": "Beta-carotene from food use is not a concern for the general population. High-dose supplements have raised lung cancer rates in smokers.",
    "level": "little",
-   "evidence": "None",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "Smokers and people exposed to asbestos should be cautious about high-dose beta-carotene supplements. This is about supplements, not colour use."
+   ],
+   "sources": [
+    "EFSA. Re-evaluation of mixed carotenes (E 160a(i)) and beta-carotene (E 160a(ii)). EFSA Journal, 2012",
+    "EFSA. Statement on the safety of beta-carotene use in heavy smokers. EFSA Journal, 2012",
+    "CSPI. Chemical Cuisine: beta-carotene"
+   ]
+  },
+  {
+   "id": "additive:e160b",
+   "kind": "additive",
+   "title": "E160b Annatto",
+   "summary": "Annatto comes from seeds of the achiote tree. EFSA set low safe intakes in 2016. Some children's intakes of norbixin may exceed it, and allergy cases have been reported.",
+   "level": "some",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "Toddlers and children with high intakes (per EFSA), and people with a known annatto allergy or chronic hives."
+   ],
+   "sources": [
+    "EFSA. Exposure assessment of annatto colouring principles bixin and norbixin (E 160b). EFSA Journal, 2019",
+    "Anaphylaxis to annatto dye: a case report. Ann Allergy, 1991",
+    "An allergy to goldfish? Highlighting labeling laws for food additives. World Allergy Organ J"
+   ]
+  },
+  {
+   "id": "additive:e160c",
+   "kind": "additive",
+   "title": "E160c Paprika extract",
+   "summary": "A colour from red peppers. EFSA re-evaluated it in 2015. We could not retrieve the details, so the evidence here is thin.",
+   "level": "little",
+   "evidence": "Weak",
    "to": "/scan#guide",
    "exclude_if": [],
    "cautions": [],
    "sources": [
-    "EFSA: Food additives"
+    "JECFA/IPCS. Paprika oleoresin evaluation"
+   ]
+  },
+  {
+   "id": "additive:e160d",
+   "kind": "additive",
+   "title": "E160d Lycopene",
+   "summary": "The red pigment of tomatoes. EFSA set an ADI of 0.5 mg per kg of body weight, lower than JECFA's view of no limit needed.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "BfR. EFSA opinion on the safety of lycopene oleoresin from tomatoes"
+   ]
+  },
+  {
+   "id": "additive:e160e",
+   "kind": "additive",
+   "title": "E160e Beta-apo-8'-carotenal",
+   "summary": "A carotenoid colour. EFSA first set a very low ADI, then raised it sixfold after re-reading the same kidney slides.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA. Re-evaluation of beta-apo-8'-carotenal (E 160e) as a food additive. EFSA Journal, 2012"
+   ]
+  },
+  {
+   "id": "additive:e161b",
+   "kind": "additive",
+   "title": "E161b Lutein",
+   "summary": "A yellow pigment from marigold flowers. EFSA set an ADI of 1 mg per kg of body weight in 2010.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA. Statement on the safety assessment of the exposure to lutein preparations based on new data on use levels. 2011"
    ]
   },
   {
    "id": "additive:e162",
    "kind": "additive",
    "title": "E162 Beetroot red",
-   "summary": "Regulators have not identified a safety concern at the levels allowed in food.",
+   "summary": "A red pigment from beetroot. It is a food-derived colour and no credible safety signal was found.",
    "level": "little",
    "evidence": "None",
    "to": "/scan#guide",
    "exclude_if": [],
    "cautions": [],
    "sources": [
-    "EFSA: Food additives"
+    "EFSA. Re-evaluation of beetroot red (E 162) as a food additive. EFSA Journal, 2015 (listing)",
+    "JECFA/IPCS. Beet red evaluation"
    ]
   },
   {
    "id": "additive:e163",
    "kind": "additive",
    "title": "E163 Anthocyanins",
-   "summary": "Regulators have not identified a safety concern at the levels allowed in food.",
+   "summary": "Red-purple pigments from fruit and vegetables. EFSA could not set a numerical ADI but saw no concern at current uses of the best-studied extracts.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA ANS Panel. Re-evaluation of anthocyanins (E 163) as a food additive. EFSA Journal, 2013",
+    "WHO JECFA database. Grape skin extract"
+   ]
+  },
+  {
+   "id": "additive:e170",
+   "kind": "additive",
+   "title": "E170 Calcium carbonate",
+   "summary": "EFSA found no safety concern at food-additive levels in 2011 and again in 2023 for infant foods. It is also a common calcium supplement and antacid.",
    "level": "little",
    "evidence": "None",
    "to": "/scan#guide",
    "exclude_if": [],
    "cautions": [],
    "sources": [
-    "EFSA: Food additives"
+    "EFSA. Scientific opinion on re-evaluation of calcium carbonate (E 170) as a food additive, 2011",
+    "EFSA FAF Panel. Re-evaluation of calcium carbonate (E 170) as a food additive in foods for infants below 16 weeks of age, 2023"
    ]
   },
   {
    "id": "additive:e171",
    "kind": "additive",
    "title": "E171 Titanium dioxide",
-   "summary": "EFSA concluded in 2021 that it can no longer be considered safe as a food additive, because a risk to DNA could not be ruled out.",
+   "summary": "In 2021 EFSA concluded it can no longer be considered safe as a food additive, because a risk of DNA damage could not be ruled out. No harm has been shown in people.",
    "level": "restricted",
    "evidence": "Weak",
    "to": "/scan#guide",
    "exclude_if": [],
    "cautions": [],
    "sources": [
-    "EFSA: Titanium dioxide (E171) no longer considered safe as a food additive, 2021"
+    "EFSA. Titanium dioxide (E171) no longer considered safe as a food additive, 2021",
+    "EFSA. Safety assessment of titanium dioxide (E171) as a food additive. EFSA Journal, 2021",
+    "WHO. Evaluation of certain food additives, 97th JECFA meeting report"
+   ]
+  },
+  {
+   "id": "additive:e172",
+   "kind": "additive",
+   "title": "E172 Iron oxides and hydroxides",
+   "summary": "Iron oxides are mineral colours with a long record of use. EFSA's formal re-evaluation has asked for more data on particle size, so the picture is not fully closed.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA. ANS Panel minutes, Oct 2015 (E 172 draft discussed)",
+    "JECFA. Iron oxide black evaluation (INCHEM)"
+   ]
+  },
+  {
+   "id": "additive:e173",
+   "kind": "additive",
+   "title": "E173 Aluminium",
+   "summary": "A metal colour allowed in the EU only for external decoration of sugar confectionery. We did not find an EFSA review specific to this colour.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EU Regulation (EC) No 1333/2008 on food additives"
+   ]
+  },
+  {
+   "id": "additive:e174",
+   "kind": "additive",
+   "title": "E174 Silver",
+   "summary": "EFSA said in 2016 and again in 2025 that data were too limited to conclude it is safe, especially for its tiny-particle (nano) form.",
+   "level": "some",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA. Follow-up of the re-evaluation of silver (E 174), 2025",
+    "RIVM. EFSA's re-evaluation of silver as food additive is inconclusive, 2025"
+   ]
+  },
+  {
+   "id": "additive:e175",
+   "kind": "additive",
+   "title": "E175 Gold",
+   "summary": "Gold is very insoluble, and EFSA expected no effects inside the body, but said there were too few data for a full risk assessment.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA. Re-evaluation of gold (E 175) as a food additive, 2016"
+   ]
+  },
+  {
+   "id": "additive:e180",
+   "kind": "additive",
+   "title": "E180 Litholrubine BK",
+   "summary": "EFSA said in 2010 that the safety data were too limited to keep or set a safe daily intake. Its use is limited to cheese rind, which people rarely eat.",
+   "level": "some",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA. EFSA publishes safety assessments of three food colours (news), 2010"
    ]
   },
   {
    "id": "additive:e200",
    "kind": "additive",
    "title": "E200 Sorbic acid",
-   "summary": "EFSA found no genotoxicity and raised its safe daily intake in 2019. It is often flagged online, but regulators have not found a concern.",
+   "summary": "Regulators see no safety concern at current uses. Some lab studies on cells found DNA changes at high doses, and it can react with nitrite, so we call the evidence weak rather than none.",
    "level": "little",
-   "evidence": "None",
+   "evidence": "Weak",
    "to": "/scan#guide",
    "exclude_if": [],
-   "cautions": [],
+   "cautions": [
+    "People who notice skin rashes after contact with sorbates may wish to check labels."
+   ],
    "sources": [
-    "EFSA: Re-evaluation of sorbic acid, potassium sorbate and calcium sorbate (E 200-203), 2015",
-    "EFSA: Follow-up of the re-evaluation of sorbic acid (E 200) and potassium sorbate (E 202), 2019"
+    "EFSA ANS Panel. Re-evaluation of sorbic acid (E 200), potassium sorbate (E 202) and calcium sorbate (E 203) as food additives. EFSA Journal, 2015",
+    "EFSA FAF Panel. Opinion on the follow-up of the re-evaluation of sorbic acid (E 200) and potassium sorbate (E 202) as food additives. EFSA Journal, 2019",
+    "CSPI. Chemical Cuisine index (sorbic acid, potassium sorbate rated Safe)"
    ]
   },
   {
    "id": "additive:e202",
    "kind": "additive",
    "title": "E202 Potassium sorbate",
-   "summary": "EFSA found no genotoxicity and raised its safe daily intake in 2019. Some apps flag it as high-risk, but regulators have not found a concern.",
+   "summary": "Regulators see no safety concern at current uses. Some lab studies on cells found DNA changes at high doses, and it can react with nitrite, so we call the evidence weak rather than none.",
    "level": "little",
-   "evidence": "None",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "People who notice skin rashes after contact with sorbates may wish to check labels."
+   ],
+   "sources": [
+    "EFSA ANS Panel. Re-evaluation of sorbic acid (E 200), potassium sorbate (E 202) and calcium sorbate (E 203) as food additives. EFSA Journal, 2015",
+    "EFSA FAF Panel. Opinion on the follow-up of the re-evaluation of sorbic acid (E 200) and potassium sorbate (E 202) as food additives. EFSA Journal, 2019",
+    "CSPI. Chemical Cuisine index (sorbic acid, potassium sorbate rated Safe)"
+   ]
+  },
+  {
+   "id": "additive:e203",
+   "kind": "additive",
+   "title": "E203 Calcium sorbate",
+   "summary": "EFSA could not include it in the safe-intake group for sorbates because genotoxicity data were missing. Check its current EU authorisation.",
+   "level": "some",
+   "evidence": "Weak",
    "to": "/scan#guide",
    "exclude_if": [],
    "cautions": [],
    "sources": [
-    "EFSA: Re-evaluation of sorbic acid, potassium sorbate and calcium sorbate (E 200-203), 2015",
-    "EFSA: Follow-up of the re-evaluation of sorbic acid (E 200) and potassium sorbate (E 202), 2019"
+    "EFSA ANS Panel. Re-evaluation of sorbic acid (E 200), potassium sorbate (E 202) and calcium sorbate (E 203) as food additives. EFSA Journal, 2015",
+    "Commission Regulation (EU) 2018/98 amending Annexes II and III to Regulation (EC) No 1333/2008 as regards calcium sorbate (E 203)"
    ]
   },
   {
    "id": "additive:e210",
    "kind": "additive",
    "title": "E210 Benzoic acid",
-   "summary": "Can form tiny amounts of benzene in drinks that also contain vitamin C. It was also part of the colour mix in the 2007 hyperactivity study.",
+   "summary": "EFSA found no genotoxicity concern but said children's intake from drinks could exceed its safe daily limit. It can form traces of benzene with vitamin C.",
    "level": "some",
    "evidence": "Weak",
    "to": "/scan#guide",
    "exclude_if": [],
    "cautions": [
-    "Children, if a family notices a link between these drinks and behaviour."
+    "Children who drink a lot of benzoate-preserved drinks. People with asthma, hives or other sensitivities have also been named by CSPI as a group that may react."
    ],
    "sources": [
-    "FDA: Benzene in soft drinks and other beverages (Q&A)",
-    "McCann D et al. Food additives and hyperactive behaviour in children. Lancet, 2007"
+    "EFSA ANS Panel. Scientific Opinion on the re-evaluation of benzoic acid (E 210), sodium benzoate (E 211), potassium benzoate (E 212) and calcium benzoate (E 213) as food additives. EFSA Journal, 2016",
+    "FDA. Questions and answers on the occurrence of benzene in soft drinks and other beverages",
+    "McCann D et al. Food additives and hyperactive behaviour in 3-year-old and 8/9-year-old children. Lancet, 2007",
+    "EFSA. Press release on the 2008 opinion on the Southampton study of colours and sodium benzoate",
+    "CSPI. Chemical Cuisine: sodium benzoate, benzoic acid"
    ]
   },
   {
    "id": "additive:e211",
    "kind": "additive",
    "title": "E211 Sodium benzoate",
-   "summary": "Can form tiny amounts of benzene in drinks that also contain vitamin C. It was also part of the colour mix in the 2007 hyperactivity study.",
+   "summary": "EFSA found no genotoxicity concern but said children's intake from drinks could exceed its safe daily limit. It can form traces of benzene with vitamin C.",
    "level": "some",
    "evidence": "Weak",
    "to": "/scan#guide",
    "exclude_if": [],
    "cautions": [
-    "Children, if a family notices a link between these drinks and behaviour."
+    "Children who drink a lot of benzoate-preserved drinks. People with asthma, hives or other sensitivities have also been named by CSPI as a group that may react."
    ],
    "sources": [
-    "FDA: Benzene in soft drinks and other beverages (Q&A)",
-    "McCann D et al. Food additives and hyperactive behaviour in children. Lancet, 2007"
+    "EFSA ANS Panel. Scientific Opinion on the re-evaluation of benzoic acid (E 210), sodium benzoate (E 211), potassium benzoate (E 212) and calcium benzoate (E 213) as food additives. EFSA Journal, 2016",
+    "FDA. Questions and answers on the occurrence of benzene in soft drinks and other beverages",
+    "McCann D et al. Food additives and hyperactive behaviour in 3-year-old and 8/9-year-old children. Lancet, 2007",
+    "EFSA. Press release on the 2008 opinion on the Southampton study of colours and sodium benzoate",
+    "CSPI. Chemical Cuisine: sodium benzoate, benzoic acid"
    ]
   },
   {
    "id": "additive:e212",
    "kind": "additive",
    "title": "E212 Potassium benzoate",
-   "summary": "Can form tiny amounts of benzene in drinks that also contain vitamin C. It was also part of the colour mix in the 2007 hyperactivity study.",
+   "summary": "EFSA found no genotoxicity concern but said children's intake from drinks could exceed its safe daily limit. It can form traces of benzene with vitamin C.",
    "level": "some",
    "evidence": "Weak",
    "to": "/scan#guide",
    "exclude_if": [],
    "cautions": [
-    "Children, if a family notices a link between these drinks and behaviour."
+    "Children who drink a lot of benzoate-preserved drinks. People with asthma, hives or other sensitivities have also been named by CSPI as a group that may react."
    ],
    "sources": [
-    "FDA: Benzene in soft drinks and other beverages (Q&A)",
-    "McCann D et al. Food additives and hyperactive behaviour in children. Lancet, 2007"
+    "EFSA ANS Panel. Scientific Opinion on the re-evaluation of benzoic acid (E 210), sodium benzoate (E 211), potassium benzoate (E 212) and calcium benzoate (E 213) as food additives. EFSA Journal, 2016",
+    "FDA. Questions and answers on the occurrence of benzene in soft drinks and other beverages",
+    "McCann D et al. Food additives and hyperactive behaviour in 3-year-old and 8/9-year-old children. Lancet, 2007",
+    "EFSA. Press release on the 2008 opinion on the Southampton study of colours and sodium benzoate",
+    "CSPI. Chemical Cuisine: sodium benzoate, benzoic acid"
+   ]
+  },
+  {
+   "id": "additive:e213",
+   "kind": "additive",
+   "title": "E213 Calcium benzoate",
+   "summary": "EFSA found no genotoxicity concern but said children's intake from drinks could exceed its safe daily limit. It can form traces of benzene with vitamin C.",
+   "level": "some",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "Children who drink a lot of benzoate-preserved drinks. People with asthma, hives or other sensitivities have also been named by CSPI as a group that may react."
+   ],
+   "sources": [
+    "EFSA ANS Panel. Scientific Opinion on the re-evaluation of benzoic acid (E 210), sodium benzoate (E 211), potassium benzoate (E 212) and calcium benzoate (E 213) as food additives. EFSA Journal, 2016",
+    "FDA. Questions and answers on the occurrence of benzene in soft drinks and other beverages",
+    "McCann D et al. Food additives and hyperactive behaviour in 3-year-old and 8/9-year-old children. Lancet, 2007",
+    "EFSA. Press release on the 2008 opinion on the Southampton study of colours and sodium benzoate",
+    "CSPI. Chemical Cuisine: sodium benzoate, benzoic acid"
+   ]
+  },
+  {
+   "id": "additive:e214",
+   "kind": "additive",
+   "title": "E214 Ethylparaben",
+   "summary": "EFSA set a safe daily intake for this group in 2004. Some agencies and consumer groups worry about hormone-like effects seen in lab and animal studies.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "People who want to limit hormone-active chemicals may prefer to avoid parabens in food and skin products."
+   ],
+   "sources": [
+    "EFSA AFC Panel. Opinion on para-hydroxybenzoates (E 214-219), EFSA Journal 83, 2004",
+    "EFSA. EFSA advises on the safety of paraben usage in food",
+    "EC Scientific Committee on Consumer Products. Extended opinion on the safety evaluation of parabens"
+   ]
+  },
+  {
+   "id": "additive:e215",
+   "kind": "additive",
+   "title": "E215 Sodium ethyl para-hydroxybenzoate",
+   "summary": "EFSA set a safe daily intake for this group in 2004. Some agencies and consumer groups worry about hormone-like effects seen in lab and animal studies.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "People who want to limit hormone-active chemicals may prefer to avoid parabens in food and skin products."
+   ],
+   "sources": [
+    "EFSA AFC Panel. Opinion on para-hydroxybenzoates (E 214-219), EFSA Journal 83, 2004",
+    "EFSA. EFSA advises on the safety of paraben usage in food",
+    "EC Scientific Committee on Consumer Products. Extended opinion on the safety evaluation of parabens"
+   ]
+  },
+  {
+   "id": "additive:e218",
+   "kind": "additive",
+   "title": "E218 Methylparaben",
+   "summary": "EFSA set a safe daily intake for this group in 2004. Some agencies and consumer groups worry about hormone-like effects seen in lab and animal studies.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "People who want to limit hormone-active chemicals may prefer to avoid parabens in food and skin products."
+   ],
+   "sources": [
+    "EFSA AFC Panel. Opinion on para-hydroxybenzoates (E 214-219), EFSA Journal 83, 2004",
+    "EFSA. EFSA advises on the safety of paraben usage in food",
+    "EC Scientific Committee on Consumer Products. Extended opinion on the safety evaluation of parabens"
+   ]
+  },
+  {
+   "id": "additive:e219",
+   "kind": "additive",
+   "title": "E219 Sodium methyl para-hydroxybenzoate",
+   "summary": "EFSA set a safe daily intake for this group in 2004. Some agencies and consumer groups worry about hormone-like effects seen in lab and animal studies.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "People who want to limit hormone-active chemicals may prefer to avoid parabens in food and skin products."
+   ],
+   "sources": [
+    "EFSA AFC Panel. Opinion on para-hydroxybenzoates (E 214-219), EFSA Journal 83, 2004",
+    "EFSA. EFSA advises on the safety of paraben usage in food",
+    "EC Scientific Committee on Consumer Products. Extended opinion on the safety evaluation of parabens"
    ]
   },
   {
    "id": "additive:e220",
    "kind": "additive",
    "title": "E220 Sulfur dioxide",
-   "summary": "Can trigger reactions in people who are sensitive to sulfites. EFSA also flagged a safety concern about how much some people eat.",
+   "summary": "Sulfites can trigger breathing problems and other reactions in some people, especially people with asthma. EFSA also withdrew its safe daily intake in 2022 because of gaps in the data.",
    "level": "some",
    "evidence": "Moderate",
    "to": "/scan#guide",
    "exclude_if": [],
    "cautions": [
-    "People with asthma or a known sulfite sensitivity."
+    "People with asthma and anyone who has had a reaction to sulfites. Regulators require sulfites above 10 mg/kg (or 10 mg/L) to be labelled for this reason."
    ],
    "sources": [
-    "EFSA: Follow-up of the re-evaluation of sulfur dioxide and sulfites (E 220-228), 2022"
+    "EFSA. Scientific opinion on the re-evaluation of sulfur dioxide and sulfites (E 220-E 228). EFSA Journal, 2016",
+    "EFSA. Follow-up of the re-evaluation of sulfur dioxide and sulfites (E 220-E 228). EFSA Journal 20(11):7594, 2022",
+    "CSPI. Chemical Cuisine: Sulfites"
    ]
   },
   {
    "id": "additive:e221",
    "kind": "additive",
    "title": "E221 Sodium sulfite",
-   "summary": "Can trigger reactions in people who are sensitive to sulfites. EFSA also flagged a safety concern about how much some people eat.",
+   "summary": "Sulfites can trigger breathing problems and other reactions in some people, especially people with asthma. EFSA also withdrew its safe daily intake in 2022 because of gaps in the data.",
    "level": "some",
    "evidence": "Moderate",
    "to": "/scan#guide",
    "exclude_if": [],
    "cautions": [
-    "People with asthma or a known sulfite sensitivity."
+    "People with asthma and anyone who has had a reaction to sulfites. Regulators require sulfites above 10 mg/kg (or 10 mg/L) to be labelled for this reason."
    ],
    "sources": [
-    "EFSA: Follow-up of the re-evaluation of sulfur dioxide and sulfites (E 220-228), 2022"
+    "EFSA. Scientific opinion on the re-evaluation of sulfur dioxide and sulfites (E 220-E 228). EFSA Journal, 2016",
+    "EFSA. Follow-up of the re-evaluation of sulfur dioxide and sulfites (E 220-E 228). EFSA Journal 20(11):7594, 2022",
+    "CSPI. Chemical Cuisine: Sulfites"
    ]
   },
   {
    "id": "additive:e222",
    "kind": "additive",
    "title": "E222 Sodium bisulfite",
-   "summary": "Can trigger reactions in people who are sensitive to sulfites. EFSA also flagged a safety concern about how much some people eat.",
+   "summary": "Sulfites can trigger breathing problems and other reactions in some people, especially people with asthma. EFSA also withdrew its safe daily intake in 2022 because of gaps in the data.",
    "level": "some",
    "evidence": "Moderate",
    "to": "/scan#guide",
    "exclude_if": [],
    "cautions": [
-    "People with asthma or a known sulfite sensitivity."
+    "People with asthma and anyone who has had a reaction to sulfites. Regulators require sulfites above 10 mg/kg (or 10 mg/L) to be labelled for this reason."
    ],
    "sources": [
-    "EFSA: Follow-up of the re-evaluation of sulfur dioxide and sulfites (E 220-228), 2022"
+    "EFSA. Scientific opinion on the re-evaluation of sulfur dioxide and sulfites (E 220-E 228). EFSA Journal, 2016",
+    "EFSA. Follow-up of the re-evaluation of sulfur dioxide and sulfites (E 220-E 228). EFSA Journal 20(11):7594, 2022",
+    "CSPI. Chemical Cuisine: Sulfites"
    ]
   },
   {
    "id": "additive:e223",
    "kind": "additive",
    "title": "E223 Sodium metabisulfite",
-   "summary": "Can trigger reactions in people who are sensitive to sulfites. EFSA also flagged a safety concern about how much some people eat.",
+   "summary": "Sulfites can trigger breathing problems and other reactions in some people, especially people with asthma. EFSA also withdrew its safe daily intake in 2022 because of gaps in the data.",
    "level": "some",
    "evidence": "Moderate",
    "to": "/scan#guide",
    "exclude_if": [],
    "cautions": [
-    "People with asthma or a known sulfite sensitivity."
+    "People with asthma and anyone who has had a reaction to sulfites. Regulators require sulfites above 10 mg/kg (or 10 mg/L) to be labelled for this reason."
    ],
    "sources": [
-    "EFSA: Follow-up of the re-evaluation of sulfur dioxide and sulfites (E 220-228), 2022"
+    "EFSA. Scientific opinion on the re-evaluation of sulfur dioxide and sulfites (E 220-E 228). EFSA Journal, 2016",
+    "EFSA. Follow-up of the re-evaluation of sulfur dioxide and sulfites (E 220-E 228). EFSA Journal 20(11):7594, 2022",
+    "CSPI. Chemical Cuisine: Sulfites"
    ]
   },
   {
    "id": "additive:e224",
    "kind": "additive",
    "title": "E224 Potassium metabisulfite",
-   "summary": "Can trigger reactions in people who are sensitive to sulfites. EFSA also flagged a safety concern about how much some people eat.",
+   "summary": "Sulfites can trigger breathing problems and other reactions in some people, especially people with asthma. EFSA also withdrew its safe daily intake in 2022 because of gaps in the data.",
    "level": "some",
    "evidence": "Moderate",
    "to": "/scan#guide",
    "exclude_if": [],
    "cautions": [
-    "People with asthma or a known sulfite sensitivity."
+    "People with asthma and anyone who has had a reaction to sulfites. Regulators require sulfites above 10 mg/kg (or 10 mg/L) to be labelled for this reason."
    ],
    "sources": [
-    "EFSA: Follow-up of the re-evaluation of sulfur dioxide and sulfites (E 220-228), 2022"
+    "EFSA. Scientific opinion on the re-evaluation of sulfur dioxide and sulfites (E 220-E 228). EFSA Journal, 2016",
+    "EFSA. Follow-up of the re-evaluation of sulfur dioxide and sulfites (E 220-E 228). EFSA Journal 20(11):7594, 2022",
+    "CSPI. Chemical Cuisine: Sulfites"
    ]
   },
   {
    "id": "additive:e226",
    "kind": "additive",
    "title": "E226 Calcium sulfite",
-   "summary": "Can trigger reactions in people who are sensitive to sulfites. EFSA also flagged a safety concern about how much some people eat.",
+   "summary": "Sulfites can trigger breathing problems and other reactions in some people, especially people with asthma. EFSA also withdrew its safe daily intake in 2022 because of gaps in the data.",
    "level": "some",
    "evidence": "Moderate",
    "to": "/scan#guide",
    "exclude_if": [],
    "cautions": [
-    "People with asthma or a known sulfite sensitivity."
+    "People with asthma and anyone who has had a reaction to sulfites. Regulators require sulfites above 10 mg/kg (or 10 mg/L) to be labelled for this reason."
    ],
    "sources": [
-    "EFSA: Follow-up of the re-evaluation of sulfur dioxide and sulfites (E 220-228), 2022"
+    "EFSA. Scientific opinion on the re-evaluation of sulfur dioxide and sulfites (E 220-E 228). EFSA Journal, 2016",
+    "EFSA. Follow-up of the re-evaluation of sulfur dioxide and sulfites (E 220-E 228). EFSA Journal 20(11):7594, 2022",
+    "CSPI. Chemical Cuisine: Sulfites"
    ]
   },
   {
    "id": "additive:e227",
    "kind": "additive",
    "title": "E227 Calcium bisulfite",
-   "summary": "Can trigger reactions in people who are sensitive to sulfites. EFSA also flagged a safety concern about how much some people eat.",
+   "summary": "Sulfites can trigger breathing problems and other reactions in some people, especially people with asthma. EFSA also withdrew its safe daily intake in 2022 because of gaps in the data.",
    "level": "some",
    "evidence": "Moderate",
    "to": "/scan#guide",
    "exclude_if": [],
    "cautions": [
-    "People with asthma or a known sulfite sensitivity."
+    "People with asthma and anyone who has had a reaction to sulfites. Regulators require sulfites above 10 mg/kg (or 10 mg/L) to be labelled for this reason."
    ],
    "sources": [
-    "EFSA: Follow-up of the re-evaluation of sulfur dioxide and sulfites (E 220-228), 2022"
+    "EFSA. Scientific opinion on the re-evaluation of sulfur dioxide and sulfites (E 220-E 228). EFSA Journal, 2016",
+    "EFSA. Follow-up of the re-evaluation of sulfur dioxide and sulfites (E 220-E 228). EFSA Journal 20(11):7594, 2022",
+    "CSPI. Chemical Cuisine: Sulfites"
    ]
   },
   {
    "id": "additive:e228",
    "kind": "additive",
    "title": "E228 Potassium bisulfite",
-   "summary": "Can trigger reactions in people who are sensitive to sulfites. EFSA also flagged a safety concern about how much some people eat.",
+   "summary": "Sulfites can trigger breathing problems and other reactions in some people, especially people with asthma. EFSA also withdrew its safe daily intake in 2022 because of gaps in the data.",
    "level": "some",
    "evidence": "Moderate",
    "to": "/scan#guide",
    "exclude_if": [],
    "cautions": [
-    "People with asthma or a known sulfite sensitivity."
+    "People with asthma and anyone who has had a reaction to sulfites. Regulators require sulfites above 10 mg/kg (or 10 mg/L) to be labelled for this reason."
    ],
    "sources": [
-    "EFSA: Follow-up of the re-evaluation of sulfur dioxide and sulfites (E 220-228), 2022"
+    "EFSA. Scientific opinion on the re-evaluation of sulfur dioxide and sulfites (E 220-E 228). EFSA Journal, 2016",
+    "EFSA. Follow-up of the re-evaluation of sulfur dioxide and sulfites (E 220-E 228). EFSA Journal 20(11):7594, 2022",
+    "CSPI. Chemical Cuisine: Sulfites"
+   ]
+  },
+  {
+   "id": "additive:e234",
+   "kind": "additive",
+   "title": "E234 Nisin",
+   "summary": "A natural antibacterial protein made by a milk-culture bacterium. EFSA set a safe daily intake in 2017 and found its uses were not a concern.",
+   "level": "little",
+   "evidence": "None",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA ANS Panel. Safety of nisin (E 234) as a food additive in the light of new data and the proposed extension of use. EFSA Journal, 2017"
+   ]
+  },
+  {
+   "id": "additive:e235",
+   "kind": "additive",
+   "title": "E235 Natamycin",
+   "summary": "Used only on surfaces. EFSA could not set its own safe daily intake because of data gaps, but judged the permitted uses not a safety concern.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "People who avoid eating cheese rind or sausage casing can avoid most exposure."
+   ],
+   "sources": [
+    "EFSA. Scientific Opinion on the use of natamycin (E 235) as a food additive. EFSA Journal, 2009"
    ]
   },
   {
    "id": "additive:e249",
    "kind": "additive",
    "title": "E249 Potassium nitrite",
-   "summary": "The strong research link is to eating processed meat, which can contain it. How much of that link is due to nitrite itself is not settled.",
+   "summary": "Nitrite helps stop dangerous bacteria in preserved meat, but in the body it can form nitrosamines. Higher intake has been linked to some health risks in observational studies.",
    "level": "some",
    "evidence": "Moderate",
    "to": "/scan#guide",
    "exclude_if": [],
-   "cautions": [],
+   "cautions": [
+    "Infants (nitrite can raise methaemoglobin) and children with a high intake of preserved meat. Not meant for baby foods."
+   ],
    "sources": [
-    "IARC: Evaluation of consumption of red meat and processed meat, 2015",
-    "EFSA: Re-evaluation of potassium nitrite (E 249) and sodium nitrite (E 250), 2017",
-    "EFSA: Safe levels for nitrites and nitrates added to food, 2017"
+    "EFSA. Re-evaluation of potassium nitrite (E 249) and sodium nitrite (E 250) as food additives. EFSA Journal, 2017",
+    "IARC. Ingested nitrate and nitrite, and cyanobacterial peptide toxins. IARC Monographs Volume 94, 2010",
+    "INSERM. Dietary exposure to nitrites associated with a higher risk of type 2 diabetes (NutriNet-Santé), 2023",
+    "CSPI. Chemical Cuisine: Sodium nitrate and sodium nitrite"
    ]
   },
   {
    "id": "additive:e250",
    "kind": "additive",
    "title": "E250 Sodium nitrite",
-   "summary": "The strong research link is to eating processed meat, which can contain it. How much of that link is due to nitrite itself is not settled.",
+   "summary": "Nitrite helps stop dangerous bacteria in preserved meat, but in the body it can form nitrosamines. Higher intake has been linked to some health risks in observational studies.",
    "level": "some",
    "evidence": "Moderate",
    "to": "/scan#guide",
    "exclude_if": [],
-   "cautions": [],
+   "cautions": [
+    "Infants (nitrite can raise methaemoglobin) and children with a high intake of preserved meat. Not meant for baby foods."
+   ],
    "sources": [
-    "IARC: Evaluation of consumption of red meat and processed meat, 2015",
-    "EFSA: Re-evaluation of potassium nitrite (E 249) and sodium nitrite (E 250), 2017",
-    "EFSA: Safe levels for nitrites and nitrates added to food, 2017"
+    "EFSA. Re-evaluation of potassium nitrite (E 249) and sodium nitrite (E 250) as food additives. EFSA Journal, 2017",
+    "IARC. Ingested nitrate and nitrite, and cyanobacterial peptide toxins. IARC Monographs Volume 94, 2010",
+    "INSERM. Dietary exposure to nitrites associated with a higher risk of type 2 diabetes (NutriNet-Santé), 2023",
+    "CSPI. Chemical Cuisine: Sodium nitrate and sodium nitrite"
    ]
   },
   {
    "id": "additive:e251",
    "kind": "additive",
    "title": "E251 Sodium nitrate",
-   "summary": "EFSA found no safety concern from nitrate used as an additive at current levels. Nitrate in the body can convert to nitrite.",
-   "level": "little",
+   "summary": "Nitrate is mostly harmless on its own and comes mainly from vegetables, but part of it turns into nitrite in the body. Additive nitrate is a small share of total intake.",
+   "level": "some",
    "evidence": "Weak",
    "to": "/scan#guide",
    "exclude_if": [],
-   "cautions": [],
+   "cautions": [
+    "Infants. Nitrate in water or food can be converted to nitrite and affect blood oxygen carrying."
+   ],
    "sources": [
-    "EFSA: Re-evaluation of sodium nitrate (E 251) and potassium nitrate (E 252), 2017",
-    "IARC: Evaluation of consumption of red meat and processed meat, 2015"
+    "EFSA. Re-evaluation of sodium nitrate (E 251) and potassium nitrate (E 252) as food additives. EFSA Journal, 2017",
+    "IARC. Ingested nitrate and nitrite, and cyanobacterial peptide toxins. IARC Monographs Volume 94, 2010",
+    "INSERM. Dietary exposure to nitrites associated with a higher risk of type 2 diabetes (NutriNet-Santé), 2023",
+    "CSPI. Chemical Cuisine: Sodium nitrate and sodium nitrite"
    ]
   },
   {
    "id": "additive:e252",
    "kind": "additive",
    "title": "E252 Potassium nitrate",
-   "summary": "EFSA found no safety concern from nitrate used as an additive at current levels. Nitrate in the body can convert to nitrite.",
-   "level": "little",
+   "summary": "Nitrate is mostly harmless on its own and comes mainly from vegetables, but part of it turns into nitrite in the body. Additive nitrate is a small share of total intake.",
+   "level": "some",
    "evidence": "Weak",
    "to": "/scan#guide",
    "exclude_if": [],
-   "cautions": [],
+   "cautions": [
+    "Infants. Nitrate in water or food can be converted to nitrite and affect blood oxygen carrying."
+   ],
    "sources": [
-    "EFSA: Re-evaluation of sodium nitrate (E 251) and potassium nitrate (E 252), 2017",
-    "IARC: Evaluation of consumption of red meat and processed meat, 2015"
+    "EFSA. Re-evaluation of sodium nitrate (E 251) and potassium nitrate (E 252) as food additives. EFSA Journal, 2017",
+    "IARC. Ingested nitrate and nitrite, and cyanobacterial peptide toxins. IARC Monographs Volume 94, 2010",
+    "INSERM. Dietary exposure to nitrites associated with a higher risk of type 2 diabetes (NutriNet-Santé), 2023",
+    "CSPI. Chemical Cuisine: Sodium nitrate and sodium nitrite"
    ]
   },
   {
    "id": "additive:e260",
    "kind": "additive",
    "title": "E260 Acetic acid",
-   "summary": "Regulators have not identified a safety concern at the levels allowed in food.",
+   "summary": "The acid in vinegar. We found no regulator concern at food uses.",
    "level": "little",
    "evidence": "None",
    "to": "/scan#guide",
    "exclude_if": [],
    "cautions": [],
    "sources": [
-    "EFSA: Food additives"
+    "European Commission. Regulation (EU) 2023/2086 (food additive uses including E 260 and E 263)"
+   ]
+  },
+  {
+   "id": "additive:e262",
+   "kind": "additive",
+   "title": "E262 Sodium acetates",
+   "summary": "Sodium salts of acetic acid (sodium acetate and sodium diacetate). We found no regulator concern.",
+   "level": "little",
+   "evidence": "None",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "European Commission. Regulation (EU) 2023/2086 (food additive uses including E 260 and E 263)"
+   ]
+  },
+  {
+   "id": "additive:e263",
+   "kind": "additive",
+   "title": "E263 Calcium acetate",
+   "summary": "A calcium salt of acetic acid. We found no regulator concern.",
+   "level": "little",
+   "evidence": "None",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "European Commission. Regulation (EU) 2023/2086 (food additive uses including E 260 and E 263)"
    ]
   },
   {
    "id": "additive:e270",
    "kind": "additive",
    "title": "E270 Lactic acid",
-   "summary": "Regulators have not identified a safety concern at the levels allowed in food.",
+   "summary": "An acid made by fermenting sugars, found naturally in fermented foods. We found no regulator concern.",
    "level": "little",
    "evidence": "None",
    "to": "/scan#guide",
    "exclude_if": [],
    "cautions": [],
    "sources": [
-    "EFSA: Food additives"
+    "EFSA. Open call for food additives analytical data and use levels (lists lactates and citrates among additives still being reviewed)"
+   ]
+  },
+  {
+   "id": "additive:e280",
+   "kind": "additive",
+   "title": "E280 Propionic acid",
+   "summary": "Regulators found no safety concern at current uses. Small studies raise questions about behaviour and blood sugar that have not been confirmed.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "Parents of children with behaviour sensitivities to additives may wish to watch for patterns, based on the small 2002 trial."
+   ],
+   "sources": [
+    "EFSA. Re-evaluation of propionic acid and its salts (E 280-283), as summarised in Commission Regulation (EU) 2016/683",
+    "Harvard T.H. Chan School of Public Health. Could a popular food ingredient raise the risk for diabetes and obesity? 2019",
+    "CSPI. Chemical Cuisine: Calcium (or sodium) propionate"
+   ]
+  },
+  {
+   "id": "additive:e281",
+   "kind": "additive",
+   "title": "E281 Sodium propionate",
+   "summary": "Regulators found no safety concern at current uses. Small studies raise questions about behaviour and blood sugar that have not been confirmed.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "Parents of children with behaviour sensitivities to additives may wish to watch for patterns, based on the small 2002 trial."
+   ],
+   "sources": [
+    "EFSA. Re-evaluation of propionic acid and its salts (E 280-283), as summarised in Commission Regulation (EU) 2016/683",
+    "Harvard T.H. Chan School of Public Health. Could a popular food ingredient raise the risk for diabetes and obesity? 2019",
+    "CSPI. Chemical Cuisine: Calcium (or sodium) propionate"
+   ]
+  },
+  {
+   "id": "additive:e282",
+   "kind": "additive",
+   "title": "E282 Calcium propionate",
+   "summary": "Regulators found no safety concern at current uses. Small studies raise questions about behaviour and blood sugar that have not been confirmed.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "Parents of children with behaviour sensitivities to additives may wish to watch for patterns, based on the small 2002 trial."
+   ],
+   "sources": [
+    "EFSA. Re-evaluation of propionic acid and its salts (E 280-283), as summarised in Commission Regulation (EU) 2016/683",
+    "Harvard T.H. Chan School of Public Health. Could a popular food ingredient raise the risk for diabetes and obesity? 2019",
+    "CSPI. Chemical Cuisine: Calcium (or sodium) propionate"
+   ]
+  },
+  {
+   "id": "additive:e283",
+   "kind": "additive",
+   "title": "E283 Potassium propionate",
+   "summary": "Regulators found no safety concern at current uses. Small studies raise questions about behaviour and blood sugar that have not been confirmed.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "Parents of children with behaviour sensitivities to additives may wish to watch for patterns, based on the small 2002 trial."
+   ],
+   "sources": [
+    "EFSA. Re-evaluation of propionic acid and its salts (E 280-283), as summarised in Commission Regulation (EU) 2016/683",
+    "Harvard T.H. Chan School of Public Health. Could a popular food ingredient raise the risk for diabetes and obesity? 2019",
+    "CSPI. Chemical Cuisine: Calcium (or sodium) propionate"
    ]
   },
   {
    "id": "additive:e296",
    "kind": "additive",
    "title": "E296 Malic acid",
-   "summary": "Regulators have not identified a safety concern at the levels allowed in food.",
+   "summary": "The acid that gives apples their tang. We found no regulator concern at food levels.",
    "level": "little",
    "evidence": "None",
    "to": "/scan#guide",
    "exclude_if": [],
    "cautions": [],
    "sources": [
-    "EFSA: Food additives"
+    "EFSA. Call for data for the re-evaluation of malic acid and malates (E 296; E 350-352)"
+   ]
+  },
+  {
+   "id": "additive:e297",
+   "kind": "additive",
+   "title": "E297 Fumaric acid",
+   "summary": "A food acid also found in some plants. We found no regulator concern at food levels.",
+   "level": "little",
+   "evidence": "None",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA. Call for data for the re-evaluation of fumaric acid (E 297) and succinic acid (E 363)"
    ]
   },
   {
    "id": "additive:e300",
    "kind": "additive",
    "title": "E300 Ascorbic acid",
-   "summary": "Regulators have not identified a safety concern at the levels allowed in food.",
+   "summary": "This is vitamin C. EFSA found no safety concern at current uses and saw no need for a numerical safe limit.",
    "level": "little",
    "evidence": "None",
    "to": "/scan#guide",
    "exclude_if": [],
    "cautions": [],
    "sources": [
-    "EFSA: Food additives"
+    "EFSA. Re-evaluation of ascorbic acid (E 300), sodium ascorbate (E 301) and calcium ascorbate (E 302) as food additives. EFSA Journal, 2015"
+   ]
+  },
+  {
+   "id": "additive:e301",
+   "kind": "additive",
+   "title": "E301 Sodium ascorbate",
+   "summary": "A sodium salt of vitamin C. EFSA found no safety concern at current uses.",
+   "level": "little",
+   "evidence": "None",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA. Re-evaluation of ascorbic acid (E 300), sodium ascorbate (E 301) and calcium ascorbate (E 302) as food additives. EFSA Journal, 2015"
+   ]
+  },
+  {
+   "id": "additive:e304",
+   "kind": "additive",
+   "title": "E304 Ascorbyl palmitate",
+   "summary": "A fat-soluble form of vitamin C. EFSA found no safety concern at current uses, but the safety data were too limited to set a numerical safe limit.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "EFSA's 2015 opinion did not cover infants under 12 weeks, so it is not a conclusion for very young babies."
+   ],
+   "sources": [
+    "EFSA. Re-evaluation of ascorbyl palmitate (E 304(i)) and ascorbyl stearate (E 304(ii)) as food additives. EFSA Journal, 2015"
    ]
   },
   {
    "id": "additive:e306",
    "kind": "additive",
-   "title": "E306 Tocopherols",
-   "summary": "Regulators have not identified a safety concern at the levels allowed in food.",
+   "title": "E306 Tocopherol-rich extract",
+   "summary": "A mix of vitamin E forms from vegetable oils. EFSA found low safety but did not set a numerical safe limit because some data were missing.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "EFSA's 2015 opinion did not cover infants under 12 weeks."
+   ],
+   "sources": [
+    "EFSA. Re-evaluation of tocopherol-rich extract (E 306), alpha-, gamma- and delta-tocopherol (E 307-309) as food additives. EFSA Journal, 2015"
+   ]
+  },
+  {
+   "id": "additive:e307",
+   "kind": "additive",
+   "title": "E307 Alpha-tocopherol",
+   "summary": "This is the main form of vitamin E. EFSA judged it not of safety concern at the reported uses.",
    "level": "little",
    "evidence": "None",
    "to": "/scan#guide",
    "exclude_if": [],
    "cautions": [],
    "sources": [
-    "EFSA: Food additives"
+    "EFSA. Re-evaluation of tocopherol-rich extract (E 306), alpha-, gamma- and delta-tocopherol (E 307-309) as food additives. EFSA Journal, 2015"
+   ]
+  },
+  {
+   "id": "additive:e309",
+   "kind": "additive",
+   "title": "E309 Delta-tocopherol",
+   "summary": "A vitamin E form. EFSA found low safety but did not set a numerical safe limit because some data were missing.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "EFSA's 2015 opinion did not cover infants under 12 weeks."
+   ],
+   "sources": [
+    "EFSA. Re-evaluation of tocopherol-rich extract (E 306), alpha-, gamma- and delta-tocopherol (E 307-309) as food additives. EFSA Journal, 2015"
+   ]
+  },
+  {
+   "id": "additive:e310",
+   "kind": "additive",
+   "title": "E310 Propyl gallate",
+   "summary": "EFSA said use at current levels is not of safety concern, but high-end adult intakes were estimated above its safe daily intake. Concerns come from animal and lab work.",
+   "level": "some",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA. Scientific opinion on the re-evaluation of propyl gallate (E 310) as a food additive. EFSA Journal, 2014",
+    "CSPI. Chemical Cuisine: Propyl gallate",
+    "Cell and DNA damage effects of tert-butylhydroquinone, butylated hydroxyanisole and propyl gallate as synthetic food antioxidants. Food Sci Nutr, 2024"
+   ]
+  },
+  {
+   "id": "additive:e315",
+   "kind": "additive",
+   "title": "E315 Erythorbic acid",
+   "summary": "A close relative of vitamin C that does not work as vitamin C. EFSA kept its safe limit at 6 mg per kg of body weight per day.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA. Re-evaluation of erythorbic acid (E 315) and sodium erythorbate (E 316) as food additives. EFSA Journal, 2016"
+   ]
+  },
+  {
+   "id": "additive:e316",
+   "kind": "additive",
+   "title": "E316 Sodium erythorbate",
+   "summary": "The sodium salt of erythorbic acid. EFSA kept the safe limit at 6 mg per kg of body weight per day and found no group above it.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA. Re-evaluation of erythorbic acid (E 315) and sodium erythorbate (E 316) as food additives. EFSA Journal, 2016"
+   ]
+  },
+  {
+   "id": "additive:e319",
+   "kind": "additive",
+   "title": "E319 TBHQ",
+   "summary": "Regulators allow it within a set safe daily intake. Animal and lab studies have reported tumours or cell damage at high doses, not shown in people.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "JECFA. Tertiary-butylhydroquinone evaluation (ADI 0-0.7 mg/kg bw). IPCS INCHEM",
+    "EFSA. Opinion on tertiary-butyl hydroquinone (TBHQ) E 319. EFSA Journal, 2004",
+    "CSPI. Chemical Cuisine: TBHQ (tert-butylhydroquinone)",
+    "Cell and DNA damage effects of tert-butylhydroquinone, butylated hydroxyanisole and propyl gallate as synthetic food antioxidants. Food Sci Nutr, 2024"
    ]
   },
   {
    "id": "additive:e320",
    "kind": "additive",
    "title": "E320 Butylated hydroxyanisole",
-   "summary": "IARC classes it as possibly carcinogenic, based on animal studies. EFSA set a safe daily intake and found most people's intake from additive use is under it.",
+   "summary": "IARC and the US NTP both flag it on the strength of animal tumours. EFSA set a safe daily intake and doubts the animal finding applies to people.",
    "level": "some",
    "evidence": "Weak",
    "to": "/scan#guide",
    "exclude_if": [],
-   "cautions": [],
+   "cautions": [
+    "No regulator names a specific group."
+   ],
    "sources": [
     "IARC Monographs Vol. 40: Butylated hydroxyanisole (BHA), 1986",
-    "EFSA: Exposure to butylated hydroxyanisole (E 320), statement, 2012"
+    "US NTP. Report on Carcinogens profile: Butylated hydroxyanisole",
+    "EFSA. Re-evaluation of butylated hydroxyanisole, BHA (E 320) as a food additive. EFSA Journal, 2011",
+    "EFSA. Exposure to butylated hydroxyanisole (E 320), statement, 2012",
+    "CSPI. Chemical Cuisine: Butylated hydroxyanisole (BHA)"
    ]
   },
   {
    "id": "additive:e321",
    "kind": "additive",
    "title": "E321 Butylated hydroxytoluene",
-   "summary": "EFSA lowered its safe daily intake in 2012 after reviewing animal studies.",
+   "summary": "EFSA set a lower safe daily intake in 2012 after reviewing animal studies. We found no strong human evidence of harm.",
    "level": "little",
    "evidence": "Weak",
    "to": "/scan#guide",
    "exclude_if": [],
    "cautions": [],
    "sources": [
-    "EFSA: Re-evaluation of butylated hydroxytoluene BHT (E 321), 2012"
+    "EFSA. Re-evaluation of butylated hydroxytoluene BHT (E 321) as a food additive. EFSA Journal, 2012",
+    "CSPI. Chemical Cuisine: Butylated hydroxytoluene (BHT)"
    ]
   },
   {
    "id": "additive:e322",
    "kind": "additive",
-   "title": "E322 Lecithin",
-   "summary": "Regulators have not identified a safety concern at the levels allowed in food.",
+   "title": "E322 Lecithins",
+   "summary": "A natural fat found in eggs, soy and sunflower seeds. EFSA found no safety concern. Soy-derived lecithin may matter for people with a soy allergy.",
+   "level": "little",
+   "evidence": "None",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "People with a soy or egg allergy. Highly refined lecithin has little protein but labels may still warn."
+   ],
+   "sources": [
+    "EFSA FAF Panel. Re-evaluation of lecithins (E 322) in foods for infants below 16 weeks of age and follow-up. EFSA Journal, 2020",
+    "BMJ Group. High intake of several emulsifier E numbers linked to increased cardiovascular disease risk, 2023"
+   ]
+  },
+  {
+   "id": "additive:e325",
+   "kind": "additive",
+   "title": "E325 Sodium lactate",
+   "summary": "The sodium salt of lactic acid. We found no regulator concern at food uses.",
    "level": "little",
    "evidence": "None",
    "to": "/scan#guide",
    "exclude_if": [],
    "cautions": [],
    "sources": [
-    "EFSA: Food additives"
+    "EFSA. Open call for food additives analytical data and use levels (lists lactates and citrates among additives still being reviewed)"
+   ]
+  },
+  {
+   "id": "additive:e326",
+   "kind": "additive",
+   "title": "E326 Potassium lactate",
+   "summary": "The potassium salt of lactic acid. We found no regulator concern at food uses.",
+   "level": "little",
+   "evidence": "None",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "People told to limit potassium may want to ask their clinician about potassium additives."
+   ],
+   "sources": [
+    "EFSA. Open call for food additives analytical data and use levels (lists lactates and citrates among additives still being reviewed)"
+   ]
+  },
+  {
+   "id": "additive:e327",
+   "kind": "additive",
+   "title": "E327 Calcium lactate",
+   "summary": "The calcium salt of lactic acid. We found no regulator concern at food uses.",
+   "level": "little",
+   "evidence": "None",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA. Open call for food additives analytical data and use levels (lists lactates and citrates among additives still being reviewed)"
    ]
   },
   {
    "id": "additive:e330",
    "kind": "additive",
    "title": "E330 Citric acid",
-   "summary": "Regulators have not identified a safety concern at the levels allowed in food.",
+   "summary": "A very common acid found naturally in citrus fruit. Regulators have not found a safety concern.",
    "level": "little",
    "evidence": "None",
    "to": "/scan#guide",
    "exclude_if": [],
    "cautions": [],
    "sources": [
-    "EFSA: Food additives"
+    "European Commission. Regulation (EU) 2020/1419 (notes SCF 1990 assessment of citric acid, ADI not specified)",
+    "EFSA. Call for data (Batch 5) covering citric acid and citrates (E 330-333)"
+   ]
+  },
+  {
+   "id": "additive:e331",
+   "kind": "additive",
+   "title": "E331 Sodium citrates",
+   "summary": "Salts of citric acid (sodium form). No safety concern has been raised by regulators.",
+   "level": "little",
+   "evidence": "None",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA. Call for data (Batch 5) covering citric acid and citrates (E 330-333)",
+    "European Commission. Regulation (EU) 2020/1419 (notes SCF 1990 assessment of citric acid, ADI not specified)"
+   ]
+  },
+  {
+   "id": "additive:e332",
+   "kind": "additive",
+   "title": "E332 Potassium citrates",
+   "summary": "Salts of citric acid (potassium form). No safety concern has been raised by regulators.",
+   "level": "little",
+   "evidence": "None",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "People told to limit potassium (for example with advanced kidney disease) may want to ask their clinician about potassium additives."
+   ],
+   "sources": [
+    "EFSA. Call for data (Batch 5) covering citric acid and citrates (E 330-333)",
+    "European Commission. Regulation (EU) 2020/1419 (notes SCF 1990 assessment of citric acid, ADI not specified)"
+   ]
+  },
+  {
+   "id": "additive:e333",
+   "kind": "additive",
+   "title": "E333 Calcium citrates",
+   "summary": "Salts of citric acid (calcium form). No safety concern has been raised by regulators.",
+   "level": "little",
+   "evidence": "None",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA. Call for data (Batch 5) covering citric acid and citrates (E 330-333)",
+    "European Commission. Regulation (EU) 2020/1419 (notes SCF 1990 assessment of citric acid, ADI not specified)"
    ]
   },
   {
    "id": "additive:e334",
    "kind": "additive",
    "title": "E334 Tartaric acid",
-   "summary": "Regulators have not identified a safety concern at the levels allowed in food.",
+   "summary": "The acid found in grapes. EFSA raised its group safe daily intake in 2020 and found no concern.",
    "level": "little",
    "evidence": "None",
    "to": "/scan#guide",
    "exclude_if": [],
    "cautions": [],
    "sources": [
-    "EFSA: Food additives"
+    "EFSA. Re-evaluation of l(+)-tartaric acid (E 334), tartrates (E 335, 336, 337) and calcium tartrate (E 354) as food additives. EFSA Journal, 2020",
+    "EFSA FAF Panel. Re-evaluation of l(+)-tartaric acid (E 334) and tartrates, full text. EFSA Journal, 2020"
    ]
   },
   {
    "id": "additive:e338",
    "kind": "additive",
    "title": "E338 Phosphoric acid",
-   "summary": "EFSA set a group safe daily intake for phosphates in 2019 and found that many children's intake may be above it. People with reduced kidney function should take care.",
+   "summary": "EFSA set a group safe daily intake for phosphates in 2019 and estimated that many children go above it. People with reduced kidney function are advised to limit them.",
    "level": "some",
    "evidence": "Weak",
    "to": "/scan#guide",
    "exclude_if": [],
    "cautions": [
-    "People with reduced kidney function."
+    "People with moderate or severe kidney disease, who often must limit phosphorus. EFSA's safe limit does not apply to them. Children and regular users of phosphate-containing supplements may exceed the limit."
    ],
    "sources": [
-    "EFSA: Re-evaluation of phosphoric acid and phosphates (E 338-341, E 343, E 450-452), 2019"
+    "EFSA ANS Panel. Re-evaluation of phosphoric acid, phosphates, di-, tri- and polyphosphates (E 338-341, E 343, E 450-452) as food additives. EFSA Journal, 2019",
+    "BfR. Babies, infants and children can exceed the health guidance values for phosphate (summary of the EFSA opinion)",
+    "CSPI. Chemical Cuisine: Phosphoric acid, phosphates (rating: cut back)",
+    "Saldana TM et al. Carbonated beverages and chronic kidney disease. Epidemiology, 2007"
    ]
   },
   {
    "id": "additive:e339",
    "kind": "additive",
    "title": "E339 Sodium phosphates",
-   "summary": "In one large French study, higher intake was linked to a slightly higher risk of coronary heart disease. It shows a link, not cause and effect.",
+   "summary": "EFSA set a group safe daily intake for phosphates in 2019 and estimated that many children go above it. People with reduced kidney function are advised to limit them.",
    "level": "some",
    "evidence": "Weak",
    "to": "/scan#guide",
    "exclude_if": [],
    "cautions": [
-    "People with reduced kidney function."
+    "People with moderate or severe kidney disease, who often must limit phosphorus. EFSA's safe limit does not apply to them. Children and regular users of phosphate-containing supplements may exceed the limit."
    ],
    "sources": [
-    "Sellem L et al. Food additive emulsifiers and risk of cardiovascular disease (NutriNet-Santé). BMJ, 2023",
-    "EFSA: Re-evaluation of phosphoric acid and phosphates (E 338-341, E 343, E 450-452), 2019"
+    "EFSA ANS Panel. Re-evaluation of phosphoric acid, phosphates, di-, tri- and polyphosphates (E 338-341, E 343, E 450-452) as food additives. EFSA Journal, 2019",
+    "Sellem L et al. Food additive emulsifiers and risk of cardiovascular disease in the NutriNet-Santé cohort. BMJ, 2023",
+    "CSPI. Chemical Cuisine: Phosphoric acid, phosphates (rating: cut back)",
+    "Relationship between serum phosphorus and mortality in non-dialysis chronic kidney disease patients: NHANES 2001-2018. 2024"
    ]
   },
   {
    "id": "additive:e340",
    "kind": "additive",
    "title": "E340 Potassium phosphates",
-   "summary": "EFSA set a group safe daily intake for phosphates in 2019 and found that many children's intake may be above it. People with reduced kidney function should take care.",
+   "summary": "EFSA set a group safe daily intake for phosphates in 2019 and estimated that many children go above it. People with reduced kidney function are advised to limit them.",
    "level": "some",
    "evidence": "Weak",
    "to": "/scan#guide",
    "exclude_if": [],
    "cautions": [
-    "People with reduced kidney function."
+    "People with moderate or severe kidney disease, who often must limit phosphorus. EFSA's safe limit does not apply to them. Children and regular users of phosphate-containing supplements may exceed the limit."
    ],
    "sources": [
-    "EFSA: Re-evaluation of phosphoric acid and phosphates (E 338-341, E 343, E 450-452), 2019"
+    "EFSA ANS Panel. Re-evaluation of phosphoric acid, phosphates, di-, tri- and polyphosphates (E 338-341, E 343, E 450-452) as food additives. EFSA Journal, 2019",
+    "BfR. Babies, infants and children can exceed the health guidance values for phosphate (summary of the EFSA opinion)",
+    "CSPI. Chemical Cuisine: Phosphoric acid, phosphates (rating: cut back)",
+    "Relationship between serum phosphorus and mortality in non-dialysis chronic kidney disease patients: NHANES 2001-2018. 2024"
    ]
   },
   {
    "id": "additive:e341",
    "kind": "additive",
    "title": "E341 Calcium phosphates",
-   "summary": "EFSA set a group safe daily intake for phosphates in 2019 and found that many children's intake may be above it. People with reduced kidney function should take care.",
+   "summary": "EFSA set a group safe daily intake for phosphates in 2019 and estimated that many children go above it. People with reduced kidney function are advised to limit them.",
    "level": "some",
    "evidence": "Weak",
    "to": "/scan#guide",
    "exclude_if": [],
    "cautions": [
-    "People with reduced kidney function."
+    "People with moderate or severe kidney disease, who often must limit phosphorus. EFSA's safe limit does not apply to them. Children and regular users of phosphate-containing supplements may exceed the limit."
    ],
    "sources": [
-    "EFSA: Re-evaluation of phosphoric acid and phosphates (E 338-341, E 343, E 450-452), 2019"
+    "EFSA ANS Panel. Re-evaluation of phosphoric acid, phosphates, di-, tri- and polyphosphates (E 338-341, E 343, E 450-452) as food additives. EFSA Journal, 2019",
+    "BfR. Babies, infants and children can exceed the health guidance values for phosphate (summary of the EFSA opinion)",
+    "CSPI. Chemical Cuisine: Phosphoric acid, phosphates (rating: cut back)",
+    "Relationship between serum phosphorus and mortality in non-dialysis chronic kidney disease patients: NHANES 2001-2018. 2024"
+   ]
+  },
+  {
+   "id": "additive:e343",
+   "kind": "additive",
+   "title": "E343 Magnesium phosphates",
+   "summary": "EFSA set a group safe daily intake for phosphates in 2019 and estimated that many children go above it. People with reduced kidney function are advised to limit them.",
+   "level": "some",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "People with moderate or severe kidney disease, who often must limit phosphorus. EFSA's safe limit does not apply to them. Children and regular users of phosphate-containing supplements may exceed the limit."
+   ],
+   "sources": [
+    "EFSA ANS Panel. Re-evaluation of phosphoric acid, phosphates, di-, tri- and polyphosphates (E 338-341, E 343, E 450-452) as food additives. EFSA Journal, 2019",
+    "BfR. Babies, infants and children can exceed the health guidance values for phosphate (summary of the EFSA opinion)",
+    "CSPI. Chemical Cuisine: Phosphoric acid, phosphates (rating: cut back)",
+    "Relationship between serum phosphorus and mortality in non-dialysis chronic kidney disease patients: NHANES 2001-2018. 2024"
+   ]
+  },
+  {
+   "id": "additive:e385",
+   "kind": "additive",
+   "title": "E385 Calcium disodium EDTA",
+   "summary": "The old safe daily intake is still in use, but EFSA is now re-evaluating it and has noted gaps in the reproductive and developmental data.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA. Call for data for the re-evaluation of calcium disodium EDTA (E 385) as food additive, 2024",
+    "EFSA. Scientific opinion on EDTA (data shortcomings)"
+   ]
+  },
+  {
+   "id": "additive:e392",
+   "kind": "additive",
+   "title": "E392 Extracts of rosemary",
+   "summary": "A plant extract, in practice carnosic acid and carnosol. EFSA saw no concern at current uses, but there is no EFSA numerical safe limit.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA. Refined exposure assessment of extracts of rosemary (E 392) from its use as food additive. EFSA Journal, 2018"
+   ]
+  },
+  {
+   "id": "additive:e401",
+   "kind": "additive",
+   "title": "E401 Sodium alginate",
+   "summary": "A seaweed fibre. EFSA's 2017 review found no safety concern at current uses and saw no need for a numerical daily limit.",
+   "level": "little",
+   "evidence": "None",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA ANS Panel. Re-evaluation of alginic acid and its sodium, potassium, ammonium and calcium salts (E 400-E 404) as food additives. EFSA Journal, 2017"
+   ]
+  },
+  {
+   "id": "additive:e402",
+   "kind": "additive",
+   "title": "E402 Potassium alginate",
+   "summary": "A seaweed fibre. EFSA's 2017 review found no safety concern at current uses and saw no need for a numerical daily limit.",
+   "level": "little",
+   "evidence": "None",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA ANS Panel. Re-evaluation of alginic acid and its sodium, potassium, ammonium and calcium salts (E 400-E 404) as food additives. EFSA Journal, 2017"
+   ]
+  },
+  {
+   "id": "additive:e403",
+   "kind": "additive",
+   "title": "E403 Ammonium alginate",
+   "summary": "A seaweed fibre. EFSA's 2017 review found no safety concern at current uses and saw no need for a numerical daily limit.",
+   "level": "little",
+   "evidence": "None",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA ANS Panel. Re-evaluation of alginic acid and its sodium, potassium, ammonium and calcium salts (E 400-E 404) as food additives. EFSA Journal, 2017"
+   ]
+  },
+  {
+   "id": "additive:e405",
+   "kind": "additive",
+   "title": "E405 Propane-1,2-diol alginate",
+   "summary": "A modified alginate. EFSA's 2018 review found no genotoxicity or cancer concern for it or its breakdown products.",
+   "level": "little",
+   "evidence": "None",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA ANS Panel. Re-evaluation of propane-1,2-diol alginate (E 405) as a food additive. EFSA Journal, 2018"
    ]
   },
   {
    "id": "additive:e406",
    "kind": "additive",
    "title": "E406 Agar",
-   "summary": "Regulators have not identified a safety concern at the levels allowed in food.",
+   "summary": "A seaweed gelling agent used for a long time. The WHO/FAO expert committee set no limit on intake.",
    "level": "little",
    "evidence": "None",
    "to": "/scan#guide",
    "exclude_if": [],
    "cautions": [],
    "sources": [
-    "EFSA: Food additives"
+    "JECFA. Agar, summary of evaluation (INS 406). IPCS INCHEM"
    ]
   },
   {
    "id": "additive:e407",
    "kind": "additive",
    "title": "E407 Carrageenan",
-   "summary": "Often debated online. EFSA's 2018 review found no concern about cancer risk, but asked for more data on some uses.",
-   "level": "little",
+   "summary": "Food-grade carrageenan passed EFSA's 2018 review, but gut-inflammation findings in animals and cells, a data gap for young infants and a debate over contamination with a degraded form keep it on our watch list.",
+   "level": "some",
    "evidence": "Weak",
    "to": "/scan#guide",
    "exclude_if": [],
-   "cautions": [],
+   "cautions": [
+    "Infants: EFSA's first opinion excluded very young infants and asked for more data. People with inflammatory bowel disease sometimes choose to avoid it, although We found no regulator advice to do so."
+   ],
    "sources": [
-    "EFSA: Re-evaluation of carrageenan (E 407) and processed Eucheuma seaweed (E 407a), 2018"
+    "EFSA ANS Panel. Re-evaluation of carrageenan (E 407) and processed Eucheuma seaweed (E 407a) as food additives. EFSA Journal, 2018",
+    "EFSA. Call for technical and toxicological data on carrageenan (E 407) in infant foods (EFSA-Q-2018-00771)",
+    "Sellem L et al. Food additive emulsifiers and risk of cardiovascular disease in the NutriNet-Santé cohort. BMJ, 2023",
+    "Center for Science in the Public Interest. Carrageenan (rating: Caution). CSPI"
+   ]
+  },
+  {
+   "id": "additive:e407a",
+   "kind": "additive",
+   "title": "E407a Processed Eucheuma seaweed",
+   "summary": "A less refined form of carrageenan, reviewed by EFSA together with E 407. The same open questions apply.",
+   "level": "some",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "Infants: EFSA asked for more data for very young infants."
+   ],
+   "sources": [
+    "EFSA ANS Panel. Re-evaluation of carrageenan (E 407) and processed Eucheuma seaweed (E 407a) as food additives. EFSA Journal, 2018",
+    "EFSA. Call for technical and toxicological data on carrageenan (E 407) in infant foods (EFSA-Q-2018-00771)",
+    "Sellem L et al. Food additive emulsifiers and risk of cardiovascular disease in the NutriNet-Santé cohort. BMJ, 2023",
+    "Center for Science in the Public Interest. Carrageenan (rating: Caution). CSPI"
    ]
   },
   {
    "id": "additive:e410",
    "kind": "additive",
    "title": "E410 Locust bean gum",
-   "summary": "Regulators have not identified a safety concern at the levels allowed in food.",
+   "summary": "EFSA's 2017 review found no safety concern for the general population and set no numerical limit. Use in foods for young infants is restricted in the EU.",
    "level": "little",
-   "evidence": "None",
+   "evidence": "Weak",
    "to": "/scan#guide",
    "exclude_if": [],
-   "cautions": [],
+   "cautions": [
+    "Young infants (under 16 weeks) fed special formulas; this is a medical-feeding matter for a doctor."
+   ],
    "sources": [
-    "EFSA: Food additives"
+    "EFSA ANS Panel. Re-evaluation of locust bean gum (E 410) as a food additive. EFSA Journal, 2017",
+    "Council of the EU. Document ST-14386-2025 (references EFSA 2017 and 2023 locust bean gum opinions)",
+    "Center for Science in the Public Interest. Chemical Cuisine: gums (arabic, gellan, guar, karaya, locust bean, tragacanth, xanthan). CSPI"
    ]
   },
   {
    "id": "additive:e412",
    "kind": "additive",
    "title": "E412 Guar gum",
-   "summary": "Regulators have not identified a safety concern at the levels allowed in food.",
+   "summary": "A plant fibre. EFSA's 2017 re-evaluation found adequate data and no need for a numerical limit.",
    "level": "little",
    "evidence": "None",
    "to": "/scan#guide",
    "exclude_if": [],
    "cautions": [],
    "sources": [
-    "EFSA: Food additives"
+    "EFSA ANS Panel. Re-evaluation of guar gum (E 412) as a food additive. EFSA Journal, 2017",
+    "Center for Science in the Public Interest. Chemical Cuisine: gums (arabic, gellan, guar, karaya, locust bean, tragacanth, xanthan). CSPI"
+   ]
+  },
+  {
+   "id": "additive:e413",
+   "kind": "additive",
+   "title": "E413 Tragacanth",
+   "summary": "EFSA (2017) found no safety concern, but CSPI notes rare severe allergic reactions to this gum.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "People with known allergies to plant gums."
+   ],
+   "sources": [
+    "EFSA ANS Panel. Re-evaluation of tragacanth (E 413) as a food additive. EFSA Journal, 2017",
+    "Center for Science in the Public Interest. Chemical Cuisine: gums (arabic, gellan, guar, karaya, locust bean, tragacanth, xanthan). CSPI"
    ]
   },
   {
    "id": "additive:e414",
    "kind": "additive",
-   "title": "E414 Gum arabic",
-   "summary": "Regulators have not identified a safety concern at the levels allowed in food.",
+   "title": "E414 Acacia gum",
+   "summary": "A tree gum eaten for a long time. EFSA's 2017 review found no safety concern.",
    "level": "little",
    "evidence": "None",
    "to": "/scan#guide",
    "exclude_if": [],
    "cautions": [],
    "sources": [
-    "EFSA: Food additives"
+    "EFSA ANS Panel. Re-evaluation of acacia gum (E 414) as a food additive. EFSA Journal, 2017",
+    "Center for Science in the Public Interest. Chemical Cuisine: gums (arabic, gellan, guar, karaya, locust bean, tragacanth, xanthan). CSPI"
    ]
   },
   {
    "id": "additive:e415",
    "kind": "additive",
    "title": "E415 Xanthan gum",
-   "summary": "Regulators have not identified a safety concern at the levels allowed in food.",
+   "summary": "EFSA found no safety concern in 2017 and again in a 2023 infant follow-up, but a thickener containing xanthan has been linked to a serious bowel illness in premature infants.",
    "level": "little",
-   "evidence": "None",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "Premature and very young infants: do not add thickeners to feeds unless a doctor advises it."
+   ],
+   "sources": [
+    "EFSA ANS Panel. Re-evaluation of xanthan gum (E 415) as a food additive. EFSA Journal, 2017",
+    "EFSA FAF Panel. Re-evaluation of xanthan gum (E 415) in foods for infants below 16 weeks of age. EFSA Journal, 2023",
+    "Center for Science in the Public Interest. Chemical Cuisine: gums (arabic, gellan, guar, karaya, locust bean, tragacanth, xanthan). CSPI"
+   ]
+  },
+  {
+   "id": "additive:e416",
+   "kind": "additive",
+   "title": "E416 Karaya gum",
+   "summary": "Used in small amounts. The earlier WHO/FAO evaluation gave no numerical limit, but We could not confirm EFSA's current conclusion.",
+   "level": "little",
+   "evidence": "Weak",
    "to": "/scan#guide",
    "exclude_if": [],
    "cautions": [],
    "sources": [
-    "EFSA: Food additives"
+    "JECFA. Karaya gum, summary of evaluation. IPCS INCHEM",
+    "Center for Science in the Public Interest. Chemical Cuisine: gums (arabic, gellan, guar, karaya, locust bean, tragacanth, xanthan). CSPI"
+   ]
+  },
+  {
+   "id": "additive:e417",
+   "kind": "additive",
+   "title": "E417 Tara gum",
+   "summary": "A seed gum similar to locust bean gum. EFSA re-evaluated it in 2017; We could not retrieve the exact conclusion.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA ANS Panel. Re-evaluation of tara gum (E 417) as a food additive. EFSA Journal, 2017"
    ]
   },
   {
    "id": "additive:e418",
    "kind": "additive",
    "title": "E418 Gellan gum",
-   "summary": "Regulators have not identified a safety concern at the levels allowed in food.",
+   "summary": "EFSA's 2018 review found no safety concern and no need for a numerical daily limit.",
    "level": "little",
    "evidence": "None",
    "to": "/scan#guide",
    "exclude_if": [],
    "cautions": [],
    "sources": [
-    "EFSA: Food additives"
+    "EFSA ANS Panel. Re-evaluation of gellan gum (E 418) as food additive. EFSA Journal, 2018",
+    "Center for Science in the Public Interest. Chemical Cuisine: gums (arabic, gellan, guar, karaya, locust bean, tragacanth, xanthan). CSPI"
+   ]
+  },
+  {
+   "id": "additive:e420",
+   "kind": "additive",
+   "title": "E420 Sorbitol",
+   "summary": "No safety concern at normal use, but a high intake commonly causes gas and loose stools. EFSA is still re-evaluating it.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "People with irritable bowel syndrome or sensitive digestion, and children, who may react to smaller amounts."
+   ],
+   "sources": [
+    "European Commission. Regulation (EU) 2021/1175 (polyol labelling recital)",
+    "EFSA. Call for data on sweeteners authorised as food additives (polyols included)",
+    "EFSA. Update on the re-evaluation of sweeteners (Annex II, FAF plenary). July 2026"
+   ]
+  },
+  {
+   "id": "additive:e421",
+   "kind": "additive",
+   "title": "E421 Mannitol",
+   "summary": "No safety concern at normal use, but high intake can cause gas and loose stools. EFSA is still re-evaluating it.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "People with irritable bowel syndrome or sensitive digestion."
+   ],
+   "sources": [
+    "European Commission. Regulation (EU) 2021/1175 (polyol labelling recital)",
+    "EFSA. Call for data on sweeteners authorised as food additives (polyols included)",
+    "EFSA. Update on the re-evaluation of sweeteners (Annex II, FAF plenary). July 2026"
+   ]
+  },
+  {
+   "id": "additive:e422",
+   "kind": "additive",
+   "title": "E422 Glycerol",
+   "summary": "EFSA found in 2017 that no numerical limit is needed and reported uses raised no concern. A 2022 follow-up tightened purity rules.",
+   "level": "little",
+   "evidence": "None",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA FAF Panel. Follow-up of the re-evaluation of glycerol (E 422) as a food additive. EFSA Journal, 2022",
+    "Same opinion, open-access text (PMC)"
+   ]
+  },
+  {
+   "id": "additive:e425",
+   "kind": "additive",
+   "title": "E425 Konjac",
+   "summary": "EFSA's 2017 review accepted konjac at current uses but noted a limited toxicity database. Konjac jelly sweets are a choking risk.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "Young children and older people: konjac jelly in mini-cups is a choking hazard."
+   ],
+   "sources": [
+    "EFSA ANS Panel. Re-evaluation of konjac gum (E 425 i) and konjac glucomannan (E 425 ii) as food additives. EFSA Journal, 2017",
+    "European Commission. Decision 2002/247/EC on jelly confectionery containing E 425. EUR-Lex"
+   ]
+  },
+  {
+   "id": "additive:e427",
+   "kind": "additive",
+   "title": "E427 Cassia gum",
+   "summary": "EFSA's 2006 opinion found no safety concern at the conditions of use, but said the toxicity data were not enough to set an ADI.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA. Opinion on cassia gum as a food additive. EFSA Journal, 2006"
+   ]
+  },
+  {
+   "id": "additive:e432",
+   "kind": "additive",
+   "title": "E432 Polysorbate 20",
+   "summary": "EFSA found no safety concern at current uses under a shared ADI. Toddler exposure can come close to that limit, and the gut-microbe mouse work was on polysorbate 80, not this one.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "European Commission. Regulation (EU) 2020/356 on polysorbate 65 (E 436) in carbonated beverages, 2020",
+    "Chassaing B et al. Dietary emulsifiers impact the mouse gut microbiota promoting colitis and metabolic syndrome. Nature, 2015"
    ]
   },
   {
    "id": "additive:e433",
    "kind": "additive",
    "title": "E433 Polysorbate 80",
-   "summary": "In mice, low doses changed gut bacteria and caused inflammation. Human evidence is limited.",
+   "summary": "In mice, low doses changed gut bacteria and caused inflammation. EFSA found no concern at current uses. Human evidence is lacking.",
    "level": "some",
    "evidence": "Weak",
    "to": "/scan#guide",
    "exclude_if": [],
    "cautions": [],
    "sources": [
-    "Chassaing B et al. Dietary emulsifiers impact the mouse gut microbiota. Nature, 2015"
+    "Chassaing B et al. Dietary emulsifiers impact the mouse gut microbiota promoting colitis and metabolic syndrome. Nature, 2015",
+    "European Commission. Regulation (EU) 2020/356 on polysorbate 65 (E 436) in carbonated beverages, 2020"
+   ]
+  },
+  {
+   "id": "additive:e434",
+   "kind": "additive",
+   "title": "E434 Polysorbate 40",
+   "summary": "EFSA found no safety concern at current uses under a shared ADI. Toddler exposure can come close to that limit, and the gut-microbe mouse work was on polysorbate 80, not this one.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "European Commission. Regulation (EU) 2020/356 on polysorbate 65 (E 436) in carbonated beverages, 2020",
+    "Chassaing B et al. Dietary emulsifiers impact the mouse gut microbiota promoting colitis and metabolic syndrome. Nature, 2015"
+   ]
+  },
+  {
+   "id": "additive:e435",
+   "kind": "additive",
+   "title": "E435 Polysorbate 60",
+   "summary": "EFSA found no safety concern at current uses under a shared ADI. Toddler exposure can come close to that limit, and the gut-microbe mouse work was on polysorbate 80, not this one.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "European Commission. Regulation (EU) 2020/356 on polysorbate 65 (E 436) in carbonated beverages, 2020",
+    "Chassaing B et al. Dietary emulsifiers impact the mouse gut microbiota promoting colitis and metabolic syndrome. Nature, 2015"
+   ]
+  },
+  {
+   "id": "additive:e436",
+   "kind": "additive",
+   "title": "E436 Polysorbate 65",
+   "summary": "EFSA found no safety concern at current uses under a shared ADI. Toddler exposure can come close to that limit, and the gut-microbe mouse work was on polysorbate 80, not this one.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "European Commission. Regulation (EU) 2020/356 on polysorbate 65 (E 436) in carbonated beverages, 2020",
+    "Chassaing B et al. Dietary emulsifiers impact the mouse gut microbiota promoting colitis and metabolic syndrome. Nature, 2015"
    ]
   },
   {
    "id": "additive:e440",
    "kind": "additive",
    "title": "E440 Pectin",
-   "summary": "Regulators have not identified a safety concern at the levels allowed in food.",
+   "summary": "A fruit fibre. EFSA's 2017 review found no safety concern; a 2021 follow-up only asked for lower limits in infant foods.",
    "level": "little",
    "evidence": "None",
    "to": "/scan#guide",
    "exclude_if": [],
+   "cautions": [
+    "Young infants on special formulas: limits are being tightened for this group."
+   ],
+   "sources": [
+    "EFSA ANS Panel. Re-evaluation of pectin (E 440i) and amidated pectin (E 440ii) as food additives. EFSA Journal, 2017",
+    "EFSA FAF Panel. Pectin and amidated pectin in foods for infants below 16 weeks. EFSA Journal, 2021"
+   ]
+  },
+  {
+   "id": "additive:e442",
+   "kind": "additive",
+   "title": "E442 Ammonium phosphatides",
+   "summary": "A lecithin-like emulsifier made for chocolate. EFSA reviewed it in 2016. We could not read the opinion itself, so our details are limited.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
    "cautions": [],
    "sources": [
-    "EFSA: Food additives"
+    "EFSA ANS Panel plenary meeting 2016 (ammonium phosphatides, E 442, on agenda)"
    ]
   },
   {
@@ -871,183 +2382,1238 @@
    "id": "additive:e450",
    "kind": "additive",
    "title": "E450 Diphosphates",
-   "summary": "EFSA set a group safe daily intake for phosphates in 2019 and found that many children's intake may be above it. People with reduced kidney function should take care.",
+   "summary": "EFSA set a group safe daily intake for phosphates in 2019 and estimated that many children go above it. People with reduced kidney function are advised to limit them.",
    "level": "some",
    "evidence": "Weak",
    "to": "/scan#guide",
    "exclude_if": [],
    "cautions": [
-    "People with reduced kidney function."
+    "People with moderate or severe kidney disease, who often must limit phosphorus. EFSA's safe limit does not apply to them. Children and regular users of phosphate-containing supplements may exceed the limit."
    ],
    "sources": [
-    "EFSA: Re-evaluation of phosphoric acid and phosphates (E 338-341, E 343, E 450-452), 2019"
+    "EFSA ANS Panel. Re-evaluation of phosphoric acid, phosphates, di-, tri- and polyphosphates (E 338-341, E 343, E 450-452) as food additives. EFSA Journal, 2019",
+    "BfR. Babies, infants and children can exceed the health guidance values for phosphate (summary of the EFSA opinion)",
+    "CSPI. Chemical Cuisine: Phosphoric acid, phosphates (rating: cut back)",
+    "Relationship between serum phosphorus and mortality in non-dialysis chronic kidney disease patients: NHANES 2001-2018. 2024"
    ]
   },
   {
    "id": "additive:e451",
    "kind": "additive",
    "title": "E451 Triphosphates",
-   "summary": "EFSA set a group safe daily intake for phosphates in 2019 and found that many children's intake may be above it. People with reduced kidney function should take care.",
+   "summary": "EFSA set a group safe daily intake for phosphates in 2019 and estimated that many children go above it. People with reduced kidney function are advised to limit them.",
    "level": "some",
    "evidence": "Weak",
    "to": "/scan#guide",
    "exclude_if": [],
    "cautions": [
-    "People with reduced kidney function."
+    "People with moderate or severe kidney disease, who often must limit phosphorus. EFSA's safe limit does not apply to them. Children and regular users of phosphate-containing supplements may exceed the limit."
    ],
    "sources": [
-    "EFSA: Re-evaluation of phosphoric acid and phosphates (E 338-341, E 343, E 450-452), 2019"
+    "EFSA ANS Panel. Re-evaluation of phosphoric acid, phosphates, di-, tri- and polyphosphates (E 338-341, E 343, E 450-452) as food additives. EFSA Journal, 2019",
+    "BfR. Babies, infants and children can exceed the health guidance values for phosphate (summary of the EFSA opinion)",
+    "CSPI. Chemical Cuisine: Phosphoric acid, phosphates (rating: cut back)",
+    "Relationship between serum phosphorus and mortality in non-dialysis chronic kidney disease patients: NHANES 2001-2018. 2024"
    ]
   },
   {
    "id": "additive:e452",
    "kind": "additive",
    "title": "E452 Polyphosphates",
-   "summary": "EFSA set a group safe daily intake for phosphates in 2019 and found that many children's intake may be above it. People with reduced kidney function should take care.",
+   "summary": "EFSA set a group safe daily intake for phosphates in 2019 and estimated that many children go above it. People with reduced kidney function are advised to limit them.",
    "level": "some",
    "evidence": "Weak",
    "to": "/scan#guide",
    "exclude_if": [],
    "cautions": [
-    "People with reduced kidney function."
+    "People with moderate or severe kidney disease, who often must limit phosphorus. EFSA's safe limit does not apply to them. Children and regular users of phosphate-containing supplements may exceed the limit."
    ],
    "sources": [
-    "EFSA: Re-evaluation of phosphoric acid and phosphates (E 338-341, E 343, E 450-452), 2019"
+    "EFSA ANS Panel. Re-evaluation of phosphoric acid, phosphates, di-, tri- and polyphosphates (E 338-341, E 343, E 450-452) as food additives. EFSA Journal, 2019",
+    "BfR. Babies, infants and children can exceed the health guidance values for phosphate (summary of the EFSA opinion)",
+    "CSPI. Chemical Cuisine: Phosphoric acid, phosphates (rating: cut back)",
+    "Relationship between serum phosphorus and mortality in non-dialysis chronic kidney disease patients: NHANES 2001-2018. 2024"
+   ]
+  },
+  {
+   "id": "additive:e460",
+   "kind": "additive",
+   "title": "E460 Cellulose",
+   "summary": "Plant fibre judged safe by EFSA, but it is part of a cellulose group that showed a small link to heart disease in one large French cohort.",
+   "level": "some",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA ANS Panel. Re-evaluation of celluloses E 460(i), E 460(ii), E 461, E 462, E 463, E 464, E 465, E 466, E 468 and E 469 as food additives. EFSA Journal, 2018",
+    "Sellem L et al. Food additive emulsifiers and risk of cardiovascular disease in the NutriNet-Santé cohort. BMJ, 2023"
+   ]
+  },
+  {
+   "id": "additive:e461",
+   "kind": "additive",
+   "title": "E461 Methylcellulose",
+   "summary": "Modified plant fibre judged safe by EFSA. Part of a cellulose group that showed a small link to heart disease in one large cohort.",
+   "level": "some",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA ANS Panel. Re-evaluation of celluloses E 460(i), E 460(ii), E 461, E 462, E 463, E 464, E 465, E 466, E 468 and E 469 as food additives. EFSA Journal, 2018",
+    "Sellem L et al. Food additive emulsifiers and risk of cardiovascular disease in the NutriNet-Santé cohort. BMJ, 2023"
+   ]
+  },
+  {
+   "id": "additive:e463",
+   "kind": "additive",
+   "title": "E463 Hydroxypropyl cellulose",
+   "summary": "Modified plant fibre judged safe by EFSA in 2018. Not one of the celluloses singled out in the French cohort grouping.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA ANS Panel. Re-evaluation of celluloses E 460(i), E 460(ii), E 461, E 462, E 463, E 464, E 465, E 466, E 468 and E 469 as food additives. EFSA Journal, 2018",
+    "Sellem L et al. Food additive emulsifiers and risk of cardiovascular disease in the NutriNet-Santé cohort. BMJ, 2023"
+   ]
+  },
+  {
+   "id": "additive:e464",
+   "kind": "additive",
+   "title": "E464 Hydroxypropyl methylcellulose",
+   "summary": "Modified plant fibre judged safe by EFSA. Part of a cellulose group that showed a small link to heart disease in one large cohort.",
+   "level": "some",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA ANS Panel. Re-evaluation of celluloses E 460(i), E 460(ii), E 461, E 462, E 463, E 464, E 465, E 466, E 468 and E 469 as food additives. EFSA Journal, 2018",
+    "Sellem L et al. Food additive emulsifiers and risk of cardiovascular disease in the NutriNet-Santé cohort. BMJ, 2023"
+   ]
+  },
+  {
+   "id": "additive:e465",
+   "kind": "additive",
+   "title": "E465 Ethyl methylcellulose",
+   "summary": "Modified plant fibre judged safe by EFSA in 2018. Little specific data and rare use.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA ANS Panel. Re-evaluation of celluloses E 460(i), E 460(ii), E 461, E 462, E 463, E 464, E 465, E 466, E 468 and E 469 as food additives. EFSA Journal, 2018",
+    "Sellem L et al. Food additive emulsifiers and risk of cardiovascular disease in the NutriNet-Santé cohort. BMJ, 2023"
    ]
   },
   {
    "id": "additive:e466",
    "kind": "additive",
    "title": "E466 Carboxymethylcellulose",
-   "summary": "In mice, low doses changed gut bacteria and caused inflammation. Human evidence is limited.",
+   "summary": "Regulators accept it, but mouse studies and a small human feeding trial found changes in gut bacteria, and a large French cohort linked cellulose additives to heart disease risk.",
    "level": "some",
    "evidence": "Weak",
    "to": "/scan#guide",
    "exclude_if": [],
-   "cautions": [],
+   "cautions": [
+    "People with inflammatory bowel disease sometimes choose to limit emulsifiers, but no regulator names this group."
+   ],
    "sources": [
-    "Chassaing B et al. Dietary emulsifiers impact the mouse gut microbiota. Nature, 2015"
+    "EFSA ANS Panel. Re-evaluation of celluloses E 460(i), E 460(ii), E 461, E 462, E 463, E 464, E 465, E 466, E 468 and E 469 as food additives. EFSA Journal, 2018",
+    "Chassaing B et al. Randomized controlled-feeding study of dietary emulsifier carboxymethylcellulose reveals detrimental impacts on the gut microbiota and metabolome. Gastroenterology, 2022",
+    "Chassaing B et al. Dietary emulsifiers impact the mouse gut microbiota promoting colitis and metabolic syndrome. Nature, 2015",
+    "Sellem L et al. Food additive emulsifiers and risk of cardiovascular disease in the NutriNet-Santé cohort. BMJ, 2023"
    ]
   },
   {
    "id": "additive:e471",
    "kind": "additive",
    "title": "E471 Mono- and diglycerides of fatty acids",
-   "summary": "Regulators have not identified a safety concern at the levels allowed in food.",
-   "level": "little",
-   "evidence": "None",
+   "summary": "EFSA found no safety concern at current uses. But large French cohort studies linked higher intake to more cancer and cardiovascular disease. These are associations, not proof of cause.",
+   "level": "some",
+   "evidence": "Weak",
    "to": "/scan#guide",
    "exclude_if": [],
    "cautions": [],
    "sources": [
-    "EFSA: Food additives"
+    "Sellem L et al. Food additive emulsifiers and cancer risk: results from the French prospective NutriNet-Santé cohort. PLoS Medicine, 2024",
+    "Sellem L et al. Food additive emulsifiers and risk of cardiovascular disease in the NutriNet-Santé cohort. BMJ, 2023",
+    "BMJ Group. High intake of several emulsifier E numbers linked to increased cardiovascular disease risk, 2023"
+   ]
+  },
+  {
+   "id": "additive:e472a",
+   "kind": "additive",
+   "title": "E472a Acetic acid esters of mono- and diglycerides",
+   "summary": "EFSA found no safety concern at current uses. Cohort studies on related mono- and diglycerides did not single out this one in the sources we could read.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA FAF Panel. Re-evaluation of acetic, lactic, citric, tartaric and mono- and diacetyltartaric acid esters of mono- and diglycerides of fatty acids (E 472a-f). EFSA Journal, 2020",
+    "BMJ Group. High intake of several emulsifier E numbers linked to increased cardiovascular disease risk, 2023",
+    "Sellem L et al. Food additive emulsifiers and cancer risk: results from the French prospective NutriNet-Santé cohort. PLoS Medicine, 2024"
    ]
   },
   {
    "id": "additive:e472b",
    "kind": "additive",
    "title": "E472b Lactic acid esters of mono- and diglycerides",
-   "summary": "In a large French study, higher intake went with a higher risk of cardiovascular disease. It shows a link, not cause and effect.",
+   "summary": "A large French study linked higher intake to more cardiovascular and cerebrovascular disease. It shows a link, not cause and effect.",
    "level": "some",
    "evidence": "Weak",
    "to": "/scan#guide",
    "exclude_if": [],
    "cautions": [],
    "sources": [
-    "Sellem L et al. Food additive emulsifiers and risk of cardiovascular disease (NutriNet-Santé). BMJ, 2023"
+    "Sellem L et al. Food additive emulsifiers and risk of cardiovascular disease in the NutriNet-Santé cohort. BMJ, 2023",
+    "BMJ Group. High intake of several emulsifier E numbers linked to increased cardiovascular disease risk, 2023",
+    "EFSA FAF Panel. Re-evaluation of acetic, lactic, citric, tartaric and mono- and diacetyltartaric acid esters of mono- and diglycerides of fatty acids (E 472a-f). EFSA Journal, 2020",
+    "Sellem L et al. Food additive emulsifiers and cancer risk: results from the French prospective NutriNet-Santé cohort. PLoS Medicine, 2024"
    ]
   },
   {
    "id": "additive:e472c",
    "kind": "additive",
    "title": "E472c Citric acid esters of mono- and diglycerides",
-   "summary": "In a large French study, higher intake went with a higher risk of cardiovascular and coronary heart disease. It shows a link, not cause and effect.",
+   "summary": "A large French study linked higher intake to more cardiovascular and coronary heart disease. It shows a link, not cause and effect.",
    "level": "some",
    "evidence": "Weak",
    "to": "/scan#guide",
    "exclude_if": [],
    "cautions": [],
    "sources": [
-    "Sellem L et al. Food additive emulsifiers and risk of cardiovascular disease (NutriNet-Santé). BMJ, 2023"
+    "Sellem L et al. Food additive emulsifiers and risk of cardiovascular disease in the NutriNet-Santé cohort. BMJ, 2023",
+    "BMJ Group. High intake of several emulsifier E numbers linked to increased cardiovascular disease risk, 2023",
+    "EFSA FAF Panel. Re-evaluation of acetic, lactic, citric, tartaric and mono- and diacetyltartaric acid esters of mono- and diglycerides of fatty acids (E 472a-f). EFSA Journal, 2020",
+    "Sellem L et al. Food additive emulsifiers and cancer risk: results from the French prospective NutriNet-Santé cohort. PLoS Medicine, 2024"
+   ]
+  },
+  {
+   "id": "additive:e472d",
+   "kind": "additive",
+   "title": "E472d Tartaric acid esters of mono- and diglycerides",
+   "summary": "EFSA found no safety concern at current uses. Cohort studies did not name this one in the sources we could read.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA FAF Panel. Re-evaluation of acetic, lactic, citric, tartaric and mono- and diacetyltartaric acid esters of mono- and diglycerides of fatty acids (E 472a-f). EFSA Journal, 2020",
+    "BMJ Group. High intake of several emulsifier E numbers linked to increased cardiovascular disease risk, 2023"
+   ]
+  },
+  {
+   "id": "additive:e472e",
+   "kind": "additive",
+   "title": "E472e Mono- and diacetyltartaric acid esters of mono- and diglycerides",
+   "summary": "EFSA set an ADI of 0 to 50 mg per kg body weight per day. A 2024 French cohort study on type 2 diabetes listed it among emulsifiers linked to higher risk.",
+   "level": "some",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA FAF Panel. Re-evaluation of acetic, lactic, citric, tartaric and mono- and diacetyltartaric acid esters of mono- and diglycerides of fatty acids (E 472a-f). EFSA Journal, 2020",
+    "Salame C et al. Food additive emulsifiers and the risk of type 2 diabetes (NutriNet-Santé). Lancet Diabetes & Endocrinology, 2024",
+    "INRAE. The consumption of certain food additive emulsifiers could be associated with the risk of developing type 2 diabetes, 2024"
+   ]
+  },
+  {
+   "id": "additive:e472f",
+   "kind": "additive",
+   "title": "E472f Mixed acetic and tartaric acid esters of mono- and diglycerides",
+   "summary": "EFSA found no safety concern at current uses. Cohort studies did not name this one in the sources we could read.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA FAF Panel. Re-evaluation of acetic, lactic, citric, tartaric and mono- and diacetyltartaric acid esters of mono- and diglycerides of fatty acids (E 472a-f). EFSA Journal, 2020",
+    "BMJ Group. High intake of several emulsifier E numbers linked to increased cardiovascular disease risk, 2023"
+   ]
+  },
+  {
+   "id": "additive:e473",
+   "kind": "additive",
+   "title": "E473 Sucrose esters of fatty acids",
+   "summary": "EFSA's own exposure estimates exceeded the group ADI of 40 mg per kg body weight per day for many groups, especially toddlers and children. No human health effect has been shown.",
+   "level": "some",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "Infants under 16 weeks have a separate EFSA assessment."
+   ],
+   "sources": [
+    "EFSA. Refined exposure assessment of sucrose esters of fatty acids (E 473)",
+    "EFSA FAF Panel. Re-evaluation of sucrose esters of fatty acids (E 473) in foods for infants below 16 weeks of age, 2023"
+   ]
+  },
+  {
+   "id": "additive:e474",
+   "kind": "additive",
+   "title": "E474 Sucroglycerides",
+   "summary": "Shares the 40 mg per kg body weight group ADI with sucrose esters. We could not find a separate recent EFSA opinion for it.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA. Refined exposure assessment of sucrose esters of fatty acids (E 473)",
+    "EFSA FAF Panel. Re-evaluation of sucrose esters of fatty acids (E 473) in foods for infants below 16 weeks of age, 2023"
+   ]
+  },
+  {
+   "id": "additive:e475",
+   "kind": "additive",
+   "title": "E475 Polyglycerol esters of fatty acids",
+   "summary": "EFSA found no adverse effects in short and long studies and kept an ADI of 25 mg per kg body weight per day. Some specification gaps were noted.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA ANS Panel. Re-evaluation of polyglycerol esters of fatty acids (E 475) as a food additive. EFSA Journal, 2017"
+   ]
+  },
+  {
+   "id": "additive:e476",
+   "kind": "additive",
+   "title": "E476 Polyglycerol polyricinoleate",
+   "summary": "EFSA raised the ADI from 7.5 to 25 mg per kg body weight per day in 2017 and found no safety concern at current uses.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA ANS Panel. Re-evaluation of polyglycerol polyricinoleate (E 476) as a food additive. EFSA Journal, 2017",
+    "EFSA FAF Panel. Follow-up of the re-evaluation of polyglycerol polyricinoleate (E 476), 2022"
+   ]
+  },
+  {
+   "id": "additive:e481",
+   "kind": "additive",
+   "title": "E481 Sodium stearoyl-2-lactylate",
+   "summary": "EFSA re-evaluated the two stearoyl-2-lactylates together in 2013 and found no safety concern at current uses. Toddler exposure estimates can be high.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "BMJ Group. High intake of several emulsifier E numbers linked to increased cardiovascular disease risk, 2023"
+   ]
+  },
+  {
+   "id": "additive:e482",
+   "kind": "additive",
+   "title": "E482 Calcium stearoyl-2-lactylate",
+   "summary": "EFSA re-evaluated the two stearoyl-2-lactylates together in 2013 and found no safety concern at current uses. Toddler exposure estimates can be high.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "BMJ Group. High intake of several emulsifier E numbers linked to increased cardiovascular disease risk, 2023"
+   ]
+  },
+  {
+   "id": "additive:e491",
+   "kind": "additive",
+   "title": "E491 Sorbitan monostearate",
+   "summary": "EFSA set a group ADI of 10 mg per kg body weight per day. Toddlers and children can exceed it in some worst-case estimates.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA ANS Panel. Re-evaluation of sorbitan monostearate (E 491), tristearate (E 492), monolaurate (E 493), monooleate (E 494) and monopalmitate (E 495). EFSA Journal, 2017"
+   ]
+  },
+  {
+   "id": "additive:e492",
+   "kind": "additive",
+   "title": "E492 Sorbitan tristearate",
+   "summary": "EFSA set a group ADI of 10 mg per kg body weight per day. Toddlers and children can exceed it in some worst-case estimates.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA ANS Panel. Re-evaluation of sorbitan monostearate (E 491), tristearate (E 492), monolaurate (E 493), monooleate (E 494) and monopalmitate (E 495). EFSA Journal, 2017"
+   ]
+  },
+  {
+   "id": "additive:e493",
+   "kind": "additive",
+   "title": "E493 Sorbitan monolaurate",
+   "summary": "EFSA set a group ADI of 10 mg per kg body weight per day. Toddlers and children can exceed it in some worst-case estimates.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA ANS Panel. Re-evaluation of sorbitan monostearate (E 491), tristearate (E 492), monolaurate (E 493), monooleate (E 494) and monopalmitate (E 495). EFSA Journal, 2017"
+   ]
+  },
+  {
+   "id": "additive:e494",
+   "kind": "additive",
+   "title": "E494 Sorbitan monooleate",
+   "summary": "EFSA set a group ADI of 10 mg per kg body weight per day. Toddlers and children can exceed it in some worst-case estimates.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA ANS Panel. Re-evaluation of sorbitan monostearate (E 491), tristearate (E 492), monolaurate (E 493), monooleate (E 494) and monopalmitate (E 495). EFSA Journal, 2017"
+   ]
+  },
+  {
+   "id": "additive:e495",
+   "kind": "additive",
+   "title": "E495 Sorbitan monopalmitate",
+   "summary": "EFSA set a group ADI of 10 mg per kg body weight per day. Toddlers and children can exceed it in some worst-case estimates.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA ANS Panel. Re-evaluation of sorbitan monostearate (E 491), tristearate (E 492), monolaurate (E 493), monooleate (E 494) and monopalmitate (E 495). EFSA Journal, 2017"
    ]
   },
   {
    "id": "additive:e500",
    "kind": "additive",
    "title": "E500 Sodium carbonates",
-   "summary": "Regulators have not identified a safety concern at the levels allowed in food.",
+   "summary": "Includes ordinary baking soda. Regulators set no numerical limit, and we found no credible safety signal.",
    "level": "little",
    "evidence": "None",
    "to": "/scan#guide",
    "exclude_if": [],
    "cautions": [],
    "sources": [
-    "EFSA: Food additives"
+    "EFSA. Scientific opinion on re-evaluation of calcium carbonate (E 170) as a food additive (notes the 1990 SCF group ADI 'not specified' for carbonates), 2011",
+    "Commission Regulation (EU) 2022/141 (recitals on sodium and potassium carbonates, SCF 1990)"
+   ]
+  },
+  {
+   "id": "additive:e501",
+   "kind": "additive",
+   "title": "E501 Potassium carbonates",
+   "summary": "Regulators set no numerical limit for potassium carbonates, and we found no credible safety signal.",
+   "level": "little",
+   "evidence": "None",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA. Scientific opinion on re-evaluation of calcium carbonate (E 170) as a food additive (notes the 1990 SCF group ADI 'not specified' for carbonates), 2011",
+    "Commission Regulation (EU) 2022/141 (recitals on sodium and potassium carbonates, SCF 1990)"
+   ]
+  },
+  {
+   "id": "additive:e503",
+   "kind": "additive",
+   "title": "E503 Ammonium carbonates",
+   "summary": "Ammonium carbonates break down into gases when baked, so little remains in the finished food. We found no credible safety signal.",
+   "level": "little",
+   "evidence": "None",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA. Scientific opinion on re-evaluation of calcium carbonate (E 170) as a food additive (notes the 1990 SCF group ADI 'not specified' for carbonates), 2011",
+    "Commission Regulation (EU) 2022/141 (recitals on sodium and potassium carbonates, SCF 1990)"
+   ]
+  },
+  {
+   "id": "additive:e504",
+   "kind": "additive",
+   "title": "E504 Magnesium carbonates",
+   "summary": "Magnesium carbonates have no numerical limit set by regulators, and we found no credible safety signal.",
+   "level": "little",
+   "evidence": "None",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA. Scientific opinion on re-evaluation of calcium carbonate (E 170) as a food additive (notes the 1990 SCF group ADI 'not specified' for carbonates), 2011",
+    "Commission Regulation (EU) 2022/141 (recitals on sodium and potassium carbonates, SCF 1990)"
+   ]
+  },
+  {
+   "id": "additive:e513",
+   "kind": "additive",
+   "title": "E513 Sulfuric acid",
+   "summary": "EFSA re-evaluated sulphuric acid and its salts in 2019 and found no safety concern at current uses. We found no credible signal in recent human studies.",
+   "level": "little",
+   "evidence": "None",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA FAF Panel. Re-evaluation of sulphuric acid and its sodium, potassium, calcium and ammonium salts (E 513, 514, 515, 516 and 517) as food additives. EFSA Journal, 2019"
+   ]
+  },
+  {
+   "id": "additive:e514",
+   "kind": "additive",
+   "title": "E514 Sodium sulfates",
+   "summary": "EFSA re-evaluated sulphuric acid and its salts in 2019 and found no safety concern at current uses. We found no credible signal in recent human studies.",
+   "level": "little",
+   "evidence": "None",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA FAF Panel. Re-evaluation of sulphuric acid and its sodium, potassium, calcium and ammonium salts (E 513, 514, 515, 516 and 517) as food additives. EFSA Journal, 2019"
+   ]
+  },
+  {
+   "id": "additive:e524",
+   "kind": "additive",
+   "title": "E524 Sodium hydroxide",
+   "summary": "Used in small amounts to adjust acidity or to process foods, and it reacts during processing. We found no credible safety signal for food use, though we did not find a recent EFSA opinion for it.",
+   "level": "little",
+   "evidence": "None",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA. Call for data for the re-evaluation of food additives (EU programme under Regulation 257/2010), 2012"
    ]
   },
   {
    "id": "additive:e551",
    "kind": "additive",
    "title": "E551 Silicon dioxide",
-   "summary": "Regulators have not identified a safety concern at the levels allowed in food.",
+   "summary": "EFSA found no safety concern at current uses in 2018 and again in 2024. It did note uncertainty about very small (nano) particles because long-term studies are lacking.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA ANS Panel. Re-evaluation of silicon dioxide (E 551) as a food additive. EFSA Journal, 2018",
+    "EFSA FAF Panel. Re-evaluation of silicon dioxide (E 551) as a food additive in foods for infants below 16 weeks and follow-up for all population groups. EFSA Journal, 2024"
+   ]
+  },
+  {
+   "id": "additive:e552",
+   "kind": "additive",
+   "title": "E552 Calcium silicate",
+   "summary": "In 2018 EFSA said it could not assess the safety of calcium silicate and related silicates because key data were missing. This is a data gap, not a finding of harm.",
+   "level": "some",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA ANS Panel. Re-evaluation of calcium silicate (E 552), magnesium silicate (E 553a) and talc (E 553b) as food additives. EFSA Journal, 2018",
+    "EFSA. Call for data for Talc E 553b"
+   ]
+  },
+  {
+   "id": "additive:e553b",
+   "kind": "additive",
+   "title": "E553b Talc",
+   "summary": "EFSA said in 2018 that it could not assess talc's safety as a food additive. IARC rated talc as probably carcinogenic to humans in 2025, based mainly on other kinds of exposure than eating.",
+   "level": "some",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA ANS Panel. Re-evaluation of calcium silicate (E 552), magnesium silicate (E 553a) and talc (E 553b) as food additives. EFSA Journal, 2018",
+    "EFSA. Call for data for Talc E 553b",
+    "IARC Monographs Volume 136: Talc and acrylonitrile, 2025"
+   ]
+  },
+  {
+   "id": "additive:e554",
+   "kind": "additive",
+   "title": "E554 Sodium aluminium silicate",
+   "summary": "In 2020 EFSA said it could not assess the safety of this additive and flagged aluminium exposure from food supplements. This is a gap in data, not proof of harm.",
+   "level": "some",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "People who use food supplements containing E 554 may go above the aluminium weekly limit, according to EFSA's estimate."
+   ],
+   "sources": [
+    "EFSA FAF Panel. Re-evaluation of sodium aluminium silicate (E 554) and potassium aluminium silicate (E 555) as food additives. EFSA Journal, 2020"
+   ]
+  },
+  {
+   "id": "additive:e555",
+   "kind": "additive",
+   "title": "E555 Potassium aluminium silicate",
+   "summary": "In 2020 EFSA said it could not assess the safety of this additive and flagged aluminium exposure from food supplements. This is a gap in data, not proof of harm.",
+   "level": "some",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "People who use food supplements containing E 554 may go above the aluminium weekly limit, according to EFSA's estimate."
+   ],
+   "sources": [
+    "EFSA FAF Panel. Re-evaluation of sodium aluminium silicate (E 554) and potassium aluminium silicate (E 555) as food additives. EFSA Journal, 2020"
+   ]
+  },
+  {
+   "id": "additive:e559",
+   "kind": "additive",
+   "title": "E559 Aluminium silicate",
+   "summary": "A natural clay. We did not find a dedicated EFSA re-evaluation. It is a source of aluminium, for which EFSA set a weekly limit.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA FAF Panel. Re-evaluation of sodium aluminium silicate (E 554) and potassium aluminium silicate (E 555) as food additives. EFSA Journal, 2020",
+    "IPCS INCHEM. JECFA evaluation of aluminium silicate"
+   ]
+  },
+  {
+   "id": "additive:e570",
+   "kind": "additive",
+   "title": "E570 Fatty acids",
+   "summary": "These are the same fatty acids found in ordinary fats and oils. EFSA found no safety concern in 2017, but noted limited long-term data.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA ANS Panel. Re-evaluation of fatty acids (E 570) as a food additive. EFSA Journal, 2017"
+   ]
+  },
+  {
+   "id": "additive:e574",
+   "kind": "additive",
+   "title": "E574 Gluconic acid",
+   "summary": "A mild acid that the body handles like a sugar-derived acid. EFSA has not yet finished its re-evaluation, and we found no credible signal.",
    "level": "little",
    "evidence": "None",
    "to": "/scan#guide",
    "exclude_if": [],
    "cautions": [],
    "sources": [
-    "EFSA: Food additives"
+    "EFSA. Call for data for the re-evaluation of gluconic acid (E 574) and related food additives (E 575-579)"
+   ]
+  },
+  {
+   "id": "additive:e575",
+   "kind": "additive",
+   "title": "E575 Glucono delta-lactone",
+   "summary": "A mild acid that the body handles like a sugar-derived acid. EFSA has not yet finished its re-evaluation, and we found no credible signal.",
+   "level": "little",
+   "evidence": "None",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA. Call for data for the re-evaluation of gluconic acid (E 574) and related food additives (E 575-579)"
+   ]
+  },
+  {
+   "id": "additive:e620",
+   "kind": "additive",
+   "title": "E620 Glutamic acid",
+   "summary": "EFSA set a group safe daily intake for added glutamates in 2017 and found that some people, notably toddlers and children and high consumers, may go above it. Evidence for harm at normal food levels is weak.",
+   "level": "some",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "Toddlers, children and people who eat a lot of savoury processed foods were the groups where EFSA estimated intake could exceed the safe level. Some people report short-lived symptoms such as headache after large doses of MSG, but blinded trials are mixed."
+   ],
+   "sources": [
+    "EFSA ANS Panel. Re-evaluation of glutamic acid (E 620), sodium glutamate (E 621), potassium glutamate (E 622), calcium glutamate (E 623), ammonium glutamate (E 624) and magnesium glutamate (E 625) as food additives. EFSA Journal, 2017",
+    "EFSA opinion on glutamates, open-access full text (PMC)",
+    "Zanfirescu A et al. Does monosodium glutamate really cause headache? A systematic review of human studies. J Headache Pain, 2016",
+    "CSPI. Food additives: the definitive glossary (Chemical Cuisine)"
    ]
   },
   {
    "id": "additive:e621",
    "kind": "additive",
    "title": "E621 Monosodium glutamate",
-   "summary": "Glutamate also occurs naturally in foods like tomatoes and cheese. EFSA set a group safe daily intake in 2017, and noted some people may eat more than that.",
+   "summary": "EFSA set a group safe daily intake for added glutamates in 2017 and found that some people, notably toddlers and children and high consumers, may go above it. Evidence for harm at normal food levels is weak.",
+   "level": "some",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "Toddlers, children and people who eat a lot of savoury processed foods were the groups where EFSA estimated intake could exceed the safe level. Some people report short-lived symptoms such as headache after large doses of MSG, but blinded trials are mixed."
+   ],
+   "sources": [
+    "EFSA ANS Panel. Re-evaluation of glutamic acid (E 620), sodium glutamate (E 621), potassium glutamate (E 622), calcium glutamate (E 623), ammonium glutamate (E 624) and magnesium glutamate (E 625) as food additives. EFSA Journal, 2017",
+    "EFSA opinion on glutamates, open-access full text (PMC)",
+    "Zanfirescu A et al. Does monosodium glutamate really cause headache? A systematic review of human studies. J Headache Pain, 2016",
+    "CSPI. Food additives: the definitive glossary (Chemical Cuisine)"
+   ]
+  },
+  {
+   "id": "additive:e622",
+   "kind": "additive",
+   "title": "E622 Monopotassium glutamate",
+   "summary": "EFSA set a group safe daily intake for added glutamates in 2017 and found that some people, notably toddlers and children and high consumers, may go above it. Evidence for harm at normal food levels is weak.",
+   "level": "some",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "Toddlers, children and people who eat a lot of savoury processed foods were the groups where EFSA estimated intake could exceed the safe level. Some people report short-lived symptoms such as headache after large doses of MSG, but blinded trials are mixed."
+   ],
+   "sources": [
+    "EFSA ANS Panel. Re-evaluation of glutamic acid (E 620), sodium glutamate (E 621), potassium glutamate (E 622), calcium glutamate (E 623), ammonium glutamate (E 624) and magnesium glutamate (E 625) as food additives. EFSA Journal, 2017",
+    "EFSA opinion on glutamates, open-access full text (PMC)",
+    "Zanfirescu A et al. Does monosodium glutamate really cause headache? A systematic review of human studies. J Headache Pain, 2016",
+    "CSPI. Food additives: the definitive glossary (Chemical Cuisine)"
+   ]
+  },
+  {
+   "id": "additive:e623",
+   "kind": "additive",
+   "title": "E623 Calcium diglutamate",
+   "summary": "EFSA set a group safe daily intake for added glutamates in 2017 and found that some people, notably toddlers and children and high consumers, may go above it. Evidence for harm at normal food levels is weak.",
+   "level": "some",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "Toddlers, children and people who eat a lot of savoury processed foods were the groups where EFSA estimated intake could exceed the safe level. Some people report short-lived symptoms such as headache after large doses of MSG, but blinded trials are mixed."
+   ],
+   "sources": [
+    "EFSA ANS Panel. Re-evaluation of glutamic acid (E 620), sodium glutamate (E 621), potassium glutamate (E 622), calcium glutamate (E 623), ammonium glutamate (E 624) and magnesium glutamate (E 625) as food additives. EFSA Journal, 2017",
+    "EFSA opinion on glutamates, open-access full text (PMC)",
+    "Zanfirescu A et al. Does monosodium glutamate really cause headache? A systematic review of human studies. J Headache Pain, 2016",
+    "CSPI. Food additives: the definitive glossary (Chemical Cuisine)"
+   ]
+  },
+  {
+   "id": "additive:e624",
+   "kind": "additive",
+   "title": "E624 Monoammonium glutamate",
+   "summary": "EFSA set a group safe daily intake for added glutamates in 2017 and found that some people, notably toddlers and children and high consumers, may go above it. Evidence for harm at normal food levels is weak.",
+   "level": "some",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "Toddlers, children and people who eat a lot of savoury processed foods were the groups where EFSA estimated intake could exceed the safe level. Some people report short-lived symptoms such as headache after large doses of MSG, but blinded trials are mixed."
+   ],
+   "sources": [
+    "EFSA ANS Panel. Re-evaluation of glutamic acid (E 620), sodium glutamate (E 621), potassium glutamate (E 622), calcium glutamate (E 623), ammonium glutamate (E 624) and magnesium glutamate (E 625) as food additives. EFSA Journal, 2017",
+    "EFSA opinion on glutamates, open-access full text (PMC)",
+    "Zanfirescu A et al. Does monosodium glutamate really cause headache? A systematic review of human studies. J Headache Pain, 2016",
+    "CSPI. Food additives: the definitive glossary (Chemical Cuisine)"
+   ]
+  },
+  {
+   "id": "additive:e625",
+   "kind": "additive",
+   "title": "E625 Magnesium diglutamate",
+   "summary": "EFSA set a group safe daily intake for added glutamates in 2017 and found that some people, notably toddlers and children and high consumers, may go above it. Evidence for harm at normal food levels is weak.",
+   "level": "some",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "Toddlers, children and people who eat a lot of savoury processed foods were the groups where EFSA estimated intake could exceed the safe level. Some people report short-lived symptoms such as headache after large doses of MSG, but blinded trials are mixed."
+   ],
+   "sources": [
+    "EFSA ANS Panel. Re-evaluation of glutamic acid (E 620), sodium glutamate (E 621), potassium glutamate (E 622), calcium glutamate (E 623), ammonium glutamate (E 624) and magnesium glutamate (E 625) as food additives. EFSA Journal, 2017",
+    "EFSA opinion on glutamates, open-access full text (PMC)",
+    "Zanfirescu A et al. Does monosodium glutamate really cause headache? A systematic review of human studies. J Headache Pain, 2016",
+    "CSPI. Food additives: the definitive glossary (Chemical Cuisine)"
+   ]
+  },
+  {
+   "id": "additive:e627",
+   "kind": "additive",
+   "title": "E627 Disodium guanylate",
+   "summary": "JECFA found no need to limit these nucleotide flavour enhancers, but EFSA has not finished its modern re-evaluation. They are usually used with glutamate and add purines.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "People with gout or high uric acid: the JECFA monograph says large intakes can raise uric acid. Some official labelling in other countries also warns them off."
+   ],
+   "sources": [
+    "EFSA. Call for data for the re-evaluation of ribonucleotides (E 626-635) as food additives",
+    "JECFA. Disodium 5'-ribonucleotides: safety monograph (WHO Food Additives Series 6)",
+    "CSPI. Food additives: the definitive glossary (Chemical Cuisine)"
+   ]
+  },
+  {
+   "id": "additive:e631",
+   "kind": "additive",
+   "title": "E631 Disodium inosinate",
+   "summary": "JECFA found no need to limit these nucleotide flavour enhancers, but EFSA has not finished its modern re-evaluation. They are usually used with glutamate and add purines.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "People with gout or high uric acid: the JECFA monograph says large intakes can raise uric acid. Some official labelling in other countries also warns them off."
+   ],
+   "sources": [
+    "EFSA. Call for data for the re-evaluation of ribonucleotides (E 626-635) as food additives",
+    "JECFA. Disodium 5'-ribonucleotides: safety monograph (WHO Food Additives Series 6)",
+    "CSPI. Food additives: the definitive glossary (Chemical Cuisine)"
+   ]
+  },
+  {
+   "id": "additive:e635",
+   "kind": "additive",
+   "title": "E635 Disodium 5'-ribonucleotides",
+   "summary": "JECFA found no need to limit these nucleotide flavour enhancers, but EFSA has not finished its modern re-evaluation. They are usually used with glutamate and add purines.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "People with gout or high uric acid: the JECFA monograph says large intakes can raise uric acid. Some official labelling in other countries also warns them off."
+   ],
+   "sources": [
+    "EFSA. Call for data for the re-evaluation of ribonucleotides (E 626-635) as food additives",
+    "JECFA. Disodium 5'-ribonucleotides: safety monograph (WHO Food Additives Series 6)",
+    "CSPI. Food additives: the definitive glossary (Chemical Cuisine)"
+   ]
+  },
+  {
+   "id": "additive:e640",
+   "kind": "additive",
+   "title": "E640 Glycine and its sodium salt",
+   "summary": "Glycine is a common amino acid found in protein. We could not find a modern EFSA re-evaluation, so the safety picture rests on old assessments.",
    "level": "little",
    "evidence": "Weak",
    "to": "/scan#guide",
    "exclude_if": [],
    "cautions": [],
    "sources": [
-    "EFSA: Re-evaluation of glutamic acid and glutamates (E 620-625), 2017"
+    "Commission Regulation (EU) 2015/649 (amending EU additive specifications; lists E 640)",
+    "CSPI. Food additives: the definitive glossary (Chemical Cuisine)"
    ]
   },
   {
-   "id": "additive:e951",
+   "id": "additive:e900",
    "kind": "additive",
-   "title": "E951 Aspartame",
-   "summary": "IARC classed it as possibly carcinogenic in 2023, based on limited evidence. A separate WHO committee kept its safe daily intake unchanged.",
-   "level": "some",
+   "title": "E900 Dimethyl polysiloxane",
+   "summary": "EFSA re-evaluated it in 2020 and set a safe daily intake with estimated exposure well below it.",
+   "level": "little",
+   "evidence": "None",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA FAF Panel. Re-evaluation of dimethyl polysiloxane (E 900) as a food additive. EFSA Journal, 2020"
+   ]
+  },
+  {
+   "id": "additive:e901",
+   "kind": "additive",
+   "title": "E901 Beeswax",
+   "summary": "A natural wax made by bees. EFSA confirmed its safety in 2007 and JECFA found no concern at expected intake.",
+   "level": "little",
+   "evidence": "None",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA AFC Panel. Beeswax (E 901) as a glazing agent and as carrier for flavours. EFSA Journal, 2007",
+    "JECFA. Beeswax evaluation (INCHEM)"
+   ]
+  },
+  {
+   "id": "additive:e903",
+   "kind": "additive",
+   "title": "E903 Carnauba wax",
+   "summary": "A plant wax from palm leaves. EFSA found no safety concern at current use in 2012, though long-term studies are missing.",
+   "level": "little",
    "evidence": "Weak",
    "to": "/scan#guide",
    "exclude_if": [],
-   "cautions": [
-    "People with phenylketonuria (PKU) must avoid it. Labels say it contains a source of phenylalanine."
-   ],
+   "cautions": [],
    "sources": [
-    "WHO and IARC: Aspartame hazard and risk assessment results, 2023"
+    "EFSA ANS Panel. Scientific Opinion on the re-evaluation of carnauba wax (E 903) as a food additive. EFSA Journal, 2012"
    ]
   },
   {
-   "id": "additive:e955",
+   "id": "additive:e904",
    "kind": "additive",
-   "title": "E955 Sucralose",
-   "summary": "A 2023 lab study on cells found a by-product could damage DNA. It was done in the lab, and it doesn't show harm in people.",
+   "title": "E904 Shellac",
+   "summary": "A resin made by lac insects, so it is not vegetarian or vegan. EFSA set a safe daily intake in 2024, with a temporary limit for bleached types because of unknown impurities.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA FAF Panel. Re-evaluation of shellac (E 904) as a food additive and a new application on the extension of use in dietary foods for special medical purposes. EFSA Journal, 2024",
+    "Same opinion, open-access text (PMC)"
+   ]
+  },
+  {
+   "id": "additive:e920",
+   "kind": "additive",
+   "title": "E920 L-cysteine",
+   "summary": "An amino acid used to soften dough. We could not find a modern EFSA re-evaluation, so the evidence is thin rather than clear.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "Estonian Agriculture and Food Board. Additives authorised in flours (lists L-cysteine E 920)"
+   ]
+  },
+  {
+   "id": "additive:e924",
+   "kind": "additive",
+   "title": "E924 Potassium bromate",
+   "summary": "IARC classes potassium bromate as possibly cancer-causing to humans (Group 2B) based on kidney and thyroid tumours in rats. It is banned in the EU and several other countries, but not banned federally in the US.",
+   "level": "restricted",
+   "evidence": "Moderate",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "CSPI. Food additives: the definitive glossary (Chemical Cuisine)"
+   ]
+  },
+  {
+   "id": "additive:e927b",
+   "kind": "additive",
+   "title": "E927b Carbamide",
+   "summary": "Urea is a normal body waste product. In the EU it is allowed only in sugar-free chewing gum. We could not find a modern EFSA re-evaluation.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "JECFA/FAO. Urea (Additive 485) specifications monograph"
+   ]
+  },
+  {
+   "id": "additive:e943a",
+   "kind": "additive",
+   "title": "E943a Butane",
+   "summary": "EFSA's 2025 re-evaluation found no safety concern at current uses. The only caveat is unclear impurity data.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA FAF Panel. Re-evaluation of butane (E 943a), isobutane (E 943b) and propane (E 944) as food additives. EFSA Journal, 2025"
+   ]
+  },
+  {
+   "id": "additive:e943b",
+   "kind": "additive",
+   "title": "E943b Isobutane",
+   "summary": "EFSA's 2025 re-evaluation found no safety concern at current uses. The only caveat is unclear impurity data.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA FAF Panel. Re-evaluation of butane (E 943a), isobutane (E 943b) and propane (E 944) as food additives. EFSA Journal, 2025"
+   ]
+  },
+  {
+   "id": "additive:e948",
+   "kind": "additive",
+   "title": "E948 Oxygen",
+   "summary": "EFSA's 2025 re-evaluation found no safety concern and very low dietary exposure.",
+   "level": "little",
+   "evidence": "None",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA FAF Panel. Re-evaluation of oxygen (E 948) and hydrogen (E 949) as food additives. EFSA Journal, 2025"
+   ]
+  },
+  {
+   "id": "additive:e949",
+   "kind": "additive",
+   "title": "E949 Hydrogen",
+   "summary": "EFSA's 2025 re-evaluation found no safety concern and very low dietary exposure.",
+   "level": "little",
+   "evidence": "None",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA FAF Panel. Re-evaluation of oxygen (E 948) and hydrogen (E 949) as food additives. EFSA Journal, 2025"
+   ]
+  },
+  {
+   "id": "additive:e950",
+   "kind": "additive",
+   "title": "E950 Acesulfame K",
+   "summary": "EFSA raised its safe daily limit in 2025 and found no safety concern. One large French cohort linked higher intake to slightly more cancer, which does not prove cause.",
    "level": "some",
    "evidence": "Weak",
    "to": "/scan#guide",
    "exclude_if": [],
    "cautions": [],
    "sources": [
-    "Schiffman SS et al. Toxicological and pharmacokinetic properties of sucralose-6-acetate and its parent sucralose: in vitro screening assays. J Toxicol Environ Health B, 2023"
+    "EFSA FAF Panel. Re-evaluation of acesulfame K (E 950) as a food additive. EFSA Journal, 2025",
+    "Debras C et al. Artificial sweeteners and cancer risk: results from the NutriNet-Santé cohort. PLOS Medicine, 2022",
+    "WHO/PAHO. WHO advises not to use non-sugar sweeteners for weight control in newly released guideline. 2023",
+    "CSPI. Chemical Cuisine: acesulfame potassium"
+   ]
+  },
+  {
+   "id": "additive:e951",
+   "kind": "additive",
+   "title": "E951 Aspartame",
+   "summary": "IARC classed it as possibly carcinogenic in 2023 on limited evidence, while JECFA and EFSA kept the safe daily limit at 40 mg per kg.",
+   "level": "some",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "People with phenylketonuria (PKU) must avoid it. EU and US labels say it contains a source of phenylalanine."
+   ],
+   "sources": [
+    "IARC/WHO. Aspartame hazard and risk assessment results released by IARC and JECFA (press release). 2023",
+    "IARC/JECFA. Summary of findings: aspartame. WHO, 2023",
+    "EFSA. Aspartame topic page (2013 opinion and 2020 reaffirmation of the ADI)",
+    "Debras C et al. Artificial sweeteners and cancer risk: results from the NutriNet-Santé cohort. PLOS Medicine, 2022",
+    "WHO/PAHO. WHO advises not to use non-sugar sweeteners for weight control in newly released guideline. 2023"
+   ]
+  },
+  {
+   "id": "additive:e952",
+   "kind": "additive",
+   "title": "E952 Cyclamic acid",
+   "summary": "Banned in US food since 1969-70 after rat studies raised a cancer concern that later work did not firmly confirm. It is still allowed in the EU, where EFSA's re-evaluation is pending.",
+   "level": "restricted",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "Scientific Committee on Food. Opinion on cyclamic acid and its sodium and calcium salts. European Commission, 2000",
+    "EFSA. Update on the re-evaluation of sweeteners (Annex II, FAF plenary). July 2026",
+    "WHO/PAHO. WHO advises not to use non-sugar sweeteners for weight control in newly released guideline. 2023"
+   ]
+  },
+  {
+   "id": "additive:e953",
+   "kind": "additive",
+   "title": "E953 Isomalt",
+   "summary": "No safety concern at normal use, but high intake can cause gas and loose stools.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "People with irritable bowel syndrome or sensitive digestion."
+   ],
+   "sources": [
+    "European Commission. Regulation (EU) 2021/1175 (polyol labelling recital)",
+    "EFSA. Call for data on sweeteners authorised as food additives (polyols included)"
+   ]
+  },
+  {
+   "id": "additive:e954",
+   "kind": "additive",
+   "title": "E954 Saccharin",
+   "summary": "EFSA raised the safe daily limit in 2024. Old rat bladder tumours are not thought to apply to people, but a small trial found effects on blood sugar.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA. Saccharin: safety threshold increased. 2024",
+    "EFSA FAF Panel. Re-evaluation of saccharin and its sodium, potassium and calcium salts (E 954). EFSA Journal, 2024",
+    "CSPI. Chemical Cuisine: saccharin",
+    "WHO/PAHO. WHO advises not to use non-sugar sweeteners for weight control in newly released guideline. 2023"
+   ]
+  },
+  {
+   "id": "additive:e955",
+   "kind": "additive",
+   "title": "E955 Sucralose",
+   "summary": "EFSA confirmed its safe daily limit in 2026. A related by-product damaged DNA in lab tests, and a small trial found blood-sugar effects, but neither is settled.",
+   "level": "some",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA. Re-evaluation of sucralose (E 955) as a food additive: plain-language summary. 2026",
+    "Schiffman SS et al. Properties of sucralose-6-acetate and its parent sucralose: in vitro screening assays. J Tox Environ Health B, 2023",
+    "CSPI. Consumers should still avoid sucralose pending more testing. 2017",
+    "WHO/PAHO. WHO advises not to use non-sugar sweeteners for weight control in newly released guideline. 2023"
+   ]
+  },
+  {
+   "id": "additive:e957",
+   "kind": "additive",
+   "title": "E957 Thaumatin",
+   "summary": "A sweet protein from a West African fruit. EFSA found no safety concern and needs no daily limit.",
+   "level": "little",
+   "evidence": "None",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA FAF Panel. Re-evaluation of thaumatin (E 957) as a food additive. EFSA Journal, 2021"
+   ]
+  },
+  {
+   "id": "additive:e959",
+   "kind": "additive",
+   "title": "E959 Neohesperidine DC",
+   "summary": "Made from citrus compounds. EFSA set a limit of 20 mg per kg in 2022 and found exposure well under it.",
+   "level": "little",
+   "evidence": "None",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA FAF Panel. Re-evaluation of neohesperidine dihydrochalcone (E 959) as a food additive. EFSA Journal, 2022"
+   ]
+  },
+  {
+   "id": "additive:e960",
+   "kind": "additive",
+   "title": "E960 Steviol glycosides",
+   "summary": "EFSA set a safe daily limit of 4 mg per kg (as steviol). Some lab signals have not been confirmed in people.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "WHO/PAHO. WHO advises not to use non-sugar sweeteners for weight control in newly released guideline. 2023"
+   ]
+  },
+  {
+   "id": "additive:e961",
+   "kind": "additive",
+   "title": "E961 Neotame",
+   "summary": "EFSA raised its safe daily limit to 10 mg per kg in 2025. There are very few human studies.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA. Update on the re-evaluation of sweeteners (Annex II, FAF plenary). July 2026",
+    "WHO/PAHO. WHO advises not to use non-sugar sweeteners for weight control in newly released guideline. 2023"
+   ]
+  },
+  {
+   "id": "additive:e962",
+   "kind": "additive",
+   "title": "E962 Salt of aspartame-acesulfame",
+   "summary": "A compound of aspartame and acesulfame K. EFSA found no safety concern in 2026, but the concerns of both parts apply.",
+   "level": "some",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "People with phenylketonuria (PKU) must avoid it."
+   ],
+   "sources": [
+    "EFSA. EFSA concludes the salt of aspartame-acesulfame (E 962) is safe at current exposure levels. 2026",
+    "IARC/WHO. Aspartame hazard and risk assessment results released by IARC and JECFA (press release). 2023",
+    "Debras C et al. Artificial sweeteners and cancer risk: results from the NutriNet-Santé cohort. PLOS Medicine, 2022",
+    "WHO/PAHO. WHO advises not to use non-sugar sweeteners for weight control in newly released guideline. 2023"
+   ]
+  },
+  {
+   "id": "additive:e965",
+   "kind": "additive",
+   "title": "E965 Maltitol",
+   "summary": "No safety concern at normal use, but it is a common cause of gas and loose stools. EFSA is re-evaluating it.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "People with irritable bowel syndrome or sensitive digestion."
+   ],
+   "sources": [
+    "European Commission. Regulation (EU) 2021/1175 (polyol labelling recital)",
+    "EFSA. Call for data on sweeteners authorised as food additives (polyols included)"
+   ]
+  },
+  {
+   "id": "additive:e966",
+   "kind": "additive",
+   "title": "E966 Lactitol",
+   "summary": "No safety concern at normal use, but it is used as a medicine for constipation, so high intake loosens stools.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "People with irritable bowel syndrome or sensitive digestion."
+   ],
+   "sources": [
+    "European Commission. Regulation (EU) 2021/1175 (polyol labelling recital)",
+    "EFSA. Call for data on sweeteners authorised as food additives (polyols included)"
+   ]
+  },
+  {
+   "id": "additive:e967",
+   "kind": "additive",
+   "title": "E967 Xylitol",
+   "summary": "A 2024 study linked higher blood xylitol to more heart events, which shows a link only. It is also harmful to dogs.",
+   "level": "some",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "Households with dogs. People with heart disease or high heart risk may want to ask their clinician."
+   ],
+   "sources": [
+    "Witkowski M et al. Xylitol is prothrombotic and associated with cardiovascular risk. European Heart Journal, 2024",
+    "Wölnerhanssen BK et al. Xylitol exposure and cardiovascular risk (commentary). European Heart Journal, 2024",
+    "Xylitol and dogs (veterinary review). PubMed",
+    "European Commission. Regulation (EU) 2021/1175 (polyol labelling recital)"
    ]
   },
   {
    "id": "additive:e968",
    "kind": "additive",
    "title": "E968 Erythritol",
-   "summary": "One 2023 study linked higher blood levels to more heart attacks and strokes in people already at higher heart risk. It shows a link, not cause and effect.",
+   "summary": "A 2023 study linked higher blood levels to more heart attacks and strokes in people at higher heart risk. It shows a link, not cause and effect.",
    "level": "some",
    "evidence": "Weak",
    "to": "/scan#guide",
@@ -1056,7 +3622,26 @@
     "People who already have heart disease or high heart risk may want to ask their clinician."
    ],
    "sources": [
-    "Witkowski M et al. The artificial sweetener erythritol and cardiovascular event risk. Nature Medicine, 2023"
+    "Witkowski M et al. The artificial sweetener erythritol and cardiovascular event risk. Nature Medicine, 2023",
+    "Witkowski M et al. Ingestion of the sweetener erythritol increases platelet reactivity and thrombosis potential in healthy adults. Arterioscler Thromb Vasc Biol, 2024",
+    "EFSA FAF Panel. Re-evaluation of erythritol (E 968) as a food additive. EFSA Journal, 2023",
+    "European Commission. Regulation (EU) 2021/1175 (polyol labelling recital)"
+   ]
+  },
+  {
+   "id": "additive:e969",
+   "kind": "additive",
+   "title": "E969 Advantame",
+   "summary": "EFSA set a safe daily limit of 5 mg per kg in 2013. There are very few human studies.",
+   "level": "little",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [],
+   "sources": [
+    "EFSA ANS Panel. Scientific opinion on the safety of advantame for the proposed uses as a food additive. EFSA Journal, 2013",
+    "European Commission. Regulation (EU) No 497/2014 (advantame, E 969)",
+    "WHO/PAHO. WHO advises not to use non-sugar sweeteners for weight control in newly released guideline. 2023"
    ]
   },
   {
@@ -3852,6 +6437,18 @@
    "area": "Food",
    "minutes": 1,
    "to": "/scan",
+   "exclude_if": [],
+   "cautions": []
+  },
+  {
+   "id": "tool:animal-products",
+   "kind": "tool",
+   "title": "Animal products guide",
+   "summary": "Learn how meat, milk and eggs are produced: antibiotics, hormones, feed additives, organic versus conventional, and what labels mean, with the research behind each and how solid it is.",
+   "why": "Knowing what is and isn't regulated, and what the studies show, lets you choose by facts rather than marketing.",
+   "area": "Food",
+   "minutes": 4,
+   "to": "/animal-products",
    "exclude_if": [],
    "cautions": []
   },

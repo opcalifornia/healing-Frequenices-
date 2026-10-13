@@ -44,6 +44,9 @@ const EXTRA: Record<string, string[]> = {
   e968: ["meso erythritol"],
 };
 
+/** Names too common in ordinary text to match by name: only their E-number counts. */
+const NAME_OFF = new Set(["e570", "e948", "e949", "e173", "e174", "e175", "e640"]);
+
 /** Names that point to a group of additives and don't say which one. */
 const LOOSE: Array<{ words: string[]; label: string; ids: string[] }> = [
   { words: ["caramel color"], label: "Caramel colour (type not stated)", ids: ["e150a", "e150b", "e150c", "e150d"] },
@@ -69,6 +72,7 @@ interface Alias {
 function buildAliases(): Alias[] {
   const out: Alias[] = [];
   for (const a of ADDITIVES) {
+    if (NAME_OFF.has(a.id)) continue;
     const names = new Set<string>([a.name, ...(EXTRA[a.id] ?? [])]);
     for (const n of names) {
       const c = clean(n).trim();
@@ -105,7 +109,7 @@ export function findAdditives(text: string): IngredientMatch {
   });
 
   // 2. Names, longest first, each used up once matched.
-  let t = clean(work);
+  let t = clean(work).replace(/ lactic acid (bacteria|cultures?|starter)/g, " ");
   for (const a of ALIASES) {
     const needle = ` ${a.text} `;
     if (t.includes(needle)) {

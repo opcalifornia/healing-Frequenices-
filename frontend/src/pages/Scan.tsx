@@ -242,6 +242,7 @@ function histLabel(p: Product): string {
 const METHOD_SOURCES = [
   { text: "UK front-of-pack nutrition labelling guidance (2016): the low, medium and high cut-offs", url: "https://www.gov.uk/government/publications/front-of-pack-nutrition-labelling-guidance" },
   { text: "Two dimensions of nutritional value: Nutri-Score and NOVA (Nutrients, 2021)", url: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8399905/" },
+  { text: "Lane MM et al. Ultra-processed food exposure and adverse health outcomes: umbrella review of epidemiological meta-analyses. BMJ, 2024", url: "https://bmj.com/content/384/bmj-2023-077310" },
   { text: "Open Food Facts: where product data comes from", url: "https://world.openfoodfacts.org" },
 ];
 
@@ -255,12 +256,20 @@ function Method({ open, onClose }: { open: boolean; onClose(): void }) {
         <p>Every additive sits on a five-step scale. Each step has its own colour and shape, so you can read it at a glance, even without colour.</p>
         <TierLegend />
         <h3>1. Additives</h3>
+        <p>Each additive is scored by how strong its concern is: a restricted additive counts for the most, then notable, some concern and minor. The scores add up.</p>
         <ul>
-          <li><strong>Several concerns:</strong> any additive that regulators have restricted, or three or more with some research concern.</li>
-          <li><strong>Some concerns:</strong> one or two additives with some research concern.</li>
+          <li><strong>Several concerns:</strong> any additive that regulators have restricted, or two notable concerns, or a total score of 6 or more.</li>
+          <li><strong>Some concerns:</strong> any additive with some concern or worse, two minor ones, or eight or more additives of any kind. Nobody has studied that many in combination.</li>
           <li><strong>Few concerns:</strong> none of those. If some of a product's additives aren't reviewed here yet, or it has no nutrition facts, we say "few concerns so far".</li>
         </ul>
-        <p>Each additive's level comes from regulator reviews and published studies, shown in full on its page with the strength of the evidence. We only describe additives we can back with a source. Others show as "not reviewed here yet" and are left out of the verdict.</p>
+        <h4>How each additive gets its place</h4>
+        <ul>
+          <li><strong>Restricted:</strong> a major regulator has banned, withdrawn or restricted it for safety reasons.</li>
+          <li><strong>Notable or some concern:</strong> a credible signal in people (a trial or large cohort), a regulator flagging intake above its safe limit or naming a sensitive group, or a regulator saying it could not judge the additive's safety.</li>
+          <li><strong>Minor concern:</strong> lab or animal findings that haven't been confirmed in people, or small unresolved questions and data gaps.</li>
+          <li><strong>No concern found:</strong> regulators found no problem, and we found no credible signal in recent research either. That is not a guarantee. It means we found nothing, and research continues.</li>
+        </ul>
+        <p>Each additive's page shows the evidence strength and its sources. Some consumer groups and apps rate certain additives more strictly than regulators do. When that happens, the page has a "Where views differ" note explaining why. Additives we haven't reviewed show as "not reviewed here yet" and are left out of the score.</p>
         <h3>2. Nutrition</h3>
         <p>Sugars, saturated fat, salt and fat are sorted into low, medium or high per 100 g (per 100 ml for drinks) using the UK traffic-light cut-offs:</p>
         <table className="method__table">
@@ -277,7 +286,7 @@ function Method({ open, onClose }: { open: boolean; onClose(): void }) {
           <li><strong>Some concerns:</strong> a Nutri-Score of D, or one "high" nutrient.</li>
           <li><strong>Few concerns:</strong> otherwise.</li>
         </ul>
-        <p>We don't judge calories, as the UK guidance doesn't either. Fibre is shown as a plus when a product is a source of it (3 g or more per 100 g). The NOVA group says how processed a food is. It is shown for information and isn't part of the verdict.</p>
+        <p>We don't judge calories, as the UK guidance doesn't either. Fibre is shown as a plus when a product is a source of it (3 g or more per 100 g). The NOVA group says how processed a food is. A product in NOVA group 4 (ultra-processed) never reads "few concerns", because large reviews link diets high in these foods to poorer health.</p>
         <h3>What a verdict does not mean</h3>
         <ul>
           <li>It is not medical advice, and it is not a judgement of your whole diet. Most foods are fine in the right amount.</li>

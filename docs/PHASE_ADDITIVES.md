@@ -35,3 +35,24 @@ Added caramel colours (E150a-d), Red 3 (E127), BVO (E443), BHA/BHT, sorbates, ph
 - Cosmetics via Open Beauty Facts.
 - Native iPhone: use the system barcode scanner for more reliable reads.
 - Have a registered dietitian or toxicologist review the library before public launch, and a lawyer review the wording about brands and products.
+
+
+## Accuracy overhaul (October 2026)
+
+Prompted by a scan where a product with many additives read as mostly safe while other apps flagged them.
+
+**What changed**
+- **Every additive was re-researched** from primary sources (EFSA re-evaluations, FDA and IARC decisions, published studies) by parallel research passes, then merged into `src/rooted/additivesAudited.ts` (227 entries, up from 70). Each entry has evidence strength, regulation, sources, topic tags, and an optional `contested` note: where consumer groups or other apps rate it differently from regulators, and why.
+- **One rating rule for all** (see "How we rate" in the scanner). Related additives now agree: for example E471 now matches E472b and E472c (the same French cohorts), and all phosphates are "some concern" (EFSA 2019: children above the safe limit).
+- **Sorbic acid and potassium sorbate** moved from "clear" to "minor": regulators found no concern (EFSA 2019 raised the group ADI to 11 mg/kg) but lab studies on human cells found DNA changes at high doses and a sorbate-nitrite reaction forms mutagenic compounds in the lab. Neither is confirmed in people.
+- **Product verdict is scored, not counted.** Restricted, notable, some and minor concerns carry weight; eight or more additives or an ultra-processed (NOVA 4) product can't read "few concerns"; each result lists its reasons.
+- **"Nothing flagged" became "No concern found"**, with a note that it isn't a guarantee.
+- Name matching no longer mistakes common words (fatty acids, oxygen, lactic acid bacteria) for additives.
+
+**Sources**: every source link was checked to have appeared in actual search results; links from weak places (repository records, catalogue pages, trade press) were dropped where a primary source existed.
+
+**Known gaps and next steps**
+- A dietitian or toxicologist should review the library before launch. Several entries (the acetates, lactates, malic and fumaric acids, carbonates, E1103, E640, E920, E927b) are rated "no concern" or "minor" mainly because no review or signal was found, and say so.
+- Generic ingredients that aren't E-numbers (natural and artificial flavourings, vanillin, yeast extract, hydrolysed protein, maltodextrin, dextrose, glucose-fructose syrup, palm oil, hydrogenated fat) were researched but not added: they need ingredient-level matching. Research is kept for later.
+- E477 (propane-1,2-diol esters) still needs a source.
+- Re-check entries whose EFSA re-evaluations were still open (many acidity regulators, ribonucleotides, sorbitol and maltitol) when EFSA publishes.

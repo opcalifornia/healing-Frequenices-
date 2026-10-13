@@ -18,8 +18,9 @@ describe("E-number dictionary", () => {
     expect(eNumber("E120")?.name.toLowerCase()).toContain("carmine");
     expect(eNumber("e999999")).toBeUndefined();
   });
-  it("shares a review between close relatives", () => {
-    expect(additiveById("e407a")?.id).toBe("e407");
+  it("gives close relatives their own entry", () => {
+    expect(additiveById("e407a")?.id).toBe("e407a");
+    expect(additiveById("e407")?.id).toBe("e407");
   });
 });
 

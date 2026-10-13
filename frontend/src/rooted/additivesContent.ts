@@ -2,6 +2,7 @@ import type { Strength } from "../learn/brainContent";
 import type { Consideration } from "../store/wellness";
 import type { Source } from "./pantryContent";
 import { SAME_REVIEW } from "./eNumbers";
+import { AUDITED } from "./additivesAudited";
 
 /**
  * Food additives: what the research says, and how strong it is.
@@ -703,7 +704,21 @@ TOPICS.e249 = TOPICS.e250;
 
 const LAB_ONLY = new Set(["e466", "e433", "e955"]);
 
-export const ADDITIVES: Additive[] = RAW.map((a) => ({ ...a, topics: TOPICS[a.id] ?? a.topics ?? [], labOnly: LAB_ONLY.has(a.id) || a.labOnly }));
+/** The re-researched entries win over any older one with the same id. */
+const AUDITED_IDS = new Set(AUDITED.map((a) => a.id));
+const codeKey = (code: string): [number, string] => {
+  const m = code.match(/(\d+)([a-z]*)/i);
+  return [m ? Number(m[1]) : 0, m ? m[2].toLowerCase() : ""];
+};
+
+export const ADDITIVES: Additive[] = [
+  ...RAW.filter((a) => !AUDITED_IDS.has(a.id)).map((a) => ({ ...a, topics: TOPICS[a.id] ?? a.topics ?? [], labOnly: LAB_ONLY.has(a.id) || a.labOnly })),
+  ...AUDITED.map((a): Additive => ({ ...a, topics: a.topics ?? [] })),
+].sort((a, b) => {
+  const [an, as] = codeKey(a.code);
+  const [bn, bs] = codeKey(b.code);
+  return an - bn || as.localeCompare(bs);
+});
 
 const BY_ID = new Map(ADDITIVES.map((a) => [a.id, a]));
 

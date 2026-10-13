@@ -22,7 +22,12 @@ const ICONS: Record<string, ReactNode> = {
   flavour: (<><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3Z" /><path d="M18 17l.8 2.2L21 20l-2.2.8L18 23l-.8-2.2L15 20l2.2-.8L18 17Z" /></>),
   raising: (<><circle cx="8" cy="15" r="3" /><circle cx="15" cy="17" r="2" /><circle cx="14" cy="9" r="3" /><circle cx="8" cy="6" r="1.5" /></>),
   anticaking: (<><circle cx="7" cy="8" r="1.4" /><circle cx="12" cy="6" r="1.4" /><circle cx="17" cy="8" r="1.4" /><circle cx="9" cy="13" r="1.4" /><circle cx="15" cy="13" r="1.4" /><circle cx="7" cy="18" r="1.4" /><circle cx="12" cy="17" r="1.4" /><circle cx="17" cy="18" r="1.4" /></>),
+  glaze: (<><path d="M4 15c2-6 6-9 12-9 2 0 4 .5 4 .5S19 16 12 18c-3 1-6 .5-8-3Z" /><path d="M9 11c1.5-1.5 3-2 5-2" /></>),
+  flour: (<><path d="M12 21V8M12 12c-3 0-4-2-4-4 3 0 4 2 4 4ZM12 12c3 0 4-2 4-4-3 0-4 2-4 4ZM12 17c-3 0-4-2-4-4 3 0 4 2 4 4ZM12 17c3 0 4-2 4-4-3 0-4 2-4 4ZM12 8c-1.5-1-1.5-3 0-5 1.5 2 1.5 4 0 5Z" /></>),
+  gas: (<><circle cx="8" cy="15" r="3.5" /><circle cx="16" cy="9" r="3" /><circle cx="15" cy="17" r="2" /><circle cx="7" cy="6" r="1.5" /></>),
+  bulk: (<><path d="M4 9l8-4 8 4-8 4-8-4Z" /><path d="M4 9v6l8 4 8-4V9M12 13v6" /></>),
   default: (<><path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 1.8 3h10.4a2 2 0 0 0 1.8-3l-5-9V3" /></>),
+  gap: (<><circle cx="12" cy="12" r="9" strokeDasharray="3 3" /><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 .9-1 1.7M12 17h.01" /></>),
   // concerns
   dna: (<><path d="M7 3c0 6 10 6 10 12s-10 6-10 6M17 3c0 6-10 6-10 12" /><path d="M8 7h8M8 17h8" /></>),
   immune: (<><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3Z" /><circle cx="12" cy="11" r="2.6" /><path d="M12 6.5v1.4M12 14.1v1.4M7.5 11h1.4M15.1 11h1.4" /></>),
@@ -52,6 +57,10 @@ const FUNCTIONS: Array<{ re: RegExp; key: string; does: string }> = [
   { re: /acid/i, key: "acid", does: "Adjusts how sour or acidic a food is, which affects taste and keeping time." },
   { re: /flavour/i, key: "flavour", does: "Boosts the savoury or other flavours already in the food." },
   { re: /raising/i, key: "raising", does: "Releases gas as food bakes, so breads and cakes rise." },
+  { re: /glaz|foam/i, key: "glaze", does: "Gives food a shiny, protective coating, or stops foam forming while it is made." },
+  { re: /flour|dough/i, key: "flour", does: "Improves how dough rises and holds together, so bread and baked goods turn out the same every time." },
+  { re: /gas|propellant/i, key: "gas", does: "A gas that pushes food out of a can, or protects food inside its packaging." },
+  { re: /bulking|carrier|solvent|humectant|chewing gum/i, key: "bulk", does: "Adds body or bulk, carries other ingredients, or helps keep food moist." },
   { re: /anti-?caking/i, key: "anticaking", does: "Keeps powders and granules free-flowing instead of clumping." },
 ];
 
@@ -77,6 +86,16 @@ const RISKS: Array<[RegExp, string]> = [
   [/intake|guideline|limit|exceed|margin/i, "gauge"],
   [/kidney/i, "kidney"],
   [/pku|phenyl/i, "alert"],
+  [/diabet|blood sugar|weight|glucose/i, "gauge"],
+  [/digest|bowel|laxative|stool/i, "gut"],
+  [/uric|gout/i, "kidney"],
+  [/tumou?r|lung|liver|nitrosamine/i, "dna"],
+  [/dog|hormone|thyroid|reproduc|testis|choking/i, "alert"],
+  [/infant/i, "child"],
+  [/nitrite|sorbate|cell damage|lab test/i, "dna"],
+  [/emulsifier/i, "gut"],
+  [/clotting/i, "heart"],
+  [/data gap|gaps|could not be assessed|not established|impurit|nano|different substance|limited/i, "gap"],
 ];
 
 export function riskKey(topic: string): string {

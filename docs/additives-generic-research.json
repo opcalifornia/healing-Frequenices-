@@ -1,0 +1,304 @@
+[
+ {
+  "id": "flavouring-natural",
+  "code": "Flavouring",
+  "name": "Natural flavouring",
+  "also": "Natural flavour",
+  "kind": "Flavouring",
+  "found": "Almost every processed food: drinks, snacks, sweets, yoghurts, ready meals.",
+  "level": "little",
+  "evidence": "Weak",
+  "summary": "The label does not tell you what the flavour is made of. 'Natural' describes the source or process, not that it is simpler or safer.",
+  "research": [
+   "In the EU (Regulation 1334/2008), natural flavourings come from plant, animal or microbial material by physical, enzymatic or microbiological processes. A 'natural flavouring' on the label usually can't name its parts, though 'natural X flavouring' must come mostly from X.",
+   "In the US (21 CFR 101.22), a natural flavour is made from plant, animal, dairy, egg or fermentation sources and its main job is flavour. Chemistry using inorganic catalysts can still count as natural. The label does not list the many compounds inside.",
+   "Flavour substances are assessed one by one by regulators such as EFSA and JECFA. A single label term can hide dozens of them. Allergens still need to be named. I found no study that links 'natural flavouring' as a class to harm."
+  ],
+  "regulation": "Allowed in the EU and US if the flavour substances are authorised. Labelled as 'natural flavouring' or a more specific name in the EU.",
+  "contested": "Consumer apps often rate it neutral or cautious because the contents are not listed. That is a fair transparency point, not evidence of harm.",
+  "sources": [
+   {
+    "text": "MTR Legal. Definition and legal classification of flavourings (EU 1334/2008)",
+    "url": "https://www.mtrlegal.com/en/wiki/flavors"
+   },
+   {
+    "text": "Sigma-Aldrich. Navigating natural flavor regulations (EU vs US)",
+    "url": "https://www.sigmaaldrich.com/US/en/technical-documents/technical-article/food-and-beverage-testing-and-manufacturing/flavor-and-fragrance-formulation/navigating-natural-flavor-regulations"
+   }
+  ],
+  "topics": [],
+  "_batch": 10
+ },
+ {
+  "id": "flavouring-artificial",
+  "code": "Flavouring",
+  "name": "Artificial flavouring",
+  "also": "Artificial flavour",
+  "kind": "Flavouring",
+  "found": "Sweets, soft drinks, desserts, snacks and ready meals.",
+  "level": "little",
+  "evidence": "Weak",
+  "summary": "Synthetic flavour molecules, each authorised on its own. The label does not say which ones are used.",
+  "research": [
+   "In the EU, 'artificial' flavouring means synthetic substances with no natural counterpart. Chemically identical copies of natural substances are called nature-identical. In the US the term 'artificial flavor' covers synthetic flavour substances.",
+   "Regulators review flavour substances one at a time, and a few have been removed after review. A product label can hide how many are present.",
+   "I found no study showing harm from 'artificial flavouring' as a class at food levels."
+  ],
+  "regulation": "Each substance must be on the EU Union list or be GRAS or approved in the US. The US requires 'artificial flavor' on labels.",
+  "contested": "Consumer apps usually rate it more strictly than natural flavouring. The difference is more about label wording than strong evidence of harm.",
+  "sources": [
+   {
+    "text": "MTR Legal. Definition and legal classification of flavourings",
+    "url": "https://www.mtrlegal.com/en/wiki/flavors"
+   },
+   {
+    "text": "Sigma-Aldrich. Navigating natural flavor regulations",
+    "url": "https://www.sigmaaldrich.com/US/en/technical-documents/technical-article/food-and-beverage-testing-and-manufacturing/flavor-and-fragrance-formulation/navigating-natural-flavor-regulations"
+   }
+  ],
+  "topics": [],
+  "_batch": 10
+ },
+ {
+  "id": "vanillin",
+  "code": "Flavouring",
+  "name": "Vanillin",
+  "kind": "Flavouring",
+  "found": "Biscuits, ice cream, chocolate, cakes and drinks.",
+  "level": "little",
+  "evidence": "None",
+  "summary": "The main flavour compound of vanilla. Most vanillin in food is made from other sources. Regulators allow it as a flavour.",
+  "research": [
+   "JECFA has evaluated vanillin and lists an acceptable intake of 0 to 10 mg per kg of body weight (an old figure). In the US it is a recognised flavour (FEMA GRAS).",
+   "Vanillin can come from vanilla beans, from wood lignin, from chemicals such as guaiacol, or from fermentation. The label may say 'vanilla flavour' or 'vanillin' without naming the source.",
+   "I found no recent human studies of concern at food levels."
+  ],
+  "regulation": "Authorised as a flavouring in the EU and US.",
+  "sources": [
+   {
+    "text": "FEMA. Vanillin flavor profile",
+    "url": "https://www.femaflavor.org/flavor-library/vanillin"
+   },
+   {
+    "text": "Cornell LII. 21 CFR 182.60 synthetic flavoring substances and adjuvants",
+    "url": "https://www.law.cornell.edu/cfr/text/21/182.60"
+   }
+  ],
+  "topics": [],
+  "_batch": 10
+ },
+ {
+  "id": "yeast-extract",
+  "code": "Flavour base",
+  "name": "Yeast extract",
+  "kind": "Savoury flavour (contains natural glutamate)",
+  "found": "Stock cubes, soups, snacks, spreads, sauces and ready meals.",
+  "level": "little",
+  "evidence": "Weak",
+  "summary": "Yeast extract is a food ingredient, not an E-number. It contains natural free glutamate, which gives savoury taste.",
+  "research": [
+   "It is made from yeast broken down by its own enzymes, then concentrated. It contains free glutamate and nucleotides, which add savoury taste, in the same way as added MSG.",
+   "Because it is a food ingredient and not an additive, the EFSA glutamate ADI of 30 mg per kg (for E 620 to 625) does not formally apply to it. Total glutamate from all sources can still add up.",
+   "'No added MSG' on a label can still include yeast extract. I found no clinical trials showing harm at normal food levels."
+  ],
+  "regulation": "A food ingredient in the EU and US. No E-number. Not covered by the additive limits for glutamates.",
+  "contested": "Some apps rate it stricter than regulators because of its free glutamate. That is mechanistically true, but trials on glutamate are mixed and I found nothing specific to yeast extract.",
+  "sources": [
+   {
+    "text": "EFSA ANS Panel. Re-evaluation of glutamic acid (E 620), sodium glutamate (E 621), potassium glutamate (E 622), calcium glutamate (E 623), ammonium glutamate (E 624) and magnesium glutamate (E 625) as food additives. EFSA Journal, 2017",
+    "url": "https://efsa.europa.eu/en/efsajournal/pub/4910"
+   },
+   {
+    "text": "Zanfirescu A et al. Does monosodium glutamate really cause headache? A systematic review of human studies. J Headache Pain, 2016",
+    "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4870486/"
+   }
+  ],
+  "topics": [],
+  "_batch": 10
+ },
+ {
+  "id": "hydrolysed-protein",
+  "code": "Flavour base",
+  "name": "Hydrolysed protein",
+  "also": "Hydrolysed vegetable protein, HVP",
+  "kind": "Savoury flavour",
+  "found": "Stock cubes, soups, snacks, gravy and seasoning mixes.",
+  "level": "little",
+  "evidence": "Weak",
+  "summary": "Protein broken into amino acids to add savoury taste. Acid-hydrolysed types can contain a process contaminant called 3-MCPD.",
+  "research": [
+   "Hydrolysed protein from soy, wheat or milk is a food ingredient with high free glutamate. The label must name the source, and soy, wheat and milk are allergens.",
+   "Acid hydrolysis can create 3-MCPD, a contaminant. The EU set a legal limit for free 3-MCPD in hydrolysed plant protein and soy sauce in 2006.",
+   "EFSA's 2018 revision set a group tolerable daily intake of 2 micrograms per kg of body weight for 3-MCPD. Average intake was below it, but there was a slight exceedance for high-consuming young people and infants on formula only. These are estimates for all foods, not only this ingredient."
+  ],
+  "careIf": "People with soy, wheat or milk allergy, depending on the source.",
+  "regulation": "A food ingredient in the EU and US. The EU sets maximum levels for 3-MCPD in hydrolysed plant protein and soy sauce.",
+  "sources": [
+   {
+    "text": "EFSA. Revised safe intake for 3-MCPD in vegetable oils and food, 2018",
+    "url": "https://www.efsa.europa.eu/pt/press/news/180110"
+   },
+   {
+    "text": "Commission Regulation (EU) 2018/290 (contaminants, incl. 3-MCPD and glycidyl esters)",
+    "url": "https://www.legislation.gov.uk/eur/2018/290/data.html"
+   }
+  ],
+  "topics": [],
+  "_batch": 10
+ },
+ {
+  "id": "maltodextrin",
+  "code": "Sugar-type",
+  "name": "Maltodextrin",
+  "kind": "Bulking agent, thickener, carrier",
+  "found": "Sports drinks, instant sauces, sweeteners, snacks and powders.",
+  "level": "little",
+  "evidence": "Weak",
+  "labOnly": true,
+  "summary": "A quickly digested starch product. Lab and mouse studies suggest it may favour some gut bacteria linked to Crohn's disease. This has not been shown in people.",
+  "research": [
+   "Maltodextrin is made by breaking down starch. It is digested fast and can raise blood sugar quickly, like other refined carbohydrates.",
+   "A 2012 lab study found that maltodextrin increased biofilm formation by an E. coli strain linked to Crohn's disease. A mouse study reported more gut inflammation. A study of stools from people with Crohn's in remission found changes in short-chain acid production.",
+   "These are lab and animal findings. I found no human trial that links maltodextrin to Crohn's disease outcomes."
+  ],
+  "regulation": "A food ingredient in the EU and US, not an E-number additive.",
+  "topics": [
+   "Gut bacteria and inflammation (lab and animal studies)",
+   "Quick rise in blood sugar"
+  ],
+  "sources": [
+   {
+    "text": "Nickerson KP, McDonald C. Crohn's disease-associated adherent-invasive E. coli adhesion is enhanced by exposure to the ubiquitous dietary polysaccharide maltodextrin. PLoS One, 2012",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3520894"
+   }
+  ],
+  "_batch": 10
+ },
+ {
+  "id": "dextrose",
+  "code": "Sugar",
+  "name": "Dextrose",
+  "also": "Glucose",
+  "kind": "Sweetener, bulking agent",
+  "found": "Sweets, baked goods, drinks, sauces and processed meats.",
+  "level": "some",
+  "evidence": "Moderate",
+  "summary": "Dextrose is glucose. It is safe as a food, but it counts as a free sugar, and WHO advises keeping free sugars under 10% of energy.",
+  "research": [
+   "Dextrose is the same as glucose, the body's main fuel. It has a high glycaemic index and counts as an added or free sugar.",
+   "WHO's 2015 guideline strongly recommends keeping free sugars under 10% of total energy intake for adults and children. A further cut under 5% is a conditional recommendation. The concerns are weight gain and tooth decay.",
+   "The concern is total sugar intake. One ingredient in a small amount does not make a food 'unhealthy'."
+  ],
+  "regulation": "A food ingredient in the EU and US (GRAS).",
+  "topics": [
+   "Free sugar intake and weight gain or tooth decay (strong guideline basis)"
+  ],
+  "sources": [
+   {
+    "text": "WHO. Guideline: sugars intake for adults and children, 2015",
+    "url": "https://www.who.int/mediacentre/news/releases/2015/sugar-guideline/en/"
+   }
+  ],
+  "_batch": 10
+ },
+ {
+  "id": "glucose-fructose-syrup",
+  "code": "Sugar",
+  "name": "Glucose-fructose syrup",
+  "also": "High-fructose corn syrup (US)",
+  "kind": "Sweetener",
+  "found": "Soft drinks, sweets, sauces, cereals and baked goods.",
+  "level": "some",
+  "evidence": "Moderate",
+  "summary": "A liquid mix of glucose and fructose. It counts as a free sugar. Sugar-sweetened drinks are linked to weight gain and tooth decay.",
+  "research": [
+   "Glucose-fructose syrup (US name: high-fructose corn syrup) is made from starch. Its composition is close to that of table sugar.",
+   "WHO advises free sugars under 10% of energy for adults and children. EFSA noted in 2022 that there is too little evidence at doses below this range to say what a safe level is.",
+   "Whether the syrup is worse than other sugars at equal amounts is not clear from current evidence. The main concern is how much total sugar you eat."
+  ],
+  "regulation": "A food ingredient in the EU (production quotas apply) and US (GRAS).",
+  "topics": [
+   "Free sugar intake and weight gain or tooth decay (strong guideline basis)"
+  ],
+  "contested": "CSPI advises cutting back on high-fructose corn syrup. Consumer apps often rate it more strictly than regulators. The evidence supports a concern about total sugar rather than this syrup alone.",
+  "sources": [
+   {
+    "text": "WHO. Guideline: sugars intake for adults and children, 2015",
+    "url": "https://www.who.int/mediacentre/news/releases/2015/sugar-guideline/en/"
+   },
+   {
+    "text": "Confectionery News. Industry reaction to EFSA's sugar guidance",
+    "url": "https://www.foodingredientsfirst.com/news/efsas-sugar-reduction-guidance-may-lead-to-uptick-in-artificial-sweeteners-flags-industry.html"
+   }
+  ],
+  "_batch": 10
+ },
+ {
+  "id": "palm-oil",
+  "code": "Fat",
+  "name": "Palm oil",
+  "kind": "Cooking fat, texture",
+  "found": "Biscuits, chocolate spreads, instant noodles, margarine and snacks.",
+  "level": "some",
+  "evidence": "Moderate",
+  "summary": "High in saturated fat, which raises LDL cholesterol compared with unsaturated oils. EFSA also found refined palm oil has the highest levels of process contaminants.",
+  "research": [
+   "A review of meta-analyses found that swapping unsaturated oils for palm oil raised LDL cholesterol by about 3 to 9 mg/dL. Palm oil also raised HDL. Compared with trans fats or refined carbohydrates, it looked neutral or better.",
+   "EFSA's 2016 opinion found that glycidyl esters, formed when oils are refined at high heat, damage DNA and cause cancer in animal studies. Refined palm oil had the highest levels. EFSA found a potential health concern for young age groups and high consumers. EU limits have been set since.",
+   "Environmental concerns about palm oil are outside this health rating."
+  ],
+  "regulation": "Allowed in the EU and US. The EU sets maximum levels for glycidyl esters and 3-MCPD esters in oils and foods.",
+  "topics": [
+   "LDL cholesterol (meta-analyses of trials)",
+   "Process contaminants from refining (animal studies, EFSA estimate)"
+  ],
+  "sources": [
+   {
+    "text": "Tropical oil consumption and cardiovascular disease: an umbrella review of systematic reviews and meta-analyses. Nutrients, 2021",
+    "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8148021/"
+   },
+   {
+    "text": "EFSA CONTAM Panel. Risks for human health related to the presence of 3- and 2-monochloropropanediol and glycidyl fatty acid esters in food, 2016",
+    "url": "https://abdn.elsevierpure.com/en/publications/risks-for-human-health-related-to-the-presence-of-3-and-2-monochl"
+   },
+   {
+    "text": "EUFIC. Process contaminants in vegetable oils and foods pose potential health concerns, finds EFSA",
+    "url": "https://www.eufic.org/en/food-production/article/process-contaminants-in-vegetable-oils-and-foods"
+   }
+  ],
+  "_batch": 10
+ },
+ {
+  "id": "hydrogenated-fat",
+  "code": "Fat",
+  "name": "Hydrogenated fat",
+  "also": "Partially hydrogenated oil",
+  "kind": "Cooking fat, texture",
+  "found": "Older-style margarine, biscuits, pastries, frying fats and some imported snacks.",
+  "level": "restricted",
+  "evidence": "Strong",
+  "summary": "Partially hydrogenated oils contain industrial trans fats, which raise heart disease risk. The US removed their GRAS status and the EU caps trans fat.",
+  "research": [
+   "Partial hydrogenation creates industrial trans fats. Regulators and public-health bodies link them to higher LDL cholesterol and heart disease risk.",
+   "The FDA concluded in 2015 that partially hydrogenated oils are no longer GRAS. The final compliance date was 1 January 2021 and the rule was finalised in 2023.",
+   "The EU limits industrial trans fat to 2 g per 100 g of fat (proposed in 2018, applying since April 2021).",
+   "Fully hydrogenated fat contains very little trans fat, but the label may not tell you which type was used. 'Hydrogenated' on a label is worth a look."
+  ],
+  "regulation": "Partially hydrogenated oils are not GRAS in the US. The EU caps industrial trans fat at 2 g per 100 g of fat.",
+  "topics": [
+   "Heart disease risk (strong evidence for industrial trans fats)"
+  ],
+  "contested": "CSPI has long urged avoiding partially hydrogenated oils. Regulators moved the same way, so there is no real disagreement.",
+  "sources": [
+   {
+    "text": "Food Safety Magazine. FDA finalizes 2015 determination revoking GRAS status for partially hydrogenated oils",
+    "url": "https://www.food-safety.com/articles/8794-fda-finalizes-2015-determination-revoking-gras-status-for-partially-hydrogenated-oils-in-food"
+   },
+   {
+    "text": "FoodNavigator. Commission proposes 2% trans fat limit, 2018",
+    "url": "https://www.foodnavigator.com/Article/2018/10/05/Commission-proposes-2-trans-fat-limit/"
+   }
+  ],
+  "_batch": 10
+ }
+]
