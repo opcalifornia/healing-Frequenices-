@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { Aurora, Reveal, ZoomPage } from "../rooted/motion";
 import { Evidence, SourceLink } from "../rooted/ui";
 import { BarcodeScanner } from "../rooted/BarcodeScanner";
@@ -12,6 +12,7 @@ import { ALLERGENS, allergenHits, allergenLabel } from "../rooted/allergens";
 import { TEXT_PRODUCT_CODE, productFromIngredients } from "../rooted/ingredientParse";
 import { useAllergenStore, useWatchedAllergens } from "../store/allergens";
 import { Sheet } from "../rooted/ui";
+import { CheckIcon, FunctionIcon, RiskIcon, functionInfo } from "../rooted/AdditiveArt";
 import { useAbout } from "../store/wellness";
 import { Footer } from "../components/Footer";
 import { Icon } from "../components/Icon";
@@ -54,44 +55,85 @@ function split(p: Product) {
   return { known, unknown };
 }
 
-function Detail({ a, forYou }: { a: Additive; forYou: boolean }) {
+function Row({ a, forYou, onOpen }: { a: Additive; forYou: boolean; onOpen(): void }) {
   return (
-    <div className="addi__detail">
-      <p className="addi__summary">{a.summary}</p>
-      {a.topics.length > 0 && (
-        <>
-          <h4>Potential associated risks</h4>
-          <ul className="addi__chips">{a.topics.map((t) => <li key={t}>{t}</li>)}</ul>
-        </>
-      )}
-      <h4>What the research found</h4>
-      <ul>{a.research.map((r) => <li key={r}>{r}</li>)}</ul>
-      <p className="addi__ev"><Evidence s={a.evidence} /> <span>for the concern. Evidence labels describe how well studies support it, not how big the effect is.</span></p>
-      {a.careIf && <p className="addi__care"><strong>Who may want to take care:</strong> {a.careIf}{forYou && <em className="addi__you"> This is one to look at more closely for you.</em>}</p>}
-      <p className="addi__reg"><strong>Rules:</strong> {a.regulation}</p>
-      <ul className="addi__src">{a.sources.map((s) => <li key={s.text}><SourceLink s={s} /></li>)}</ul>
-    </div>
-  );
-}
-
-function Row({ a, forYou, open, onToggle }: { a: Additive; forYou: boolean; open: boolean; onToggle(): void }) {
-  return (
-    <li className={`addi ${open ? "is-open" : ""}`}>
-      <button className="addi__head" onClick={onToggle} aria-expanded={open}>
+    <li className="addi">
+      <button className="addi__head" onClick={onOpen} aria-haspopup="dialog">
         <span className="addi__code">{a.code}</span>
         <span className="addi__name"><strong>{a.name}</strong><small>{a.kind}</small></span>
         <Pill level={a.level} />
         {forYou && <span className="addi__flag">For you</span>}
-        <Icon name="chevronDown" size={18} className="addi__caret" />
+        <Icon name="chevronRight" size={18} className="addi__caret" />
       </button>
-      <AnimatePresence initial={false}>
-        {open && (
-          <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} className="addi__body">
-            <Detail a={a} forYou={forYou} />
-          </motion.div>
-        )}
-      </AnimatePresence>
     </li>
+  );
+}
+
+/** One additive on its own page: what it does, what the research flags, and where that comes from. */
+function AdditiveSheet({ a, forYou, onClose, onMethod }: { a: Additive | null; forYou: boolean; onClose(): void; onMethod(): void }) {
+  const fn = a ? functionInfo(a.kind) : null;
+  return (
+    <Sheet open={!!a} onClose={onClose} label={a ? `${a.name}, additive` : "Additive"} wide>
+      {a && fn && (
+        <div className="apage">
+          <header className="apage__head">
+            <span className="apage__code">{a.code}</span>
+            <h2>{a.name}</h2>
+            {a.also && <p className="apage__also">Also written: {a.also}</p>}
+            <p className="apage__tags"><Pill level={a.level} /> {forYou && <span className="addi__flag">For you</span>}</p>
+          </header>
+
+          <div className="afun">
+            <span className="afun__icon"><FunctionIcon kind={a.kind} /></span>
+            <div>
+              <strong>{fn.label}</strong>
+              <p>{fn.does}</p>
+            </div>
+          </div>
+
+          <h3 className="apage__h">Potential associated risks</h3>
+          <ul className="arisk" aria-label="Potential associated risks">
+            {a.topics.length === 0 && (
+              <li className="arisk__tile arisk__tile--ok">
+                <span className="arisk__icon"><CheckIcon /></span>
+                <span>No safety concern found by regulators</span>
+              </li>
+            )}
+            {a.topics.map((t) => (
+              <li key={t} className="arisk__tile">
+                <span className="arisk__icon"><RiskIcon topic={t} /></span>
+                <span>{t}</span>
+              </li>
+            ))}
+          </ul>
+
+          {a.evidence === "None" ? (
+            <p className="apage__ev"><span className="lvl lvl--little">Nothing flagged</span> <span>The reviews and studies we checked found no support for a safety concern at the amounts allowed in food.</span></p>
+          ) : (
+            <p className="apage__ev"><Evidence s={a.evidence} /> <span>for the concern. This says how well studies support it, not how big the effect is.</span></p>
+          )}
+
+          <p className="apage__summary">{a.summary}</p>
+          <h3 className="apage__h">What the research found</h3>
+          <ul className="apage__list">{a.research.map((r) => <li key={r}>{r}</li>)}</ul>
+          {a.careIf && <p className="apage__care"><strong>Who may want to take care:</strong> {a.careIf}{forYou && <em> This is one to look at more closely for you.</em>}</p>}
+          <p className="apage__reg"><strong>Rules:</strong> {a.regulation}</p>
+
+          <div className="alinks">
+            <details>
+              <summary>Where you'll find it</summary>
+              <p>{a.found}</p>
+            </details>
+            <details>
+              <summary>Scientific sources <small>({a.sources.length})</small></summary>
+              <ul className="addi__src">{a.sources.map((s) => <li key={s.text}><SourceLink s={s} /></li>)}</ul>
+            </details>
+            <button onClick={() => { onClose(); onMethod(); }}>Methodology <Icon name="chevronRight" size={16} /></button>
+          </div>
+          <p className="apage__fine">Wellness education, not medical advice. A concern is not proof of harm: many people eat these at levels regulators consider acceptable.</p>
+        </div>
+      )}
+    </Sheet>
   );
 }
 
@@ -195,7 +237,7 @@ export default function Scan() {
   const [scanning, setScanning] = useState(false);
   const [method, setMethod] = useState(false);
   const [number, setNumber] = useState("");
-  const [open, setOpen] = useState<string | null>(null);
+  const [active, setActive] = useState<Additive | null>(null);
   const [q, setQ] = useState("");
   const [alts, setAlts] = useState<Array<{ p: Product; a: Assessment; n: number }> | null>(null);
   const [textOpen, setTextOpen] = useState(false);
@@ -205,7 +247,6 @@ export default function Scan() {
 
   const show = useCallback(
     (product: Product, remember = true) => {
-      setOpen(null);
       setState({ s: "result", product });
       setNumber(product.code === TEXT_PRODUCT_CODE ? "" : product.code);
       if (remember && product.code !== TEXT_PRODUCT_CODE) {
@@ -221,7 +262,6 @@ export default function Scan() {
     async (code: string) => {
       setScanning(false);
       setNumber(code);
-      setOpen(null);
       setState({ s: "loading" });
       const r = await lookupBarcode(code);
       if (r.ok) show(r.product);
@@ -346,7 +386,7 @@ export default function Scan() {
               <h3>Additives <small>{total === 0 ? "none listed" : `${total} listed`}</small></h3>
               {total === 0 && <p className="scan__muted">No additives are listed for this product. The database can be incomplete, so check the label.</p>}
               {counts.length > 0 && <p className="scan__muted">{counts.map(([l, n]) => `${n} ${COUNT_WORDS[l]}`).join(", ")}.</p>}
-              {found.known.length > 0 && <ul className="addi-list">{found.known.map((a) => <Row key={a.id} a={a} forYou={forYou(a)} open={open === a.id} onToggle={() => setOpen(open === a.id ? null : a.id)} />)}</ul>}
+              {found.known.length > 0 && <ul className="addi-list">{found.known.map((a) => <Row key={a.id} a={a} forYou={forYou(a)} onOpen={() => setActive(a)} />)}</ul>}
               {(state.product.notes?.length ?? 0) > 0 && (
                 <p className="scan__muted scan__unknown">
                   Also on the label: <strong>{state.product.notes!.join("; ")}</strong>. The label doesn't say which one, so we can't rate it. Look up the types in the guide below.
@@ -421,7 +461,7 @@ export default function Scan() {
         <label htmlFor="addi-search" className="visually-hidden">Search additives</label>
         <input id="addi-search" className="scan__search" type="search" placeholder="Try aspartame, E171 or red 40" value={q} onChange={(e) => setQ(e.target.value)} autoComplete="off" />
         {browse.length ? (
-          <ul className="addi-list">{browse.map((a) => <Row key={a.id} a={a} forYou={forYou(a)} open={open === `g-${a.id}`} onToggle={() => setOpen(open === `g-${a.id}` ? null : `g-${a.id}`)} />)}</ul>
+          <ul className="addi-list">{browse.map((a) => <Row key={a.id} a={a} forYou={forYou(a)} onOpen={() => setActive(a)} />)}</ul>
         ) : (
           <p className="scan__status">Nothing matches that yet. Try an E-number such as E330.</p>
         )}
@@ -441,6 +481,7 @@ export default function Scan() {
       <Footer />
       <BarcodeScanner open={scanning} onCode={(c) => void run(c)} onClose={() => setScanning(false)} />
       <Method open={method} onClose={() => setMethod(false)} />
+      <AdditiveSheet a={active} forYou={active ? forYou(active) : false} onClose={() => setActive(null)} onMethod={() => setMethod(true)} />
     </ZoomPage>
   );
 }
