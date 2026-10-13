@@ -1,6 +1,6 @@
 {
  "version": 1,
- "count": 484,
+ "count": 488,
  "items": [
   {
    "id": "additive:e100",
@@ -3765,6 +3765,36 @@
    ]
   },
   {
+   "id": "breath:alternate",
+   "kind": "breathing",
+   "title": "Alternate nostril breathing",
+   "summary": "Left in · right out · right in · left out. A steadying practice for a busy mind. Rest your right hand on your face and close one nostril at a time.",
+   "why": "A 2024 analysis of six trials with 525 people found it lowered blood pressure more than no intervention. But the trials were small, often unblinded, and varied a lot, so the result should be read with care. Evidence for stress and anxiety specifically is thinner.",
+   "evidence": "Mixed",
+   "minutes": 2,
+   "to": "/breathe?open=alternate",
+   "exclude_if": [],
+   "cautions": [],
+   "goals": [
+    "relax"
+   ]
+  },
+  {
+   "id": "breath:belly",
+   "kind": "breathing",
+   "title": "Belly breathing",
+   "summary": "4 in · 6 out, low and slow. When your shoulders are tight and your breath feels high in your chest. Good for learning to breathe from the diaphragm.",
+   "why": "Slow breathing from the diaphragm slows breathing rate, pulse and blood pressure. A systematic review of it as a stand-alone stress practice found only a few well-run studies, so the evidence is encouraging but not strong. It's a good base for every other technique.",
+   "evidence": "Mixed",
+   "minutes": 2,
+   "to": "/breathe?open=belly",
+   "exclude_if": [],
+   "cautions": [],
+   "goals": [
+    "relax"
+   ]
+  },
+  {
    "id": "breath:box",
    "kind": "breathing",
    "title": "Box breathing",
@@ -3812,6 +3842,21 @@
    ]
   },
   {
+   "id": "breath:humming",
+   "kind": "breathing",
+   "title": "Humming breath",
+   "summary": "4 in · 8 hum out. When you want something to focus on. The soft hum gives your attention an anchor, and it's discreet enough for a quiet room.",
+   "why": "Studies of humming breath (bhramari) are small and mostly without control groups. They report better heart rate variability and lower anxiety scores, but the long, slow out-breath is probably doing much of the work, as in other slow-breathing practices. Treat it as a pleasant, low-risk option rather than a proven one.",
+   "evidence": "Weak",
+   "minutes": 2,
+   "to": "/breathe?open=humming",
+   "exclude_if": [],
+   "cautions": [],
+   "goals": [
+    "relax"
+   ]
+  },
+  {
    "id": "breath:power",
    "kind": "breathing",
    "title": "Power breathing",
@@ -3839,6 +3884,21 @@
    "evidence": "Moderate",
    "minutes": 1,
    "to": "/breathe?open=sigh",
+   "exclude_if": [],
+   "cautions": [],
+   "goals": [
+    "relax"
+   ]
+  },
+  {
+   "id": "breath:triangle",
+   "kind": "breathing",
+   "title": "Triangle breathing",
+   "summary": "4 in · 4 hold · 4 out. A simple pattern for racing thoughts, when box breathing feels like one step too many.",
+   "why": "A three-part rhythm gives your mind something simple to follow, and slow, even breathing is what most of the research on breathing and stress supports. There's no research on this exact pattern, so we rate it as early evidence.",
+   "evidence": "Weak",
+   "minutes": 1,
+   "to": "/breathe?open=triangle",
    "exclude_if": [],
    "cautions": [],
    "goals": [
