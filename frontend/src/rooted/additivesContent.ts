@@ -34,6 +34,8 @@ export interface Additive extends AdditiveBase {
 interface AdditiveBase {
   /** The concern rests only on lab or animal studies so far, which keeps it to a "minor" step. */
   labOnly?: boolean;
+  /** Where other rating systems (consumer groups, apps) rate it differently from regulators, and why. */
+  contested?: string;
   /** Short risk tags. Set here, or in the TOPICS table below. */
   topics?: string[];
   /** Lowercase code, for example "e171". */
@@ -727,7 +729,7 @@ export const LEVEL_ORDER: Record<ConcernLevel, number> = { restricted: 0, some: 
  *  notable     a real concern backed by moderate or better evidence in people
  *  some        a concern with limited or mixed evidence
  *  minor       a small or early concern (lab or animal studies only, or EFSA noted a limit)
- *  clear       reviewed, and nothing flagged
+ *  clear       reviewed, and no concern found
  */
 export type Tier = "restricted" | "notable" | "some" | "minor" | "clear";
 
@@ -736,7 +738,7 @@ export const TIERS: Array<{ id: Tier; label: string; short: string; shape: "octa
   { id: "notable", label: "Notable concern", short: "Notable", shape: "square", color: "#ff8a5b", means: "A real concern, backed by moderate or stronger evidence." },
   { id: "some", label: "Some concern", short: "Some concern", shape: "diamond", color: "#f5a742", means: "A concern with limited or mixed evidence, so far." },
   { id: "minor", label: "Minor concern", short: "Minor", shape: "triangle", color: "#f2d24b", means: "A small or early concern, such as lab or animal studies only." },
-  { id: "clear", label: "Nothing flagged", short: "Clear", shape: "circle", color: "#8fd46a", means: "Reviewed, and nothing was flagged at the amounts allowed in food." },
+  { id: "clear", label: "No concern found", short: "Clear", shape: "circle", color: "#8fd46a", means: "Regulators and the studies we checked raised no concern at the amounts allowed in food. Research continues, so this is not a guarantee." },
 ];
 
 export const TIER_ORDER: Record<Tier, number> = { restricted: 0, notable: 1, some: 2, minor: 3, clear: 4 };

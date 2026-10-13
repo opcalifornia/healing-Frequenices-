@@ -165,3 +165,5 @@
 .apage__more button:nth-child(2) { text-align: right; }
 .apage__more small { color: var(--r-text-2); }
 .scan__enum { display: block; margin: 4px 0 0; }
+.scan__why { margin: 4px 0 8px; padding-left: 1.1em; display: grid; gap: 4px; font-size: 0.86rem; color: var(--r-text-2); line-height: 1.45; }
+.apage__contested { margin: 12px 0 0; padding: 12px 14px; border-radius: 12px; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--r-line); color: var(--r-text-2); line-height: 1.55; }

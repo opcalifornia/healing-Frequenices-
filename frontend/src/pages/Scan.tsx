@@ -20,7 +20,7 @@ import { Icon } from "../components/Icon";
 import "../rooted/rooted.css";
 import "./Scan.css";
 
-const COUNT_WORDS: Record<Tier, string> = { restricted: "restricted by regulators", notable: "with notable concern", some: "with some concern", minor: "with minor concern", clear: "with nothing flagged" };
+const COUNT_WORDS: Record<Tier, string> = { restricted: "restricted by regulators", notable: "with notable concern", some: "with some concern", minor: "with minor concern", clear: "with no concern found" };
 const EFSA = "https://www.efsa.europa.eu/en/topics/topic/food-additives";
 
 type State =
@@ -179,7 +179,7 @@ function AdditiveSheet({ a, list, backLabel, forYou, onClose, onMethod, onGo }: 
           </ul>
 
           {a.evidence === "None" ? (
-            <p className="apage__ev"><span className="lvl lvl--little">Nothing flagged</span> <span>The reviews and studies we checked found no support for a safety concern at the amounts allowed in food.</span></p>
+            <p className="apage__ev"><span className="lvl lvl--little">No concern found</span> <span>Regulators and the studies we checked raised no concern at the amounts allowed in food. That isn't a guarantee: research continues.</span></p>
           ) : (
             <p className="apage__ev"><Evidence s={a.evidence} /> <span>for the concern. This says how well studies support it, not how big the effect is.</span></p>
           )}
@@ -188,6 +188,7 @@ function AdditiveSheet({ a, list, backLabel, forYou, onClose, onMethod, onGo }: 
           <h3 className="apage__h">What the research found</h3>
           <ul className="apage__list">{a.research.map((r) => <li key={r}>{r}</li>)}</ul>
           {a.careIf && <p className="apage__care"><strong>Who may want to take care:</strong> {a.careIf}{forYou && <em> This is one to look at more closely for you.</em>}</p>}
+          {a.contested && <p className="apage__contested"><strong>Where views differ:</strong> {a.contested}</p>}
           <p className="apage__reg"><strong>Rules:</strong> {a.regulation}</p>
 
           <div className="alinks">
@@ -481,6 +482,7 @@ export default function Scan() {
                 <h2>{state.product.name}</h2>
                 {(state.product.brand || state.product.quantity) && <p className="scan__brand">{[state.product.brand, state.product.quantity].filter(Boolean).join(" · ")}</p>}
                 <p className="scan__verdict"><Badge v={result.overall} label={overallLabel(result)} /></p>
+                {result.reasons.length > 0 && <ul className="scan__why" aria-label="Why this rating">{result.reasons.map((r) => <li key={r}>{r}</li>)}</ul>}
                 <p className="scan__count">
                   {result.nutrition ? `Additives: ${VERDICT_LABEL[result.additives].toLowerCase()}. Nutrition: ${VERDICT_LABEL[result.nutrition].toLowerCase()}.` : `Additives: ${VERDICT_LABEL[result.additives].toLowerCase()}. ${state.product.code === TEXT_PRODUCT_CODE ? "Nutrition isn't checked for an ingredient list." : "No nutrition facts in the database."}`}
                   {result.partial && " Some additives aren't reviewed here yet, so this covers the ones we know."}{result.overall === "good" && !result.complete && !result.partial && " It has no nutrition facts to check, so this covers the additives only."}
