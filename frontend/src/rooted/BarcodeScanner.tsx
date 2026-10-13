@@ -4,24 +4,77 @@ import { Icon } from "../components/Icon";
 import "./BarcodeScanner.css";
 
 interface Detector {
-  detect(source: HTMLVideoElement): Promise<Array<{ rawValue: string }>>;
+  detect(source: HTMLVideoElement | ImageBitmap): Promise<Array<{ rawValue: string }>>;
 }
 type DetectorCtor = new (opts: { formats: string[] }) => Detector;
 
 const FORMATS = ["ean_13", "ean_8", "upc_a"];
+/** A sharper picture helps a lot with thin barcode lines. */
+const VIDEO: MediaTrackConstraints = { facingMode: { ideal: "environment" }, width: { ideal: 1920 }, height: { ideal: 1080 } };
+
+const native = () => (window as unknown as { BarcodeDetector?: DetectorCtor }).BarcodeDetector;
+
+async function loadZxing() {
+  const [{ BrowserMultiFormatReader }, { BarcodeFormat, DecodeHintType }] = await Promise.all([import("@zxing/browser"), import("@zxing/library")]);
+  const hints = new Map<number, unknown>([
+    [DecodeHintType.POSSIBLE_FORMATS, [BarcodeFormat.EAN_13, BarcodeFormat.EAN_8, BarcodeFormat.UPC_A]],
+    [DecodeHintType.TRY_HARDER, true],
+  ]);
+  return { BrowserMultiFormatReader, hints };
+}
+
+/** Read a barcode out of a photo, for example one taken with the phone's own camera app. */
+export async function decodeImageFile(file: File): Promise<string | null> {
+  try {
+    const Native = native();
+    if (Native && typeof createImageBitmap === "function") {
+      const bmp = await createImageBitmap(file);
+      const codes = await new Native({ formats: FORMATS }).detect(bmp);
+      if (codes[0]?.rawValue) return codes[0].rawValue;
+    }
+  } catch {
+    /* fall through to the decoder library */
+  }
+  const url = URL.createObjectURL(file);
+  try {
+    const { BrowserMultiFormatReader, hints } = await loadZxing();
+    const result = await new BrowserMultiFormatReader(hints as never).decodeFromImageUrl(url);
+    return result.getText();
+  } catch {
+    return null;
+  } finally {
+    URL.revokeObjectURL(url);
+  }
+}
+
+function cameraMessage(e: unknown): string {
+  const name = (e as { name?: string } | null)?.name;
+  if (name === "NotAllowedError" || name === "SecurityError") return "Camera access is turned off for this page. Allow the camera in your browser's settings, or take a photo of the barcode instead.";
+  if (name === "NotFoundError" || name === "OverconstrainedError") return "No camera was found. You can take a photo of the barcode, or type the number.";
+  if (name === "NotReadableError") return "The camera is busy in another app. Close it and try again, or take a photo of the barcode instead.";
+  return "The camera isn't available here. You can take a photo of the barcode, or type the number under it.";
+}
 
 /**
  * Reads a product barcode with the camera. Uses the browser's built-in detector where
  * there is one, and a small decoder library (loaded only when needed) everywhere else.
- * The video never leaves the device: it is read frame by frame in the page.
+ * Photos taken with the phone's own camera app work too, which is often the most reliable way.
+ * Nothing leaves the device: images are read in the page.
  */
 export function BarcodeScanner({ open, onCode, onClose }: { open: boolean; onCode(code: string): void; onClose(): void }) {
   const video = useRef<HTMLVideoElement>(null);
+  const photo = useRef<HTMLInputElement>(null);
   const [error, setError] = useState<string | null>(null);
   const [torchOk, setTorchOk] = useState(false);
   const [torchOn, setTorchOn] = useState(false);
   const [dark, setDark] = useState(false);
+  const [slow, setSlow] = useState(false);
+  const [reading, setReading] = useState(false);
+  const [photoFail, setPhotoFail] = useState(false);
   const track = useRef<MediaStreamTrack | null>(null);
+  // Keep the latest callback without restarting the camera when the page re-renders.
+  const cb = useRef(onCode);
+  cb.current = onCode;
 
   const toggleTorch = async () => {
     const t = track.current;
@@ -35,26 +88,42 @@ export function BarcodeScanner({ open, onCode, onClose }: { open: boolean; onCod
     }
   };
 
+  const onPhoto = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    e.target.value = "";
+    if (!file) return;
+    setReading(true);
+    setPhotoFail(false);
+    const code = await decodeImageFile(file);
+    setReading(false);
+    if (code) cb.current(code);
+    else setPhotoFail(true);
+  };
+
   useEffect(() => {
     if (!open) return;
     setError(null);
     setTorchOk(false);
     setTorchOn(false);
     setDark(false);
+    setSlow(false);
+    setPhotoFail(false);
     let stopped = false;
     let found = false;
     let stream: MediaStream | null = null;
     let stopZxing: (() => void) | null = null;
     let timer = 0;
     let darkTimer = 0;
+    const slowTimer = window.setTimeout(() => setSlow(true), 8000);
 
-    // Once the camera is running: find out whether it has a light, and watch for a dark picture.
+    // Once the camera is running: ask for continuous focus, find out whether it has a light, and watch for a dark picture.
     const watch = (el: HTMLVideoElement) => {
       const media = el.srcObject as MediaStream | null;
       const t = media?.getVideoTracks()[0] ?? null;
       track.current = t;
-      const caps = (t?.getCapabilities?.() ?? {}) as { torch?: boolean };
+      const caps = (t?.getCapabilities?.() ?? {}) as { torch?: boolean; focusMode?: string[] };
       setTorchOk(!!caps.torch);
+      if (t && caps.focusMode?.includes("continuous")) void t.applyConstraints({ advanced: [{ focusMode: "continuous" } as MediaTrackConstraintSet] }).catch(() => undefined);
       const canvas = document.createElement("canvas");
       canvas.width = 32;
       canvas.height = 24;
@@ -72,7 +141,7 @@ export function BarcodeScanner({ open, onCode, onClose }: { open: boolean; onCod
     const hit = (code: string) => {
       if (found || stopped) return;
       found = true;
-      onCode(code);
+      cb.current(code);
     };
 
     (async () => {
@@ -80,9 +149,9 @@ export function BarcodeScanner({ open, onCode, onClose }: { open: boolean; onCod
         if (!navigator.mediaDevices?.getUserMedia) throw new Error("no camera api");
         const el = video.current;
         if (!el) return;
-        const Native = (window as unknown as { BarcodeDetector?: DetectorCtor }).BarcodeDetector;
+        const Native = native();
         if (Native) {
-          stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: { ideal: "environment" } }, audio: false });
+          stream = await navigator.mediaDevices.getUserMedia({ video: VIDEO, audio: false });
           if (stopped) return;
           el.srcObject = stream;
           await el.play();
@@ -96,15 +165,14 @@ export function BarcodeScanner({ open, onCode, onClose }: { open: boolean; onCod
             } catch {
               /* a frame that can't be read is fine, try the next one */
             }
-            timer = window.setTimeout(tick, 200);
+            timer = window.setTimeout(tick, 150);
           };
           void tick();
         } else {
-          const [{ BrowserMultiFormatReader }, { BarcodeFormat, DecodeHintType }] = await Promise.all([import("@zxing/browser"), import("@zxing/library")]);
+          const { BrowserMultiFormatReader, hints } = await loadZxing();
           if (stopped) return;
-          const hints = new Map<number, unknown>([[DecodeHintType.POSSIBLE_FORMATS, [BarcodeFormat.EAN_13, BarcodeFormat.EAN_8, BarcodeFormat.UPC_A]]]);
-          const reader = new BrowserMultiFormatReader(hints as never);
-          const controls = await reader.decodeFromConstraints({ video: { facingMode: { ideal: "environment" } }, audio: false }, el, (result) => {
+          const reader = new BrowserMultiFormatReader(hints as never, { delayBetweenScanAttempts: 120 });
+          const controls = await reader.decodeFromConstraints({ video: VIDEO, audio: false }, el, (result) => {
             if (result) hit(result.getText());
           });
           if (stopped) controls.stop();
@@ -113,27 +181,28 @@ export function BarcodeScanner({ open, onCode, onClose }: { open: boolean; onCod
             watch(el);
           }
         }
-      } catch {
-        if (!stopped) setError("The camera isn't available here. You can type the number under the barcode instead.");
+      } catch (e) {
+        if (!stopped) setError(cameraMessage(e));
       }
     })();
 
     return () => {
       stopped = true;
       window.clearTimeout(timer);
+      window.clearTimeout(slowTimer);
       window.clearInterval(darkTimer);
       track.current = null;
       stopZxing?.();
       stream?.getTracks().forEach((t) => t.stop());
       if (video.current) video.current.srcObject = null;
     };
-  }, [open, onCode]);
+  }, [open]);
 
   return (
     <Sheet open={open} onClose={onClose} label="Scan a barcode">
       <div className="bscan">
         <h2>Scan a barcode</h2>
-        <p className="bscan__lede">Hold the barcode inside the frame, in good light.</p>
+        <p className="bscan__lede">Hold the barcode flat inside the frame, about a hand's length away, in good light.</p>
         <div className="bscan__view">
           <video ref={video} muted playsInline aria-label="Camera view" />
           <span className="bscan__frame" aria-hidden="true" />
@@ -143,8 +212,12 @@ export function BarcodeScanner({ open, onCode, onClose }: { open: boolean; onCod
             <Icon name="sun" size={20} /> {torchOn ? "Turn the light off" : dark ? "It looks dark. Turn on the light" : "Turn on the light"}
           </button>
         )}
-        {!error && dark && !torchOk && <p className="bscan__tip" role="status">It looks dark. Move closer to a lamp or a window, or type the number under the barcode instead.</p>}
+        {!error && dark && !torchOk && <p className="bscan__tip" role="status">It looks dark. Move closer to a lamp or a window, or take a photo with your camera's flash.</p>}
+        {!error && slow && !dark && <p className="bscan__tip" role="status">Still looking. Hold steady with the whole barcode in the frame, or take a photo instead.</p>}
         {error && <p className="bscan__error" role="alert">{error}</p>}
+        {photoFail && <p className="bscan__error" role="alert">We couldn't read a barcode in that photo. Try again closer, with the barcode flat and well lit, or type the number.</p>}
+        <input ref={photo} type="file" accept="image/*" capture="environment" className="visually-hidden" aria-label="Take a photo of the barcode" onChange={onPhoto} />
+        <button className="btn btn--primary" onClick={() => photo.current?.click()} disabled={reading}>{reading ? "Reading the photo…" : "Take a photo of the barcode"}</button>
         <button className="btn btn--secondary" onClick={onClose}>Type the number instead</button>
       </div>
     </Sheet>
