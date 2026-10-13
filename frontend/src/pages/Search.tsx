@@ -7,6 +7,7 @@ import { Tile } from "../components/Tile";
 import { Icon } from "../components/Icon";
 import { searchTitles, useCatalog, useCatalogStore } from "../store/catalog";
 import { api } from "../api/client";
+import { effectiveSearch } from "../rooted/searchTerms";
 import type { Title } from "../types";
 import "./Search.css";
 
@@ -33,6 +34,7 @@ export default function Search() {
   const source = useCatalogStore((s) => s.source);
   const input = useRef<HTMLInputElement>(null);
   const [remote, setRemote] = useState<Title[] | null>(null);
+  const term = useMemo(() => effectiveSearch(q), [q]);
 
   useEffect(() => input.current?.focus(), []);
 
@@ -44,13 +46,13 @@ export default function Search() {
 
   // When the catalog comes from the API, defer to server-side search.
   useEffect(() => {
-    if (source !== "api" || !q.trim()) {
+    if (source !== "api" || !term.query) {
       setRemote(null);
       return;
     }
     const ctrl = new AbortController();
     const t = window.setTimeout(() => {
-      api<{ results: Title[] }>(`/search?q=${encodeURIComponent(q)}`, { signal: ctrl.signal })
+      api<{ results: Title[] }>(`/search?q=${encodeURIComponent(term.query)}`, { signal: ctrl.signal })
         .then((r) => setRemote(r.results))
         .catch(() => setRemote(null));
     }, 200);
@@ -58,9 +60,9 @@ export default function Search() {
       window.clearTimeout(t);
       ctrl.abort();
     };
-  }, [q, source]);
+  }, [term.query, source]);
 
-  const local = useMemo(() => (catalog ? searchTitles(catalog, q) : []), [catalog, q]);
+  const local = useMemo(() => (catalog ? searchTitles(catalog, term.query) : []), [catalog, term.query]);
   const results = remote ?? local;
   const topIds = catalog?.sections.home.rails.find((r) => r.id === "top10")?.titleIds ?? [];
 
@@ -95,7 +97,9 @@ export default function Search() {
       <AnimatePresence mode="wait">
         {q.trim() ? (
           <motion.section key="results" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} aria-live="polite">
-            <h2 className="search__heading">{results.length ? `${results.length} result${results.length === 1 ? "" : "s"} for “${q}”` : `No results for “${q}”`}</h2>
+            <h2 className="search__heading">{term.softened
+                ? results.length ? `${results.length} relaxing result${results.length === 1 ? "" : "s"}` : "Nothing found yet"
+                : results.length ? `${results.length} result${results.length === 1 ? "" : "s"} for “${q}”` : `No results for “${q}”`}</h2>
             {results.length ? (
               <div className="grid" role="list">
                 {results.map((t, i) => <Tile key={t.id} title={t} shape="landscape" index={i} />)}

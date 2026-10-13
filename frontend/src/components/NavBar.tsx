@@ -10,6 +10,7 @@ import { Icon, type IconName } from "./Icon";
 import { Avatar } from "./Avatar";
 import { useActiveProfile, useUser } from "../store/user";
 import { apiEnabled } from "../api/client";
+import { useFeedback } from "../rooted/feedback";
 import "./NavBar.css";
 
 export const NAV_ITEMS: { to: string; label: string; icon: IconName }[] = [
@@ -167,6 +168,9 @@ export function NavBar() {
                   <Link role="menuitem" className="nav__menu-item" to="/about-you">
                     <Icon name="user" size={20} /> About you &amp; goals
                   </Link>
+                  <button role="menuitem" className="nav__menu-item" onClick={() => { setMenuOpen(false); useFeedback.getState().show(); }}>
+                    <Icon name="message" size={20} /> Send feedback
+                  </button>
                   <Link role="menuitem" className="nav__menu-item" to="/your-data">
                     <Icon name="bookmark" size={20} /> Your data
                   </Link>

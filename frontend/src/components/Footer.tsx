@@ -4,6 +4,7 @@ import { RootedLogo } from "./RootedLogo";
 import { inHealing } from "../rooted/sections";
 import { Logo } from "./Logo";
 import { Icon } from "./Icon";
+import { useFeedback } from "../rooted/feedback";
 import "./Footer.css";
 
 export function SafetyList() {
@@ -29,6 +30,7 @@ export function Footer() {
             <Link to="/learn/safety">Frequencies &amp; your health</Link>
             <Link to="/about-you">About you &amp; goals</Link>
             <Link to="/your-data">Your data</Link>
+            <button type="button" className="footer__btn" onClick={() => useFeedback.getState().show()}>Send feedback</button>
             <Link to="/healing">Healing Frequencies</Link>
             <Link to="/privacy">Privacy</Link>
             <Link to="/terms">Terms</Link>

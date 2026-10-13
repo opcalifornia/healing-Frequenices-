@@ -14,6 +14,7 @@ import Hub from "./pages/Hub";
 import { startSync } from "./rooted/sync";
 import { apiEnabled } from "./api/client";
 import { CrisisSheet } from "./rooted/Crisis";
+import { FeedbackSheet } from "./rooted/FeedbackSheet";
 import Profiles from "./pages/Profiles";
 
 const Home = lazy(() => import("./pages/Home"));
@@ -189,6 +190,7 @@ export default function App() {
       {!onPicker && activeProfile && <UnlockNotice />}
       <SafetyNotice />
       <CrisisSheet />
+      <FeedbackSheet />
       {!onPicker && <BedtimeToast />}
     </>
   );

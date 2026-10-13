@@ -13,7 +13,7 @@ from .config import get_settings
 from .db import ensure_indexes, get_database
 from .middleware import BodySizeLimitMiddleware, SecurityHeadersMiddleware
 from .ratelimit import SlidingWindowLimiter
-from .routers import auth, billing, calendar_feed, circles, catalog, media, metrics, profiles, state
+from .routers import auth, billing, calendar_feed, circles, catalog, feedback, media, metrics, profiles, state
 
 
 #: Largest request body the API accepts. The biggest legitimate payload is a
@@ -53,6 +53,7 @@ def create_app() -> FastAPI:
     app.state.feed_token_limiter = SlidingWindowLimiter(limit=60, window=60)
     app.state.feed_ip_miss_limiter = SlidingWindowLimiter(limit=60, window=60)
     app.state.metrics_ip_limiter = SlidingWindowLimiter(limit=60, window=60)
+    app.state.feedback_ip_limiter = SlidingWindowLimiter(limit=8, window=600)
 
     # Middleware added last runs first: security headers wrap everything, including CORS and 413 responses.
     app.add_middleware(BodySizeLimitMiddleware, max_bytes=MAX_BODY_BYTES)
@@ -79,7 +80,7 @@ def create_app() -> FastAPI:
     async def health() -> dict[str, str]:
         return {"status": "ok"}
 
-    for r in (catalog.router, auth.router, profiles.router, state.router, calendar_feed.router, circles.router, billing.router, media.router, metrics.router):
+    for r in (catalog.router, auth.router, profiles.router, state.router, calendar_feed.router, circles.router, billing.router, media.router, metrics.router, feedback.router):
         app.include_router(r, prefix="/api")
     return app
 
