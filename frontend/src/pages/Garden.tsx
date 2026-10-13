@@ -8,7 +8,10 @@ import { nutrientById } from "../rooted/nutrientsContent";
 import { guessPlace, readPlace } from "../rooted/sun";
 import { pantryById } from "../rooted/pantryContent";
 import { useNourish, useShoppingList } from "../store/nourish";
-import { daysSince, useGarden, useMyGarden } from "../store/garden";
+import { daysSince, useGarden, useMyCustomPlants, useMyGarden } from "../store/garden";
+import { AddPlantSheet, CareReminderCard, PlantingSheet, TodayCard } from "../rooted/GardenTools";
+import { dueWords, nextDue, resolvePlant, tasksOf } from "../rooted/gardenCare";
+import { todayKey } from "../store/nourish";
 import { flags, useAbout } from "../store/wellness";
 import { Footer } from "../components/Footer";
 import { Icon } from "../components/Icon";
@@ -47,6 +50,9 @@ export default function Garden() {
   const [plant, setPlant] = useState<Plant | null>(null);
   const [recipe, setRecipe] = useState<Recipe | null>(null);
   const mine = useMyGarden();
+  const customPlants = useMyCustomPlants();
+  const [managing, setManaging] = useState<string | null>(null);
+  const [adding, setAdding] = useState(false);
   const { plant: addPlanting, remove } = useGarden();
   const addItem = useNourish((s) => s.addItem);
   const list = useShoppingList();
@@ -54,6 +60,7 @@ export default function Garden() {
   const careHerbs = flags(useAbout().considerations).careHerbs;
   const shown = PLANTS.filter((p) => kind === "all" || p.kind === kind);
   const good = shown.filter((p) => fits(p, space, light));
+  const plantNow = PLANTS.filter((p) => p.season !== "any" && fits(p, space, light) && plantingAdvice(p, month, where.lat).now).slice(0, 10);
   const rest = shown.filter((p) => !fits(p, space, light));
 
   const addRecipeToList = (r: Recipe) => {
@@ -112,6 +119,13 @@ export default function Garden() {
             </div>
           </div>
           <p className="planner__count"><strong>{good.length}</strong> plants will do well there.</p>
+          {plantNow.length > 0 && (
+            <div className="planner__q">
+              <span>Good to plant right now</span>
+              <div className="tdetail__mins">{plantNow.map((p) => <button key={p.id} className="chip" onClick={() => setPlant(p)}>{p.name}</button>)}</div>
+              <small className="planner__note">A rough guide for where you are. Check your local last-frost date.</small>
+            </div>
+          )}
         </div>
         <motion.div className="plants" layout>
           {[...good, ...rest].map((p) => {
@@ -158,31 +172,40 @@ export default function Garden() {
         <Reveal className="sec-block__head">
           <span className="rooted__eyebrow">My garden</span>
           <h2>{mine.length ? "What's growing" : "Nothing planted yet"}</h2>
-          {!mine.length && <p className="rooted__lead">Open any plant above and tap "I planted this" to track it here, with a countdown to your first harvest.</p>}
+          <p className="rooted__lead">{mine.length ? "Your care list for today, reminders for your phone, and a journal for every plant." : "Open any plant above and tap \"I planted this\", or add your own, to get a care list, reminders and a journal."}</p>
         </Reveal>
+        <div className="mine__top">
+          <button className="btn btn--secondary btn--small" onClick={() => setAdding(true)}><Icon name="plus" size={16} /> Add your own plant</button>
+        </div>
+        <TodayCard onOpen={setManaging} />
         <div className="mine">
           <AnimatePresence>
             {mine.map((m) => {
+              const rp = resolvePlant(m.plantId, customPlants);
+              if (!rp) return null;
               const p = PLANTS.find((x) => x.id === m.plantId);
-              if (!p) return null;
               const d = daysSince(m.planted);
-              const pct = Math.min(1, d / p.harvestDays);
+              const pct = p ? Math.min(1, d / p.harvestDays) : 0;
+              const today = todayKey();
+              const next = tasksOf(m, rp).map((t) => ({ t, due: nextDue(m, t) })).sort((a, b) => a.due.localeCompare(b.due))[0];
               return (
-                <motion.div key={m.plantId} layout className="r-card mine__item" initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.9 }} style={{ "--h": p.hue } as React.CSSProperties}>
+                <motion.div key={m.plantId} layout className="r-card mine__item" initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.9 }} style={{ "--h": rp.hue } as React.CSSProperties}>
                   <div className="mine__ring">
                     <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="42" pathLength="1" className="week-ring__bg" /><motion.circle cx="50" cy="50" r="42" pathLength="1" className="mine__fill" initial={{ pathLength: 0 }} animate={{ pathLength: Math.max(0.01, pct) }} transition={{ duration: 1 }} /></svg>
-                    <Sprout hue={p.hue} small />
+                    <Sprout hue={rp.hue} small />
                   </div>
                   <div>
-                    <strong>{p.name}</strong>
-                    <span className="mine__status">{pct >= 1 ? "Ready to harvest" : `Day ${d} · about ${p.harvestDays - d} days to first harvest`}</span>
+                    <strong>{rp.name}</strong>
+                    <span className="mine__status">{p ? (pct >= 1 ? "Ready to harvest" : `Day ${d} · about ${p.harvestDays - d} days to first harvest`) : `Day ${d}`}</span>
+                    {next && <span className="mine__next">{next.t.kind === "water" ? "Check water" : "Feed"}: {dueWords(next.due, today).toLowerCase()}</span>}
                   </div>
-                  <button className="icon-btn slist__rm" onClick={() => remove(p.id)} aria-label={`Remove ${p.name}`}><Icon name="trash" size={16} /></button>
+                  <button className="btn btn--secondary btn--small" onClick={() => setManaging(m.plantId)}>Care</button>
                 </motion.div>
               );
             })}
           </AnimatePresence>
         </div>
+        <CareReminderCard />
       </section>
 
       <section id="apothecary" className="sec-block">
@@ -311,6 +334,8 @@ export default function Garden() {
           </article>
         )}
       </Sheet>
+      <PlantingSheet plantId={managing} onClose={() => setManaging(null)} />
+      <AddPlantSheet open={adding} onClose={() => setAdding(false)} onAdded={(id) => { toast.show("Added to My garden"); setManaging(id); }} />
       {toast.node}
       <Footer />
     </ZoomPage>
