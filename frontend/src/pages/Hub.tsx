@@ -190,6 +190,14 @@ function HubCalendar() {
   const allDone = today.length > 0 && today.every((e) => e.done?.[todayKey()]);
   return (
     <section className="hub__cal" aria-label="Today on your calendar">
+      <Link to="/scan?camera=1" className="hub-cal hub-cal--scan">
+        <span className="hub-cal__icon"><Icon name="barcode" size={22} /></span>
+        <span className="hub-cal__text">
+          <b>Scan a product</b>
+          <small>Point your camera at a barcode and see what's in it.</small>
+        </span>
+        <Icon name="chevronRight" size={20} />
+      </Link>
       <Link to="/calendar" className="hub-cal">
         <span className="hub-cal__icon"><Icon name="calendar" size={22} /></span>
         <span className="hub-cal__text">
