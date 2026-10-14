@@ -63,6 +63,8 @@ interface AdditiveBase {
   /** Profile considerations that make this worth a closer look for someone. */
   careFlags?: Consideration[];
   regulation: string;
+  /** What applies in the United States, verified against law-firm and trade reports. */
+  usNote?: string;
   sources: Source[];
 }
 

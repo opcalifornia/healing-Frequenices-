@@ -13,6 +13,7 @@ export interface AuditedAdditive {
   /** The name printed on US ingredient labels, when it differs, for example "Red 40" for Allura red AC. */
   labelName?: string;
   highRisk?: boolean;
+  usNote?: string;
   also?: string;
   kind: string;
   found: string;
@@ -109,6 +110,7 @@ export const AUDITED: AuditedAdditive[] = [
   ],
   "careIf": "Children, and families who notice a link between brightly coloured foods and behaviour. The EU label rule names children's activity and attention.",
   "regulation": "In the EU, foods with this colour must carry the warning that it \"may have an adverse effect on activity and attention in children\" (Regulation 1333/2008, Annex V).  In the US, FDA has asked industry to phase out the remaining petroleum-based colours by the end of 2026. This is voluntary, not a ban. Some states have acted on their own: West Virginia restricts seven dyes in school meals (from August 2025) and in food sales (from 2028), and California's school food law (AB 2316) covers six dyes from the end of 2027.",
+  "usNote": "Allowed in food. The FDA asked makers in 2025 to stop using it voluntarily by the end of 2026; that is a request, not a law. California will bar it from public-school meals from Dec 31, 2027.",
   "topics": [
    "Children's attention and activity (challenge trials, small effects)",
    "Label warning required in the EU",
@@ -147,6 +149,14 @@ export const AUDITED: AuditedAdditive[] = [
    {
     "text": "Yuka. How is the classification of food additives established?",
     "url": "https://help.yuka.io/l/en/article/uell2r13f8-classification-food-additives"
+   },
+   {
+    "text": "Venable. FDA to phase out eight artificial dyes by 2026 (April 2025)",
+    "url": "https://www.venable.com/insights/publications/2025/04/fda-to-phase-out-eight-artificial-dyes-by-2026"
+   },
+   {
+    "text": "NBC News. California legislators send governor bill banning six artificial dyes in foods served by public schools",
+    "url": "https://www.nbcnews.com/news/amp/rcna168953"
    }
   ]
  },
@@ -224,6 +234,7 @@ export const AUDITED: AuditedAdditive[] = [
   ],
   "careIf": "Children, and families who notice a link between brightly coloured foods and behaviour. The EU label rule names children's activity and attention.",
   "regulation": "In the EU, foods with this colour must carry the warning that it \"may have an adverse effect on activity and attention in children\" (Regulation 1333/2008, Annex V).  In the US, FDA has asked industry to phase out the remaining petroleum-based colours by the end of 2026. This is voluntary, not a ban. Some states have acted on their own: West Virginia restricts seven dyes in school meals (from August 2025) and in food sales (from 2028), and California's school food law (AB 2316) covers six dyes from the end of 2027.",
+  "usNote": "Allowed in food. The FDA asked makers in 2025 to stop using it voluntarily by the end of 2026; that is a request, not a law. California will bar it from public-school meals from Dec 31, 2027.",
   "topics": [
    "Children's attention and activity (challenge trials, small effects)",
    "Label warning required in the EU",
@@ -266,6 +277,14 @@ export const AUDITED: AuditedAdditive[] = [
    {
     "text": "Yuka. How is the classification of food additives established?",
     "url": "https://help.yuka.io/l/en/article/uell2r13f8-classification-food-additives"
+   },
+   {
+    "text": "Venable. FDA to phase out eight artificial dyes by 2026 (April 2025)",
+    "url": "https://www.venable.com/insights/publications/2025/04/fda-to-phase-out-eight-artificial-dyes-by-2026"
+   },
+   {
+    "text": "NBC News. California legislators send governor bill banning six artificial dyes in foods served by public schools",
+    "url": "https://www.nbcnews.com/news/amp/rcna168953"
    }
   ]
  },
@@ -466,6 +485,7 @@ export const AUDITED: AuditedAdditive[] = [
    "Food use must end by 15 January 2027 (ingested drugs 18 January 2028). Products made earlier can stay on shelves. California's separate food law (AB 418) also bars it from 2027, and West Virginia's dye law covers it."
   ],
   "regulation": "US food approval ends 15 January 2027 (FDA, under the Delaney Clause). It is still authorised in the EU for a small number of uses, under a low safe daily intake. Check your own country's rules.",
+  "usNote": "The FDA revoked its authorization for food and ingested drugs in January 2025. Makers have until January 15, 2027 to reformulate, so some products on shelves may still contain it. California's own ban on it takes effect on January 1, 2027.",
   "topics": [
    "Thyroid tumours in male rats (basis for the US withdrawal; not shown in people)"
   ],
@@ -474,6 +494,14 @@ export const AUDITED: AuditedAdditive[] = [
    {
     "text": "FDA. Revoking authorization for Red No. 3 in food and ingested drugs, 2025",
     "url": "https://www.fda.gov/food/hfp-constituent-updates/fda-revoke-authorization-use-red-no-3-food-and-ingested-drugs"
+   },
+   {
+    "text": "K&L Gates. FDA revokes authorization for the use of Red Dye No. 3 in food and ingestible drugs (January 2025)",
+    "url": "https://www.klgates.com/thought-leadership/FDA-Revokes-Authorization-for-the-Use-of-Red-Dye-No-3-in-Food-and-Ingestible-Drugs-1-17-2025"
+   },
+   {
+    "text": "Jones Day. California becomes the first state to ban four common food additives (AB 418), 2023",
+    "url": "https://www.jonesday.com/en/insights/2023/10/california-becomes-the-first-state-to-ban-four-common-food-additives"
    }
   ]
  },
@@ -524,6 +552,7 @@ export const AUDITED: AuditedAdditive[] = [
   ],
   "careIf": "Children, and families who notice a link between brightly coloured foods and behaviour. The EU label rule names children's activity and attention.",
   "regulation": "In the EU, foods with this colour must carry the warning that it \"may have an adverse effect on activity and attention in children\" (Regulation 1333/2008, Annex V).  In the US, FDA has asked industry to phase out the remaining petroleum-based colours by the end of 2026. This is voluntary, not a ban. Some states have acted on their own: West Virginia restricts seven dyes in school meals (from August 2025) and in food sales (from 2028), and California's school food law (AB 2316) covers six dyes from the end of 2027.",
+  "usNote": "Allowed in food. The FDA has not banned it. In April 2025 the FDA asked food makers to stop using it and five other synthetic dyes voluntarily by the end of 2026; that is a request, not a law. California will bar it from public-school meals from Dec 31, 2027.",
   "topics": [
    "Children's attention and activity (challenge trials, small effects)",
    "Label warning required in the EU",
@@ -562,6 +591,14 @@ export const AUDITED: AuditedAdditive[] = [
    {
     "text": "Yuka. How is the classification of food additives established?",
     "url": "https://help.yuka.io/l/en/article/uell2r13f8-classification-food-additives"
+   },
+   {
+    "text": "Venable. FDA to phase out eight artificial dyes by 2026 (April 2025)",
+    "url": "https://www.venable.com/insights/publications/2025/04/fda-to-phase-out-eight-artificial-dyes-by-2026"
+   },
+   {
+    "text": "NBC News. California legislators send governor bill banning six artificial dyes in foods served by public schools",
+    "url": "https://www.nbcnews.com/news/amp/rcna168953"
    }
   ]
  },
@@ -641,6 +678,7 @@ export const AUDITED: AuditedAdditive[] = [
    "We found no recent human study singling out this colour. It is included in the 2021 California review of synthetic dyes and children's behaviour."
   ],
   "regulation": "Authorised in the EU and approved in the US as FD&C Blue No. 1. Check your own country's rules.",
+  "usNote": "Allowed in food. The FDA asked makers in 2025 to stop using it voluntarily by the end of 2026; that is a request, not a law. California will bar it from public-school meals from Dec 31, 2027.",
   "topics": [
    "Limited data (no regulator concern found)"
   ],
@@ -657,6 +695,14 @@ export const AUDITED: AuditedAdditive[] = [
    {
     "text": "CSPI. Chemical Cuisine: artificial colorings (synthetic food dyes)",
     "url": "https://www.cspinet.org/article/artificial-colorings-synthetic-food-dyes"
+   },
+   {
+    "text": "Venable. FDA to phase out eight artificial dyes by 2026 (April 2025)",
+    "url": "https://www.venable.com/insights/publications/2025/04/fda-to-phase-out-eight-artificial-dyes-by-2026"
+   },
+   {
+    "text": "NBC News. California legislators send governor bill banning six artificial dyes in foods served by public schools",
+    "url": "https://www.nbcnews.com/news/amp/rcna168953"
    }
   ]
  },
@@ -1260,6 +1306,7 @@ export const AUDITED: AuditedAdditive[] = [
    "The concern is about what could not be excluded, not about harm shown in people. In 2023 JECFA (WHO and FAO) reviewed it and kept a 'not specified' intake limit. So expert bodies disagree on how to read the same data."
   ],
   "regulation": "Removed from the EU's list of authorised food additives in early 2022, with a short phase-out. Rules in other countries differ.",
+  "usNote": "Allowed in food by the FDA. It was dropped from California's 2023 food additive ban before the bill passed, so it is not banned in the US.",
   "topics": [
    "Possible DNA damage (EFSA; lab studies, uncertainty not resolved)"
   ],
@@ -1276,6 +1323,10 @@ export const AUDITED: AuditedAdditive[] = [
    {
     "text": "WHO. Evaluation of certain food additives, 97th JECFA meeting report",
     "url": "https://www.who.int/publications/i/item/9789240098886"
+   },
+   {
+    "text": "Jones Day. California becomes the first state to ban four common food additives (AB 418), 2023",
+    "url": "https://www.jonesday.com/en/insights/2023/10/california-becomes-the-first-state-to-ban-four-common-food-additives"
    }
   ]
  },
@@ -1813,6 +1864,7 @@ export const AUDITED: AuditedAdditive[] = [
   ],
   "careIf": "People who are pregnant or trying to conceive, and parents of young children, may want to avoid it; it is mainly found in some US baked goods.",
   "regulation": "Removed from the EU food list in 2006. Still allowed in the US; California has decided to ban it from January 2027, according to Yuka.",
+  "usNote": "Still allowed federally as 'generally recognised as safe'. California bans it in food from January 1, 2027 (AB 418).",
   "topics": [
    "Effects on hormones and reproduction (animal studies)",
    "Removed from the EU food list in 2006"
@@ -1830,6 +1882,10 @@ export const AUDITED: AuditedAdditive[] = [
    {
     "text": "Yuka. What is the problem with food additives in the US? 2025",
     "url": "https://yuka.io/en/problem-food-additives-us/"
+   },
+   {
+    "text": "Jones Day. California becomes the first state to ban four common food additives (AB 418), 2023",
+    "url": "https://www.jonesday.com/en/insights/2023/10/california-becomes-the-first-state-to-ban-four-common-food-additives"
    }
   ]
  },
@@ -1851,6 +1907,7 @@ export const AUDITED: AuditedAdditive[] = [
   ],
   "careIf": "People who are pregnant or trying to conceive, and parents of young children, may want to avoid it; it is mainly found in some US baked goods.",
   "regulation": "Removed from the EU food list in 2006. Still allowed in the US; California has decided to ban it from January 2027, according to Yuka.",
+  "usNote": "Still allowed federally as 'generally recognised as safe'. California bans it in food from January 1, 2027 (AB 418).",
   "topics": [
    "Effects on hormones and reproduction (animal studies)",
    "Removed from the EU food list in 2006"
@@ -1868,6 +1925,10 @@ export const AUDITED: AuditedAdditive[] = [
    {
     "text": "Yuka. What is the problem with food additives in the US? 2025",
     "url": "https://yuka.io/en/problem-food-additives-us/"
+   },
+   {
+    "text": "Jones Day. California becomes the first state to ban four common food additives (AB 418), 2023",
+    "url": "https://www.jonesday.com/en/insights/2023/10/california-becomes-the-first-state-to-ban-four-common-food-additives"
    }
   ]
  },
@@ -6808,6 +6869,7 @@ export const AUDITED: AuditedAdditive[] = [
    "The EU does not allow it as a food additive. The FDA has since 1991 encouraged bakers to stop using it voluntarily, but has not banned it nationally. California passed a law in 2023 that bans it in food from 2027."
   ],
   "regulation": "Not authorised in the EU, Canada, Brazil, and other countries. Still legal in much of the US, with California's ban applying from 2027. If it is on a label, the product is likely a US-style bakery item.",
+  "usNote": "California bans it in food from January 1, 2027 under the California Food Safety Act (AB 418). It is not banned nationwide.",
   "topics": [
    "Possible carcinogen in animals (IARC 2B)"
   ],
@@ -6824,6 +6886,10 @@ export const AUDITED: AuditedAdditive[] = [
    {
     "text": "Yuka. How is the classification of food additives established?",
     "url": "https://help.yuka.io/l/en/article/uell2r13f8-classification-food-additives"
+   },
+   {
+    "text": "Jones Day. California becomes the first state to ban four common food additives (AB 418), 2023",
+    "url": "https://www.jonesday.com/en/insights/2023/10/california-becomes-the-first-state-to-ban-four-common-food-additives"
    }
   ]
  },
