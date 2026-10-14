@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Aurora, Reveal, ZoomPage } from "../rooted/motion";
 import { Evidence, SourceLink } from "../rooted/ui";
@@ -7,7 +7,7 @@ import { BarcodeScanner } from "../rooted/BarcodeScanner";
 import { ADDITIVES, TIERS, TIER_ORDER, additiveById, searchAdditives, shownName, tierInfo, tierOf, type Additive, type Tier } from "../rooted/additivesContent";
 import { isValidBarcode, lookupBarcode, similarProducts, type Product } from "../rooted/foodLookup";
 import { NOVA_LABEL, VERDICT_LABEL, assess, compare, isBetterChoice, nutrientRows, nutritionReason, overallLabel, type Assessment, type Verdict } from "../rooted/productVerdict";
-import { useScanHistory, useScans } from "../store/scans";
+import { useSavedCodes, useScanHistory, useScans } from "../store/scans";
 import { ALLERGENS, allergenHits, allergenLabel } from "../rooted/allergens";
 import { TEXT_PRODUCT_CODE, productFromIngredients } from "../rooted/ingredientParse";
 import { APP_NAME } from "../brand";
@@ -356,13 +356,22 @@ function NutritionCard({ p }: { p: Product }) {
 export default function Scan() {
   const about = useAbout();
   const history = useScanHistory();
+  const savedCodes = useSavedCodes();
+  const toggleSaved = useScans((s) => s.toggleSaved);
+  const [compareCode, setCompareCode] = useState("");
   const addScan = useScans((s) => s.add);
   const clearScans = useScans((s) => s.clear);
   const [state, setState] = useState<State>(() => {
     const last = readLast();
     return last ? { s: "result", product: last } : { s: "idle" };
   });
-  const [scanning, setScanning] = useState(false);
+  const [params, setParams] = useSearchParams();
+  // "Scan a product" on the home screen opens straight to the camera.
+  const [scanning, setScanning] = useState(() => params.get("camera") === "1");
+  useEffect(() => {
+    if (params.get("camera") === "1") setParams({}, { replace: true });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   const [method, setMethod] = useState(false);
   const [number, setNumber] = useState("");
   const [active, setActive] = useState<{ a: Additive; list: Additive[]; from: string } | null>(null);
@@ -486,7 +495,15 @@ export default function Scan() {
         {state.s === "error" && (
           <>
             <p className="scan__status scan__status--error" role="alert">{ERRORS[state.reason]}</p>
-            {state.reason === "notfound" && <button className="scan__link" onClick={() => setTextOpen(true)}>Type in the ingredient list instead</button>}
+            {state.reason === "notfound" && (
+              <form className="scan__text" onSubmit={(e) => { e.preventDefault(); if (text.trim()) show(productFromIngredients(text), false); }}>
+                <label htmlFor="ingredients-nf"><b>Paste or type the ingredient list from the pack</b></label>
+                <textarea id="ingredients-nf" rows={4} value={text} onChange={(e) => setText(e.target.value)} placeholder="Corn, vegetable oil, salt, Yellow 6, Red 40…" />
+                <p className="scan__muted">On an iPhone, tap the box, then the camera button or &quot;Scan Text&quot; above the keyboard, and point it at the ingredient list. Nothing leaves your phone.</p>
+                <button className="btn btn--primary" type="submit" disabled={!text.trim()}>Check these ingredients</button>
+              </form>
+            )}
+            <button className="btn btn--secondary" onClick={() => setScanning(true)}>Scan another product</button>
           </>
         )}
         {state.s === "result" && found && result && (
@@ -515,12 +532,44 @@ export default function Scan() {
                 </p>
                 {state.product.allergens.length > 0 && <p className="scan__muted">Allergens listed: {state.product.allergens.map(allergenLabel).join(", ").toLowerCase()}.</p>}
                 <p className="scan__actions">
+                  <button className="scan__link" onClick={() => setScanning(true)}>Scan another</button>
+                  {state.product.code !== TEXT_PRODUCT_CODE && <button className="scan__link" aria-pressed={savedCodes.includes(state.product.code)} onClick={() => toggleSaved(state.product.code)}>{savedCodes.includes(state.product.code) ? "Saved ✓" : "Save"}</button>}
                   <button className="scan__link" onClick={() => setMethod(true)}>How we rate</button>
                   <button className="scan__link" onClick={() => void shareResult(state.product, result)}>Share</button>
                   <button className="scan__link" onClick={() => useFeedback.getState().show({ kind: "rating", message: `About ${state.product.name}${state.product.code !== TEXT_PRODUCT_CODE ? ` (barcode ${state.product.code})` : ""}.${state.product.code === TEXT_PRODUCT_CODE && state.product.ingredients ? `\nIngredients: ${state.product.ingredients.slice(0, 300)}` : ""}\n\nWhat looks wrong: ` })}>Rating looks wrong?</button>
                 </p>
               </div>
             </div>
+
+            {history.filter((h) => h.code !== state.product.code).length > 0 && (
+              <div className="r-card scan__compare">
+                <h3>Compare with another scan</h3>
+                <label htmlFor="cmp" className="visually-hidden">Choose a product to compare</label>
+                <select id="cmp" value={compareCode} onChange={(e) => setCompareCode(e.target.value)}>
+                  <option value="">Choose one of your recent scans</option>
+                  {history.filter((h) => h.code !== state.product.code).map((h) => <option key={h.code} value={h.code}>{h.product.name}</option>)}
+                </select>
+                {(() => {
+                  const other = history.find((h) => h.code === compareCode)?.product;
+                  if (!other) return null;
+                  const os = split(other);
+                  const oa = assess(other, os.known, os.unknown.length);
+                  const row = (p: Product, a: Assessment, k: Additive[]) => ({ name: p.name, verdict: overallLabel(a), score: a.score, high: k.filter((x) => tierOf(x) === "restricted").length, total: k.length + (split(p).unknown.length) });
+                  const cols = [row(state.product, result, found.known), row(other, oa, os.known)];
+                  return (
+                    <table className="scan__cmp">
+                      <thead><tr><th></th>{cols.map((c) => <th key={c.name}>{c.name}</th>)}</tr></thead>
+                      <tbody>
+                        <tr><th>Verdict</th>{cols.map((c) => <td key={c.name}>{c.verdict}</td>)}</tr>
+                        <tr><th>Score</th>{cols.map((c) => <td key={c.name}>{c.score !== undefined ? `${c.score}/100` : "n/a"}</td>)}</tr>
+                        <tr><th>High-risk additives</th>{cols.map((c) => <td key={c.name}>{c.high}</td>)}</tr>
+                        <tr><th>Additives</th>{cols.map((c) => <td key={c.name}>{c.total}</td>)}</tr>
+                      </tbody>
+                    </table>
+                  );
+                })()}
+              </div>
+            )}
 
             <div className="r-card scan__additives">
               <h3>Additives <small>{total === 0 ? "none listed" : `${total} listed`}</small></h3>
@@ -584,7 +633,7 @@ export default function Scan() {
               <li key={h.code}>
                 <button onClick={() => show(h.product, false)}>
                   {h.product.image ? <img src={h.product.image} alt="" width={48} height={48} loading="lazy" /> : <span className="alts__ph" aria-hidden="true" />}
-                  <span className="alts__text"><strong>{h.product.name}</strong><small>{h.product.brand ?? ""}</small></span>
+                  <span className="alts__text"><strong>{savedCodes.includes(h.code) ? "★ " : ""}{h.product.name}</strong><small>{h.product.brand ?? ""}</small></span>
                   <Badge v={h.verdict} label={histLabel(h.product)} />
                 </button>
               </li>
