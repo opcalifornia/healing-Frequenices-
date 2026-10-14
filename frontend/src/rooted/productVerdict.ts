@@ -67,12 +67,17 @@ export function nutrientRows(n: Nutrition | undefined, isDrink: boolean): Nutrie
 }
 
 /** Points per additive by how strong the concern is. A product's additive score is the sum. */
-const POINTS = { restricted: 99, notable: 3, some: 2, minor: 1, clear: 0 } as const;
+const POINTS = { restricted: 99, notable: 3, some: 2, clear: 0 } as const;
+/** Same yellow on screen, but a credible concern still weighs more than a lab-only or early one. */
+const pointsOf = (a: Additive) => {
+  const t = tierOf(a);
+  return t === "some" && (a.level !== "some" || a.labOnly) ? 1 : POINTS[t];
+};
 /** At this many additives or more, a product can't be "few concerns": nobody has studied them in combination. */
 export const MANY_ADDITIVES = 8;
 
 export function additiveScore(known: Additive[]): number {
-  return known.reduce((sum, a) => sum + POINTS[tierOf(a)], 0);
+  return known.reduce((sum, a) => sum + pointsOf(a), 0);
 }
 
 /**
@@ -82,7 +87,7 @@ export function additiveScore(known: Additive[]): number {
 export function additiveVerdict(known: Additive[], total = known.length): Verdict {
   const score = additiveScore(known);
   const notable = known.filter((a) => TIER_ORDER[tierOf(a)] <= TIER_ORDER.notable).length;
-  if (known.some((a) => a.level === "restricted") || score >= 6 || notable >= 2) return "poor";
+  if (known.some((a) => tierOf(a) === "restricted") || score >= 6 || notable >= 2) return "poor";
   if (score >= 2 || total >= MANY_ADDITIVES) return "fair";
   return "good";
 }
@@ -91,11 +96,11 @@ export function additiveVerdict(known: Additive[], total = known.length): Verdic
 export function additiveReasons(known: Additive[], unknownCount: number): string[] {
   const out: string[] = [];
   const by = (t: ReturnType<typeof tierOf>) => known.filter((a) => tierOf(a) === t).length;
-  if (known.some((a) => a.level === "restricted")) out.push("Contains an additive that a regulator has restricted.");
+  if (known.some((a) => tierOf(a) === "restricted")) out.push("Contains a high-risk additive, so the product can't rate better than poor.");
   const worst = known.filter((a) => tierOf(a) === "notable" || tierOf(a) === "restricted");
   if (worst.length) out.push(`Highest concern: ${worst.slice(0, 4).map(shownName).join(", ")}${worst.length > 4 ? ` and ${worst.length - 4} more` : ""}.`);
-  const flagged = by("notable") + by("some") + by("minor");
-  if (flagged > 0) out.push(`${flagged} of ${known.length} reviewed additive${known.length === 1 ? "" : "s"} carr${flagged === 1 ? "ies" : "y"} a concern, from minor to notable.`);
+  const flagged = by("notable") + by("some");
+  if (flagged > 0) out.push(`${flagged} of ${known.length} reviewed additive${known.length === 1 ? "" : "s"} carr${flagged === 1 ? "ies" : "y"} a concern, from limited to high.`);
   const total = known.length + unknownCount;
   if (total >= MANY_ADDITIVES) out.push(`${total} additives in one product. Their effects in combination haven't been studied.`);
   if (unknownCount > 0) out.push(`${unknownCount} additive${unknownCount === 1 ? " isn't" : "s aren't"} reviewed here yet, so they aren't counted.`);

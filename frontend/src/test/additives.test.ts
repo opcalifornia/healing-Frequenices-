@@ -111,23 +111,23 @@ describe("risk scale", () => {
     expect(t("e171")).toBe("restricted");
     expect(t("e127")).toBe("restricted");
     expect(t("e443")).toBe("restricted");
-    expect(t("e250")).toBe("notable"); // processed meat link, moderate evidence
+    expect(t("e250")).toBe("restricted"); // nitrites: high risk, matching Yuka
     expect(t("e220")).toBe("notable"); // sulfites
-    expect(t("e110")).toBe("notable"); // synthetic dyes: OEHHA review, EU warning, FDA phase-out request
-    expect(t("e102")).toBe("notable");
-    expect(t("e129")).toBe("notable");
-    expect(t("e951")).toBe("some"); // aspartame, limited evidence
-    expect(t("e433")).toBe("minor"); // mouse studies only
+    expect(t("e110")).toBe("restricted"); // high risk, matching Yuka
+    expect(t("e102")).toBe("restricted");
+    expect(t("e129")).toBe("restricted");
+    expect(t("e951")).toBe("restricted"); // high risk, matching Yuka
+    expect(t("e433")).toBe("some"); // mouse studies only
     expect(t("e466")).toBe("some"); // mouse studies plus a small human trial and a cohort link
     expect(t("e621")).toBe("some"); // MSG: EFSA flagged intake above its limit for some groups
     expect(t("e471")).toBe("some"); // same French cohorts as E472b and E472c
     expect(t("e472b")).toBe("some");
     expect(t("e341")).toBe("some"); // phosphates: EFSA 2019, children above the limit
     expect(t("e450")).toBe("some");
-    expect(t("e200")).toBe("minor"); // sorbates: regulators fine, lab DNA findings unresolved
-    expect(t("e202")).toBe("minor");
-    expect(t("e435")).toBe("minor");
-    expect(t("e481")).toBe("minor");
+    expect(t("e200")).toBe("some"); // sorbates: regulators fine, lab DNA findings unresolved
+    expect(t("e202")).toBe("some");
+    expect(t("e435")).toBe("some");
+    expect(t("e481")).toBe("some");
     expect(t("e330")).toBe("clear");
     expect(t("e1440")).toBe("clear");
   });

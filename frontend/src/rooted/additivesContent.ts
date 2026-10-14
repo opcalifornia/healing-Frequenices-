@@ -46,6 +46,8 @@ interface AdditiveBase {
   name: string;
   /** The name printed on US ingredient labels, when it differs, for example "Red 40" for Allura red AC. */
   labelName?: string;
+  /** Meets all three of Yuka's tests for a red rating (serious effect, strong evidence, exposure of concern), checked against the sources listed. */
+  highRisk?: boolean;
   also?: string;
   /** What it is used for. */
   kind: string;
@@ -748,25 +750,26 @@ export const LEVEL_ORDER: Record<ConcernLevel, number> = { restricted: 0, some: 
  *  minor       a small or early concern (lab or animal studies only, or EFSA noted a limit)
  *  clear       reviewed, and no concern found
  */
-export type Tier = "restricted" | "notable" | "some" | "minor" | "clear";
+export type Tier = "restricted" | "notable" | "some" | "clear";
 
+/**
+ * Four steps in the same colours as Yuka: red, orange, yellow, green. The names keep our evidence-first wording.
+ * Red follows Yuka's published test: a serious health effect, strong evidence (an official opinion or converging studies),
+ * and exposure that may reach levels of concern. A regulator ban counts too.
+ */
 export const TIERS: Array<{ id: Tier; label: string; short: string; shape: "octagon" | "square" | "diamond" | "triangle" | "circle"; color: string; means: string }> = [
-  { id: "restricted", label: "Restricted by regulators", short: "Restricted", shape: "octagon", color: "#ff5d5d", means: "A regulator has removed, withdrawn or restricted it." },
-  { id: "notable", label: "Notable concern", short: "Notable", shape: "square", color: "#ff8a5b", means: "A real concern, backed by moderate or stronger evidence." },
-  { id: "some", label: "Some concern", short: "Some concern", shape: "diamond", color: "#f5a742", means: "A concern with limited or mixed evidence, so far." },
-  { id: "minor", label: "Minor concern", short: "Minor", shape: "triangle", color: "#f2d24b", means: "A small or early concern, such as lab or animal studies only." },
-  { id: "clear", label: "No concern found", short: "Clear", shape: "circle", color: "#8fd46a", means: "Regulators and the studies we checked raised no concern at the amounts allowed in food. Research continues, so this is not a guarantee." },
+  { id: "restricted", label: "High risk", short: "High risk", shape: "octagon", color: "#f0524f", means: "A serious health effect, backed by strong evidence such as an official opinion, at amounts people may reach. Or a regulator has banned or restricted it." },
+  { id: "notable", label: "Moderate risk", short: "Moderate", shape: "square", color: "#f58a3c", means: "Studies point to a possible harm, but the evidence or the amounts people eat don't fully reach the high-risk test." },
+  { id: "some", label: "Limited risk", short: "Limited", shape: "triangle", color: "#f2cf3a", means: "Milder effects such as digestive upset or sensitivity, or a suspected risk where the evidence is still thin." },
+  { id: "clear", label: "No risk found", short: "No risk found", shape: "circle", color: "#4fbf6b", means: "Regulators and the studies we checked found no risk at the amounts allowed in food. Research continues, so this is not a guarantee." },
 ];
 
-export const TIER_ORDER: Record<Tier, number> = { restricted: 0, notable: 1, some: 2, minor: 3, clear: 4 };
+export const TIER_ORDER: Record<Tier, number> = { restricted: 0, notable: 1, some: 2, clear: 3 };
 
-export function tierOf(a: Pick<Additive, "level" | "evidence" | "labOnly">): Tier {
-  if (a.level === "restricted") return "restricted";
-  if (a.level === "some") {
-    if (a.evidence === "Moderate" || a.evidence === "Strong") return "notable";
-    return a.labOnly ? "minor" : "some";
-  }
-  return a.evidence === "None" ? "clear" : "minor";
+export function tierOf(a: Pick<Additive, "level" | "evidence" | "labOnly" | "highRisk">): Tier {
+  if (a.level === "restricted" || a.highRisk) return "restricted";
+  if (a.level === "some") return a.evidence === "Moderate" || a.evidence === "Strong" ? "notable" : "some";
+  return a.evidence === "None" ? "clear" : "some";
 }
 
 /** The name people see on the pack: "Red 40", not "Allura red AC". The scientific name stays on the detail page. */

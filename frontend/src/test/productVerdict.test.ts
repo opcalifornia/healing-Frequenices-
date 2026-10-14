@@ -13,12 +13,13 @@ describe("additive verdict", () => {
   it("scores additives by strength: minor ones add up, real concerns count more", () => {
     expect(additiveVerdict(A("e330", "e200"))).toBe("good"); // one minor concern
     expect(additiveVerdict(A("e200", "e202"))).toBe("fair"); // two minor concerns
-    expect(additiveVerdict(A("e330", "e951"))).toBe("fair"); // one real concern
-    expect(additiveVerdict(A("e951", "e211"))).toBe("fair");
-    expect(additiveVerdict(A("e951", "e211", "e110"))).toBe("poor"); // score 6
+    expect(additiveVerdict(A("e330", "e211"))).toBe("fair"); // one real concern
+    expect(additiveVerdict(A("e211", "e338"))).toBe("fair");
+    expect(additiveVerdict(A("e211", "e338", "e220"))).toBe("poor"); // score 6
     expect(additiveVerdict(A("e341", "e450", "e471"))).toBe("poor");
-    expect(additiveVerdict(A("e220", "e250"))).toBe("poor"); // two notable concerns
+    expect(additiveVerdict(A("e220", "e120"))).toBe("poor"); // two notable concerns
     expect(additiveVerdict(A("e171"))).toBe("poor"); // restricted
+    expect(additiveVerdict(A("e129"))).toBe("poor"); // Red 40 is high risk, which caps the product
   });
   it("is never 'good' for a long list of additives, even when each looks gentle", () => {
     const gentle = A("e330", "e300", "e322", "e440", "e412", "e270", "e101", "e414");
@@ -69,7 +70,7 @@ describe("overall assessment", () => {
 
   it("falls back to additives alone when there is no nutrition data, and notes unknown additives", () => {
     const p = mk({});
-    const a = assess(p, A("e951"), 2);
+    const a = assess(p, A("e211"), 2);
     expect(a.nutrition).toBeUndefined();
     expect(a.overall).toBe("fair");
     expect(a.partial).toBe(true);
@@ -103,7 +104,7 @@ describe("better choices", () => {
   const mk = (extra: object) => parseProduct({ status: 1, product: { product_name: "X", ...extra } }, "1")!;
   it("only suggests products whose verdict is strictly better", () => {
     const poor = assess(mk({ nutrition_grades: "e" }), A("e171"), 0);
-    const fair = assess(mk({ nutrition_grades: "c" }), A("e951"), 0);
+    const fair = assess(mk({ nutrition_grades: "c" }), A("e211"), 0);
     const good = assess(mk({ nutrition_grades: "a" }), A("e330"), 0);
     expect(isBetterChoice(good, poor)).toBe(true);
     expect(isBetterChoice(fair, poor)).toBe(true);
@@ -131,7 +132,7 @@ describe("so-far wording", () => {
   it("never softens a worse verdict", () => {
     const poor = assess(mk({}), A("e171"), 3);
     expect(overallLabel(poor)).toBe("Several concerns");
-    const fair = assess(mk({}), A("e951"), 1);
+    const fair = assess(mk({}), A("e211"), 1);
     expect(overallLabel(fair)).toBe("Some concerns");
   });
 });

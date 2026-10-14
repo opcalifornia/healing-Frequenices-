@@ -12,6 +12,7 @@ export interface AuditedAdditive {
   name: string;
   /** The name printed on US ingredient labels, when it differs, for example "Red 40" for Allura red AC. */
   labelName?: string;
+  highRisk?: boolean;
   also?: string;
   kind: string;
   found: string;
@@ -93,6 +94,7 @@ export const AUDITED: AuditedAdditive[] = [
   "code": "E102",
   "name": "Tartrazine",
   "labelName": "Yellow 5",
+  "highRisk": true,
   "also": "Yellow 5 in the US",
   "kind": "Colour",
   "found": "Fizzy drinks, sweets, desserts, crisps and sauces.",
@@ -112,7 +114,7 @@ export const AUDITED: AuditedAdditive[] = [
    "Label warning required in the EU",
    "Sensitivity reactions in a small number of people"
   ],
-  "contested": "We rate this dye a notable concern, a step above most other additives, because of the state-agency review, the EU warning label and the US phase-out request. Regulators have not banned it: EFSA kept its safe daily intake and the FDA's phase-out is voluntary. The evidence is real but the effect is small on average and concentrated in sensitive children, and the trials used mixtures of dyes, so one dye can't be singled out. Consumer groups such as CSPI go further and urge avoiding artificial dyes altogether.",
+  "contested": "We rate this dye a notable concern, a step above most other additives, because of the state-agency review, the EU warning label and the US phase-out request. Regulators have not banned it: EFSA kept its safe daily intake and the FDA's phase-out is voluntary. The evidence is real but the effect is small on average and concentrated in sensitive children, and the trials used mixtures of dyes, so one dye can't be singled out. Consumer groups such as CSPI go further and urge avoiding artificial dyes altogether. Where views differ: Rated high risk to match Yuka, which cites studies linking it to hyperactivity and attention problems in children and says a 1964 safety study never looked at behaviour. EFSA kept its daily limit unchanged in 2009 and no regulator has banned it for sale; the EU requires a warning label.",
   "sources": [
    {
     "text": "EFSA. Re-evaluation of tartrazine (E 102), 2009",
@@ -137,6 +139,14 @@ export const AUDITED: AuditedAdditive[] = [
    {
     "text": "CSPI: FDA's plan to remove food dyes (advocacy group summary)",
     "url": "https://www.cspi.org/cspi-news/fdas-plan-remove-food-dyes-industry-understanding"
+   },
+   {
+    "text": "Yuka. What is the problem with food additives in the US? 2025",
+    "url": "https://yuka.io/en/problem-food-additives-us/"
+   },
+   {
+    "text": "Yuka. How is the classification of food additives established?",
+    "url": "https://help.yuka.io/l/en/article/uell2r13f8-classification-food-additives"
    }
   ]
  },
@@ -199,6 +209,7 @@ export const AUDITED: AuditedAdditive[] = [
   "code": "E110",
   "name": "Sunset yellow FCF",
   "labelName": "Yellow 6",
+  "highRisk": true,
   "also": "Yellow 6 in the US",
   "kind": "Colour",
   "found": "Orange drinks, sweets, biscuits and snacks.",
@@ -218,7 +229,7 @@ export const AUDITED: AuditedAdditive[] = [
    "Label warning required in the EU",
    "Sensitivity reactions in a small number of people"
   ],
-  "contested": "We rate this dye a notable concern, a step above most other additives, because of the state-agency review, the EU warning label and the US phase-out request. Regulators have not banned it: EFSA kept its safe daily intake and the FDA's phase-out is voluntary. The evidence is real but the effect is small on average and concentrated in sensitive children, and the trials used mixtures of dyes, so one dye can't be singled out. Consumer groups such as CSPI go further and urge avoiding artificial dyes altogether.",
+  "contested": "We rate this dye a notable concern, a step above most other additives, because of the state-agency review, the EU warning label and the US phase-out request. Regulators have not banned it: EFSA kept its safe daily intake and the FDA's phase-out is voluntary. The evidence is real but the effect is small on average and concentrated in sensitive children, and the trials used mixtures of dyes, so one dye can't be singled out. Consumer groups such as CSPI go further and urge avoiding artificial dyes altogether. Where views differ: Rated high risk to match Yuka. EFSA lowered its daily limit in 2009, and children's high intakes were estimated to exceed it before limits were tightened in 2011. California's OEHHA lists it among dyes with behaviour effects in some children. No regulator has banned it for sale; the EU requires a warning label.",
   "sources": [
    {
     "text": "EFSA. Reconsideration of the temporary ADI and refined exposure assessment for sunset yellow FCF (E 110), 2014",
@@ -247,6 +258,14 @@ export const AUDITED: AuditedAdditive[] = [
    {
     "text": "CSPI: FDA's plan to remove food dyes (advocacy group summary)",
     "url": "https://www.cspi.org/cspi-news/fdas-plan-remove-food-dyes-industry-understanding"
+   },
+   {
+    "text": "Yuka. What is the problem with food additives in the US? 2025",
+    "url": "https://yuka.io/en/problem-food-additives-us/"
+   },
+   {
+    "text": "Yuka. How is the classification of food additives established?",
+    "url": "https://help.yuka.io/l/en/article/uell2r13f8-classification-food-additives"
    }
   ]
  },
@@ -490,6 +509,7 @@ export const AUDITED: AuditedAdditive[] = [
   "code": "E129",
   "name": "Allura red AC",
   "labelName": "Red 40",
+  "highRisk": true,
   "also": "Red 40 in the US",
   "kind": "Colour",
   "found": "Sweets, drinks, cereals and snack foods.",
@@ -509,7 +529,7 @@ export const AUDITED: AuditedAdditive[] = [
    "Label warning required in the EU",
    "Sensitivity reactions in a small number of people"
   ],
-  "contested": "We rate this dye a notable concern, a step above most other additives, because of the state-agency review, the EU warning label and the US phase-out request. Regulators have not banned it: EFSA kept its safe daily intake and the FDA's phase-out is voluntary. The evidence is real but the effect is small on average and concentrated in sensitive children, and the trials used mixtures of dyes, so one dye can't be singled out. Consumer groups such as CSPI go further and urge avoiding artificial dyes altogether.",
+  "contested": "We rate this dye a notable concern, a step above most other additives, because of the state-agency review, the EU warning label and the US phase-out request. Regulators have not banned it: EFSA kept its safe daily intake and the FDA's phase-out is voluntary. The evidence is real but the effect is small on average and concentrated in sensitive children, and the trials used mixtures of dyes, so one dye can't be singled out. Consumer groups such as CSPI go further and urge avoiding artificial dyes altogether. Where views differ: Rated high risk to match Yuka. Its test found 5 of 13 products tested exceeded California OEHHA's daily safety level for children in one serving. OEHHA reviewed over 300 studies and said the safe daily amount could be up to 100 times lower than the current US limit. EFSA's 2015 refined assessment found estimated intakes under its own, higher limit, and no regulator has banned it for sale.",
   "sources": [
    {
     "text": "EFSA. Refined exposure assessment for Allura red AC (E 129)",
@@ -534,6 +554,14 @@ export const AUDITED: AuditedAdditive[] = [
    {
     "text": "CSPI: FDA's plan to remove food dyes (advocacy group summary)",
     "url": "https://www.cspi.org/cspi-news/fdas-plan-remove-food-dyes-industry-understanding"
+   },
+   {
+    "text": "Yuka and Consumer Reports. Investigation of additives in 40 popular US products (Red 40, titanium dioxide, aspartame, acesulfame-K, sucralose, BHA, BHT, sodium nitrite), 2026",
+    "url": "https://yuka.io/en/tests-additives-food-products/"
+   },
+   {
+    "text": "Yuka. How is the classification of food additives established?",
+    "url": "https://help.yuka.io/l/en/article/uell2r13f8-classification-food-additives"
    }
   ]
  },
@@ -2230,6 +2258,7 @@ export const AUDITED: AuditedAdditive[] = [
   "id": "e249",
   "code": "E249",
   "name": "Potassium nitrite",
+  "highRisk": true,
   "kind": "Preservative (curing)",
   "found": "Preserved meats such as ham, bacon and salami.",
   "level": "some",
@@ -2248,7 +2277,7 @@ export const AUDITED: AuditedAdditive[] = [
    "Type 2 diabetes (one large cohort)",
    "Children's intake slightly above the safe limit (estimate)"
   ],
-  "contested": "CSPI rates sodium nitrite 'avoid', citing nitrosamines. EFSA is more measured: it set a safe daily intake and found exposure mostly within it. The evidence supports caution about frequent processed meat more than about nitrite alone, and cannot separate the two. Vitamin C added to preserved meats lowers nitrosamine formation.",
+  "contested": "CSPI rates sodium nitrite 'avoid', citing nitrosamines. EFSA is more measured: it set a safe daily intake and found exposure mostly within it. The evidence supports caution about frequent processed meat more than about nitrite alone, and cannot separate the two. Vitamin C added to preserved meats lowers nitrosamine formation. Where views differ: Rated high risk to match Yuka. EFSA found some evidence linking dietary nitrite to stomach and bowel cancer, and children's high intakes slightly exceed the daily limit. The US allows up to four times the EU's latest limit in some meats, per Yuka.",
   "sources": [
    {
     "text": "EFSA. Re-evaluation of potassium nitrite (E 249) and sodium nitrite (E 250) as food additives. EFSA Journal, 2017",
@@ -2265,6 +2294,14 @@ export const AUDITED: AuditedAdditive[] = [
    {
     "text": "CSPI. Chemical Cuisine: Sodium nitrate and sodium nitrite",
     "url": "https://cspinet.org/article/sodium-nitrate-sodium-nitrite"
+   },
+   {
+    "text": "Yuka and Consumer Reports. Investigation of additives in 40 popular US products (Red 40, titanium dioxide, aspartame, acesulfame-K, sucralose, BHA, BHT, sodium nitrite), 2026",
+    "url": "https://yuka.io/en/tests-additives-food-products/"
+   },
+   {
+    "text": "Yuka. How is the classification of food additives established?",
+    "url": "https://help.yuka.io/l/en/article/uell2r13f8-classification-food-additives"
    }
   ]
  },
@@ -2272,6 +2309,7 @@ export const AUDITED: AuditedAdditive[] = [
   "id": "e250",
   "code": "E250",
   "name": "Sodium nitrite",
+  "highRisk": true,
   "kind": "Preservative (curing)",
   "found": "Bacon, ham, hot dogs, salami and other preserved meats.",
   "level": "some",
@@ -2290,7 +2328,7 @@ export const AUDITED: AuditedAdditive[] = [
    "Type 2 diabetes (one large cohort)",
    "Children's intake slightly above the safe limit (estimate)"
   ],
-  "contested": "CSPI rates sodium nitrite 'avoid', citing nitrosamines. EFSA is more measured: it set a safe daily intake and found exposure mostly within it. The evidence supports caution about frequent processed meat more than about nitrite alone, and cannot separate the two. Vitamin C added to preserved meats lowers nitrosamine formation.",
+  "contested": "CSPI rates sodium nitrite 'avoid', citing nitrosamines. EFSA is more measured: it set a safe daily intake and found exposure mostly within it. The evidence supports caution about frequent processed meat more than about nitrite alone, and cannot separate the two. Vitamin C added to preserved meats lowers nitrosamine formation. Where views differ: Rated high risk to match Yuka. EFSA found some evidence linking dietary nitrite to stomach and bowel cancer, and children's high intakes slightly exceed the daily limit. The US allows up to four times the EU's latest limit in some meats, per Yuka.",
   "sources": [
    {
     "text": "EFSA. Re-evaluation of potassium nitrite (E 249) and sodium nitrite (E 250) as food additives. EFSA Journal, 2017",
@@ -2307,6 +2345,14 @@ export const AUDITED: AuditedAdditive[] = [
    {
     "text": "CSPI. Chemical Cuisine: Sodium nitrate and sodium nitrite",
     "url": "https://cspinet.org/article/sodium-nitrate-sodium-nitrite"
+   },
+   {
+    "text": "Yuka and Consumer Reports. Investigation of additives in 40 popular US products (Red 40, titanium dioxide, aspartame, acesulfame-K, sucralose, BHA, BHT, sodium nitrite), 2026",
+    "url": "https://yuka.io/en/tests-additives-food-products/"
+   },
+   {
+    "text": "Yuka. How is the classification of food additives established?",
+    "url": "https://help.yuka.io/l/en/article/uell2r13f8-classification-food-additives"
    }
   ]
  },
@@ -3003,6 +3049,7 @@ export const AUDITED: AuditedAdditive[] = [
   "id": "e320",
   "code": "E320",
   "name": "Butylated hydroxyanisole",
+  "highRisk": true,
   "kind": "Antioxidant preservative",
   "found": "Chips, cereals, chewing gum, instant mashed potato, fats and oils.",
   "level": "some",
@@ -3020,7 +3067,7 @@ export const AUDITED: AuditedAdditive[] = [
    "Possibly carcinogenic (IARC 2B, animal studies)",
    "Intake near safe limit (EFSA estimate)"
   ],
-  "contested": "CSPI rates BHA 'Avoid', citing the NTP and IARC listings and noting that it can be replaced. That is stricter than EFSA, which set a safe daily intake. The two differ mainly on whether rodent forestomach tumours matter for people. The human evidence is absent rather than reassuring, so we show a concern based on animal studies.",
+  "contested": "CSPI rates BHA 'Avoid', citing the NTP and IARC listings and noting that it can be replaced. That is stricter than EFSA, which set a safe daily intake. The two differ mainly on whether rodent forestomach tumours matter for people. The human evidence is absent rather than reassuring, so we show a concern based on animal studies. Where views differ: Rated high risk to match Yuka, which says to avoid BHA given the concerns in the scientific literature. EFSA's 2011 daily limit is 1 mg/kg and refined intakes were generally below it; Danish researchers (DTU) flag hormone effects.",
   "sources": [
    {
     "text": "IARC Monographs Vol. 40: Butylated hydroxyanisole (BHA), 1986",
@@ -3041,6 +3088,14 @@ export const AUDITED: AuditedAdditive[] = [
    {
     "text": "CSPI. Chemical Cuisine: Butylated hydroxyanisole (BHA)",
     "url": "https://www.cspi.org/article/butylated-hydroxyanisole-bha"
+   },
+   {
+    "text": "Yuka and Consumer Reports. Investigation of additives in 40 popular US products (Red 40, titanium dioxide, aspartame, acesulfame-K, sucralose, BHA, BHT, sodium nitrite), 2026",
+    "url": "https://yuka.io/en/tests-additives-food-products/"
+   },
+   {
+    "text": "Yuka. How is the classification of food additives established?",
+    "url": "https://help.yuka.io/l/en/article/uell2r13f8-classification-food-additives"
    }
   ]
  },
@@ -3048,6 +3103,7 @@ export const AUDITED: AuditedAdditive[] = [
   "id": "e321",
   "code": "E321",
   "name": "Butylated hydroxytoluene",
+  "highRisk": true,
   "kind": "Antioxidant preservative",
   "found": "Cereals, chewing gum, snacks, fats and oils, some packaging.",
   "level": "little",
@@ -3062,7 +3118,7 @@ export const AUDITED: AuditedAdditive[] = [
   "topics": [
    "Lower safe intake set by EFSA in 2012"
   ],
-  "contested": "CSPI rates BHT 'Caution' and advises avoiding it where possible, citing animal cancer studies and the fact that it is easy to replace. EFSA did not find a cancer concern at current uses and set a safe limit. Evidence of harm in people is lacking.",
+  "contested": "CSPI rates BHT 'Caution' and advises avoiding it where possible, citing animal cancer studies and the fact that it is easy to replace. EFSA did not find a cancer concern at current uses and set a safe limit. Evidence of harm in people is lacking. Where views differ: Rated high risk to match Yuka, which says to avoid BHT given the concerns in the scientific literature. EFSA raised the daily limit in 2012 and found no genotoxicity concern, though children's high intakes exceeded it in some countries.",
   "sources": [
    {
     "text": "EFSA. Re-evaluation of butylated hydroxytoluene BHT (E 321) as a food additive. EFSA Journal, 2012",
@@ -3071,6 +3127,14 @@ export const AUDITED: AuditedAdditive[] = [
    {
     "text": "CSPI. Chemical Cuisine: Butylated hydroxytoluene (BHT)",
     "url": "https://www.cspi.org/article/butylated-hydroxytoluene-bht"
+   },
+   {
+    "text": "Yuka and Consumer Reports. Investigation of additives in 40 popular US products (Red 40, titanium dioxide, aspartame, acesulfame-K, sucralose, BHA, BHT, sodium nitrite), 2026",
+    "url": "https://yuka.io/en/tests-additives-food-products/"
+   },
+   {
+    "text": "Yuka. How is the classification of food additives established?",
+    "url": "https://help.yuka.io/l/en/article/uell2r13f8-classification-food-additives"
    }
   ]
  },
@@ -6628,6 +6692,7 @@ export const AUDITED: AuditedAdditive[] = [
   "id": "e924",
   "code": "E924",
   "name": "Potassium bromate",
+  "highRisk": true,
   "kind": "Flour improver (dough strengthener)",
   "found": "Some US breads, rolls and bakery flour. Not allowed in the EU.",
   "level": "restricted",
@@ -6642,11 +6707,19 @@ export const AUDITED: AuditedAdditive[] = [
   "topics": [
    "Possible carcinogen in animals (IARC 2B)"
   ],
-  "contested": "CSPI lists potassium bromate as an additive to avoid. That is in line with IARC and the EU ban: the concern is real for the substance, but the human evidence at bread levels is absent, so the evidence is rated moderate and not strong.",
+  "contested": "CSPI lists potassium bromate as an additive to avoid. That is in line with IARC and the EU ban: the concern is real for the substance, but the human evidence at bread levels is absent, so the evidence is rated moderate and not strong. Where views differ: Rated high risk: classified by IARC as possibly carcinogenic (Group 2B), a genotoxic carcinogen with no safe threshold, and not allowed in food in the EU. Primary sources were not re-checked in this review.",
   "sources": [
    {
     "text": "CSPI. Food additives: the definitive glossary (Chemical Cuisine)",
     "url": "https://www.cspinet.org/article/food-additives"
+   },
+   {
+    "text": "Yuka. What is the problem with food additives in the US? 2025",
+    "url": "https://yuka.io/en/problem-food-additives-us/"
+   },
+   {
+    "text": "Yuka. How is the classification of food additives established?",
+    "url": "https://help.yuka.io/l/en/article/uell2r13f8-classification-food-additives"
    }
   ]
  },
@@ -6804,6 +6877,7 @@ export const AUDITED: AuditedAdditive[] = [
   "id": "e950",
   "code": "E950",
   "name": "Acesulfame K",
+  "highRisk": true,
   "also": "Acesulfame potassium, Ace-K",
   "kind": "Sweetener",
   "found": "Diet and zero-sugar drinks, sugar-free sweets and gum, protein products and tabletop sweeteners, often blended with aspartame.",
@@ -6821,7 +6895,7 @@ export const AUDITED: AuditedAdditive[] = [
    "Cancer risk (one observational cohort)",
    "Weight control (WHO 2023 advice)"
   ],
-  "contested": "CSPI rates acesulfame potassium as \"avoid\", citing rat cancer tests from the 1970s that it calls poor quality and urging better testing. EFSA reviewed the data again in 2025 and raised the limit. The French cohort is a newer signal but is a single observational study, so we keep this at a mild concern.",
+  "contested": "CSPI rates acesulfame potassium as \"avoid\", citing rat cancer tests from the 1970s that it calls poor quality and urging better testing. EFSA reviewed the data again in 2025 and raised the limit. The French cohort is a newer signal but is a single observational study, so we keep this at a mild concern. Where views differ: Rated high risk to match Yuka, which cites NutriNet-Santé cohort findings on sweeteners and chronic disease at small amounts. EFSA is still re-evaluating it, and current intakes are below the regulatory daily limit.",
   "sources": [
    {
     "text": "EFSA FAF Panel. Re-evaluation of acesulfame K (E 950) as a food additive. EFSA Journal, 2025",
@@ -6838,6 +6912,14 @@ export const AUDITED: AuditedAdditive[] = [
    {
     "text": "CSPI. Chemical Cuisine: acesulfame potassium",
     "url": "https://www.cspi.org/chemical-cuisine/acesulfame-potassium"
+   },
+   {
+    "text": "Yuka and Consumer Reports. Investigation of additives in 40 popular US products (Red 40, titanium dioxide, aspartame, acesulfame-K, sucralose, BHA, BHT, sodium nitrite), 2026",
+    "url": "https://yuka.io/en/tests-additives-food-products/"
+   },
+   {
+    "text": "Yuka. How is the classification of food additives established?",
+    "url": "https://help.yuka.io/l/en/article/uell2r13f8-classification-food-additives"
    }
   ]
  },
@@ -6845,6 +6927,7 @@ export const AUDITED: AuditedAdditive[] = [
   "id": "e951",
   "code": "E951",
   "name": "Aspartame",
+  "highRisk": true,
   "kind": "Sweetener",
   "found": "Diet and zero-sugar drinks, sugar-free gum, light yoghurts and tabletop sweeteners.",
   "level": "some",
@@ -6862,7 +6945,7 @@ export const AUDITED: AuditedAdditive[] = [
    "Cancer (IARC possible, limited evidence)",
    "Weight control (WHO 2023 advice)"
   ],
-  "contested": "CSPI advises avoiding aspartame. Regulators hold that intake within the limit is acceptable. The two views differ on how to weigh limited, mixed evidence; the IARC finding supports a caution, not a ban.",
+  "contested": "CSPI advises avoiding aspartame. Regulators hold that intake within the limit is acceptable. The two views differ on how to weigh limited, mixed evidence; the IARC finding supports a caution, not a ban. Where views differ: Rated high risk to match Yuka, which weighs the large French NutriNet-Santé cohort linking aspartame to cancer and heart disease, and IARC's 2023 'possibly carcinogenic' (Group 2B) classification. JECFA kept the daily limit at 40 mg/kg in 2023 and found no cancer concern at that level, and typical intakes are well below it.",
   "sources": [
    {
     "text": "IARC/WHO. Aspartame hazard and risk assessment results released by IARC and JECFA (press release). 2023",
@@ -6883,6 +6966,14 @@ export const AUDITED: AuditedAdditive[] = [
    {
     "text": "WHO/PAHO. WHO advises not to use non-sugar sweeteners for weight control in newly released guideline. 2023",
     "url": "https://www.paho.org/en/news/15-5-2023-who-advises-not-use-non-sugar-sweeteners-weight-control-newly-released-guideline"
+   },
+   {
+    "text": "Yuka and Consumer Reports. Investigation of additives in 40 popular US products (Red 40, titanium dioxide, aspartame, acesulfame-K, sucralose, BHA, BHT, sodium nitrite), 2026",
+    "url": "https://yuka.io/en/tests-additives-food-products/"
+   },
+   {
+    "text": "Yuka. How is the classification of food additives established?",
+    "url": "https://help.yuka.io/l/en/article/uell2r13f8-classification-food-additives"
    }
   ]
  },
@@ -7000,6 +7091,7 @@ export const AUDITED: AuditedAdditive[] = [
   "id": "e955",
   "code": "E955",
   "name": "Sucralose",
+  "highRisk": true,
   "kind": "Sweetener",
   "found": "Diet and zero-sugar drinks, sugar-free sweets, protein products and tabletop sweeteners.",
   "level": "some",
@@ -7017,7 +7109,7 @@ export const AUDITED: AuditedAdditive[] = [
    "Blood sugar response (small, mixed trials)",
    "Weight control (WHO 2023 advice)"
   ],
-  "contested": "CSPI moved sucralose to \"avoid\" in 2016 after a Ramazzini Institute mouse study reporting blood cancers; EFSA said the data did not support that conclusion. Both views are shown. The lab by-product finding is why we keep a minor concern rather than a clear rating.",
+  "contested": "CSPI moved sucralose to \"avoid\" in 2016 after a Ramazzini Institute mouse study reporting blood cancers; EFSA said the data did not support that conclusion. Both views are shown. The lab by-product finding is why we keep a minor concern rather than a clear rating. Where views differ: Rated high risk to match Yuka, which cites NutriNet-Santé cohort findings and a human trial of gut and blood-sugar effects. EFSA's 2026 re-evaluation found no genotoxicity concern and kept the daily limit; Germany's BfR warns about heating it above 120 °C.",
   "sources": [
    {
     "text": "EFSA. Re-evaluation of sucralose (E 955) as a food additive: plain-language summary. 2026",
@@ -7034,6 +7126,14 @@ export const AUDITED: AuditedAdditive[] = [
    {
     "text": "WHO/PAHO. WHO advises not to use non-sugar sweeteners for weight control in newly released guideline. 2023",
     "url": "https://www.paho.org/en/news/15-5-2023-who-advises-not-use-non-sugar-sweeteners-weight-control-newly-released-guideline"
+   },
+   {
+    "text": "Yuka and Consumer Reports. Investigation of additives in 40 popular US products (Red 40, titanium dioxide, aspartame, acesulfame-K, sucralose, BHA, BHT, sodium nitrite), 2026",
+    "url": "https://yuka.io/en/tests-additives-food-products/"
+   },
+   {
+    "text": "Yuka. How is the classification of food additives established?",
+    "url": "https://help.yuka.io/l/en/article/uell2r13f8-classification-food-additives"
    }
   ]
  },
