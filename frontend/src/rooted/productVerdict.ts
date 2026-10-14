@@ -116,7 +116,45 @@ export function nutritionVerdict(p: Pick<Product, "nutrition" | "grade" | "isDri
   return "good";
 }
 
+/**
+ * Yuka's published table (help.yuka.io, "How is the Nutri-Score used to obtain the Yuka rating?"):
+ * original Nutri-Score points to a 0 to 100 nutrition score, one column for solid foods and one for drinks.
+ * Solids: 100 at -3 or less, down to 0 at 19 or more. Drinks: 80 below -3, then 77 at -3, down to 0 at 10 or more.
+ */
+const YUKA_SOLID = [100, 100, 90, 80, 75, 70, 65, 60, 55, 50, 45, 40, 35, 30, 15, 13, 11, 9, 7, 5, 3, 1, 0]; // points -3..19
+const YUKA_DRINK = [77, 74, 71, 68, 65, 57, 49, 41, 33, 15, 11, 7, 3, 0]; // points -3..10; below -3 the table says 80
+export function yukaNutrition(points: number, isDrink: boolean): number {
+  const r = Math.round(points);
+  if (isDrink && r < -3) return 80;
+  const t = isDrink ? YUKA_DRINK : YUKA_SOLID;
+  return t[Math.min(Math.max(0, r + 3), t.length - 1)];
+}
+
+/**
+ * Our 0 to 100 score, using the weights Yuka publishes: nutrition 60%, additives 30%, organic 10% as a bonus,
+ * and a cap of 49 when a high-risk additive is present. Yuka doesn't publish its additive sub-score, so that part is our
+ * estimate (100 with none, then lower as the worst additive gets worse). It can differ from Yuka's number by a few points.
+ */
+export function additivePart(known: Additive[]): number {
+  if (known.some((a) => tierOf(a) === "restricted")) return 0;
+  const n = known.filter((a) => tierOf(a) !== "clear").length;
+  if (known.some((a) => tierOf(a) === "notable")) return Math.max(10, 50 - 10 * (n - 1));
+  if (n > 0) return Math.max(40, 85 - 5 * (n - 1));
+  return 100;
+}
+
+export function yukaStyleScore(p: Pick<Product, "nutriPoints" | "isDrink" | "organic">, known: Additive[]): number | undefined {
+  if (p.nutriPoints === undefined) return undefined;
+  const nutrition = yukaNutrition(p.nutriPoints, p.isDrink);
+  const base = p.organic ? 0.6 * nutrition + 0.3 * additivePart(known) + 10 : (0.6 * nutrition + 0.3 * additivePart(known)) / 0.9;
+  let score = Math.round(base);
+  if (known.some((a) => tierOf(a) === "restricted")) score = Math.min(score, 49);
+  return Math.max(0, Math.min(100, score));
+}
+
 export interface Assessment {
+  /** 0 to 100, when the database has the Nutri-Score points. */
+  score?: number;
   /** Plain-language reasons for the verdict. */
   reasons: string[];
   additives: Verdict;
@@ -143,7 +181,7 @@ export function assess(p: Product, known: Additive[], unknownCount: number): Ass
     reasons.push("Ultra-processed (NOVA group 4): diets high in these are linked to poorer health in large studies.");
     if (overall === "good") overall = "fair";
   }
-  return { reasons, additives, nutrition, overall, partial: unknownCount > 0, complete: unknownCount === 0 && nutrition !== undefined };
+  return { score: yukaStyleScore(p, known), reasons, additives, nutrition, overall, partial: unknownCount > 0, complete: unknownCount === 0 && nutrition !== undefined };
 }
 
 /** How much better `a` is than `b`: negative means `a` is the better product. */

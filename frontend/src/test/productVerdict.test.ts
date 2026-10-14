@@ -151,3 +151,23 @@ describe("reasons and ultra-processing", () => {
     expect(a.reasons.join(" ")).toMatch(/Ultra-processed/);
   });
 });
+
+import { yukaNutrition, yukaStyleScore } from "../rooted/productVerdict";
+describe("0 to 100 score", () => {
+  it("converts Nutri-Score points with Yuka's published table", () => {
+    expect(yukaNutrition(-5, false)).toBe(100);
+    expect(yukaNutrition(-1, false)).toBe(90);
+    expect(yukaNutrition(10, false)).toBe(30);
+    expect(yukaNutrition(11, false)).toBe(15);
+    expect(yukaNutrition(25, false)).toBe(0);
+    expect(yukaNutrition(-6, true)).toBe(80);
+    expect(yukaNutrition(-3, true)).toBe(77);
+    expect(yukaNutrition(2, true)).toBe(57);
+    expect(yukaNutrition(10, true)).toBe(0);
+  });
+  it("caps at 49 with a high-risk additive and leaves out products without points", () => {
+    expect(yukaStyleScore({ nutriPoints: -5, isDrink: false, organic: undefined }, A("e330"))).toBe(100);
+    expect(yukaStyleScore({ nutriPoints: -5, isDrink: false, organic: undefined }, A("e129"))).toBe(49);
+    expect(yukaStyleScore({ isDrink: false, organic: undefined }, A("e330"))).toBeUndefined();
+  });
+});

@@ -168,3 +168,4 @@
 .scan__why { margin: 4px 0 8px; padding-left: 1.1em; display: grid; gap: 4px; font-size: 0.86rem; color: var(--r-text-2); line-height: 1.45; }
 .apage__contested { margin: 12px 0 0; padding: 12px 14px; border-radius: 12px; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--r-line); color: var(--r-text-2); line-height: 1.55; }
 .scan__actions { display: flex; flex-wrap: wrap; gap: 6px 16px; margin: 6px 0 0; }
+.scan__score { margin-left: 10px; font-size: 0.95rem; opacity: 0.9; white-space: nowrap; } .scan__score strong { font-size: 1.15rem; }
