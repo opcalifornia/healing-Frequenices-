@@ -34,6 +34,10 @@ export interface Product {
   nutrition?: Nutrition;
   /** Nutri-Score letter, a to e. */
   grade?: "a" | "b" | "c" | "d" | "e";
+  /** Original Nutri-Score points (about -15 to 40). Lower is better. Used for the 0 to 100 score. */
+  nutriPoints?: number;
+  /** Carries an organic label. */
+  organic?: boolean;
   /** NOVA processing group, 1 to 4 (4 = ultra-processed). */
   nova?: 1 | 2 | 3 | 4;
   /** Drinks are judged per 100 ml with their own cut-offs. */
@@ -73,6 +77,7 @@ interface OffProduct {
   nutriscore_grade?: unknown;
   nutrition_grades?: unknown;
   nova_group?: unknown;
+  labels_tags?: unknown;
 }
 
 const num = (v: unknown): number | undefined => (typeof v === "number" && Number.isFinite(v) && v >= 0 ? v : typeof v === "string" && v.trim() !== "" && Number.isFinite(Number(v)) && Number(v) >= 0 ? Number(v) : undefined);
@@ -108,6 +113,9 @@ export function parseProduct(json: unknown, code: string): Product | null {
   const cats = Array.isArray(p.categories_tags) ? (p.categories_tags as unknown[]).filter((c): c is string => typeof c === "string") : [];
   const g = String(p.nutriscore_grade ?? p.nutrition_grades ?? "").toLowerCase();
   const nova = Number(p.nova_group);
+  const rawPts = p.nutriments?.["nutrition-score-fr_100g"];
+  const pts = typeof rawPts === "number" && Number.isFinite(rawPts) ? rawPts : typeof rawPts === "string" && rawPts.trim() !== "" && Number.isFinite(Number(rawPts)) ? Number(rawPts) : undefined;
+  const labels = Array.isArray(p.labels_tags) ? (p.labels_tags as unknown[]) : [];
   const image = typeof p.image_front_small_url === "string" && p.image_front_small_url.startsWith("https://") ? p.image_front_small_url : undefined;
   return {
     code,
@@ -122,13 +130,15 @@ export function parseProduct(json: unknown, code: string): Product | null {
     traces: allergenIds(p.traces_tags),
     nutrition: parseNutrition(p.nutriments),
     grade: ["a", "b", "c", "d", "e"].includes(g) ? (g as Product["grade"]) : undefined,
+    nutriPoints: pts,
+    organic: labels.some((l) => l === "en:organic" || l === "en:eu-organic" || l === "en:usda-organic") || undefined,
     nova: [1, 2, 3, 4].includes(nova) ? (nova as Product["nova"]) : undefined,
     isDrink: cats.some((c) => c === "en:beverages" || c === "en:waters"),
     category: cats[cats.length - 1],
   };
 }
 
-const FIELDS = "code,product_name,generic_name,brands,quantity,image_front_small_url,ingredients_text,additives_tags,categories_tags,allergens_tags,traces_tags,nutriments,nutriscore_grade,nutrition_grades,nova_group";
+const FIELDS = "code,product_name,generic_name,brands,quantity,image_front_small_url,ingredients_text,additives_tags,categories_tags,allergens_tags,traces_tags,nutriments,nutriscore_grade,nutrition_grades,nova_group,labels_tags";
 
 /**
  * Popular products from the same category, for "better choices". The database can't

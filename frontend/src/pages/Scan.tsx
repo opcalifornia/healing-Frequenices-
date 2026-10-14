@@ -255,6 +255,8 @@ function Method({ open, onClose }: { open: boolean; onClose(): void }) {
       <div className="method">
         <h2>How we rate products</h2>
         <p>Every product gets a short verdict, <strong>few concerns</strong>, <strong>some concerns</strong> or <strong>several concerns</strong>. It is built from two parts, and the product is only as good as its weakest part.</p>
+        <h3>The 0 to 100 score</h3>
+        <p>When the database has a product's Nutri-Score points, we also show a score out of 100, built the way Yuka publishes: nutrition counts for 60% (Nutri-Score points converted with Yuka's own table), additives for 30%, and an organic label adds a bonus. Any high-risk additive caps the score at 49. Yuka doesn't publish how it scores the additive part, so that part is our estimate and our number can differ from theirs by a few points. The words and reasons above it say why.</p>
         <h3>The risk scale</h3>
         <p>Every additive sits on a four-step scale in the same colours as Yuka: red, orange, yellow and green. Each step also has its own shape, so you can read it even without colour.</p>
         <TierLegend />
@@ -505,7 +507,7 @@ export default function Scan() {
               <div>
                 <h2>{state.product.name}</h2>
                 {(state.product.brand || state.product.quantity) && <p className="scan__brand">{[state.product.brand, state.product.quantity].filter(Boolean).join(" · ")}</p>}
-                <p className="scan__verdict"><Badge v={result.overall} label={overallLabel(result)} /></p>
+                <p className="scan__verdict"><Badge v={result.overall} label={overallLabel(result)} />{result.score !== undefined && <span className="scan__score" title="Nutrition 60%, additives 30%, organic 10%, capped at 49 with a high-risk additive"> <strong>{result.score}</strong>/100</span>}</p>
                 {result.reasons.length > 0 && <ul className="scan__why" aria-label="Why this rating">{result.reasons.map((r) => <li key={r}>{r}</li>)}</ul>}
                 <p className="scan__count">
                   {result.nutrition ? `Additives: ${VERDICT_LABEL[result.additives].toLowerCase()}. Nutrition: ${VERDICT_LABEL[result.nutrition].toLowerCase()}.` : `Additives: ${VERDICT_LABEL[result.additives].toLowerCase()}. ${state.product.code === TEXT_PRODUCT_CODE ? "Nutrition isn't checked for an ingredient list." : "No nutrition facts in the database."}`}
