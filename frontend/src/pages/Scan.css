@@ -170,3 +170,7 @@
 .scan__actions { display: flex; flex-wrap: wrap; gap: 6px 16px; margin: 6px 0 0; }
 .scan__score { margin-left: 10px; font-size: 0.95rem; opacity: 0.9; white-space: nowrap; } .scan__score strong { font-size: 1.15rem; }
 .scan__compare select { width: 100%; margin: 8px 0; padding: 10px; border-radius: 10px; } .scan__cmp { width: 100%; border-collapse: collapse; font-size: 0.9rem; } .scan__cmp th, .scan__cmp td { text-align: left; padding: 6px 8px; border-bottom: 1px solid rgba(255,255,255,0.12); vertical-align: top; }
+<<<<<<< HEAD
+.scan__how { margin: 8px 0; } .scan__how summary { cursor: pointer; opacity: 0.9; } .scan__how ul { margin: 8px 0; padding-left: 18px; }
+=======
+>>>>>>> origin/main

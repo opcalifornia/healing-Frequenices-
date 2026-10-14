@@ -6,7 +6,11 @@ import { Evidence, SourceLink } from "../rooted/ui";
 import { BarcodeScanner } from "../rooted/BarcodeScanner";
 import { ADDITIVES, TIERS, TIER_ORDER, additiveById, searchAdditives, shownName, tierInfo, tierOf, type Additive, type Tier } from "../rooted/additivesContent";
 import { isValidBarcode, lookupBarcode, similarProducts, type Product } from "../rooted/foodLookup";
+<<<<<<< HEAD
+import { NOVA_LABEL, VERDICT_LABEL, additivePart, assess, yukaNutrition, compare, isBetterChoice, nutrientRows, nutritionReason, overallLabel, type Assessment, type Verdict } from "../rooted/productVerdict";
+=======
 import { NOVA_LABEL, VERDICT_LABEL, assess, compare, isBetterChoice, nutrientRows, nutritionReason, overallLabel, type Assessment, type Verdict } from "../rooted/productVerdict";
+>>>>>>> origin/main
 import { useSavedCodes, useScanHistory, useScans } from "../store/scans";
 import { ALLERGENS, allergenHits, allergenLabel } from "../rooted/allergens";
 import { TEXT_PRODUCT_CODE, productFromIngredients } from "../rooted/ingredientParse";
@@ -503,6 +507,15 @@ export default function Scan() {
                 <button className="btn btn--primary" type="submit" disabled={!text.trim()}>Check these ingredients</button>
               </form>
             )}
+<<<<<<< HEAD
+            {state.reason === "network" && (
+              <>
+                <button className="btn btn--primary" onClick={() => void run(number)} disabled={!canLookup}>Try again</button>
+                {history.length > 0 && <p className="scan__muted">Your recent scans below still open without a connection.</p>}
+              </>
+            )}
+=======
+>>>>>>> origin/main
             <button className="btn btn--secondary" onClick={() => setScanning(true)}>Scan another product</button>
           </>
         )}
@@ -530,6 +543,18 @@ export default function Scan() {
                   {result.nutrition ? `Additives: ${VERDICT_LABEL[result.additives].toLowerCase()}. Nutrition: ${VERDICT_LABEL[result.nutrition].toLowerCase()}.` : `Additives: ${VERDICT_LABEL[result.additives].toLowerCase()}. ${state.product.code === TEXT_PRODUCT_CODE ? "Nutrition isn't checked for an ingredient list." : "No nutrition facts in the database."}`}
                   {result.partial && " Some additives aren't reviewed here yet, so this covers the ones we know."}{result.overall === "good" && !result.complete && !result.partial && " It has no nutrition facts to check, so this covers the additives only."}
                 </p>
+                <details className="scan__how">
+                  <summary>What the score and colours mean</summary>
+                  {result.score !== undefined && state.product.nutriPoints !== undefined && (
+                    <ul>
+                      <li>Nutrition: {yukaNutrition(state.product.nutriPoints, state.product.isDrink)}/100 (60% of the score)</li>
+                      <li>Additives: {additivePart(found.known)}/100 (30%){found.known.some((a) => tierOf(a) === "restricted") ? ", and a high-risk additive caps the total at 49" : ""}</li>
+                      <li>{state.product.organic ? "Organic label: bonus added (10%)" : "No organic label, so no bonus"}</li>
+                    </ul>
+                  )}
+                  <TierLegend />
+                  <button className="scan__link" onClick={() => setMethod(true)}>Read the full method</button>
+                </details>
                 {state.product.allergens.length > 0 && <p className="scan__muted">Allergens listed: {state.product.allergens.map(allergenLabel).join(", ").toLowerCase()}.</p>}
                 <p className="scan__actions">
                   <button className="scan__link" onClick={() => setScanning(true)}>Scan another</button>
