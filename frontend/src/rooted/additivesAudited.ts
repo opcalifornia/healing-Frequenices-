@@ -14,6 +14,7 @@ export interface AuditedAdditive {
   labelName?: string;
   highRisk?: boolean;
   usNote?: string;
+  jurisdiction?: { eu: string; us: string };
   also?: string;
   kind: string;
   found: string;
@@ -110,7 +111,10 @@ export const AUDITED: AuditedAdditive[] = [
   ],
   "careIf": "Children, and families who notice a link between brightly coloured foods and behaviour. The EU label rule names children's activity and attention.",
   "regulation": "In the EU, foods with this colour must carry the warning that it \"may have an adverse effect on activity and attention in children\" (Regulation 1333/2008, Annex V).  In the US, FDA has asked industry to phase out the remaining petroleum-based colours by the end of 2026. This is voluntary, not a ban. Some states have acted on their own: West Virginia restricts seven dyes in school meals (from August 2025) and in food sales (from 2028), and California's school food law (AB 2316) covers six dyes from the end of 2027.",
-  "usNote": "Allowed in food. The FDA asked makers in 2025 to stop using it voluntarily by the end of 2026; that is a request, not a law. California will bar it from public-school meals from Dec 31, 2027.",
+  "jurisdiction": {
+   "eu": "Allowed, with a children's warning label",
+   "us": "Allowed. Voluntary phase-out requested; school limits in some states"
+  },
   "topics": [
    "Children's attention and activity (challenge trials, small effects)",
    "Label warning required in the EU",
@@ -234,7 +238,10 @@ export const AUDITED: AuditedAdditive[] = [
   ],
   "careIf": "Children, and families who notice a link between brightly coloured foods and behaviour. The EU label rule names children's activity and attention.",
   "regulation": "In the EU, foods with this colour must carry the warning that it \"may have an adverse effect on activity and attention in children\" (Regulation 1333/2008, Annex V).  In the US, FDA has asked industry to phase out the remaining petroleum-based colours by the end of 2026. This is voluntary, not a ban. Some states have acted on their own: West Virginia restricts seven dyes in school meals (from August 2025) and in food sales (from 2028), and California's school food law (AB 2316) covers six dyes from the end of 2027.",
-  "usNote": "Allowed in food. The FDA asked makers in 2025 to stop using it voluntarily by the end of 2026; that is a request, not a law. California will bar it from public-school meals from Dec 31, 2027.",
+  "jurisdiction": {
+   "eu": "Allowed, with a children's warning label",
+   "us": "Allowed. Voluntary phase-out requested; school limits in some states"
+  },
   "topics": [
    "Children's attention and activity (challenge trials, small effects)",
    "Label warning required in the EU",
@@ -486,6 +493,10 @@ export const AUDITED: AuditedAdditive[] = [
   ],
   "regulation": "US food approval ends 15 January 2027 (FDA, under the Delaney Clause). It is still authorised in the EU for a small number of uses, under a low safe daily intake. Check your own country's rules.",
   "usNote": "The FDA revoked its authorization for food and ingested drugs in January 2025. Makers have until January 15, 2027 to reformulate, so some products on shelves may still contain it. California's own ban on it takes effect on January 1, 2027.",
+  "jurisdiction": {
+   "eu": "Allowed for a few uses",
+   "us": "Authorization ends Jan 15, 2027"
+  },
   "topics": [
    "Thyroid tumours in male rats (basis for the US withdrawal; not shown in people)"
   ],
@@ -552,7 +563,10 @@ export const AUDITED: AuditedAdditive[] = [
   ],
   "careIf": "Children, and families who notice a link between brightly coloured foods and behaviour. The EU label rule names children's activity and attention.",
   "regulation": "In the EU, foods with this colour must carry the warning that it \"may have an adverse effect on activity and attention in children\" (Regulation 1333/2008, Annex V).  In the US, FDA has asked industry to phase out the remaining petroleum-based colours by the end of 2026. This is voluntary, not a ban. Some states have acted on their own: West Virginia restricts seven dyes in school meals (from August 2025) and in food sales (from 2028), and California's school food law (AB 2316) covers six dyes from the end of 2027.",
-  "usNote": "Allowed in food. The FDA has not banned it. In April 2025 the FDA asked food makers to stop using it and five other synthetic dyes voluntarily by the end of 2026; that is a request, not a law. California will bar it from public-school meals from Dec 31, 2027.",
+  "jurisdiction": {
+   "eu": "Allowed, with a children's warning label",
+   "us": "Allowed. Voluntary phase-out requested; school limits in some states"
+  },
   "topics": [
    "Children's attention and activity (challenge trials, small effects)",
    "Label warning required in the EU",
@@ -678,7 +692,10 @@ export const AUDITED: AuditedAdditive[] = [
    "We found no recent human study singling out this colour. It is included in the 2021 California review of synthetic dyes and children's behaviour."
   ],
   "regulation": "Authorised in the EU and approved in the US as FD&C Blue No. 1. Check your own country's rules.",
-  "usNote": "Allowed in food. The FDA asked makers in 2025 to stop using it voluntarily by the end of 2026; that is a request, not a law. California will bar it from public-school meals from Dec 31, 2027.",
+  "jurisdiction": {
+   "eu": "Allowed",
+   "us": "Allowed. Voluntary phase-out requested; California school limit from 2027"
+  },
   "topics": [
    "Limited data (no regulator concern found)"
   ],
@@ -1307,6 +1324,10 @@ export const AUDITED: AuditedAdditive[] = [
   ],
   "regulation": "Removed from the EU's list of authorised food additives in early 2022, with a short phase-out. Rules in other countries differ.",
   "usNote": "Allowed in food by the FDA. It was dropped from California's 2023 food additive ban before the bill passed, so it is not banned in the US.",
+  "jurisdiction": {
+   "eu": "Banned in food since 2022",
+   "us": "Allowed"
+  },
   "topics": [
    "Possible DNA damage (EFSA; lab studies, uncertainty not resolved)"
   ],
@@ -1865,6 +1886,10 @@ export const AUDITED: AuditedAdditive[] = [
   "careIf": "People who are pregnant or trying to conceive, and parents of young children, may want to avoid it; it is mainly found in some US baked goods.",
   "regulation": "Removed from the EU food list in 2006. Still allowed in the US; California has decided to ban it from January 2027, according to Yuka.",
   "usNote": "Still allowed federally as 'generally recognised as safe'. California bans it in food from January 1, 2027 (AB 418).",
+  "jurisdiction": {
+   "eu": "Banned since 2006",
+   "us": "Allowed federally; California ban from Jan 1, 2027"
+  },
   "topics": [
    "Effects on hormones and reproduction (animal studies)",
    "Removed from the EU food list in 2006"
@@ -1908,6 +1933,10 @@ export const AUDITED: AuditedAdditive[] = [
   "careIf": "People who are pregnant or trying to conceive, and parents of young children, may want to avoid it; it is mainly found in some US baked goods.",
   "regulation": "Removed from the EU food list in 2006. Still allowed in the US; California has decided to ban it from January 2027, according to Yuka.",
   "usNote": "Still allowed federally as 'generally recognised as safe'. California bans it in food from January 1, 2027 (AB 418).",
+  "jurisdiction": {
+   "eu": "Banned since 2006",
+   "us": "Allowed federally; California ban from Jan 1, 2027"
+  },
   "topics": [
    "Effects on hormones and reproduction (animal studies)",
    "Removed from the EU food list in 2006"
@@ -2409,6 +2438,10 @@ export const AUDITED: AuditedAdditive[] = [
   ],
   "careIf": "Infants (nitrite can raise methaemoglobin) and children with a high intake of preserved meat. Not meant for baby foods.",
   "regulation": "Authorised in the EU and the US for curing meat, with limits on amount. EU maximum levels for nitrites and nitrates were lowered after EFSA's 2017 opinion.",
+  "jurisdiction": {
+   "eu": "Allowed with limits, lowered after 2017",
+   "us": "Allowed with limits"
+  },
   "topics": [
    "Nitrosamine formation (cancer risk, probable, under certain conditions)",
    "Type 2 diabetes (one large cohort)",
@@ -2460,6 +2493,10 @@ export const AUDITED: AuditedAdditive[] = [
   ],
   "careIf": "Infants (nitrite can raise methaemoglobin) and children with a high intake of preserved meat. Not meant for baby foods.",
   "regulation": "Authorised in the EU and the US for curing meat, with limits on amount. EU maximum levels for nitrites and nitrates were lowered after EFSA's 2017 opinion.",
+  "jurisdiction": {
+   "eu": "Allowed with limits, lowered after 2017",
+   "us": "Allowed with limits"
+  },
   "topics": [
    "Nitrosamine formation (cancer risk, probable, under certain conditions)",
    "Type 2 diabetes (one large cohort)",
@@ -3200,6 +3237,10 @@ export const AUDITED: AuditedAdditive[] = [
   ],
   "careIf": "No regulator names a specific group.",
   "regulation": "Authorised in the EU and the US with limits. Check current rules, as US authorities have been reviewing some older additives.",
+  "jurisdiction": {
+   "eu": "Allowed with limits",
+   "us": "Allowed with limits"
+  },
   "topics": [
    "Possibly carcinogenic (IARC 2B, animal studies)",
    "Intake near safe limit (EFSA estimate)"
@@ -3252,6 +3293,10 @@ export const AUDITED: AuditedAdditive[] = [
    "Intake is expected to stay under the limit for most people. This is an estimate."
   ],
   "regulation": "Authorised in the EU and the US with limits.",
+  "jurisdiction": {
+   "eu": "Allowed with limits",
+   "us": "Allowed with limits"
+  },
   "topics": [
    "Lower safe intake set by EFSA in 2012"
   ],
@@ -6870,6 +6915,10 @@ export const AUDITED: AuditedAdditive[] = [
   ],
   "regulation": "Not authorised in the EU, Canada, Brazil, and other countries. Still legal in much of the US, with California's ban applying from 2027. If it is on a label, the product is likely a US-style bakery item.",
   "usNote": "California bans it in food from January 1, 2027 under the California Food Safety Act (AB 418). It is not banned nationwide.",
+  "jurisdiction": {
+   "eu": "Not authorised",
+   "us": "Allowed federally; California ban from Jan 1, 2027"
+  },
   "topics": [
    "Possible carcinogen in animals (IARC 2B)"
   ],
@@ -7061,6 +7110,10 @@ export const AUDITED: AuditedAdditive[] = [
    "The 2025 EFSA opinion considered studies up to late 2024. No trial has tested whether acesulfame K itself raises cancer risk in people."
   ],
   "regulation": "Authorised in the EU (E 950) and approved by the US FDA. JECFA ADI is 0 to 15 mg per kg (1991).",
+  "jurisdiction": {
+   "eu": "Allowed",
+   "us": "Allowed"
+  },
   "topics": [
    "Cancer risk (one observational cohort)",
    "Weight control (WHO 2023 advice)"
@@ -7111,6 +7164,10 @@ export const AUDITED: AuditedAdditive[] = [
   ],
   "careIf": "People with phenylketonuria (PKU) must avoid it. EU and US labels say it contains a source of phenylalanine.",
   "regulation": "Authorised in the EU (E 951) and approved by the US FDA. JECFA and EFSA ADI is 0 to 40 mg per kg of body weight.",
+  "jurisdiction": {
+   "eu": "Allowed",
+   "us": "Allowed"
+  },
   "topics": [
    "Cancer (IARC possible, limited evidence)",
    "Weight control (WHO 2023 advice)"
@@ -7274,6 +7331,10 @@ export const AUDITED: AuditedAdditive[] = [
    "In May 2023 the WHO advised, as a conditional recommendation, against using non-sugar sweeteners to control body weight. Its review found no lasting body-fat benefit and raised possible links to type 2 diabetes and heart disease in observational data. That advice is about weight control, not about whether a sweetener is unsafe."
   ],
   "regulation": "Authorised in the EU (E 955) and approved by the US FDA. ADI is 15 mg per kg of body weight.",
+  "jurisdiction": {
+   "eu": "Allowed",
+   "us": "Allowed"
+  },
   "topics": [
    "DNA damage by a by-product (lab cells only)",
    "Blood sugar response (small, mixed trials)",

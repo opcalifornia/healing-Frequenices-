@@ -192,6 +192,12 @@ function AdditiveSheet({ a, list, backLabel, forYou, onClose, onMethod, onGo }: 
           <ul className="apage__list">{a.research.map((r) => <li key={r}>{r}</li>)}</ul>
           {a.careIf && <p className="apage__care"><strong>Who may want to take care:</strong> {a.careIf}{forYou && <em> This is one to look at more closely for you.</em>}</p>}
           {a.contested && <p className="apage__contested"><strong>Where views differ:</strong> {a.contested}</p>}
+          {a.jurisdiction && (
+            <div className="apage__juris" aria-label="Status in the EU and the United States">
+              <p><b>EU</b><span>{a.jurisdiction.eu}</span></p>
+              <p><b>United States</b><span>{a.jurisdiction.us}</span></p>
+            </div>
+          )}
           <p className="apage__reg"><strong>Rules:</strong> {a.regulation}</p>
           {a.usNote && <p className="apage__reg"><strong>In the United States:</strong> {a.usNote}</p>}
 
