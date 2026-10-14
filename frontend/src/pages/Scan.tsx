@@ -193,6 +193,7 @@ function AdditiveSheet({ a, list, backLabel, forYou, onClose, onMethod, onGo }: 
           {a.careIf && <p className="apage__care"><strong>Who may want to take care:</strong> {a.careIf}{forYou && <em> This is one to look at more closely for you.</em>}</p>}
           {a.contested && <p className="apage__contested"><strong>Where views differ:</strong> {a.contested}</p>}
           <p className="apage__reg"><strong>Rules:</strong> {a.regulation}</p>
+          {a.usNote && <p className="apage__reg"><strong>In the United States:</strong> {a.usNote}</p>}
 
           <div className="alinks">
             <details>
