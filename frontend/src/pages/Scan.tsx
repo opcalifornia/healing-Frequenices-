@@ -22,7 +22,7 @@ import { Icon } from "../components/Icon";
 import "../rooted/rooted.css";
 import "./Scan.css";
 
-const COUNT_WORDS: Record<Tier, string> = { restricted: "restricted by regulators", notable: "with notable concern", some: "with some concern", minor: "with minor concern", clear: "with no concern found" };
+const COUNT_WORDS: Record<Tier, string> = { restricted: "high risk", notable: "moderate risk", some: "limited risk", clear: "no risk found" };
 const EFSA = "https://www.efsa.europa.eu/en/topics/topic/food-additives";
 
 type State =
@@ -256,21 +256,21 @@ function Method({ open, onClose }: { open: boolean; onClose(): void }) {
         <h2>How we rate products</h2>
         <p>Every product gets a short verdict, <strong>few concerns</strong>, <strong>some concerns</strong> or <strong>several concerns</strong>. It is built from two parts, and the product is only as good as its weakest part.</p>
         <h3>The risk scale</h3>
-        <p>Every additive sits on a five-step scale. Each step has its own colour and shape, so you can read it at a glance, even without colour.</p>
+        <p>Every additive sits on a four-step scale in the same colours as Yuka: red, orange, yellow and green. Each step also has its own shape, so you can read it even without colour.</p>
         <TierLegend />
         <h3>1. Additives</h3>
-        <p>Each additive is scored by how strong its concern is: a restricted additive counts for the most, then notable, some concern and minor. The scores add up.</p>
+        <p>Each additive is scored by how strong its concern is: a high-risk additive counts for the most, then moderate and limited. The scores add up.</p>
         <ul>
-          <li><strong>Several concerns:</strong> any additive that regulators have restricted, or two notable concerns, or a total score of 6 or more.</li>
-          <li><strong>Some concerns:</strong> any additive with some concern or worse, two minor ones, or eight or more additives of any kind. Nobody has studied that many in combination.</li>
+          <li><strong>Several concerns:</strong> any high-risk additive (the product can't rate better than poor), or two moderate risks, or a total score of 6 or more.</li>
+          <li><strong>Some concerns:</strong> any additive with a moderate risk or worse, two limited ones, or eight or more additives of any kind. Nobody has studied that many in combination.</li>
           <li><strong>Few concerns:</strong> none of those. If some of a product's additives aren't reviewed here yet, or it has no nutrition facts, we say "few concerns so far".</li>
         </ul>
         <h4>How each additive gets its place</h4>
         <ul>
-          <li><strong>Restricted:</strong> a major regulator has banned, withdrawn or restricted it for safety reasons.</li>
-          <li><strong>Notable or some concern:</strong> a credible signal in people (a trial or large cohort), a regulator flagging intake above its safe limit or naming a sensitive group, or a regulator saying it could not judge the additive's safety.</li>
-          <li><strong>Minor concern:</strong> lab or animal findings that haven't been confirmed in people, or small unresolved questions and data gaps.</li>
-          <li><strong>No concern found:</strong> regulators found no problem, and we found no credible signal in recent research either. That is not a guarantee. It means we found nothing, and research continues.</li>
+          <li><strong>High risk (red):</strong> all three must hold, as in Yuka's method: a serious health effect (such as cancer, heart disease, organ damage, or effects on the nervous system, attention or DNA); strong evidence (an official opinion or classification, or several kinds of study pointing the same way); and intake that may reach levels of concern for some people. A ban or restriction by a major regulator also puts an additive here.</li>
+          <li><strong>Moderate risk (orange):</strong> a credible signal in people (a trial or large cohort), or a regulator flagging intake above its safe limit, but not everything the red test needs.</li>
+          <li><strong>Limited risk (yellow):</strong> milder effects such as digestive upset or sensitivity, lab or animal findings not confirmed in people, or a suspected risk with thin evidence.</li>
+          <li><strong>No risk found (green):</strong> regulators found no problem, and we found no credible signal in recent research either. That is not a guarantee. It means we found nothing, and research continues.</li>
         </ul>
         <p>Each additive's page shows the evidence strength and its sources. Some consumer groups and apps rate certain additives more strictly than regulators do. When that happens, the page has a "Where views differ" note explaining why. Additives we haven't reviewed show as "not reviewed here yet" and are left out of the score.</p>
         <h3>2. Nutrition</h3>

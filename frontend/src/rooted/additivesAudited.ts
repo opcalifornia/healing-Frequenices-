@@ -12,6 +12,7 @@ export interface AuditedAdditive {
   name: string;
   /** The name printed on US ingredient labels, when it differs, for example "Red 40" for Allura red AC. */
   labelName?: string;
+  highRisk?: boolean;
   also?: string;
   kind: string;
   found: string;
