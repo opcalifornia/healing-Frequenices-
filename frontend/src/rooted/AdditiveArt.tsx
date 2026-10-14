@@ -92,7 +92,7 @@ const RISKS: Array<[RegExp, string]> = [
   [/digest|bowel|laxative|stool/i, "gut"],
   [/uric|gout/i, "kidney"],
   [/tumou?r|lung|liver|nitrosamine/i, "dna"],
-  [/dog|hormone|thyroid|reproduc|testis|choking/i, "alert"],
+  [/dog|hormone|thyroid|reproduc|testis|choking|aluminium|aluminum|build-up/i, "alert"],
   [/infant/i, "child"],
   [/nitrite|sorbate|cell damage|lab test/i, "dna"],
   [/emulsifier/i, "gut"],

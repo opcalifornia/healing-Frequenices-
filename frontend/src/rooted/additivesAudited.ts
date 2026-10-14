@@ -1796,6 +1796,82 @@ export const AUDITED: AuditedAdditive[] = [
   ]
  },
  {
+  "id": "e216",
+  "code": "E216",
+  "name": "Propylparaben",
+  "labelName": "Propylparaben",
+  "highRisk": true,
+  "also": "Propyl p-hydroxybenzoate",
+  "kind": "Preservative",
+  "found": "Some baked goods and tortillas sold in the US. Not allowed in EU food.",
+  "level": "restricted",
+  "evidence": "Moderate",
+  "summary": "A preservative the EU removed from its food list in 2006. EFSA found it affected sex hormones and male reproductive organs in young rats, and couldn't identify an amount with no effect.",
+  "research": [
+   "EFSA's 2004 opinion left propylparaben out of the group limit set for methyl and ethyl parabens, because it affected sex hormones and male reproductive organs in young rats and no clear no-effect level was found.",
+   "The EU removed propylparaben (E 216, E 217) from the food list in 2006. Yuka reports it is also banned in China, and that California decided in 2023 to ban it, from January 2027, while it is still allowed in the US as 'generally recognised as safe'."
+  ],
+  "careIf": "People who are pregnant or trying to conceive, and parents of young children, may want to avoid it; it is mainly found in some US baked goods.",
+  "regulation": "Removed from the EU food list in 2006. Still allowed in the US; California has decided to ban it from January 2027, according to Yuka.",
+  "topics": [
+   "Effects on hormones and reproduction (animal studies)",
+   "Removed from the EU food list in 2006"
+  ],
+  "contested": "Where views differ: rated high risk to match Yuka, which cites the EFSA finding that no safe level could be set. The evidence is from animal studies; the US still allows it.",
+  "sources": [
+   {
+    "text": "EFSA AFC Panel. Opinion on para-hydroxybenzoates (E 214-219), EFSA Journal 83, 2004",
+    "url": "https://efsa.europa.eu/lv/efsajournal/pub/83"
+   },
+   {
+    "text": "EFSA. EFSA advises on the safety of paraben usage in food",
+    "url": "https://www.efsa.europa.eu/en/news/efsa-advises-safety-paraben-usage-food"
+   },
+   {
+    "text": "Yuka. What is the problem with food additives in the US? 2025",
+    "url": "https://yuka.io/en/problem-food-additives-us/"
+   }
+  ]
+ },
+ {
+  "id": "e217",
+  "code": "E217",
+  "name": "Sodium propylparaben",
+  "labelName": "Sodium propylparaben",
+  "highRisk": true,
+  "also": "Sodium propyl p-hydroxybenzoate",
+  "kind": "Preservative",
+  "found": "Some baked goods and tortillas sold in the US. Not allowed in EU food.",
+  "level": "restricted",
+  "evidence": "Moderate",
+  "summary": "A preservative the EU removed from its food list in 2006. EFSA found it affected sex hormones and male reproductive organs in young rats, and couldn't identify an amount with no effect.",
+  "research": [
+   "EFSA's 2004 opinion left propylparaben out of the group limit set for methyl and ethyl parabens, because it affected sex hormones and male reproductive organs in young rats and no clear no-effect level was found.",
+   "The EU removed propylparaben (E 216, E 217) from the food list in 2006. Yuka reports it is also banned in China, and that California decided in 2023 to ban it, from January 2027, while it is still allowed in the US as 'generally recognised as safe'."
+  ],
+  "careIf": "People who are pregnant or trying to conceive, and parents of young children, may want to avoid it; it is mainly found in some US baked goods.",
+  "regulation": "Removed from the EU food list in 2006. Still allowed in the US; California has decided to ban it from January 2027, according to Yuka.",
+  "topics": [
+   "Effects on hormones and reproduction (animal studies)",
+   "Removed from the EU food list in 2006"
+  ],
+  "contested": "Where views differ: rated high risk to match Yuka, which cites the EFSA finding that no safe level could be set. The evidence is from animal studies; the US still allows it.",
+  "sources": [
+   {
+    "text": "EFSA AFC Panel. Opinion on para-hydroxybenzoates (E 214-219), EFSA Journal 83, 2004",
+    "url": "https://efsa.europa.eu/lv/efsajournal/pub/83"
+   },
+   {
+    "text": "EFSA. EFSA advises on the safety of paraben usage in food",
+    "url": "https://www.efsa.europa.eu/en/news/efsa-advises-safety-paraben-usage-food"
+   },
+   {
+    "text": "Yuka. What is the problem with food additives in the US? 2025",
+    "url": "https://yuka.io/en/problem-food-additives-us/"
+   }
+  ]
+ },
+ {
   "id": "e218",
   "code": "E218",
   "name": "Methylparaben",
@@ -5782,6 +5858,34 @@ export const AUDITED: AuditedAdditive[] = [
    {
     "text": "EFSA FAF Panel. Re-evaluation of sulphuric acid and its sodium, potassium, calcium and ammonium salts (E 513, 514, 515, 516, 517) as food additives. EFSA Journal, 2019",
     "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7008880/"
+   }
+  ]
+ },
+ {
+  "id": "e521",
+  "code": "E521",
+  "name": "Aluminium sodium sulfate",
+  "labelName": "Sodium aluminum sulfate",
+  "also": "Sodium aluminum sulfate",
+  "kind": "Acidity regulator",
+  "found": "Bread, cakes and tortillas in the US.",
+  "level": "some",
+  "evidence": "Weak",
+  "summary": "An aluminium-containing additive. Yuka reports aluminium is suspected of effects on reproduction and development, and that it can build up in the body.",
+  "research": [
+   "Yuka's investigation says sodium aluminum sulfate is allowed on both sides of the Atlantic, but the EU limits it to specific products such as candied cherries and liquid egg whites, while the US allows it in any food, including bread, cakes and tortillas.",
+   "Yuka describes aluminium as suspected of affecting reproduction and fetal development and as accumulating in the body. We have not yet reviewed the studies behind that, so we keep the evidence label at Weak until we have."
+  ],
+  "careIf": "People who want to limit aluminium may check bread and baked goods labels in the US.",
+  "regulation": "EU: only a few foods. US: allowed in any food.",
+  "topics": [
+   "Aluminium build-up (suspected)"
+  ],
+  "contested": "Where views differ: Yuka singles this additive out as an example of looser US rules. We have not yet reviewed the primary studies, so we show it as limited risk until we do. The difference in where it is allowed is documented.",
+  "sources": [
+   {
+    "text": "Yuka. What is the problem with food additives in the US? 2025",
+    "url": "https://yuka.io/en/problem-food-additives-us/"
    }
   ]
  },
