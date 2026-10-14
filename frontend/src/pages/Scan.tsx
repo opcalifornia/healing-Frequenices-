@@ -6,7 +6,11 @@ import { Evidence, SourceLink } from "../rooted/ui";
 import { BarcodeScanner } from "../rooted/BarcodeScanner";
 import { ADDITIVES, TIERS, TIER_ORDER, additiveById, searchAdditives, shownName, tierInfo, tierOf, type Additive, type Tier } from "../rooted/additivesContent";
 import { isValidBarcode, lookupBarcode, similarProducts, type Product } from "../rooted/foodLookup";
+<<<<<<< HEAD
 import { NOVA_LABEL, VERDICT_LABEL, additivePart, assess, yukaNutrition, compare, isBetterChoice, nutrientRows, nutritionReason, overallLabel, type Assessment, type Verdict } from "../rooted/productVerdict";
+=======
+import { NOVA_LABEL, VERDICT_LABEL, assess, compare, isBetterChoice, nutrientRows, nutritionReason, overallLabel, type Assessment, type Verdict } from "../rooted/productVerdict";
+>>>>>>> origin/main
 import { useSavedCodes, useScanHistory, useScans } from "../store/scans";
 import { ALLERGENS, allergenHits, allergenLabel } from "../rooted/allergens";
 import { TEXT_PRODUCT_CODE, productFromIngredients } from "../rooted/ingredientParse";
@@ -503,12 +507,15 @@ export default function Scan() {
                 <button className="btn btn--primary" type="submit" disabled={!text.trim()}>Check these ingredients</button>
               </form>
             )}
+<<<<<<< HEAD
             {state.reason === "network" && (
               <>
                 <button className="btn btn--primary" onClick={() => void run(number)} disabled={!canLookup}>Try again</button>
                 {history.length > 0 && <p className="scan__muted">Your recent scans below still open without a connection.</p>}
               </>
             )}
+=======
+>>>>>>> origin/main
             <button className="btn btn--secondary" onClick={() => setScanning(true)}>Scan another product</button>
           </>
         )}
