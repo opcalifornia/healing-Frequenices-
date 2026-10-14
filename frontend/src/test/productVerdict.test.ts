@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { additiveById } from "../rooted/additivesContent";
 import { parseProduct } from "../rooted/foodLookup";
-import { additiveVerdict, assess, isBetterChoice, level, nutrientRows, nutritionReason, nutritionVerdict, overallLabel } from "../rooted/productVerdict";
+import { additiveReasons, additiveVerdict, assess, isBetterChoice, level, nutrientRows, nutritionReason, nutritionVerdict, overallLabel } from "../rooted/productVerdict";
 
 const A = (...ids: string[]) => ids.map((i) => additiveById(i)!);
 
@@ -169,5 +169,12 @@ describe("0 to 100 score", () => {
     expect(yukaStyleScore({ nutriPoints: -5, isDrink: false, organic: undefined }, A("e330"))).toBe(100);
     expect(yukaStyleScore({ nutriPoints: -5, isDrink: false, organic: undefined }, A("e129"))).toBe(49);
     expect(yukaStyleScore({ isDrink: false, organic: undefined }, A("e330"))).toBeUndefined();
+  });
+});
+
+describe("EU status in reasons", () => {
+  it("names additives that are not allowed in EU food", () => {
+    expect(additiveReasons(A("e171", "e330"), 0).some((r) => r.startsWith("Not allowed in EU food: Titanium dioxide"))).toBe(true);
+    expect(additiveReasons(A("e330"), 0).some((r) => r.startsWith("Not allowed in EU"))).toBe(false);
   });
 });

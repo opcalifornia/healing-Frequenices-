@@ -99,6 +99,8 @@ export function additiveReasons(known: Additive[], unknownCount: number): string
   if (known.some((a) => tierOf(a) === "restricted")) out.push("Contains a high-risk additive, so the product can't rate better than poor.");
   const worst = known.filter((a) => tierOf(a) === "notable" || tierOf(a) === "restricted");
   if (worst.length) out.push(`Highest concern: ${worst.slice(0, 4).map(shownName).join(", ")}${worst.length > 4 ? ` and ${worst.length - 4} more` : ""}.`);
+  const euNo = known.filter((a) => /^(Banned|Not authorised)/.test(a.jurisdiction?.eu ?? ""));
+  if (euNo.length) out.push(`Not allowed in EU food: ${euNo.map(shownName).join(", ")}.`);
   const flagged = by("notable") + by("some");
   if (flagged > 0) out.push(`${flagged} of ${known.length} reviewed additive${known.length === 1 ? "" : "s"} carr${flagged === 1 ? "ies" : "y"} a concern, from limited to high.`);
   const total = known.length + unknownCount;

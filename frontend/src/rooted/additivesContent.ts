@@ -65,6 +65,8 @@ interface AdditiveBase {
   regulation: string;
   /** What applies in the United States, verified against law-firm and trade reports. */
   usNote?: string;
+  /** At-a-glance status in the EU and the US. The full rules are in `regulation`. */
+  jurisdiction?: { eu: string; us: string };
   sources: Source[];
 }
 
