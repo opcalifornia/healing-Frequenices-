@@ -1,3 +1,4 @@
+import { scaleAmount, scaledServes, SERVING_FACTORS } from "./scale";
 import { useId, useMemo, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { ALLERGEN_LABEL, RECIPES, TAG_LABEL, dishListItems, hasVitaminKFlag, type Recipe, type RecipeTag } from "./recipes";
@@ -15,7 +16,7 @@ import { statusFor } from "./kitchen";
 
 import { Icon } from "../components/Icon";
 
-type Filter = "all" | "mine" | "saved" | Extract<RecipeTag, "quick" | "fiber" | "protein" | "omega-3" | "gut">;
+type Filter = "all" | "mine" | "saved" | "ready" | Extract<RecipeTag, "quick" | "fiber" | "protein" | "omega-3" | "gut">;
 const FILTERS: Array<{ id: Filter; label: string }> = [
   { id: "all", label: "All" },
   { id: "quick", label: "Quick" },
@@ -102,12 +103,14 @@ export function Recipes() {
   const goalIds = useMemo(() => new Set(forGoals(RECIPES, goals).map((r) => r.id)), [goals]);
   const hasGoalFilter = goalIds.size > 0 && goalIds.size < RECIPES.length;
   const savedIds = useSavedRecipes();
-  const shown = useMemo(() => (filter === "all" ? RECIPES : filter === "saved" ? RECIPES.filter((r) => savedIds.includes(r.id)) : filter === "mine" ? RECIPES.filter((r) => goalIds.has(r.id)) : RECIPES.filter((r) => r.tags.includes(filter))), [filter, goalIds, savedIds]);
+  const readyList = useMemo(() => RECIPES.map((r) => statusFor(r, have)).filter((x) => x.missing.length <= 2).sort((a, b) => a.missing.length - b.missing.length).map((x) => x.recipe), [have]);
+  const shown = useMemo(() => (filter === "ready" ? readyList : filter === "all" ? RECIPES : filter === "saved" ? RECIPES.filter((r) => savedIds.includes(r.id)) : filter === "mine" ? RECIPES.filter((r) => goalIds.has(r.id)) : RECIPES.filter((r) => r.tags.includes(filter))), [filter, goalIds, savedIds, readyList]);
 
   return (
     <>
       <div className="recipes__chips" role="group" aria-label="Filter recipes">
         {savedIds.length > 0 && <button className={`chip ${filter === "saved" ? "is-on" : ""}`} aria-pressed={filter === "saved"} onClick={() => setFilter("saved")}>♥ Saved</button>}
+        {have.length > 0 && <button className={`chip ${filter === "ready" ? "is-on" : ""}`} aria-pressed={filter === "ready"} onClick={() => setFilter("ready")}>Cook now ({readyList.length})</button>}
         {hasGoalFilter && <button className={`chip ${filter === "mine" ? "is-on" : ""}`} aria-pressed={filter === "mine"} onClick={() => setFilter("mine")}>For my goals</button>}
         {FILTERS.map((f) => (
           <button key={f.id} className={`chip ${filter === f.id ? "is-on" : ""}`} aria-pressed={filter === f.id} onClick={() => setFilter(f.id)}>
@@ -154,12 +157,13 @@ export function RecipeDetail({ r }: { r: Recipe }) {
   const f = flags(about.considerations);
   const onThinners = about.considerations.includes("thinners");
   const [have, setHave] = useState<Set<number>>(new Set());
+  const [factor, setFactor] = useState(1);
   const onList = useMemo(() => new Set(list.map((i) => i.id)), [list]);
-  const pending = dishListItems(r, onList, atHome);
+  const pending = dishListItems(r, onList, atHome, factor);
   const onListForDish = list.some((i) => i.dish?.id === r.id);
 
   const addAll = () => {
-    const items = dishListItems(r, onList, atHome);
+    const items = dishListItems(r, onList, atHome, factor);
     addItems(items);
     const owned = items.filter((i) => i.checked).length;
     toast.show(items.length ? `Added ${items.length} item${items.length === 1 ? "" : "s"} under "${r.title}"${owned ? `. ${owned} you already have are ticked` : ""}` : "Already on your list");
@@ -177,7 +181,7 @@ export function RecipeDetail({ r }: { r: Recipe }) {
       <div className="rdetail__top">
         <DishArt id={r.id} className="rdetail__art" />
         <div className="rdetail__head">
-          <span className="rooted__eyebrow">Recipe · serves {r.serves}</span>
+          <span className="rooted__eyebrow">Recipe · serves {scaledServes(r.serves, factor)}</span>
           <h2>{r.title}</h2>
           <span className="rdetail__meta"><Icon name="timer" size={15} /> {r.minutes} min{r.wait ? `, ${r.wait}` : ""}</span>
           <PlateLegend r={r} />
@@ -196,7 +200,7 @@ export function RecipeDetail({ r }: { r: Recipe }) {
           />
         </div>
 
-        <RecipeActions r={r} />
+        <RecipeActions r={r} factor={factor} />
 
         {about.considerations.includes("eating") && (
           <p className="for-you"><span><strong>Based on your profile:</strong> amounts here are just for shopping. Eat what feels right for you, and a dietitian can help if meals feel stressful.</span></p>
@@ -211,6 +215,10 @@ export function RecipeDetail({ r }: { r: Recipe }) {
         <section>
           {r.note && <p className="rdetail__note"><strong>About this version:</strong> {r.note}</p>}
           <h3>Ingredients</h3>
+          <div className="rdetail__scale" role="group" aria-label="Scale the recipe">
+            <span>Makes {r.serves}. Cook for:</span>
+            {SERVING_FACTORS.map((f) => <button key={f} className={`chip ${factor === f ? "is-on" : ""}`} aria-pressed={factor === f} onClick={() => setFactor(f)}>{scaledServes(r.serves, f)}</button>)}
+          </div>
           <p className="rdetail__hint">Adding puts every ingredient on your list under this recipe's name, so you know what each item is for.</p>
           <ul className="rdetail__ing">
             {r.ingredients.map((ing, i) => (
@@ -218,7 +226,7 @@ export function RecipeDetail({ r }: { r: Recipe }) {
                 <button className={`rdetail__check ${have.has(i) ? "is-done" : ""}`} onClick={() => toggleHave(i)} aria-pressed={have.has(i)} aria-label={`${ing.name}: ${have.has(i) ? "have it" : "mark as have it"}`}>
                   <span className="slist__check">{have.has(i) && <Icon name="check" size={16} />}</span>
                   <span className="rdetail__name">{ing.name}</span>
-                  <span className="rdetail__amt">{ing.amount}</span>
+                  <span className="rdetail__amt">{scaleAmount(ing.amount, factor)}</span>
                 </button>
               </li>
             ))}

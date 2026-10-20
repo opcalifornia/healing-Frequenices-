@@ -1,5 +1,6 @@
 import type { Strength } from "../learn/brainContent";
 import type { GoalId } from "../store/wellness";
+import { scaleAmount } from "./scale";
 import { PANTRY, type Source } from "./pantryContent";
 
 /**
@@ -741,7 +742,7 @@ export function itemsToAdd(r: Recipe, existingIds: Iterable<string>) {
  * Shopping-list items for a dish, kept together under its name. Ingredients already on the list for this dish are skipped,
  * and ones you have at home are added ticked, so the dish's list is complete and you can see why each item is there.
  */
-export function dishListItems(r: Pick<Recipe, "id" | "title" | "ingredients">, onList: Iterable<string> = [], have: Iterable<string> = []) {
+export function dishListItems(r: Pick<Recipe, "id" | "title" | "ingredients">, onList: Iterable<string> = [], have: Iterable<string> = [], factor = 1) {
   const existing = new Set(onList);
   const owned = new Set(have);
   const seen = new Set<string>();
@@ -752,7 +753,7 @@ export function dishListItems(r: Pick<Recipe, "id" | "title" | "ingredients">, o
     seen.add(li.id);
     const id = `${r.id}~${li.id}`;
     if (existing.has(id)) continue;
-    out.push({ id, name: li.name, aisle: li.aisle, qty: li.qty, checked: owned.has(li.id), dish: { id: r.id, title: r.title }, ing: li.id });
+    out.push({ id, name: li.name, aisle: li.aisle, qty: scaleAmount(li.qty, factor), checked: owned.has(li.id), dish: { id: r.id, title: r.title }, ing: li.id });
   }
   return out;
 }

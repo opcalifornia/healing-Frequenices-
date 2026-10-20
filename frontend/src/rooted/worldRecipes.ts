@@ -1,4 +1,7 @@
 import type { Strength } from "../learn/brainContent";
+import { MORE_A } from "./more/a";
+import { MORE_B } from "./more/b";
+import { MORE_C } from "./more/c";
 import { hasVitaminKFlag, type Recipe } from "./recipes";
 import type { Source } from "./pantryContent";
 
@@ -5357,7 +5360,8 @@ const VIT_K_NOTE = "Leafy greens and cabbage are high in vitamin K. If you take 
 /** A safety net: any dish with greens the Pantry flags for warfarin always carries the vitamin K caution. */
 const withSafety = (r: WorldRecipe): WorldRecipe => (hasVitaminKFlag(r) && !r.cautions.some((c) => /warfarin/i.test(c)) ? { ...r, cautions: [...r.cautions, VIT_K_NOTE] } : r);
 
-export const CUISINES: Cuisine[] = [...CUISINES_A, ...CUISINES_B, ...CUISINES_C, ...CUISINES_D, ...CUISINES_E, ...CUISINES_F, ...CUISINES_G, ...CUISINES_H, ...CUISINES_I].map((c) => ({ ...c, recipes: c.recipes.map((r) => withSafety({ ...r, cuisine: c.id })) }));
+const MORE = [...MORE_A, ...MORE_B, ...MORE_C];
+export const CUISINES: Cuisine[] = [...CUISINES_A, ...CUISINES_B, ...CUISINES_C, ...CUISINES_D, ...CUISINES_E, ...CUISINES_F, ...CUISINES_G, ...CUISINES_H, ...CUISINES_I].map((c) => ({ ...c, recipes: [...c.recipes, ...MORE.filter((m) => m.cuisine === c.id)].map((r) => withSafety({ ...r, cuisine: c.id })) }));
 export const WORLD_RECIPES: WorldRecipe[] = CUISINES.flatMap((c) => c.recipes);
 export const cuisineById = (id: string) => CUISINES.find((c) => c.id === id);
 export const cuisineByIso = (iso: number) => CUISINES.find((c) => c.iso === iso);
