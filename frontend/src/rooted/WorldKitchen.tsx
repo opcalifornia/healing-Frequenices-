@@ -1,12 +1,14 @@
 import { useMemo, useState } from "react";
 import { Globe } from "./Globe";
 import { Evidence, Sheet, SourceLink, useToast } from "./ui";
-import { RecipeDetail, RecipePlate } from "./Recipes";
+import { RecipeDetail } from "./Recipes";
 import { CUISINES, WORLD_RECIPES, cuisineById, type Cuisine, type WorldRecipe } from "./worldRecipes";
 import { pickSurprise, searchRecipes } from "./recipeTools";
 import { suitable, type Diet } from "./mealPlan";
 import { ALLERGEN_LABEL, type Allergen } from "./recipes";
 import { useSavedRecipes } from "../store/recipeBox";
+import { dishVars } from "./dishColor";
+import { DishArt } from "./DishArt";
 import { TAG_LABEL, dishListItems } from "./recipes";
 import { Icon } from "../components/Icon";
 import { useKitchen, useNourish, useShoppingList } from "../store/nourish";
@@ -82,8 +84,8 @@ export function WorldKitchen() {
             <ul className="wk__dishes">
               {results.slice(0, 40).map((r) => (
                 <li key={r.id}>
-                  <button className="wk__dish" onClick={() => { setSelected(r.cuisine); setDish(r); }} aria-label={`${r.title}: open recipe`}>
-                    <RecipePlate r={r} size={44} />
+                  <button className="wk__dish" style={dishVars(r.id)} onClick={() => { setSelected(r.cuisine); setDish(r); }} aria-label={`${r.title}: open recipe`}>
+                    <DishArt id={r.id} className="wk__art" />
                     <span><strong>{r.title}</strong><small>{cuisineById(r.cuisine)?.name} · {r.minutes} min</small></span>
                   </button>
                 </li>
@@ -125,8 +127,8 @@ export function WorldKitchen() {
             <ul className="wk__dishes">
               {cuisine.recipes.map((r) => (
                 <li key={r.id}>
-                  <button className="wk__dish" onClick={() => setDish(r)} aria-label={`${r.title}: open recipe`}>
-                    <RecipePlate r={r} size={52} />
+                  <button className="wk__dish" style={dishVars(r.id)} onClick={() => setDish(r)} aria-label={`${r.title}: open recipe`}>
+                    <DishArt id={r.id} className="wk__art" />
                     <span>
                       <strong>{r.title}</strong>
                       <small>{r.minutes} min · serves {r.serves}{r.tags.filter((t) => t !== "vegetarian" || !r.tags.includes("vegan")).slice(0, 2).map((t) => ` · ${TAG_LABEL[t]}`).join("")}</small>

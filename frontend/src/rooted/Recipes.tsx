@@ -9,6 +9,8 @@ import { useSavedRecipes } from "../store/recipeBox";
 import { flags, useAbout } from "../store/wellness";
 import { forGoals } from "./mealPlan";
 import { RecipeActions } from "./RecipeActions";
+import { DishArt } from "./DishArt";
+import { dishVars } from "./dishColor";
 import { statusFor } from "./kitchen";
 
 import { Icon } from "../components/Icon";
@@ -118,9 +120,9 @@ export function Recipes() {
         <AnimatePresence initial={false}>
           {shown.map((r) => (
             <motion.li key={r.id} layout initial={{ opacity: 0, scale: 0.94 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.94 }} transition={{ duration: 0.25 }}>
-              <TiltCard className="rcard" max={5} onClick={() => setOpen(r)} label={`${r.title}: open recipe`} style={{ "--h": r.hue } as React.CSSProperties}>
+              <TiltCard className="rcard" max={5} onClick={() => setOpen(r)} label={`${r.title}: open recipe`} style={{ "--h": r.hue, ...dishVars(r.id) } as React.CSSProperties}>
                 <div className="rcard__top">
-                  <RecipePlate r={r} />
+                  <DishArt id={r.id} className="rcard__art" />
                   <span className="rcard__time"><Icon name="timer" size={14} /> {r.minutes} min</span>
                 </div>
                 <strong>{r.title}</strong>
@@ -171,9 +173,9 @@ export function RecipeDetail({ r }: { r: Recipe }) {
     });
 
   return (
-    <article className="rdetail" style={{ "--h": r.hue } as React.CSSProperties}>
+    <article className="rdetail" style={{ "--h": r.hue, ...dishVars(r.id) } as React.CSSProperties}>
       <div className="rdetail__top">
-        <RecipePlate r={r} size={112} />
+        <DishArt id={r.id} className="rdetail__art" />
         <div className="rdetail__head">
           <span className="rooted__eyebrow">Recipe · serves {r.serves}</span>
           <h2>{r.title}</h2>
