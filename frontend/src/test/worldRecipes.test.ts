@@ -7,13 +7,13 @@ import { AISLE_ORDER } from "../store/nourish";
 const pantryIds = new Set(PANTRY.map((p) => p.id));
 
 describe("world recipes", () => {
-  it("has 24 cuisines with four dishes each, unique ids and one country each", () => {
-    expect(CUISINES).toHaveLength(24);
+  it("has 36 cuisines with four dishes each, unique ids and one country each", () => {
+    expect(CUISINES).toHaveLength(36);
     for (const c of CUISINES) expect(c.recipes, c.id).toHaveLength(4);
     const ids = [...RECIPES, ...WORLD_RECIPES].map((r) => r.id);
     expect(new Set(ids).size).toBe(ids.length);
-    expect(new Set(CUISINES.map((c) => c.iso)).size).toBe(24);
-    expect(WORLD_RECIPES).toHaveLength(96);
+    expect(new Set(CUISINES.map((c) => c.iso)).size).toBe(36);
+    expect(WORLD_RECIPES).toHaveLength(144);
     expect(cuisineByIso(484)?.name).toBe("Mexico");
   });
   it("keeps every dish within 45 minutes and 12 ingredients, and links only real pantry items", () => {
