@@ -8,6 +8,7 @@ import { FASTING, FINDINGS, MYTHS, PLATE_SOURCE, WATER_FACTS, WATER_SOURCES, typ
 import { PlateBuilder, WaterTracker } from "../rooted/NourishTools";
 import { Pantry } from "../rooted/Pantry";
 import { Recipes } from "../rooted/Recipes";
+import { MealPlanner } from "../rooted/MealPlanner";
 import { DigestiveJourney, FiberAtWork, GlucoseChart } from "../rooted/NourishDiagrams";
 import { Footer } from "../components/Footer";
 import { ProgramRail } from "../rooted/ProgramRail";
@@ -20,20 +21,14 @@ import { SectionArt } from "../rooted/SectionArt";
 import { sectionById } from "../rooted/sections";
 import "./Nourish.css";
 
-const TABS = [
-  { id: "programs", label: "Programs" },
-  { id: "science", label: "The science" },
-  { id: "gut", label: "Inside your gut" },
-  { id: "sugar", label: "Blood sugar" },
-  { id: "plate", label: "Your plate" },
-  { id: "water", label: "Water" },
-  { id: "nutrients", label: "Vitamins & minerals" },
-  { id: "animals", label: "Animal products" },
-  { id: "pantry", label: "Pantry & list" },
-  { id: "recipes", label: "Recipes" },
-  { id: "fasting", label: "Fasting" },
-  { id: "myths", label: "Myths" },
+type GroupId = "plan" | "tools" | "learn";
+const GROUPS: Array<{ id: GroupId; label: string; hint: string; tabs: Array<{ id: string; label: string }> }> = [
+  { id: "plan", label: "Plan", hint: "Meals, recipes, shopping", tabs: [{ id: "planner", label: "Meal planner" }, { id: "recipes", label: "Recipes" }, { id: "pantry", label: "Pantry & list" }] },
+  { id: "tools", label: "Tools", hint: "Scan, plate, water", tabs: [{ id: "scan", label: "Scanner" }, { id: "plate", label: "Your plate" }, { id: "water", label: "Water" }] },
+  { id: "learn", label: "Learn", hint: "The evidence", tabs: [{ id: "science", label: "The science" }, { id: "gut", label: "Inside your gut" }, { id: "sugar", label: "Blood sugar" }, { id: "nutrients", label: "Vitamins & minerals" }, { id: "animals", label: "Animal products" }, { id: "fasting", label: "Fasting" }, { id: "myths", label: "Myths" }] },
 ];
+/** Which group each section lives in, so a link like /nourish#water opens the right tab. */
+const GROUP_OF: Record<string, GroupId> = Object.fromEntries(GROUPS.flatMap((g) => g.tabs.map((t) => [t.id, g.id])));
 
 function FindingCard({ f, onOpen }: { f: Finding; onOpen(): void }) {
   return (
@@ -81,9 +76,12 @@ export default function Nourish() {
   const [finding, setFinding] = useState<Finding | null>(null);
   const f = flags(useAbout().considerations);
 
+  const [group, setGroup] = useState<GroupId>(() => GROUP_OF[location.hash.replace("#", "")] ?? "plan");
+
   useEffect(() => {
     const id = location.hash.replace("#", "");
     if (!id) return;
+    if (GROUP_OF[id]) setGroup(GROUP_OF[id]);
     const t = setTimeout(() => document.getElementById(id)?.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" }), 650);
     return () => clearTimeout(t);
   }, [location.hash]);
@@ -103,12 +101,20 @@ export default function Nourish() {
             herb actually does. Every claim is rated, and every source is linked.
           </motion.p>
           <motion.div className="breathe__cta" initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.42, duration: 0.7 }}>
-            <Link className="btn btn--primary btn--big" to="/scan"><Icon name="barcode" size={22} /> Scan a product's additives</Link>
+            <Link className="btn btn--primary btn--big" to="/scan?camera=1"><Icon name="barcode" size={22} /> Scan a product</Link>
+            <button className="btn btn--secondary btn--big" onClick={() => { setGroup("plan"); setTimeout(() => document.getElementById("planner")?.scrollIntoView({ behavior: "smooth", block: "start" }), 100); }}>Plan my week</button>
           </motion.div>
         </div>
       </header>
 
-      <SecTabs tabs={TABS} />
+      <div className="nourish__groups" role="tablist" aria-label="Nourish sections">
+        {GROUPS.map((g) => (
+          <button key={g.id} role="tab" aria-selected={group === g.id} className={`nourish__group ${group === g.id ? "is-on" : ""}`} onClick={() => setGroup(g.id)}>
+            <strong>{g.label}</strong>
+            <small>{g.hint}</small>
+          </button>
+        ))}
+      </div>
 
       <section id="programs" className="sec-block">
         <Reveal className="sec-block__head">
@@ -118,42 +124,52 @@ export default function Nourish() {
         <ProgramRail section="nourish" />
       </section>
 
-      <section id="science" className="sec-block">
+      <SecTabs key={group} tabs={GROUPS.find((g) => g.id === group)!.tabs} />
+
+      {group === "plan" && (
+        <>
+      <section id="planner" className="sec-block">
         <Reveal className="sec-block__head">
-          <span className="rooted__eyebrow">The science</span>
-          <h2>Five habits with the strongest evidence</h2>
-          <p className="rooted__lead">Not trends: large trials and meta-analyses. Tap any card for the study and what to do with it.</p>
+          <span className="rooted__eyebrow">Meal planner</span>
+          <h2>Plan your week, then shop once</h2>
+          <p className="rooted__lead">Drop a recipe into any meal, or let us fill your lunches and dinners. Your shopping list builds itself from the week, leaving out what you already have.</p>
         </Reveal>
-        <div className="findings">
-          {FINDINGS.map((f, i) => (
-            <Reveal key={f.id} delay={i * 0.07}>
-              <FindingCard f={f} onOpen={() => setFinding(f)} />
-            </Reveal>
-          ))}
-        </div>
+        <MealPlanner />
       </section>
 
-      <section id="gut" className="sec-block">
+      <section id="recipes" className="sec-block">
         <Reveal className="sec-block__head">
-          <span className="rooted__eyebrow">Inside your gut</span>
-          <h2>Follow a bite through your body</h2>
-          <p className="rooted__lead">Tap each stop to see what happens to your food, and how long it takes.</p>
+          <span className="rooted__eyebrow">Recipes</span>
+          <h2>Simple meals from the pantry</h2>
+          <p className="rooted__lead">
+            Thirty minutes or less, ten ingredients or fewer, mostly plants. Each one shows its rough plate split and why it's good, with the evidence rated.
+            Add the ingredients to your list in one tap.
+          </p>
         </Reveal>
-        <Reveal><DigestiveJourney /></Reveal>
-        <Reveal className="sec-block__head nourish__subhead">
-          <h2>How fiber works</h2>
-          <p className="rooted__lead">Fiber is the part of plants your body can't digest, and that's exactly why it matters.</p>
-        </Reveal>
-        <Reveal><FiberAtWork /></Reveal>
+        <Recipes />
       </section>
-
-      <section id="sugar" className="sec-block">
+      <section id="pantry" className="sec-block">
         <Reveal className="sec-block__head">
-          <span className="rooted__eyebrow">Blood sugar</span>
-          <h2>Two easy ways to flatten the spike</h2>
-          <p className="rooted__lead">Hover or drag across the chart. Tap the labels to compare.</p>
+          <span className="rooted__eyebrow">Pantry & shopping list</span>
+          <h2>Learn it, then list it</h2>
+          <p className="rooted__lead">
+            Foods, herbs and teas, each with what the research says, how to use it, who should be careful, and where to find it. Add what you want to your list,
+            then download it or send it to your phone for the store.
+          </p>
         </Reveal>
-        <Reveal><GlucoseChart /></Reveal>
+        <Pantry />
+      </section>
+        </>
+      )}
+      {group === "tools" && (
+        <>
+      <section id="scan" className="sec-block">
+        <Reveal className="sec-block__head">
+          <span className="rooted__eyebrow">Product scanner</span>
+          <h2>See what's in a product</h2>
+          <p className="rooted__lead">Scan a barcode or paste an ingredient list. Every additive is rated red, orange, yellow or green, with the evidence and sources behind it, plus a score out of 100.</p>
+        </Reveal>
+        <Reveal><Link className="btn btn--primary btn--big" to="/scan?camera=1"><Icon name="barcode" size={22} /> Scan a product</Link></Reveal>
       </section>
 
       <section id="plate" className="sec-block">
@@ -165,7 +181,6 @@ export default function Nourish() {
         <Reveal><PlateBuilder /></Reveal>
         <p className="nourish__src"><SourceLink s={PLATE_SOURCE} /></p>
       </section>
-
       <section id="water" className="sec-block">
         <Reveal className="sec-block__head">
           <span className="rooted__eyebrow">Water</span>
@@ -183,7 +198,45 @@ export default function Nourish() {
         </div>
         <p className="nourish__src">{WATER_SOURCES.map((s) => <SourceLink key={s.text} s={s} />)}</p>
       </section>
-
+        </>
+      )}
+      {group === "learn" && (
+        <>
+      <section id="science" className="sec-block">
+        <Reveal className="sec-block__head">
+          <span className="rooted__eyebrow">The science</span>
+          <h2>Five habits with the strongest evidence</h2>
+          <p className="rooted__lead">Not trends: large trials and meta-analyses. Tap any card for the study and what to do with it.</p>
+        </Reveal>
+        <div className="findings">
+          {FINDINGS.map((f, i) => (
+            <Reveal key={f.id} delay={i * 0.07}>
+              <FindingCard f={f} onOpen={() => setFinding(f)} />
+            </Reveal>
+          ))}
+        </div>
+      </section>
+      <section id="gut" className="sec-block">
+        <Reveal className="sec-block__head">
+          <span className="rooted__eyebrow">Inside your gut</span>
+          <h2>Follow a bite through your body</h2>
+          <p className="rooted__lead">Tap each stop to see what happens to your food, and how long it takes.</p>
+        </Reveal>
+        <Reveal><DigestiveJourney /></Reveal>
+        <Reveal className="sec-block__head nourish__subhead">
+          <h2>How fiber works</h2>
+          <p className="rooted__lead">Fiber is the part of plants your body can't digest, and that's exactly why it matters.</p>
+        </Reveal>
+        <Reveal><FiberAtWork /></Reveal>
+      </section>
+      <section id="sugar" className="sec-block">
+        <Reveal className="sec-block__head">
+          <span className="rooted__eyebrow">Blood sugar</span>
+          <h2>Two easy ways to flatten the spike</h2>
+          <p className="rooted__lead">Hover or drag across the chart. Tap the labels to compare.</p>
+        </Reveal>
+        <Reveal><GlucoseChart /></Reveal>
+      </section>
       <section id="nutrients" className="sec-block">
         <Reveal className="sec-block__head">
           <span className="rooted__eyebrow">Vitamins &amp; minerals</span>
@@ -192,7 +245,6 @@ export default function Nourish() {
         </Reveal>
         <Reveal><Link to="/nutrients" className="btn btn--primary">Open the guide</Link></Reveal>
       </section>
-
       <section id="animals" className="sec-block">
         <Reveal className="sec-block__head">
           <span className="rooted__eyebrow">Animal products</span>
@@ -201,31 +253,6 @@ export default function Nourish() {
         </Reveal>
         <Reveal><Link to="/animal-products" className="btn btn--primary">Open the guide</Link></Reveal>
       </section>
-
-      <section id="pantry" className="sec-block">
-        <Reveal className="sec-block__head">
-          <span className="rooted__eyebrow">Pantry & shopping list</span>
-          <h2>Learn it, then list it</h2>
-          <p className="rooted__lead">
-            Foods, herbs and teas, each with what the research says, how to use it, who should be careful, and where to find it. Add what you want to your list,
-            then download it or send it to your phone for the store.
-          </p>
-        </Reveal>
-        <Pantry />
-      </section>
-
-      <section id="recipes" className="sec-block">
-        <Reveal className="sec-block__head">
-          <span className="rooted__eyebrow">Recipes</span>
-          <h2>Simple meals from the pantry</h2>
-          <p className="rooted__lead">
-            Thirty minutes or less, ten ingredients or fewer, mostly plants. Each one shows its rough plate split and why it's good, with the evidence rated.
-            Add the ingredients to your list in one tap.
-          </p>
-        </Reveal>
-        <Recipes />
-      </section>
-
       <section id="fasting" className="sec-block">
         <Reveal className="sec-block__head">
           <span className="rooted__eyebrow">Fasting & timing</span>
@@ -243,7 +270,6 @@ export default function Nourish() {
           </Reveal>
         </div>
       </section>
-
       <section id="myths" className="sec-block">
         <Reveal className="sec-block__head">
           <span className="rooted__eyebrow">Myths</span>
@@ -256,6 +282,8 @@ export default function Nourish() {
           ))}
         </div>
       </section>
+        </>
+      )}
 
       <p className="nourish__disclaimer">
         This is general information based on published research, not medical or dietary advice for you. If you're pregnant, have a health condition, take
