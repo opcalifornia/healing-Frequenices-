@@ -61,7 +61,7 @@ export const MORE_A: Array<Omit<WorldRecipe, "cuisine"> & { cuisine: string }> =
       { name: "Canned cannellini beans, rinsed", amount: "2 cans (15 oz)", aisle: "Grains & beans" },
       { name: "Canned crushed tomatoes", amount: "1 cup", aisle: "Grains & beans" },
       { name: "Low-sodium vegetable broth", amount: "4 cups", aisle: "Other" },
-      { name: "Day-old crusty bread, torn", amount: "3 thick slices", aisle: "Bakery" },
+      { name: "Day-old crusty bread, torn", amount: "3 thick slices", aisle: "Packaged foods" },
     ],
     steps: [
       "Warm the oil in a pot. Cook the onion, carrots, celery and garlic for 7 minutes.",
@@ -150,7 +150,7 @@ export const MORE_A: Array<Omit<WorldRecipe, "cuisine"> & { cuisine: string }> =
       { pantryId: "garlic", name: "Garlic", amount: "1 clove" },
       { pantryId: "eggs", name: "Eggs", amount: "6" },
       { name: "Fresh basil or mint", amount: "a handful", aisle: "Produce" },
-      { name: "Grated Parmesan", amount: "2 tbsp", aisle: "Dairy" },
+      { name: "Grated Parmesan", amount: "2 tbsp", aisle: "Fridge & ferments" },
     ],
     steps: [
       "Warm the oil in an oven-safe nonstick pan. Cook the onion for 4 minutes, then add the zucchini and garlic and cook 8 minutes until soft.",
@@ -274,7 +274,7 @@ export const MORE_A: Array<Omit<WorldRecipe, "cuisine"> & { cuisine: string }> =
       { name: "Dried guajillo or ancho chili, stemmed and seeded", amount: "2", aisle: "Herbs & spices" },
       { name: "Corn tortillas, cut in strips", amount: "4", aisle: "Grains & beans" },
       { pantryId: "avocado", name: "Avocado, diced", amount: "1" },
-      { name: "Queso fresco, crumbled", amount: "¼ cup", aisle: "Dairy" },
+      { name: "Queso fresco, crumbled", amount: "¼ cup", aisle: "Fridge & ferments" },
       { name: "Fresh cilantro", amount: "a handful", aisle: "Produce" },
     ],
     steps: [
