@@ -23,7 +23,7 @@ const PLATE_COLORS = { veg: "#7cb342", grain: "#f9a825", protein: "#a1887f" } as
 const PLATE_LABEL = { veg: "Veg & fruit", grain: "Grains", protein: "Protein" } as const;
 
 /** A tiny plate whose segments sweep in to show the recipe's rough split. */
-function RecipePlate({ r, size = 72 }: { r: Recipe; size?: number }) {
+export function RecipePlate({ r, size = 72 }: { r: Recipe; size?: number }) {
   const reduce = useReducedMotion();
   const maskId = `rplate-${useId().replace(/:/g, "")}`;
   const R = 15.9155; // circumference of 100
@@ -129,7 +129,7 @@ export function Recipes() {
   );
 }
 
-function RecipeDetail({ r }: { r: Recipe }) {
+export function RecipeDetail({ r }: { r: Recipe }) {
   const list = useShoppingList();
   const addItem = useNourish((s) => s.addItem);
   const toast = useToast();
