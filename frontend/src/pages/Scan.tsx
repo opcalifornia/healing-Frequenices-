@@ -2,7 +2,9 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Aurora, Reveal, ZoomPage } from "../rooted/motion";
-import { Evidence, SourceLink } from "../rooted/ui";
+import { Evidence, SourceLink, useToast } from "../rooted/ui";
+import { productListItem } from "../rooted/scanList";
+import { useNourish, useShoppingList } from "../store/nourish";
 import { BarcodeScanner } from "../rooted/BarcodeScanner";
 import { ADDITIVES, TIERS, TIER_ORDER, additiveById, searchAdditives, shownName, tierInfo, tierOf, type Additive, type Tier } from "../rooted/additivesContent";
 import { isValidBarcode, lookupBarcode, similarProducts, type Product } from "../rooted/foodLookup";
@@ -364,6 +366,21 @@ export default function Scan() {
   const about = useAbout();
   const history = useScanHistory();
   const savedCodes = useSavedCodes();
+  const shopList = useShoppingList();
+  const addItem = useNourish((s) => s.addItem);
+  const removeItem = useNourish((s) => s.removeItem);
+  const toast = useToast();
+  const toggleList = (p: Product) => {
+    const item = productListItem(p);
+    if (shopList.some((i) => i.id === item.id)) {
+      removeItem(item.id);
+      toast.show("Removed from your list");
+    } else {
+      addItem(item);
+      toast.show("Added to your shopping list");
+    }
+  };
+  const onList = (p: Product) => shopList.some((i) => i.id === `scan-${p.code}`);
   const toggleSaved = useScans((s) => s.toggleSaved);
   const [compareCode, setCompareCode] = useState("");
   const addScan = useScans((s) => s.add);
@@ -558,6 +575,7 @@ export default function Scan() {
                 {state.product.allergens.length > 0 && <p className="scan__muted">Allergens listed: {state.product.allergens.map(allergenLabel).join(", ").toLowerCase()}.</p>}
                 <p className="scan__actions">
                   <button className="scan__link" onClick={() => setScanning(true)}>Scan another</button>
+                  {state.product.code !== TEXT_PRODUCT_CODE && <button className="scan__link" aria-pressed={onList(state.product)} onClick={() => toggleList(state.product)}>{onList(state.product) ? "On your list ✓" : "Add to shopping list"}</button>}
                   {state.product.code !== TEXT_PRODUCT_CODE && <button className="scan__link" aria-pressed={savedCodes.includes(state.product.code)} onClick={() => toggleSaved(state.product.code)}>{savedCodes.includes(state.product.code) ? "Saved ✓" : "Save"}</button>}
                   <button className="scan__link" onClick={() => setMethod(true)}>How we rate</button>
                   <button className="scan__link" onClick={() => void shareResult(state.product, result)}>Share</button>
@@ -628,6 +646,7 @@ export default function Scan() {
                         <span className="alts__text"><strong>{p.name}</strong><small>{p.brand ?? ""}{n === 0 ? " · no flagged additives" : ""}</small></span>
                         <Badge v={a.overall} label={overallLabel(a)} />
                       </button>
+                      <button className="scan__link" aria-pressed={onList(p)} onClick={() => toggleList(p)}>{onList(p) ? "On your list ✓" : "Add to list"}</button>
                     </li>
                   ))}
                 </ul>
@@ -706,6 +725,7 @@ export default function Scan() {
       <BarcodeScanner open={scanning} onCode={(c) => void run(c)} onClose={() => setScanning(false)} />
       <Method open={method} onClose={() => setMethod(false)} />
       <AdditiveSheet a={active?.a ?? null} list={active?.list ?? []} backLabel={active?.from ?? "Back"} forYou={active ? forYou(active.a) : false} onClose={() => setActive(null)} onMethod={() => setMethod(true)} onGo={(next) => setActive((cur) => (cur ? { ...cur, a: next } : cur))} />
+      {toast.node}
     </ZoomPage>
   );
 }
