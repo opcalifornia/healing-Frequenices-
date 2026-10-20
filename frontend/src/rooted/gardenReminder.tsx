@@ -38,8 +38,9 @@ export function showGardenReminder(title: string, body: string) {
 }
 
 /** While the app is open, remind at the chosen time, once a day. Opening the app later in the day still shows it. */
-export function useGardenReminder() {
+export function useGardenReminder(enabled = true) {
   useEffect(() => {
+    if (!enabled) return;
     const check = () => {
       const user = useUser.getState().activeProfileId;
       if (!user) return;
@@ -64,7 +65,7 @@ export function useGardenReminder() {
       window.clearInterval(id);
       unsub();
     };
-  }, []);
+  }, [enabled]);
 }
 
 export function GardenToast() {

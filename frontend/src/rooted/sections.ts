@@ -19,7 +19,9 @@ export interface RootedSection {
   c2: string;
 }
 
-export const SECTIONS: RootedSection[] = [
+import { GARDEN_ENABLED } from "./flags";
+
+const ALL_SECTIONS: RootedSection[] = [
   { id: "healing", name: "Healing Frequencies", tagline: "Binaural sessions, shows and sleep, generated live", to: "/healing", live: true, size: "xl", c1: "#8b6cff", c2: "#19e3c4" },
   { id: "light", name: "Healing Light", tagline: "Morning sun, light therapy, blue and red light, and UV", to: "/light", live: true, size: "wide", c1: "#ffd54f", c2: "#ff7043" },
   { id: "nourish", name: "Nourish", tagline: "Food, water and a smarter shopping list, by the evidence", to: "/nourish", live: true, size: "wide", c1: "#9ccc65", c2: "#e8b04a" },
@@ -34,7 +36,10 @@ export const SECTIONS: RootedSection[] = [
   { id: "earth", name: "Earth & Give Back", tagline: "Vetted nonprofits, wildlife and your footprint", to: "/earth", live: true, size: "wide", c1: "#66bb6a", c2: "#26c6da" },
 ];
 
-export const sectionById = (id: SectionId) => SECTIONS.find((s) => s.id === id)!;
+/** The sections shown on the hub and in the nav. Hidden sections stay in `ALL_SECTIONS`, so their own pages still work. */
+export const SECTIONS: RootedSection[] = ALL_SECTIONS.filter((s) => s.id !== "garden" || GARDEN_ENABLED);
+
+export const sectionById = (id: SectionId) => ALL_SECTIONS.find((s) => s.id === id)!;
 
 /** Paths that belong to the Healing Frequencies section. */
 export const HEALING_PATHS = ["/healing", "/frequencies", "/shows", "/bedtime", "/build", "/title/", "/collection/"];

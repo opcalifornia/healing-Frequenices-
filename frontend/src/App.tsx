@@ -11,6 +11,7 @@ import { usePlayer } from "./store/player";
 import { HoverPreview } from "./components/HoverPreview";
 import { BedtimeToast, useBedtimeReminder } from "./components/Bedtime";
 import { GardenToast, useGardenReminder } from "./rooted/gardenReminder";
+import { GARDEN_ENABLED } from "./rooted/flags";
 import Hub from "./pages/Hub";
 import { startSync } from "./rooted/sync";
 import { apiEnabled } from "./api/client";
@@ -88,7 +89,7 @@ export default function App() {
   }, [token, activeProfile]);
   useMediaSession();
   useBedtimeReminder();
-  useGardenReminder();
+  useGardenReminder(GARDEN_ENABLED);
 
   useEffect(() => {
     loadCatalog();
@@ -170,7 +171,7 @@ export default function App() {
             <Route path="/nutrients" element={<RequireProfile><Nutrients /></RequireProfile>} />
             <Route path="/animal-products" element={<RequireProfile><AnimalProducts /></RequireProfile>} />
             <Route path="/light" element={<RequireProfile><Light /></RequireProfile>} />
-            <Route path="/garden" element={<RequireProfile><Garden /></RequireProfile>} />
+            {GARDEN_ENABLED && <Route path="/garden" element={<RequireProfile><Garden /></RequireProfile>} />}
             <Route path="/spirit" element={<RequireProfile><Spirit /></RequireProfile>} />
             <Route path="/support" element={<RequireProfile><Support /></RequireProfile>} />
             <Route path="/combos" element={<RequireProfile><Combos /></RequireProfile>} />
@@ -202,7 +203,7 @@ export default function App() {
       <FeedbackSheet />
       {!onPicker && activeProfile && <GaiaButton />}
       {!onPicker && <BedtimeToast />}
-      {!onPicker && <GardenToast />}
+      {!onPicker && GARDEN_ENABLED && <GardenToast />}
     </>
   );
 }
