@@ -113,15 +113,15 @@ export const RECIPES: Recipe[] = [
     plate: { veg: 0.5, grain: 0.1, protein: 0.4 },
     ingredients: [
       { pantryId: "evoo", name: "Extra virgin olive oil", amount: "2 tbsp" },
-      { name: "Onion", amount: "1, chopped", aisle: "Produce" },
-      { name: "Carrots", amount: "2, chopped", aisle: "Produce" },
+      { pantryId: "onions", name: "Onion", amount: "1, chopped" },
+      { pantryId: "carrots", name: "Carrots", amount: "2, chopped" },
       { pantryId: "garlic", name: "Garlic", amount: "3 cloves" },
       { name: "Ground cumin", amount: "1 tsp", aisle: "Herbs & spices" },
       { pantryId: "lentils", name: "Brown or green lentils, rinsed", amount: "1 cup" },
       { name: "Canned diced tomatoes", amount: "1 can (14 oz)", aisle: "Grains & beans" },
       { name: "Low-sodium vegetable broth", amount: "4 cups", aisle: "Other" },
       { pantryId: "spinach", name: "Spinach", amount: "2 big handfuls" },
-      { name: "Lemon", amount: "½", aisle: "Produce" },
+      { pantryId: "lemons", name: "Lemon", amount: "½" },
     ],
     steps: [
       "Warm the oil in a pot. Cook the onion and carrot for 5 minutes until soft.",
@@ -183,7 +183,7 @@ export const RECIPES: Recipe[] = [
       { pantryId: "sweet-potato", name: "Sweet potato, cut in ½-inch cubes", amount: "1 medium" },
       { pantryId: "evoo", name: "Extra virgin olive oil", amount: "2 tbsp" },
       { pantryId: "garlic", name: "Garlic", amount: "2 cloves" },
-      { name: "Lemon", amount: "1", aisle: "Produce" },
+      { pantryId: "lemons", name: "Lemon", amount: "1" },
       { pantryId: "leafy-greens", name: "Kale, stems removed", amount: "2 handfuls" },
     ],
     steps: [
@@ -211,7 +211,7 @@ export const RECIPES: Recipe[] = [
     ingredients: [
       { pantryId: "lentils", name: "Red lentils, rinsed", amount: "1 cup" },
       { pantryId: "evoo", name: "Olive oil", amount: "1 tbsp" },
-      { name: "Onion", amount: "1, chopped", aisle: "Produce" },
+      { pantryId: "onions", name: "Onion", amount: "1, chopped" },
       { pantryId: "ginger", name: "Fresh ginger, grated", amount: "1 thumb" },
       { pantryId: "garlic", name: "Garlic", amount: "3 cloves" },
       { pantryId: "turmeric", name: "Ground turmeric", amount: "1 tsp" },
@@ -247,7 +247,7 @@ export const RECIPES: Recipe[] = [
     plate: { veg: 0.9, grain: 0, protein: 0.1 },
     ingredients: [
       { pantryId: "burdock-root", name: "Burdock root (gobo)", amount: "1 long root" },
-      { name: "Carrot", amount: "1", aisle: "Produce" },
+      { pantryId: "carrots", name: "Carrot", amount: "1" },
       { name: "Toasted sesame oil", amount: "1 tbsp", aisle: "Oils & vinegar" },
       { name: "Soy sauce or tamari", amount: "1½ tbsp", aisle: "Specialty & international" },
       { name: "Mirin", amount: "1 tbsp", aisle: "Specialty & international" },
@@ -405,7 +405,7 @@ export const RECIPES: Recipe[] = [
     plate: { veg: 0.5, grain: 0.25, protein: 0.25 },
     ingredients: [
       { pantryId: "evoo", name: "Extra virgin olive oil", amount: "2 tbsp" },
-      { name: "Onion", amount: "1, chopped", aisle: "Produce" },
+      { pantryId: "onions", name: "Onion", amount: "1, chopped" },
       { name: "Carrots and celery", amount: "2 each, chopped", aisle: "Produce" },
       { pantryId: "garlic", name: "Garlic", amount: "3 cloves" },
       { name: "Canned diced tomatoes", amount: "1 can (14 oz)", aisle: "Grains & beans" },
@@ -445,7 +445,7 @@ export const RECIPES: Recipe[] = [
       { pantryId: "quinoa", name: "Quinoa, rinsed", amount: "½ cup" },
       { pantryId: "leafy-greens", name: "Kale, stems removed", amount: "3 handfuls" },
       { name: "Tahini", amount: "2 tbsp", aisle: "Specialty & international" },
-      { name: "Lemon", amount: "1", aisle: "Produce" },
+      { pantryId: "lemons", name: "Lemon", amount: "1" },
       { pantryId: "pumpkin-seeds", name: "Pumpkin seeds", amount: "2 tbsp" },
     ],
     steps: [
@@ -470,7 +470,7 @@ export const RECIPES: Recipe[] = [
     tags: ["quick", "vegetarian", "protein"], goals: ["eat", "energy"],
     plate: { veg: 0.5, grain: 0, protein: 0.5 },
     ingredients: [
-      { name: "Eggs", amount: "2", aisle: "Fridge & ferments" },
+      { pantryId: "eggs", name: "Eggs", amount: "2" },
       { pantryId: "spinach", name: "Spinach", amount: "2 handfuls" },
       { pantryId: "shiitake", name: "Mushrooms, sliced", amount: "½ cup" },
       { pantryId: "evoo", name: "Extra virgin olive oil", amount: "1 tsp" },
@@ -525,11 +525,11 @@ export const RECIPES: Recipe[] = [
     tags: ["fiber", "protein", "quick", "vegan", "vegetarian"], goals: ["eat", "energy"],
     plate: { veg: 0.3, grain: 0.35, protein: 0.35 },
     ingredients: [
-      { name: "Whole-grain bread", amount: "2 slices", aisle: "Grains & beans" },
+      { pantryId: "whole-grain-bread", name: "Whole-grain bread", amount: "2 slices" },
       { pantryId: "chickpeas", name: "Chickpeas, rinsed (canned is fine)", amount: "½ cup" },
       { pantryId: "avocado", name: "Avocado", amount: "½" },
       { pantryId: "spinach", name: "Spinach", amount: "1 handful" },
-      { name: "Lemon", amount: "½", aisle: "Produce" },
+      { pantryId: "lemons", name: "Lemon", amount: "½" },
     ],
     steps: [
       "Toast the bread.",
@@ -576,10 +576,10 @@ export const RECIPES: Recipe[] = [
     tags: ["omega-3", "quick", "protein"], goals: ["eat", "energy", "sleep"],
     plate: { veg: 0.25, grain: 0.35, protein: 0.4 },
     ingredients: [
-      { name: "Whole-grain bread", amount: "2 slices", aisle: "Grains & beans" },
+      { pantryId: "whole-grain-bread", name: "Whole-grain bread", amount: "2 slices" },
       { pantryId: "sardines", name: "Sardines in olive oil, drained", amount: "1 tin" },
       { pantryId: "leafy-greens", name: "Arugula or other greens", amount: "1 handful" },
-      { name: "Lemon", amount: "½", aisle: "Produce" },
+      { pantryId: "lemons", name: "Lemon", amount: "½" },
     ],
     steps: ["Toast the bread.", "Top with greens and the sardines, mashing them lightly.", "Squeeze lemon over the top and add black pepper."],
     why: {
@@ -601,8 +601,8 @@ export const RECIPES: Recipe[] = [
     ingredients: [
       { pantryId: "barley", name: "Pearl barley, rinsed", amount: "¾ cup" },
       { pantryId: "shiitake", name: "Mushrooms, sliced", amount: "2 cups" },
-      { name: "Carrots, diced", amount: "2", aisle: "Produce" },
-      { name: "Onion, diced", amount: "1", aisle: "Produce" },
+      { pantryId: "carrots", name: "Carrots, diced", amount: "2" },
+      { pantryId: "onions", name: "Onion, diced", amount: "1" },
       { pantryId: "garlic", name: "Garlic, minced", amount: "2 cloves" },
       { pantryId: "evoo", name: "Extra virgin olive oil", amount: "1 tbsp" },
       { name: "Vegetable broth (low-sodium)", amount: "5 cups", aisle: "Other" },
@@ -634,7 +634,7 @@ export const RECIPES: Recipe[] = [
       { pantryId: "beets", name: "Cooked beets (vacuum-packed), diced", amount: "2" },
       { pantryId: "walnuts", name: "Walnuts, chopped", amount: "¼ cup" },
       { pantryId: "evoo", name: "Extra virgin olive oil", amount: "2 tbsp" },
-      { name: "Lemon", amount: "1", aisle: "Produce" },
+      { pantryId: "lemons", name: "Lemon", amount: "1" },
       { pantryId: "leafy-greens", name: "Arugula or other greens", amount: "2 handfuls" },
     ],
     steps: [
@@ -664,7 +664,7 @@ export const RECIPES: Recipe[] = [
       { pantryId: "broccoli", name: "Broccoli florets", amount: "1 head" },
       { pantryId: "evoo", name: "Extra virgin olive oil", amount: "1 tbsp" },
       { pantryId: "ginger", name: "Fresh ginger, grated", amount: "1 tsp" },
-      { name: "Brown rice, cooked", amount: "1 cup", aisle: "Grains & beans" },
+      { pantryId: "brown-rice", name: "Brown rice, cooked", amount: "1 cup" },
     ],
     steps: [
       "Heat the oven to 425°F (220°C). Stir the miso with the ginger and a splash of water.",
@@ -688,10 +688,10 @@ export const RECIPES: Recipe[] = [
     tags: ["gut", "quick", "vegetarian"], goals: ["eat"],
     plate: { veg: 0.35, grain: 0.4, protein: 0.25 },
     ingredients: [
-      { name: "Brown rice, cooked", amount: "1 cup", aisle: "Grains & beans" },
+      { pantryId: "brown-rice", name: "Brown rice, cooked", amount: "1 cup" },
       { pantryId: "kimchi", name: "Kimchi, chopped", amount: "½ cup" },
       { pantryId: "spinach", name: "Spinach", amount: "2 handfuls" },
-      { name: "Egg", amount: "1", aisle: "Fridge & ferments" },
+      { pantryId: "eggs", name: "Egg", amount: "1" },
       { pantryId: "evoo", name: "Extra virgin olive oil", amount: "1 tsp" },
     ],
     steps: [

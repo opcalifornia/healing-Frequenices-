@@ -10,6 +10,7 @@ import { Pantry } from "../rooted/Pantry";
 import { Recipes } from "../rooted/Recipes";
 import { MealPlanner } from "../rooted/MealPlanner";
 import { FoodLogToday } from "../rooted/FoodLog";
+import { Kitchen } from "../rooted/Kitchen";
 import { DigestiveJourney, FiberAtWork, GlucoseChart } from "../rooted/NourishDiagrams";
 import { Footer } from "../components/Footer";
 import { ProgramRail } from "../rooted/ProgramRail";
@@ -24,7 +25,7 @@ import "./Nourish.css";
 
 type GroupId = "plan" | "tools" | "learn";
 const GROUPS: Array<{ id: GroupId; label: string; hint: string; tabs: Array<{ id: string; label: string }> }> = [
-  { id: "plan", label: "Plan", hint: "Log, meals, shopping", tabs: [{ id: "today", label: "Today" }, { id: "planner", label: "Meal planner" }, { id: "recipes", label: "Recipes" }, { id: "pantry", label: "Pantry & list" }] },
+  { id: "plan", label: "Plan", hint: "Log, meals, kitchen, shopping", tabs: [{ id: "today", label: "Today" }, { id: "planner", label: "Meal planner" }, { id: "kitchen", label: "My kitchen" }, { id: "recipes", label: "Recipes" }, { id: "pantry", label: "Pantry & list" }] },
   { id: "tools", label: "Tools", hint: "Scan, plate, water", tabs: [{ id: "scan", label: "Scanner" }, { id: "plate", label: "Your plate" }, { id: "water", label: "Water" }] },
   { id: "learn", label: "Learn", hint: "The evidence", tabs: [{ id: "science", label: "The science" }, { id: "gut", label: "Inside your gut" }, { id: "sugar", label: "Blood sugar" }, { id: "nutrients", label: "Vitamins & minerals" }, { id: "animals", label: "Animal products" }, { id: "fasting", label: "Fasting" }, { id: "myths", label: "Myths" }] },
 ];
@@ -145,6 +146,15 @@ export default function Nourish() {
           <p className="rooted__lead">Drop a recipe into any meal, or let us fill your lunches and dinners. Your shopping list builds itself from the week, leaving out what you already have.</p>
         </Reveal>
         <MealPlanner />
+      </section>
+
+      <section id="kitchen" className="sec-block">
+        <Reveal className="sec-block__head">
+          <span className="rooted__eyebrow">My kitchen</span>
+          <h2>Cook with what you have</h2>
+          <p className="rooted__lead">Tick what's already at home. We'll show the recipes you can make now, the ones that are one or two items away, and add what's missing to your list.</p>
+        </Reveal>
+        <Kitchen />
       </section>
 
       <section id="recipes" className="sec-block">

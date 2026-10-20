@@ -7,6 +7,8 @@ import { ScheduleButton } from "./CalendarUI";
 import { useNourish, useShoppingList } from "../store/nourish";
 import { flags, useAbout } from "../store/wellness";
 import { forGoals } from "./mealPlan";
+import { statusFor } from "./kitchen";
+import { useKitchen } from "../store/nourish";
 import { Icon } from "../components/Icon";
 
 type Filter = "all" | "mine" | Extract<RecipeTag, "quick" | "fiber" | "protein" | "omega-3" | "gut">;
@@ -92,6 +94,7 @@ export function Recipes() {
   const [filter, setFilter] = useState<Filter>("all");
   const [open, setOpen] = useState<Recipe | null>(null);
   const goals = useAbout().goals;
+  const have = useKitchen();
   const goalIds = useMemo(() => new Set(forGoals(RECIPES, goals).map((r) => r.id)), [goals]);
   const hasGoalFilter = goalIds.size > 0 && goalIds.size < RECIPES.length;
   const shown = useMemo(() => (filter === "all" ? RECIPES : filter === "mine" ? RECIPES.filter((r) => goalIds.has(r.id)) : RECIPES.filter((r) => r.tags.includes(filter))), [filter, goalIds]);
@@ -118,6 +121,7 @@ export function Recipes() {
                 </div>
                 <strong>{r.title}</strong>
                 <span className="rcard__blurb">{r.blurb}</span>
+                {have.length > 0 && (() => { const st = statusFor(r, have); return <span className="rcard__have">{st.missing.length === 0 ? "You have everything" : `You have ${st.have} of ${st.total}`}</span>; })()}
                 <span className="rcard__tags">
                   {r.tags.filter((t) => t !== "vegetarian" || !r.tags.includes("vegan")).slice(0, 3).map((t) => <em key={t}>{TAG_LABEL[t]}</em>)}
                 </span>

@@ -371,3 +371,22 @@
 .fl__bar i { display: block; width: 100%; background: var(--r-sage, #9ccc65); min-height: 0; }
 .fl__dots small { color: var(--r-text-3); }
 .mp__nav[disabled] { opacity: 0.35; cursor: default; }
+
+/* Kitchen */
+.kt { display: grid; gap: 12px; }
+.kt__bar { display: flex; justify-content: space-between; align-items: center; color: var(--r-text-2); font-size: var(--fs-small); }
+.kt__groups { display: grid; gap: 8px; }
+.kt__groups details { border: 1px solid var(--r-line); border-radius: 14px; padding: 8px 12px; background: var(--r-surface); }
+.kt__groups summary { cursor: pointer; font-weight: 800; display: flex; justify-content: space-between; align-items: center; }
+.kt__groups summary small { color: var(--r-text-3); font-weight: 600; }
+.kt__groups details[open] .fl__chips { margin-top: 10px; }
+.kt__result { display: grid; gap: 10px; padding: 16px; }
+.kt__result h3, .kt__result h4 { margin: 0; }
+.kt__result h4 { display: flex; align-items: center; gap: 6px; font-size: var(--fs-small); text-transform: uppercase; letter-spacing: 0.06em; color: var(--r-text-2); margin-top: 6px; }
+.kt__result ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.kt__row { display: grid; gap: 2px; }
+.kt__recipe { display: flex; align-items: center; gap: 12px; text-align: left; width: 100%; padding: 8px 10px; border-radius: 14px; border: 1px solid var(--r-line); background: var(--r-surface); color: var(--r-text); cursor: pointer; }
+.kt__recipe span { display: grid; min-width: 0; }
+.kt__recipe small { color: var(--r-text-3); }
+.kt__row .scan__link { justify-self: start; }
+.rcard__have { font-size: var(--fs-tiny); font-weight: 800; color: var(--r-sage, #9ccc65); }

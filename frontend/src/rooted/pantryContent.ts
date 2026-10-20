@@ -606,6 +606,229 @@ export const PANTRY: PantryItem[] = [
     find: "Pharmacy aisle.",
     sources: [{ text: "Gröber U et al. Myth or reality: transdermal magnesium? Nutrients, 2017", url: "https://doi.org/10.3390/nu9080813" }],
   },
+
+  {
+    id: "eggs", name: "Eggs", cat: "other", aisle: "Fridge & ferments", evidence: "Mixed", hue: 48,
+    summary: "A cheap, complete protein. Experts still weigh their cholesterol in different ways.",
+    benefits: [
+      "A source of protein, choline and vitamin A (USDA).",
+      "The American Heart Association says healthy people can fit up to one whole egg a day into a heart-healthy pattern. Studies and guidelines don't fully agree, so the evidence here is mixed.",
+    ],
+    use: "Boil, poach or scramble with vegetables. Pair with whole-grain toast, beans or greens.",
+    cautions: [
+      "Egg is a common allergen, especially in children.",
+      "People with diabetes, high cholesterol or heart failure risk should ask a clinician how many eggs suit them (AHA).",
+      "Cook until the white and yolk are firm if you are pregnant, older, or have a weakened immune system.",
+    ],
+    find: "Refrigerated dairy case. Check the date on the carton and skip cracked eggs.",
+    sources: [
+      { text: "Carson JAS et al. Dietary cholesterol and cardiovascular risk: an AHA science advisory. Circulation, 2020", url: "https://doi.org/10.1161/CIR.0000000000000743" },
+      { text: "American Heart Association: dietary cholesterol and cardiovascular risk (commentary)", url: "https://professional.heart.org/en/science-news/dietary-cholesterol-and-cardiovascular-risk/commentary" },
+    ],
+  },
+  {
+    id: "lemons", name: "Lemons", cat: "produce", aisle: "Produce", evidence: "Weak", hue: 55,
+    summary: "A bright, sour fruit that brings vitamin C and lots of flavor.",
+    benefits: [
+      "Citrus fruits are a good source of vitamin C, which the body uses to make collagen and to absorb iron from plant foods (NIH).",
+      "Juice or zest can add flavor to food with less need for salt. There is little research on lemons themselves.",
+    ],
+    use: "Squeeze over greens, fish, beans and soups, or add zest to grains and dressings.",
+    cautions: [
+      "The acid can wear tooth enamel. Rinse with water after sipping lemon water.",
+      "Citrus can sting mouth sores or worsen heartburn for some people.",
+      "Squeezing lemon on skin and then sitting in strong sun can cause a rash.",
+    ],
+    find: "Produce section. Heavy, firm fruit with smooth skin gives the most juice.",
+    sources: [
+      { text: "NIH Office of Dietary Supplements: Vitamin C fact sheet for consumers", url: "https://ods.od.nih.gov/factsheets/VitaminC-Consumer/" },
+    ],
+  },
+  {
+    id: "onions", name: "Onions", cat: "produce", aisle: "Produce", evidence: "Weak", hue: 30,
+    summary: "A kitchen base for countless dishes, with fiber and plant compounds.",
+    benefits: [
+      "Adds flavor and a little fiber to vegetables, beans and grains, so plant-based meals taste good.",
+      "Onions contain flavonoids such as quercetin. Evidence for health effects in people is limited.",
+    ],
+    use: "Slowly cook in a little oil until soft and sweet for a base, or slice raw into salads and sandwiches.",
+    cautions: [
+      "Can trigger heartburn or gas, and are high in FODMAPs, which bother some people with IBS.",
+      "Dogs and cats should not eat onions.",
+    ],
+    find: "Produce section, sold loose or in bags. Choose dry, firm bulbs with no soft spots.",
+    sources: [
+      { text: "USDA FoodData Central (nutrient values)", url: "https://fdc.nal.usda.gov/" },
+    ],
+  },
+  {
+    id: "carrots", name: "Carrots", cat: "produce", aisle: "Produce", evidence: "Moderate", hue: 28,
+    summary: "A sweet, crunchy root rich in beta-carotene.",
+    benefits: [
+      "Beta-carotene is turned into vitamin A, which supports vision, immune function and growth (NIH).",
+      "Higher vegetable intake is linked to lower heart disease and early death in large observational studies. That shows a link, not proof.",
+    ],
+    use: "Eat raw with hummus, roast until caramelized, or grate into slaws and soups. A little oil helps you absorb carotenoids.",
+    cautions: [
+      "Very large amounts over weeks can tint skin orange. It is harmless and fades.",
+      "Whole raw carrot is a choking risk for young children. Cook or grate it.",
+      "Some people with birch pollen allergy react to raw carrot.",
+    ],
+    find: "Produce section, or frozen and canned. Bagged baby carrots are handy.",
+    sources: [
+      { text: "NIH Office of Dietary Supplements: Vitamin A and carotenoids fact sheet for consumers", url: "https://ods.od.nih.gov/factsheets/VitaminA-Consumer/" },
+      { text: "Aune D et al. Fruit and vegetable intake and risk of cardiovascular disease, cancer and all-cause mortality. Int J Epidemiol, 2017", url: "https://doi.org/10.1093/ije/dyw319" },
+    ],
+  },
+  {
+    id: "brown-rice", name: "Brown rice", cat: "grain", aisle: "Grains & beans", evidence: "Moderate", hue: 36,
+    summary: "A whole-grain rice with more fiber than white rice.",
+    benefits: [
+      "Whole grains in place of refined grains are linked to lower risk of heart disease, type 2 diabetes and bowel cancer in large reviews.",
+      "Keeps the bran and germ, so it has more fiber and magnesium than white rice (USDA).",
+    ],
+    use: "Simmer 40 to 45 minutes, or batch-cook and freeze. Use in bowls, stir-fries and soups.",
+    cautions: [
+      "Rice can carry inorganic arsenic from soil and water. EFSA suggests rinsing it and cooking it in plenty of water, then draining. Vary your grains, especially for young children.",
+      "Cool and refrigerate leftover rice quickly, and reheat until steaming hot.",
+    ],
+    find: "Rice and grains aisle or bulk bins. Quick-cook versions save time.",
+    sources: [
+      { text: "Reynolds A et al. Carbohydrate quality and human health. Lancet, 2019", url: "https://doi.org/10.1016/S0140-6736(18)31809-9" },
+      { text: "EFSA: Dietary exposure to inorganic arsenic in the European population", url: "https://www.efsa.europa.eu/de/efsajournal/pub/3597" },
+    ],
+  },
+  {
+    id: "tofu", name: "Tofu", also: "bean curd, soy", cat: "other", aisle: "Fridge & ferments", evidence: "Moderate", hue: 52,
+    summary: "A mild soy protein that takes on any flavor.",
+    benefits: [
+      "Eating tofu and other soy foods is linked with lower heart disease risk in large cohorts. Harvard experts note it helps most when it replaces red or processed meat.",
+      "A plant source of protein, and often calcium when set with calcium salts (check the label).",
+    ],
+    use: "Press firm tofu, then pan-fry, bake or crumble into scrambles. Blend silken tofu into sauces and smoothies.",
+    cautions: [
+      "Soy is a major allergen.",
+      "If you take thyroid medicine, ask your clinician about soy timing.",
+      "Packaged tofu is perishable. Keep it chilled and use it by the date.",
+    ],
+    find: "Refrigerated produce or deli area, and shelf-stable silken boxes in the Asian foods aisle.",
+    sources: [
+      { text: "Harvard T.H. Chan School of Public Health: Is tofu healthy?", url: "https://hsph.harvard.edu/news/is-tofu-healthy-yes-says-harvard-chan-expert/" },
+    ],
+  },
+  {
+    id: "tomatoes", name: "Tomatoes", cat: "produce", aisle: "Produce", evidence: "Weak", hue: 5,
+    summary: "Juicy and rich in lycopene, a red plant pigment.",
+    benefits: [
+      "Higher lycopene intake and blood levels are linked to lower stroke risk in observational studies. Trials mostly measure markers like blood pressure, not heart attacks.",
+      "A good source of vitamin C and potassium (USDA).",
+    ],
+    use: "Cooking with a little olive oil helps you absorb lycopene. Roast, simmer into sauce, or slice fresh.",
+    cautions: [
+      "Acidic, so can worsen reflux for some people.",
+      "Canned tomatoes and sauces can be high in sodium. Look for no-salt-added.",
+      "Rarely an allergen, and can cause mouth itching in people with pollen allergy.",
+    ],
+    find: "Produce section, or canned, jarred and paste year-round.",
+    sources: [
+      { text: "Lycopene and tomato and risk of cardiovascular diseases: a systematic review and meta-analysis (Northumbria University)", url: "https://researchportal.northumbria.ac.uk/en/publications/lycopene-and-tomato-and-risk-of-cardiovascular-diseases-a-systema/" },
+      { text: "USDA FoodData Central (nutrient values)", url: "https://fdc.nal.usda.gov/" },
+    ],
+  },
+  {
+    id: "cabbage", name: "Cabbage", cat: "produce", aisle: "Produce", evidence: "Moderate", hue: 120,
+    summary: "A sturdy, low-cost cruciferous vegetable with fiber and vitamins C and K.",
+    benefits: [
+      "Cruciferous vegetables are linked to lower risk of heart disease and early death in observational studies.",
+      "A source of fiber, vitamin C and vitamin K (USDA).",
+    ],
+    use: "Shred raw into slaw, sauté, braise, or ferment into sauerkraut. It keeps well in the fridge for weeks.",
+    cautions: [
+      "Rich in vitamin K. If you take warfarin, tell your clinician and keep your intake steady.",
+      "Can cause gas or bloating. Build up slowly.",
+      "Very large amounts of raw cruciferous vegetables may affect thyroid function in people with low iodine intake. Ask a clinician if you have a thyroid condition.",
+    ],
+    find: "Produce section all year. Choose heavy heads with tight leaves.",
+    sources: [
+      { text: "Aune D et al. Fruit and vegetable intake and risk of cardiovascular disease, cancer and all-cause mortality. Int J Epidemiol, 2017", url: "https://doi.org/10.1093/ije/dyw319" },
+      { text: "NIH Office of Dietary Supplements: Vitamin K fact sheet for consumers", url: "https://ods.od.nih.gov/factsheets/vitaminK-Consumer?print=1" },
+    ],
+  },
+  {
+    id: "frozen-vegetables", name: "Frozen vegetables", cat: "produce", aisle: "Other", evidence: "Moderate", hue: 150,
+    summary: "Picked and frozen quickly, so they keep well and are ready when you are.",
+    benefits: [
+      "Eating more vegetables is linked to lower heart disease and early death in large observational studies. Frozen ones count.",
+      "In one small, industry-funded study, frozen produce kept vitamin C, beta-carotene and folate about as well as fresh, and sometimes better than fresh kept at home for days.",
+    ],
+    use: "Add straight to soups, stir-fries, pasta and omelets. Steam briefly or roast from frozen.",
+    cautions: [
+      "Choose plain bags. Sauces and seasoning blends can add salt and fat.",
+      "Follow the pack directions. Some vegetables need cooking before eating.",
+      "Check the label for allergens in mixed or sauced products.",
+    ],
+    find: "Freezer aisle. Plain bags of broccoli, peas, spinach, mixed vegetables and more.",
+    sources: [
+      { text: "Li L et al. Selected nutrient analyses of fresh, fresh-stored, and frozen fruits and vegetables. J Food Compos Anal, 2017", url: "https://doi.org/10.1016/j.jfca.2017.02.002" },
+      { text: "Aune D et al. Fruit and vegetable intake and risk of cardiovascular disease, cancer and all-cause mortality. Int J Epidemiol, 2017", url: "https://doi.org/10.1093/ije/dyw319" },
+    ],
+  },
+  {
+    id: "apples", name: "Apples", cat: "produce", aisle: "Produce", evidence: "Moderate", hue: 355,
+    summary: "A portable fruit with fiber, including pectin, in the skin and flesh.",
+    benefits: [
+      "Apples and pears are linked with lower risk of cardiovascular disease and early death in a large meta-analysis of cohorts. That shows a link, not proof.",
+      "A source of fiber and vitamin C (USDA). Eat the skin for extra fiber.",
+    ],
+    use: "Slice with nut butter, bake with cinnamon, or add to oats and slaws.",
+    cautions: [
+      "Seeds are best not chewed in quantity.",
+      "Raw apple can cause mouth itching in people with birch pollen allergy.",
+      "Whole apple is a choking risk for young children. Slice or cook it.",
+    ],
+    find: "Produce section all year. Local apples are best in fall.",
+    sources: [
+      { text: "Aune D et al. Fruit and vegetable intake and risk of cardiovascular disease, cancer and all-cause mortality. Int J Epidemiol, 2017", url: "https://doi.org/10.1093/ije/dyw319" },
+      { text: "USDA FoodData Central (nutrient values)", url: "https://fdc.nal.usda.gov/" },
+    ],
+  },
+  {
+    id: "whole-grain-bread", name: "Whole-grain bread", cat: "grain", aisle: "Grains & beans", evidence: "Moderate", hue: 32,
+    summary: "A familiar way to eat more whole grains.",
+    benefits: [
+      "Higher whole-grain intake is linked to lower risk of heart disease, type 2 diabetes and early death in large reviews (Harvard, Lancet).",
+      "Gives more fiber than white bread when it is made mostly from whole grain.",
+    ],
+    use: "Look for 'whole wheat' or another whole grain as the first ingredient. Use for toast, sandwiches and soup dippers.",
+    cautions: [
+      "Contains gluten, and often wheat, soy or seeds that can be allergens.",
+      "Breads vary in salt and added sugar. Compare labels.",
+      "Colored or 'multigrain' breads are not always whole grain.",
+    ],
+    find: "Bakery or bread aisle. Check the ingredient list, not just the front of the pack.",
+    sources: [
+      { text: "Harvard T.H. Chan School of Public Health Nutrition Source: Whole grains", url: "https://nutritionsource.hsph.harvard.edu/what-should-you-eat/whole-grains" },
+      { text: "Reynolds A et al. Carbohydrate quality and human health. Lancet, 2019", url: "https://doi.org/10.1016/S0140-6736(18)31809-9" },
+    ],
+  },
+  {
+    id: "bananas", name: "Bananas", cat: "produce", aisle: "Produce", evidence: "Weak", hue: 52,
+    summary: "An easy, cheap fruit with potassium and fiber.",
+    benefits: [
+      "A good source of potassium, which supports heart, nerve, muscle and kidney function (NIH).",
+      "Green bananas have more resistant starch, which feeds gut bacteria. Human evidence for health effects is limited.",
+    ],
+    use: "Eat as is, slice onto oats, blend into smoothies, or freeze overripe ones for baking.",
+    cautions: [
+      "If you have kidney disease or take medicine that raises potassium, ask your clinician how much is right for you.",
+      "People with latex allergy may react to bananas.",
+    ],
+    find: "Produce section, sold by the bunch at every stage of ripeness.",
+    sources: [
+      { text: "NIH Office of Dietary Supplements: Potassium fact sheet for consumers", url: "https://ods.od.nih.gov/factsheets/potassium-Consumer/?print=1" },
+      { text: "USDA FoodData Central (nutrient values)", url: "https://fdc.nal.usda.gov/" },
+    ],
+  },
 ];
 
 export const pantryById = (id: string) => PANTRY.find((p) => p.id === id);
