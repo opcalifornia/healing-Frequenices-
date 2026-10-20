@@ -6,9 +6,10 @@ import { TiltCard } from "./motion";
 import { ScheduleButton } from "./CalendarUI";
 import { useNourish, useShoppingList } from "../store/nourish";
 import { flags, useAbout } from "../store/wellness";
+import { forGoals } from "./mealPlan";
 import { Icon } from "../components/Icon";
 
-type Filter = "all" | Extract<RecipeTag, "quick" | "fiber" | "protein" | "omega-3" | "gut">;
+type Filter = "all" | "mine" | Extract<RecipeTag, "quick" | "fiber" | "protein" | "omega-3" | "gut">;
 const FILTERS: Array<{ id: Filter; label: string }> = [
   { id: "all", label: "All" },
   { id: "quick", label: "Quick" },
@@ -90,11 +91,15 @@ function PlateLegend({ r }: { r: Recipe }) {
 export function Recipes() {
   const [filter, setFilter] = useState<Filter>("all");
   const [open, setOpen] = useState<Recipe | null>(null);
-  const shown = useMemo(() => (filter === "all" ? RECIPES : RECIPES.filter((r) => r.tags.includes(filter))), [filter]);
+  const goals = useAbout().goals;
+  const goalIds = useMemo(() => new Set(forGoals(RECIPES, goals).map((r) => r.id)), [goals]);
+  const hasGoalFilter = goalIds.size > 0 && goalIds.size < RECIPES.length;
+  const shown = useMemo(() => (filter === "all" ? RECIPES : filter === "mine" ? RECIPES.filter((r) => goalIds.has(r.id)) : RECIPES.filter((r) => r.tags.includes(filter))), [filter, goalIds]);
 
   return (
     <>
       <div className="recipes__chips" role="group" aria-label="Filter recipes">
+        {hasGoalFilter && <button className={`chip ${filter === "mine" ? "is-on" : ""}`} aria-pressed={filter === "mine"} onClick={() => setFilter("mine")}>For my goals</button>}
         {FILTERS.map((f) => (
           <button key={f.id} className={`chip ${filter === f.id ? "is-on" : ""}`} aria-pressed={filter === f.id} onClick={() => setFilter(f.id)}>
             {f.label}

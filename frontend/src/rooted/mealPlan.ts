@@ -1,4 +1,5 @@
 import { RECIPES, itemsToAdd, type Allergen, type Recipe } from "./recipes";
+import type { GoalId } from "../store/wellness";
 import { SLOTS, type DayPlan, type Slot } from "../store/mealPlan";
 
 /** Date keys use local time, like the rest of Nourish. */
@@ -61,10 +62,26 @@ export function shoppingFor(recipes: Recipe[], existingIds: Iterable<string>) {
   return out;
 }
 
+/**
+ * Recipes tagged for the goals someone chose. Only energy and sleep narrow the list: nearly every recipe suits "eat better",
+ * so that goal alone doesn't filter anything.
+ */
+export function forGoals(recipes: Recipe[], goals: GoalId[]): Recipe[] {
+  const want = goals.filter((g): g is "energy" | "sleep" => g === "energy" || g === "sleep");
+  if (!want.length) return recipes;
+  return recipes.filter((r) => want.some((g) => r.goals.includes(g)));
+}
+
 /** Which meals each recipe suits. A recipe with no entry suits lunch and dinner. */
 const FITS: Record<string, Slot[]> = {
   "overnight-oats": ["breakfast"],
   "yogurt-parfait": ["breakfast"],
+  "walnut-oatmeal": ["breakfast"],
+  "kefir-berry-smoothie": ["breakfast"],
+  "spinach-omelet": ["breakfast", "lunch"],
+  "chickpea-avocado-toast": ["breakfast", "lunch"],
+  "sardine-toast": ["lunch"],
+  "miso-salmon-broccoli": ["dinner"],
   "sheet-pan-salmon": ["dinner"],
   "ginger-turmeric-dal": ["dinner", "lunch"],
 };
@@ -74,14 +91,15 @@ export const fitsSlot = (r: Recipe, slot: Slot) => (FITS[r.id] ?? ["lunch", "din
  * Fill the empty slots (lunch and dinner by default) with recipes that suit the meal, never overwriting what is there.
  * Recipes not yet used this week come first, then they cycle in a stable order from `offset`, so asking again gives a new mix.
  */
-export function suggestFill(plan: Record<string, DayPlan>, days: string[], pool: Recipe[], offset = 0, slots: Slot[] = ["lunch", "dinner"]) {
+export function suggestFill(plan: Record<string, DayPlan>, days: string[], pool: Recipe[], offset = 0, slots: Slot[] = ["lunch", "dinner"], prefer?: Set<string>) {
   const used = new Set(plannedRecipes(plan, days).map((r) => r.id));
   const changes: Array<{ day: string; slot: Slot; entry: { recipeId: string } }> = [];
   const next: Record<string, number> = {};
   const orders: Record<string, Recipe[]> = {};
   for (const slot of slots) {
     const fit = pool.filter((r) => fitsSlot(r, slot));
-    orders[slot] = [...fit.filter((r) => !used.has(r.id)), ...fit.filter((r) => used.has(r.id))];
+    const first = prefer?.size ? [...fit.filter((r) => prefer.has(r.id)), ...fit.filter((r) => !prefer.has(r.id))] : fit;
+    orders[slot] = [...first.filter((r) => !used.has(r.id)), ...first.filter((r) => used.has(r.id))];
     next[slot] = offset;
   }
   for (const day of days) {
