@@ -4,7 +4,7 @@ import { CAT_LABEL, PANTRY, type PantryCat, type PantryItem } from "./pantryCont
 import { PantryArt } from "./PantryArt";
 import { Evidence, Sheet, SourceLink, useToast } from "./ui";
 import { TiltCard } from "./motion";
-import { groupByAisle, listToText, useNourish, useShoppingList, type ListItem } from "../store/nourish";
+import { groupByAisle, groupByDish, listToText, mergedByAisle, useNourish, useShoppingList, type ListItem } from "../store/nourish";
 import { Icon } from "../components/Icon";
 import { APP_NAME } from "../brand";
 import { saveTextFile } from "./download";
@@ -164,7 +164,11 @@ function download(name: string, text: string) {
 
 export function ShoppingList({ onBrowse }: { onBrowse?: () => void }) {
   const list = useShoppingList();
-  const { toggleItem, removeItem, setQty, clearChecked, clearList, addItem } = useNourish();
+  const { toggleItem, removeItem, setQty, clearChecked, clearList, addItem, removeDish, toggleMany, removeMany } = useNourish();
+  const hasDishes = list.some((i) => i.dish);
+  const [view, setView] = useState<"dish" | "aisle">("dish");
+  const mode = hasDishes ? view : "aisle";
+  const { dishes, loose } = groupByDish(list);
   const [custom, setCustom] = useState("");
   const [note, setNote] = useState<string | null>(null);
   const groups = groupByAisle(list);
@@ -218,19 +222,76 @@ export function ShoppingList({ onBrowse }: { onBrowse?: () => void }) {
         <button className="btn btn--secondary btn--small" type="submit">Add</button>
       </form>
 
-      {groups.map(([aisle, items]) => (
+      {hasDishes && (
+        <div className="slist__view recipes__chips" role="group" aria-label="How to group the list">
+          <button className={`chip ${mode === "dish" ? "is-on" : ""}`} aria-pressed={mode === "dish"} onClick={() => setView("dish")}>By dish</button>
+          <button className={`chip ${mode === "aisle" ? "is-on" : ""}`} aria-pressed={mode === "aisle"} onClick={() => setView("aisle")}>By aisle (for the store)</button>
+        </div>
+      )}
+
+      {mode === "dish" && dishes.map((d) => {
+        const got = d.items.filter((i) => i.checked).length;
+        return (
+          <section key={d.id} className="slist__group slist__dish">
+            <h3>
+              <span>For: {d.title}</span>
+              <small>{got} of {d.items.length}</small>
+              <button className="icon-btn slist__rm" onClick={() => removeDish(d.id)} aria-label={`Remove all ingredients for ${d.title}`}><Icon name="trash" size={18} /></button>
+            </h3>
+            <ul>
+              {d.items.map((i) => (
+                <li key={i.id} className={i.checked ? "is-done" : ""}>
+                  <button className="slist__check" role="checkbox" aria-checked={i.checked} onClick={() => toggleItem(i.id)} aria-label={`${i.name} for ${d.title}: ${i.checked ? "have it" : "to get"}`}>
+                    {i.checked && <Icon name="check" size={16} />}
+                  </button>
+                  <span className="slist__name">{i.name}</span>
+                  <input className="slist__qty" value={i.qty ?? ""} onChange={(e) => setQty(i.id, e.target.value)} placeholder="qty" aria-label={`Quantity of ${i.name} for ${d.title}`} />
+                  <button className="icon-btn slist__rm" onClick={() => removeItem(i.id)} aria-label={`Remove ${i.name} from ${d.title}`}><Icon name="trash" size={18} /></button>
+                </li>
+              ))}
+            </ul>
+          </section>
+        );
+      })}
+
+      {mode === "dish" && loose.length > 0 && (
+        <>
+          {dishes.length > 0 && <h3 className="slist__otherhead">Other items</h3>}
+          {groupByAisle(loose).map(([aisle, items]) => (
+            <section key={aisle} className="slist__group">
+              <h3>{aisle}</h3>
+              <ul>
+                {items.map((i) => (
+                  <li key={i.id} className={i.checked ? "is-done" : ""}>
+                    <button className="slist__check" role="checkbox" aria-checked={i.checked} onClick={() => toggleItem(i.id)} aria-label={`${i.name}: ${i.checked ? "in the cart" : "to get"}`}>{i.checked && <Icon name="check" size={16} />}</button>
+                    <span className="slist__name">{i.name}</span>
+                    <input className="slist__qty" value={i.qty ?? ""} onChange={(e) => setQty(i.id, e.target.value)} placeholder="qty" aria-label={`Quantity of ${i.name}`} />
+                    <button className="icon-btn slist__rm" onClick={() => removeItem(i.id)} aria-label={`Remove ${i.name}`}><Icon name="trash" size={18} /></button>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          ))}
+        </>
+      )}
+
+      {mode === "aisle" && (hasDishes ? mergedByAisle(list) : groups.map(([aisle, items]) => [aisle, items.map((i) => ({ key: i.id, name: i.name, qty: i.qty ?? "", checked: i.checked, ids: [i.id], forDishes: [] as string[] }))] as const)).map(([aisle, items]) => (
         <section key={aisle} className="slist__group">
           <h3>{aisle}</h3>
           <ul>
             <AnimatePresence initial={false}>
               {items.map((i) => (
-                <motion.li key={i.id} layout initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 30, height: 0 }} className={i.checked ? "is-done" : ""}>
-                  <button className="slist__check" role="checkbox" aria-checked={i.checked} onClick={() => toggleItem(i.id)} aria-label={`${i.name}: ${i.checked ? "in the cart" : "to get"}`}>
+                <motion.li key={i.key} layout initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 30, height: 0 }} className={i.checked ? "is-done" : ""}>
+                  <button className="slist__check" role="checkbox" aria-checked={i.checked} onClick={() => toggleMany(i.ids)} aria-label={`${i.name}: ${i.checked ? "in the cart" : "to get"}`}>
                     {i.checked && <Icon name="check" size={16} />}
                   </button>
-                  <span className="slist__name">{i.name}</span>
-                  <input className="slist__qty" value={i.qty ?? ""} onChange={(e) => setQty(i.id, e.target.value)} placeholder="qty" aria-label={`Quantity of ${i.name}`} />
-                  <button className="icon-btn slist__rm" onClick={() => removeItem(i.id)} aria-label={`Remove ${i.name}`}>
+                  <span className="slist__name">{i.name}{i.forDishes.length > 0 && <small className="slist__for"> for {i.forDishes.join(", ")}</small>}</span>
+                  {i.ids.length === 1 ? (
+                    <input className="slist__qty" value={i.qty} onChange={(e) => setQty(i.ids[0], e.target.value)} placeholder="qty" aria-label={`Quantity of ${i.name}`} />
+                  ) : (
+                    <span className="slist__qty slist__qty--multi">{i.qty}</span>
+                  )}
+                  <button className="icon-btn slist__rm" onClick={() => removeMany(i.ids)} aria-label={`Remove ${i.name}`}>
                     <Icon name="trash" size={18} />
                   </button>
                 </motion.li>

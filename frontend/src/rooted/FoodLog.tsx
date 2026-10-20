@@ -42,13 +42,13 @@ export function FoodLogToday() {
 
   return (
     <div className="fl">
-      <div className="mp__bar">
-        <button className="mp__nav" onClick={() => setBack((b) => Math.min(6, b + 1))} disabled={back >= 6} aria-label="Earlier day"><Icon name="chevronLeft" size={20} /></button>
-        <div className="mp__week">
+      <div className="mpl__bar">
+        <button className="mpl__nav" onClick={() => setBack((b) => Math.min(6, b + 1))} disabled={back >= 6} aria-label="Earlier day"><Icon name="chevronLeft" size={20} /></button>
+        <div className="mpl__week">
           <strong>{heading}</strong>
           <small>{dayDate.toLocaleDateString(undefined, { month: "short", day: "numeric" })} · {mealsLogged(log)} meal{mealsLogged(log) === 1 ? "" : "s"} logged</small>
         </div>
-        <button className="mp__nav" onClick={() => setBack((b) => Math.max(0, b - 1))} disabled={back === 0} aria-label="Later day"><Icon name="chevronRight" size={20} /></button>
+        <button className="mpl__nav" onClick={() => setBack((b) => Math.max(0, b - 1))} disabled={back === 0} aria-label="Later day"><Icon name="chevronRight" size={20} /></button>
       </div>
 
       <ul className="fl__meals">
@@ -81,7 +81,7 @@ export function FoodLogToday() {
 
       <div className="r-card fl__groups">
         <h3>Which food groups showed up?</h3>
-        <p className="mp__hint">Tap what you've had. It's a nudge toward variety, not something to complete.</p>
+        <p className="mpl__hint">Tap what you've had. It's a nudge toward variety, not something to complete.</p>
         <div className="recipes__chips fl__chips" role="group" aria-label="Food groups">
           {FOOD_GROUPS.map((g) => (
             <button key={g.id} className={`chip ${log.groups?.includes(g.id) ? "is-on" : ""}`} aria-pressed={!!log.groups?.includes(g.id)} onClick={() => toggleGroup(day, g.id)}>{g.emoji} {g.label}</button>
@@ -103,7 +103,7 @@ export function FoodLogToday() {
               {log.plants!.map((p) => <button key={p} className="chip is-on" onClick={() => removePlant(day, p)} aria-label={`Remove ${p}`}>{p} ✕</button>)}
             </div>
           )}
-          <p className="mp__hint">Counts each plant once across the last seven days. Fruit, vegetables, grains, beans, nuts, seeds, herbs and spices all count.</p>
+          <p className="mpl__hint">Counts each plant once across the last seven days. Fruit, vegetables, grains, beans, nuts, seeds, herbs and spices all count.</p>
           <details className="fl__why">
             <summary>Why variety? <Evidence s={PLANT_SOURCES.evidence} short /></summary>
             <p>{PLANT_SOURCES.summary}</p>
@@ -127,7 +127,7 @@ export function FoodLogToday() {
               );
             })}
           </ul>
-          <p className="mp__hint">Taller bars mean more food groups that day. Quiet days are normal.</p>
+          <p className="mpl__hint">Taller bars mean more food groups that day. Quiet days are normal.</p>
         </div>
       )}
       {gentle && <p className="for-you"><span><strong>Based on your profile:</strong> this log leaves out counts and weekly charts. It's just a place to jot down what you ate, and skipping it is always fine.</span></p>}

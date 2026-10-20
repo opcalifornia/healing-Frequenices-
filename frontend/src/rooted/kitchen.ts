@@ -1,4 +1,5 @@
-import { RECIPES, toListItem, type Recipe } from "./recipes";
+import { toListItem, type Recipe } from "./recipes";
+import { ALL_RECIPES } from "./allRecipes";
 
 export interface KitchenItem {
   id: string;
@@ -10,7 +11,7 @@ export interface KitchenItem {
 export const plainName = (name: string) => name.replace(/\(.*?\)/g, "").split(",")[0].replace(/\s+/g, " ").trim();
 
 /** Every ingredient the recipes use, once each, so someone can tick what they have at home. */
-export function kitchenItems(recipes: Recipe[] = RECIPES): KitchenItem[] {
+export function kitchenItems(recipes: Recipe[] = ALL_RECIPES): KitchenItem[] {
   const seen = new Map<string, KitchenItem>();
   for (const r of recipes) for (const i of r.ingredients) {
     const li = toListItem(i);
@@ -35,10 +36,10 @@ export function statusFor(r: Recipe, have: Iterable<string>): RecipeStatus {
 }
 
 /** Recipes ordered by how close they are to cookable: fewest missing first, then the quicker one. */
-export function whatICanCook(have: Iterable<string>, recipes: Recipe[] = RECIPES): RecipeStatus[] {
+export function whatICanCook(have: Iterable<string>, recipes: Recipe[] = ALL_RECIPES): RecipeStatus[] {
   const owned = new Set(have);
   return recipes.map((r) => statusFor(r, owned)).sort((a, b) => a.missing.length - b.missing.length || a.recipe.minutes - b.recipe.minutes || a.recipe.title.localeCompare(b.recipe.title));
 }
 
 /** Recipes you could cook now, or with at most `allow` missing items. */
-export const nearlyReady = (have: Iterable<string>, allow = 1, recipes: Recipe[] = RECIPES) => whatICanCook(have, recipes).filter((s) => s.missing.length <= allow);
+export const nearlyReady = (have: Iterable<string>, allow = 1, recipes: Recipe[] = ALL_RECIPES) => whatICanCook(have, recipes).filter((s) => s.missing.length <= allow);

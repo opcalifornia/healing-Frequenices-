@@ -1,14 +1,14 @@
 import { useId, useMemo, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { ALLERGEN_LABEL, RECIPES, TAG_LABEL, hasVitaminKFlag, itemsToAdd, type Recipe, type RecipeTag } from "./recipes";
+import { ALLERGEN_LABEL, RECIPES, TAG_LABEL, dishListItems, hasVitaminKFlag, type Recipe, type RecipeTag } from "./recipes";
 import { Evidence, Sheet, SourceLink, useToast } from "./ui";
 import { TiltCard } from "./motion";
 import { ScheduleButton } from "./CalendarUI";
-import { useNourish, useShoppingList } from "../store/nourish";
+import { useKitchen, useNourish, useShoppingList } from "../store/nourish";
 import { flags, useAbout } from "../store/wellness";
 import { forGoals } from "./mealPlan";
 import { statusFor } from "./kitchen";
-import { useKitchen } from "../store/nourish";
+
 import { Icon } from "../components/Icon";
 
 type Filter = "all" | "mine" | Extract<RecipeTag, "quick" | "fiber" | "protein" | "omega-3" | "gut">;
@@ -140,19 +140,23 @@ export function Recipes() {
 
 export function RecipeDetail({ r }: { r: Recipe }) {
   const list = useShoppingList();
-  const addItem = useNourish((s) => s.addItem);
+  const addItems = useNourish((s) => s.addItems);
+  const removeDish = useNourish((s) => s.removeDish);
+  const atHome = useKitchen();
   const toast = useToast();
   const about = useAbout();
   const f = flags(about.considerations);
   const onThinners = about.considerations.includes("thinners");
   const [have, setHave] = useState<Set<number>>(new Set());
   const onList = useMemo(() => new Set(list.map((i) => i.id)), [list]);
-  const pending = itemsToAdd(r, onList);
+  const pending = dishListItems(r, onList, atHome);
+  const onListForDish = list.some((i) => i.dish?.id === r.id);
 
   const addAll = () => {
-    const items = itemsToAdd(r, onList);
-    items.forEach((i) => addItem(i));
-    toast.show(items.length ? `Added ${items.length} item${items.length === 1 ? "" : "s"}` : "Everything's already on your list");
+    const items = dishListItems(r, onList, atHome);
+    addItems(items);
+    const owned = items.filter((i) => i.checked).length;
+    toast.show(items.length ? `Added ${items.length} item${items.length === 1 ? "" : "s"} under "${r.title}"${owned ? `. ${owned} you already have are ticked` : ""}` : "Already on your list");
   };
   const toggleHave = (i: number) =>
     setHave((s) => {
@@ -177,8 +181,9 @@ export function RecipeDetail({ r }: { r: Recipe }) {
       <div className="rdetail__body">
         <div className="rdetail__actions">
           <button className="btn btn--primary btn--small" onClick={addAll} disabled={pending.length === 0}>
-            <Icon name={pending.length ? "plus" : "check"} size={18} /> {pending.length ? "Add ingredients to my list" : "All on your list"}
+            <Icon name={pending.length ? "plus" : "check"} size={18} /> {pending.length ? "Add all ingredients to my list" : "On your list under this recipe"}
           </button>
+          {onListForDish && <button className="btn btn--secondary btn--small" onClick={() => { removeDish(r.id); toast.show("Removed from your list"); }}>Remove from list</button>}
           <ScheduleButton
             draft={{ title: `Cook: ${r.title}`, kind: "nourish", minutes: r.minutes, repeat: "none", to: "/nourish#recipes", time: "18:00" }}
             label="Plan to cook it"
@@ -196,7 +201,9 @@ export function RecipeDetail({ r }: { r: Recipe }) {
         )}
 
         <section>
+          {r.note && <p className="rdetail__note"><strong>About this version:</strong> {r.note}</p>}
           <h3>Ingredients</h3>
+          <p className="rdetail__hint">Adding puts every ingredient on your list under this recipe's name, so you know what each item is for.</p>
           <ul className="rdetail__ing">
             {r.ingredients.map((ing, i) => (
               <li key={i}>

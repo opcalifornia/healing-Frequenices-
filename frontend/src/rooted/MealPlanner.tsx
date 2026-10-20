@@ -2,11 +2,12 @@ import { useMemo, useState } from "react";
 import { Icon } from "../components/Icon";
 import { Sheet, useToast } from "./ui";
 import { ScheduleButton } from "./CalendarUI";
-import { ALLERGEN_LABEL, RECIPES, TAG_LABEL, hasVitaminKFlag, type Allergen, type Recipe, type RecipeTag } from "./recipes";
+import { ALLERGEN_LABEL, TAG_LABEL, dishListItems, hasVitaminKFlag, type Allergen, type Recipe, type RecipeTag } from "./recipes";
 import { RecipeDetail, RecipePlate } from "./Recipes";
-import { fitsSlot, forGoals, keyOf, plannedRecipes, recipeById, shoppingFor, suggestFill, suitable, weekDays, weekPlate, weekStart, type Diet } from "./mealPlan";
+import { ALL_RECIPES } from "./allRecipes";
+import { fitsSlot, forGoals, keyOf, plannedRecipes, recipeById, suggestFill, suitable, weekDays, weekPlate, weekStart, type Diet } from "./mealPlan";
 import { SLOTS, SLOT_LABEL, useMealPlan, useMyPlan, type MealEntry, type Slot } from "../store/mealPlan";
-import { groupByAisle, useKitchen, useNourish, useShoppingList } from "../store/nourish";
+import { useKitchen, useNourish, useShoppingList } from "../store/nourish";
 import { nearlyReady } from "./kitchen";
 import { useAbout } from "../store/wellness";
 
@@ -41,7 +42,7 @@ export function MealPlanner() {
   const plan = useMyPlan();
   const { setMeal, setMany, clearDays } = useMealPlan.getState();
   const list = useShoppingList();
-  const addItem = useNourish((s) => s.addItem);
+  const addItems = useNourish((s) => s.addItems);
   const about = useAbout();
   const toast = useToast();
 
@@ -55,8 +56,8 @@ export function MealPlanner() {
   const [query, setQuery] = useState("");
   const [note, setNote] = useState("");
   const [offset, setOffset] = useState(0);
-  const goalRecipes = useMemo(() => new Set(forGoals(RECIPES, about.goals).map((r) => r.id)), [about.goals]);
-  const hasGoalFilter = goalRecipes.size > 0 && goalRecipes.size < RECIPES.length;
+  const goalRecipes = useMemo(() => new Set(forGoals(ALL_RECIPES, about.goals).map((r) => r.id)), [about.goals]);
+  const hasGoalFilter = goalRecipes.size > 0 && goalRecipes.size < ALL_RECIPES.length;
   const [mine, setMine] = useState(true);
   const have = useKitchen();
   const readySet = useMemo(() => new Set(nearlyReady(have, 1).map((s) => s.recipe.id)), [have]);
@@ -72,7 +73,12 @@ export function MealPlanner() {
   const plate = weekPlate(planned);
   const tagCount = (t: RecipeTag) => planned.filter((r) => r.tags.includes(t)).length;
   const onList = useMemo(() => list.map((i) => i.id), [list]);
-  const needed = useMemo(() => shoppingFor(planned, [...onList, ...have]), [planned, onList, have]);
+  // One group per planned dish, in the order planned. A food two dishes need appears under each, so every item says what it is for.
+  const byDish = useMemo(() => {
+    const seen = new Set<string>();
+    return planned.filter((r) => (seen.has(r.id) ? false : (seen.add(r.id), true))).map((r) => ({ recipe: r, items: dishListItems(r, onList, have) })).filter((d) => d.items.length > 0);
+  }, [planned, onList, have]);
+  const needed = useMemo(() => byDish.flatMap((d) => d.items), [byDish]);
   const shown = needed.filter((i) => !skip.has(i.id));
   const onThinners = about.considerations.includes("thinners");
 
@@ -110,10 +116,10 @@ export function MealPlanner() {
   };
 
   const addToList = () => {
-    shown.forEach((i) => addItem(i));
+    addItems(shown);
     setShop(false);
     setSkip(new Set());
-    toast.show(shown.length ? `Added ${shown.length} item${shown.length === 1 ? "" : "s"} to your list` : "Nothing new to add");
+    toast.show(shown.length ? `Added ${shown.length} item${shown.length === 1 ? "" : "s"} for ${new Set(shown.map((i) => i.dish.id)).size} dish${new Set(shown.map((i) => i.dish.id)).size === 1 ? "" : "es"}` : "Nothing new to add");
   };
 
   const share = async () => {
@@ -131,33 +137,33 @@ export function MealPlanner() {
 
   const slotNow = picker?.slot;
   const choices = pool.filter((r) => (filter === "all" || (filter === "mine" ? goalRecipes.has(r.id) : r.tags.includes(filter))) && (!query.trim() || r.title.toLowerCase().includes(query.trim().toLowerCase()) || r.blurb.toLowerCase().includes(query.trim().toLowerCase()))).sort((a, b) => (slotNow ? Number(fitsSlot(b, slotNow)) - Number(fitsSlot(a, slotNow)) : 0));
-  const hidden = RECIPES.length - pool.length;
+  const hidden = ALL_RECIPES.length - pool.length;
   const current = picker ? plan[picker.day]?.[picker.slot] : undefined;
 
   return (
-    <div className="mp">
-      <div className="mp__bar">
-        <button className="mp__nav" onClick={() => move(-1)} aria-label="Previous week"><Icon name="chevronLeft" size={20} /></button>
-        <div className="mp__week">
+    <div className="mpl">
+      <div className="mpl__bar">
+        <button className="mpl__nav" onClick={() => move(-1)} aria-label="Previous week"><Icon name="chevronLeft" size={20} /></button>
+        <div className="mpl__week">
           <strong>{dateLabel(days[0])} to {dateLabel(days[6])}</strong>
           <small>{thisWeek ? "This week" : "Tap This week to come back"}</small>
         </div>
-        <button className="mp__nav" onClick={() => move(1)} aria-label="Next week"><Icon name="chevronRight" size={20} /></button>
+        <button className="mpl__nav" onClick={() => move(1)} aria-label="Next week"><Icon name="chevronRight" size={20} /></button>
         {!thisWeek && <button className="btn btn--secondary btn--small" onClick={() => setStart(weekStart(new Date()))}>This week</button>}
       </div>
 
-      <details className="mp__diet">
+      <details className="mpl__diet">
         <summary>Food preferences{diet.vegan || diet.vegetarian || diet.avoid?.length ? " (on)" : ""}</summary>
-        <p className="mp__hint">Suggestions and the recipe picker follow these. Nothing is saved to your account.</p>
+        <p className="mpl__hint">Suggestions and the recipe picker follow these. Nothing is saved to your account.</p>
         <div className="recipes__chips" role="group" aria-label="Diet">
           <button className={`chip ${diet.vegetarian ? "is-on" : ""}`} aria-pressed={!!diet.vegetarian} onClick={() => toggleDiet("vegetarian")}>Vegetarian</button>
           <button className={`chip ${diet.vegan ? "is-on" : ""}`} aria-pressed={!!diet.vegan} onClick={() => toggleDiet("vegan")}>Vegan</button>
         </div>
-        <p className="mp__hint">Leave out recipes with:</p>
+        <p className="mpl__hint">Leave out recipes with:</p>
         <div className="recipes__chips" role="group" aria-label="Avoid allergens">
           {ALLERGENS.map((a) => <button key={a} className={`chip ${diet.avoid?.includes(a) ? "is-on" : ""}`} aria-pressed={!!diet.avoid?.includes(a)} onClick={() => toggleAvoid(a)}>{ALLERGEN_LABEL[a]}</button>)}
         </div>
-        {hidden > 0 && <p className="mp__hint">{hidden} of {RECIPES.length} recipes are hidden by these choices.</p>}
+        {hidden > 0 && <p className="mpl__hint">{hidden} of {ALL_RECIPES.length} recipes are hidden by these choices.</p>}
         {readySet.size > 0 && (
           <div className="recipes__chips" role="group" aria-label="Your kitchen">
             <button className={`chip ${useHave ? "is-on" : ""}`} aria-pressed={useHave} onClick={() => setUseHave((u) => !u)}>Use what I have first ({readySet.size} recipe{readySet.size === 1 ? "" : "s"} nearly ready)</button>
@@ -170,7 +176,7 @@ export function MealPlanner() {
         )}
       </details>
 
-      <div className="mp__actions">
+      <div className="mpl__actions">
         <button className="btn btn--primary btn--small" onClick={() => fill()}><Icon name="sparkle" size={18} /> Fill my lunches and dinners</button>
         <button className="btn btn--secondary btn--small" onClick={() => fill(["breakfast"])}>Fill breakfasts</button>
         <button className="btn btn--secondary btn--small" onClick={copyLastWeek}>Copy last week</button>
@@ -178,16 +184,16 @@ export function MealPlanner() {
         <button className="btn btn--secondary btn--small" onClick={() => { clearDays(keys); toast.show("Week cleared"); }} disabled={mealCount === 0}>Clear week</button>
       </div>
 
-      <div className="mp__actions mp__remind">
+      <div className="mpl__actions mpl__remind">
         <ScheduleButton draft={{ title: "Plan next week's meals", kind: "nourish", minutes: 10, repeat: "weekly", to: "/nourish#planner", time: "17:00" }} label="Remind me to plan each week" />
         <ScheduleButton draft={{ title: "Grocery run", kind: "nourish", minutes: 45, repeat: "weekly", to: "/nourish#pantry", time: "10:00" }} label="Remind me to shop" />
       </div>
 
-      <ol className="mp__days">
+      <ol className="mpl__days">
         {days.map((d, i) => {
           const k = keys[i];
           return (
-            <li key={k} className={`mp__day ${k === today ? "is-today" : ""} ${k < today ? "is-past" : ""}`}>
+            <li key={k} className={`mpl__day ${k === today ? "is-today" : ""} ${k < today ? "is-past" : ""}`}>
               <header><strong>{dayLabel(d)}</strong><span>{dateLabel(d)}{k === today ? " · today" : ""}</span></header>
               <ul>
                 {SLOTS.map((s) => {
@@ -195,9 +201,9 @@ export function MealPlanner() {
                   const r = recipeById(e?.recipeId);
                   return (
                     <li key={s}>
-                      <button className={`mp__slot ${e ? "is-set" : ""}`} onClick={() => { setPicker({ day: k, slot: s }); setFilter("all"); setQuery(""); }} aria-label={`${dayLabel(d)} ${SLOT_LABEL[s]}: ${e ? r?.title ?? e.text : "empty. Tap to add a meal"}`}>
+                      <button className={`mpl__slot ${e ? "is-set" : ""}`} onClick={() => { setPicker({ day: k, slot: s }); setFilter("all"); setQuery(""); }} aria-label={`${dayLabel(d)} ${SLOT_LABEL[s]}: ${e ? r?.title ?? e.text : "empty. Tap to add a meal"}`}>
                         <em>{SLOT_LABEL[s]}</em>
-                        {r ? <span className="mp__meal"><RecipePlate r={r} size={28} /><b>{r.title}</b><small>{r.minutes} min</small></span> : e?.text ? <span className="mp__meal mp__meal--note"><b>{e.text}</b></span> : <span className="mp__add"><Icon name="plus" size={16} /> Add</span>}
+                        {r ? <span className="mpl__meal"><RecipePlate r={r} size={28} /><b>{r.title}</b><small>{r.minutes} min</small></span> : e?.text ? <span className="mpl__meal mpl__meal--note"><b>{e.text}</b></span> : <span className="mpl__add"><Icon name="plus" size={16} /> Add</span>}
                       </button>
                     </li>
                   );
@@ -208,19 +214,19 @@ export function MealPlanner() {
         })}
       </ol>
 
-      <div className="mp__summary r-card">
+      <div className="mpl__summary r-card">
         <h3>Your week at a glance</h3>
-        {mealCount === 0 ? <p className="mp__hint">Plan a few meals and the summary appears here: how balanced the plates look, and what to buy.</p> : (
+        {mealCount === 0 ? <p className="mpl__hint">Plan a few meals and the summary appears here: how balanced the plates look, and what to buy.</p> : (
           <>
             <p>{mealCount} meal{mealCount === 1 ? "" : "s"} planned, {planned.length} from recipes.</p>
             {plate && (
-              <div className="mp__plate" aria-label="Average rough plate split across your planned recipes">
-                <div className="mp__platebar">{(Object.keys(PLATE) as Array<keyof typeof PLATE>).map((k) => <i key={k} style={{ width: `${plate[k] * 100}%`, background: PLATE[k][1] }} />)}</div>
+              <div className="mpl__plate" aria-label="Average rough plate split across your planned recipes">
+                <div className="mpl__platebar">{(Object.keys(PLATE) as Array<keyof typeof PLATE>).map((k) => <i key={k} style={{ width: `${plate[k] * 100}%`, background: PLATE[k][1] }} />)}</div>
                 <ul className="rplate__legend">{(Object.keys(PLATE) as Array<keyof typeof PLATE>).map((k) => <li key={k}><i style={{ background: PLATE[k][1] }} />{PLATE[k][0]}<b>~{Math.round(plate[k] * 100)}%</b></li>)}</ul>
-                <p className="mp__hint">An average of the recipes' rough splits, next to the half-veg plate model on this page. It's a guide, not a score.</p>
+                <p className="mpl__hint">An average of the recipes' rough splits, next to the half-veg plate model on this page. It's a guide, not a score.</p>
               </div>
             )}
-            <ul className="mp__tags">
+            <ul className="mpl__tags">
               {(["fiber", "omega-3", "gut", "protein"] as RecipeTag[]).map((t) => <li key={t}><b>{tagCount(t)}</b> {TAG_LABEL[t].toLowerCase()}</li>)}
             </ul>
           </>
@@ -233,7 +239,7 @@ export function MealPlanner() {
         )}
       </div>
 
-      <div className="mp__shop r-card">
+      <div className="mpl__shop r-card">
         <h3>Shopping for the week</h3>
         <p>{planned.length === 0 ? "Plan some recipes and the ingredients you need appear here." : needed.length === 0 ? "Everything for this week's recipes is already on your list or in your kitchen." : `${needed.length} item${needed.length === 1 ? "" : "s"} to add for ${new Set(planned.map((r) => r.id)).size} recipe${new Set(planned.map((r) => r.id)).size === 1 ? "" : "s"}. Anything on your list or in your kitchen is left out.`}</p>
         <button className="btn btn--primary" onClick={() => { setSkip(new Set()); setShop(true); }} disabled={needed.length === 0}>Review and add to my list</button>
@@ -242,18 +248,18 @@ export function MealPlanner() {
       <Sheet open={shop} onClose={() => setShop(false)} label="This week's shopping">
         <div className="slist">
           <h2>This week's shopping</h2>
-          <p className="mp__hint">Untick what you already have at home.</p>
-          {groupByAisle(needed.map((i) => ({ ...i, checked: false }))).map(([aisle, items]) => (
-            <section key={aisle}>
-              <h3 className="mp__aisle">{aisle}</h3>
-              <ul className="mp__shoplist">
+          <p className="mpl__hint">Each dish keeps its own ingredients, so you always know what an item is for. Untick anything you don't want to add.</p>
+          {byDish.map(({ recipe, items }) => (
+            <section key={recipe.id}>
+              <h3 className="mpl__aisle">For: {recipe.title}</h3>
+              <ul className="mpl__shoplist">
                 {items.map((i) => {
                   const on = !skip.has(i.id);
                   return (
                     <li key={i.id}>
                       <button className={`rdetail__check ${on ? "" : "is-done"}`} aria-pressed={on} onClick={() => setSkip((s) => { const n = new Set(s); if (n.has(i.id)) n.delete(i.id); else n.add(i.id); return n; })}>
                         <span className="slist__check">{on && <Icon name="check" size={16} />}</span>
-                        <span className="rdetail__name">{i.name}</span>
+                        <span className="rdetail__name">{i.name}{i.checked ? " (you have it)" : ""}</span>
                         <span className="rdetail__amt">{i.qty}</span>
                       </button>
                     </li>
@@ -268,11 +274,11 @@ export function MealPlanner() {
 
       <Sheet open={!!picker} onClose={() => setPicker(null)} label="Pick a meal">
         {picker && (
-          <div className="slist mp__picker">
+          <div className="slist mpl__picker">
             <h2>{SLOT_LABEL[picker.slot]}, {dayLabel(new Date(`${picker.day}T12:00:00`))} {dateLabel(new Date(`${picker.day}T12:00:00`))}</h2>
             {current && <button className="btn btn--secondary btn--small" onClick={() => choose(null)}><Icon name="trash" size={16} /> Remove this meal</button>}
-            <form className="mp__note" onSubmit={(e) => { e.preventDefault(); if (note.trim()) choose({ text: note.trim().slice(0, 60) }); }}>
-              <label htmlFor="mp-note" className="mp__hint">Or write a note</label>
+            <form className="mpl__note" onSubmit={(e) => { e.preventDefault(); if (note.trim()) choose({ text: note.trim().slice(0, 60) }); }}>
+              <label htmlFor="mp-note" className="mpl__hint">Or write a note</label>
               <div>
                 <input id="mp-note" value={note} onChange={(e) => setNote(e.target.value)} placeholder="Leftovers, eating out…" maxLength={60} autoComplete="off" />
                 <button className="btn btn--secondary btn--small" type="submit" disabled={!note.trim()}>Add</button>
@@ -280,23 +286,23 @@ export function MealPlanner() {
               <div className="recipes__chips">{QUICK_NOTES.map((n) => <button type="button" key={n} className="chip" onClick={() => choose({ text: n })}>{n}</button>)}</div>
             </form>
             <label htmlFor="mp-search" className="visually-hidden">Search recipes</label>
-            <input id="mp-search" className="mp__search" type="search" placeholder="Search recipes" value={query} onChange={(e) => setQuery(e.target.value)} autoComplete="off" />
+            <input id="mp-search" className="mpl__search" type="search" placeholder="Search recipes" value={query} onChange={(e) => setQuery(e.target.value)} autoComplete="off" />
             <div className="recipes__chips" role="group" aria-label="Filter recipes">
               {hasGoalFilter && <button className={`chip ${filter === "mine" ? "is-on" : ""}`} aria-pressed={filter === "mine"} onClick={() => setFilter("mine")}>For my goals</button>}
               {FILTERS.map((f) => <button key={f.id} className={`chip ${filter === f.id ? "is-on" : ""}`} aria-pressed={filter === f.id} onClick={() => setFilter(f.id)}>{f.label}</button>)}
             </div>
-            {hidden > 0 && <p className="mp__hint">{hidden} recipe{hidden === 1 ? " is" : "s are"} hidden by your food preferences.</p>}
-            <ul className="mp__choices">
+            {hidden > 0 && <p className="mpl__hint">{hidden} recipe{hidden === 1 ? " is" : "s are"} hidden by your food preferences.</p>}
+            <ul className="mpl__choices">
               {choices.map((r) => (
                 <li key={r.id}>
-                  <button className="mp__choice" onClick={() => choose({ recipeId: r.id })}>
+                  <button className="mpl__choice" onClick={() => choose({ recipeId: r.id })}>
                     <RecipePlate r={r} size={44} />
                     <span><strong>{r.title}</strong><small>{r.minutes} min · serves {r.serves}{picker && !fitsSlot(r, picker.slot) ? " · not usually for this meal" : ""}</small></span>
                   </button>
                   <button className="scan__link" onClick={() => setView(r)}>View recipe</button>
                 </li>
               ))}
-              {choices.length === 0 && <li className="mp__hint">No recipes match. Try clearing the search or a filter.</li>}
+              {choices.length === 0 && <li className="mpl__hint">No recipes match. Try clearing the search or a filter.</li>}
             </ul>
           </div>
         )}

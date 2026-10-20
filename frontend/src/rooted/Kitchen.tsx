@@ -4,6 +4,7 @@ import { Sheet, useToast } from "./ui";
 import { RecipeDetail, RecipePlate } from "./Recipes";
 import { kitchenItems, whatICanCook, type RecipeStatus } from "./kitchen";
 import { AISLE_ORDER, useKitchen, useNourish, useShoppingList } from "../store/nourish";
+import { dishListItems } from "./recipes";
 import type { Recipe } from "./recipes";
 
 /**
@@ -15,7 +16,7 @@ export function Kitchen() {
   const list = useShoppingList();
   const toggle = useNourish((s) => s.toggleKitchen);
   const setKitchen = useNourish((s) => s.setKitchen);
-  const addItem = useNourish((s) => s.addItem);
+  const addItems = useNourish((s) => s.addItems);
   const toast = useToast();
   const [q, setQ] = useState("");
   const [view, setView] = useState<Recipe | null>(null);
@@ -36,9 +37,9 @@ export function Kitchen() {
   const onList = new Set(list.map((i) => i.id));
 
   const addMissing = (s: RecipeStatus) => {
-    const add = s.missing.filter((m) => !onList.has(m.id));
-    add.forEach((m) => addItem(m));
-    toast.show(add.length ? `Added ${add.length} item${add.length === 1 ? "" : "s"} to your list` : "Already on your list");
+    const add = dishListItems(s.recipe, onList, have);
+    addItems(add);
+    toast.show(add.length ? `Added ${add.length} item${add.length === 1 ? "" : "s"} under "${s.recipe.title}"` : "Already on your list");
   };
 
   const row = (s: RecipeStatus) => (
@@ -50,15 +51,15 @@ export function Kitchen() {
           <small>{s.missing.length === 0 ? `You have everything · ${s.recipe.minutes} min` : `Have ${s.have} of ${s.total} · missing ${s.missing.slice(0, 3).map((m) => m.name.split(",")[0]).join(", ")}${s.missing.length > 3 ? ` and ${s.missing.length - 3} more` : ""}`}</small>
         </span>
       </button>
-      {s.missing.length > 0 && <button className="scan__link" onClick={() => addMissing(s)}>Add missing to list</button>}
+      {s.missing.length > 0 && <button className="scan__link" onClick={() => addMissing(s)}>Add to list</button>}
     </li>
   );
 
   return (
     <div className="kt">
-      <p className="mp__hint">Tick what's already in your kitchen. Salt, pepper and water are assumed.</p>
+      <p className="mpl__hint">Tick what's already in your kitchen. Salt, pepper and water are assumed.</p>
       <label htmlFor="kt-search" className="visually-hidden">Search ingredients</label>
-      <input id="kt-search" className="mp__search" type="search" placeholder="Search ingredients" value={q} onChange={(e) => setQ(e.target.value)} autoComplete="off" />
+      <input id="kt-search" className="mpl__search" type="search" placeholder="Search ingredients" value={q} onChange={(e) => setQ(e.target.value)} autoComplete="off" />
       <div className="kt__bar">
         <span>{have.length} item{have.length === 1 ? "" : "s"} ticked</span>
         {have.length > 0 && <button className="scan__link" onClick={() => { setKitchen([]); toast.show("Cleared"); }}>Clear all</button>}
@@ -73,15 +74,15 @@ export function Kitchen() {
             </div>
           </details>
         ))}
-        {groups.length === 0 && <p className="mp__hint">No ingredients match.</p>}
+        {groups.length === 0 && <p className="mpl__hint">No ingredients match.</p>}
       </div>
 
       {have.length === 0 ? (
-        <p className="mp__hint">Tick a few things and we'll show what you can cook.</p>
+        <p className="mpl__hint">Tick a few things and we'll show what you can cook.</p>
       ) : (
         <div className="kt__result r-card">
           <h3>What you can cook</h3>
-          {ready.length === 0 && close.length === 0 && <p className="mp__hint">Nothing is within two items yet. Here are the closest recipes.</p>}
+          {ready.length === 0 && close.length === 0 && <p className="mpl__hint">Nothing is within two items yet. Here are the closest recipes.</p>}
           {ready.length > 0 && <><h4><Icon name="check" size={16} /> Ready now ({ready.length})</h4><ul>{ready.map(row)}</ul></>}
           {close.length > 0 && <><h4>One or two items away ({close.length})</h4><ul>{close.map(row)}</ul></>}
           {(ready.length === 0 && close.length === 0 || all) && rest.length > 0 && <ul>{rest.slice(0, all ? rest.length : 3).map(row)}</ul>}
