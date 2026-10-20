@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { RECIPES } from "../rooted/recipes";
-import { keyOf, plannedRecipes, shoppingFor, suggestFill, suitable, weekDays, weekPlate, weekStart } from "../rooted/mealPlan";
+import { fitsSlot, forGoals, keyOf, plannedRecipes, shoppingFor, suggestFill, suitable, weekDays, weekPlate, weekStart } from "../rooted/mealPlan";
 import { planToText } from "../rooted/MealPlanner";
 import type { DayPlan } from "../store/mealPlan";
 
@@ -45,8 +45,9 @@ describe("filling the week", () => {
     expect(dinners).not.toContain("yogurt-parfait");
     const breakfasts = suggestFill({}, keys, RECIPES, 0, ["breakfast"]).map((c) => c.entry.recipeId);
     expect(breakfasts).toHaveLength(7);
-    expect(new Set(breakfasts)).toEqual(new Set(["overnight-oats", "yogurt-parfait"]));
-    expect(suggestFill({}, keys, RECIPES.filter((r) => r.id !== "overnight-oats" && r.id !== "yogurt-parfait"), 0, ["breakfast"])).toEqual([]);
+    expect([...new Set(breakfasts)].every((id) => fitsSlot(RECIPES.find((r) => r.id === id)!, "breakfast"))).toBe(true);
+    expect(new Set(breakfasts).size).toBeGreaterThan(5);
+    expect(suggestFill({}, keys, RECIPES.filter((r) => !fitsSlot(r, "breakfast")), 0, ["breakfast"])).toEqual([]);
   });
   it("never repeats a recipe within one day", () => {
     const changes = suggestFill({}, keys, RECIPES);
@@ -97,5 +98,22 @@ describe("week summary", () => {
     expect(text).toContain(`Dinner: ${RECIPES[0].title}`);
     expect(text).toContain("Lunch: Leftovers");
     expect(text).toContain("Nothing planned");
+  });
+});
+
+describe("goals", () => {
+  it("only energy and sleep narrow the recipes", () => {
+    expect(forGoals(RECIPES, ["eat", "move"])).toHaveLength(RECIPES.length);
+    expect(forGoals(RECIPES, [])).toHaveLength(RECIPES.length);
+    expect(forGoals(RECIPES, ["sleep"]).every((r) => r.goals.includes("sleep"))).toBe(true);
+    expect(forGoals(RECIPES, ["sleep"]).length).toBeLessThan(RECIPES.length);
+    expect(forGoals(RECIPES, ["energy", "sleep"]).length).toBeGreaterThanOrEqual(forGoals(RECIPES, ["sleep"]).length);
+  });
+  it("puts preferred recipes first when filling", () => {
+    const keys = weekDays(new Date(2026, 9, 12)).map(keyOf);
+    const prefer = new Set(forGoals(RECIPES, ["sleep"]).map((r) => r.id));
+    const first = suggestFill({}, keys, RECIPES, 0, ["dinner"], prefer).slice(0, prefer.size).map((c) => c.entry.recipeId);
+    expect(first.every((id) => prefer.has(id) || !RECIPES.find((r) => r.id === id && prefer.has(r.id)))).toBe(true);
+    expect(prefer.has(suggestFill({}, keys, RECIPES, 0, ["dinner"], prefer)[0].entry.recipeId)).toBe(true);
   });
 });

@@ -349,3 +349,25 @@
   .nourish__group { padding: 10px; }
   .mp__days { grid-template-columns: minmax(0, 1fr); }
 }
+
+/* Food log */
+.fl { display: grid; gap: 14px; }
+.fl__meals { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.fl__meal { display: grid; gap: 8px; padding: 14px; }
+.fl__meal header strong { font-weight: 900; }
+.fl__extra { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 6px 10px; border-radius: 10px; background: rgba(243, 234, 216, 0.06); }
+.fl__add { display: flex; gap: 8px; }
+.fl__add input { flex: 1; min-width: 0; padding: 10px 12px; border-radius: 12px; border: 1px solid var(--r-line); background: var(--r-surface); color: var(--r-text); font: inherit; }
+.fl__groups, .fl__plants, .fl__week { display: grid; gap: 10px; padding: 16px; }
+.fl__groups h3, .fl__plants h3, .fl__week h3 { margin: 0; display: flex; align-items: center; gap: 8px; }
+.fl__chips { flex-wrap: wrap; overflow: visible; margin: 0; }
+.fl__count { margin: 0; font-weight: 700; color: var(--r-text-2); }
+.fl__total { display: inline-grid; place-items: center; min-width: 30px; height: 30px; padding: 0 8px; border-radius: 999px; background: var(--r-sand); color: #14140f; font-weight: 900; }
+.fl__why summary { cursor: pointer; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+.fl__why p { color: var(--r-text-2); line-height: 1.55; margin: 8px 0 0; }
+.fl__dots { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; align-items: end; }
+.fl__dots li { display: grid; justify-items: center; gap: 4px; }
+.fl__bar { display: flex; align-items: flex-end; width: 100%; max-width: 34px; height: 64px; border-radius: 8px; background: rgba(243, 234, 216, 0.07); overflow: hidden; }
+.fl__bar i { display: block; width: 100%; background: var(--r-sage, #9ccc65); min-height: 0; }
+.fl__dots small { color: var(--r-text-3); }
+.mp__nav[disabled] { opacity: 0.35; cursor: default; }

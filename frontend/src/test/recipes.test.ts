@@ -6,8 +6,8 @@ import { AISLE_ORDER } from "../store/nourish";
 const pantryIds = new Set(PANTRY.map((p) => p.id));
 
 describe("recipes", () => {
-  it("has 12 recipes with unique ids", () => {
-    expect(RECIPES.length).toBe(12);
+  it("has 21 recipes with unique ids", () => {
+    expect(RECIPES.length).toBe(21);
     expect(new Set(RECIPES.map((r) => r.id)).size).toBe(RECIPES.length);
   });
 

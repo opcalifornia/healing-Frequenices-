@@ -1,6 +1,6 @@
 {
  "version": 1,
- "count": 508,
+ "count": 518,
  "items": [
   {
    "id": "additive:e100",
@@ -37,9 +37,9 @@
    "id": "additive:e102",
    "kind": "additive",
    "title": "E102 Tartrazine",
-   "summary": "Linked to a small rise in hyperactive behaviour in some children when eaten in colour mixtures. The evidence is mixed, and regulators have kept a safe daily intake.",
+   "summary": "Linked to hyperactivity and inattention in some children. A California state review (2021) concluded synthetic dyes can affect children's behaviour, the EU requires a warning label, and US regulators are asking industry to phase them out.",
    "level": "some",
-   "evidence": "Mixed",
+   "evidence": "Moderate",
    "to": "/scan#guide",
    "exclude_if": [],
    "cautions": [
@@ -48,17 +48,23 @@
    "sources": [
     "EFSA. Re-evaluation of tartrazine (E 102), 2009",
     "McCann D et al. Food additives and hyperactive behaviour in children. Lancet, 2007",
-    "California OEHHA. Health effects assessment: potential neurobehavioral effects of synthetic food dyes in children, 2021",
-    "CSPI. CSPI urges FDA to ban artificial food dyes linked to behavior problems"
+    "CSPI. CSPI urges FDA to ban artificial food dyes linked to behavior problems",
+    "OEHHA (California). Health effects assessment: potential neurobehavioral effects of synthetic food dyes in children, 2021",
+    "Potential impacts of synthetic food dyes on activity and attention in children: a review of the human and animal evidence. Environmental Health, 2022",
+    "CSPI: FDA's plan to remove food dyes (advocacy group summary)",
+    "Yuka. What is the problem with food additives in the US? 2025",
+    "Yuka. How is the classification of food additives established?",
+    "Venable. FDA to phase out eight artificial dyes by 2026 (April 2025)",
+    "NBC News. California legislators send governor bill banning six artificial dyes in foods served by public schools"
    ]
   },
   {
    "id": "additive:e104",
    "kind": "additive",
    "title": "E104 Quinoline yellow",
-   "summary": "Linked to a small rise in hyperactive behaviour in some children when eaten in colour mixtures. The evidence is mixed, and regulators have kept a safe daily intake.",
+   "summary": "Linked to hyperactivity and inattention in some children. A California state review (2021) concluded synthetic dyes can affect children's behaviour, the EU requires a warning label, and US regulators are asking industry to phase them out.",
    "level": "some",
-   "evidence": "Mixed",
+   "evidence": "Moderate",
    "to": "/scan#guide",
    "exclude_if": [],
    "cautions": [
@@ -68,17 +74,19 @@
     "EFSA. Refined exposure assessment for quinoline yellow (E 104), 2015",
     "Commission Regulation (EU) No 232/2012 (lower use levels for E 104 and E 124)",
     "McCann D et al. Food additives and hyperactive behaviour in children. Lancet, 2007",
-    "California OEHHA. Health effects assessment: potential neurobehavioral effects of synthetic food dyes in children, 2021",
-    "CSPI. CSPI urges FDA to ban artificial food dyes linked to behavior problems"
+    "CSPI. CSPI urges FDA to ban artificial food dyes linked to behavior problems",
+    "OEHHA (California). Health effects assessment: potential neurobehavioral effects of synthetic food dyes in children, 2021",
+    "Potential impacts of synthetic food dyes on activity and attention in children: a review of the human and animal evidence. Environmental Health, 2022",
+    "CSPI: FDA's plan to remove food dyes (advocacy group summary)"
    ]
   },
   {
    "id": "additive:e110",
    "kind": "additive",
    "title": "E110 Sunset yellow FCF",
-   "summary": "Linked to a small rise in hyperactive behaviour in some children when eaten in colour mixtures. The evidence is mixed, and regulators have kept a safe daily intake.",
+   "summary": "Linked to hyperactivity and inattention in some children. A California state review (2021) concluded synthetic dyes can affect children's behaviour, the EU requires a warning label, and US regulators are asking industry to phase them out.",
    "level": "some",
-   "evidence": "Mixed",
+   "evidence": "Moderate",
    "to": "/scan#guide",
    "exclude_if": [],
    "cautions": [
@@ -88,8 +96,14 @@
     "EFSA. Reconsideration of the temporary ADI and refined exposure assessment for sunset yellow FCF (E 110), 2014",
     "EFSA. Sunset yellow: EFSA sets ADI (news), 2014",
     "McCann D et al. Food additives and hyperactive behaviour in children. Lancet, 2007",
-    "California OEHHA. Health effects assessment: potential neurobehavioral effects of synthetic food dyes in children, 2021",
-    "CSPI. CSPI urges FDA to ban artificial food dyes linked to behavior problems"
+    "CSPI. CSPI urges FDA to ban artificial food dyes linked to behavior problems",
+    "OEHHA (California). Health effects assessment: potential neurobehavioral effects of synthetic food dyes in children, 2021",
+    "Potential impacts of synthetic food dyes on activity and attention in children: a review of the human and animal evidence. Environmental Health, 2022",
+    "CSPI: FDA's plan to remove food dyes (advocacy group summary)",
+    "Yuka. What is the problem with food additives in the US? 2025",
+    "Yuka. How is the classification of food additives established?",
+    "Venable. FDA to phase out eight artificial dyes by 2026 (April 2025)",
+    "NBC News. California legislators send governor bill banning six artificial dyes in foods served by public schools"
    ]
   },
   {
@@ -189,9 +203,9 @@
    "id": "additive:e122",
    "kind": "additive",
    "title": "E122 Carmoisine",
-   "summary": "Linked to a small rise in hyperactive behaviour in some children when eaten in colour mixtures. The evidence is mixed, and regulators have kept a safe daily intake.",
+   "summary": "Linked to hyperactivity and inattention in some children. A California state review (2021) concluded synthetic dyes can affect children's behaviour, the EU requires a warning label, and US regulators are asking industry to phase them out.",
    "level": "some",
-   "evidence": "Mixed",
+   "evidence": "Moderate",
    "to": "/scan#guide",
    "exclude_if": [],
    "cautions": [
@@ -200,8 +214,10 @@
    "sources": [
     "EFSA. Re-evaluation of azorubine/carmoisine (E 122), 2009",
     "McCann D et al. Food additives and hyperactive behaviour in children. Lancet, 2007",
-    "California OEHHA. Health effects assessment: potential neurobehavioral effects of synthetic food dyes in children, 2021",
-    "CSPI. CSPI urges FDA to ban artificial food dyes linked to behavior problems"
+    "CSPI. CSPI urges FDA to ban artificial food dyes linked to behavior problems",
+    "OEHHA (California). Health effects assessment: potential neurobehavioral effects of synthetic food dyes in children, 2021",
+    "Potential impacts of synthetic food dyes on activity and attention in children: a review of the human and animal evidence. Environmental Health, 2022",
+    "CSPI: FDA's plan to remove food dyes (advocacy group summary)"
    ]
   },
   {
@@ -224,9 +240,9 @@
    "id": "additive:e124",
    "kind": "additive",
    "title": "E124 Ponceau 4R",
-   "summary": "Linked to a small rise in hyperactive behaviour in some children when eaten in colour mixtures. The evidence is mixed, and regulators have kept a safe daily intake.",
+   "summary": "Linked to hyperactivity and inattention in some children. A California state review (2021) concluded synthetic dyes can affect children's behaviour, the EU requires a warning label, and US regulators are asking industry to phase them out.",
    "level": "some",
-   "evidence": "Mixed",
+   "evidence": "Moderate",
    "to": "/scan#guide",
    "exclude_if": [],
    "cautions": [
@@ -236,8 +252,10 @@
     "EFSA. Refined exposure assessment for Ponceau 4R (E 124), 2015",
     "Commission Regulation (EU) No 232/2012 (lower use levels for E 104 and E 124)",
     "McCann D et al. Food additives and hyperactive behaviour in children. Lancet, 2007",
-    "California OEHHA. Health effects assessment: potential neurobehavioral effects of synthetic food dyes in children, 2021",
-    "CSPI. CSPI urges FDA to ban artificial food dyes linked to behavior problems"
+    "CSPI. CSPI urges FDA to ban artificial food dyes linked to behavior problems",
+    "OEHHA (California). Health effects assessment: potential neurobehavioral effects of synthetic food dyes in children, 2021",
+    "Potential impacts of synthetic food dyes on activity and attention in children: a review of the human and animal evidence. Environmental Health, 2022",
+    "CSPI: FDA's plan to remove food dyes (advocacy group summary)"
    ]
   },
   {
@@ -251,7 +269,9 @@
    "exclude_if": [],
    "cautions": [],
    "sources": [
-    "FDA. Revoking authorization for Red No. 3 in food and ingested drugs, 2025"
+    "FDA. Revoking authorization for Red No. 3 in food and ingested drugs, 2025",
+    "K&L Gates. FDA revokes authorization for the use of Red Dye No. 3 in food and ingestible drugs (January 2025)",
+    "Jones Day. California becomes the first state to ban four common food additives (AB 418), 2023"
    ]
   },
   {
@@ -272,9 +292,9 @@
    "id": "additive:e129",
    "kind": "additive",
    "title": "E129 Allura red AC",
-   "summary": "Linked to a small rise in hyperactive behaviour in some children when eaten in colour mixtures. The evidence is mixed, and regulators have kept a safe daily intake.",
+   "summary": "Linked to hyperactivity and inattention in some children. A California state review (2021) concluded synthetic dyes can affect children's behaviour, the EU requires a warning label, and US regulators are asking industry to phase them out.",
    "level": "some",
-   "evidence": "Mixed",
+   "evidence": "Moderate",
    "to": "/scan#guide",
    "exclude_if": [],
    "cautions": [
@@ -283,8 +303,14 @@
    "sources": [
     "EFSA. Refined exposure assessment for Allura red AC (E 129)",
     "McCann D et al. Food additives and hyperactive behaviour in children. Lancet, 2007",
-    "California OEHHA. Health effects assessment: potential neurobehavioral effects of synthetic food dyes in children, 2021",
-    "CSPI. CSPI urges FDA to ban artificial food dyes linked to behavior problems"
+    "CSPI. CSPI urges FDA to ban artificial food dyes linked to behavior problems",
+    "OEHHA (California). Health effects assessment: potential neurobehavioral effects of synthetic food dyes in children, 2021",
+    "Potential impacts of synthetic food dyes on activity and attention in children: a review of the human and animal evidence. Environmental Health, 2022",
+    "CSPI: FDA's plan to remove food dyes (advocacy group summary)",
+    "Yuka and Consumer Reports. Investigation of additives in 40 popular US products (Red 40, titanium dioxide, aspartame, acesulfame-K, sucralose, BHA, BHT, sodium nitrite), 2026",
+    "Yuka. How is the classification of food additives established?",
+    "Venable. FDA to phase out eight artificial dyes by 2026 (April 2025)",
+    "NBC News. California legislators send governor bill banning six artificial dyes in foods served by public schools"
    ]
   },
   {
@@ -329,7 +355,9 @@
    "sources": [
     "EFSA. Re-evaluation of brilliant blue FCF (E 133), 2010",
     "California OEHHA. Health effects assessment: potential neurobehavioral effects of synthetic food dyes in children, 2021",
-    "CSPI. Chemical Cuisine: artificial colorings (synthetic food dyes)"
+    "CSPI. Chemical Cuisine: artificial colorings (synthetic food dyes)",
+    "Venable. FDA to phase out eight artificial dyes by 2026 (April 2025)",
+    "NBC News. California legislators send governor bill banning six artificial dyes in foods served by public schools"
    ]
   },
   {
@@ -854,7 +882,8 @@
    "sources": [
     "EFSA. Titanium dioxide (E171) no longer considered safe as a food additive, 2021",
     "EFSA. Safety assessment of titanium dioxide (E171) as a food additive. EFSA Journal, 2021",
-    "WHO. Evaluation of certain food additives, 97th JECFA meeting report"
+    "WHO. Evaluation of certain food additives, 97th JECFA meeting report",
+    "Jones Day. California becomes the first state to ban four common food additives (AB 418), 2023"
    ]
   },
   {
@@ -1097,6 +1126,44 @@
    ]
   },
   {
+   "id": "additive:e216",
+   "kind": "additive",
+   "title": "E216 Propylparaben",
+   "summary": "A preservative the EU removed from its food list in 2006. EFSA found it affected sex hormones and male reproductive organs in young rats, and couldn't identify an amount with no effect.",
+   "level": "restricted",
+   "evidence": "Moderate",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "People who are pregnant or trying to conceive, and parents of young children, may want to avoid it; it is mainly found in some US baked goods."
+   ],
+   "sources": [
+    "EFSA AFC Panel. Opinion on para-hydroxybenzoates (E 214-219), EFSA Journal 83, 2004",
+    "EFSA. EFSA advises on the safety of paraben usage in food",
+    "Yuka. What is the problem with food additives in the US? 2025",
+    "Jones Day. California becomes the first state to ban four common food additives (AB 418), 2023"
+   ]
+  },
+  {
+   "id": "additive:e217",
+   "kind": "additive",
+   "title": "E217 Sodium propylparaben",
+   "summary": "A preservative the EU removed from its food list in 2006. EFSA found it affected sex hormones and male reproductive organs in young rats, and couldn't identify an amount with no effect.",
+   "level": "restricted",
+   "evidence": "Moderate",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "People who are pregnant or trying to conceive, and parents of young children, may want to avoid it; it is mainly found in some US baked goods."
+   ],
+   "sources": [
+    "EFSA AFC Panel. Opinion on para-hydroxybenzoates (E 214-219), EFSA Journal 83, 2004",
+    "EFSA. EFSA advises on the safety of paraben usage in food",
+    "Yuka. What is the problem with food additives in the US? 2025",
+    "Jones Day. California becomes the first state to ban four common food additives (AB 418), 2023"
+   ]
+  },
+  {
    "id": "additive:e218",
    "kind": "additive",
    "title": "E218 Methylparaben",
@@ -1336,7 +1403,9 @@
     "EFSA. Re-evaluation of potassium nitrite (E 249) and sodium nitrite (E 250) as food additives. EFSA Journal, 2017",
     "IARC. Ingested nitrate and nitrite, and cyanobacterial peptide toxins. IARC Monographs Volume 94, 2010",
     "INSERM. Dietary exposure to nitrites associated with a higher risk of type 2 diabetes (NutriNet-Santé), 2023",
-    "CSPI. Chemical Cuisine: Sodium nitrate and sodium nitrite"
+    "CSPI. Chemical Cuisine: Sodium nitrate and sodium nitrite",
+    "Yuka and Consumer Reports. Investigation of additives in 40 popular US products (Red 40, titanium dioxide, aspartame, acesulfame-K, sucralose, BHA, BHT, sodium nitrite), 2026",
+    "Yuka. How is the classification of food additives established?"
    ]
   },
   {
@@ -1355,7 +1424,9 @@
     "EFSA. Re-evaluation of potassium nitrite (E 249) and sodium nitrite (E 250) as food additives. EFSA Journal, 2017",
     "IARC. Ingested nitrate and nitrite, and cyanobacterial peptide toxins. IARC Monographs Volume 94, 2010",
     "INSERM. Dietary exposure to nitrites associated with a higher risk of type 2 diabetes (NutriNet-Santé), 2023",
-    "CSPI. Chemical Cuisine: Sodium nitrate and sodium nitrite"
+    "CSPI. Chemical Cuisine: Sodium nitrate and sodium nitrite",
+    "Yuka and Consumer Reports. Investigation of additives in 40 popular US products (Red 40, titanium dioxide, aspartame, acesulfame-K, sucralose, BHA, BHT, sodium nitrite), 2026",
+    "Yuka. How is the classification of food additives established?"
    ]
   },
   {
@@ -1736,7 +1807,9 @@
     "US NTP. Report on Carcinogens profile: Butylated hydroxyanisole",
     "EFSA. Re-evaluation of butylated hydroxyanisole, BHA (E 320) as a food additive. EFSA Journal, 2011",
     "EFSA. Exposure to butylated hydroxyanisole (E 320), statement, 2012",
-    "CSPI. Chemical Cuisine: Butylated hydroxyanisole (BHA)"
+    "CSPI. Chemical Cuisine: Butylated hydroxyanisole (BHA)",
+    "Yuka and Consumer Reports. Investigation of additives in 40 popular US products (Red 40, titanium dioxide, aspartame, acesulfame-K, sucralose, BHA, BHT, sodium nitrite), 2026",
+    "Yuka. How is the classification of food additives established?"
    ]
   },
   {
@@ -1751,7 +1824,9 @@
    "cautions": [],
    "sources": [
     "EFSA. Re-evaluation of butylated hydroxytoluene BHT (E 321) as a food additive. EFSA Journal, 2012",
-    "CSPI. Chemical Cuisine: Butylated hydroxytoluene (BHT)"
+    "CSPI. Chemical Cuisine: Butylated hydroxytoluene (BHT)",
+    "Yuka and Consumer Reports. Investigation of additives in 40 popular US products (Red 40, titanium dioxide, aspartame, acesulfame-K, sucralose, BHA, BHT, sodium nitrite), 2026",
+    "Yuka. How is the classification of food additives established?"
    ]
   },
   {
@@ -3115,6 +3190,22 @@
    ]
   },
   {
+   "id": "additive:e521",
+   "kind": "additive",
+   "title": "E521 Aluminium sodium sulfate",
+   "summary": "An aluminium-containing additive. Yuka reports aluminium is suspected of effects on reproduction and development, and that it can build up in the body.",
+   "level": "some",
+   "evidence": "Weak",
+   "to": "/scan#guide",
+   "exclude_if": [],
+   "cautions": [
+    "People who want to limit aluminium may check bread and baked goods labels in the US."
+   ],
+   "sources": [
+    "Yuka. What is the problem with food additives in the US? 2025"
+   ]
+  },
+  {
    "id": "additive:e524",
    "kind": "additive",
    "title": "E524 Sodium hydroxide",
@@ -3589,7 +3680,10 @@
    "exclude_if": [],
    "cautions": [],
    "sources": [
-    "CSPI. Food additives: the definitive glossary (Chemical Cuisine)"
+    "CSPI. Food additives: the definitive glossary (Chemical Cuisine)",
+    "Yuka. What is the problem with food additives in the US? 2025",
+    "Yuka. How is the classification of food additives established?",
+    "Jones Day. California becomes the first state to ban four common food additives (AB 418), 2023"
    ]
   },
   {
@@ -3692,7 +3786,9 @@
     "EFSA FAF Panel. Re-evaluation of acesulfame K (E 950) as a food additive. EFSA Journal, 2025",
     "Debras C et al. Artificial sweeteners and cancer risk: results from the NutriNet-Santé cohort. PLOS Medicine, 2022",
     "WHO/PAHO. WHO advises not to use non-sugar sweeteners for weight control in newly released guideline. 2023",
-    "CSPI. Chemical Cuisine: acesulfame potassium"
+    "CSPI. Chemical Cuisine: acesulfame potassium",
+    "Yuka and Consumer Reports. Investigation of additives in 40 popular US products (Red 40, titanium dioxide, aspartame, acesulfame-K, sucralose, BHA, BHT, sodium nitrite), 2026",
+    "Yuka. How is the classification of food additives established?"
    ]
   },
   {
@@ -3712,7 +3808,9 @@
     "IARC/JECFA. Summary of findings: aspartame. WHO, 2023",
     "EFSA. Aspartame topic page (2013 opinion and 2020 reaffirmation of the ADI)",
     "Debras C et al. Artificial sweeteners and cancer risk: results from the NutriNet-Santé cohort. PLOS Medicine, 2022",
-    "WHO/PAHO. WHO advises not to use non-sugar sweeteners for weight control in newly released guideline. 2023"
+    "WHO/PAHO. WHO advises not to use non-sugar sweeteners for weight control in newly released guideline. 2023",
+    "Yuka and Consumer Reports. Investigation of additives in 40 popular US products (Red 40, titanium dioxide, aspartame, acesulfame-K, sucralose, BHA, BHT, sodium nitrite), 2026",
+    "Yuka. How is the classification of food additives established?"
    ]
   },
   {
@@ -3779,7 +3877,9 @@
     "EFSA. Re-evaluation of sucralose (E 955) as a food additive: plain-language summary. 2026",
     "Schiffman SS et al. Properties of sucralose-6-acetate and its parent sucralose: in vitro screening assays. J Tox Environ Health B, 2023",
     "CSPI. Consumers should still avoid sucralose pending more testing. 2017",
-    "WHO/PAHO. WHO advises not to use non-sugar sweeteners for weight control in newly released guideline. 2023"
+    "WHO/PAHO. WHO advises not to use non-sugar sweeteners for weight control in newly released guideline. 2023",
+    "Yuka and Consumer Reports. Investigation of additives in 40 popular US products (Red 40, titanium dioxide, aspartame, acesulfame-K, sucralose, BHA, BHT, sodium nitrite), 2026",
+    "Yuka. How is the classification of food additives established?"
    ]
   },
   {
@@ -5660,6 +5760,45 @@
    "goals": []
   },
   {
+   "id": "recipe:barley-mushroom-soup",
+   "kind": "recipe",
+   "title": "Barley and mushroom soup",
+   "summary": "A filling, brothy soup from the cupboard. 30 min.",
+   "why": "Barley, like oats, carries beta-glucan, a soluble fiber covered by an FDA-authorized heart-health claim. Whole grains and fiber are linked to lower risk of heart disease and type 2 diabetes in large reviews.",
+   "evidence": "Strong",
+   "minutes": 30,
+   "to": "/nourish#recipes",
+   "exclude_if": [],
+   "cautions": [
+    "Barley contains gluten. Avoid it if you have celiac disease or gluten sensitivity.",
+    "Canned beans, broth and sauces can be salty. Rinse beans and choose low-sodium versions if you're watching salt.",
+    "New to beans or lots of fiber? Start with smaller portions and drink water; your gut adjusts in a few weeks."
+   ],
+   "allergens": [
+    "gluten"
+   ]
+  },
+  {
+   "id": "recipe:beet-quinoa-salad",
+   "kind": "recipe",
+   "title": "Beet, quinoa and chickpea salad",
+   "summary": "A colourful bowl with a lemon-olive oil dressing. 15 min.",
+   "why": "Chickpeas and other pulses lowered LDL cholesterol in a meta-analysis of controlled trials, and nuts with olive oil were part of the Mediterranean-style diet that lowered heart disease in the PREDIMED trial.",
+   "evidence": "Strong",
+   "minutes": 15,
+   "to": "/nourish#recipes",
+   "exclude_if": [],
+   "cautions": [
+    "Canned beans, broth and sauces can be salty. Rinse beans and choose low-sodium versions if you're watching salt.",
+    "New to beans or lots of fiber? Start with smaller portions and drink water; your gut adjusts in a few weeks.",
+    "Leafy greens are high in vitamin K. If you take warfarin, keep how much you eat steady from week to week and tell your clinician.",
+    "Beets can turn urine or stools pink or red. It is harmless."
+   ],
+   "allergens": [
+    "nuts"
+   ]
+  },
+  {
    "id": "recipe:black-bean-tacos",
    "kind": "recipe",
    "title": "Black bean tacos with avocado",
@@ -5674,6 +5813,25 @@
     "New to beans or lots of fiber? Start with smaller portions and drink water; your gut adjusts in a few weeks."
    ],
    "allergens": []
+  },
+  {
+   "id": "recipe:chickpea-avocado-toast",
+   "kind": "recipe",
+   "title": "Smashed chickpea and avocado toast",
+   "summary": "Fiber and protein on toast, no cooking. 8 min.",
+   "why": "Beans and chickpeas lowered LDL (\"bad\") cholesterol in a meta-analysis of controlled trials, and whole grains and fiber are linked to lower risk of heart disease and type 2 diabetes in large reviews.",
+   "evidence": "Moderate",
+   "minutes": 8,
+   "to": "/nourish#recipes",
+   "exclude_if": [],
+   "cautions": [
+    "Canned beans, broth and sauces can be salty. Rinse beans and choose low-sodium versions if you're watching salt.",
+    "New to beans or lots of fiber? Start with smaller portions and drink water; your gut adjusts in a few weeks.",
+    "Leafy greens are high in vitamin K. If you take warfarin, keep how much you eat steady from week to week and tell your clinician."
+   ],
+   "allergens": [
+    "gluten"
+   ]
   },
   {
    "id": "recipe:ginger-turmeric-dal",
@@ -5708,6 +5866,43 @@
    ],
    "allergens": [
     "dairy"
+   ]
+  },
+  {
+   "id": "recipe:kefir-berry-smoothie",
+   "kind": "recipe",
+   "title": "Kefir berry smoothie",
+   "summary": "Blend and drink, two minutes. 3 min.",
+   "why": "In a 10-week trial of 36 healthy adults, eating more fermented foods increased the variety of gut bacteria and lowered several markers of inflammation. It is a small study, so treat it as an early signal.",
+   "evidence": "Weak",
+   "minutes": 3,
+   "to": "/nourish#recipes",
+   "exclude_if": [],
+   "cautions": [
+    "Contains dairy. If you have a weakened immune system, ask your clinician before adding fermented foods.",
+    "Leafy greens are high in vitamin K. If you take warfarin, keep how much you eat steady from week to week and tell your clinician."
+   ],
+   "allergens": [
+    "dairy"
+   ]
+  },
+  {
+   "id": "recipe:kimchi-rice-bowl",
+   "kind": "recipe",
+   "title": "Kimchi brown-rice bowl with egg",
+   "summary": "Leftover rice, a ferment and a fried egg, ready in fifteen minutes. 15 min.",
+   "why": "Fermented foods like kimchi increased the variety of gut bacteria in a small 10-week trial in 36 healthy adults. It is early evidence, and heating kimchi may reduce its live cultures, so add some fresh on top if you like.",
+   "evidence": "Weak",
+   "minutes": 15,
+   "to": "/nourish#recipes",
+   "exclude_if": [],
+   "cautions": [
+    "Many kimchi recipes use fish sauce or shrimp. Check the label if you have a fish or shellfish allergy.",
+    "Kimchi is salty.",
+    "Leafy greens are high in vitamin K. If you take warfarin, keep how much you eat steady from week to week and tell your clinician."
+   ],
+   "allergens": [
+    "fish"
    ]
   },
   {
@@ -5786,6 +5981,25 @@
    ]
   },
   {
+   "id": "recipe:miso-salmon-broccoli",
+   "kind": "recipe",
+   "title": "Miso salmon with broccoli",
+   "summary": "A glaze of miso and lemon, one tray. 20 min.",
+   "why": "Fatty fish like salmon is the richest food source of the omega-3s EPA and DHA. The American Heart Association recommends one to two seafood meals a week, based on lower cardiovascular risk in studies.",
+   "evidence": "Moderate",
+   "minutes": 20,
+   "to": "/nourish#recipes",
+   "exclude_if": [],
+   "cautions": [
+    "Contains fish and soy. Miso is salty; use less if you are watching salt.",
+    "Leafy greens are high in vitamin K. If you take warfarin, keep how much you eat steady from week to week and tell your clinician."
+   ],
+   "allergens": [
+    "fish",
+    "soy"
+   ]
+  },
+  {
    "id": "recipe:overnight-oats",
    "kind": "recipe",
    "title": "Overnight oats with berries & chia",
@@ -5801,6 +6015,25 @@
    ],
    "allergens": [
     "dairy"
+   ]
+  },
+  {
+   "id": "recipe:sardine-toast",
+   "kind": "recipe",
+   "title": "Sardines on toast with greens",
+   "summary": "Omega-3s from a tin, five minutes. 5 min.",
+   "why": "Fatty fish such as sardines are rich in the omega-3s EPA and DHA. The American Heart Association recommends one to two seafood meals a week, and sardines are among the fish the FDA lists as lower in mercury.",
+   "evidence": "Moderate",
+   "minutes": 5,
+   "to": "/nourish#recipes",
+   "exclude_if": [],
+   "cautions": [
+    "Contains fish. Tinned fish can be salty; choose lower-sodium tins if you are watching salt.",
+    "Leafy greens are high in vitamin K. If you take warfarin, keep how much you eat steady from week to week and tell your clinician."
+   ],
+   "allergens": [
+    "fish",
+    "gluten"
    ]
   },
   {
@@ -5820,6 +6053,22 @@
    "allergens": [
     "fish"
    ]
+  },
+  {
+   "id": "recipe:spinach-omelet",
+   "kind": "recipe",
+   "title": "Spinach and mushroom omelet",
+   "summary": "Eggs and vegetables in about ten minutes. 10 min.",
+   "why": "Eating more vegetables is linked to lower risk of heart disease, cancer and early death in a large meta-analysis of cohort studies. Those are observational studies, so they show a link and not proof. Adding greens to a protein-rich breakfast is a simple way to get them in.",
+   "evidence": "Moderate",
+   "minutes": 10,
+   "to": "/nourish#recipes",
+   "exclude_if": [],
+   "cautions": [
+    "Contains egg. Cook eggs until the white and yolk are set if you are pregnant or serving someone who is vulnerable to foodborne illness.",
+    "Leafy greens are high in vitamin K. If you take warfarin, keep how much you eat steady from week to week and tell your clinician."
+   ],
+   "allergens": []
   },
   {
    "id": "recipe:sweet-potato-kale-bowl",
@@ -5857,6 +6106,23 @@
    "allergens": [
     "soy",
     "gluten"
+   ]
+  },
+  {
+   "id": "recipe:walnut-oatmeal",
+   "kind": "recipe",
+   "title": "Warm oatmeal with walnuts and cinnamon",
+   "summary": "A bowl of oats with crunch, ready in five minutes. 5 min.",
+   "why": "Oats carry beta-glucan, a soluble fiber behind an FDA-authorized heart-health claim. Nuts, including walnuts, were part of the Mediterranean-style diet that lowered heart disease in the PREDIMED trial.",
+   "evidence": "Strong",
+   "minutes": 5,
+   "to": "/nourish#recipes",
+   "exclude_if": [],
+   "cautions": [
+    "Contains tree nuts. Oats are naturally gluten-free but often cross-contaminated, so buy oats labelled gluten-free if you have celiac disease."
+   ],
+   "allergens": [
+    "nuts"
    ]
   },
   {
@@ -6933,18 +7199,6 @@
    "cautions": []
   },
   {
-   "id": "tool:apothecary",
-   "kind": "tool",
-   "title": "Home apothecary",
-   "summary": "Simple teas and remedies from what you grow, with safety rules for each.",
-   "why": "Some herbs have useful evidence behind them, and some interact with medicines. Both matter.",
-   "area": "Food",
-   "minutes": null,
-   "to": "/garden#apothecary",
-   "exclude_if": [],
-   "cautions": []
-  },
-  {
    "id": "tool:bedtime",
    "kind": "tool",
    "title": "Bedtime routine",
@@ -7145,18 +7399,6 @@
    "area": "Food",
    "minutes": null,
    "to": "/nourish#gut",
-   "exclude_if": [],
-   "cautions": []
-  },
-  {
-   "id": "tool:garden",
-   "kind": "tool",
-   "title": "Plan your garden",
-   "summary": "Tell us your space and light, get herbs and vegetables that suit it, and track what you've planted.",
-   "why": "Growing even a few herbs gets you outside, moving and eating fresher food.",
-   "area": "Food",
-   "minutes": null,
-   "to": "/garden#plan",
    "exclude_if": [],
    "cautions": []
   },

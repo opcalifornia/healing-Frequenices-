@@ -4,13 +4,13 @@ import { Sheet, useToast } from "./ui";
 import { ScheduleButton } from "./CalendarUI";
 import { ALLERGEN_LABEL, RECIPES, TAG_LABEL, hasVitaminKFlag, type Allergen, type Recipe, type RecipeTag } from "./recipes";
 import { RecipeDetail, RecipePlate } from "./Recipes";
-import { fitsSlot, keyOf, plannedRecipes, recipeById, shoppingFor, suggestFill, suitable, weekDays, weekPlate, weekStart, type Diet } from "./mealPlan";
+import { fitsSlot, forGoals, keyOf, plannedRecipes, recipeById, shoppingFor, suggestFill, suitable, weekDays, weekPlate, weekStart, type Diet } from "./mealPlan";
 import { SLOTS, SLOT_LABEL, useMealPlan, useMyPlan, type MealEntry, type Slot } from "../store/mealPlan";
 import { groupByAisle, useNourish, useShoppingList } from "../store/nourish";
 import { useAbout } from "../store/wellness";
 
 const QUICK_NOTES = ["Leftovers", "Eating out", "Cook extra", "Fruit and yogurt", "Oats", "Eggs and toast"];
-type Filter = "all" | Extract<RecipeTag, "quick" | "fiber" | "protein" | "omega-3" | "gut">;
+type Filter = "all" | "mine" | Extract<RecipeTag, "quick" | "fiber" | "protein" | "omega-3" | "gut">;
 const FILTERS: Array<{ id: Filter; label: string }> = [
   { id: "all", label: "All" },
   { id: "quick", label: "Quick" },
@@ -54,6 +54,9 @@ export function MealPlanner() {
   const [query, setQuery] = useState("");
   const [note, setNote] = useState("");
   const [offset, setOffset] = useState(0);
+  const goalRecipes = useMemo(() => new Set(forGoals(RECIPES, about.goals).map((r) => r.id)), [about.goals]);
+  const hasGoalFilter = goalRecipes.size > 0 && goalRecipes.size < RECIPES.length;
+  const [mine, setMine] = useState(true);
 
   const days = useMemo(() => weekDays(start), [start]);
   const keys = useMemo(() => days.map(keyOf), [days]);
@@ -82,7 +85,7 @@ export function MealPlanner() {
 
   const fill = (slots: Slot[] = ["lunch", "dinner"]) => {
     if (!pool.length) return toast.show("No recipes match your filters");
-    const changes = suggestFill(plan, keys, pool, offset, slots);
+    const changes = suggestFill(plan, keys, pool, offset, slots, hasGoalFilter && mine ? goalRecipes : undefined);
     if (!changes.length) return toast.show(slots.includes("breakfast") ? "Your breakfasts are already planned, or none fit your filters" : "Your lunches and dinners are already planned");
     setMany(changes);
     setOffset((o) => o + changes.length);
@@ -122,7 +125,7 @@ export function MealPlanner() {
   };
 
   const slotNow = picker?.slot;
-  const choices = pool.filter((r) => (filter === "all" || r.tags.includes(filter)) && (!query.trim() || r.title.toLowerCase().includes(query.trim().toLowerCase()) || r.blurb.toLowerCase().includes(query.trim().toLowerCase()))).sort((a, b) => (slotNow ? Number(fitsSlot(b, slotNow)) - Number(fitsSlot(a, slotNow)) : 0));
+  const choices = pool.filter((r) => (filter === "all" || (filter === "mine" ? goalRecipes.has(r.id) : r.tags.includes(filter))) && (!query.trim() || r.title.toLowerCase().includes(query.trim().toLowerCase()) || r.blurb.toLowerCase().includes(query.trim().toLowerCase()))).sort((a, b) => (slotNow ? Number(fitsSlot(b, slotNow)) - Number(fitsSlot(a, slotNow)) : 0));
   const hidden = RECIPES.length - pool.length;
   const current = picker ? plan[picker.day]?.[picker.slot] : undefined;
 
@@ -150,6 +153,11 @@ export function MealPlanner() {
           {ALLERGENS.map((a) => <button key={a} className={`chip ${diet.avoid?.includes(a) ? "is-on" : ""}`} aria-pressed={!!diet.avoid?.includes(a)} onClick={() => toggleAvoid(a)}>{ALLERGEN_LABEL[a]}</button>)}
         </div>
         {hidden > 0 && <p className="mp__hint">{hidden} of {RECIPES.length} recipes are hidden by these choices.</p>}
+        {hasGoalFilter && (
+          <div className="recipes__chips" role="group" aria-label="Your goals">
+            <button className={`chip ${mine ? "is-on" : ""}`} aria-pressed={mine} onClick={() => setMine((m) => !m)}>Lean toward my goals ({about.goals.filter((g) => g === "energy" || g === "sleep").join(" and ")})</button>
+          </div>
+        )}
       </details>
 
       <div className="mp__actions">
@@ -264,6 +272,7 @@ export function MealPlanner() {
             <label htmlFor="mp-search" className="visually-hidden">Search recipes</label>
             <input id="mp-search" className="mp__search" type="search" placeholder="Search recipes" value={query} onChange={(e) => setQuery(e.target.value)} autoComplete="off" />
             <div className="recipes__chips" role="group" aria-label="Filter recipes">
+              {hasGoalFilter && <button className={`chip ${filter === "mine" ? "is-on" : ""}`} aria-pressed={filter === "mine"} onClick={() => setFilter("mine")}>For my goals</button>}
               {FILTERS.map((f) => <button key={f.id} className={`chip ${filter === f.id ? "is-on" : ""}`} aria-pressed={filter === f.id} onClick={() => setFilter(f.id)}>{f.label}</button>)}
             </div>
             {hidden > 0 && <p className="mp__hint">{hidden} recipe{hidden === 1 ? " is" : "s are"} hidden by your food preferences.</p>}
