@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { RECIPES } from "../rooted/recipes";
+import { ALL_RECIPES } from "../rooted/allRecipes";
 import { fitsSlot, forGoals, keyOf, plannedRecipes, shoppingFor, suggestFill, suitable, weekDays, weekPlate, weekStart } from "../rooted/mealPlan";
 import { planToText } from "../rooted/MealPlanner";
 import type { DayPlan } from "../store/mealPlan";
@@ -23,7 +24,7 @@ describe("diet filters", () => {
     expect(suitable({ vegan: true }).every((r) => r.tags.includes("vegan"))).toBe(true);
     expect(suitable({ vegetarian: true }).every((r) => r.tags.includes("vegetarian") || r.tags.includes("vegan"))).toBe(true);
     expect(suitable({ avoid: ["fish"] }).every((r) => !r.allergens.includes("fish"))).toBe(true);
-    expect(suitable({}).length).toBe(RECIPES.length);
+    expect(suitable({}).length).toBe(ALL_RECIPES.length);
   });
 });
 

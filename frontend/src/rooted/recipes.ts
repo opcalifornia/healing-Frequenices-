@@ -58,6 +58,8 @@ export interface Recipe {
   cautions: string[];
   /** Easy swaps for allergies or what's in the cupboard. */
   swaps?: string[];
+  /** Where a dish is simplified from a traditional one, for the world section. */
+  note?: string;
 }
 
 const PLATE: Source = { text: "Harvard T.H. Chan School of Public Health: Healthy Eating Plate", url: "https://nutritionsource.hsph.harvard.edu/healthy-eating-plate/" };
@@ -731,6 +733,26 @@ export function itemsToAdd(r: Recipe, existingIds: Iterable<string>) {
     if (seen.has(item.id)) continue;
     seen.add(item.id);
     out.push(item);
+  }
+  return out;
+}
+
+/**
+ * Shopping-list items for a dish, kept together under its name. Ingredients already on the list for this dish are skipped,
+ * and ones you have at home are added ticked, so the dish's list is complete and you can see why each item is there.
+ */
+export function dishListItems(r: Pick<Recipe, "id" | "title" | "ingredients">, onList: Iterable<string> = [], have: Iterable<string> = []) {
+  const existing = new Set(onList);
+  const owned = new Set(have);
+  const seen = new Set<string>();
+  const out: Array<{ id: string; name: string; aisle: string; qty: string; checked: boolean; dish: { id: string; title: string }; ing: string }> = [];
+  for (const i of r.ingredients) {
+    const li = toListItem(i);
+    if (seen.has(li.id)) continue;
+    seen.add(li.id);
+    const id = `${r.id}~${li.id}`;
+    if (existing.has(id)) continue;
+    out.push({ id, name: li.name, aisle: li.aisle, qty: li.qty, checked: owned.has(li.id), dish: { id: r.id, title: r.title }, ing: li.id });
   }
   return out;
 }

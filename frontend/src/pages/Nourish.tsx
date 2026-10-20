@@ -11,6 +11,7 @@ import { Recipes } from "../rooted/Recipes";
 import { MealPlanner } from "../rooted/MealPlanner";
 import { FoodLogToday } from "../rooted/FoodLog";
 import { Kitchen } from "../rooted/Kitchen";
+import { WorldKitchen } from "../rooted/WorldKitchen";
 import { DigestiveJourney, FiberAtWork, GlucoseChart } from "../rooted/NourishDiagrams";
 import { Footer } from "../components/Footer";
 import { ProgramRail } from "../rooted/ProgramRail";
@@ -25,7 +26,7 @@ import "./Nourish.css";
 
 type GroupId = "plan" | "tools" | "learn";
 const GROUPS: Array<{ id: GroupId; label: string; hint: string; tabs: Array<{ id: string; label: string }> }> = [
-  { id: "plan", label: "Plan", hint: "Log, meals, kitchen, shopping", tabs: [{ id: "today", label: "Today" }, { id: "planner", label: "Meal planner" }, { id: "kitchen", label: "My kitchen" }, { id: "recipes", label: "Recipes" }, { id: "pantry", label: "Pantry & list" }] },
+  { id: "plan", label: "Plan", hint: "Log, meals, kitchen, shopping", tabs: [{ id: "today", label: "Today" }, { id: "planner", label: "Meal planner" }, { id: "kitchen", label: "My kitchen" }, { id: "recipes", label: "Recipes" }, { id: "world", label: "World kitchen" }, { id: "pantry", label: "Pantry & list" }] },
   { id: "tools", label: "Tools", hint: "Scan, plate, water", tabs: [{ id: "scan", label: "Scanner" }, { id: "plate", label: "Your plate" }, { id: "water", label: "Water" }] },
   { id: "learn", label: "Learn", hint: "The evidence", tabs: [{ id: "science", label: "The science" }, { id: "gut", label: "Inside your gut" }, { id: "sugar", label: "Blood sugar" }, { id: "nutrients", label: "Vitamins & minerals" }, { id: "animals", label: "Animal products" }, { id: "fasting", label: "Fasting" }, { id: "myths", label: "Myths" }] },
 ];
@@ -167,6 +168,15 @@ export default function Nourish() {
           </p>
         </Reveal>
         <Recipes />
+      </section>
+
+      <section id="world" className="sec-block">
+        <Reveal className="sec-block__head">
+          <span className="rooted__eyebrow">World kitchen</span>
+          <h2>Eat around the world</h2>
+          <p className="rooted__lead">Spin the globe and tap a country, or pick a culture from the list. Each has classic home dishes with the evidence behind them, and one tap puts a dish's ingredients on your list under its name.</p>
+        </Reveal>
+        <WorldKitchen />
       </section>
       <section id="pantry" className="sec-block">
         <Reveal className="sec-block__head">

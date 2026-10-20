@@ -1,4 +1,5 @@
-import { RECIPES, itemsToAdd, type Allergen, type Recipe } from "./recipes";
+import { itemsToAdd, type Allergen, type Recipe } from "./recipes";
+import { ALL_RECIPES } from "./allRecipes";
 import type { GoalId } from "../store/wellness";
 import { SLOTS, type DayPlan, type Slot } from "../store/mealPlan";
 
@@ -17,7 +18,7 @@ export function weekDays(start: Date): Date[] {
   return Array.from({ length: 7 }, (_, i) => new Date(start.getFullYear(), start.getMonth(), start.getDate() + i));
 }
 
-const BY_ID = new Map(RECIPES.map((r) => [r.id, r]));
+const BY_ID = new Map(ALL_RECIPES.map((r) => [r.id, r]));
 export const recipeById = (id: string | undefined): Recipe | undefined => (id ? BY_ID.get(id) : undefined);
 
 export interface Diet {
@@ -27,7 +28,7 @@ export interface Diet {
 }
 
 /** Recipes that suit a diet filter and avoid the allergens someone ticked. */
-export function suitable(diet: Diet, recipes: Recipe[] = RECIPES): Recipe[] {
+export function suitable(diet: Diet, recipes: Recipe[] = ALL_RECIPES): Recipe[] {
   return recipes.filter((r) => {
     if (diet.vegan && !r.tags.includes("vegan")) return false;
     if (diet.vegetarian && !r.tags.includes("vegetarian") && !r.tags.includes("vegan")) return false;
@@ -81,6 +82,8 @@ const FITS: Record<string, Slot[]> = {
   "spinach-omelet": ["breakfast", "lunch"],
   "chickpea-avocado-toast": ["breakfast", "lunch"],
   "sardine-toast": ["lunch"],
+  "mx-huevos-a-la-mexicana": ["breakfast", "lunch"],
+  "jp-miso-shiru": ["breakfast", "lunch", "dinner"],
   "miso-salmon-broccoli": ["dinner"],
   "sheet-pan-salmon": ["dinner"],
   "ginger-turmeric-dal": ["dinner", "lunch"],
