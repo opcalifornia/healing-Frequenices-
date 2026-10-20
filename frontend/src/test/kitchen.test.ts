@@ -28,8 +28,8 @@ describe("kitchen", () => {
     const r = RECIPES[3];
     const ids = r.ingredients.map((i) => toListItem(i).id);
     const ranked = whatICanCook(ids);
-    expect(ranked[0].recipe.id).toBe(r.id);
     expect(ranked[0].missing).toEqual([]);
+    expect(ranked.find((x) => x.recipe.id === r.id)?.missing).toEqual([]);
     expect(nearlyReady(ids, 0).map((s) => s.recipe.id)).toContain(r.id);
     expect(nearlyReady([], 0)).toEqual([]);
   });

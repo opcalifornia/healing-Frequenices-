@@ -1,6 +1,6 @@
 {
  "version": 1,
- "count": 530,
+ "count": 626,
  "items": [
   {
    "id": "additive:e100",
@@ -6012,6 +6012,73 @@
    "allergens": []
   },
   {
+   "id": "recipe:br-abobora-refogada",
+   "kind": "recipe",
+   "title": "Abóbora refogada (garlicky sautéed squash)",
+   "summary": "Brazil: Soft pumpkin or squash cooked down with onion, garlic and tomato. 30 min.",
+   "why": "This is a plate that is mostly vegetables. Higher vegetable and fruit intake is linked to lower risk of heart disease in large observational studies, which cannot prove cause.",
+   "evidence": "Moderate",
+   "minutes": 30,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Peeling hard squash takes care. Use a sharp knife on a steady board, or buy it pre-cut.",
+    "Add salt at the end and taste first."
+   ],
+   "allergens": []
+  },
+  {
+   "id": "recipe:br-arroz-e-feijao",
+   "kind": "recipe",
+   "title": "Arroz e feijão (rice and black beans)",
+   "summary": "Brazil: The everyday pairing: tender seasoned beans in their broth over fluffy rice. 45 min.",
+   "why": "Beans, peas and lentils lowered LDL cholesterol in a meta-analysis of trials. Rice and beans are the staple pairing in Brazilian home cooking, and a national survey found they are still among the foods Brazilians eat most.",
+   "evidence": "Strong",
+   "minutes": 45,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Canned beans, broth and sauces can be salty. Rinse beans and choose low-sodium versions if you're watching salt.",
+    "New to beans or lots of fiber? Start with smaller portions and drink water; your gut adjusts in a few weeks.",
+    "Choose low-sodium beans and add salt at the end."
+   ],
+   "allergens": []
+  },
+  {
+   "id": "recipe:br-couve-refogada",
+   "kind": "recipe",
+   "title": "Couve refogada (garlicky sautéed collards)",
+   "summary": "Brazil: Collard greens sliced very thin and cooked fast with garlic, the usual side for feijoada. 15 min.",
+   "why": "A plate that is mostly leafy vegetables fits the advice to fill half the plate with vegetables. Higher vegetable intake is linked to lower risk of heart disease and early death in large observational studies, which cannot prove cause.",
+   "evidence": "Moderate",
+   "minutes": 15,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Leafy greens are high in vitamin K. If you take warfarin, keep how much you eat steady from week to week and tell your clinician.",
+    "Collards can be tough. Slice thinly and cook until tender, and cut small for young children."
+   ],
+   "allergens": []
+  },
+  {
+   "id": "recipe:br-moqueca-de-legumes",
+   "kind": "recipe",
+   "title": "Moqueca de legumes (vegetable coconut stew)",
+   "summary": "Brazil: Peppers, tomato and chickpeas simmered in coconut milk, in the style of Bahian moqueca. 35 min.",
+   "why": "A pot that is mostly vegetables with chickpeas gives fiber and plant protein. Chickpeas and other pulses lowered LDL cholesterol in a meta-analysis of trials, though coconut milk adds saturated fat, so a modest amount is enough.",
+   "evidence": "Moderate",
+   "minutes": 35,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Canned beans, broth and sauces can be salty. Rinse beans and choose low-sodium versions if you're watching salt.",
+    "New to beans or lots of fiber? Start with smaller portions and drink water; your gut adjusts in a few weeks.",
+    "Coconut is not a tree nut for most allergy guidance, but people with tree nut allergies should check with their clinician first.",
+    "Coconut milk is rich in saturated fat; a small ladle goes a long way."
+   ],
+   "allergens": []
+  },
+  {
    "id": "recipe:chickpea-avocado-toast",
    "kind": "recipe",
    "title": "Smashed chickpea and avocado toast",
@@ -6031,6 +6098,367 @@
    ]
   },
   {
+   "id": "recipe:cn-fanqie-chao-dan",
+   "kind": "recipe",
+   "title": "Fānqié chǎo dàn (tomato and egg stir-fry)",
+   "summary": "China: Soft eggs and juicy tomato, an everyday dish cooked in homes all over China. 15 min.",
+   "why": "This dish pairs eggs with a good share of vegetables and is served over rice, which matches the plate model of vegetables, grain and protein. The health effect of one dish is small.",
+   "evidence": "Weak",
+   "minutes": 15,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Cook eggs until firm if you are pregnant, elderly, immunocompromised or feeding young children."
+   ],
+   "allergens": []
+  },
+  {
+   "id": "recipe:cn-mapo-doufu",
+   "kind": "recipe",
+   "title": "Mápó dòufu (Sichuan tofu in chili sauce)",
+   "summary": "China: Soft tofu in a bright, savory Sichuan chili-bean sauce, here with mushrooms in place of meat. 25 min.",
+   "why": "Tofu is a plant protein, and tofu and other soy foods sit near the base of the Oldways Asian Diet Pyramid. Mushrooms make the dish rich without meat, and rice and green onions round it into a plate with vegetables, grain and protein. A single dish is not a health intervention.",
+   "evidence": "Weak",
+   "minutes": 25,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Contains soy (tofu, soy sauce and usually the chili bean paste).",
+    "Soy sauce is salty and contains wheat as well as soy, so it is not gluten-free. Use less if you are watching salt.",
+    "Doubanjiang is often made with wheat and is very salty. Check the label.",
+    "Chili heat varies a lot. Start with a little, and wash your hands after cutting hot chilies before touching your eyes."
+   ],
+   "allergens": [
+    "soy",
+    "gluten"
+   ]
+  },
+  {
+   "id": "recipe:cn-pai-huanggua",
+   "kind": "recipe",
+   "title": "Pāi huángguā (smashed cucumber salad)",
+   "summary": "China: A cold, tangy northern-style salad of crushed cucumber, garlic and vinegar. 10 min.",
+   "why": "This is almost all vegetables. Eating more vegetables and fruit is linked to lower risk of heart disease and early death in large observational studies, which cannot prove cause. The dish is a light side that fits the plate model.",
+   "evidence": "Moderate",
+   "minutes": 10,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Contains sesame and soy.",
+    "Soy sauce is salty and contains wheat as well as soy, so it is not gluten-free. Use less if you are watching salt.",
+    "Chili heat varies a lot. Start with a little, and wash your hands after cutting hot chilies before touching your eyes."
+   ],
+   "allergens": [
+    "soy",
+    "gluten",
+    "sesame"
+   ]
+  },
+  {
+   "id": "recipe:cn-qingchao-caixin",
+   "kind": "recipe",
+   "title": "Qīngchǎo càixīn (Cantonese garlic greens)",
+   "summary": "China: Choy sum quickly stir-fried with garlic, the way many Cantonese families cook everyday greens. 12 min.",
+   "why": "Dark leafy greens are a core everyday vegetable in Chinese home cooking, and China's dietary guidelines advise eating plenty of vegetables, with half of them dark-colored. Higher vegetable intake is linked to lower risk of heart disease in large observational studies.",
+   "evidence": "Moderate",
+   "minutes": 12,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Leafy greens are high in vitamin K. If you take warfarin, keep how much you eat steady from week to week and tell your clinician.",
+    "Contains soy.",
+    "Soy sauce is salty and contains wheat as well as soy, so it is not gluten-free. Use less if you are watching salt."
+   ],
+   "allergens": [
+    "soy",
+    "gluten"
+   ]
+  },
+  {
+   "id": "recipe:es-garbanzos-con-espinacas",
+   "kind": "recipe",
+   "title": "Garbanzos con espinacas (chickpeas with spinach)",
+   "summary": "Spain: A smoky Andalusian tapa-style stew of chickpeas, spinach and garlic. 25 min.",
+   "why": "Chickpeas are a pulse, and pulses lowered LDL cholesterol in a meta-analysis of trials. Chickpeas with greens and olive oil is a typical Mediterranean combination.",
+   "evidence": "Strong",
+   "minutes": 25,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Leafy greens are high in vitamin K. If you take warfarin, keep how much you eat steady from week to week and tell your clinician.",
+    "Canned beans, broth and sauces can be salty. Rinse beans and choose low-sodium versions if you're watching salt.",
+    "New to beans or lots of fiber? Start with smaller portions and drink water; your gut adjusts in a few weeks.",
+    "Contains wheat bread."
+   ],
+   "allergens": [
+    "gluten"
+   ]
+  },
+  {
+   "id": "recipe:es-gazpacho-andaluz",
+   "kind": "recipe",
+   "title": "Gazpacho andaluz (chilled tomato soup)",
+   "summary": "Spain: A cold, blended soup of ripe tomatoes, cucumber, pepper and olive oil, from southern Spain. 15 min.",
+   "why": "This soup is almost entirely raw vegetables with olive oil, the center of the Mediterranean pattern. In the PREDIMED trial in Spain, a Mediterranean-style diet with extra virgin olive oil or nuts lowered major cardiovascular events. That result is about the whole eating pattern, not about gazpacho alone.",
+   "evidence": "Moderate",
+   "minutes": 15,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Contains wheat bread.",
+    "Keep it cold and eat within a day or two; raw blended soups should not sit at room temperature for long.",
+    "Tomatoes and peppers are in the nightshade family; skip them if they bother you."
+   ],
+   "allergens": [
+    "gluten"
+   ]
+  },
+  {
+   "id": "recipe:es-lentejas-estofadas",
+   "kind": "recipe",
+   "title": "Lentejas estofadas (Spanish lentil stew)",
+   "summary": "Spain: Brown lentils simmered with peppers, tomato and paprika, a pot many families make weekly. 40 min.",
+   "why": "Lentils are a pulse, and pulses lowered LDL cholesterol in a meta-analysis of trials. Lentils with vegetables and olive oil is a classic Spanish and Mediterranean-pattern dish.",
+   "evidence": "Strong",
+   "minutes": 40,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "New to beans or lots of fiber? Start with smaller portions and drink water; your gut adjusts in a few weeks.",
+    "Canned beans, broth and sauces can be salty. Rinse beans and choose low-sodium versions if you're watching salt."
+   ],
+   "allergens": []
+  },
+  {
+   "id": "recipe:es-tortilla-espanola",
+   "kind": "recipe",
+   "title": "Tortilla española (potato and onion omelet)",
+   "summary": "Spain: A thick, soft omelet of potato and onion, eaten warm or at room temperature. 40 min.",
+   "why": "Eggs and potatoes cooked in olive oil make a filling, inexpensive meal. Olive oil is the main fat of the Mediterranean pattern. The health effect of one dish is small, and it works best with a side salad or vegetables.",
+   "evidence": "Weak",
+   "minutes": 40,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Cook the eggs until firm, with no runny center, if you are pregnant, elderly, immunocompromised or feeding young children. Many traditional tortillas are left soft in the middle.",
+    "Flipping a hot pan is tricky. Use a plate larger than the pan and oven mitts."
+   ],
+   "allergens": []
+  },
+  {
+   "id": "recipe:et-atkilt-wot",
+   "kind": "recipe",
+   "title": "Atkilt wot, cabbage, potato and carrot stew",
+   "summary": "Ethiopia: A mild, turmeric-yellow vegetable stew that goes well beside spicier dishes. 40 min.",
+   "why": "This is a dish made almost entirely of vegetables. Higher vegetable intake is linked to lower risk of heart disease in observational reviews, and the plate model recommends filling half the plate with vegetables.",
+   "evidence": "Moderate",
+   "minutes": 40,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Turmeric and ginger here are normal cooking amounts, not supplements.",
+    "Serve to young children in soft pieces, as raw carrot is a choking risk; cooked carrot is fine when soft.",
+    "Leafy greens are high in vitamin K. If you take warfarin, keep how much you eat steady from week to week and tell your clinician."
+   ],
+   "allergens": []
+  },
+  {
+   "id": "recipe:et-gomen",
+   "kind": "recipe",
+   "title": "Gomen, braised collard greens",
+   "summary": "Ethiopia: Collard greens cooked down with onion, garlic and ginger. 30 min.",
+   "why": "Leafy greens are a vegetable, and higher fruit and vegetable intake is linked to lower risk of heart disease in large observational reviews. This is a simple way to eat more greens.",
+   "evidence": "Moderate",
+   "minutes": 30,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Leafy greens are high in vitamin K. If you take warfarin, keep how much you eat steady from week to week and tell your clinician.",
+    "Chilli heat varies a lot. Start with a little, wash your hands after cutting hot peppers, and keep them away from eyes."
+   ],
+   "allergens": []
+  },
+  {
+   "id": "recipe:et-misir-wot",
+   "kind": "recipe",
+   "title": "Misir wot, spicy red lentil stew",
+   "summary": "Ethiopia: Red lentils simmered with onion, garlic, ginger and berbere. 40 min.",
+   "why": "Lentils are a pulse, and about one serving of pulses a day lowered LDL cholesterol in a meta-analysis of trials. A pulse-based stew with spices is also a good source of fiber and plant protein.",
+   "evidence": "Strong",
+   "minutes": 40,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Chilli heat varies a lot. Start with a little, wash your hands after cutting hot peppers, and keep them away from eyes.",
+    "New to beans or lots of fiber? Start with smaller portions and drink water; your gut adjusts in a few weeks.",
+    "Injera may be made with wheat or barley as well as teff. If you avoid gluten, check the label and look for 100% teff.",
+    "Berbere blends can be very salty and vary by brand."
+   ],
+   "allergens": []
+  },
+  {
+   "id": "recipe:et-shiro-wot",
+   "kind": "recipe",
+   "title": "Shiro wot, chickpea flour stew",
+   "summary": "Ethiopia: A smooth, spiced stew made from ground chickpeas, common on fasting days. 30 min.",
+   "why": "Chickpeas are a pulse, and about one serving of pulses a day lowered LDL cholesterol in a meta-analysis of trials. Ground chickpea flour has been processed, but still gives plant protein and fiber.",
+   "evidence": "Moderate",
+   "minutes": 30,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Chilli heat varies a lot. Start with a little, wash your hands after cutting hot peppers, and keep them away from eyes.",
+    "Some ready-made shiro powders contain other ingredients or salt; check the label.",
+    "Injera may contain wheat or barley; check if you avoid gluten."
+   ],
+   "allergens": []
+  },
+  {
+   "id": "recipe:fr-ratatouille",
+   "kind": "recipe",
+   "title": "Ratatouille (Provençal vegetable stew)",
+   "summary": "France: Eggplant, zucchini, peppers and tomato slowly stewed in olive oil with herbs. 45 min.",
+   "why": "This is almost all vegetables cooked in olive oil. Eating more vegetables is linked to lower risk of heart disease and early death in large observational studies, which cannot prove cause. Olive oil and vegetables are central to the Mediterranean diet pyramid.",
+   "evidence": "Moderate",
+   "minutes": 45,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Eggplant, tomato and peppers are in the nightshade family. Most people eat them without trouble; skip them if they bother you.",
+    "Eat it warm or cold, and keep leftovers in the fridge for no more than a few days."
+   ],
+   "allergens": []
+  },
+  {
+   "id": "recipe:fr-salade-de-lentilles",
+   "kind": "recipe",
+   "title": "Salade de lentilles vertes (green lentil salad)",
+   "summary": "France: Firm green lentils in a sharp mustard vinaigrette with shallot and herbs. 35 min.",
+   "why": "Lentils are a pulse, and pulses lowered LDL cholesterol in a meta-analysis of trials. Lentil dishes with a vinaigrette are a long-standing everyday food in central and southern France.",
+   "evidence": "Strong",
+   "minutes": 35,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "New to beans or lots of fiber? Start with smaller portions and drink water; your gut adjusts in a few weeks.",
+    "Mustard can be salty; taste before adding salt.",
+    "Some people are allergic to mustard. Leave it out if that applies."
+   ],
+   "allergens": []
+  },
+  {
+   "id": "recipe:fr-salade-nicoise",
+   "kind": "recipe",
+   "title": "Salade niçoise (Nice-style salad)",
+   "summary": "France: Tomatoes, green beans, egg, olives and a little tuna in a simple olive oil dressing. 30 min.",
+   "why": "This is mostly vegetables with a small portion of fish and egg for protein. Eating fish once or twice a week is linked to lower risk of cardiovascular disease, and the American Heart Association recommends it. Canned tuna is less rich in omega-3 fats than oily fish, so this is a modest claim.",
+   "evidence": "Moderate",
+   "minutes": 30,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Contains fish and egg. Cook the eggs until the yolk is firm if you are pregnant, elderly, immunocompromised or feeding young children.",
+    "Olives and canned fish are salty. Drain the tuna and taste before adding salt.",
+    "Young children can choke on whole nuts, seeds and olives, and on large chunks of food. Cut or chop small pieces for them."
+   ],
+   "allergens": [
+    "fish"
+   ]
+  },
+  {
+   "id": "recipe:fr-soupe-au-pistou",
+   "kind": "recipe",
+   "title": "Soupe au pistou (Provençal vegetable and bean soup)",
+   "summary": "France: Summer vegetables, white beans and small pasta, finished with a spoonful of fresh basil sauce. 45 min.",
+   "why": "White beans carry most of the protein here, and pulses lowered LDL cholesterol in a meta-analysis of trials. The soup is mostly vegetables, with olive oil, which is typical of southern French cooking and the Mediterranean pyramid.",
+   "evidence": "Strong",
+   "minutes": 45,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Canned beans, broth and sauces can be salty. Rinse beans and choose low-sodium versions if you're watching salt.",
+    "New to beans or lots of fiber? Start with smaller portions and drink water; your gut adjusts in a few weeks.",
+    "Contains wheat pasta and cheese."
+   ],
+   "allergens": [
+    "gluten",
+    "dairy"
+   ]
+  },
+  {
+   "id": "recipe:gh-kontomire-stew",
+   "kind": "recipe",
+   "title": "Kontomire stew (leafy green stew)",
+   "summary": "Ghana: Greens cooked in a tomato, palm oil and ground seed sauce, with egg. 35 min.",
+   "why": "A stew that is mostly leafy greens, with egg and seeds for protein. Eating more vegetables is linked to lower risk of heart disease in large observational studies, which cannot prove cause.",
+   "evidence": "Moderate",
+   "minutes": 35,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Leafy greens and fresh herbs are high in vitamin K. If you take warfarin, keep how much you eat steady from week to week and tell your clinician.",
+    "Cook eggs until firm if you are pregnant, elderly, immunocompromised or feeding young children.",
+    "Chili heat varies a lot. Start with a little, and wash your hands after cutting hot chilies before touching your eyes.",
+    "Palm oil is high in saturated fat; use the amount given.",
+    "Smoked fish is common in this stew and is left out here. If you add it, it is a fish allergen and very salty, and the bones are a choking risk."
+   ],
+   "allergens": []
+  },
+  {
+   "id": "recipe:gh-nkate-nkwan",
+   "kind": "recipe",
+   "title": "Nkate nkwan (groundnut soup)",
+   "summary": "Ghana: A thick, savory peanut soup with tomato, ginger and a little chicken. 45 min.",
+   "why": "This soup combines peanuts, tomato and vegetables with a small portion of chicken. Peanuts give fats, fiber and protein, but claims for this soup itself come from tradition, not trials.",
+   "evidence": "Weak",
+   "minutes": 45,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Contains peanuts, which are a common and sometimes severe allergen. Peanuts and whole nuts are also a choking risk for young children; use smooth sauce for them.",
+    "Cook chicken until no pink remains and the juices run clear. Wash hands and boards after handling raw chicken.",
+    "Small fish and chicken bones can be a choking risk, especially for young children. Check pieces before serving.",
+    "Chili heat varies a lot. Start with a little, and wash your hands after cutting hot chilies before touching your eyes.",
+    "Commercial peanut butter may contain added salt and sugar; choose unsweetened."
+   ],
+   "allergens": []
+  },
+  {
+   "id": "recipe:gh-red-red",
+   "kind": "recipe",
+   "title": "Red-red (black-eyed pea stew & plantain)",
+   "summary": "Ghana: Black-eyed peas in a tomato and palm oil stew, with baked plantain. 40 min.",
+   "why": "Black-eyed peas are a pulse, and pulses lowered LDL cholesterol in a meta-analysis of trials. Beans, tomato and plantain together make a plate of plant foods that fits the African Heritage pyramid.",
+   "evidence": "Strong",
+   "minutes": 40,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Canned beans, broth and sauces can be salty. Rinse beans and choose low-sodium versions if you're watching salt.",
+    "New to beans or lots of fiber? Start with smaller portions and drink water; your gut adjusts in a few weeks.",
+    "Chili heat varies a lot. Start with a little, and wash your hands after cutting hot chilies before touching your eyes.",
+    "Palm oil is high in saturated fat; use the amount given."
+   ],
+   "allergens": []
+  },
+  {
+   "id": "recipe:gh-waakye",
+   "kind": "recipe",
+   "title": "Waakye (rice & black-eyed peas)",
+   "summary": "Ghana: Rice and black-eyed peas cooked together, with tomato salad and avocado. 45 min.",
+   "why": "Black-eyed peas are a pulse, and pulses lowered LDL cholesterol in a meta-analysis of trials. Rice, beans, vegetables and avocado together make a balanced plate.",
+   "evidence": "Strong",
+   "minutes": 45,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Canned beans, broth and sauces can be salty. Rinse beans and choose low-sodium versions if you're watching salt.",
+    "New to beans or lots of fiber? Start with smaller portions and drink water; your gut adjusts in a few weeks.",
+    "Chili heat varies a lot. Start with a little, and wash your hands after cutting hot chilies before touching your eyes."
+   ],
+   "allergens": []
+  },
+  {
    "id": "recipe:ginger-turmeric-dal",
    "kind": "recipe",
    "title": "Ginger-turmeric red lentil dal",
@@ -6044,6 +6472,72 @@
     "Turmeric and ginger here are normal cooking amounts. The Pantry's cautions about blood thinners and liver effects are about turmeric supplements, not food.",
     "Leafy greens are high in vitamin K. If you take warfarin, keep how much you eat steady from week to week and tell your clinician.",
     "New to beans or lots of fiber? Start with smaller portions and drink water; your gut adjusts in a few weeks."
+   ],
+   "allergens": []
+  },
+  {
+   "id": "recipe:gr-fakes",
+   "kind": "recipe",
+   "title": "Fakes (Greek lentil soup)",
+   "summary": "Greece: Brown lentils, bay leaf and a splash of vinegar at the end. 40 min.",
+   "why": "Lentils are a pulse, and pulses lowered LDL cholesterol in a meta-analysis of trials. With olive oil as the main fat, the dish follows the Mediterranean pattern.",
+   "evidence": "Strong",
+   "minutes": 40,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "New to beans or lots of fiber? Start with smaller portions and drink water; your gut adjusts in a few weeks.",
+    "Salt only at the end, to taste."
+   ],
+   "allergens": []
+  },
+  {
+   "id": "recipe:gr-fasolada",
+   "kind": "recipe",
+   "title": "Fasolada (Greek white bean soup)",
+   "summary": "Greece: Often called a national dish: white beans, tomato, vegetables and a lot of olive oil. 40 min.",
+   "why": "Beans lowered LDL cholesterol in a meta-analysis of trials, and this soup is bean-based with olive oil, in the style of the Mediterranean pattern. The PREDIMED result applies to the whole eating pattern, not to one dish.",
+   "evidence": "Strong",
+   "minutes": 40,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Canned beans, broth and sauces can be salty. Rinse beans and choose low-sodium versions if you're watching salt.",
+    "New to beans or lots of fiber? Start with smaller portions and drink water; your gut adjusts in a few weeks."
+   ],
+   "allergens": []
+  },
+  {
+   "id": "recipe:gr-horiatiki",
+   "kind": "recipe",
+   "title": "Horiatiki (Greek village salad)",
+   "summary": "Greece: Tomato, cucumber, onion and olives with feta and good olive oil. 10 min.",
+   "why": "This salad is mostly vegetables with olive oil as the main fat, in the style of the Mediterranean pattern. The PREDIMED result applies to the whole eating pattern with extra virgin olive oil or nuts, not to one salad.",
+   "evidence": "Strong",
+   "minutes": 10,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Feta and olives are salty, so you may not need extra salt."
+   ],
+   "allergens": [
+    "dairy"
+   ]
+  },
+  {
+   "id": "recipe:gr-horta-vrasta",
+   "kind": "recipe",
+   "title": "Horta vrasta (boiled greens with olive oil & lemon)",
+   "summary": "Greece: The simplest Greek side: soft greens dressed with oil and lemon. 20 min.",
+   "why": "Greens add fiber and many plant nutrients. Higher intake of vegetables and fruit is linked to lower risk of heart disease and early death in observational studies. Horta is a documented traditional food in Crete and across Greece.",
+   "evidence": "Moderate",
+   "minutes": 20,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Leafy greens are high in vitamin K. If you take warfarin, keep how much you eat steady from week to week and tell your clinician.",
+    "Buy greens from a store or farm. Do not pick wild greens unless an expert has shown you how; some wild plants look alike and are harmful.",
+    "Chard and spinach are high in oxalate. If you have been told to limit oxalate for kidney stones, ask your clinician."
    ],
    "allergens": []
   },
@@ -6063,6 +6557,456 @@
    ],
    "allergens": [
     "dairy"
+   ]
+  },
+  {
+   "id": "recipe:id-gado-gado",
+   "kind": "recipe",
+   "title": "Gado-gado (vegetable salad, peanut sauce)",
+   "summary": "Indonesia: Lightly cooked vegetables, tempeh and egg under a warm peanut sauce. 40 min.",
+   "why": "This plate is mostly vegetables with a protein food and a little starch, which matches the plate model. Eating more vegetables is linked to lower risk of heart disease in large observational studies, which cannot prove cause.",
+   "evidence": "Moderate",
+   "minutes": 40,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Contains peanuts, which are a common and sometimes severe allergen. Peanuts and whole nuts are also a choking risk for young children; use smooth sauce for them.",
+    "Soy sauce is salty and contains wheat (gluten) and soy. Use a little, then taste before adding more.",
+    "Cook eggs until firm if you are pregnant, elderly, immunocompromised or feeding young children.",
+    "Chili heat varies a lot. Start with a little, and wash your hands after cutting hot chilies before touching your eyes.",
+    "Shop-bought sauces and sambal may contain shrimp paste, which is shellfish. Check labels.",
+    "Leafy greens and cabbage are high in vitamin K. If you take warfarin, keep how much you eat steady from week to week and tell your clinician."
+   ],
+   "allergens": [
+    "soy",
+    "gluten"
+   ]
+  },
+  {
+   "id": "recipe:id-orek-tempe",
+   "kind": "recipe",
+   "title": "Orek tempe (sweet-savory stir-fried tempeh)",
+   "summary": "Indonesia: Crisp tempeh strips in a sticky garlic, chili and kecap manis glaze. 20 min.",
+   "why": "Tempeh is a fermented soy food that gives protein and some fiber. Reviews of mostly observational studies link eating soy foods with lower risk of heart disease or type 2 diabetes in some analyses, but results vary and tempeh itself has been studied little.",
+   "evidence": "Weak",
+   "minutes": 20,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Soy sauce is salty and contains wheat (gluten) and soy. Use a little, then taste before adding more.",
+    "Chili heat varies a lot. Start with a little, and wash your hands after cutting hot chilies before touching your eyes.",
+    "Keep tempeh in the fridge and cook it through. Do not eat tempeh that smells of ammonia or has pink, blue or green mold."
+   ],
+   "allergens": [
+    "soy",
+    "gluten"
+   ]
+  },
+  {
+   "id": "recipe:id-sayur-asem",
+   "kind": "recipe",
+   "title": "Sayur asem (tamarind vegetable soup)",
+   "summary": "Indonesia: A light sour soup of corn, long beans, chayote and peanuts. 35 min.",
+   "why": "A soup that is mostly vegetables, with peanuts for some plant protein. Eating more vegetables is linked to lower risk of heart disease in large observational studies, which cannot prove cause.",
+   "evidence": "Moderate",
+   "minutes": 35,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Contains peanuts, which are a common and sometimes severe allergen. Peanuts and whole nuts are also a choking risk for young children; use smooth sauce for them.",
+    "Tamarind is sour and acidic; it can bother some people with reflux.",
+    "Corn rounds and whole peanuts are a choking risk for young children."
+   ],
+   "allergens": []
+  },
+  {
+   "id": "recipe:id-tumis-kangkung",
+   "kind": "recipe",
+   "title": "Tumis kangkung (garlic water spinach)",
+   "summary": "Indonesia: Water spinach stir-fried fast with garlic and chili. 15 min.",
+   "why": "A big portion of leafy vegetables cooked quickly. Eating more vegetables is linked to lower risk of heart disease in large observational studies, which cannot prove cause.",
+   "evidence": "Moderate",
+   "minutes": 15,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Leafy greens and fresh herbs are high in vitamin K. If you take warfarin, keep how much you eat steady from week to week and tell your clinician.",
+    "Chili heat varies a lot. Start with a little, and wash your hands after cutting hot chilies before touching your eyes.",
+    "Soy sauce is salty and contains wheat (gluten) and soy. Use a little, then taste before adding more.",
+    "Wash water spinach very well and cook it through; it can carry soil and water-borne germs when eaten raw."
+   ],
+   "allergens": [
+    "soy",
+    "gluten"
+   ]
+  },
+  {
+   "id": "recipe:in-cabbage-thoran",
+   "kind": "recipe",
+   "title": "Cabbage thoran (Kerala coconut stir-fry)",
+   "summary": "India: Quick-cooked cabbage and carrot with coconut, mustard seed and curry leaves. 20 min.",
+   "why": "Eating more vegetables is linked to lower risk of heart disease and early death in large observational reviews. This side dish is almost all vegetable.",
+   "evidence": "Moderate",
+   "minutes": 20,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Mustard seeds spit when they pop. Cover the pan briefly.",
+    "Chilli heat varies a lot. Start with less; it is easy to add more at the table.",
+    "Leafy greens and cabbage are high in vitamin K. If you take warfarin, keep how much you eat steady from week to week and tell your clinician."
+   ],
+   "allergens": []
+  },
+  {
+   "id": "recipe:in-chana-masala",
+   "kind": "recipe",
+   "title": "Chole / chana masala (spiced chickpeas)",
+   "summary": "India: Chickpeas simmered in a tomato, onion and spice base. 30 min.",
+   "why": "Chickpeas are a pulse, and pulses lowered LDL cholesterol in a meta-analysis of trials. A pot that is mostly beans and tomatoes-onion sauce is also high in fiber.",
+   "evidence": "Strong",
+   "minutes": 30,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Chilli heat varies a lot. Start with less; it is easy to add more at the table.",
+    "New to beans or lots of fiber? Start with smaller portions and drink water; your gut adjusts in a few weeks.",
+    "Canned chickpeas can be salty. Rinse them well."
+   ],
+   "allergens": []
+  },
+  {
+   "id": "recipe:in-dal-tadka",
+   "kind": "recipe",
+   "title": "Dal tadka (tempered red lentils)",
+   "summary": "India: Soft lentils finished with sizzling cumin, garlic and chilli. 30 min.",
+   "why": "About one serving of beans, peas or lentils a day lowered LDL cholesterol in a meta-analysis of trials, and lentils bring fiber and plant protein together. Turmeric and ginger are here for flavour; the evidence for health effects from the spices themselves is limited.",
+   "evidence": "Strong",
+   "minutes": 30,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Hot oil spits when the seeds go in. Keep the pan lid close and stand back.",
+    "Chilli heat varies a lot. Start with less; it is easy to add more at the table.",
+    "New to beans or lots of fiber? Start with smaller portions and drink water; your gut adjusts in a few weeks.",
+    "Salt to taste only at the end; packaged spice mixes can add a lot of salt."
+   ],
+   "allergens": []
+  },
+  {
+   "id": "recipe:in-moong-khichdi",
+   "kind": "recipe",
+   "title": "Khichdi (rice and split moong dal porridge)",
+   "summary": "India: Soft, gently spiced comfort food that many families make on busy days. 35 min.",
+   "why": "Moong dal is a pulse, and pulses lowered LDL cholesterol in trials. Pairing it with rice, a traditional combination, gives a filling one-pot meal with fiber and plant protein.",
+   "evidence": "Strong",
+   "minutes": 35,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "New to beans or lots of fiber? Start with smaller portions and drink water; your gut adjusts in a few weeks.",
+    "Serve soft and cooled slightly for young children; whole cumin seeds are easy to leave out for them."
+   ],
+   "allergens": []
+  },
+  {
+   "id": "recipe:ir-adas-polo",
+   "kind": "recipe",
+   "title": "Adas polo (Persian lentil rice with dates)",
+   "summary": "Iran: Fragrant rice layered with lentils, onion, cinnamon and dates. 45 min.",
+   "why": "Lentils are a pulse, and pulses lowered LDL cholesterol in a meta-analysis of trials. Lentils with rice, a vegetable salad and yogurt on the side makes a balanced plate.",
+   "evidence": "Strong",
+   "minutes": 45,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "New to beans or lots of fiber? Start with smaller portions and drink water; your gut adjusts in a few weeks.",
+    "Dates are sweet and add sugar to the dish; use fewer if you are watching sugar.",
+    "The yogurt side contains dairy. Leave it out for a dairy-free and vegan plate."
+   ],
+   "allergens": [
+    "dairy"
+   ]
+  },
+  {
+   "id": "recipe:ir-ghormeh-sabzi",
+   "kind": "recipe",
+   "title": "Ghormeh sabzi (herb & kidney bean stew)",
+   "summary": "Iran: A deep green stew of parsley, cilantro, leek or scallion, beans and dried lime. 45 min.",
+   "why": "Kidney beans are a pulse, and pulses lowered LDL cholesterol in a meta-analysis of trials. The herbs make this stew very high in greens, and it is served with rice.",
+   "evidence": "Strong",
+   "minutes": 45,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Leafy greens and fresh herbs are high in vitamin K. If you take warfarin, keep how much you eat steady from week to week and tell your clinician.",
+    "Canned beans, broth and sauces can be salty. Rinse beans and choose low-sodium versions if you're watching salt.",
+    "New to beans or lots of fiber? Start with smaller portions and drink water; your gut adjusts in a few weeks.",
+    "Remove the dried limes before eating or warn guests; they are hard and sour."
+   ],
+   "allergens": []
+  },
+  {
+   "id": "recipe:ir-kuku-sabzi",
+   "kind": "recipe",
+   "title": "Kuku sabzi (Persian herb frittata)",
+   "summary": "Iran: A thick, green herb-and-egg cake with walnuts, cut into wedges. 35 min.",
+   "why": "A dish that is high in fresh herbs, with eggs for protein and walnuts for fat and fiber. Eating more vegetables and herbs is linked to lower risk of heart disease in large observational studies, which cannot prove cause.",
+   "evidence": "Weak",
+   "minutes": 35,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Cook eggs until firm if you are pregnant, elderly, immunocompromised or feeding young children.",
+    "Leafy greens and fresh herbs are high in vitamin K. If you take warfarin, keep how much you eat steady from week to week and tell your clinician.",
+    "Contains walnuts (tree nuts). Chopped nuts are a choking risk for very young children."
+   ],
+   "allergens": [
+    "nuts",
+    "dairy"
+   ]
+  },
+  {
+   "id": "recipe:ir-mirza-ghasemi",
+   "kind": "recipe",
+   "title": "Mirza ghasemi (smoky eggplant & egg)",
+   "summary": "Iran: Soft eggplant, garlic and tomato set with egg, from Gilan. 40 min.",
+   "why": "A dish that is mostly vegetables, with egg for protein. Eating more vegetables is linked to lower risk of heart disease in large observational studies, which cannot prove cause.",
+   "evidence": "Moderate",
+   "minutes": 40,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Cook eggs until firm if you are pregnant, elderly, immunocompromised or feeding young children.",
+    "Handle charred eggplant carefully; it is very hot.",
+    "Contains gluten if served with wheat flatbread."
+   ],
+   "allergens": [
+    "gluten"
+   ]
+  },
+  {
+   "id": "recipe:it-minestrone",
+   "kind": "recipe",
+   "title": "Minestrone di verdure (vegetable soup)",
+   "summary": "Italy: Whatever vegetables are in season, simmered with beans and a little pasta. 40 min.",
+   "why": "This soup is mostly vegetables, with beans for protein and fiber. Beans lowered LDL cholesterol in trials, and more vegetables and fruit is linked to lower risk of heart disease in observational studies.",
+   "evidence": "Strong",
+   "minutes": 40,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Canned beans, broth and sauces can be salty. Rinse beans and choose low-sodium versions if you're watching salt.",
+    "New to beans or lots of fiber? Start with smaller portions and drink water; your gut adjusts in a few weeks.",
+    "Cabbage and other leafy greens contain vitamin K. If you take warfarin, keep how much you eat steady from week to week and tell your clinician."
+   ],
+   "allergens": [
+    "gluten"
+   ]
+  },
+  {
+   "id": "recipe:it-orecchiette-cime-di-rapa",
+   "kind": "recipe",
+   "title": "Orecchiette con cime di rapa (pasta with greens)",
+   "summary": "Italy: A Puglian classic: small pasta with bitter greens, garlic and chili. 30 min.",
+   "why": "Leafy and cruciferous greens add fiber and vitamins to a pasta dish. Higher intake of vegetables and fruit is linked to lower risk of heart disease in observational studies, and olive oil is the main fat in the Mediterranean pattern.",
+   "evidence": "Moderate",
+   "minutes": 30,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Leafy greens are high in vitamin K. If you take warfarin, keep how much you eat steady from week to week and tell your clinician.",
+    "Contains wheat pasta. Anchovies add fish and a lot of salt.",
+    "Chili heat varies a lot. Start with a little, and wash your hands after cutting hot chilies before touching your eyes."
+   ],
+   "allergens": [
+    "gluten",
+    "fish"
+   ]
+  },
+  {
+   "id": "recipe:it-panzanella",
+   "kind": "recipe",
+   "title": "Panzanella (Tuscan tomato & bread salad)",
+   "summary": "Italy: Stale bread soaked in tomato juice, olive oil and vinegar. 15 min.",
+   "why": "Panzanella is a Mediterranean-style dish with vegetables, whole grain bread and extra virgin olive oil. In PREDIMED, a Mediterranean diet with extra olive oil or nuts lowered cardiovascular events; that result is for the whole eating pattern, not for one dish.",
+   "evidence": "Strong",
+   "minutes": 15,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Contains wheat bread.",
+    "Capers and bread can be salty."
+   ],
+   "allergens": [
+    "gluten"
+   ]
+  },
+  {
+   "id": "recipe:it-pasta-e-fagioli",
+   "kind": "recipe",
+   "title": "Pasta e fagioli (pasta and bean soup)",
+   "summary": "Italy: A thick, humble soup of white beans, small pasta and tomato. 35 min.",
+   "why": "Beans, peas and lentils lowered LDL cholesterol in a meta-analysis of trials, and beans carry most of the protein here. This is a Mediterranean-style dish with olive oil and legumes.",
+   "evidence": "Strong",
+   "minutes": 35,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Canned beans, broth and sauces can be salty. Rinse beans and choose low-sodium versions if you're watching salt.",
+    "New to beans or lots of fiber? Start with smaller portions and drink water; your gut adjusts in a few weeks.",
+    "Contains wheat pasta."
+   ],
+   "allergens": [
+    "gluten"
+   ]
+  },
+  {
+   "id": "recipe:jm-pumpkin-soup",
+   "kind": "recipe",
+   "title": "Jamaican pumpkin soup",
+   "summary": "Jamaica: A thick golden Saturday-style soup of pumpkin, carrot and thyme. 40 min.",
+   "why": "A soup built from orange vegetables adds vegetables to the day. Higher vegetable and fruit intake is linked to lower risk of heart disease in large observational studies, which cannot prove cause.",
+   "evidence": "Moderate",
+   "minutes": 40,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Scotch bonnet peppers are very hot. Wear gloves to cut one, keep it whole to add flavor with less heat, and never touch your eyes afterward.",
+    "Hot soup splashes. Let it cool a little before blending, and fill the blender no more than half.",
+    "Add salt gradually and taste first."
+   ],
+   "allergens": []
+  },
+  {
+   "id": "recipe:jm-rice-and-peas",
+   "kind": "recipe",
+   "title": "Rice and peas (rice cooked with red beans)",
+   "summary": "Jamaica: Rice simmered with red beans, coconut milk, thyme and a whole Scotch bonnet. 40 min.",
+   "why": "Beans lowered LDL cholesterol in a meta-analysis of trials, and rice and peas is a staple pairing in Jamaican home cooking. Coconut milk adds saturated fat, so a modest amount is enough.",
+   "evidence": "Strong",
+   "minutes": 40,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Red kidney beans must be cooked until soft. Canned beans are already cooked; dried red kidney beans must be boiled hard for at least 10 minutes first, never only slow-cooked.",
+    "Scotch bonnet peppers are very hot. Wear gloves to cut one, keep it whole to add flavor with less heat, and never touch your eyes afterward.",
+    "Canned beans, broth and sauces can be salty. Rinse beans and choose low-sodium versions if you're watching salt.",
+    "New to beans or lots of fiber? Start with smaller portions and drink water; your gut adjusts in a few weeks.",
+    "Coconut is not a tree nut for most allergy guidance, but people with tree nut allergies should check with their clinician first."
+   ],
+   "allergens": []
+  },
+  {
+   "id": "recipe:jm-steamed-cabbage",
+   "kind": "recipe",
+   "title": "Steamed cabbage and carrots",
+   "summary": "Jamaica: A quick, everyday side of cabbage and carrot with thyme and scallion. 20 min.",
+   "why": "A plate that is mostly vegetables fits the advice to fill half the plate with vegetables. Higher vegetable intake is linked to lower risk of heart disease and early death in large observational studies, which cannot prove cause.",
+   "evidence": "Moderate",
+   "minutes": 20,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Cabbage and other leafy greens are high in vitamin K. If you take warfarin, keep how much you eat steady from week to week and tell your clinician.",
+    "Add salt at the end and taste first."
+   ],
+   "allergens": []
+  },
+  {
+   "id": "recipe:jm-steamed-callaloo",
+   "kind": "recipe",
+   "title": "Steamed callaloo (greens with onion and tomato)",
+   "summary": "Jamaica: Tender greens steamed with onion, tomato, thyme and a little pepper. 20 min.",
+   "why": "A plate that is mostly leafy vegetables fits the advice to fill half the plate with vegetables. Higher vegetable intake is linked to lower risk of heart disease and early death in large observational studies, which cannot prove cause.",
+   "evidence": "Moderate",
+   "minutes": 20,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Leafy greens are high in vitamin K. If you take warfarin, keep how much you eat steady from week to week and tell your clinician.",
+    "Scotch bonnet peppers are very hot. Wear gloves to cut one, keep it whole to add flavor with less heat, and never touch your eyes afterward.",
+    "Canned callaloo can be salty. Rinse it before cooking."
+   ],
+   "allergens": []
+  },
+  {
+   "id": "recipe:jp-horenso-ohitashi",
+   "kind": "recipe",
+   "title": "Horenso no ohitashi (chilled spinach in dashi)",
+   "summary": "Japan: Blanched spinach soaked in a light soy-dashi dressing. 15 min.",
+   "why": "Leafy vegetables are part of a Japanese-style meal, and eating more vegetables is linked to lower risk of heart disease in large observational reviews.",
+   "evidence": "Moderate",
+   "minutes": 15,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Leafy greens are high in vitamin K. If you take warfarin, keep how much you eat steady from week to week and tell your clinician.",
+    "Regular soy sauce contains wheat, so it is not gluten-free. Tamari labelled gluten-free is a simple swap.",
+    "This dish can be salty from soy sauce, miso, fish sauce or pickles. Taste before adding more, and use less if you are watching salt.",
+    "Spinach is high in oxalate. People who form kidney stones may be advised to limit it; blanching and draining helps."
+   ],
+   "allergens": [
+    "soy",
+    "gluten",
+    "sesame"
+   ]
+  },
+  {
+   "id": "recipe:jp-kabocha-nimono",
+   "kind": "recipe",
+   "title": "Kabocha no nimono (simmered Japanese pumpkin)",
+   "summary": "Japan: Sweet, soft squash simmered in a light soy-mirin broth. 25 min.",
+   "why": "Squash is a vegetable that adds fiber. Eating more vegetables is linked to lower risk of heart disease in large observational reviews.",
+   "evidence": "Moderate",
+   "minutes": 25,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Regular soy sauce contains wheat, so it is not gluten-free. Tamari labelled gluten-free is a simple swap.",
+    "This dish can be salty from soy sauce, miso, fish sauce or pickles. Taste before adding more, and use less if you are watching salt.",
+    "Cut squash on a stable board with a sharp knife; kabocha is hard and can slip."
+   ],
+   "allergens": [
+    "soy",
+    "gluten"
+   ]
+  },
+  {
+   "id": "recipe:jp-miso-shiru",
+   "kind": "recipe",
+   "title": "Miso shiru (miso soup with tofu and wakame)",
+   "summary": "Japan: The everyday soup that sits beside rice at many Japanese meals. 15 min.",
+   "why": "Soy foods such as tofu and miso are linked to somewhat lower heart-disease risk in observational studies, though this cannot prove cause. Miso is a fermented food, but heating it strongly reduces live cultures, so it is eaten here for taste, not as a probiotic.",
+   "evidence": "Weak",
+   "minutes": 15,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Contains soy. Some miso is made with barley and contains gluten; check the label.",
+    "This dish can be salty from soy sauce, miso, fish sauce or pickles. Taste before adding more, and use less if you are watching salt. Miso soup is a common source of sodium in Japan.",
+    "Seaweed such as kombu is high in iodine. People with thyroid conditions should ask their clinician about eating it often."
+   ],
+   "allergens": [
+    "soy"
+   ]
+  },
+  {
+   "id": "recipe:jp-shiozake",
+   "kind": "recipe",
+   "title": "Shiozake (salt-grilled salmon) with daikon",
+   "summary": "Japan: Simply salted salmon, grilled until crisp-skinned, with grated daikon. 25 min.",
+   "why": "Fatty fish is a leading food source of the omega-3s EPA and DHA. The American Heart Association recommends one to two seafood meals a week, based on lower cardiovascular risk in studies.",
+   "evidence": "Moderate",
+   "minutes": 25,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Contains fish. Cook fish to 145°F (63°C); raw or undercooked fish is not advised in pregnancy or for people with weakened immunity.",
+    "Check for small bones.",
+    "This dish can be salty from soy sauce, miso, fish sauce or pickles. Taste before adding more, and use less if you are watching salt."
+   ],
+   "allergens": [
+    "fish"
    ]
   },
   {
@@ -6125,6 +7069,158 @@
    ]
   },
   {
+   "id": "recipe:kr-bibimbap",
+   "kind": "recipe",
+   "title": "Bibimbap (mixed vegetable rice bowl)",
+   "summary": "South Korea: Rice topped with seasoned vegetables, an egg and a little gochujang. 40 min.",
+   "why": "The bowl is about half vegetables, which matches the plate model, and eating more vegetables is linked to lower risk of heart disease in large observational reviews. Rice adds the grain and the egg adds protein.",
+   "evidence": "Moderate",
+   "minutes": 40,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Contains eggs; cook until the whites are set, as raw or runny eggs are not advised in pregnancy or for people with weakened immunity.",
+    "Gochujang often contains wheat and soy; check the label. This dish can be salty from soy sauce, miso, fish sauce or pickles. Taste before adding more, and use less if you are watching salt.",
+    "Leafy greens are high in vitamin K. If you take warfarin, keep how much you eat steady from week to week and tell your clinician.",
+    "Chilli heat varies a lot. Start with less; it is easy to add more at the table."
+   ],
+   "allergens": [
+    "soy",
+    "sesame",
+    "gluten"
+   ]
+  },
+  {
+   "id": "recipe:kr-doenjang-jjigae",
+   "kind": "recipe",
+   "title": "Doenjang-jjigae (fermented soybean paste stew)",
+   "summary": "South Korea: A hearty stew of tofu and vegetables in a savoury soybean broth. 30 min.",
+   "why": "Fermented soy and tofu are linked to somewhat lower heart-disease risk in observational studies, though this cannot prove cause. The stew is also rich in vegetables. Cooking reduces live cultures, so it is not a probiotic food.",
+   "evidence": "Weak",
+   "minutes": 30,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Doenjang is very salty. This dish can be salty from soy sauce, miso, fish sauce or pickles. Taste before adding more, and use less if you are watching salt.",
+    "Some doenjang contains wheat; check the label.",
+    "Chilli heat varies a lot. Start with less; it is easy to add more at the table."
+   ],
+   "allergens": [
+    "soy",
+    "gluten"
+   ]
+  },
+  {
+   "id": "recipe:kr-kimchi-jjigae",
+   "kind": "recipe",
+   "title": "Kimchi-jjigae (kimchi and tofu stew)",
+   "summary": "South Korea: A way to use up sour, well-aged kimchi in a warming stew. 30 min.",
+   "why": "A small body of human trials suggests kimchi may be linked to slightly lower fasting blood sugar, but studies are few and small. Cooking also reduces live cultures, so this stew counts as a tasty vegetable and tofu dish, not a probiotic.",
+   "evidence": "Weak",
+   "minutes": 30,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Most kimchi contains fish sauce or salted shrimp, so this stew is not vegetarian unless the label says so. This dish can be salty from soy sauce, miso, fish sauce or pickles. Taste before adding more, and use less if you are watching salt.",
+    "Chilli heat varies a lot. Start with less; it is easy to add more at the table.",
+    "Tofu and kimchi both bring sodium; avoid adding soy sauce."
+   ],
+   "allergens": [
+    "soy",
+    "sesame",
+    "fish"
+   ]
+  },
+  {
+   "id": "recipe:kr-kongnamul-guk",
+   "kind": "recipe",
+   "title": "Kongnamul-guk (soybean sprout soup)",
+   "summary": "South Korea: A clear, light soup of crunchy sprouts, garlic and spring onion. 25 min.",
+   "why": "Soy foods are linked to somewhat lower heart-disease risk in observational studies. That cannot prove cause, and sprouts are different from tofu, so this soup is mainly a light, vegetable-rich dish.",
+   "evidence": "Weak",
+   "minutes": 25,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Regular soy sauce contains wheat, so it is not gluten-free. Tamari labelled gluten-free is a simple swap.",
+    "This dish can be salty from soy sauce, miso, fish sauce or pickles. Taste before adding more, and use less if you are watching salt.",
+    "Chilli heat varies a lot. Start with less; it is easy to add more at the table.",
+    "Always cook sprouts fully; raw or lightly cooked sprouts can carry bacteria, especially a concern in pregnancy and for young children."
+   ],
+   "allergens": [
+    "soy",
+    "gluten"
+   ]
+  },
+  {
+   "id": "recipe:lb-fattoush",
+   "kind": "recipe",
+   "title": "Fattoush, crisp salad with toasted pita",
+   "summary": "Lebanon: Crunchy vegetables and herbs with a lemony sumac dressing. 20 min.",
+   "why": "A big bowl of raw vegetables with olive oil as the main fat follows the Mediterranean pattern, and higher vegetable intake is linked to lower risk of heart disease in observational reviews. The PREDIMED trial tested a whole eating pattern, not a single salad.",
+   "evidence": "Moderate",
+   "minutes": 20,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Pita contains wheat gluten.",
+    "Wash lettuce and herbs well before eating raw."
+   ],
+   "allergens": [
+    "gluten"
+   ]
+  },
+  {
+   "id": "recipe:lb-loubieh-bi-zeit",
+   "kind": "recipe",
+   "title": "Loubieh bi zeit, green beans in olive oil",
+   "summary": "Lebanon: Green beans slowly cooked with tomato and onion, eaten warm or at room temperature. 40 min.",
+   "why": "This is vegetables cooked in olive oil, a core feature of the traditional Mediterranean pattern. In the PREDIMED trial, a Mediterranean diet with extra olive oil lowered major cardiovascular events compared with a lower-fat diet, but that result is for the whole eating pattern.",
+   "evidence": "Strong",
+   "minutes": 40,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Cook green beans until tender; raw or undercooked beans can upset the stomach.",
+    "Salt to taste at the end, since tomatoes and added salt build up."
+   ],
+   "allergens": []
+  },
+  {
+   "id": "recipe:lb-mujaddara",
+   "kind": "recipe",
+   "title": "Mujaddara, lentils and rice with onions",
+   "summary": "Lebanon: Lentils, rice and deeply browned onions. Plain food, big flavor. 40 min.",
+   "why": "Lentils are a pulse, and about one serving of pulses a day lowered LDL cholesterol in a meta-analysis of trials. Lentils and rice together make a filling meal that is mostly plants.",
+   "evidence": "Strong",
+   "minutes": 40,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "New to beans or lots of fiber? Start with smaller portions and drink water; your gut adjusts in a few weeks.",
+    "Watch the onions closely as they brown; they go from golden to bitter quickly."
+   ],
+   "allergens": []
+  },
+  {
+   "id": "recipe:lb-tabbouleh",
+   "kind": "recipe",
+   "title": "Tabbouleh, parsley and bulgur salad",
+   "summary": "Lebanon: Mostly parsley, with a little bulgur, tomato, lemon and olive oil. 25 min.",
+   "why": "Eating more vegetables and fruit is linked to lower risk of heart disease and early death in large observational reviews. Here the herbs and tomatoes are the main ingredient, with a small amount of whole-grain bulgur.",
+   "evidence": "Moderate",
+   "minutes": 25,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Bulgur is wheat and contains gluten.",
+    "Wash herbs well; raw herbs can carry soil and germs."
+   ],
+   "allergens": [
+    "gluten"
+   ]
+  },
+  {
    "id": "recipe:lentil-soup",
    "kind": "recipe",
    "title": "Weeknight lentil soup",
@@ -6138,6 +7234,76 @@
     "Leafy greens are high in vitamin K. If you take warfarin, keep how much you eat steady from week to week and tell your clinician.",
     "Canned beans, broth and sauces can be salty. Rinse beans and choose low-sodium versions if you're watching salt.",
     "New to beans or lots of fiber? Start with smaller portions and drink water; your gut adjusts in a few weeks."
+   ],
+   "allergens": []
+  },
+  {
+   "id": "recipe:ma-bissara",
+   "kind": "recipe",
+   "title": "Bissara, creamy fava bean soup",
+   "summary": "Morocco: Dried fava beans cooked until smooth, with garlic, cumin and a drizzle of olive oil. 40 min.",
+   "why": "Fava beans are a pulse, and about one serving of pulses a day lowered LDL cholesterol in a meta-analysis of trials. This dish is also a cheap, filling source of plant protein and fiber.",
+   "evidence": "Strong",
+   "minutes": 40,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Fava beans can cause a serious reaction (favism) in people with G6PD deficiency. If you have it, skip this dish.",
+    "New to beans or lots of fiber? Start with smaller portions and drink water; your gut adjusts in a few weeks."
+   ],
+   "allergens": []
+  },
+  {
+   "id": "recipe:ma-harira",
+   "kind": "recipe",
+   "title": "Harira, lentil and chickpea soup",
+   "summary": "Morocco: A tomato soup with lentils, chickpeas, herbs and warm spices. 40 min.",
+   "why": "Lentils and chickpeas are pulses, and about one serving of pulses a day lowered LDL cholesterol in a meta-analysis of trials. A bowl like this also fits the plate model, with vegetables and plant protein.",
+   "evidence": "Strong",
+   "minutes": 40,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Canned beans, tomatoes and stock can be salty. Rinse beans and choose low-sodium versions if you are watching salt.",
+    "New to beans or lots of fiber? Start with smaller portions and drink water; your gut adjusts in a few weeks.",
+    "Vermicelli contains wheat gluten."
+   ],
+   "allergens": [
+    "gluten"
+   ]
+  },
+  {
+   "id": "recipe:ma-vegetable-tagine",
+   "kind": "recipe",
+   "title": "Chickpea and vegetable tagine, pot version",
+   "summary": "Morocco: Carrots, sweet potato and chickpeas simmered with ginger, cumin and cinnamon. 40 min.",
+   "why": "This pot combines vegetables with chickpeas, a pulse. Pulses lowered LDL cholesterol in a meta-analysis of trials, and the vegetables add fiber.",
+   "evidence": "Strong",
+   "minutes": 40,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Canned beans, tomatoes and stock can be salty. Rinse beans and choose low-sodium versions if you are watching salt.",
+    "New to beans or lots of fiber? Start with smaller portions and drink water; your gut adjusts in a few weeks.",
+    "Couscous and bread contain wheat gluten."
+   ],
+   "allergens": [
+    "gluten"
+   ]
+  },
+  {
+   "id": "recipe:ma-zaalouk",
+   "kind": "recipe",
+   "title": "Zaalouk, eggplant and tomato salad",
+   "summary": "Morocco: Soft eggplant and tomatoes cooked down with garlic and spices, served warm or cold. 40 min.",
+   "why": "This is a vegetable-heavy dish with olive oil as the main fat, in line with Mediterranean-style eating. Higher vegetable intake is linked to lower risk of heart disease in observational reviews.",
+   "evidence": "Moderate",
+   "minutes": 40,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Eggplant should be fully cooked and soft; it is not good raw.",
+    "Bread served with it contains gluten unless you choose a gluten-free one."
    ],
    "allergens": []
   },
@@ -6197,6 +7363,145 @@
    ]
   },
   {
+   "id": "recipe:mx-calabacitas-con-elote",
+   "kind": "recipe",
+   "title": "Calabacitas con elote (squash with corn)",
+   "summary": "Mexico: Zucchini, sweet corn and tomato softened together in one pan. 25 min.",
+   "why": "This is a plate that is mostly vegetables. Eating more vegetables and fruit is linked to lower risk of heart disease and early death in large observational studies, which cannot prove cause.",
+   "evidence": "Moderate",
+   "minutes": 25,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Chili heat varies a lot. Start with a little, and wash your hands after cutting hot chilies before touching your eyes.",
+    "Queso fresco is salty; you may not need extra salt."
+   ],
+   "allergens": [
+    "dairy"
+   ]
+  },
+  {
+   "id": "recipe:mx-ensalada-de-nopales",
+   "kind": "recipe",
+   "title": "Ensalada de nopales (cactus paddle salad)",
+   "summary": "Mexico: Tender cactus with tomato, onion, cilantro and lime. 15 min.",
+   "why": "Nopales are a vegetable that gives fiber. This salad is mostly vegetables, which matches the plate model; higher vegetable intake is linked to lower risk of heart disease in observational studies. Claims about nopales and blood sugar come from small studies and are not settled.",
+   "evidence": "Moderate",
+   "minutes": 15,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Jarred nopales are packed in brine, so rinse them to cut the salt.",
+    "If you cook fresh paddles, remove the spines first and wear gloves or use a knife to scrape them off.",
+    "Chili heat varies a lot. Start with a little, and wash your hands after cutting hot chilies before touching your eyes."
+   ],
+   "allergens": []
+  },
+  {
+   "id": "recipe:mx-frijoles-de-olla",
+   "kind": "recipe",
+   "title": "Frijoles de olla (pot beans)",
+   "summary": "Mexico: Soft pinto beans in their own broth, the everyday table bean. 40 min.",
+   "why": "Beans, peas and lentils lowered LDL cholesterol in a meta-analysis of trials, and a pot of beans gives fiber and plant protein at a low price. Beans with corn tortillas is a traditional pairing in Mexican cooking.",
+   "evidence": "Strong",
+   "minutes": 40,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Beans must be cooked until completely soft. Undercooked dried beans can cause stomach upset.",
+    "Pressure cookers should be used by the maker's directions; release pressure fully before opening.",
+    "New to beans or lots of fiber? Start with smaller portions and drink water; your gut adjusts in a few weeks.",
+    "Add salt to taste at the end rather than a lot at the start."
+   ],
+   "allergens": []
+  },
+  {
+   "id": "recipe:mx-huevos-a-la-mexicana",
+   "kind": "recipe",
+   "title": "Huevos a la mexicana (eggs with tomato & chili)",
+   "summary": "Mexico: Scrambled eggs in the colors of the flag: tomato, onion and green chili. 15 min.",
+   "why": "This pairs eggs with a good share of vegetables. Eggs add protein, and the tomato and onion base adds vegetables to a breakfast. The health effects of one dish are small; it fits the plate model of vegetables, grain and protein together.",
+   "evidence": "Weak",
+   "minutes": 15,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Cook eggs until firm if you are pregnant, elderly, immunocompromised or feeding young children.",
+    "Chili heat varies a lot. Start with a little, and wash your hands after cutting hot chilies before touching your eyes."
+   ],
+   "allergens": []
+  },
+  {
+   "id": "recipe:ng-efo-riro",
+   "kind": "recipe",
+   "title": "Efo riro, spinach and pepper stew",
+   "summary": "Nigeria: A Yoruba stew of leafy greens in a rich sauce of peppers, tomato and onion. 30 min.",
+   "why": "This dish is mostly leafy greens and vegetables. Higher fruit and vegetable intake is linked to lower risk of heart disease in observational reviews. Nigerian national guidelines also recommend vegetables and fruits at every meal.",
+   "evidence": "Moderate",
+   "minutes": 30,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Leafy greens are high in vitamin K. If you take warfarin, keep how much you eat steady from week to week and tell your clinician.",
+    "Chilli heat varies a lot. Start with a little, wash your hands after cutting hot peppers, and keep them away from eyes.",
+    "Palm oil is high in saturated fat, so a modest amount is enough."
+   ],
+   "allergens": []
+  },
+  {
+   "id": "recipe:ng-ewa-riro",
+   "kind": "recipe",
+   "title": "Ewa riro, stewed black-eyed peas",
+   "summary": "Nigeria: Cowpeas cooked down in a pepper, tomato and palm oil sauce. 35 min.",
+   "why": "Cowpeas are a pulse, and about one serving of pulses a day lowered LDL cholesterol in a meta-analysis of trials. Beans are also a common source of plant protein across Nigerian cooking.",
+   "evidence": "Strong",
+   "minutes": 35,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Canned beans, tomatoes and stock can be salty. Rinse beans and choose low-sodium versions if you are watching salt.",
+    "New to beans or lots of fiber? Start with smaller portions and drink water; your gut adjusts in a few weeks.",
+    "Chilli heat varies a lot. Start with a little, wash your hands after cutting hot peppers, and keep them away from eyes.",
+    "Palm oil is high in saturated fat, so a modest amount is enough."
+   ],
+   "allergens": []
+  },
+  {
+   "id": "recipe:ng-jollof-rice",
+   "kind": "recipe",
+   "title": "Jollof rice with vegetables",
+   "summary": "Nigeria: Rice cooked in a tomato and pepper sauce, widely cooked for family meals and gatherings. 45 min.",
+   "why": "This is a rice dish with a vegetable-based sauce and added vegetables. National guidelines for Nigeria put grains at the base with vegetables at every meal. There is no direct research on jollof as a dish, so this is general guidance, not a proven benefit.",
+   "evidence": "Weak",
+   "minutes": 45,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Chilli heat varies a lot. Start with a little, wash your hands after cutting hot peppers, and keep them away from eyes.",
+    "Stock and tomato paste can be salty; use low-sodium and taste before adding salt.",
+    "Cooked rice should be cooled and refrigerated within an hour or two of cooking and reheated until steaming hot."
+   ],
+   "allergens": []
+  },
+  {
+   "id": "recipe:ng-moi-moi",
+   "kind": "recipe",
+   "title": "Moi moi, steamed bean pudding",
+   "summary": "Nigeria: Black-eyed peas blended with peppers and steamed into a soft, savory pudding. 45 min.",
+   "why": "Black-eyed peas are a pulse, and about one serving of pulses a day lowered LDL cholesterol in a meta-analysis of trials. Moi moi is also a source of plant protein and fiber.",
+   "evidence": "Strong",
+   "minutes": 45,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "New to beans or lots of fiber? Start with smaller portions and drink water; your gut adjusts in a few weeks.",
+    "Chilli heat varies a lot. Start with a little, wash your hands after cutting hot peppers, and keep them away from eyes.",
+    "Cook beans until the pudding is firm all the way through. Raw or undercooked dried beans can cause stomach upset.",
+    "Serve small, soft portions to young children; the pudding can be dense."
+   ],
+   "allergens": []
+  },
+  {
    "id": "recipe:overnight-oats",
    "kind": "recipe",
    "title": "Overnight oats with berries & chia",
@@ -6212,6 +7517,156 @@
    ],
    "allergens": [
     "dairy"
+   ]
+  },
+  {
+   "id": "recipe:pe-ceviche-clasico",
+   "kind": "recipe",
+   "title": "Ceviche clásico (fish in lime juice)",
+   "summary": "Peru: Fresh fish with lime, onion and chili, served with sweet potato and corn. 25 min.",
+   "why": "Eating seafood one to two times a week is linked to lower risk of cardiovascular disease in studies, and the American Heart Association recommends it. Sweet potato and corn make this a meal with vegetables and starch, not just fish.",
+   "evidence": "Moderate",
+   "minutes": 25,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Ceviche uses raw fish. Lime juice does not make fish safe in the way cooking does. Buy fish from a trusted seller and keep it cold until you serve it.",
+    "People who are pregnant, older, immunocompromised or feeding young children are usually advised to avoid raw fish. Cook the fish through for them.",
+    "Chili heat varies a lot. Start with a little, and wash your hands after cutting hot chilies before touching your eyes."
+   ],
+   "allergens": [
+    "fish"
+   ]
+  },
+  {
+   "id": "recipe:pe-lentejas-guisadas",
+   "kind": "recipe",
+   "title": "Lentejas guisadas (Peruvian lentil stew)",
+   "summary": "Peru: Lentils simmered in a savory ají panca sauce, served over rice. 35 min.",
+   "why": "Lentils are a pulse, and pulses lowered LDL cholesterol in a meta-analysis of trials. Lentils with rice is a common everyday pairing in Latin American home cooking.",
+   "evidence": "Strong",
+   "minutes": 35,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "New to beans or lots of fiber? Start with smaller portions and drink water; your gut adjusts in a few weeks.",
+    "Chili heat varies a lot. Start with a little, and wash your hands after cutting hot chilies before touching your eyes."
+   ],
+   "allergens": []
+  },
+  {
+   "id": "recipe:pe-solterito-arequipeno",
+   "kind": "recipe",
+   "title": "Solterito arequipeño (fava bean & corn salad)",
+   "summary": "Peru: A fresh Arequipa salad of fava beans, corn, tomato and cheese. 25 min.",
+   "why": "Fava beans are a pulse, and pulses lowered LDL cholesterol in a meta-analysis of trials. The salad also has plenty of vegetables and corn.",
+   "evidence": "Strong",
+   "minutes": 25,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Some people with G6PD deficiency react to fava beans (favism). If that applies to you, use lima beans or edamame instead.",
+    "Fava beans should always be cooked.",
+    "Olives and cheese are salty; taste before adding salt.",
+    "New to beans or lots of fiber? Start with smaller portions and drink water; your gut adjusts in a few weeks."
+   ],
+   "allergens": [
+    "dairy"
+   ]
+  },
+  {
+   "id": "recipe:pe-sopa-de-quinua",
+   "kind": "recipe",
+   "title": "Sopa de quinua (quinoa & vegetable soup)",
+   "summary": "Peru: A warming Andean soup of quinoa, potato and carrot. 35 min.",
+   "why": "Quinoa is a seed eaten like a whole grain, with fiber and more protein than many grains. Eating more fiber and whole grains is linked to lower risk of heart disease and type 2 diabetes in large reviews. Studies of quinoa itself in people are fewer.",
+   "evidence": "Moderate",
+   "minutes": 35,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Rinse quinoa well before cooking; its natural coating can taste bitter.",
+    "New to beans or lots of fiber? Start with smaller portions and drink water; your gut adjusts in a few weeks.",
+    "Canned beans, broth and sauces can be salty. Rinse beans and choose low-sodium versions if you're watching salt."
+   ],
+   "allergens": []
+  },
+  {
+   "id": "recipe:ph-chicken-adobo",
+   "kind": "recipe",
+   "title": "Chicken adobo (soy-vinegar braised chicken)",
+   "summary": "Philippines: Chicken braised in vinegar, soy sauce, garlic and bay leaf. 40 min.",
+   "why": "This dish is a single protein food, and its health value depends on the plate around it. Served with a good share of vegetables and a whole grain, it fits the plate model. Claims for adobo itself are tradition, not trial results.",
+   "evidence": "Weak",
+   "minutes": 40,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Cook chicken until no pink remains and the juices run clear. Wash hands and boards after handling raw chicken.",
+    "Soy sauce is salty and contains wheat (gluten) and soy. Use a little, then taste before adding more.",
+    "Salty sauces add up over a day. See the WHO fact sheet on salt.",
+    "Small fish and chicken bones can be a choking risk, especially for young children. Check pieces before serving."
+   ],
+   "allergens": [
+    "soy",
+    "gluten"
+   ]
+  },
+  {
+   "id": "recipe:ph-ginisang-monggo",
+   "kind": "recipe",
+   "title": "Ginisang monggo (mung bean & greens stew)",
+   "summary": "Philippines: A soft mung bean stew with tomato, garlic and leafy greens. 40 min.",
+   "why": "Mung beans are a pulse, and pulses lowered LDL cholesterol in a meta-analysis of trials. Beans with leafy greens and rice makes a balanced plate of vegetables, grain and protein.",
+   "evidence": "Strong",
+   "minutes": 40,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Leafy greens and fresh herbs are high in vitamin K. If you take warfarin, keep how much you eat steady from week to week and tell your clinician.",
+    "New to beans or lots of fiber? Start with smaller portions and drink water; your gut adjusts in a few weeks.",
+    "Cook mung beans until completely soft."
+   ],
+   "allergens": []
+  },
+  {
+   "id": "recipe:ph-pinakbet",
+   "kind": "recipe",
+   "title": "Pinakbet (Ilocano mixed vegetable stew)",
+   "summary": "Philippines: Squash, eggplant, okra and beans simmered in their own juices. 35 min.",
+   "why": "A stew that is mostly vegetables. Eating more vegetables is linked to lower risk of heart disease in large observational studies, which cannot prove cause.",
+   "evidence": "Moderate",
+   "minutes": 35,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Fish sauce and shrimp paste are very salty, and shrimp paste is shellfish. Skip them if you have a fish or shellfish allergy.",
+    "Bagoong is very salty. Start with a little and taste.",
+    "Okra can be slippery; this is normal."
+   ],
+   "allergens": [
+    "fish"
+   ]
+  },
+  {
+   "id": "recipe:ph-sinigang-na-isda",
+   "kind": "recipe",
+   "title": "Sinigang na isda (sour tamarind fish soup)",
+   "summary": "Philippines: A sour broth with fish, tomato, radish and water spinach. 35 min.",
+   "why": "Eating seafood one to two times a week is linked to lower risk of cardiovascular disease in studies, and the American Heart Association recommends it. This soup also has a good share of vegetables.",
+   "evidence": "Moderate",
+   "minutes": 35,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Small fish and chicken bones can be a choking risk, especially for young children. Check pieces before serving.",
+    "Leafy greens and fresh herbs are high in vitamin K. If you take warfarin, keep how much you eat steady from week to week and tell your clinician.",
+    "Fish sauce and shrimp paste are very salty, and shrimp paste is shellfish. Skip them if you have a fish or shellfish allergy.",
+    "Sinigang mixes are often high in salt; check labels.",
+    "Cook fish until opaque all the way through."
+   ],
+   "allergens": [
+    "fish"
    ]
   },
   {
@@ -6287,6 +7742,226 @@
    ]
   },
   {
+   "id": "recipe:th-kaeng-liang",
+   "kind": "recipe",
+   "title": "Kaeng liang (peppery vegetable soup)",
+   "summary": "Thailand: A gentle, herb-rich soup of pumpkin, greens and mushrooms. 30 min.",
+   "why": "This soup is mostly vegetables, which suits the plate model, and vegetable-rich eating is linked to lower risk of heart disease in large observational reviews. Pepper and herbs are for taste.",
+   "evidence": "Moderate",
+   "minutes": 30,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Contains fish sauce and, if used, shrimp (shellfish) which is a major allergen. This dish can be salty from soy sauce, miso, fish sauce or pickles. Taste before adding more, and use less if you are watching salt.",
+    "Leafy greens are high in vitamin K. If you take warfarin, keep how much you eat steady from week to week and tell your clinician."
+   ],
+   "allergens": [
+    "fish"
+   ]
+  },
+  {
+   "id": "recipe:th-pad-pak-boong",
+   "kind": "recipe",
+   "title": "Pad pak boong (garlic-chilli stir-fried greens)",
+   "summary": "Thailand: Greens flash-cooked in a hot pan with garlic and chilli. 15 min.",
+   "why": "Greens are a vegetable, and eating more vegetables is linked to lower risk of heart disease in large observational reviews. Quick cooking keeps them bright and crisp.",
+   "evidence": "Moderate",
+   "minutes": 15,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Oyster sauce is made from shellfish, and soy sauce contains soy. Regular soy sauce contains wheat, so it is not gluten-free. Tamari labelled gluten-free is a simple swap.",
+    "This dish can be salty from soy sauce, miso, fish sauce or pickles. Taste before adding more, and use less if you are watching salt.",
+    "Leafy greens are high in vitamin K. If you take warfarin, keep how much you eat steady from week to week and tell your clinician.",
+    "Chilli heat varies a lot. Start with less; it is easy to add more at the table."
+   ],
+   "allergens": [
+    "soy",
+    "gluten",
+    "fish"
+   ]
+  },
+  {
+   "id": "recipe:th-som-tam",
+   "kind": "recipe",
+   "title": "Som tam (green papaya salad)",
+   "summary": "Thailand: Pounded or tossed raw papaya, beans and tomato with lime, chilli and peanuts. 20 min.",
+   "why": "A raw-vegetable salad adds fiber and variety to a meal. Eating more vegetables and fruit is linked to lower risk of heart disease in large observational reviews.",
+   "evidence": "Moderate",
+   "minutes": 20,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Contains peanuts (a legume, but a common allergen) and fish sauce.",
+    "Raw green beans should be fresh and well washed. Long beans are normally eaten raw in som tam.",
+    "Chilli heat varies a lot. Start with less; it is easy to add more at the table.",
+    "This dish can be salty from soy sauce, miso, fish sauce or pickles. Taste before adding more, and use less if you are watching salt."
+   ],
+   "allergens": [
+    "fish"
+   ]
+  },
+  {
+   "id": "recipe:th-tom-yum-het",
+   "kind": "recipe",
+   "title": "Tom yum het (hot and sour mushroom soup)",
+   "summary": "Thailand: A fragrant clear soup with lemongrass, lime and mushrooms. 25 min.",
+   "why": "A broth-based soup that is mostly vegetables and mushrooms adds to daily vegetable intake, which is linked to lower risk of heart disease in large observational reviews. The herbs are for flavour; no health effect is claimed for them.",
+   "evidence": "Moderate",
+   "minutes": 25,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Contains fish sauce. This dish can be salty from soy sauce, miso, fish sauce or pickles. Taste before adding more, and use less if you are watching salt.",
+    "Lemongrass, galangal and lime leaves are tough; remove or leave them in the bowl.",
+    "Chilli heat varies a lot. Start with less; it is easy to add more at the table."
+   ],
+   "allergens": [
+    "fish"
+   ]
+  },
+  {
+   "id": "recipe:tr-menemen",
+   "kind": "recipe",
+   "title": "Menemen (eggs with tomato and pepper)",
+   "summary": "Turkey: Softly scrambled eggs cooked in a pan of peppers and tomato, often eaten for breakfast. 20 min.",
+   "why": "This pairs eggs with a good share of vegetables and is served with bread, which matches the plate model. The health effect of one dish is small.",
+   "evidence": "Weak",
+   "minutes": 20,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Cook eggs until firm if you are pregnant, elderly, immunocompromised or feeding young children.",
+    "Contains wheat bread.",
+    "Chili heat varies a lot. Start with a little, and wash your hands after cutting hot chilies before touching your eyes."
+   ],
+   "allergens": [
+    "gluten"
+   ]
+  },
+  {
+   "id": "recipe:tr-mercimek-corbasi",
+   "kind": "recipe",
+   "title": "Mercimek çorbası (red lentil soup)",
+   "summary": "Turkey: A smooth, golden red lentil soup finished with lemon. 35 min.",
+   "why": "Red lentils are a pulse, and pulses lowered LDL cholesterol in a meta-analysis of trials. Lentil soup with a squeeze of lemon is an everyday Turkish dish.",
+   "evidence": "Strong",
+   "minutes": 35,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "New to beans or lots of fiber? Start with smaller portions and drink water; your gut adjusts in a few weeks.",
+    "Broth or stock cubes are very salty; this version uses water. Add salt a little at a time.",
+    "Pul biber is mild but can add heat; start with a small pinch."
+   ],
+   "allergens": []
+  },
+  {
+   "id": "recipe:tr-nohutlu-bulgur-pilavi",
+   "kind": "recipe",
+   "title": "Nohutlu bulgur pilavı (bulgur pilaf with chickpeas)",
+   "summary": "Turkey: Nutty cracked wheat cooked with tomato, onion and chickpeas. 30 min.",
+   "why": "Bulgur is a whole grain, and eating more fiber and whole grains is linked to lower risk of heart disease and type 2 diabetes in large reviews. Chickpeas add plant protein, and pulses lowered LDL cholesterol in a meta-analysis of trials.",
+   "evidence": "Strong",
+   "minutes": 30,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "New to beans or lots of fiber? Start with smaller portions and drink water; your gut adjusts in a few weeks.",
+    "Canned beans, broth and sauces can be salty. Rinse beans and choose low-sodium versions if you're watching salt.",
+    "Bulgur is cracked wheat and contains gluten."
+   ],
+   "allergens": [
+    "gluten"
+   ]
+  },
+  {
+   "id": "recipe:tr-zeytinyagli-taze-fasulye",
+   "kind": "recipe",
+   "title": "Zeytinyağlı taze fasulye (green beans in olive oil)",
+   "summary": "Turkey: Green beans slowly cooked with tomato and onion in olive oil, served at room temperature. 40 min.",
+   "why": "This is almost all vegetables cooked in olive oil, a style of dish called zeytinyağlı in Turkey. Eating more vegetables is linked to lower risk of heart disease and early death in large observational studies, which cannot prove cause.",
+   "evidence": "Moderate",
+   "minutes": 40,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Green beans should be cooked until tender, not raw.",
+    "Tomatoes are in the nightshade family; skip them if they bother you."
+   ],
+   "allergens": []
+  },
+  {
+   "id": "recipe:us-collards-black-eyed-peas",
+   "kind": "recipe",
+   "title": "Southern collards and black-eyed peas",
+   "summary": "United States: Slow-cooked greens and tender peas with onion, vinegar and smoked paprika. 40 min.",
+   "why": "Beans, peas and lentils lowered LDL cholesterol in a meta-analysis of trials, and greens add more vegetables to the plate. Black-eyed peas and collards are central foods in Southern cooking with African roots, shown in the Oldways African Heritage pyramid.",
+   "evidence": "Strong",
+   "minutes": 40,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Leafy greens are high in vitamin K. If you take warfarin, keep how much you eat steady from week to week and tell your clinician.",
+    "Canned beans, broth and sauces can be salty. Rinse beans and choose low-sodium versions if you're watching salt.",
+    "New to beans or lots of fiber? Start with smaller portions and drink water; your gut adjusts in a few weeks.",
+    "Hot sauce can be very salty and hot."
+   ],
+   "allergens": []
+  },
+  {
+   "id": "recipe:us-new-england-baked-beans",
+   "kind": "recipe",
+   "title": "New England stovetop baked beans",
+   "summary": "United States: White beans simmered in a sweet-savory molasses and mustard sauce. 35 min.",
+   "why": "Beans lowered LDL cholesterol in a meta-analysis of trials and add fiber and plant protein. A stovetop pot gives the flavor of a long oven bake in about half an hour.",
+   "evidence": "Strong",
+   "minutes": 35,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Canned beans, broth and sauces can be salty. Rinse beans and choose low-sodium versions if you're watching salt.",
+    "New to beans or lots of fiber? Start with smaller portions and drink water; your gut adjusts in a few weeks.",
+    "Molasses adds sugar; use less if you prefer a less sweet pot."
+   ],
+   "allergens": []
+  },
+  {
+   "id": "recipe:us-red-beans-and-rice",
+   "kind": "recipe",
+   "title": "Louisiana red beans and rice",
+   "summary": "United States: Red beans with onion, celery and bell pepper over rice, a classic Creole home meal. 45 min.",
+   "why": "Beans lowered LDL cholesterol in a meta-analysis of trials, and the vegetable base adds more plants to the meal. Red beans and rice is a long-standing Monday meal in Louisiana home cooking.",
+   "evidence": "Strong",
+   "minutes": 45,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Red kidney beans must be cooked until soft. Canned beans are already cooked; dried red kidney beans must be boiled hard for at least 10 minutes first, never only slow-cooked.",
+    "Canned beans, broth and sauces can be salty. Rinse beans and choose low-sodium versions if you're watching salt.",
+    "New to beans or lots of fiber? Start with smaller portions and drink water; your gut adjusts in a few weeks.",
+    "Cayenne is hot; add a pinch and taste."
+   ],
+   "allergens": []
+  },
+  {
+   "id": "recipe:us-three-sisters-succotash",
+   "kind": "recipe",
+   "title": "Three sisters succotash (corn, beans, squash)",
+   "summary": "United States: Sweet corn, lima beans and summer squash cooked together, a dish from Native American farming traditions. 25 min.",
+   "why": "Corn, beans and squash have been eaten together for centuries in many Native nations, and beans add fiber and plant protein to the corn. Pulses lowered LDL cholesterol in a meta-analysis, but no trial has tested succotash itself.",
+   "evidence": "Moderate",
+   "minutes": 25,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Canned beans, broth and sauces can be salty. Rinse beans and choose low-sodium versions if you're watching salt.",
+    "New to beans or lots of fiber? Start with smaller portions and drink water; your gut adjusts in a few weeks.",
+    "Whole corn kernels can be a choking risk for young children. Cut or mash for them."
+   ],
+   "allergens": []
+  },
+  {
    "id": "recipe:veggie-stir-fry",
    "kind": "recipe",
    "title": "Veggie stir-fry with brown rice",
@@ -6299,6 +7974,84 @@
    "cautions": [
     "Soy sauce contains wheat; use tamari labelled gluten-free if needed.",
     "Canned beans, broth and sauces can be salty. Rinse beans and choose low-sodium versions if you're watching salt."
+   ],
+   "allergens": [
+    "soy",
+    "gluten"
+   ]
+  },
+  {
+   "id": "recipe:vn-canh-chua-ca",
+   "kind": "recipe",
+   "title": "Canh chua cá (sweet-and-sour fish soup)",
+   "summary": "Vietnam: A light southern soup of tomato, pineapple and tamarind with a small portion of fish. 35 min.",
+   "why": "Eating fish about twice a week, in place of some meat, is advised by the American Heart Association, based on research linking seafood omega-3 fats with lower risk of heart disease. A soup with lots of vegetables and a small portion of fish fits that pattern.",
+   "evidence": "Moderate",
+   "minutes": 35,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Contains fish and fish sauce.",
+    "Cook fish until opaque and flaking. Check for bones before serving young children.",
+    "Fish sauce is very salty. Add it a little at a time. Too much salt over time is linked to higher blood pressure."
+   ],
+   "allergens": [
+    "fish"
+   ]
+  },
+  {
+   "id": "recipe:vn-dau-hu-sot-ca-chua",
+   "kind": "recipe",
+   "title": "Đậu hũ sốt cà chua (tofu in tomato sauce)",
+   "summary": "Vietnam: Golden tofu simmered in a soft, savory tomato sauce with scallions. 30 min.",
+   "why": "Tofu is a traditional plant protein in Vietnamese home cooking, and the tomato sauce adds vegetables to the plate. Research on tofu and health is mostly observational and the evidence is limited.",
+   "evidence": "Weak",
+   "minutes": 30,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Soy sauce contains soy and wheat (gluten) and is salty. Use a little and taste before adding more.",
+    "Hot oil can spatter when tofu goes in. Pat the tofu dry first."
+   ],
+   "allergens": [
+    "soy",
+    "gluten"
+   ]
+  },
+  {
+   "id": "recipe:vn-goi-cuon",
+   "kind": "recipe",
+   "title": "Gỏi cuốn (fresh rolls with tofu and herbs)",
+   "summary": "Vietnam: Rice paper rolled around vermicelli, lettuce, herbs and tofu, with a lime dip. 30 min.",
+   "why": "These rolls are mostly raw vegetables and herbs. Higher vegetable intake is linked to lower risk of heart disease in large observational studies, which cannot prove cause.",
+   "evidence": "Moderate",
+   "minutes": 30,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Soy sauce contains soy and wheat (gluten) and is salty. Use a little and taste before adding more.",
+    "Wash raw herbs and vegetables well.",
+    "Rice paper rolls are chewy. Cut them small for young children to lower the choking risk."
+   ],
+   "allergens": [
+    "soy",
+    "gluten"
+   ]
+  },
+  {
+   "id": "recipe:vn-rau-muong-xao-toi",
+   "kind": "recipe",
+   "title": "Rau muống xào tỏi (garlic stir-fried greens)",
+   "summary": "Vietnam: Water spinach, or any tender leafy green, tossed quickly with plenty of garlic. 15 min.",
+   "why": "A plate that is mostly leafy vegetables fits the advice to fill half the plate with vegetables. Higher vegetable and fruit intake is linked to lower risk of heart disease and early death in large observational studies, which cannot prove cause.",
+   "evidence": "Moderate",
+   "minutes": 15,
+   "to": "/nourish#world",
+   "exclude_if": [],
+   "cautions": [
+    "Leafy greens are high in vitamin K. If you take warfarin, keep how much you eat steady from week to week and tell your clinician.",
+    "Soy sauce contains soy and wheat (gluten) and is salty. Use a little and taste before adding more.",
+    "Wash greens well; water spinach often grows near water."
    ],
    "allergens": [
     "soy",

@@ -2,12 +2,16 @@ import { useMemo, useState } from "react";
 import { Globe } from "./Globe";
 import { Evidence, Sheet, SourceLink, useToast } from "./ui";
 import { RecipeDetail, RecipePlate } from "./Recipes";
-import { CUISINES, cuisineById, type Cuisine, type WorldRecipe } from "./worldRecipes";
+import { CUISINES, WORLD_RECIPES, cuisineById, type Cuisine, type WorldRecipe } from "./worldRecipes";
+import { pickSurprise, searchRecipes } from "./recipeTools";
+import { suitable, type Diet } from "./mealPlan";
+import { ALLERGEN_LABEL, type Allergen } from "./recipes";
+import { useSavedRecipes } from "../store/recipeBox";
 import { TAG_LABEL, dishListItems } from "./recipes";
 import { Icon } from "../components/Icon";
 import { useKitchen, useNourish, useShoppingList } from "../store/nourish";
 
-const REGION_ORDER = ["Latin America", "Mediterranean", "Middle East", "Africa", "South Asia", "East Asia", "Southeast Asia"];
+const REGION_ORDER = ["Europe", "Middle East", "Africa", "South Asia", "East Asia", "Southeast Asia", "Latin America", "Caribbean", "North America"];
 const regionOf = (c: Cuisine) => c.region;
 
 /**
@@ -17,6 +21,10 @@ const regionOf = (c: Cuisine) => c.region;
 export function WorldKitchen() {
   const [selected, setSelected] = useState<string | null>(null);
   const [dish, setDish] = useState<WorldRecipe | null>(null);
+  const [q, setQ] = useState("");
+  const [diet, setDiet] = useState<Diet>({});
+  const [onlySaved, setOnlySaved] = useState(false);
+  const savedIds = useSavedRecipes();
   const cuisine = selected ? cuisineById(selected) : null;
   const list = useShoppingList();
   const addItems = useNourish((s) => s.addItems);
@@ -29,6 +37,21 @@ export function WorldKitchen() {
     for (const c of CUISINES) m.set(regionOf(c), [...(m.get(regionOf(c)) ?? []), c]);
     return [...m.entries()].sort((a, b) => (REGION_ORDER.indexOf(a[0]) < 0 ? 99 : REGION_ORDER.indexOf(a[0])) - (REGION_ORDER.indexOf(b[0]) < 0 ? 99 : REGION_ORDER.indexOf(b[0])));
   }, []);
+  const filtering = !!q.trim() || !!diet.vegan || !!diet.vegetarian || !!diet.avoid?.length || onlySaved;
+  const results = useMemo(() => {
+    let r = suitable(diet, WORLD_RECIPES) as WorldRecipe[];
+    r = searchRecipes(q, r) as WorldRecipe[];
+    if (onlySaved) r = r.filter((x) => savedIds.includes(x.id));
+    return r;
+  }, [q, diet, onlySaved, savedIds]);
+  const toggleDiet = (k: "vegetarian" | "vegan") => setDiet((d) => ({ ...d, [k]: !d[k], ...(k === "vegan" && !d.vegan ? { vegetarian: false } : {}) }));
+  const toggleAvoid = (a: Allergen) => setDiet((d) => ({ ...d, avoid: d.avoid?.includes(a) ? d.avoid.filter((x) => x !== a) : [...(d.avoid ?? []), a] }));
+  const surprise = () => {
+    const r = pickSurprise(filtering && results.length ? results : WORLD_RECIPES, dish?.id) as WorldRecipe | undefined;
+    if (!r) return;
+    setSelected(r.cuisine);
+    setDish(r);
+  };
   const onListIds = useMemo(() => list.map((i) => i.id), [list]);
 
   const addCuisine = (c: Cuisine) => {
@@ -43,6 +66,34 @@ export function WorldKitchen() {
         <Globe pins={pins} selected={selected} onPick={setSelected} />
       </div>
 
+      <div className="wk__tools">
+        <label htmlFor="wk-search" className="visually-hidden">Search dishes</label>
+        <input id="wk-search" className="mpl__search" type="search" placeholder="Search a dish, country or ingredient" value={q} onChange={(e) => setQ(e.target.value)} autoComplete="off" />
+        <div className="recipes__chips fl__chips" role="group" aria-label="Filter dishes">
+          <button className="chip" onClick={surprise}>🎲 Surprise me</button>
+          <button className={`chip ${diet.vegetarian ? "is-on" : ""}`} aria-pressed={!!diet.vegetarian} onClick={() => toggleDiet("vegetarian")}>Vegetarian</button>
+          <button className={`chip ${diet.vegan ? "is-on" : ""}`} aria-pressed={!!diet.vegan} onClick={() => toggleDiet("vegan")}>Vegan</button>
+          {(["gluten", "dairy", "nuts", "soy", "fish", "sesame"] as Allergen[]).map((a) => <button key={a} className={`chip ${diet.avoid?.includes(a) ? "is-on" : ""}`} aria-pressed={!!diet.avoid?.includes(a)} onClick={() => toggleAvoid(a)}>No {ALLERGEN_LABEL[a].toLowerCase()}</button>)}
+          <button className={`chip ${onlySaved ? "is-on" : ""}`} aria-pressed={onlySaved} onClick={() => setOnlySaved((v) => !v)}>♥ Saved ({savedIds.filter((id) => WORLD_RECIPES.some((r) => r.id === id)).length})</button>
+        </div>
+        {filtering && (
+          <div className="r-card wk__results">
+            <h3>{results.length} dish{results.length === 1 ? "" : "es"}</h3>
+            <ul className="wk__dishes">
+              {results.slice(0, 40).map((r) => (
+                <li key={r.id}>
+                  <button className="wk__dish" onClick={() => { setSelected(r.cuisine); setDish(r); }} aria-label={`${r.title}: open recipe`}>
+                    <RecipePlate r={r} size={44} />
+                    <span><strong>{r.title}</strong><small>{cuisineById(r.cuisine)?.name} · {r.minutes} min</small></span>
+                  </button>
+                </li>
+              ))}
+              {results.length === 0 && <li className="mpl__hint">No dishes match. Try fewer filters.</li>}
+            </ul>
+          </div>
+        )}
+      </div>
+
       <div className="wk__list" role="list" aria-label="Cultures">
         <p className="mpl__hint">Or pick a culture from the list.</p>
         {regions.map(([region, cs]) => (
@@ -53,7 +104,7 @@ export function WorldKitchen() {
             </div>
           </div>
         ))}
-        <p className="mpl__hint">{CUISINES.length} cuisines so far, four classic home dishes each. Each is a simplified home version, and we say so. More are on the way.</p>
+        <p className="mpl__hint">{CUISINES.length} cuisines, {WORLD_RECIPES.length} classic home dishes. Each is a simplified home version, and we say so. More are on the way.</p>
       </div>
 
       <Sheet open={!!cuisine && !dish} onClose={() => setSelected(null)} label={cuisine?.name ?? "Cuisine"} wide>

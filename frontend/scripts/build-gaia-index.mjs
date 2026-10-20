@@ -22,12 +22,14 @@ async function loadContent() {
         export { PROGRAMS } from "./src/rooted/programs";
         export { PANTRY } from "./src/rooted/pantryContent";
         export { RECIPES } from "./src/rooted/recipes.ts";
+        export { WORLD_RECIPES, cuisineById } from "./src/rooted/worldRecipes.ts";
         export { ADDITIVES } from "./src/rooted/additivesContent";
         export { NUTRIENTS } from "./src/rooted/nutrientsContent";
       `,
       resolveDir: ROOT, loader: "ts", sourcefile: "gaia-entry.ts",
     },
-    bundle: true, format: "esm", platform: "node", write: false, logLevel: "silent",
+    bundle: true,
+    resolveExtensions: [".ts", ".tsx", ".js", ".json"], format: "esm", platform: "node", write: false, logLevel: "silent",
     define: { "import.meta.env": "{}" },
     // Features pull in stores; stub what Node can't load.
     external: ["zustand", "zustand/*", "react", "react-dom", "framer-motion"],
@@ -78,6 +80,10 @@ export async function buildIndex() {
       id: `food:${p.id}`, kind: "food", title: p.name, summary: clip(p.summary), why: clip(p.benefits.join(" ")), evidence: p.evidence, to: "/nourish#pantry",
       exclude_if: [], cautions: p.cautions.map(clean), care_if: p.cautions.some((x) => /clinician/i.test(x)) ? ["careHerbs"] : [],
     });
+  }
+  for (const r of c.WORLD_RECIPES) {
+    const cu = c.cuisineById(r.cuisine);
+    items.push({ id: `recipe:${r.id}`, kind: "recipe", title: r.title, summary: clip(`${cu ? cu.name + ": " : ""}${r.blurb} ${r.minutes} min.`), why: clip(r.why.text), evidence: r.why.evidence, minutes: r.minutes, to: "/nourish#world", exclude_if: [], cautions: r.cautions.map(clean), allergens: r.allergens });
   }
   for (const r of c.RECIPES) {
     items.push({ id: `recipe:${r.id}`, kind: "recipe", title: r.title, summary: clip(`${r.blurb} ${r.minutes} min.`), why: clip(r.why.text), evidence: r.why.evidence, minutes: r.minutes, to: "/nourish#recipes", exclude_if: [], cautions: r.cautions.map(clean), allergens: r.allergens });

@@ -5,13 +5,15 @@ import { Evidence, Sheet, SourceLink, useToast } from "./ui";
 import { TiltCard } from "./motion";
 import { ScheduleButton } from "./CalendarUI";
 import { useKitchen, useNourish, useShoppingList } from "../store/nourish";
+import { useSavedRecipes } from "../store/recipeBox";
 import { flags, useAbout } from "../store/wellness";
 import { forGoals } from "./mealPlan";
+import { RecipeActions } from "./RecipeActions";
 import { statusFor } from "./kitchen";
 
 import { Icon } from "../components/Icon";
 
-type Filter = "all" | "mine" | Extract<RecipeTag, "quick" | "fiber" | "protein" | "omega-3" | "gut">;
+type Filter = "all" | "mine" | "saved" | Extract<RecipeTag, "quick" | "fiber" | "protein" | "omega-3" | "gut">;
 const FILTERS: Array<{ id: Filter; label: string }> = [
   { id: "all", label: "All" },
   { id: "quick", label: "Quick" },
@@ -97,11 +99,13 @@ export function Recipes() {
   const have = useKitchen();
   const goalIds = useMemo(() => new Set(forGoals(RECIPES, goals).map((r) => r.id)), [goals]);
   const hasGoalFilter = goalIds.size > 0 && goalIds.size < RECIPES.length;
-  const shown = useMemo(() => (filter === "all" ? RECIPES : filter === "mine" ? RECIPES.filter((r) => goalIds.has(r.id)) : RECIPES.filter((r) => r.tags.includes(filter))), [filter, goalIds]);
+  const savedIds = useSavedRecipes();
+  const shown = useMemo(() => (filter === "all" ? RECIPES : filter === "saved" ? RECIPES.filter((r) => savedIds.includes(r.id)) : filter === "mine" ? RECIPES.filter((r) => goalIds.has(r.id)) : RECIPES.filter((r) => r.tags.includes(filter))), [filter, goalIds, savedIds]);
 
   return (
     <>
       <div className="recipes__chips" role="group" aria-label="Filter recipes">
+        {savedIds.length > 0 && <button className={`chip ${filter === "saved" ? "is-on" : ""}`} aria-pressed={filter === "saved"} onClick={() => setFilter("saved")}>♥ Saved</button>}
         {hasGoalFilter && <button className={`chip ${filter === "mine" ? "is-on" : ""}`} aria-pressed={filter === "mine"} onClick={() => setFilter("mine")}>For my goals</button>}
         {FILTERS.map((f) => (
           <button key={f.id} className={`chip ${filter === f.id ? "is-on" : ""}`} aria-pressed={filter === f.id} onClick={() => setFilter(f.id)}>
@@ -189,6 +193,8 @@ export function RecipeDetail({ r }: { r: Recipe }) {
             label="Plan to cook it"
           />
         </div>
+
+        <RecipeActions r={r} />
 
         {about.considerations.includes("eating") && (
           <p className="for-you"><span><strong>Based on your profile:</strong> amounts here are just for shopping. Eat what feels right for you, and a dietitian can help if meals feel stressful.</span></p>

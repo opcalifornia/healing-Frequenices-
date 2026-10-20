@@ -425,3 +425,22 @@
 .wk__dish small { color: var(--r-text-3); }
 .wk__back { padding: 0 22px 24px; margin: 0; }
 .rdetail__note { font-size: var(--fs-small); color: var(--r-text-2); padding: 10px 12px; border-radius: 12px; background: rgba(243, 234, 216, 0.06); margin: 0; }
+
+/* Recipe tools */
+.rdetail__tools { margin-top: -6px; }
+.rdetail__tools .btn[aria-pressed="true"] { background: var(--r-sand); color: #14140f; }
+.rplan__days { list-style: none; margin: 8px 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(92px, 1fr)); gap: 8px; }
+.rplan__day { width: 100%; display: grid; gap: 2px; justify-items: center; padding: 10px 6px; border-radius: 14px; border: 1px solid var(--r-line); background: var(--r-surface); color: var(--r-text); cursor: pointer; }
+.rplan__day small { color: var(--r-text-3); }
+.cook { display: grid; gap: 16px; padding: 28px 22px 34px; }
+.cook__tabs { display: flex; gap: 8px; }
+.cook__count { margin: 0; color: var(--r-text-3); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; font-size: var(--fs-small); }
+.cook__step { margin: 0; font-size: clamp(1.4rem, 5vw, 1.9rem); line-height: 1.35; font-weight: 600; min-height: 7em; }
+.cook__nav { display: flex; gap: 10px; }
+.cook__nav .btn { flex: 1; padding-block: 16px; font-size: 1.05rem; }
+.cook__dots { display: flex; gap: 6px; justify-content: center; }
+.cook__dots i { width: 8px; height: 8px; border-radius: 50%; background: rgba(243, 234, 216, 0.2); }
+.cook__dots i.on { background: var(--r-sand); }
+.wk__tools { display: grid; gap: 10px; }
+.wk__results { display: grid; gap: 8px; padding: 14px; }
+.wk__results h3 { margin: 0; }
