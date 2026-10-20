@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useSearchParams } from "react-router-dom";
 import { Icon } from "../components/Icon";
 import { motion } from "framer-motion";
 import { Reveal, TiltCard, ZoomPage } from "../rooted/motion";
@@ -7,7 +7,9 @@ import { Evidence, SecTabs, Sheet, SourceLink } from "../rooted/ui";
 import { FASTING, FINDINGS, MYTHS, PLATE_SOURCE, WATER_FACTS, WATER_SOURCES, type Finding } from "../rooted/nourishContent";
 import { PlateBuilder, WaterTracker } from "../rooted/NourishTools";
 import { Pantry } from "../rooted/Pantry";
-import { Recipes } from "../rooted/Recipes";
+import { Recipes, RecipeDetail } from "../rooted/Recipes";
+import { ALL_RECIPES } from "../rooted/allRecipes";
+import { NourishGuide, useFirstVisitGuide } from "../rooted/NourishGuide";
 import { MealPlanner } from "../rooted/MealPlanner";
 import { FoodLogToday } from "../rooted/FoodLog";
 import { Kitchen } from "../rooted/Kitchen";
@@ -79,6 +81,13 @@ function MythCard({ m }: { m: (typeof MYTHS)[number] }) {
 export default function Nourish() {
   const location = useLocation();
   const [finding, setFinding] = useState<Finding | null>(null);
+  const [params, setParams] = useSearchParams();
+  const linked = ALL_RECIPES.find((r) => r.id === params.get("recipe")) ?? null;
+  const [guide, setGuide] = useFirstVisitGuide();
+  const goTab = (id: string) => {
+    if (GROUP_OF[id]) setGroup(GROUP_OF[id]);
+    setTimeout(() => document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" }), 700);
+  };
   const f = flags(useAbout().considerations);
 
   const [group, setGroup] = useState<GroupId>(() => GROUP_OF[location.hash.replace("#", "")] ?? "plan");
@@ -99,6 +108,8 @@ export default function Nourish() {
 
   return (
     <ZoomPage className="rooted nourish stall">
+      <NourishGuide open={guide} onClose={() => setGuide(false)} onGo={goTab} />
+      <Sheet open={!!linked} onClose={() => setParams({}, { replace: true })} label={linked?.title ?? "Recipe"}>{linked && <RecipeDetail r={linked} />}</Sheet>
       <header className="stall__mast">
         <div className="stall__mast-text">
           <span className="stall__date">{new Date().toLocaleDateString(undefined, { weekday: "short", day: "numeric", month: "short" }).toUpperCase()}</span>
@@ -107,6 +118,7 @@ export default function Nourish() {
         </div>
         <div className="stall__ctas">
           <Link className="stall__pill stall__pill--ink" to="/scan?camera=1"><Icon name="barcode" size={20} /> Scan a product</Link>
+          <button className="stall__pill stall__pill--ghost" onClick={() => setGuide(true)}><Icon name="info" size={18} /> Guide</button>
           <button className="stall__pill" onClick={() => { setGroup("plan"); setTimeout(() => document.getElementById("planner")?.scrollIntoView({ behavior: "smooth", block: "start" }), 100); }}>Plan my week</button>
         </div>
       </header>

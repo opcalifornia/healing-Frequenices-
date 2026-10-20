@@ -221,3 +221,23 @@ html[data-skin="stall"] .wk__back { background: var(--paper); }
 .stall .nourish__groups { bottom: calc(var(--tab-h, 0px) + var(--mini-h, 0px) + 14px); }
 .stall .sec-tabs { background: var(--paper) !important; }
 .stub__r .slist__qty { width: 5.4em !important; padding: 2px 2px !important; font-size: 1rem !important; }
+
+/* guide, scaling, timers */
+.stall__pill--ghost { background: transparent; color: var(--ink); border: 2.5px solid var(--ink); }
+.nguide { font-family: var(--stall-display); color: var(--ink); }
+.nguide h2 { font-size: 2.2rem; line-height: 1; margin: 6px 0 10px; }
+.nguide__lede { font-family: var(--stall-serif); font-style: italic; font-size: 1.2rem; }
+.nguide__list { list-style: none; margin: 18px 0; padding: 0; display: grid; gap: 14px; }
+.nguide__list li { background: #fffaf0; border: 2.5px solid var(--ink); border-radius: 22px; padding: 14px 16px; box-shadow: 0 4px 0 var(--ink); }
+.nguide__top { display: flex; align-items: center; gap: 10px; }
+.nguide__top strong { font-size: 1.25rem; letter-spacing: -0.02em; }
+.nguide__tab { background: var(--ink); color: var(--paper); border-radius: 999px; padding: 2px 10px; font: 800 0.7rem var(--stall-display); letter-spacing: 0.1em; text-transform: uppercase; }
+.nguide__tip { display: flex; gap: 6px; font-size: 0.92rem; opacity: 0.85; }
+.nguide__honest { background: var(--kale); color: #fff; border-radius: 22px; padding: 14px 18px; margin-bottom: 16px; }
+.nguide__honest h3 { color: #fff !important; }
+.rdetail__scale { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin: 6px 0 10px; font-weight: 700; }
+.rdetail__scale .chip { min-width: 44px; justify-content: center; }
+.cook__timers { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+.cook__timer { font-variant-numeric: tabular-nums; }
+.stall :focus-visible, html[data-skin="stall"] :focus-visible { outline: 3px solid var(--tomato); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { .stall *, html[data-skin="stall"] * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
