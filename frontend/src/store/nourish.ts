@@ -105,7 +105,7 @@ export function useWaterGoal(): number {
 }
 
 /** Group a list by aisle, in a sensible walking order. */
-export const AISLE_ORDER = ["Produce", "Garden", "Herbs & spices", "Tea", "Grains & beans", "Nuts & seeds", "Oils & vinegar", "Fridge & ferments", "Seafood", "Specialty & international", "Other"];
+export const AISLE_ORDER = ["Produce", "Garden", "Herbs & spices", "Tea", "Grains & beans", "Nuts & seeds", "Oils & vinegar", "Fridge & ferments", "Seafood", "Specialty & international", "Packaged foods", "Other"];
 export function groupByAisle(items: ListItem[]): Array<[string, ListItem[]]> {
   const map = new Map<string, ListItem[]>();
   for (const i of items) map.set(i.aisle, [...(map.get(i.aisle) ?? []), i]);
