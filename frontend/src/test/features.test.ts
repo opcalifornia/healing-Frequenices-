@@ -116,7 +116,8 @@ describe("triedFeatures", () => {
     const t = triedFeatures(snapshotFor(raw, "p1", ["sleep-guide"]));
     for (const id of [
       "one-minute-calm", "breath-library", "move-routines", "combos", "breath-results", "meditate", "bolt", "breath-sounds",
-      "shopping-list", "water", "calendar", "garden", "bedtime", "gratitude", "safety-plan", "mood-check", "pledges",
+      // Garden is switched off in rooted/flags.ts, so it is not in the guide.
+      "shopping-list", "water", "calendar", "bedtime", "gratitude", "safety-plan", "mood-check", "pledges",
       "about-you", "programs", "healing-sessions", "bring-home", "sleep-guide",
     ]) expect(t.has(id), id).toBe(true);
     for (const id of ["pmr", "heart-check", "work-import", "good-deeds", "pattern-builder", "build-session", "my-stuff", "profiles", "account", "plate-builder", "sound-bath"]) {

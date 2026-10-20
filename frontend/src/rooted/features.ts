@@ -7,6 +7,7 @@ import { usePractice } from "../store/practice";
 import { useNourish } from "../store/nourish";
 import { useCalendar } from "../store/calendar";
 import { useGarden } from "../store/garden";
+import { GARDEN_ENABLED } from "./flags";
 import { useBedtime } from "../store/bedtime";
 import { useJournal } from "../store/journal";
 import { useSupport } from "../store/support";
@@ -62,7 +63,7 @@ export interface Feature {
   triedBy?: TriedRule | TriedRule[];
 }
 
-export const FEATURES: Feature[] = [
+const ALL_FEATURES: Feature[] = [
   /* ---------------- Start here ---------------- */
   { id: "about-you", emoji: "🧭", title: "Tell us your goals", area: "Start here", to: "/about-you", minutes: 1, triedBy: { has: "onboarded" },
     what: "Pick what you want most, how active you are, how much time you have, and anything we should know about your health.",
@@ -284,6 +285,9 @@ export const FEATURES: Feature[] = [
     what: "Plain-language privacy policy, terms of use, and a health disclaimer.",
     why: "Know exactly what Rooted does with your information, and what it isn't." },
 ];
+
+/** Hidden sections' features are left out of the guide while the section is switched off. */
+export const FEATURES: Feature[] = ALL_FEATURES.filter((f) => GARDEN_ENABLED || (f.id !== "garden" && f.id !== "apothecary"));
 
 /* ------------------------------------------------------------------ */
 /* Tried inference                                                     */
