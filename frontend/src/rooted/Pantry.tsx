@@ -4,6 +4,7 @@ import { CAT_LABEL, PANTRY, type PantryCat, type PantryItem } from "./pantryCont
 import { PantryArt } from "./PantryArt";
 import { Evidence, Sheet, SourceLink, useToast } from "./ui";
 import { TiltCard } from "./motion";
+import { dishVars } from "./dishColor";
 import { groupByAisle, groupByDish, listToText, mergedByAisle, useNourish, useShoppingList, type ListItem } from "../store/nourish";
 import { Icon } from "../components/Icon";
 import { APP_NAME } from "../brand";
@@ -232,24 +233,29 @@ export function ShoppingList({ onBrowse }: { onBrowse?: () => void }) {
       {mode === "dish" && dishes.map((d) => {
         const got = d.items.filter((i) => i.checked).length;
         return (
-          <section key={d.id} className="slist__group slist__dish">
-            <h3>
-              <span>For: {d.title}</span>
-              <small>{got} of {d.items.length}</small>
-              <button className="icon-btn slist__rm" onClick={() => removeDish(d.id)} aria-label={`Remove all ingredients for ${d.title}`}><Icon name="trash" size={18} /></button>
-            </h3>
-            <ul>
-              {d.items.map((i) => (
-                <li key={i.id} className={i.checked ? "is-done" : ""}>
-                  <button className="slist__check" role="checkbox" aria-checked={i.checked} onClick={() => toggleItem(i.id)} aria-label={`${i.name} for ${d.title}: ${i.checked ? "have it" : "to get"}`}>
-                    {i.checked && <Icon name="check" size={16} />}
-                  </button>
-                  <span className="slist__name">{i.name}</span>
-                  <input className="slist__qty" value={i.qty ?? ""} onChange={(e) => setQty(i.id, e.target.value)} placeholder="qty" aria-label={`Quantity of ${i.name} for ${d.title}`} />
-                  <button className="icon-btn slist__rm" onClick={() => removeItem(i.id)} aria-label={`Remove ${i.name} from ${d.title}`}><Icon name="trash" size={18} /></button>
-                </li>
-              ))}
-            </ul>
+          <section key={d.id} className="stub" style={dishVars(d.id)} aria-label={`Ingredients for ${d.title}`}>
+            <div className="stub__l">
+              <small>FOR</small>
+              <b>{got}/{d.items.length}</b>
+            </div>
+            <div className="stub__r">
+              <h3>
+                <span>{d.title}</span>
+                <button className="icon-btn slist__rm" onClick={() => removeDish(d.id)} aria-label={`Remove all ingredients for ${d.title}`}><Icon name="trash" size={18} /></button>
+              </h3>
+              <ul>
+                {d.items.map((i) => (
+                  <li key={i.id} className={i.checked ? "is-done" : ""}>
+                    <button className="slist__check" role="checkbox" aria-checked={i.checked} onClick={() => toggleItem(i.id)} aria-label={`${i.name} for ${d.title}: ${i.checked ? "have it" : "to get"}`}>
+                      {i.checked && <Icon name="check" size={16} />}
+                    </button>
+                    <span className="slist__name">{i.name}</span>
+                    <input className="slist__qty" value={i.qty ?? ""} onChange={(e) => setQty(i.id, e.target.value)} placeholder="qty" aria-label={`Quantity of ${i.name} for ${d.title}`} />
+                    <button className="icon-btn slist__rm" onClick={() => removeItem(i.id)} aria-label={`Remove ${i.name} from ${d.title}`}><Icon name="trash" size={18} /></button>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </section>
         );
       })}

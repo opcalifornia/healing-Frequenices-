@@ -5,6 +5,7 @@ import { ScheduleButton } from "./CalendarUI";
 import { ALLERGEN_LABEL, TAG_LABEL, dishListItems, hasVitaminKFlag, type Allergen, type Recipe, type RecipeTag } from "./recipes";
 import { RecipeDetail, RecipePlate } from "./Recipes";
 import { ALL_RECIPES } from "./allRecipes";
+import { dishVars } from "./dishColor";
 import { fitsSlot, forGoals, keyOf, plannedRecipes, recipeById, suggestFill, suitable, weekDays, weekPlate, weekStart, type Diet } from "./mealPlan";
 import { SLOTS, SLOT_LABEL, useMealPlan, useMyPlan, type MealEntry, type Slot } from "../store/mealPlan";
 import { useKitchen, useNourish, useShoppingList } from "../store/nourish";
@@ -201,7 +202,7 @@ export function MealPlanner() {
                   const r = recipeById(e?.recipeId);
                   return (
                     <li key={s}>
-                      <button className={`mpl__slot ${e ? "is-set" : ""}`} onClick={() => { setPicker({ day: k, slot: s }); setFilter("all"); setQuery(""); }} aria-label={`${dayLabel(d)} ${SLOT_LABEL[s]}: ${e ? r?.title ?? e.text : "empty. Tap to add a meal"}`}>
+                      <button className={`mpl__slot ${e ? "is-set" : ""}`} style={e?.recipeId ? dishVars(e.recipeId) : undefined} onClick={() => { setPicker({ day: k, slot: s }); setFilter("all"); setQuery(""); }} aria-label={`${dayLabel(d)} ${SLOT_LABEL[s]}: ${e ? r?.title ?? e.text : "empty. Tap to add a meal"}`}>
                         <em>{SLOT_LABEL[s]}</em>
                         {r ? <span className="mpl__meal"><RecipePlate r={r} size={28} /><b>{r.title}</b><small>{r.minutes} min</small></span> : e?.text ? <span className="mpl__meal mpl__meal--note"><b>{e.text}</b></span> : <span className="mpl__add"><Icon name="plus" size={16} /> Add</span>}
                       </button>

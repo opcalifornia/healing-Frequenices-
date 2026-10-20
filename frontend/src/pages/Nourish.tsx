@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Icon } from "../components/Icon";
 import { motion } from "framer-motion";
-import { Aurora, Reveal, TiltCard, ZoomPage } from "../rooted/motion";
+import { Reveal, TiltCard, ZoomPage } from "../rooted/motion";
 import { Evidence, SecTabs, Sheet, SourceLink } from "../rooted/ui";
 import { FASTING, FINDINGS, MYTHS, PLATE_SOURCE, WATER_FACTS, WATER_SOURCES, type Finding } from "../rooted/nourishContent";
 import { PlateBuilder, WaterTracker } from "../rooted/NourishTools";
@@ -11,6 +11,7 @@ import { Recipes } from "../rooted/Recipes";
 import { MealPlanner } from "../rooted/MealPlanner";
 import { FoodLogToday } from "../rooted/FoodLog";
 import { Kitchen } from "../rooted/Kitchen";
+import { Tonight } from "../rooted/Tonight";
 import { WorldKitchen } from "../rooted/WorldKitchen";
 import { DigestiveJourney, FiberAtWork, GlucoseChart } from "../rooted/NourishDiagrams";
 import { Footer } from "../components/Footer";
@@ -20,15 +21,16 @@ import "./Programs.css";
 import { flags, useAbout } from "../store/wellness";
 import "../rooted/rooted.css";
 import "./BrainGuide.css";
-import { SectionArt } from "../rooted/SectionArt";
-import { sectionById } from "../rooted/sections";
 import "./Nourish.css";
+import "./Stall.css";
 
-type GroupId = "plan" | "tools" | "learn";
-const GROUPS: Array<{ id: GroupId; label: string; hint: string; tabs: Array<{ id: string; label: string }> }> = [
-  { id: "plan", label: "Plan", hint: "Log, meals, kitchen, shopping", tabs: [{ id: "today", label: "Today" }, { id: "planner", label: "Meal planner" }, { id: "kitchen", label: "My kitchen" }, { id: "recipes", label: "Recipes" }, { id: "world", label: "World kitchen" }, { id: "pantry", label: "Pantry & list" }] },
-  { id: "tools", label: "Tools", hint: "Scan, plate, water", tabs: [{ id: "scan", label: "Scanner" }, { id: "plate", label: "Your plate" }, { id: "water", label: "Water" }] },
-  { id: "learn", label: "Learn", hint: "The evidence", tabs: [{ id: "science", label: "The science" }, { id: "gut", label: "Inside your gut" }, { id: "sugar", label: "Blood sugar" }, { id: "nutrients", label: "Vitamins & minerals" }, { id: "animals", label: "Animal products" }, { id: "fasting", label: "Fasting" }, { id: "myths", label: "Myths" }] },
+type GroupId = "plan" | "cook" | "world" | "shop" | "learn";
+const GROUPS: Array<{ id: GroupId; label: string; tabs: Array<{ id: string; label: string }> }> = [
+  { id: "plan", label: "Plan", tabs: [{ id: "today", label: "Today" }, { id: "water", label: "Water" }, { id: "planner", label: "Meal planner" }, { id: "kitchen", label: "My kitchen" }] },
+  { id: "cook", label: "Cook", tabs: [{ id: "recipes", label: "Recipes" }] },
+  { id: "world", label: "World", tabs: [{ id: "world", label: "World kitchen" }] },
+  { id: "shop", label: "Shop", tabs: [{ id: "pantry", label: "Pantry & list" }, { id: "scan", label: "Scanner" }] },
+  { id: "learn", label: "Learn", tabs: [{ id: "science", label: "The science" }, { id: "gut", label: "Inside your gut" }, { id: "sugar", label: "Blood sugar" }, { id: "plate", label: "Your plate" }, { id: "nutrients", label: "Vitamins & minerals" }, { id: "animals", label: "Animal products" }, { id: "fasting", label: "Fasting" }, { id: "myths", label: "Myths" }] },
 ];
 /** Which group each section lives in, so a link like /nourish#water opens the right tab. */
 const GROUP_OF: Record<string, GroupId> = Object.fromEntries(GROUPS.flatMap((g) => g.tabs.map((t) => [t.id, g.id])));
@@ -81,6 +83,12 @@ export default function Nourish() {
 
   const [group, setGroup] = useState<GroupId>(() => GROUP_OF[location.hash.replace("#", "")] ?? "plan");
 
+  // The Market Stall look applies to this section and its pop-ups, then is removed when you leave.
+  useEffect(() => {
+    document.documentElement.dataset.skin = "stall";
+    return () => { delete document.documentElement.dataset.skin; };
+  }, []);
+
   useEffect(() => {
     const id = location.hash.replace("#", "");
     if (!id) return;
@@ -90,31 +98,23 @@ export default function Nourish() {
   }, [location.hash]);
 
   return (
-    <ZoomPage className="rooted nourish">
-      <header className="sec-hero nourish__hero">
-        <Aurora />
-        <SectionArt s={sectionById("nourish")} hero />
-        <div className="sec-hero__text">
-          <motion.span className="rooted__eyebrow" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }}>Rooted · Nourish</motion.span>
-          <motion.h1 initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.22, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}>
-            Food and water,<br />by the evidence.
-          </motion.h1>
-          <motion.p initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.32, duration: 0.7 }}>
-            What the strongest studies say about eating well, tools to put it on your plate, and a shopping list that teaches you what each food and
-            herb actually does. Every claim is rated, and every source is linked.
-          </motion.p>
-          <motion.div className="breathe__cta" initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.42, duration: 0.7 }}>
-            <Link className="btn btn--primary btn--big" to="/scan?camera=1"><Icon name="barcode" size={22} /> Scan a product</Link>
-            <button className="btn btn--secondary btn--big" onClick={() => { setGroup("plan"); setTimeout(() => document.getElementById("planner")?.scrollIntoView({ behavior: "smooth", block: "start" }), 100); }}>Plan my week</button>
-          </motion.div>
+    <ZoomPage className="rooted nourish stall">
+      <header className="stall__mast">
+        <div className="stall__mast-text">
+          <span className="stall__date">{new Date().toLocaleDateString(undefined, { weekday: "short", day: "numeric", month: "short" }).toUpperCase()}</span>
+          <h1>What's <em>cooking?</em></h1>
+          <p>Food and water, by the evidence. Every claim is rated and every source is linked.</p>
+        </div>
+        <div className="stall__ctas">
+          <Link className="stall__pill stall__pill--ink" to="/scan?camera=1"><Icon name="barcode" size={20} /> Scan a product</Link>
+          <button className="stall__pill" onClick={() => { setGroup("plan"); setTimeout(() => document.getElementById("planner")?.scrollIntoView({ behavior: "smooth", block: "start" }), 100); }}>Plan my week</button>
         </div>
       </header>
 
       <div className="nourish__groups" role="tablist" aria-label="Nourish sections">
         {GROUPS.map((g) => (
-          <button key={g.id} role="tab" aria-selected={group === g.id} className={`nourish__group ${group === g.id ? "is-on" : ""}`} onClick={() => setGroup(g.id)}>
-            <strong>{g.label}</strong>
-            <small>{g.hint}</small>
+          <button key={g.id} role="tab" aria-selected={group === g.id} className={`nourish__group ${group === g.id ? "is-on" : ""}`} onClick={() => { setGroup(g.id); window.scrollTo({ top: 0, behavior: "smooth" }); }}>
+            {g.label}
           </button>
         ))}
       </div>
@@ -131,6 +131,7 @@ export default function Nourish() {
 
       {group === "plan" && (
         <>
+          <Tonight onPlan={() => document.getElementById("planner")?.scrollIntoView({ behavior: "smooth", block: "start" })} />
       <section id="today" className="sec-block">
         <Reveal className="sec-block__head">
           <span className="rooted__eyebrow">Food log</span>
@@ -138,78 +139,6 @@ export default function Nourish() {
           <p className="rooted__lead">A light log of what you ate, which food groups and plants showed up. No calories, no portions, no targets.</p>
         </Reveal>
         <FoodLogToday />
-      </section>
-
-      <section id="planner" className="sec-block">
-        <Reveal className="sec-block__head">
-          <span className="rooted__eyebrow">Meal planner</span>
-          <h2>Plan your week, then shop once</h2>
-          <p className="rooted__lead">Drop a recipe into any meal, or let us fill your lunches and dinners. Your shopping list builds itself from the week, leaving out what you already have.</p>
-        </Reveal>
-        <MealPlanner />
-      </section>
-
-      <section id="kitchen" className="sec-block">
-        <Reveal className="sec-block__head">
-          <span className="rooted__eyebrow">My kitchen</span>
-          <h2>Cook with what you have</h2>
-          <p className="rooted__lead">Tick what's already at home. We'll show the recipes you can make now, the ones that are one or two items away, and add what's missing to your list.</p>
-        </Reveal>
-        <Kitchen />
-      </section>
-
-      <section id="recipes" className="sec-block">
-        <Reveal className="sec-block__head">
-          <span className="rooted__eyebrow">Recipes</span>
-          <h2>Simple meals from the pantry</h2>
-          <p className="rooted__lead">
-            Thirty minutes or less, ten ingredients or fewer, mostly plants. Each one shows its rough plate split and why it's good, with the evidence rated.
-            Add the ingredients to your list in one tap.
-          </p>
-        </Reveal>
-        <Recipes />
-      </section>
-
-      <section id="world" className="sec-block">
-        <Reveal className="sec-block__head">
-          <span className="rooted__eyebrow">World kitchen</span>
-          <h2>Eat around the world</h2>
-          <p className="rooted__lead">Spin the globe and tap a country, or pick a culture from the list. Each has classic home dishes with the evidence behind them, and one tap puts a dish's ingredients on your list under its name.</p>
-        </Reveal>
-        <WorldKitchen />
-      </section>
-      <section id="pantry" className="sec-block">
-        <Reveal className="sec-block__head">
-          <span className="rooted__eyebrow">Pantry & shopping list</span>
-          <h2>Learn it, then list it</h2>
-          <p className="rooted__lead">
-            Foods, herbs and teas, each with what the research says, how to use it, who should be careful, and where to find it. Add what you want to your list,
-            then download it or send it to your phone for the store.
-          </p>
-        </Reveal>
-        <Pantry />
-      </section>
-        </>
-      )}
-      {group === "tools" && (
-        <>
-      <section id="scan" className="sec-block">
-        <Reveal className="sec-block__head">
-          <span className="rooted__eyebrow">Product scanner</span>
-          <h2>See what's in a product</h2>
-          <p className="rooted__lead">Scan a barcode or paste an ingredient list. Every additive is rated red, orange, yellow or green, with the evidence and sources behind it, plus a score out of 100.</p>
-        </Reveal>
-        <Reveal><Link className="btn btn--primary btn--big" to="/scan?camera=1"><Icon name="barcode" size={22} /> Scan a product</Link></Reveal>
-      </section>
-
-      <section id="plate" className="sec-block">
-        <Reveal className="sec-block__head">
-          <span className="rooted__eyebrow">Your plate</span>
-          <h2>Build a balanced plate</h2>
-          <p className="rooted__lead">Half vegetables and fruit, a quarter whole grains, a quarter healthy protein, cooked with olive oil, with water to drink. It's a simple model built from decades of nutrition research.</p>
-        </Reveal>
-        <Reveal><PlateBuilder /></Reveal>
-        <p className="nourish__src"><SourceLink s={PLATE_SOURCE} /></p>
       </section>
       <section id="water" className="sec-block">
         <Reveal className="sec-block__head">
@@ -227,6 +156,72 @@ export default function Nourish() {
           ))}
         </div>
         <p className="nourish__src">{WATER_SOURCES.map((s) => <SourceLink key={s.text} s={s} />)}</p>
+      </section>
+      <section id="planner" className="sec-block">
+        <Reveal className="sec-block__head">
+          <span className="rooted__eyebrow">Meal planner</span>
+          <h2>Plan your week, then shop once</h2>
+          <p className="rooted__lead">Drop a recipe into any meal, or let us fill your lunches and dinners. Your shopping list builds itself from the week, leaving out what you already have.</p>
+        </Reveal>
+        <MealPlanner />
+      </section>
+      <section id="kitchen" className="sec-block">
+        <Reveal className="sec-block__head">
+          <span className="rooted__eyebrow">My kitchen</span>
+          <h2>Cook with what you have</h2>
+          <p className="rooted__lead">Tick what's already at home. We'll show the recipes you can make now, the ones that are one or two items away, and add what's missing to your list.</p>
+        </Reveal>
+        <Kitchen />
+      </section>
+        </>
+      )}
+      {group === "cook" && (
+        <>
+      <section id="recipes" className="sec-block">
+        <Reveal className="sec-block__head">
+          <span className="rooted__eyebrow">Recipes</span>
+          <h2>Simple meals from the pantry</h2>
+          <p className="rooted__lead">
+            Thirty minutes or less, ten ingredients or fewer, mostly plants. Each one shows its rough plate split and why it's good, with the evidence rated.
+            Add the ingredients to your list in one tap.
+          </p>
+        </Reveal>
+        <Recipes />
+      </section>
+        </>
+      )}
+      {group === "world" && (
+        <>
+      <section id="world" className="sec-block">
+        <Reveal className="sec-block__head">
+          <span className="rooted__eyebrow">World kitchen</span>
+          <h2>Eat around the world</h2>
+          <p className="rooted__lead">Spin the globe and tap a country, or pick a culture from the list. Each has classic home dishes with the evidence behind them, and one tap puts a dish's ingredients on your list under its name.</p>
+        </Reveal>
+        <WorldKitchen />
+      </section>
+        </>
+      )}
+      {group === "shop" && (
+        <>
+      <section id="pantry" className="sec-block">
+        <Reveal className="sec-block__head">
+          <span className="rooted__eyebrow">Pantry & shopping list</span>
+          <h2>Learn it, then list it</h2>
+          <p className="rooted__lead">
+            Foods, herbs and teas, each with what the research says, how to use it, who should be careful, and where to find it. Add what you want to your list,
+            then download it or send it to your phone for the store.
+          </p>
+        </Reveal>
+        <Pantry />
+      </section>
+      <section id="scan" className="sec-block">
+        <Reveal className="sec-block__head">
+          <span className="rooted__eyebrow">Product scanner</span>
+          <h2>See what's in a product</h2>
+          <p className="rooted__lead">Scan a barcode or paste an ingredient list. Every additive is rated red, orange, yellow or green, with the evidence and sources behind it, plus a score out of 100.</p>
+        </Reveal>
+        <Reveal><Link className="btn btn--primary btn--big" to="/scan?camera=1"><Icon name="barcode" size={22} /> Scan a product</Link></Reveal>
       </section>
         </>
       )}
@@ -266,6 +261,15 @@ export default function Nourish() {
           <p className="rooted__lead">Hover or drag across the chart. Tap the labels to compare.</p>
         </Reveal>
         <Reveal><GlucoseChart /></Reveal>
+      </section>
+      <section id="plate" className="sec-block">
+        <Reveal className="sec-block__head">
+          <span className="rooted__eyebrow">Your plate</span>
+          <h2>Build a balanced plate</h2>
+          <p className="rooted__lead">Half vegetables and fruit, a quarter whole grains, a quarter healthy protein, cooked with olive oil, with water to drink. It's a simple model built from decades of nutrition research.</p>
+        </Reveal>
+        <Reveal><PlateBuilder /></Reveal>
+        <p className="nourish__src"><SourceLink s={PLATE_SOURCE} /></p>
       </section>
       <section id="nutrients" className="sec-block">
         <Reveal className="sec-block__head">
