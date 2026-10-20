@@ -140,8 +140,10 @@ export function Globe({ pins, selected, onPick, label = "Interactive globe. Drag
 
     // Pins and labels for countries on the visible side
     const center: [number, number] = [s.lon, s.lat];
-    ctx.font = "600 12px system-ui, sans-serif";
+    // Map-style labels: small spaced capitals in a clean sans-serif, like the names on a satellite globe.
+    ctx.font = '700 10.5px "Avenir Next", "Segoe UI", "Helvetica Neue", Arial, sans-serif';
     ctx.textAlign = "center";
+    (ctx as unknown as { letterSpacing: string }).letterSpacing = "1.6px";
     const placed: Array<{ x0: number; x1: number; y0: number; y1: number }> = [];
     const visible = [...pinIso.current.values()]
       .map((p) => ({ p, c: centroids.current.get(p.iso) }))
@@ -162,15 +164,17 @@ export function Globe({ pins, selected, onPick, label = "Interactive globe. Drag
       ctx.fillStyle = "#fff";
       ctx.fill();
       // Names only where they fit: a crowded region shows its names as you zoom in.
-      const tw = ctx.measureText(p.name).width;
+      const label = p.name.toUpperCase();
+      const tw = ctx.measureText(label).width;
       const box = { x0: xy[0] - tw / 2 - 3, x1: xy[0] + tw / 2 + 3, y0: xy[1] - 26, y1: xy[1] - 6 };
       if (!isSel && placed.some((b) => box.x0 < b.x1 && box.x1 > b.x0 && box.y0 < b.y1 && box.y1 > b.y0)) continue;
       placed.push(box);
-      ctx.lineWidth = 3;
-      ctx.strokeStyle = "rgba(0,0,0,0.65)";
-      ctx.strokeText(p.name, xy[0], xy[1] - 12);
+      ctx.lineWidth = 3.2;
+      ctx.lineJoin = "round";
+      ctx.strokeStyle = "rgba(0,12,32,0.7)";
+      ctx.strokeText(label, xy[0], xy[1] - 12);
       ctx.fillStyle = "#fff";
-      ctx.fillText(p.name, xy[0], xy[1] - 12);
+      ctx.fillText(label, xy[0], xy[1] - 12);
     }
   }, []);
 
