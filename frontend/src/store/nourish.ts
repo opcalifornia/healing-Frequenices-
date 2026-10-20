@@ -29,6 +29,10 @@ interface NourishState {
   lists: Record<string, ListItem[]>;
   water: Record<string, Record<string, number>>;
   goals: Record<string, number>;
+  /** Ingredient ids (same ids as the shopping list) the person has at home, per profile. */
+  kitchen: Record<string, string[]>;
+  toggleKitchen(id: string): void;
+  setKitchen(ids: string[]): void;
   addItem(item: Omit<ListItem, "checked">): void;
   removeItem(id: string): void;
   toggleItem(id: string): void;
@@ -52,6 +56,15 @@ export const useNourish = create<NourishState>()(
         lists: {},
         water: {},
         goals: {},
+        kitchen: {},
+        toggleKitchen(id) {
+          const p = pid();
+          const mine = get().kitchen?.[p] ?? [];
+          set({ kitchen: { ...(get().kitchen ?? {}), [p]: mine.includes(id) ? mine.filter((x) => x !== id) : [...mine, id] } });
+        },
+        setKitchen(ids) {
+          set({ kitchen: { ...(get().kitchen ?? {}), [pid()]: [...new Set(ids)] } });
+        },
         addItem(item) {
           editList((l) => (l.some((i) => i.id === item.id) ? l : [...l, { ...item, checked: false }]));
         },
@@ -94,6 +107,11 @@ const useP = () => useUser((s) => s.activeProfileId) ?? "guest";
 export function useShoppingList(): ListItem[] {
   const p = useP();
   return useNourish((s) => s.lists[p] ?? EMPTY);
+}
+const NO_IDS: string[] = [];
+export function useKitchen(): string[] {
+  const p = useP();
+  return useNourish((s) => s.kitchen?.[p] ?? NO_IDS);
 }
 export function useWater(day = todayKey()): number {
   const p = useP();

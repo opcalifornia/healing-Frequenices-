@@ -1,6 +1,6 @@
 {
  "version": 1,
- "count": 518,
+ "count": 530,
  "items": [
   {
    "id": "additive:e100",
@@ -4460,6 +4460,22 @@
    "care_if": []
   },
   {
+   "id": "food:apples",
+   "kind": "food",
+   "title": "Apples",
+   "summary": "A portable fruit with fiber, including pectin, in the skin and flesh.",
+   "why": "Apples and pears are linked with lower risk of cardiovascular disease and early death in a large meta-analysis of cohorts. That shows a link, not proof. A source of fiber and vitamin C (USDA). Eat the skin for extra fiber.",
+   "evidence": "Moderate",
+   "to": "/nourish#pantry",
+   "exclude_if": [],
+   "cautions": [
+    "Seeds are best not chewed in quantity.",
+    "Raw apple can cause mouth itching in people with birch pollen allergy.",
+    "Whole apple is a choking risk for young children. Slice or cook it."
+   ],
+   "care_if": []
+  },
+  {
    "id": "food:ashwagandha",
    "kind": "food",
    "title": "Ashwagandha",
@@ -4491,6 +4507,23 @@
     "Calorie-dense; enjoy it in place of other fats, not on top of them."
    ],
    "care_if": []
+  },
+  {
+   "id": "food:bananas",
+   "kind": "food",
+   "title": "Bananas",
+   "summary": "An easy, cheap fruit with potassium and fiber.",
+   "why": "A good source of potassium, which supports heart, nerve, muscle and kidney function (NIH). Green bananas have more resistant starch, which feeds gut bacteria. Human evidence for health effects is limited.",
+   "evidence": "Weak",
+   "to": "/nourish#pantry",
+   "exclude_if": [],
+   "cautions": [
+    "If you have kidney disease or take medicine that raises potassium, ask your clinician how much is right for you.",
+    "People with latex allergy may react to bananas."
+   ],
+   "care_if": [
+    "careHerbs"
+   ]
   },
   {
    "id": "food:barley",
@@ -4564,6 +4597,21 @@
    "care_if": []
   },
   {
+   "id": "food:brown-rice",
+   "kind": "food",
+   "title": "Brown rice",
+   "summary": "A whole-grain rice with more fiber than white rice.",
+   "why": "Whole grains in place of refined grains are linked to lower risk of heart disease, type 2 diabetes and bowel cancer in large reviews. Keeps the bran and germ, so it has more fiber and magnesium than white rice (USDA).",
+   "evidence": "Moderate",
+   "to": "/nourish#pantry",
+   "exclude_if": [],
+   "cautions": [
+    "Rice can carry inorganic arsenic from soil and water. EFSA suggests rinsing it and cooking it in plenty of water, then draining. Vary your grains, especially for young children.",
+    "Cool and refrigerate leftover rice quickly, and reheat until steaming hot."
+   ],
+   "care_if": []
+  },
+  {
    "id": "food:burdock-root",
    "kind": "food",
    "title": "Burdock root",
@@ -4581,6 +4629,40 @@
    "care_if": [
     "careHerbs"
    ]
+  },
+  {
+   "id": "food:cabbage",
+   "kind": "food",
+   "title": "Cabbage",
+   "summary": "A sturdy, low-cost cruciferous vegetable with fiber and vitamins C and K.",
+   "why": "Cruciferous vegetables are linked to lower risk of heart disease and early death in observational studies. A source of fiber, vitamin C and vitamin K (USDA).",
+   "evidence": "Moderate",
+   "to": "/nourish#pantry",
+   "exclude_if": [],
+   "cautions": [
+    "Rich in vitamin K. If you take warfarin, tell your clinician and keep your intake steady.",
+    "Can cause gas or bloating. Build up slowly.",
+    "Very large amounts of raw cruciferous vegetables may affect thyroid function in people with low iodine intake. Ask a clinician if you have a thyroid condition."
+   ],
+   "care_if": [
+    "careHerbs"
+   ]
+  },
+  {
+   "id": "food:carrots",
+   "kind": "food",
+   "title": "Carrots",
+   "summary": "A sweet, crunchy root rich in beta-carotene.",
+   "why": "Beta-carotene is turned into vitamin A, which supports vision, immune function and growth (NIH). Higher vegetable intake is linked to lower heart disease and early death in large observational studies. That shows a link, not proof.",
+   "evidence": "Moderate",
+   "to": "/nourish#pantry",
+   "exclude_if": [],
+   "cautions": [
+    "Very large amounts over weeks can tint skin orange. It is harmless and fades.",
+    "Whole raw carrot is a choking risk for young children. Cook or grate it.",
+    "Some people with birch pollen allergy react to raw carrot."
+   ],
+   "care_if": []
   },
   {
    "id": "food:chamomile",
@@ -4680,6 +4762,24 @@
    "care_if": []
   },
   {
+   "id": "food:eggs",
+   "kind": "food",
+   "title": "Eggs",
+   "summary": "A cheap, complete protein. Experts still weigh their cholesterol in different ways.",
+   "why": "A source of protein, choline and vitamin A (USDA). The American Heart Association says healthy people can fit up to one whole egg a day into a heart-healthy pattern. Studies and guidelines don't fully agree, so the evidence here is mixed.",
+   "evidence": "Mixed",
+   "to": "/nourish#pantry",
+   "exclude_if": [],
+   "cautions": [
+    "Egg is a common allergen, especially in children.",
+    "People with diabetes, high cholesterol or heart failure risk should ask a clinician how many eggs suit them (AHA).",
+    "Cook until the white and yolk are firm if you are pregnant, older, or have a weakened immune system."
+   ],
+   "care_if": [
+    "careHerbs"
+   ]
+  },
+  {
    "id": "food:elderberry",
    "kind": "food",
    "title": "Elderberry",
@@ -4742,6 +4842,22 @@
    "care_if": [
     "careHerbs"
    ]
+  },
+  {
+   "id": "food:frozen-vegetables",
+   "kind": "food",
+   "title": "Frozen vegetables",
+   "summary": "Picked and frozen quickly, so they keep well and are ready when you are.",
+   "why": "Eating more vegetables is linked to lower heart disease and early death in large observational studies. Frozen ones count. In one small, industry-funded study, frozen produce kept vitamin C, beta-carotene and folate about as well as fresh, and sometimes better than fresh kept at home for days.",
+   "evidence": "Moderate",
+   "to": "/nourish#pantry",
+   "exclude_if": [],
+   "cautions": [
+    "Choose plain bags. Sauces and seasoning blends can add salt and fat.",
+    "Follow the pack directions. Some vegetables need cooking before eating.",
+    "Check the label for allergens in mixed or sauced products."
+   ],
+   "care_if": []
   },
   {
    "id": "food:garlic",
@@ -4893,6 +5009,22 @@
    ]
   },
   {
+   "id": "food:lemons",
+   "kind": "food",
+   "title": "Lemons",
+   "summary": "A bright, sour fruit that brings vitamin C and lots of flavor.",
+   "why": "Citrus fruits are a good source of vitamin C, which the body uses to make collagen and to absorb iron from plant foods (NIH). Juice or zest can add flavor to food with less need for salt. There is little research on lemons themselves.",
+   "evidence": "Weak",
+   "to": "/nourish#pantry",
+   "exclude_if": [],
+   "cautions": [
+    "The acid can wear tooth enamel. Rinse with water after sipping lemon water.",
+    "Citrus can sting mouth sores or worsen heartburn for some people.",
+    "Squeezing lemon on skin and then sitting in strong sun can cause a rash."
+   ],
+   "care_if": []
+  },
+  {
    "id": "food:lentils",
    "kind": "food",
    "title": "Lentils",
@@ -4968,6 +5100,21 @@
    "exclude_if": [],
    "cautions": [
     "If you have celiac disease, buy oats labelled gluten-free."
+   ],
+   "care_if": []
+  },
+  {
+   "id": "food:onions",
+   "kind": "food",
+   "title": "Onions",
+   "summary": "A kitchen base for countless dishes, with fiber and plant compounds.",
+   "why": "Adds flavor and a little fiber to vegetables, beans and grains, so plant-based meals taste good. Onions contain flavonoids such as quercetin. Evidence for health effects in people is limited.",
+   "evidence": "Weak",
+   "to": "/nourish#pantry",
+   "exclude_if": [],
+   "cautions": [
+    "Can trigger heartburn or gas, and are high in FODMAPs, which bother some people with IBS.",
+    "Dogs and cats should not eat onions."
    ],
    "care_if": []
   },
@@ -5152,6 +5299,40 @@
    "care_if": []
   },
   {
+   "id": "food:tofu",
+   "kind": "food",
+   "title": "Tofu",
+   "summary": "A mild soy protein that takes on any flavor.",
+   "why": "Eating tofu and other soy foods is linked with lower heart disease risk in large cohorts. Harvard experts note it helps most when it replaces red or processed meat. A plant source of protein, and often calcium when set with calcium salts (check the label).",
+   "evidence": "Moderate",
+   "to": "/nourish#pantry",
+   "exclude_if": [],
+   "cautions": [
+    "Soy is a major allergen.",
+    "If you take thyroid medicine, ask your clinician about soy timing.",
+    "Packaged tofu is perishable. Keep it chilled and use it by the date."
+   ],
+   "care_if": [
+    "careHerbs"
+   ]
+  },
+  {
+   "id": "food:tomatoes",
+   "kind": "food",
+   "title": "Tomatoes",
+   "summary": "Juicy and rich in lycopene, a red plant pigment.",
+   "why": "Higher lycopene intake and blood levels are linked to lower stroke risk in observational studies. Trials mostly measure markers like blood pressure, not heart attacks. A good source of vitamin C and potassium (USDA).",
+   "evidence": "Weak",
+   "to": "/nourish#pantry",
+   "exclude_if": [],
+   "cautions": [
+    "Acidic, so can worsen reflux for some people.",
+    "Canned tomatoes and sauces can be high in sodium. Look for no-salt-added.",
+    "Rarely an allergen, and can cause mouth itching in people with pollen allergy."
+   ],
+   "care_if": []
+  },
+  {
    "id": "food:tulsi",
    "kind": "food",
    "title": "Holy basil",
@@ -5216,6 +5397,22 @@
    "exclude_if": [],
    "cautions": [
     "Tree nut allergy."
+   ],
+   "care_if": []
+  },
+  {
+   "id": "food:whole-grain-bread",
+   "kind": "food",
+   "title": "Whole-grain bread",
+   "summary": "A familiar way to eat more whole grains.",
+   "why": "Higher whole-grain intake is linked to lower risk of heart disease, type 2 diabetes and early death in large reviews (Harvard, Lancet). Gives more fiber than white bread when it is made mostly from whole grain.",
+   "evidence": "Moderate",
+   "to": "/nourish#pantry",
+   "exclude_if": [],
+   "cautions": [
+    "Contains gluten, and often wheat, soy or seeds that can be allergens.",
+    "Breads vary in salt and added sugar. Compare labels.",
+    "Colored or 'multigrain' breads are not always whole grain."
    ],
    "care_if": []
   },

@@ -29,7 +29,7 @@ interface Slice {
 }
 
 export const SLICES: Slice[] = [
-  { key: "nourish", store: useNourish as unknown as Slice["store"], fields: ["lists", "water", "goals"] },
+  { key: "nourish", store: useNourish as unknown as Slice["store"], fields: ["lists", "water", "goals", "kitchen"] },
   { key: "practice", store: usePractice as unknown as Slice["store"], fields: ["logs", "customs", "bolts", "hearts"] },
   { key: "wellness", store: useWellness as unknown as Slice["store"], fields: ["about"] },
   { key: "programs", store: usePrograms as unknown as Slice["store"], fields: ["enrolled"] },

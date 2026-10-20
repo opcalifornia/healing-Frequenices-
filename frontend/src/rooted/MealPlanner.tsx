@@ -6,7 +6,8 @@ import { ALLERGEN_LABEL, RECIPES, TAG_LABEL, hasVitaminKFlag, type Allergen, typ
 import { RecipeDetail, RecipePlate } from "./Recipes";
 import { fitsSlot, forGoals, keyOf, plannedRecipes, recipeById, shoppingFor, suggestFill, suitable, weekDays, weekPlate, weekStart, type Diet } from "./mealPlan";
 import { SLOTS, SLOT_LABEL, useMealPlan, useMyPlan, type MealEntry, type Slot } from "../store/mealPlan";
-import { groupByAisle, useNourish, useShoppingList } from "../store/nourish";
+import { groupByAisle, useKitchen, useNourish, useShoppingList } from "../store/nourish";
+import { nearlyReady } from "./kitchen";
 import { useAbout } from "../store/wellness";
 
 const QUICK_NOTES = ["Leftovers", "Eating out", "Cook extra", "Fruit and yogurt", "Oats", "Eggs and toast"];
@@ -57,6 +58,9 @@ export function MealPlanner() {
   const goalRecipes = useMemo(() => new Set(forGoals(RECIPES, about.goals).map((r) => r.id)), [about.goals]);
   const hasGoalFilter = goalRecipes.size > 0 && goalRecipes.size < RECIPES.length;
   const [mine, setMine] = useState(true);
+  const have = useKitchen();
+  const readySet = useMemo(() => new Set(nearlyReady(have, 1).map((s) => s.recipe.id)), [have]);
+  const [useHave, setUseHave] = useState(true);
 
   const days = useMemo(() => weekDays(start), [start]);
   const keys = useMemo(() => days.map(keyOf), [days]);
@@ -68,7 +72,7 @@ export function MealPlanner() {
   const plate = weekPlate(planned);
   const tagCount = (t: RecipeTag) => planned.filter((r) => r.tags.includes(t)).length;
   const onList = useMemo(() => list.map((i) => i.id), [list]);
-  const needed = useMemo(() => shoppingFor(planned, onList), [planned, onList]);
+  const needed = useMemo(() => shoppingFor(planned, [...onList, ...have]), [planned, onList, have]);
   const shown = needed.filter((i) => !skip.has(i.id));
   const onThinners = about.considerations.includes("thinners");
 
@@ -85,7 +89,8 @@ export function MealPlanner() {
 
   const fill = (slots: Slot[] = ["lunch", "dinner"]) => {
     if (!pool.length) return toast.show("No recipes match your filters");
-    const changes = suggestFill(plan, keys, pool, offset, slots, hasGoalFilter && mine ? goalRecipes : undefined);
+    const prefer = new Set<string>([...(useHave ? readySet : []), ...(hasGoalFilter && mine && !(useHave && readySet.size) ? goalRecipes : [])]);
+    const changes = suggestFill(plan, keys, pool, offset, slots, prefer.size ? prefer : undefined);
     if (!changes.length) return toast.show(slots.includes("breakfast") ? "Your breakfasts are already planned, or none fit your filters" : "Your lunches and dinners are already planned");
     setMany(changes);
     setOffset((o) => o + changes.length);
@@ -153,6 +158,11 @@ export function MealPlanner() {
           {ALLERGENS.map((a) => <button key={a} className={`chip ${diet.avoid?.includes(a) ? "is-on" : ""}`} aria-pressed={!!diet.avoid?.includes(a)} onClick={() => toggleAvoid(a)}>{ALLERGEN_LABEL[a]}</button>)}
         </div>
         {hidden > 0 && <p className="mp__hint">{hidden} of {RECIPES.length} recipes are hidden by these choices.</p>}
+        {readySet.size > 0 && (
+          <div className="recipes__chips" role="group" aria-label="Your kitchen">
+            <button className={`chip ${useHave ? "is-on" : ""}`} aria-pressed={useHave} onClick={() => setUseHave((u) => !u)}>Use what I have first ({readySet.size} recipe{readySet.size === 1 ? "" : "s"} nearly ready)</button>
+          </div>
+        )}
         {hasGoalFilter && (
           <div className="recipes__chips" role="group" aria-label="Your goals">
             <button className={`chip ${mine ? "is-on" : ""}`} aria-pressed={mine} onClick={() => setMine((m) => !m)}>Lean toward my goals ({about.goals.filter((g) => g === "energy" || g === "sleep").join(" and ")})</button>
@@ -225,7 +235,7 @@ export function MealPlanner() {
 
       <div className="mp__shop r-card">
         <h3>Shopping for the week</h3>
-        <p>{planned.length === 0 ? "Plan some recipes and the ingredients you need appear here." : needed.length === 0 ? "Everything for this week's recipes is already on your list." : `${needed.length} item${needed.length === 1 ? "" : "s"} to add for ${new Set(planned.map((r) => r.id)).size} recipe${new Set(planned.map((r) => r.id)).size === 1 ? "" : "s"}. Anything on your list already is left out.`}</p>
+        <p>{planned.length === 0 ? "Plan some recipes and the ingredients you need appear here." : needed.length === 0 ? "Everything for this week's recipes is already on your list or in your kitchen." : `${needed.length} item${needed.length === 1 ? "" : "s"} to add for ${new Set(planned.map((r) => r.id)).size} recipe${new Set(planned.map((r) => r.id)).size === 1 ? "" : "s"}. Anything on your list or in your kitchen is left out.`}</p>
         <button className="btn btn--primary" onClick={() => { setSkip(new Set()); setShop(true); }} disabled={needed.length === 0}>Review and add to my list</button>
       </div>
 
