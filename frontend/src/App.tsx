@@ -43,6 +43,9 @@ const SafetyGuide = lazy(() => import("./pages/SafetyGuide"));
 const Nourish = lazy(() => import("./pages/Nourish"));
 const Scan = lazy(() => import("./pages/Scan"));
 const Breathe = lazy(() => import("./pages/Breathe"));
+const Rituals = lazy(() => import("./pages/Rituals"));
+const RitualDetail = lazy(() => import("./pages/RitualDetail"));
+const Circadian = lazy(() => import("./pages/Circadian"));
 const Move = lazy(() => import("./pages/Move"));
 const Welcome = lazy(() => import("./pages/Welcome"));
 const Combos = lazy(() => import("./pages/Combos"));
@@ -158,6 +161,9 @@ export default function App() {
             <Route path="/nourish" element={<RequireProfile><Nourish /></RequireProfile>} />
             <Route path="/scan" element={<RequireProfile><Scan /></RequireProfile>} />
             <Route path="/breathe" element={<RequireProfile><Breathe /></RequireProfile>} />
+            <Route path="/rituals" element={<RequireProfile><Rituals /></RequireProfile>} />
+            <Route path="/rituals/circadian" element={<RequireProfile><Circadian /></RequireProfile>} />
+            <Route path="/rituals/:id" element={<RequireProfile><RitualDetail /></RequireProfile>} />
             <Route path="/move" element={<RequireProfile><Move /></RequireProfile>} />
             <Route path="/places" element={<RequireProfile><Places /></RequireProfile>} />
             <Route path="/earth" element={<RequireProfile><Earth /></RequireProfile>} />

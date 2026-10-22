@@ -4,7 +4,7 @@
  * of the app is visible while it's being built.
  */
 
-export type SectionId = "light" | "healing" | "nourish" | "breathe" | "move" | "combos" | "spirit" | "garden" | "places" | "support" | "earth" | "learn";
+export type SectionId = "light" | "healing" | "nourish" | "breathe" | "rituals" | "move" | "combos" | "spirit" | "garden" | "places" | "support" | "earth" | "learn";
 
 export interface RootedSection {
   id: SectionId;
@@ -26,6 +26,7 @@ const ALL_SECTIONS: RootedSection[] = [
   { id: "light", name: "Healing Light", tagline: "Morning sun, light therapy, blue and red light, and UV", to: "/light", live: true, size: "wide", c1: "#ffd54f", c2: "#ff7043" },
   { id: "nourish", name: "Nourish", tagline: "Food, water and a smarter shopping list, by the evidence", to: "/nourish", live: true, size: "wide", c1: "#9ccc65", c2: "#e8b04a" },
   { id: "breathe", name: "Breathe", tagline: "Box, 4-7-8, the physiological sigh and more", to: "/breathe", live: true, size: "tall", c1: "#6ec6ff", c2: "#b3e5fc" },
+  { id: "rituals", name: "Rituals", tagline: "Three daily drink blends, each with its own sound session", to: "/rituals", live: true, size: "wide", c1: "#ff8a3d", c2: "#6c5ce7" },
   { id: "move", name: "Move", tagline: "Walks after meals, yoga, tai chi, qigong, sauna", to: "/move", live: true, size: "sm", c1: "#ff8a65", c2: "#ffcc80" },
   { id: "combos", name: "Combos", tagline: "Stack breath, sound and habit into one routine", to: "/combos", live: true, size: "sm", c1: "#f06292", c2: "#ffb74d" },
   { id: "learn", name: "Learn", tagline: "Guides to the brain, sleep and frequency safety", to: "/learn", live: true, size: "wide", c1: "#4db6ac", c2: "#c5e1a5" },

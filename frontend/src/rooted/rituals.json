@@ -1,0 +1,312 @@
+{
+  "_help": "Edit this file to change Rituals content. Each ritual has a recipe (ingredients), a binaural session and tips. Times, doses and wording are all plain text/numbers. Keep wellness language only: 'supports', never 'treats' or 'cures'. After editing, run `npm test` (it checks every ingredient pairing, hertz math and banned wording).",
+  "disclaimer": "These statements have not been evaluated by the FDA. Not intended to diagnose, treat, cure, or prevent any disease. Consult a healthcare professional before use if pregnant, nursing, on medication, or managing a medical condition.",
+  "playerWarning": "Do not use while driving or operating machinery. If you have a history of seizures, talk to a doctor before using binaural sessions.",
+  "sessionEvidence": {
+    "level": "Mixed",
+    "text": "Binaural beats are a popular way to set a mood, but research on whether they change brain state is mixed. A 2019 meta-analysis found small to moderate effects on anxiety and attention, with study quality varying. Treat them as a pleasant daily cue, not a treatment.",
+    "source": { "text": "Garcia-Argibay M et al. Efficacy of binaural auditory beats in cognition, anxiety, and pain perception: a meta-analysis. Psychological Research, 2019", "url": "https://doi.org/10.1007/s00426-018-1066-8" }
+  },
+  "rituals": [
+    {
+      "id": "revive",
+      "name": "Revive",
+      "timeOfDay": "morning",
+      "window": "Within an hour of waking",
+      "tagline": "Wake up with a bright, focused start",
+      "accentColor": "#ff8a3d",
+      "accentColor2": "#ffd166",
+      "heroImage": "art:revive",
+      "recipe": {
+        "serves": "One glass",
+        "method": "Stir the apple cider vinegar, ginseng, matcha and salt into the coconut water with a small whisk or shaker until smooth. Add lemon or ginger if you like. Sip over 10 to 15 minutes.",
+        "ingredients": [
+          {
+            "name": "Organic raw apple cider vinegar",
+            "dose": "1 tbsp",
+            "purpose": "A tangy, traditional morning tonic",
+            "benefit": "Small studies look at vinegar and blood sugar after meals. Evidence for morning energy is thin, so enjoy it for the taste and the ritual. Always dilute it.",
+            "evidence": "Weak",
+            "pairsWith": [
+              { "name": "Organic coconut water", "why": "The coconut water softens the acidity and makes it easy to drink." },
+              { "name": "Sea salt", "why": "A pinch of salt rounds out the sour taste." }
+            ]
+          },
+          {
+            "name": "Korean red ginseng extract",
+            "dose": "1 to 2 g",
+            "purpose": "A traditional herb for feeling more alert",
+            "benefit": "Ginseng has been studied for tiredness, with mixed results. Some people notice a gentle lift. It can interact with medicines, so check with a clinician first.",
+            "evidence": "Mixed",
+            "pairsWith": [
+              { "name": "Organic matcha", "why": "Both are used for daytime alertness, so keep the total caffeine in mind." },
+              { "name": "Organic coconut water", "why": "Dissolves easily in a light, slightly sweet base." }
+            ]
+          },
+          {
+            "name": "Organic matcha",
+            "dose": "1 to 2 g",
+            "purpose": "Caffeine plus L-theanine for steady alertness",
+            "benefit": "Matcha has caffeine, which supports alertness, along with L-theanine, which people often describe as smoothing the edge off caffeine. Roughly 1 to 2 g gives a modest amount of caffeine.",
+            "evidence": "Moderate",
+            "pairsWith": [
+              { "name": "Korean red ginseng extract", "why": "A traditional pairing for a focused start." },
+              { "name": "Lemon or ginger (optional)", "why": "Bright flavours that balance matcha's grassy bitterness." }
+            ]
+          },
+          {
+            "name": "Sea salt",
+            "dose": "1/8 tsp",
+            "purpose": "Sodium to go with the fluids",
+            "benefit": "Sodium and potassium help the body hold on to the water you drink, which is why they appear in many hydration drinks. If you limit sodium for blood pressure or kidney reasons, leave it out.",
+            "evidence": "Moderate",
+            "pairsWith": [
+              { "name": "Organic coconut water", "why": "Coconut water brings potassium, so together they cover the main hydration minerals." }
+            ]
+          },
+          {
+            "name": "Organic coconut water",
+            "dose": "4 to 8 oz",
+            "purpose": "A light, hydrating base",
+            "benefit": "Naturally contains potassium and a little sugar, so it makes a refreshing base after a night without drinking.",
+            "evidence": "Moderate",
+            "pairsWith": [
+              { "name": "Sea salt", "why": "Adds sodium, the electrolyte coconut water has little of." },
+              { "name": "Organic raw apple cider vinegar", "why": "Balances the sweetness." }
+            ]
+          },
+          {
+            "name": "Lemon or ginger (optional)",
+            "dose": "A squeeze or a thin slice",
+            "purpose": "Flavour and freshness",
+            "benefit": "Adds brightness. Ginger is a traditional favourite for a warming kick. Optional.",
+            "evidence": "Weak",
+            "optional": true,
+            "pairsWith": [
+              { "name": "Organic matcha", "why": "Cuts through the grassy taste." }
+            ]
+          }
+        ]
+      },
+      "session": {
+        "brainState": "Alert focus, beta rising to gamma",
+        "beatHz": { "start": 18, "end": 40 },
+        "carrierHz": 200,
+        "leftHz": 200,
+        "rightHz": { "start": 218, "end": 240 },
+        "durationMin": 20,
+        "durationOptions": [15, 20],
+        "fadeOutMin": 1
+      },
+      "cautions": [
+        "Korean red ginseng can interact with medicines, including blood thinners such as warfarin, diabetes medicines and some antidepressants. Ask your clinician or pharmacist first. Avoid it if you are pregnant or nursing.",
+        "Caffeine: 1 to 2 g of matcha is a modest amount, but it adds to coffee and tea. The FDA says about 400 mg a day is not generally associated with negative effects for most healthy adults. Pregnant people, children and those sensitive to caffeine should have less. Keep caffeine to the morning and early afternoon so it does not get in the way of sleep.",
+        "Always dilute apple cider vinegar. Undiluted, it can harm tooth enamel and irritate the throat. Rinse with water afterward and avoid it if you have reflux or ulcers.",
+        "The salt is optional. Skip it if you have been told to limit sodium."
+      ],
+      "tips": [
+        "Step outside into daylight for a few minutes after your drink. Morning light helps set your body clock.",
+        "Sit comfortably with headphones and eyes open or closed. Don't drive or use machinery during the session.",
+        "Make the drink the night before in a jar without the matcha, and add the matcha in the morning."
+      ],
+      "sources": [
+        { "text": "FDA: Spilling the beans, how much caffeine is too much?", "url": "https://www.fda.gov/consumers/consumer-updates/spilling-beans-how-much-caffeine-too-much" },
+        { "text": "NCCIH: Asian ginseng", "url": "https://www.nccih.nih.gov/health/asian-ginseng" }
+      ]
+    },
+    {
+      "id": "calm",
+      "name": "Calm",
+      "timeOfDay": "afternoon",
+      "window": "Early to mid afternoon",
+      "tagline": "Supports calm focus through the afternoon dip",
+      "accentColor": "#3fc1b0",
+      "accentColor2": "#a8e6cf",
+      "heroImage": "art:calm",
+      "recipe": {
+        "serves": "One small glass",
+        "method": "Stir the L-theanine powder (or open the capsule) into the juice with a splash of cool water. Add the vinegar and salt if you use them. Sip slowly.",
+        "ingredients": [
+          {
+            "name": "L-theanine",
+            "dose": "200 mg",
+            "purpose": "An amino acid from tea, used for relaxed alertness",
+            "benefit": "Small trials suggest L-theanine may support a relaxed, attentive feeling, especially with a little caffeine. Results vary from person to person.",
+            "evidence": "Mixed",
+            "pairsWith": [
+              { "name": "Organic pomegranate or lychee juice", "why": "Dissolves easily in a flavourful base that hides the slight bitterness." }
+            ]
+          },
+          {
+            "name": "Organic pomegranate or lychee juice",
+            "dose": "2 to 4 oz",
+            "purpose": "A naturally sweet, fruity base",
+            "benefit": "Gives the drink flavour and a little natural sugar for the afternoon. Pomegranate brings plant compounds called polyphenols. Juice is concentrated, so keep to a small glass.",
+            "evidence": "Weak",
+            "pairsWith": [
+              { "name": "L-theanine", "why": "A pleasant way to take it." },
+              { "name": "Apple cider vinegar (optional)", "why": "A little acidity keeps the sweetness fresh." }
+            ]
+          },
+          {
+            "name": "Apple cider vinegar (optional)",
+            "dose": "1 tsp",
+            "purpose": "A little tang",
+            "benefit": "Adds a refreshing sourness. Evidence for health effects is thin, so it is just for taste. Keep it diluted.",
+            "evidence": "Weak",
+            "optional": true,
+            "pairsWith": [
+              { "name": "Organic pomegranate or lychee juice", "why": "Balances the sweetness of the juice." }
+            ]
+          },
+          {
+            "name": "Sea salt (optional pinch)",
+            "dose": "A pinch",
+            "purpose": "Rounds the flavour and adds a touch of sodium",
+            "benefit": "A pinch lifts the fruit flavour. Skip it if you limit sodium.",
+            "evidence": "Weak",
+            "optional": true,
+            "pairsWith": [
+              { "name": "Organic pomegranate or lychee juice", "why": "Salt makes fruit taste brighter." }
+            ]
+          }
+        ]
+      },
+      "session": {
+        "brainState": "Relaxed focus, alpha",
+        "beatHz": { "start": 10, "end": 10 },
+        "carrierHz": 200,
+        "leftHz": 200,
+        "rightHz": { "start": 210, "end": 210 },
+        "durationMin": 20,
+        "durationOptions": [15, 20],
+        "fadeOutMin": 1
+      },
+      "cautions": [
+        "L-theanine is usually well tolerated, but ask your clinician first if you take blood pressure or sedative medicines, or if you are pregnant or nursing.",
+        "Juice is concentrated sugar. Keep to 2 to 4 oz, and check with your clinician if you manage blood sugar.",
+        "Always dilute apple cider vinegar, and skip it if you have reflux or ulcers.",
+        "If you add tea or matcha, keep an eye on caffeine and how close it is to bedtime."
+      ],
+      "tips": [
+        "Take a short walk or look out a window for a minute before you start. It makes the session feel like a real break.",
+        "Close your laptop or put your phone face down while the session plays.",
+        "If you feel the afternoon slump most around 2 to 3 pm, schedule this a little before it hits."
+      ],
+      "sources": [
+        { "text": "Acute effects of theanine, caffeine and theanine-caffeine combination on attention. Nutritional Neuroscience, 2016", "url": "https://doi.org/10.1080/1028415x.2016.1144845" }
+      ]
+    },
+    {
+      "id": "unwind",
+      "name": "Unwind",
+      "timeOfDay": "night",
+      "window": "60 to 90 minutes before bed",
+      "tagline": "Ease into a quiet, restful evening",
+      "accentColor": "#6c5ce7",
+      "accentColor2": "#a29bfe",
+      "heroImage": "art:unwind",
+      "recipe": {
+        "serves": "One mug",
+        "method": "Steep the chamomile and passionflower in hot water for 5 to 8 minutes, then strain. Stir in the cherry concentrate and honey once it has cooled a little. Take your magnesium and valerian capsules with it.",
+        "ingredients": [
+          {
+            "name": "Magnesium glycinate",
+            "dose": "200 to 300 mg",
+            "purpose": "A gentle form of magnesium for the evening",
+            "benefit": "Magnesium plays a part in how muscles and the nervous system work. Research on sleep is mixed. Check the label for elemental magnesium: the adult upper limit from supplements is 350 mg a day.",
+            "evidence": "Mixed",
+            "pairsWith": [
+              { "name": "Organic tart cherry concentrate", "why": "A pleasant, tart way to take your evening supplements." }
+            ]
+          },
+          {
+            "name": "Valerian root",
+            "dose": "300 to 600 mg",
+            "purpose": "A traditional evening herb",
+            "benefit": "Valerian has been used for centuries for rest. Studies are inconsistent, and the NIH says it is unclear whether it helps sleep. Some people find it supports winding down.",
+            "evidence": "Mixed",
+            "pairsWith": [
+              { "name": "Organic chamomile", "why": "Both are traditional evening herbs, and chamomile tea masks valerian's earthy taste." },
+              { "name": "Organic passionflower", "why": "Often blended together in evening herbal teas." }
+            ]
+          },
+          {
+            "name": "Organic chamomile",
+            "dose": "1 to 2 g",
+            "purpose": "A soothing, familiar tea",
+            "benefit": "Chamomile tea is a classic evening drink. Small studies hint at modest benefits for sleep quality, and the warm mug itself is part of the ritual.",
+            "evidence": "Weak",
+            "pairsWith": [
+              { "name": "Organic passionflower", "why": "A common herbal tea pairing with a floral, grassy taste." },
+              { "name": "Raw honey (optional)", "why": "A little honey sweetens chamomile nicely." }
+            ]
+          },
+          {
+            "name": "Organic passionflower",
+            "dose": "1 to 2 g",
+            "purpose": "A traditional herb for quieting a busy mind",
+            "benefit": "Passionflower is used in herbal teas for evening unwinding. Research is limited, so think of it as part of the ritual. Not for use in pregnancy.",
+            "evidence": "Weak",
+            "pairsWith": [
+              { "name": "Organic chamomile", "why": "Brews well in the same pot." },
+              { "name": "Valerian root", "why": "Frequently combined in evening blends." }
+            ]
+          },
+          {
+            "name": "Organic tart cherry concentrate",
+            "dose": "1 oz",
+            "purpose": "A fruity base that contains natural melatonin and plant compounds",
+            "benefit": "Tart cherries naturally contain a small amount of melatonin. A small study found people slept a little longer after drinking tart cherry juice. It was small, so this is a nice evening habit, not a proven fix.",
+            "evidence": "Weak",
+            "pairsWith": [
+              { "name": "Magnesium glycinate", "why": "A flavourful way to take your evening supplements." },
+              { "name": "Raw honey (optional)", "why": "Balances the tartness." }
+            ]
+          },
+          {
+            "name": "Raw honey (optional)",
+            "dose": "1 tsp",
+            "purpose": "A touch of sweetness",
+            "benefit": "Sweetens the tea. Not for children under one year old.",
+            "evidence": "None",
+            "optional": true,
+            "pairsWith": [
+              { "name": "Organic chamomile", "why": "A classic pairing." },
+              { "name": "Organic tart cherry concentrate", "why": "Softens the tartness." }
+            ]
+          }
+        ]
+      },
+      "session": {
+        "brainState": "Wind-down, theta easing to delta",
+        "beatHz": { "start": 6, "end": 2 },
+        "carrierHz": 150,
+        "leftHz": 150,
+        "rightHz": { "start": 156, "end": 152 },
+        "durationMin": 40,
+        "durationOptions": [30, 40, 45],
+        "fadeOutMin": 5
+      },
+      "cautions": [
+        "Valerian can cause drowsiness. Do not combine it with alcohol or sedative medicines, and do not drive or use machinery afterward. Ask your clinician if you take any medicines.",
+        "Passionflower is not for use in pregnancy.",
+        "Chamomile can cause reactions in people with ragweed or daisy-family allergies. Skip it if you have one.",
+        "Magnesium can be a problem with kidney disease and can interact with some medicines. Check with your clinician or pharmacist.",
+        "Take this when you are ready to settle in. Don't drive or use machinery."
+      ],
+      "tips": [
+        "Dim the lights and put screens away 60 minutes before bed.",
+        "Keep your bedroom cool and dark, and go to bed at roughly the same time every night.",
+        "Lie down with headphones on. The session fades out slowly over the last few minutes so it won't wake you."
+      ],
+      "sources": [
+        { "text": "NCCIH: Valerian", "url": "https://www.nccih.nih.gov/health/valerian" },
+        { "text": "NCCIH: Chamomile", "url": "https://www.nccih.nih.gov/health/chamomile" },
+        { "text": "NCCIH: Passionflower", "url": "https://www.nccih.nih.gov/health/passionflower" },
+        { "text": "NIH Office of Dietary Supplements: Magnesium", "url": "https://ods.od.nih.gov/factsheets/Magnesium-HealthProfessional/" },
+        { "text": "Howatson G et al. Effect of tart cherry juice on melatonin levels and enhanced sleep quality. Eur J Nutr, 2012", "url": "https://doi.org/10.1007/s00394-011-0263-7" }
+      ]
+    }
+  ]
+}
