@@ -18,6 +18,7 @@ export const NAV_ITEMS: { to: string; label: string; icon: IconName }[] = [
   { to: "/healing", label: "Healing", icon: "wave" },
   { to: "/light", label: "Light", icon: "sparkle" },
   { to: "/breathe", label: "Breathe", icon: "timer" },
+  { to: "/rituals", label: "Rituals", icon: "sparkle" },
   { to: "/nourish", label: "Nourish", icon: "sparkle" },
   { to: "/move", label: "Move", icon: "replay" },
   { to: "/combos", label: "Combos", icon: "sparkle" },
@@ -202,7 +203,7 @@ export function NavBar() {
       <AnimatePresence>{healing && <HealingNav />}</AnimatePresence>
 
       <nav className="tabbar" aria-label="Primary">
-        {NAV_ITEMS.filter((i) => !["/learn", "/my-stuff", "/combos", "/light", "/move"].includes(i.to)).map((item) => (
+        {NAV_ITEMS.filter((i) => !["/learn", "/my-stuff", "/combos", "/light", "/move", "/rituals"].includes(i.to)).map((item) => (
           <NavLink key={item.to} to={item.to} end={item.to === "/"} className={({ isActive }) => `tabbar__item ${isActive || (item.to === "/healing" && healing) ? "active" : ""}`}>
             <Icon name={item.icon} size={22} />
             <span>{item.label}</span>
