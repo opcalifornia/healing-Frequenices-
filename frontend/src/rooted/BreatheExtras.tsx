@@ -14,6 +14,21 @@ const byId = (id: string) => TECHNIQUES.find((t) => t.id === id)!;
 /* Quick picks: one tap from a feeling to the right practice            */
 /* ------------------------------------------------------------------ */
 
+/** One tap to repeat the last technique you did, at the length you did it. */
+export function AgainButton({ onStart }: { onStart(t: Technique, minutes: number): void }) {
+  const entries = usePracticeLog();
+  const last = [...entries].reverse().find((e) => e.kind.startsWith("breath:") && TECHNIQUES.some((t) => t.id === e.kind.slice(7)));
+  if (!last) return null;
+  const t = byId(last.kind.slice(7));
+  const opts = t.minutes.length ? t.minutes : [3];
+  const m = opts.reduce((a, b) => (Math.abs(b - last.minutes) < Math.abs(a - last.minutes) ? b : a));
+  return (
+    <button className="btn btn--secondary again" onClick={() => onStart(t, m)}>
+      <Icon name="replay" size={18} /> Again: {t.name}, {m} min
+    </button>
+  );
+}
+
 export function QuickPicks({ onStart }: { onStart(t: Technique, minutes: number): void }) {
   const f = flags(useAbout().considerations);
   const picks = [
@@ -316,7 +331,7 @@ export function BoltTest() {
             )}
           </div>
         ) : <p className="rooted__lead">Take the test once a week, at the same time of day, to watch it change.</p>}
-        <p className="diagram__text">BOLT is a simple measure popular with breathing coaches, reflecting how sensitive your body is to carbon dioxide. Research on it is limited, so treat it as a personal trend, not a diagnosis.</p>
+        <p className="diagram__text">BOLT is a simple measure popular with breathing coaches, reflecting how sensitive your body is to carbon dioxide. Research on it is limited, so treat it as a personal trend, not a diagnosis. The test was described by Patrick McKeown, who teaches it in his Oxygen Advantage programs; this is our own simple version of a breath-hold timer.</p>
         <SourceLink s={{ text: "Courtney R, Cohen M. Investigating the claims of Konstantin Buteyko: the relationship of breath holding time to end tidal CO2. J Altern Complement Med, 2008", url: "https://doi.org/10.1089/acm.2007.7024" }} />
       </div>
     </div>

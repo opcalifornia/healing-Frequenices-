@@ -35,6 +35,10 @@ export interface Technique {
 
 const BALBAN: Source = { text: "Balban MY et al. Brief structured respiration practices enhance mood and reduce physiological arousal. Cell Reports Medicine, 2023", url: "https://doi.org/10.1016/j.xcrm.2022.100895" };
 
+const ZACCARO: Source = { text: "Zaccaro A et al. How breath-control can change your life: a systematic review on psycho-physiological correlates of slow breathing. Frontiers in Human Neuroscience, 2018", url: "https://doi.org/10.3389/fnhum.2018.00353" };
+const LEHRER_HRV: Source = { text: "Lehrer P et al. Heart rate variability biofeedback improves emotional and physical health and performance: a systematic review and meta-analysis. Appl Psychophysiol Biofeedback, 2020", url: "https://doi.org/10.1007/s10484-020-09466-z" };
+const CLEVELAND_PURSED: Source = { text: "Cleveland Clinic: Pursed-lip breathing", url: "https://my.clevelandclinic.org/health/treatments/9443-pursed-lip-breathing" };
+
 export const TECHNIQUES: Technique[] = [
   {
     id: "calm", name: "Settle in", short: "4 in · 6 out", when: "Any time you feel wound up. A gentle place to begin.",
@@ -62,7 +66,7 @@ export const TECHNIQUES: Technique[] = [
     cycle: [{ kind: "in", secs: 4, say: "Breathe in through your nose" }, { kind: "hold", secs: 7, say: "Hold" }, { kind: "out", secs: 8, say: "Whoosh out through your mouth" }],
     minutes: [1, 2, 4], evidence: "Weak", hue: 265, next: "sleep", shape: "triangle",
     why: "A very long exhale with a hold slows breathing to about three breaths a minute. Small studies show short-term drops in heart rate and blood pressure. It may feel light-headed at first; start with four cycles.",
-    sources: [{ text: "Vierra J et al. Effects of sleep deprivation and 4-7-8 breathing control on heart rate variability, blood pressure, blood glucose, and endothelial function in healthy young adults. Physiol Rep, 2022" }],
+    sources: [{ text: "Vierra J et al. Effects of sleep deprivation and 4-7-8 breathing control on heart rate variability, blood pressure, blood glucose, and endothelial function in healthy young adults. Physiol Rep, 2022", url: "https://doi.org/10.14814/phy2.15389" }],
   },
   {
     id: "coherent", name: "Coherent breathing", short: "5.5 in · 5.5 out", when: "A steady 10-minute practice for everyday resilience.",
@@ -100,7 +104,35 @@ export const TECHNIQUES: Technique[] = [
     sources: [{ text: "Zaccaro A et al. How breath-control can change your life: a systematic review on psycho-physiological correlates of slow breathing. Frontiers in Human Neuroscience, 2018", url: "https://doi.org/10.3389/fnhum.2018.00353" }],
   },
   {
-    id: "power", name: "Power breathing", short: "Rounds of deep breaths and holds", when: "Morning energy. Inspired by the Wim Hof style. Sit or lie down.",
+    id: "resonance", name: "Resonance breathing", short: "5 in · 5 out, six breaths a minute", when: "A steady daily practice. Slow, even breathing around six breaths a minute is the pace most studied for heart rate variability.",
+    cycle: [{ kind: "in", secs: 5, say: "Breathe in" }, { kind: "out", secs: 5, say: "Breathe out" }],
+    minutes: [5, 10, 20], evidence: "Strong", hue: 190, next: "meditate",
+    why: "Breathing at about six breaths a minute reliably raises heart rate variability, a sign of a flexible, well-regulated heart rhythm. The effect on mood and stress is smaller and less certain than the effect on the heart. Clinicians who use heart rate variability biofeedback find each person's best pace, usually between 4.5 and 6.5 breaths a minute. Try the pace finder below to see which feels easiest for you.",
+    sources: [ZACCARO, LEHRER_HRV],
+  },
+  {
+    id: "extended", name: "Longer breath out", short: "4 in · 8 out", when: "When you want a slower, softer pace than six a minute. No holds, nothing forced.",
+    cycle: [{ kind: "in", secs: 4, say: "Breathe in through your nose" }, { kind: "out", secs: 8, say: "Slowly breathe out" }],
+    minutes: [2, 5, 10], evidence: "Weak", hue: 205, next: "relax",
+    why: "Making the out-breath longer than the in-breath is a common feature of slow-breathing practices, and the Stanford trial of cyclic sighing points to the long exhale as the likely active ingredient. Direct evidence for a specific ratio is limited, so use whichever ratio feels easy.",
+    sources: [BALBAN],
+  },
+  {
+    id: "pursed", name: "Pursed-lip breathing", short: "In through the nose · out through pursed lips", when: "When you feel short of breath after effort, or want an easy way to slow your breathing. Used in lung care.",
+    cycle: [{ kind: "in", secs: 2, say: "Breathe in through your nose" }, { kind: "out", secs: 4, say: "Out slowly through pursed lips, like blowing on soup" }],
+    minutes: [1, 3, 5], evidence: "Moderate", hue: 215, next: "relax",
+    why: "Breathing out slowly through pursed lips keeps your airways open a little longer and slows your breathing. It is taught in lung rehabilitation for breathlessness. For people without a lung condition it is simply an easy way to slow down. If you have a lung condition, ask your clinician how to use it.",
+    sources: [CLEVELAND_PURSED],
+  },
+  {
+    id: "equal", name: "Equal breathing", short: "4 in · 4 out, no holds", when: "A gentle, even pace when box breathing feels like too much. It has no breath holds.",
+    cycle: [{ kind: "in", secs: 4, say: "Breathe in" }, { kind: "out", secs: 4, say: "Breathe out" }],
+    minutes: [2, 5, 10], evidence: "Weak", hue: 175, next: "focus",
+    why: "An even in and out, with no holds, is the simplest steady pace and a good place to start if holding your breath feels uncomfortable. Research on this exact ratio is limited. It sits close to the slow, even breathing that studies of slow breathing describe.",
+    sources: [ZACCARO],
+  },
+  {
+    id: "power", name: "Power breathing", short: "Rounds of deep breaths and holds", when: "Morning energy. Inspired by a well-known style of fast breathing and breath holds. Sit or lie down.",
     cycle: [{ kind: "in", secs: 1.6, say: "Deep breath in" }, { kind: "out", secs: 1.4, say: "Let go" }],
     minutes: [], evidence: "Mixed", hue: 25, next: "energize", gated: true,
     rounds: { breaths: 30, maxHold: 90, recoveryHold: 15, count: 3 },
@@ -154,3 +186,33 @@ export function customTechnique(c: CustomPattern): Technique {
 }
 
 export const breathsPerMinute = (c: Pick<CustomPattern, "inhale" | "hold" | "exhale" | "rest">) => 60 / Math.max(1, c.inhale + c.hold + c.exhale + c.rest);
+
+/** Shown before gated practices. The person has to say none of these apply before starting. */
+export const BREATH_SCREEN = [
+  "I'm sitting or lying down, not standing, driving, or in or near water (bath, pool, sea).",
+  "I'm not pregnant, and I don't have high blood pressure, heart disease, epilepsy or seizures, or a history of fainting.",
+  "I don't have asthma or another lung condition, and I haven't had panic attacks, or I've checked with my clinician.",
+];
+
+/** Shown any time from the Breathe page. */
+export const BREATH_SAFETY = [
+  "Never practice in or near water, and never while driving or operating machinery.",
+  "Sit or lie down, so a dizzy moment can't turn into a fall.",
+  "Stop and breathe normally if you feel dizzy, tingly, have chest pain, or feel panicky. Every session has a button for this.",
+  "Skip breath holds and fast or forceful breathing if you are pregnant, or have high blood pressure, heart disease, epilepsy, asthma or a lung condition, or a history of panic attacks, unless your clinician says it's fine.",
+  "Slow, gentle breathing with no holds is the lowest-risk kind. Even so, breathing exercises make a few people feel more anxious. If that happens, stop.",
+  "This is general information, not medical advice and not a replacement for care. If you're in crisis, call or text 988 in the US.",
+];
+
+export interface LearnLink { title: string; by: string; kind: "Overview" | "Research" | "Clinical guide" | "Podcast"; text: string; url: string; evidence?: Strength }
+
+/** Free, public sources we read and recommend. We link out and describe them in our own words; we don't copy their text. */
+export const LEARN_MORE: LearnLink[] = [
+  { title: "Breathing exercises for stress", by: "NHS (UK)", kind: "Overview", text: "A plain, short guide to a simple breathing exercise for stress, from the UK health service.", url: "https://www.nhs.uk/mental-health/self-help/guides-tools-and-activities/breathing-exercises-for-stress/" },
+  { title: "Relaxation techniques: what you need to know", by: "NIH, National Center for Complementary and Integrative Health", kind: "Overview", text: "An honest summary of what research shows about breathing and other relaxation techniques, and who should take care.", url: "https://www.nccih.nih.gov/health/relaxation-techniques-what-you-need-to-know" },
+  { title: "Brief structured respiration practices enhance mood and reduce physiological arousal", by: "Balban et al., Stanford, Cell Reports Medicine, 2023", kind: "Research", text: "The free paper behind cyclic sighing. A one-month trial of five minutes a day, compared with mindfulness meditation.", url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC9873947/", evidence: "Moderate" },
+  { title: "Breathwork for stress: a systematic review and meta-analysis", by: "Fincham et al., Scientific Reports, 2023", kind: "Research", text: "Pools 12 randomized trials. Breathwork lowered stress, with some concerns about study quality.", url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC9828383/", evidence: "Moderate" },
+  { title: "How breath-control can change your life", by: "Zaccaro et al., Frontiers in Human Neuroscience, 2018", kind: "Research", text: "A review of slow breathing under ten breaths a minute: more heart rate variability and changes in brain activity in healthy people.", url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC6137615", evidence: "Strong" },
+  { title: "Pursed-lip breathing", by: "Cleveland Clinic", kind: "Clinical guide", text: "Step-by-step guide to the technique used for breathlessness, and when to ask a provider.", url: "https://my.clevelandclinic.org/health/treatments/9443-pursed-lip-breathing" },
+  { title: "Huberman Lab", by: "Andrew Huberman, Stanford School of Medicine", kind: "Podcast", text: "A free, long-running science podcast whose episodes on breathing helped popularize the physiological sigh. He is a co-author of the Stanford trial above. Treat any podcast as a starting point and check claims against the papers.", url: "https://www.hubermanlab.com" },
+];

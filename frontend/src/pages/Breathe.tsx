@@ -10,7 +10,9 @@ import { BreathingBody, HeartRhythm } from "../rooted/BreatheDiagrams";
 import { ProgramRail } from "../rooted/ProgramRail";
 import { HeartCheck } from "../rooted/HeartCheck";
 import { ReminderCard } from "../rooted/ReminderCard";
-import { BoltTest, CustomList, PatternBuilder, QuickPicks, Results } from "../rooted/BreatheExtras";
+import { AgainButton, BoltTest, CustomList, PatternBuilder, QuickPicks, Results } from "../rooted/BreatheExtras";
+import { PaceFinder } from "../rooted/PaceFinder";
+import { BreatheLearn } from "../rooted/BreatheLearn";
 import { chime, unlockChime } from "../rooted/chime";
 import { minutesOn, practiceStreak, usePractice, usePracticeLog } from "../store/practice";
 import { flags, useAbout } from "../store/wellness";
@@ -27,12 +29,14 @@ import "./Programs.css";
 const TABS = [
   { id: "programs", label: "Programs" },
   { id: "breathe", label: "Breathing" },
+  { id: "pace", label: "Find your pace" },
   { id: "results", label: "Your results" },
   { id: "body", label: "Inside your body" },
   { id: "heart", label: "Heart check" },
   { id: "bolt", label: "Breath test" },
   { id: "ground", label: "Grounding" },
   { id: "relax", label: "Muscle relaxation" },
+  { id: "learnmore", label: "Learn more" },
 ];
 
 function MiniPattern({ t }: { t: Technique }) {
@@ -183,6 +187,7 @@ export default function Breathe() {
             )}
           </motion.div>
           <QuickPicks onStart={start} />
+          <AgainButton onStart={start} />
         </div>
       </header>
 
@@ -222,6 +227,15 @@ export default function Breathe() {
           <p className="rooted__lead">Set your own counts for breathing in, holding and breathing out.</p>
         </Reveal>
         <CustomList onStart={start} onBuild={() => setBuilding(true)} />
+      </section>
+
+      <section id="pace" className="sec-block">
+        <Reveal className="sec-block__head">
+          <span className="rooted__eyebrow">Resonance pace</span>
+          <h2>Find the slow pace that suits you</h2>
+          <p className="rooted__lead">Slow breathing at about six breaths a minute is the most studied pace for heart rhythm. Everyone's easiest pace is a little different.</p>
+        </Reveal>
+        <Reveal><PaceFinder onStart={start} /></Reveal>
       </section>
 
       <section id="results" className="sec-block">
@@ -330,6 +344,14 @@ export default function Breathe() {
       </Sheet>
 
       <AnimatePresence>{run && <BreathPlayer key={`${run.t.id}-${run.m}`} technique={run.t} minutes={run.m} onClose={() => setRun(null)} />}</AnimatePresence>
+      <section id="learnmore" className="sec-block">
+        <Reveal className="sec-block__head">
+          <span className="rooted__eyebrow">Learn more</span>
+          <h2>Safety, and where to read further</h2>
+          <p className="rooted__lead">Free sources from health services, universities and researchers, with how strong the evidence is.</p>
+        </Reveal>
+        <Reveal><BreatheLearn /></Reveal>
+      </section>
       <Footer />
     </ZoomPage>
   );

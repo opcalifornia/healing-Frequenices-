@@ -280,3 +280,28 @@
 .remind__row input[type="time"] { height: 36px; padding: 0 8px; border-radius: 8px; background: var(--r-surface-2); border: 1px solid var(--r-line); color-scheme: dark; }
 .remind__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
 .remind__row:focus-within { outline: 2px solid #fff; outline-offset: 2px; }
+
+/* Safety gate, eyes closed, pace finder, learn more */
+.bp__gate-ask { font-weight: 800; margin-top: 4px; }
+.bp__screen { display: grid; gap: 10px; width: 100%; }
+.bp__screen label { display: flex; gap: 12px; align-items: flex-start; padding: 12px 14px; border-radius: 14px; background: rgba(255, 255, 255, 0.07); line-height: 1.45; cursor: pointer; }
+.bp__screen input { width: 22px; height: 22px; flex: none; accent-color: var(--r-sage, #9cc59a); margin-top: 1px; }
+.bp__gate .btn[disabled] { opacity: 0.45; cursor: not-allowed; }
+.bp__side { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+.bp__dark { position: absolute; inset: 0; z-index: 20; background: #000; color: rgba(255, 255, 255, 0.45); display: grid; place-items: end center; padding: 0 24px 48px; text-align: center; font-size: 0.85rem; }
+.pace { padding: clamp(18px, 3vw, 28px); display: grid; gap: 14px; max-width: 760px; }
+.pace h3 { font-size: 1.5rem; letter-spacing: -0.02em; }
+.pace p { color: var(--r-text-2); line-height: 1.6; }
+.pace__fine { font-size: 0.88rem; }
+.pace__mine { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.pace__feel { display: flex; flex-wrap: wrap; gap: 10px; }
+.lm { display: grid; gap: 14px; max-width: 860px; }
+.lm__item { display: grid; gap: 6px; padding: 18px 20px; border-radius: 18px; }
+.lm__kind { font-size: 0.72rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--r-sage); }
+.lm__item h3 { font-size: 1.1rem; }
+.lm__by { font-size: 0.85rem; color: var(--r-text-3); }
+.lm__item p { color: var(--r-text-2); line-height: 1.55; font-size: 0.93rem; }
+.lm__safety { padding: 20px 22px; display: grid; gap: 10px; border-color: rgba(227, 165, 122, 0.45); }
+.lm__safety ul { padding-left: 20px; display: grid; gap: 8px; color: var(--r-text-2); line-height: 1.55; }
+.lm__note { color: var(--r-text-3); font-size: 0.85rem; line-height: 1.55; max-width: 70ch; }
+.again { display: inline-flex; align-items: center; gap: 10px; margin-top: 10px; }

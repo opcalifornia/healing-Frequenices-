@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { POWER_SAFETY, type Technique } from "./breathContent";
+import { BREATH_SCREEN, POWER_SAFETY, type Technique } from "./breathContent";
 import { buildPlan, planSeconds, type PlanPhase } from "./breathPlan";
 import { breathTone, chime, startSoundscape, stopBreathTone, stopSoundscape, unlockChime } from "./chime";
 import { usePractice, usePrefs, type BreathPrefs, type SoundMode } from "../store/practice";
@@ -86,6 +86,8 @@ export function BreathPlayer({ technique: t, minutes, onClose, onComplete }: Pro
   const [paused, setPaused] = useState(false);
   const [held, setHeld] = useState<number[]>([]);
   const [menu, setMenu] = useState(false);
+  const [ack, setAck] = useState<boolean[]>(() => BREATH_SCREEN.map(() => false));
+  const [eyes, setEyes] = useState(false);
   const startedAt = useRef(0);
   const elapsedMin = useRef(0);
   const phaseStart = useRef(0);
@@ -232,6 +234,11 @@ export function BreathPlayer({ technique: t, minutes, onClose, onComplete }: Pro
   return createPortal(
     <motion.div ref={root} tabIndex={-1} className="bp rooted" role="dialog" aria-modal="true" aria-label={t.name} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} style={{ "--h": t.hue } as React.CSSProperties}>
       <div className="bp__bg" aria-hidden="true" />
+      {eyes && (
+        <button className="bp__dark" onClick={() => setEyes(false)} aria-label="Eyes closed mode. Tap to show the screen again.">
+          <span>Eyes closed. {prefs.sound === "silent" ? "Turn on chimes, voice or tone to follow along. " : "Follow the sound and vibration. "}Tap anywhere to look again.</span>
+        </button>
+      )}
       <header className="bp__top">
         <button className="icon-btn" onClick={onClose} aria-label="Close"><Icon name="close" /></button>
         <span className="bp__title">{t.name}</span>
@@ -273,7 +280,13 @@ export function BreathPlayer({ technique: t, minutes, onClose, onComplete }: Pro
           <motion.div key="gate" className="bp__gate" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}>
             <h2>Before you start</h2>
             <ul>{POWER_SAFETY.map((s) => <li key={s}>{s}</li>)}</ul>
-            <button className="btn btn--primary" onClick={() => { unlockChime(); setStage("count"); }}>I'm sitting or lying down. Start.</button>
+            <p className="bp__gate-ask">Tick each one to continue:</p>
+            <div className="bp__screen">
+              {BREATH_SCREEN.map((q, n) => (
+                <label key={q}><input type="checkbox" checked={ack[n]} onChange={(e) => setAck((a) => a.map((v, k) => (k === n ? e.target.checked : v)))} /><span>{q}</span></label>
+              ))}
+            </div>
+            <button className="btn btn--primary" disabled={!ack.every(Boolean)} onClick={() => { unlockChime(); setStage("count"); }}>Start</button>
             <button className="btn btn--secondary btn--small" onClick={onClose}>Not now</button>
           </motion.div>
         )}
@@ -314,6 +327,10 @@ export function BreathPlayer({ technique: t, minutes, onClose, onComplete }: Pro
                 ) : (
                   <button className="btn btn--secondary" onClick={togglePause}>{paused ? "Resume" : "Pause"}</button>
                 )}
+                <div className="bp__side">
+                  <button className="btn btn--secondary btn--small" onClick={() => setEyes(true)}>Eyes closed</button>
+                  <button className="btn btn--secondary btn--small" onClick={onClose}>Stop and breathe normally</button>
+                </div>
               </div>
             )}
           </motion.div>
