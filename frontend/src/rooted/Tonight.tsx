@@ -41,14 +41,14 @@ export function Tonight({ onPlan }: { onPlan(): void }) {
 
   return (
     <>
-      <div className="tonight" style={dishVars(shown.id)}>
-        <span className="tonight__tag">{planned ? `${cu ? `${cu.name} · ` : ""}${note === "Dinner" ? "Tonight" : `Today, ${note?.toLowerCase()}`}` : "A thought for tonight"}</span>
+      <div className="ntonight" style={dishVars(shown.id)}>
+        <span className="ntonight__tag">{planned ? `${cu ? `${cu.name} · ` : ""}${note === "Dinner" ? "Tonight" : `Today, ${note?.toLowerCase()}`}` : "A thought for tonight"}</span>
         <h2>{shown.title}</h2>
         <p>{shown.blurb}</p>
-        <DishArt id={shown.id} className="tonight__art" />
-        <div className="tonight__actions">
-          <button className="tonight__go" onClick={() => setOpen(shown)}>{planned ? "Let's cook" : "Take a look"} →</button>
-          {!planned && <button className="tonight__alt" onClick={onPlan}>Plan the week</button>}
+        <DishArt id={shown.id} className="ntonight__art" />
+        <div className="ntonight__actions">
+          <button className="ntonight__go" onClick={() => setOpen(shown)}>{planned ? "Let's cook" : "Take a look"} →</button>
+          {!planned && <button className="ntonight__alt" onClick={onPlan}>Plan the week</button>}
         </div>
       </div>
       <Sheet open={!!open} onClose={() => setOpen(null)} label={open?.title ?? "Recipe"}>

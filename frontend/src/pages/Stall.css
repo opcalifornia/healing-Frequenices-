@@ -88,14 +88,14 @@ html[data-skin="stall"] .sheet__panel h2, html[data-skin="stall"] .sheet__panel 
 html[data-skin="stall"] .sheet__close, html[data-skin="stall"] .sheet__panel > button[aria-label*="lose"] { background: var(--ink); color: var(--paper); }
 
 /* Tonight tile */
-.tonight { position: relative; overflow: hidden; margin: 14px var(--gutter) 0; padding: 22px; padding-bottom: 96px; border-radius: 34px; min-height: 400px; background: var(--dc, var(--turmeric)); color: var(--dfg, var(--ink)); display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
-.tonight__tag { justify-self: start; border: 2.5px solid currentColor; border-radius: 999px; padding: 3px 14px; font-weight: 800; font-size: 0.8rem; letter-spacing: 0.05em; text-transform: uppercase; }
-.tonight h2 { width: 100%; color: inherit !important; font-size: clamp(2rem, 8.4vw, 3.4rem); font-weight: 800; letter-spacing: -0.05em; line-height: 0.9; margin: 10px 0 2px; max-width: 11em; position: relative; z-index: 2; }
-.tonight p { color: inherit; font-family: var(--stall-serif); font-style: italic; font-size: 1.35rem; line-height: 1.1; max-width: 12em; position: relative; z-index: 2; }
-.tonight .tonight__art { position: absolute; right: -95px; bottom: -110px; width: 320px !important; max-width: none; height: auto; transform: rotate(-12deg); z-index: 1; }
-.tonight__actions { position: absolute; left: 22px; right: auto; bottom: 22px; display: flex; gap: 8px; flex-wrap: wrap; z-index: 3; }
-.tonight__go { background: var(--ink); color: var(--turmeric); border: 0; border-radius: 999px; padding: 14px 24px; font: 800 1.05rem var(--stall-display); cursor: pointer; }
-.tonight__alt { background: transparent; color: inherit; border: 2.5px solid currentColor; border-radius: 999px; padding: 12px 20px; font: 800 1rem var(--stall-display); cursor: pointer; }
+.ntonight { position: relative; overflow: hidden; margin: 14px var(--gutter) 0; padding: 22px; padding-bottom: 96px; border-radius: 34px; min-height: 400px; background: var(--dc, var(--turmeric)); color: var(--dfg, var(--ink)); display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+.ntonight__tag { justify-self: start; border: 2.5px solid currentColor; border-radius: 999px; padding: 3px 14px; font-weight: 800; font-size: 0.8rem; letter-spacing: 0.05em; text-transform: uppercase; }
+.ntonight h2 { width: 100%; color: inherit !important; font-size: clamp(2rem, 8.4vw, 3.4rem); font-weight: 800; letter-spacing: -0.05em; line-height: 0.9; margin: 10px 0 2px; max-width: 11em; position: relative; z-index: 2; }
+.ntonight p { color: inherit; font-family: var(--stall-serif); font-style: italic; font-size: 1.35rem; line-height: 1.1; max-width: 12em; position: relative; z-index: 2; }
+.ntonight .ntonight__art { position: absolute; right: -95px; bottom: -110px; width: 320px !important; max-width: none; height: auto; transform: rotate(-12deg); z-index: 1; }
+.ntonight__actions { position: absolute; left: 22px; right: auto; bottom: 22px; display: flex; gap: 8px; flex-wrap: wrap; z-index: 3; }
+.ntonight__go { background: var(--ink); color: var(--turmeric); border: 0; border-radius: 999px; padding: 14px 24px; font: 800 1.05rem var(--stall-display); cursor: pointer; }
+.ntonight__alt { background: transparent; color: inherit; border: 2.5px solid currentColor; border-radius: 999px; padding: 12px 20px; font: 800 1rem var(--stall-display); cursor: pointer; }
 
 /* Meal planner, food log, kitchen */
 .stall .mpl__nav { background: #fffaf0; border: 2.5px solid var(--ink); color: var(--ink); }

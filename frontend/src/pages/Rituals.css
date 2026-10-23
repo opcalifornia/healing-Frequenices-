@@ -77,16 +77,16 @@
 .rsched ul { list-style: none; padding: 0; margin: 10px 0; }
 .rsched li { display: grid; grid-template-columns: 14px 1fr auto auto; align-items: center; gap: 12px; padding: 12px 0; border-top: 1px solid var(--r-line); }
 .rsched__dot { width: 12px; height: 12px; border-radius: 50%; }
-.rsched input[type="time"], .rsetup input[type="time"] { background: var(--r-surface); color: var(--r-text, #f0e8d6); border: 1px solid var(--r-line); border-radius: 10px; padding: 8px 10px; font: inherit; }
+.rsched input[type="time"], .rtsetup input[type="time"] { background: var(--r-surface); color: var(--r-text, #f0e8d6); border: 1px solid var(--r-line); border-radius: 10px; padding: 8px 10px; font: inherit; }
 .rsched__toggle { display: inline-flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--r-text-2); }
 .rsched__toggle input { width: 20px; height: 20px; accent-color: var(--r-sage); }
 .rsched__foot { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
 .rsched__fine { margin-top: 12px; font-size: 0.8rem; color: var(--r-text-3); line-height: 1.5; }
-.rsetup, .rdisc { display: grid; gap: 14px; padding: 8px 4px; }
-.rsetup label { display: grid; gap: 6px; font-weight: 700; }
-.rsetup__times { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
-.rsetup__times li { display: flex; justify-content: space-between; gap: 12px; padding: 10px 14px; border-radius: 12px; background: var(--r-surface); color: var(--r-text-2); font-size: 0.9rem; }
-.rsetup__times b { color: var(--r-sand); }
+.rtsetup, .rdisc { display: grid; gap: 14px; padding: 8px 4px; }
+.rtsetup label { display: grid; gap: 6px; font-weight: 700; }
+.rtsetup__times { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+.rtsetup__times li { display: flex; justify-content: space-between; gap: 12px; padding: 10px 14px; border-radius: 12px; background: var(--r-surface); color: var(--r-text-2); font-size: 0.9rem; }
+.rtsetup__times b { color: var(--r-sand); }
 .rdisc p { line-height: 1.6; }
 .rdisc__small { color: var(--r-text-3); font-size: 0.88rem; }
 
