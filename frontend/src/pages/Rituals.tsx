@@ -44,13 +44,13 @@ function Setup({ open, onClose }: { open: boolean; onClose(): void }) {
   const t = computeSchedule(wake, bed);
   return (
     <Sheet open={open} onClose={onClose} label="Your day">
-      <div className="rsetup">
+      <div className="rtsetup">
         <span className="rooted__eyebrow">Set your day</span>
         <h2>When do you wake and sleep?</h2>
         <p className="rooted__lead">We'll time each ritual around your day. You can change any time afterward.</p>
         <label>Wake time<input type="time" value={wake} onChange={(e) => setWake(e.target.value)} /></label>
         <label>Bedtime<input type="time" value={bed} onChange={(e) => setBed(e.target.value)} /></label>
-        <ul className="rsetup__times">
+        <ul className="rtsetup__times">
           <li><b>Revive</b><span>{niceTime(t.revive)} · when you wake</span></li>
           <li><b>Calm</b><span>{niceTime(t.calm)} · about 6 to 7 hours after waking</span></li>
           <li><b>Unwind</b><span>{niceTime(t.unwind)} · 75 minutes before bed</span></li>

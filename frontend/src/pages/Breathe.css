@@ -22,11 +22,11 @@
 .tech__foot { display: flex; align-items: center; gap: 10px; margin-top: auto; padding-top: 10px; }
 .tech__warn { font-size: var(--fs-tiny); font-weight: 800; color: #ffc857; }
 .mini-pattern { display: flex; gap: 3px; height: 8px; margin-top: 8px; }
-.mp { display: block; border-radius: 4px; }
-.mp--in { background: hsl(var(--h) 70% 70%); }
-.mp--top { background: #fff; }
-.mp--hold, .mp--rest { background: rgba(255, 255, 255, 0.2); }
-.mp--out { background: hsl(var(--h) 50% 45%); }
+.mbar { display: block; border-radius: 4px; }
+.mbar--in { background: hsl(var(--h) 70% 70%); }
+.mbar--top { background: #fff; }
+.mbar--hold, .mbar--rest { background: rgba(255, 255, 255, 0.2); }
+.mbar--out { background: hsl(var(--h) 50% 45%); }
 
 .tdetail__top { position: relative; overflow: hidden; display: grid; gap: 6px; padding: 44px 28px 24px; background: radial-gradient(circle at 100% 0%, hsl(var(--h) 60% 50% / 0.35), transparent 65%), var(--r-surface-2); }
 .tdetail__top h2 { font-size: 2rem; font-weight: 900; letter-spacing: -0.02em; }

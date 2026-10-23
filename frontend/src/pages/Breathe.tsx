@@ -45,7 +45,7 @@ function MiniPattern({ t }: { t: Technique }) {
   return (
     <span className="mini-pattern" aria-hidden="true">
       {t.cycle.map((p, i) => (
-        <i key={i} className={`mp mp--${p.kind}`} style={{ flexGrow: p.secs / total }} />
+        <i key={i} className={`mbar mbar--${p.kind}`} style={{ flexGrow: p.secs / total }} />
       ))}
     </span>
   );
