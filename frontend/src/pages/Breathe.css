@@ -305,3 +305,5 @@
 .lm__safety ul { padding-left: 20px; display: grid; gap: 8px; color: var(--r-text-2); line-height: 1.55; }
 .lm__note { color: var(--r-text-3); font-size: 0.85rem; line-height: 1.55; max-width: 70ch; }
 .again { display: inline-flex; align-items: center; gap: 10px; margin-top: 10px; }
+.bp__vol { display: grid; gap: 4px; padding: 8px 12px; font-size: 0.78rem; font-weight: 700; color: var(--r-text-2); }
+.bp__vol input { width: 100%; accent-color: var(--r-sage, #9cc59a); }

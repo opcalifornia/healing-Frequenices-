@@ -3,7 +3,7 @@ import { createPortal } from "react-dom";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { BREATH_SCREEN, POWER_SAFETY, type Technique } from "./breathContent";
 import { buildPlan, planSeconds, type PlanPhase } from "./breathPlan";
-import { breathTone, chime, startSoundscape, stopBreathTone, stopSoundscape, unlockChime } from "./chime";
+import { breathTone, chime, setSoundscapeVolume, startSoundscape, stopBreathTone, stopSoundscape, unlockChime } from "./chime";
 import { usePractice, usePrefs, type BreathPrefs, type SoundMode } from "../store/practice";
 import { speakCue, stopVoice } from "./voice";
 import { useCatalog } from "../store/catalog";
@@ -99,6 +99,10 @@ export function BreathPlayer({ technique: t, minutes, onClose, onComplete }: Pro
   const phase = plan[Math.min(idx, plan.length - 1)];
   const soundRef = useRef(prefs.sound);
   soundRef.current = prefs.sound;
+  const guideRef = useRef(prefs.guideVol);
+  guideRef.current = prefs.guideVol;
+  const bedRef = useRef(prefs.bedVol);
+  bedRef.current = prefs.bedVol;
 
   const root = useRef<HTMLDivElement>(null);
   useModalFocus(root, true, onClose);
@@ -120,15 +124,15 @@ export function BreathPlayer({ technique: t, minutes, onClose, onComplete }: Pro
   // Background soundscape follows the preference while the session is live.
   useEffect(() => {
     const live = stage === "count" || stage === "run";
-    if (live && prefs.scape !== "none") void startSoundscape(prefs.scape, 0.45);
+    if (live && prefs.scape !== "none") void startSoundscape(prefs.scape, bedRef.current);
     else stopSoundscape();
   }, [stage, prefs.scape]);
 
   const cue = useCallback((p: PlanPhase) => {
-    if (soundRef.current === "chimes") chime(p.kind);
+    if (soundRef.current === "chimes") chime(p.kind, 0.07 * (guideRef.current / 0.9));
     if (soundRef.current === "voice") {
-      if (p.secs < 2) chime(p.kind, 0.04);
-      else void speakCue(p.kind, p.secs);
+      if (p.secs < 2) chime(p.kind, 0.04 * (guideRef.current / 0.9));
+      else void speakCue(p.kind, p.secs, guideRef.current);
     }
     if (soundRef.current === "tone") breathTone(p.kind, p.secs);
     else stopBreathTone();
@@ -256,6 +260,8 @@ export function BreathPlayer({ technique: t, minutes, onClose, onComplete }: Pro
                   {SCAPES.map((s) => (
                     <button key={s.id} aria-pressed={prefs.scape === s.id} className={prefs.scape === s.id ? "is-on" : ""} onClick={() => { unlockChime(); setPrefs({ scape: s.id }); setMenu(false); }}>{s.name}</button>
                   ))}
+                  <label className="bp__vol">Guide volume<input type="range" min={0.2} max={1} step={0.05} value={prefs.guideVol} onChange={(e) => setPrefs({ guideVol: +e.target.value })} /></label>
+                  <label className="bp__vol">Background volume<input type="range" min={0} max={1} step={0.05} value={prefs.bedVol} onChange={(e) => { const v = +e.target.value; setPrefs({ bedVol: v }); setSoundscapeVolume(v); }} /></label>
                 </motion.div>
               )}
             </AnimatePresence>

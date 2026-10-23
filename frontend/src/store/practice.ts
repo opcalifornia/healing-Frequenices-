@@ -20,8 +20,11 @@ export interface BreathPrefs {
   sound: SoundMode;
   scape: "none" | "rain" | "stream" | "waterfall" | "rainforest";
   checkIn: boolean;
+  /** Volume of chimes, voice and tone (0.2 to 1) and of the background sound (0 to 1), set separately so music never drowns the cues. */
+  guideVol: number;
+  bedVol: number;
 }
-export const DEFAULT_PREFS: BreathPrefs = { sound: "chimes", scape: "none", checkIn: true };
+export const DEFAULT_PREFS: BreathPrefs = { sound: "chimes", scape: "none", checkIn: true, guideVol: 0.9, bedVol: 0.45 };
 
 export interface CustomPattern {
   id: string;

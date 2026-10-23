@@ -1,3 +1,4 @@
+import { ALL_RECIPES } from "./allRecipes";
 import { scaleAmount, scaledServes, SERVING_FACTORS } from "./scale";
 import { useId, useMemo, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
@@ -103,7 +104,7 @@ export function Recipes() {
   const goalIds = useMemo(() => new Set(forGoals(RECIPES, goals).map((r) => r.id)), [goals]);
   const hasGoalFilter = goalIds.size > 0 && goalIds.size < RECIPES.length;
   const savedIds = useSavedRecipes();
-  const readyList = useMemo(() => RECIPES.map((r) => statusFor(r, have)).filter((x) => x.missing.length <= 2).sort((a, b) => a.missing.length - b.missing.length).map((x) => x.recipe), [have]);
+  const readyList = useMemo(() => ALL_RECIPES.map((r) => statusFor(r, have)).filter((x) => x.missing.length <= 2).sort((a, b) => a.missing.length - b.missing.length).map((x) => x.recipe), [have]);
   const shown = useMemo(() => (filter === "ready" ? readyList : filter === "all" ? RECIPES : filter === "saved" ? RECIPES.filter((r) => savedIds.includes(r.id)) : filter === "mine" ? RECIPES.filter((r) => goalIds.has(r.id)) : RECIPES.filter((r) => r.tags.includes(filter))), [filter, goalIds, savedIds, readyList]);
 
   return (
@@ -217,7 +218,7 @@ export function RecipeDetail({ r }: { r: Recipe }) {
           <h3>Ingredients</h3>
           <div className="rdetail__scale" role="group" aria-label="Scale the recipe">
             <span>Makes {r.serves}. Cook for:</span>
-            {SERVING_FACTORS.map((f) => <button key={f} className={`chip ${factor === f ? "is-on" : ""}`} aria-pressed={factor === f} onClick={() => setFactor(f)}>{scaledServes(r.serves, f)}</button>)}
+            {SERVING_FACTORS.filter((f, n, arr) => arr.findIndex((g) => scaledServes(r.serves, g) === scaledServes(r.serves, f)) === n).map((f) => <button key={f} className={`chip ${factor === f ? "is-on" : ""}`} aria-pressed={factor === f} onClick={() => setFactor(f)}>{scaledServes(r.serves, f)}</button>)}
           </div>
           <p className="rdetail__hint">Adding puts every ingredient on your list under this recipe's name, so you know what each item is for.</p>
           <ul className="rdetail__ing">
