@@ -7,6 +7,7 @@ import { Icon } from "../components/Icon";
 import { Footer } from "../components/Footer";
 import { RITUALS, RITUAL_DISCLAIMER, type Ritual } from "../rooted/rituals";
 import { RitualArt } from "../rooted/RitualArt";
+import { RITUALS_GUIDE, SectionGuide, useFirstVisitGuide } from "../rooted/SectionGuide";
 import { computeSchedule, countDone, dayKey, lastSeven, niceTime, ritualNow, streak, type RitualTimes } from "../rooted/ritualLogic";
 import { syncRitualReminders } from "../rooted/ritualReminders";
 import { useRituals, useRitualLog, useRitualPrefs } from "../store/rituals";
@@ -227,6 +228,8 @@ export default function Rituals() {
   const prefs = useRitualPrefs();
   const accept = useRituals((s) => s.acceptDisclaimer);
   const [setup, setSetup] = useState(false);
+  const [guide, setGuide] = useFirstVisitGuide(RITUALS_GUIDE.key);
+  const navigate = useNavigate();
   const nowId = ritualNow(new Date().getHours() * 60 + new Date().getMinutes(), prefs.times);
   // Ask for wake and bed time once, right after the disclaimer.
   useEffect(() => { if (prefs.disclaimerSeen && !prefs.onboarded) { const t = setTimeout(() => setSetup(true), 400); return () => clearTimeout(t); } }, [prefs.disclaimerSeen, prefs.onboarded]);
@@ -235,6 +238,7 @@ export default function Rituals() {
     <ZoomPage className="rooted rituals">
       <Disclaimer open={!prefs.disclaimerSeen} onAccept={accept} />
       <Setup open={setup} onClose={() => setSetup(false)} />
+      <SectionGuide guide={RITUALS_GUIDE} open={guide && prefs.disclaimerSeen && prefs.onboarded} onClose={() => setGuide(false)} onGo={(to) => to && navigate(to)} />
       <div className="rituals__top"><Aurora /></div>
       <Carousel order={RITUALS} nowId={nowId} times={prefs.times} />
 
@@ -245,6 +249,7 @@ export default function Rituals() {
           <p className="rooted__lead">Each pairs a drink with a sound session. Tick the drink when you've had it. The session ticks itself when it finishes.</p>
         </Reveal>
         <Today times={prefs.times} />
+        <button className="btn btn--secondary btn--small" style={{ marginTop: 16 }} onClick={() => setGuide(true)}><Icon name="info" size={16} /> How Rituals work</button>
       </section>
 
       <section className="sec-block rituals__sec">

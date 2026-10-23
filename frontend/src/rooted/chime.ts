@@ -116,6 +116,15 @@ export async function startSoundscape(id: AmbienceId, volume = 0.5) {
   scape = { src, gain };
 }
 
+/** Change the background volume while it plays. */
+export function setSoundscapeVolume(volume: number) {
+  if (!scape || !ctx) return;
+  const now = ctx.currentTime;
+  scape.gain.gain.cancelScheduledValues(now);
+  scape.gain.gain.setValueAtTime(scape.gain.gain.value, now);
+  scape.gain.gain.linearRampToValueAtTime(volume, now + 0.15);
+}
+
 export function stopSoundscape() {
   scapeToken++;
   if (!scape || !ctx) return;

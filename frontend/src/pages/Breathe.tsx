@@ -12,6 +12,7 @@ import { HeartCheck } from "../rooted/HeartCheck";
 import { ReminderCard } from "../rooted/ReminderCard";
 import { AgainButton, BoltTest, CustomList, PatternBuilder, QuickPicks, Results } from "../rooted/BreatheExtras";
 import { PaceFinder } from "../rooted/PaceFinder";
+import { BREATHE_GUIDE, SectionGuide, useFirstVisitGuide } from "../rooted/SectionGuide";
 import { BreatheLearn } from "../rooted/BreatheLearn";
 import { chime, unlockChime } from "../rooted/chime";
 import { minutesOn, practiceStreak, usePractice, usePracticeLog } from "../store/practice";
@@ -143,6 +144,7 @@ export default function Breathe() {
   const [mins, setMins] = useState(1);
   const [run, setRun] = useState<{ t: Technique; m: number } | null>(null);
   const [building, setBuilding] = useState(false);
+  const [guide, setGuide] = useFirstVisitGuide(BREATHE_GUIDE.key);
   const entries = usePracticeLog();
   const f = flags(useAbout().considerations);
   const notForYou = (t: Technique) => (t.id === "power" && f.noPowerBreathing) || ((t.id === "box" || t.id === "478") && f.breathHoldCare);
@@ -169,6 +171,7 @@ export default function Breathe() {
 
   return (
     <ZoomPage className="rooted breathe">
+      <SectionGuide guide={BREATHE_GUIDE} open={guide} onClose={() => setGuide(false)} onGo={(to) => setTimeout(() => document.getElementById(to)?.scrollIntoView({ behavior: "smooth", block: "start" }), 400)} />
       <header className="sec-hero breathe__hero">
         <Aurora />
         <div className="breathe__demo" aria-hidden="true"><span /><span /><span /></div>
@@ -188,6 +191,7 @@ export default function Breathe() {
           </motion.div>
           <QuickPicks onStart={start} />
           <AgainButton onStart={start} />
+          <button className="btn btn--secondary btn--small again" onClick={() => setGuide(true)}><Icon name="info" size={16} /> How Breathe works</button>
         </div>
       </header>
 
