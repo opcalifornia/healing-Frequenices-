@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { safeTechnique } from "../rooted/programs";
 import { AnimatePresence, motion } from "framer-motion";
-import { Aurora, Reveal, TiltCard, ZoomPage } from "../rooted/motion";
+import { Reveal, ZoomPage } from "../rooted/motion";
 import { Evidence, SecTabs, Sheet, SourceLink } from "../rooted/ui";
 import { GROUNDING, PMR, PMR_SOURCE, TECHNIQUES, type Technique } from "../rooted/breathContent";
 import { BreathPlayer } from "../rooted/BreathPlayer";
@@ -10,8 +10,9 @@ import { BreathingBody, HeartRhythm } from "../rooted/BreatheDiagrams";
 import { ProgramRail } from "../rooted/ProgramRail";
 import { HeartCheck } from "../rooted/HeartCheck";
 import { ReminderCard } from "../rooted/ReminderCard";
-import { AgainButton, BoltTest, CustomList, PatternBuilder, QuickPicks, Results } from "../rooted/BreatheExtras";
+import { BoltTest, CustomList, PatternBuilder, Results } from "../rooted/BreatheExtras";
 import { PaceFinder } from "../rooted/PaceFinder";
+import { BreatheHero, TechRails, ToolCards } from "../rooted/BreatheAura";
 import { BREATHE_GUIDE, SectionGuide, useFirstVisitGuide } from "../rooted/SectionGuide";
 import { BreatheLearn } from "../rooted/BreatheLearn";
 import { chime, unlockChime } from "../rooted/chime";
@@ -39,17 +40,6 @@ const TABS = [
   { id: "relax", label: "Muscle relaxation" },
   { id: "learnmore", label: "Learn more" },
 ];
-
-function MiniPattern({ t }: { t: Technique }) {
-  const total = t.cycle.reduce((a, p) => a + p.secs, 0);
-  return (
-    <span className="mini-pattern" aria-hidden="true">
-      {t.cycle.map((p, i) => (
-        <i key={i} className={`mbar mbar--${p.kind}`} style={{ flexGrow: p.secs / total }} />
-      ))}
-    </span>
-  );
-}
 
 function Grounding() {
   const [step, setStep] = useState(-1);
@@ -172,28 +162,7 @@ export default function Breathe() {
   return (
     <ZoomPage className="rooted breathe">
       <SectionGuide guide={BREATHE_GUIDE} open={guide} onClose={() => setGuide(false)} onGo={(to) => setTimeout(() => document.getElementById(to)?.scrollIntoView({ behavior: "smooth", block: "start" }), 400)} />
-      <header className="sec-hero breathe__hero">
-        <Aurora />
-        <div className="breathe__demo" aria-hidden="true"><span /><span /><span /></div>
-        <div className="sec-hero__text">
-          <motion.span className="rooted__eyebrow" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }}>Rooted · Breathe</motion.span>
-          <motion.h1 initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.22, duration: 0.7 }}>One minute<br />can change your state.</motion.h1>
-          <motion.p initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.32, duration: 0.7 }}>
-            Follow the circle: breathe in as it grows, out as it shrinks. Soft chimes and vibration guide you, so you can close your eyes.
-          </motion.p>
-          <motion.div className="breathe__cta" initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.42, duration: 0.7 }}>
-            <button className="btn btn--primary btn--big" onClick={() => start(TECHNIQUES[0], 1)}>
-              <Icon name="play" size={22} /> Start a 1-minute settle-in
-            </button>
-            {(today > 0 || streak > 0) && (
-              <span className="breathe__stat">{Math.round(today)} min today{streak > 1 ? ` · ${streak}-day streak` : ""}</span>
-            )}
-          </motion.div>
-          <QuickPicks onStart={start} />
-          <AgainButton onStart={start} />
-          <button className="btn btn--secondary btn--small again" onClick={() => setGuide(true)}><Icon name="info" size={16} /> How Breathe works</button>
-        </div>
-      </header>
+      <BreatheHero onStart={start} onGuide={() => setGuide(true)} today={today} streak={streak} />
 
       <SecTabs tabs={TABS} />
 
@@ -212,25 +181,21 @@ export default function Breathe() {
           <h2>Pick what you need</h2>
           <p className="rooted__lead">Each one says when to use it and how strong the evidence is.</p>
         </Reveal>
-        <div className="techs">
-          {TECHNIQUES.map((t, i) => (
-            <Reveal key={t.id} delay={(i % 3) * 0.06}>
-              <TiltCard className="tech" onClick={() => { setOpen(t); setMins(t.minutes[0] ?? 0); }} label={`${t.name}: ${t.when}`} style={{ "--h": t.hue } as React.CSSProperties}>
-                <span className="tech__orb" aria-hidden="true" />
-                <span className="tech__short">{t.short}</span>
-                <h3>{t.name}</h3>
-                <p>{t.when}</p>
-                <MiniPattern t={t} />
-                <span className="tech__foot"><Evidence s={t.evidence} short />{notForYou(t) ? <span className="tech__warn">Not advised for you</span> : t.gated && <span className="tech__warn">Read safety first</span>}</span>
-              </TiltCard>
-            </Reveal>
-          ))}
-        </div>
+        <TechRails onOpen={(t) => { setOpen(t); setMins(t.minutes[0] ?? 0); }} notForYou={notForYou} />
         <Reveal className="sec-block__head nourish__subhead">
           <h2>Your patterns</h2>
           <p className="rooted__lead">Set your own counts for breathing in, holding and breathing out.</p>
         </Reveal>
         <CustomList onStart={start} onBuild={() => setBuilding(true)} />
+      </section>
+
+      <section id="tools" className="sec-block">
+        <Reveal className="sec-block__head">
+          <span className="rooted__eyebrow">Tools</span>
+          <h2>Know your body</h2>
+          <p className="rooted__lead">Find your pace, check your pulse, time a gentle hold, or come back to the room.</p>
+        </Reveal>
+        <ToolCards />
       </section>
 
       <section id="pace" className="sec-block">
