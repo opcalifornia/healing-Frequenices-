@@ -11,6 +11,9 @@ import { usePlayer } from "../store/player";
 import { Icon } from "../components/Icon";
 import { haptic } from "./native";
 import { useModalFocus } from "./ui";
+import { HeartLiveStrip, HeartSummary } from "./HeartLive";
+import { useHeartLive } from "../store/heartLive";
+import { windowed, type Pt } from "./hrInsights";
 
 type Stage = "before" | "gate" | "count" | "run" | "after" | "done";
 
@@ -86,6 +89,8 @@ export function BreathPlayer({ technique: t, minutes, onClose, onComplete }: Pro
   const [paused, setPaused] = useState(false);
   const [held, setHeld] = useState<number[]>([]);
   const [menu, setMenu] = useState(false);
+  const [hrPts, setHrPts] = useState<Pt[]>([]);
+  const [runStart, setRunStart] = useState(0);
   const [ack, setAck] = useState<boolean[]>(() => BREATH_SCREEN.map(() => false));
   const [eyes, setEyes] = useState(false);
   const startedAt = useRef(0);
@@ -145,6 +150,7 @@ export function BreathPlayer({ technique: t, minutes, onClose, onComplete }: Pro
     if (count === 0) {
       setStage("run");
       startedAt.current = performance.now();
+      setRunStart(startedAt.current);
       phaseStart.current = performance.now();
       cue(plan[0]);
       return;
@@ -156,6 +162,7 @@ export function BreathPlayer({ technique: t, minutes, onClose, onComplete }: Pro
   const finish = useCallback(() => {
     stopBreathTone();
     elapsedMin.current = (performance.now() - startedAt.current) / 60000;
+    if (!onComplete) setHrPts(windowed(useHeartLive.getState().samples, startedAt.current, performance.now()));
     if (onComplete) {
       log(`breath:${t.id}`, elapsedMin.current);
       return onComplete();
@@ -326,6 +333,7 @@ export function BreathPlayer({ technique: t, minutes, onClose, onComplete }: Pro
                 )}
               </div>
             </div>
+            {stage === "run" && <HeartLiveStrip since={runStart} />}
             {stage === "run" && (
               <div className="bp__controls">
                 {t.rounds && phase.round && <span className="bp__meta">Round {phase.round} of {t.rounds.count}{breathsLeft !== null && breathsLeft >= 0 ? ` · ${breathsLeft + 1} breaths left` : ""}</span>}
@@ -366,6 +374,7 @@ export function BreathPlayer({ technique: t, minutes, onClose, onComplete }: Pro
                 <span style={{ "--w": after / 10 } as React.CSSProperties}><b>After</b><i /><em>{after}</em></span>
               </div>
             )}
+            {hrPts.length > 0 && <HeartSummary pts={hrPts} technique={t.name} minutes={Math.max(1, Math.round(elapsedTotal / 60))} cycleSecs={t.cycle.reduce((a, p) => a + p.secs, 0)} />}
             {held.length > 0 && <p className="bp__holds">Breath holds: {held.map((h) => `${Math.round(h)}s`).join(" · ")}</p>}
             <div className="bp__done-actions">
               {next && (

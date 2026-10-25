@@ -13,6 +13,7 @@ import { ReminderCard } from "../rooted/ReminderCard";
 import { BoltTest, CustomList, PatternBuilder, Results } from "../rooted/BreatheExtras";
 import { PaceFinder } from "../rooted/PaceFinder";
 import { BreatheHero, TechRails, ToolCards } from "../rooted/BreatheAura";
+import { HeartConnect } from "../rooted/HeartLive";
 import { BREATHE_GUIDE, SectionGuide, useFirstVisitGuide } from "../rooted/SectionGuide";
 import { BreatheLearn } from "../rooted/BreatheLearn";
 import { chime, unlockChime } from "../rooted/chime";
@@ -196,6 +197,7 @@ export default function Breathe() {
           <p className="rooted__lead">Find your pace, check your pulse, time a gentle hold, or come back to the room.</p>
         </Reveal>
         <ToolCards />
+        <HeartConnect />
       </section>
 
       <section id="pace" className="sec-block">
