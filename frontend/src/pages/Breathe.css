@@ -309,3 +309,6 @@
 .again { display: inline-flex; align-items: center; gap: 10px; margin-top: 10px; }
 .bp__vol { display: grid; gap: 4px; padding: 8px 12px; font-size: 0.78rem; font-weight: 700; color: var(--r-text-2); }
 .bp__vol input { width: 100%; accent-color: var(--r-sage, #9cc59a); }
+/* Keep session content inside the screen even when a wide child (a graph, long buttons) is present */
+.bp__stage, .bp__done { grid-template-columns: minmax(0, 1fr); width: 100%; box-sizing: border-box; }
+.bp__stage > *, .bp__done > * { max-width: 100%; min-width: 0; }

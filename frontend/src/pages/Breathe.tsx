@@ -13,8 +13,11 @@ import { ReminderCard } from "../rooted/ReminderCard";
 import { BoltTest, CustomList, PatternBuilder, Results } from "../rooted/BreatheExtras";
 import { PaceFinder } from "../rooted/PaceFinder";
 import { BreatheHero, TechRails, ToolCards } from "../rooted/BreatheAura";
+import { HeartConnect } from "../rooted/HeartLive";
 import { BREATHE_GUIDE, SectionGuide, useFirstVisitGuide } from "../rooted/SectionGuide";
 import { BreatheLearn } from "../rooted/BreatheLearn";
+import { LearnHub } from "../rooted/BreatheLearnHub";
+import { LEARN_DATA } from "../rooted/breatheLessons";
 import { chime, unlockChime } from "../rooted/chime";
 import { minutesOn, practiceStreak, usePractice, usePracticeLog } from "../store/practice";
 import { flags, useAbout } from "../store/wellness";
@@ -38,7 +41,7 @@ const TABS = [
   { id: "bolt", label: "Breath test" },
   { id: "ground", label: "Grounding" },
   { id: "relax", label: "Muscle relaxation" },
-  { id: "learnmore", label: "Learn more" },
+  { id: "learnmore", label: "Learn" },
 ];
 
 function Grounding() {
@@ -196,6 +199,7 @@ export default function Breathe() {
           <p className="rooted__lead">Find your pace, check your pulse, time a gentle hold, or come back to the room.</p>
         </Reveal>
         <ToolCards />
+        <HeartConnect />
       </section>
 
       <section id="pace" className="sec-block">
@@ -316,9 +320,17 @@ export default function Breathe() {
       <section id="learnmore" className="sec-block">
         <Reveal className="sec-block__head">
           <span className="rooted__eyebrow">Learn more</span>
-          <h2>Safety, and where to read further</h2>
-          <p className="rooted__lead">Free sources from health services, universities and researchers, with how strong the evidence is.</p>
+          <h2>Understand your breath</h2>
+          <p className="rooted__lead">Lessons on your lungs, your brain and your heart, the researchers behind them, the myths to drop, and a glossary. Every claim has an evidence rating and sources you can open.</p>
         </Reveal>
+        <Reveal><LearnHub data={LEARN_DATA} onTry={(l) => {
+          const id = l.tryIt?.technique;
+          const t = id ? TECHNIQUES.find((x) => x.id === id) : undefined;
+          if (t) { setOpen(t); setMins(t.minutes[0] ?? 0); return; }
+          const to = l.tryIt?.to?.replace(/^.*#/, "");
+          if (to) setTimeout(() => document.getElementById(to)?.scrollIntoView({ behavior: "smooth", block: "start" }), 300);
+        }} /></Reveal>
+        <Reveal className="sec-block__head nourish__subhead"><h2>Safety and free reading</h2></Reveal>
         <Reveal><BreatheLearn /></Reveal>
       </section>
       <Footer />

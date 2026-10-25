@@ -51,7 +51,7 @@ export const TECHNIQUES: Technique[] = [
     id: "sigh", name: "Physiological sigh", short: "In, top up, long out", when: "The fastest reset when stress spikes. Even one or two help.",
     cycle: [{ kind: "in", secs: 2.5, say: "Breathe in through your nose" }, { kind: "top", secs: 1, say: "Sip in a little more" }, { kind: "out", secs: 6, say: "Long, slow breath out" }],
     minutes: [1, 3, 5], evidence: "Moderate", hue: 200, next: "relax",
-    why: "In a Stanford trial of 111 people, five minutes a day of cyclic sighing for a month improved mood and lowered breathing rate more than mindfulness meditation did. The double inhale re-opens tiny air sacs in the lungs; the long exhale slows the heart.",
+    why: "In a Stanford trial, five minutes a day of cyclic sighing for a month improved mood and lowered breathing rate more than mindfulness meditation did. The double inhale is thought to re-open tiny air sacs in the lungs, and the long exhale is thought to be the part that slows the heart. Both are likely explanations rather than proven ones.",
     sources: [BALBAN],
   },
   {

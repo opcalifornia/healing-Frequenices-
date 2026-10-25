@@ -1,0 +1,39 @@
+/* Live heart rate. Classes start with hl- so they can't collide with another section. */
+.hl-graph { width: 100%; max-width: 100%; min-width: 0; display: block; }
+.hl-graph--empty { display: grid; place-items: center; color: var(--r-text-3); font-size: 0.85rem; }
+.hl-graph__line { fill: none; stroke: #ff7a9c; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+.hl-graph__fill { fill: url(#hl-none); fill: rgba(255, 122, 156, 0.14); stroke: none; }
+.hl-graph__ref { stroke: rgba(255, 255, 255, 0.35); stroke-dasharray: 4 4; stroke-width: 1; vector-effect: non-scaling-stroke; }
+.hl-graph__ref--end { stroke: #7ff0d6; }
+.hl-strip { position: relative; z-index: 2; box-sizing: border-box; width: min(420px, calc(100vw - 32px)); max-width: 100%; min-width: 0; margin: 8px auto 0; padding: 10px 14px; border-radius: 18px; background: rgba(8, 10, 14, 0.55); border: 1px solid rgba(255, 255, 255, 0.12); backdrop-filter: blur(10px); display: grid; gap: 6px; color: #fff; }
+.hl-strip__n { display: flex; align-items: baseline; gap: 8px; font-weight: 700; }
+.hl-strip__n svg { color: #ff7a9c; align-self: center; animation: hl-beat 1s ease-in-out infinite; }
+.hl-strip__n b { font-size: 1.7rem; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
+.hl-strip__n span { color: rgba(255, 255, 255, 0.7); font-size: 0.82rem; }
+@keyframes hl-beat { 0%, 100% { transform: scale(0.92); } 20% { transform: scale(1.15); } 40% { transform: scale(0.98); } }
+.hl-sum { box-sizing: border-box; width: min(560px, calc(100vw - 32px)); max-width: 100%; min-width: 0; margin: 14px auto; padding: 16px; border-radius: 22px; background: rgba(8, 10, 14, 0.6); border: 1px solid rgba(255, 255, 255, 0.12); display: grid; gap: 12px; text-align: left; color: #fff; }
+.hl-sum h3 { display: flex; align-items: center; gap: 8px; font-size: 1.05rem; }
+.hl-sum h3 svg { color: #ff7a9c; }
+.hl-sum__stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 8px; }
+.hl-sum__stats div { padding: 10px 12px; border-radius: 14px; background: rgba(255, 255, 255, 0.07); display: grid; gap: 2px; }
+.hl-sum__stats b { font-size: 1.35rem; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
+.hl-sum__stats span { font-size: 0.72rem; color: rgba(255, 255, 255, 0.7); }
+.hl-sum__tips { padding-left: 18px; display: grid; gap: 8px; font-size: 0.9rem; line-height: 1.5; color: rgba(255, 255, 255, 0.86); }
+.hl-connect { padding: clamp(18px, 3vw, 28px); display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; min-width: 0; margin-top: 16px; }
+.hl-connect__head { display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; align-items: flex-start; }
+.hl-connect h3 { font-size: 1.5rem; letter-spacing: -0.03em; margin: 4px 0; }
+.hl-connect p { color: var(--r-text-2); max-width: 54ch; line-height: 1.55; }
+.hl-connect__state { display: grid; justify-items: end; gap: 2px; font-weight: 700; color: var(--r-text-2); min-width: 120px; }
+.hl-connect__state b { font-size: 2rem; letter-spacing: -0.03em; color: #fff; }
+.hl-connect__state small { color: var(--r-text-3); font-size: 0.75rem; }
+.hl-dot { width: 10px; height: 10px; border-radius: 50%; background: #5ff0a8; box-shadow: 0 0 10px #5ff0a8; display: inline-block; }
+.hl-connect__actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.hl-err { color: #ffb18a !important; }
+.hl-compat { color: var(--r-text-2); font-size: 0.9rem; line-height: 1.55; }
+.hl-compat summary { cursor: pointer; font-weight: 800; color: var(--r-text, #f0e8d6); }
+.hl-compat ul { padding-left: 18px; display: grid; gap: 8px; margin-top: 8px; }
+.hl-history h4 { font-size: 0.95rem; margin-bottom: 6px; }
+.hl-history ul { list-style: none; padding: 0; display: grid; gap: 6px; }
+.hl-history li { display: flex; justify-content: space-between; gap: 12px; font-size: 0.88rem; color: var(--r-text-2); padding: 8px 12px; border-radius: 12px; background: var(--r-surface); }
+.hl-history b.down { color: #7ff0d6; }
+@media (prefers-reduced-motion: reduce) { .hl-strip__n svg { animation: none; } }
