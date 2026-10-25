@@ -210,7 +210,9 @@
 .bolt { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 12px; align-items: start; }
 .bolt__test, .bolt__history { padding: 22px; display: grid; gap: 12px; }
 .bolt__history h3, .bolt__step h3 { font-size: 1.15rem; font-weight: 900; }
-.bolt__step { display: grid; gap: 12px; justify-items: start; }
+.bolt__step { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; justify-items: start; }
+.bolt__step > * { max-width: 100%; }
+.bolt__test { min-width: 0; }
 .bolt__step ol { margin: 0; padding-left: 20px; display: grid; gap: 8px; color: var(--r-text-2); line-height: 1.55; font-size: var(--fs-small); }
 .bolt__center { justify-items: center; text-align: center; min-height: 260px; align-content: center; }
 .bolt__center p { color: var(--r-text-2); max-width: 40ch; }

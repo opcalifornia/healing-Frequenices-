@@ -238,6 +238,7 @@ export function BreathPlayer({ technique: t, minutes, onClose, onComplete }: Pro
   return createPortal(
     <motion.div ref={root} tabIndex={-1} className="bp rooted" role="dialog" aria-modal="true" aria-label={t.name} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} style={{ "--h": t.hue } as React.CSSProperties}>
       <div className="bp__bg" aria-hidden="true" />
+      <div className="bp__aura" aria-hidden="true" data-kind={stage === "run" && !paused ? phase.kind : "idle"} style={{ "--dur": `${stage === "run" ? Math.max(0.6, phase.secs) : 1}s` } as React.CSSProperties}><i /><i /><i /></div>
       {eyes && (
         <button className="bp__dark" onClick={() => setEyes(false)} aria-label="Eyes closed mode. Tap to show the screen again.">
           <span>Eyes closed. {prefs.sound === "silent" ? "Turn on chimes, voice or tone to follow along. " : "Follow the sound and vibration. "}Tap anywhere to look again.</span>
