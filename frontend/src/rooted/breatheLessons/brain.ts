@@ -121,6 +121,7 @@ export const BRAIN_LESSONS: Lesson[] = [
     minutes: 7, hue: 255, level: "Go deeper", evidence: "Moderate",
     blocks: [
       { type: "p", text: "The autonomic nervous system runs things you do not consciously steer: heart rate, digestion, pupil size, sweat. It has two main branches, the sympathetic (ready to act) and the parasympathetic (rest and digest)." },
+      { type: "fact", stat: "1991", label: "The year Berntson and colleagues showed the two branches do not simply trade off like a seesaw" },
       { type: "h", text: "More than a seesaw" },
       { type: "p", text: "A common picture is a seesaw: one goes up, the other goes down. In 1991, Gary Berntson and colleagues showed that this is too simple. The two branches can rise together, fall together, or change independently, so the same heart rate can come from different mixes." },
       { type: "list", items: [

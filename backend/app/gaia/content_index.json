@@ -1,6 +1,6 @@
 {
  "version": 1,
- "count": 733,
+ "count": 735,
  "items": [
   {
    "id": "additive:e100",
@@ -4357,7 +4357,7 @@
    "kind": "breathing",
    "title": "Physiological sigh",
    "summary": "In, top up, long out. The fastest reset when stress spikes. Even one or two help.",
-   "why": "In a Stanford trial of 111 people, five minutes a day of cyclic sighing for a month improved mood and lowered breathing rate more than mindfulness meditation did. The double inhale re-opens tiny air sacs in the lungs; the long exhale slows the heart.",
+   "why": "In a Stanford trial, five minutes a day of cyclic sighing for a month improved mood and lowered breathing rate more than mindfulness meditation did. The double inhale is thought to re-open tiny air sacs in the lungs, and the long exhale is thought to be the part that slows the heart. Both are likely explanations…",
    "evidence": "Moderate",
    "minutes": 1,
    "to": "/breathe?open=sigh",
@@ -10894,6 +10894,18 @@
    "cautions": []
   },
   {
+   "id": "tool:breath-learn",
+   "kind": "tool",
+   "title": "Understand your breath: lessons, experts and myths",
+   "summary": "Dozens of short lessons on your lungs, your brain and your heart, the researchers behind them, myths versus facts, and a glossary. Every claim has an evidence rating and sources you can open.",
+   "why": "Knowing why a technique works, and how sure the science is, makes it easier to trust and to keep using.",
+   "area": "Relax & breathe",
+   "minutes": 6,
+   "to": "/breathe#learnmore",
+   "exclude_if": [],
+   "cautions": []
+  },
+  {
    "id": "tool:breath-library",
    "kind": "tool",
    "title": "Breathing techniques",
@@ -11226,6 +11238,18 @@
    "area": "Sleep & light",
    "minutes": null,
    "to": "/light#day",
+   "exclude_if": [],
+   "cautions": []
+  },
+  {
+   "id": "tool:live-heart",
+   "kind": "tool",
+   "title": "Live heart rate during a session",
+   "summary": "Connect a Bluetooth heart monitor (a chest strap, or a watch set to broadcast heart rate) in Chrome or Edge and see a live graph while you breathe, then a plain summary of whether your heart rate settled. A demo mode shows how it looks.",
+   "why": "Seeing your own heart respond to slow breathing is the clearest feedback there is. Apple Watch support needs the iPhone app and is planned.",
+   "area": "Relax & breathe",
+   "minutes": 5,
+   "to": "/breathe#tools",
    "exclude_if": [],
    "cautions": []
   },

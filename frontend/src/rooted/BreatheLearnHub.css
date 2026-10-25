@@ -1,12 +1,12 @@
 /* Breathe learn area. Classes start with bl- so they can't collide with another section. */
-.bl { display: grid; gap: 20px; max-width: 1100px; }
-.bl-top { display: grid; gap: 10px; }
+.bl { display: grid; grid-template-columns: minmax(0, 1fr); gap: 20px; max-width: 1100px; min-width: 0; }
+.bl-top { display: grid; grid-template-columns: minmax(0, 1fr); gap: 10px; }
 .bl-top p { color: var(--r-text-2); max-width: 60ch; }
 .bl-prog { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-weight: 700; }
 .bl-prog b { font-size: 1.8rem; letter-spacing: -0.03em; }
 .bl-prog i { flex: 1 1 140px; height: 6px; border-radius: 3px; background: rgba(255, 255, 255, 0.12); position: relative; overflow: hidden; }
 .bl-prog i::after { content: ""; position: absolute; inset: 0 auto 0 0; width: var(--p); background: linear-gradient(90deg, #4fe3c1, #8b6cff); border-radius: 3px; }
-.bl-tabs { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 4px; scrollbar-width: none; }
+.bl-tabs { display: flex; flex-wrap: wrap; gap: 8px; }
 .bl-tabs button { flex: none; padding: 10px 16px; border-radius: 999px; font-weight: 800; font-size: 0.9rem; color: var(--r-text-2); border: 1px solid var(--r-line); }
 .bl-tabs button.is-on { background: var(--r-sand); color: #1a1a14; border-color: var(--r-sand); }
 .bl-filters { display: grid; gap: 10px; }
@@ -27,12 +27,12 @@
 .bl-card__f { margin-top: 4px; }
 
 /* Reader */
-.bl-reader { color: var(--r-text, #f0e8d6); }
-.bl-reader__head { display: grid; gap: 8px; padding-bottom: 14px; }
+.bl-reader { color: var(--r-text, #f0e8d6); min-width: 0; overflow-wrap: anywhere; }
+.bl-reader__head { display: grid; grid-template-columns: minmax(0, 1fr); justify-items: start; gap: 8px; padding-bottom: 14px; }
 .bl-reader__meta { font-size: 0.72rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: hsl(var(--h) 80% 70%); }
 .bl-reader h2 { font-size: clamp(1.8rem, 5vw, 2.6rem); line-height: 1.02; letter-spacing: -0.035em; }
 .bl-reader__tag { font-size: 1.1rem; color: var(--r-text-2); max-width: 52ch; }
-.bl-reader__body { display: grid; gap: 14px; max-width: 70ch; line-height: 1.7; color: var(--r-text-2); }
+.bl-reader__body { display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; min-width: 0; max-width: 70ch; line-height: 1.7; color: var(--r-text-2); }
 .bl-h { font-size: 1.25rem; letter-spacing: -0.02em; color: var(--r-text, #f0e8d6); margin-top: 10px; }
 .bl-list { padding-left: 20px; display: grid; gap: 6px; }
 .bl-fact { display: grid; gap: 2px; padding: 16px 18px; border-radius: 18px; background: color-mix(in srgb, hsl(var(--h) 80% 55%) 18%, var(--r-surface)); border: 1px solid color-mix(in srgb, hsl(var(--h) 80% 60%) 40%, transparent); }
@@ -47,15 +47,15 @@
 .bl-reader__foot { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
 
 /* People, myths, glossary */
-.bl-people-grid { display: grid; gap: 14px; }
+.bl-people-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; }
 .bl-lede { color: var(--r-text-2); max-width: 66ch; line-height: 1.6; }
-.bl-expert { padding: 20px 22px; display: grid; gap: 8px; }
+.bl-expert { padding: 20px 22px; display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px; min-width: 0; overflow-wrap: anywhere; }
 .bl-expert h3 { font-size: 1.3rem; letter-spacing: -0.02em; }
 .bl-expert__role { color: var(--r-sage); font-size: 0.82rem; font-weight: 700; }
 .bl-expert p, .bl-expert li { color: var(--r-text-2); line-height: 1.55; font-size: 0.93rem; }
 .bl-expert ul { list-style: none; padding: 0; display: grid; gap: 6px; }
 .bl-myths { list-style: none; padding: 0; display: grid; gap: 12px; }
-.bl-myths li { padding: 18px 20px; display: grid; gap: 8px; }
+.bl-myths li { padding: 18px 20px; display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px; overflow-wrap: anywhere; }
 .bl-myth span, .bl-truth span { display: block; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 800; color: var(--r-clay); }
 .bl-truth span { color: var(--r-sage); }
 .bl-myth { font-weight: 800; font-size: 1.05rem; }
@@ -65,3 +65,9 @@
 .bl-gloss dt { font-weight: 800; color: var(--r-text, #f0e8d6); margin-bottom: 4px; }
 .bl-gloss dd { margin: 0; color: var(--r-text-2); line-height: 1.5; font-size: 0.9rem; }
 @media (prefers-reduced-motion: reduce) { .bl-card__a i { animation: none; } }
+
+/* Fit and spacing fixes */
+.bl-reader { padding: 20px 20px 28px; }
+.bl-reader__head { padding-right: 52px; }
+.bl-top .btn { white-space: normal; text-align: center; height: auto; line-height: 1.25; padding-block: 14px; }
+.bl-reader__foot .btn { white-space: normal; text-align: center; height: auto; line-height: 1.25; }
