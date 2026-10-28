@@ -1,8 +1,12 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { geoCentroid, geoContains, geoDistance, geoOrthographic, geoPath, geoGraticule10, type GeoPermissibleObjects } from "d3-geo";
-import { feature } from "topojson-client";
+import { feature, mesh } from "topojson-client";
 import type { Topology, GeometryCollection } from "topojson-specification";
-import countriesTopo from "world-atlas/countries-110m.json";
+import countries110 from "world-atlas/countries-110m.json";
+import countries50 from "world-atlas/countries-50m.json";
+import earth2048 from "../assets/earth/earth-2048.jpg";
+import earth4096 from "../assets/earth/earth-4096.jpg";
+import { createEarthRenderer, type EarthRenderer } from "./earthGL";
 import { Icon } from "../components/Icon";
 
 /**
@@ -22,7 +26,12 @@ interface Country {
   geo: GeoPermissibleObjects & { type: string };
 }
 
-const topo = countriesTopo as unknown as Topology<{ countries: GeometryCollection<{ name: string }> }>;
+type CountriesTopo = Topology<{ countries: GeometryCollection<{ name: string }> }>;
+const topo = countries50 as unknown as CountriesTopo;
+const topoLow = countries110 as unknown as CountriesTopo;
+/** Borders between countries only (the photo already shows the coastlines). Two detail levels: the fine one is used zoomed in. */
+const BORDERS_LOW = mesh(topoLow, topoLow.objects.countries, (a, b) => a !== b);
+const BORDERS_FINE = mesh(topo, topo.objects.countries, (a, b) => a !== b);
 const COUNTRIES: Country[] = (feature(topo, topo.objects.countries) as unknown as { features: Array<{ id: string; properties: { name: string }; geometry: unknown }> }).features.map((f) => ({
   iso: Number(f.id),
   name: f.properties.name,
@@ -43,9 +52,17 @@ function landColor(lat: number): string {
   return "#3f7d45";
 }
 
-export function Globe({ pins, selected, onPick, label = "Interactive globe. Drag to spin, pinch or scroll to zoom, tap a glowing country to see its dishes." }: { pins: GlobePin[]; selected?: string | null; onPick(id: string): void; label?: string }) {
+export type GlobeLook = "satellite" | "relief" | "simple";
+
+export function Globe({ pins, selected, onPick, look = "satellite", label = "Interactive globe. Drag to spin, pinch or scroll to zoom, tap a glowing country to see its dishes." }: { pins: GlobePin[]; selected?: string | null; onPick(id: string): void; look?: GlobeLook; label?: string }) {
   const wrap = useRef<HTMLDivElement>(null);
   const canvas = useRef<HTMLCanvasElement>(null);
+  const glCanvas = useRef<HTMLCanvasElement>(null);
+  const earth = useRef<EarthRenderer | null>(null);
+  const lookRef = useRef<GlobeLook>(look);
+  lookRef.current = look;
+  const [glFailed, setGlFailed] = useState(false);
+  const photo = look !== "simple" && !glFailed;
   const state = useRef({ lon: -20, lat: -22, zoom: 1, vx: 0, vy: 0, auto: !reduced(), dragging: false, w: 320, last: 0, anim: 0 });
   const pointers = useRef(new Map<number, { x: number; y: number }>());
   const moved = useRef(0);
@@ -76,6 +93,36 @@ export function Globe({ pins, selected, onPick, label = "Interactive globe. Drag
     const projection = geoOrthographic().translate([cx, cx]).scale(R).rotate([-s.lon, -s.lat]).clipAngle(90).precision(0.6);
     const path = geoPath(projection, ctx);
 
+    const gl = earth.current && lookRef.current !== "simple" ? earth.current : null;
+    if (gl) {
+      const glc = glCanvas.current!;
+      if (glc.width !== cv.width) { glc.width = cv.width; glc.height = cv.height; }
+      gl.render({ lonDeg: s.lon, latDeg: s.lat, radiusPx: R * dpr, width: glc.width, height: glc.height, look: lookRef.current === "relief" ? "relief" : "satellite" });
+      // Faint grid, country borders and the glowing countries sit on top of the photo.
+      const relief = lookRef.current === "relief";
+      ctx.strokeStyle = relief ? "rgba(255,255,255,0.05)" : "rgba(255,255,255,0.06)";
+      ctx.lineWidth = 0.5;
+      ctx.beginPath();
+      path(geoGraticule10());
+      ctx.stroke();
+      ctx.strokeStyle = relief ? "rgba(235,238,245,0.42)" : "rgba(255,255,255,0.34)";
+      ctx.lineWidth = s.zoom > 1.6 ? 0.8 : 0.55;
+      ctx.beginPath();
+      path((s.zoom > 1.45 ? BORDERS_FINE : BORDERS_LOW) as never);
+      ctx.stroke();
+      for (const [iso, pin] of pinIso.current) {
+        const c = COUNTRIES.find((k) => k.iso === iso);
+        if (!c) continue;
+        const isSel = pin.id === selectedRef.current;
+        ctx.beginPath();
+        path(c.geo as never);
+        ctx.fillStyle = isSel ? "rgba(255,214,107,0.46)" : "rgba(255,196,84,0.24)";
+        ctx.fill();
+        ctx.strokeStyle = isSel ? "rgba(255,240,190,1)" : "rgba(255,226,150,0.85)";
+        ctx.lineWidth = isSel ? 1.8 : 1.1;
+        ctx.stroke();
+      }
+    } else {
     // Stars
     ctx.fillStyle = "#05070d";
     ctx.fillRect(0, 0, w, w);
@@ -137,6 +184,7 @@ export function Globe({ pins, selected, onPick, label = "Interactive globe. Drag
     ctx.beginPath();
     ctx.arc(cx, cx, R, 0, Math.PI * 2);
     ctx.fill();
+    }
 
     // Pins and labels for countries on the visible side
     const center: [number, number] = [s.lon, s.lat];
@@ -177,6 +225,17 @@ export function Globe({ pins, selected, onPick, label = "Interactive globe. Drag
       ctx.fillText(label, xy[0], xy[1] - 12);
     }
   }, []);
+
+  // Load the Earth photo for the satellite and relief looks. A phone-sized globe uses the lighter picture.
+  useEffect(() => {
+    if (!photo) { earth.current?.dispose(); earth.current = null; return; }
+    let dead = false;
+    const big = (canvas.current?.clientWidth ?? 320) * (window.devicePixelRatio || 1) > 760;
+    createEarthRenderer(glCanvas.current!, big ? earth4096 : earth2048)
+      .then((r) => { if (dead) r.dispose(); else earth.current = r; })
+      .catch(() => { if (!dead) setGlFailed(true); });
+    return () => { dead = true; earth.current?.dispose(); earth.current = null; };
+  }, [photo]);
 
   // Animation loop: gentle auto-spin, drag inertia and zoom smoothing.
   useEffect(() => {
@@ -333,7 +392,8 @@ export function Globe({ pins, selected, onPick, label = "Interactive globe. Drag
   const zoomBy = (f: number) => (state.current.zoom = clamp(state.current.zoom * f, 0.8, 3.2));
 
   return (
-    <div className="globe" ref={wrap}>
+    <div className={`globe ${photo ? `globe--photo globe--${look}` : ""}`} ref={wrap}>
+      {photo && <canvas ref={glCanvas} className="globe__gl" aria-hidden="true" />}
       <canvas
         ref={canvas}
         className="globe__canvas"
@@ -355,6 +415,7 @@ export function Globe({ pins, selected, onPick, label = "Interactive globe. Drag
         <button onClick={reset} aria-label="Reset the globe"><Icon name="replay" size={18} /></button>
       </div>
       <p className="globe__hint" role="status">{hint ?? "Drag to spin · pinch or scroll to zoom · tap a glowing country"}</p>
+      {photo && <p className="globe__credit">Imagery: NASA Visible Earth · Borders: Natural Earth</p>}
     </div>
   );
 }

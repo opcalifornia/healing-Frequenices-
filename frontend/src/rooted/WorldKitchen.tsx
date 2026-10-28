@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { Globe } from "./Globe";
+import { Globe, type GlobeLook } from "./Globe";
 import { Evidence, Sheet, SourceLink, useToast } from "./ui";
 import { RecipeDetail } from "./Recipes";
 import { CUISINES, WORLD_RECIPES, cuisineById, type Cuisine, type WorldRecipe } from "./worldRecipes";
@@ -21,6 +21,10 @@ const regionOf = (c: Cuisine) => c.region;
  * ingredients on the shopping list under the dish's name, so nothing on the list is a mystery.
  */
 export function WorldKitchen() {
+  const [look, setLook] = useState<GlobeLook>(() => {
+    try { const v = localStorage.getItem("rooted-globe-look"); return v === "relief" || v === "simple" || v === "satellite" ? v : "satellite"; } catch { return "satellite"; }
+  });
+  const chooseLook = (l: GlobeLook) => { setLook(l); try { localStorage.setItem("rooted-globe-look", l); } catch { /* ignore */ } };
   const [selected, setSelected] = useState<string | null>(null);
   const [dish, setDish] = useState<WorldRecipe | null>(null);
   const [q, setQ] = useState("");
@@ -65,7 +69,12 @@ export function WorldKitchen() {
   return (
     <div className="wk">
       <div className="wk__stage">
-        <Globe pins={pins} selected={selected} onPick={setSelected} />
+        <Globe pins={pins} selected={selected} onPick={setSelected} look={look} />
+        <div className="globe__looks" role="group" aria-label="Globe style">
+          {(["satellite", "relief", "simple"] as GlobeLook[]).map((l) => (
+            <button key={l} className={`chip ${look === l ? "is-on" : ""}`} aria-pressed={look === l} onClick={() => chooseLook(l)}>{{ satellite: "Satellite", relief: "Relief", simple: "Simple" }[l]}</button>
+          ))}
+        </div>
       </div>
 
       <div className="wk__tools">
