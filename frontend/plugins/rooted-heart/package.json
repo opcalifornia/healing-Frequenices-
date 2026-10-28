@@ -1,0 +1,10 @@
+{
+  "name": "rooted-heart",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Live Apple Watch heart rate and wrist haptics for Rooted, over WatchConnectivity and HealthKit.",
+  "main": "index.js",
+  "files": ["ios/Sources", "Package.swift", "RootedHeart.podspec", "index.js"],
+  "capacitor": { "ios": { "src": "ios" } },
+  "peerDependencies": { "@capacitor/core": ">=8.0.0" }
+}

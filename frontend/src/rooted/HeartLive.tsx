@@ -78,6 +78,8 @@ export function HeartConnect() {
   const { status, name, demo, error, supported, bpm } = useHeartLive();
   const connect = useHeartLive((s) => s.connect);
   const startDemo = useHeartLive((s) => s.startDemoFeed);
+  const connectWatch = useHeartLive((s) => s.connectWatch);
+  const watchOk = useHeartLive((s) => s.watchSupported);
   const disconnect = useHeartLive((s) => s.disconnect);
   const history = useMyHrSessions().slice(-6).reverse();
   return (
@@ -95,7 +97,8 @@ export function HeartConnect() {
       <div className="hl-connect__actions">
         {status === "live" ? <button className="btn btn--secondary" onClick={disconnect}>Disconnect</button> : (
           <>
-            {supported && <button className="btn btn--primary" onClick={() => void connect()} disabled={status === "connecting"}><Icon name="heart" size={18} /> Connect a heart monitor</button>}
+            {watchOk && <button className="btn btn--primary" onClick={() => void connectWatch()} disabled={status === "connecting"}><Icon name="heart" size={18} /> Connect Apple Watch</button>}
+            {supported && <button className={`btn ${watchOk ? "btn--secondary" : "btn--primary"}`} onClick={() => void connect()} disabled={status === "connecting"}><Icon name="heart" size={18} /> Connect a heart monitor</button>}
             <button className="btn btn--secondary" onClick={startDemo}>Try with demo data</button>
           </>
         )}
@@ -105,7 +108,7 @@ export function HeartConnect() {
         <summary>What works with this?</summary>
         <ul>
           <li><b>Works now, in Chrome or Edge on Android, Windows, Mac or Chromebook:</b> Bluetooth chest straps (Polar, Wahoo and similar) and wearables set to broadcast heart rate, such as many Garmin watches. Chest straps also give beat-to-beat timing, so we can show heart rate variability.</li>
-          <li><b>iPhone and Apple Watch:</b> Safari on iPhone can't connect to Bluetooth devices, and the Apple Watch doesn't broadcast a standard heart-rate signal on its own. Live Apple Watch heart rate needs the Rooted iPhone app with a small Watch companion, which is planned. Until then you can use a chest strap with a computer or Android phone.</li>
+          <li><b>Apple Watch:</b> works in the Rooted iPhone app with the Rooted Watch app installed. Tap Connect Apple Watch and the watch starts a breathing workout, shows your heart rate, and taps your wrist for each in and out breath. In Safari on iPhone, Bluetooth and Watch connections are not available.</li>
           <li><b>Demo data</b> is made up. It is clearly labelled and never saved to your history.</li>
         </ul>
       </details>

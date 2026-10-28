@@ -66,5 +66,9 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<true/>
+	<key>NSHealthShareUsageDescription</key>
+	<string>Rooted reads your heart rate from your Apple Watch during a breathing session, so you can see how your heart responds. It stays on your devices.</string>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>Rooted starts a breathing workout on your Apple Watch to measure heart rate during a session. Nothing is saved to Health unless you choose to.</string>
 </dict>
 </plist>
