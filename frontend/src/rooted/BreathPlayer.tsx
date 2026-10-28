@@ -143,6 +143,7 @@ export function BreathPlayer({ technique: t, minutes, onClose, onComplete }: Pro
     else stopBreathTone();
     navigator.vibrate?.(p.kind === "hold" || p.kind === "rest" ? [20, 60, 20] : 25);
     haptic("light");
+    useHeartLive.getState().cue(p.kind);
   }, []);
 
   useEffect(() => {

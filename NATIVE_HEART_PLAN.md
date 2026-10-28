@@ -1,3 +1,5 @@
+> **Update:** the Apple Watch part is now written. See `docs/WATCH_SETUP.md` for the Xcode steps. The rest of this file is the original plan.
+
 # Live heart rate in Rooted: what works now, and the Apple Watch plan
 
 ## What works today (web, no install)
